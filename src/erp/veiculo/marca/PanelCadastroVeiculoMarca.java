@@ -58,7 +58,7 @@ public final class PanelCadastroVeiculoMarca extends JPanel implements Gui {
 
 		this.add(toolBar.getToolBar());
 
-		labelMarca = new JLabel("CHASSI");
+		labelMarca = new JLabel("MARCA");
 		add(labelMarca);
 
 		textFieldMarca = new JTextField();

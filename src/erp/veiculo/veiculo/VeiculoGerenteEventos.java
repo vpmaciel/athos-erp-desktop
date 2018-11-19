@@ -19,12 +19,7 @@ final class VeiculoGerenteEventos {
 
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
-			try {
-				JOptionPane.showMessageDialog(MainGerenteEventos.getFrameMain(), new PanelSobre(), "Sobre o Sistema",
-						-1);
-			} catch (Exception e) {
-				System.out.println(e);
-			}
+			Msg.ajuda();
 		}
 	}
 

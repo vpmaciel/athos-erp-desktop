@@ -119,7 +119,7 @@ public final class MainGerenteEventos {
 
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
-			JOptionPane.showMessageDialog(frameMain, new PanelSobre(), "Sobre o Sistema", -1);
+			Msg.ajuda();
 		}
 	}
 

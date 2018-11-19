@@ -13,7 +13,6 @@ import javax.swing.JOptionPane;
 
 import erp.aop.gui.Msg;
 import erp.main.MainGerenteEventos;
-import erp.main.PanelSobre;
 
 final class ContadorGerenteEventos {
 
@@ -21,12 +20,7 @@ final class ContadorGerenteEventos {
 
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
-			try {
-				JOptionPane.showMessageDialog(MainGerenteEventos.getFrameMain(), new PanelSobre(), "Sobre o Sistema",
-						-1);
-			} catch (Exception e) {
-				System.out.println(e);
-			}
+			Msg.ajuda();
 		}
 	}
 
