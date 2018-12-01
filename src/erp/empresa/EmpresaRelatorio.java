@@ -10,16 +10,16 @@ import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
 
-import erp.aop.relatorio.Relatorio;
+import arquitetura.relatorio.Relatorio;
 
 public class EmpresaRelatorio {
-	
+
 	private PdfWriter writer = null;
 	private Document document = new Document();
 	private String arquivo = "empresa.pdf";
 	private String titulo = "EMPRESAS";
 	private Relatorio relatorio = new Relatorio();
-	
+
 	public EmpresaRelatorio(List<Empresa> empresas) {
 
 		try {
@@ -58,8 +58,8 @@ public class EmpresaRelatorio {
 		relatorio.getRodape(writer, document);
 		document.close();
 		relatorio.retornarRelatorio(arquivo, false);
-	}	
-	
+	}
+
 	public File retornarRelatorio(boolean abrirRelatorio) {
 		return relatorio.retornarRelatorio(arquivo, abrirRelatorio);
 	}

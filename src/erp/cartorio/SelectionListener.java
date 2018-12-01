@@ -10,7 +10,7 @@ import erp.main.MainGerenteEventos;
 class SelectionListener implements ListSelectionListener {
 
 	JTable table;
-	
+
 	SelectionListener(JTable table) {
 		this.table = table;
 	}

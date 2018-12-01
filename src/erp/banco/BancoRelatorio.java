@@ -10,7 +10,7 @@ import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
 
-import erp.aop.relatorio.Relatorio;
+import arquitetura.relatorio.Relatorio;
 
 public final class BancoRelatorio {
 
@@ -19,9 +19,9 @@ public final class BancoRelatorio {
 	private final String arquivo = "banco.pdf";
 	private final String titulo = "BANCOS";
 	private final Relatorio relatorio = new Relatorio();
-	
+
 	public BancoRelatorio(List<Banco> bancos) {
-		
+
 		try {
 			writer = PdfWriter.getInstance(document, new FileOutputStream(arquivo));
 			relatorio.criarRelatorio(writer, document, titulo);
@@ -37,8 +37,8 @@ public final class BancoRelatorio {
 		relatorio.getRodape(writer, document);
 		document.close();
 		relatorio.retornarRelatorio(arquivo, false);
-	}	
-	
+	}
+
 	public File retornarRelatorio(boolean abrirRelatorio) {
 		return relatorio.retornarRelatorio(arquivo, abrirRelatorio);
 	}

@@ -9,7 +9,7 @@ import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import erp.aop.internet.Internet;
+import arquitetura.internet.Internet;
 
 @SuppressWarnings("serial")
 public class PanelSobre extends JPanel {

@@ -11,7 +11,7 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
-import erp.aop.gui.Msg;
+import arquitetura.gui.Msg;
 import erp.banco.Banco;
 import erp.empresa.Empresa;
 import erp.main.MainGerenteEventos;
@@ -178,8 +178,8 @@ final class ClienteGerenteEventos {
 					return;
 				}
 
-				if ((getPanelCadastroCliente().getTextFieldNome().getText()) == null || 
-						getPanelCadastroCliente().getTextFieldNome().getText().length() == 0) {
+				if ((getPanelCadastroCliente().getTextFieldNome().getText()) == null
+						|| getPanelCadastroCliente().getTextFieldNome().getText().length() == 0) {
 					getPanelCadastroCliente().getTextFieldNome().requestFocus();
 					Msg.avisoCampoObrigatorio("NOME");
 					return;
@@ -241,9 +241,12 @@ final class ClienteGerenteEventos {
 		getPanelCadastroCliente().getTextFieldNomeReferencia1().setText(cliente.getNomeReferencia1());
 		getPanelCadastroCliente().getTextFieldNomeReferencia2().setText(cliente.getNomeReferencia2());
 		getPanelCadastroCliente().getTextFieldNomeReferencia3().setText(cliente.getNomeReferencia3());
-		getPanelCadastroCliente().getBoxRelacionamentoReferencia1().setSelectedItem(cliente.getRelacionamentoReferencia1());
-		getPanelCadastroCliente().getBoxRelacionamentoReferencia2().setSelectedItem(cliente.getRelacionamentoReferencia2());
-		getPanelCadastroCliente().getBoxRelacionamentoReferencia3().setSelectedItem(cliente.getRelacionamentoReferencia3());
+		getPanelCadastroCliente().getBoxRelacionamentoReferencia1()
+				.setSelectedItem(cliente.getRelacionamentoReferencia1());
+		getPanelCadastroCliente().getBoxRelacionamentoReferencia2()
+				.setSelectedItem(cliente.getRelacionamentoReferencia2());
+		getPanelCadastroCliente().getBoxRelacionamentoReferencia3()
+				.setSelectedItem(cliente.getRelacionamentoReferencia3());
 		getPanelCadastroCliente().getTextFieldFoneReferencia1().setText(cliente.getFoneReferencia1());
 		getPanelCadastroCliente().getTextFieldFoneReferencia2().setText(cliente.getFoneReferencia2());
 		getPanelCadastroCliente().getTextFieldFoneReferencia3().setText(cliente.getFoneReferencia3());
@@ -287,9 +290,12 @@ final class ClienteGerenteEventos {
 		cliente.setNomeReferencia1(getPanelCadastroCliente().getTextFieldNomeReferencia1().getText());
 		cliente.setNomeReferencia2(getPanelCadastroCliente().getTextFieldNomeReferencia2().getText());
 		cliente.setNomeReferencia3(getPanelCadastroCliente().getTextFieldNomeReferencia3().getText());
-		cliente.setRelacionamentoReferencia1((String) getPanelCadastroCliente().getBoxRelacionamentoReferencia1().getSelectedItem());
-		cliente.setRelacionamentoReferencia2((String) getPanelCadastroCliente().getBoxRelacionamentoReferencia2().getSelectedItem());
-		cliente.setRelacionamentoReferencia3((String) getPanelCadastroCliente().getBoxRelacionamentoReferencia3().getSelectedItem());
+		cliente.setRelacionamentoReferencia1(
+				(String) getPanelCadastroCliente().getBoxRelacionamentoReferencia1().getSelectedItem());
+		cliente.setRelacionamentoReferencia2(
+				(String) getPanelCadastroCliente().getBoxRelacionamentoReferencia2().getSelectedItem());
+		cliente.setRelacionamentoReferencia3(
+				(String) getPanelCadastroCliente().getBoxRelacionamentoReferencia3().getSelectedItem());
 		cliente.setFoneReferencia1(getPanelCadastroCliente().getTextFieldFoneReferencia1().getText());
 		cliente.setFoneReferencia2(getPanelCadastroCliente().getTextFieldFoneReferencia2().getText());
 		cliente.setFoneReferencia3(getPanelCadastroCliente().getTextFieldFoneReferencia3().getText());
@@ -302,15 +308,15 @@ final class ClienteGerenteEventos {
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
 	}
-	
+
 	public FrameCadastroCliente getFrameCadastroCliente() {
 		return MainGerenteEventos.getFrameCadastroCliente();
 	}
-	
+
 	public PanelCadastroCliente getPanelCadastroCliente() {
 		return MainGerenteEventos.getFrameCadastroCliente().getPanelCadastroCliente();
 	}
-	
+
 	public FramePesquisaCliente getFramePesquisaCliente() {
 		return MainGerenteEventos.getFramePesquisaCliente();
 	}

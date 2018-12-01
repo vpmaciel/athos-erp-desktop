@@ -10,7 +10,7 @@ import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
 
-import erp.aop.relatorio.Relatorio;
+import arquitetura.relatorio.Relatorio;
 
 public class CartorioRelatorio {
 
@@ -19,9 +19,9 @@ public class CartorioRelatorio {
 	private String arquivo = "cartorio.pdf";
 	private String titulo = "CARTÓRIOS";
 	private Relatorio relatorio = new Relatorio();
-	
+
 	public CartorioRelatorio(List<Cartorio> cartorios) {
-		
+
 		try {
 			writer = PdfWriter.getInstance(document, new FileOutputStream(arquivo));
 			relatorio.criarRelatorio(writer, document, titulo);
@@ -55,8 +55,8 @@ public class CartorioRelatorio {
 		relatorio.getRodape(writer, document);
 		document.close();
 		relatorio.retornarRelatorio(arquivo, false);
-	}	
-	
+	}
+
 	public File retornarRelatorio(boolean abrirRelatorio) {
 		return relatorio.retornarRelatorio(arquivo, abrirRelatorio);
 	}

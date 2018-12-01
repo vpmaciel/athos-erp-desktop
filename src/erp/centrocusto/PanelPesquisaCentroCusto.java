@@ -13,7 +13,7 @@ import javax.swing.ScrollPaneConstants;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
 
-import erp.aop.gui.Tabela;
+import arquitetura.gui.Tabela;
 
 @SuppressWarnings("serial")
 public class PanelPesquisaCentroCusto extends JPanel {

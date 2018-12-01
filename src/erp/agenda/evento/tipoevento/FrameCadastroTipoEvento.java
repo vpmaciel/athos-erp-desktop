@@ -10,10 +10,10 @@ import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 import javax.swing.WindowConstants;
 
-import erp.aop.gui.FocusTabListener;
-import erp.aop.gui.Gui;
-import erp.aop.gui.GuiHandle;
-import erp.aop.gui.Imagem;
+import arquitetura.gui.FocusTabListener;
+import arquitetura.gui.Gui;
+import arquitetura.gui.GuiHandle;
+import arquitetura.gui.Imagem;
 
 @SuppressWarnings("serial")
 public final class FrameCadastroTipoEvento extends JFrame implements Gui {
@@ -28,7 +28,7 @@ public final class FrameCadastroTipoEvento extends JFrame implements Gui {
 		iniciarGui();
 		iniciarFocusTabListener();
 		iniciarGuiGerenteEventos();
-		iniciarGerenteEventos();		
+		iniciarGerenteEventos();
 	}
 
 	@Override
@@ -57,7 +57,7 @@ public final class FrameCadastroTipoEvento extends JFrame implements Gui {
 
 	@Override
 	public void iniciarGui() {
-		setTitle("AGENDA");
+		setTitle("TIPO DE EVENTO");
 		setIconImage(Imagem.getLogoTipoImage());
 
 		panelCadastroTipoEvento = new PanelCadastroTipoEvento();
@@ -95,8 +95,10 @@ public final class FrameCadastroTipoEvento extends JFrame implements Gui {
 		tipoEventoGerenteEventos = new TipoEventoGerenteEventos();
 		addWindowListener(tipoEventoGerenteEventos.new Frame());
 		panelCadastroTipoEvento.getLabelEmpresa().addMouseListener(tipoEventoGerenteEventos.new MostraFrameEmpresa());
-		panelCadastroTipoEvento.getToolBar().getButtonExcluiRegistro().addActionListener(tipoEventoGerenteEventos.new ExcluiRegistro());
-		panelCadastroTipoEvento.getToolBar().getButtonNovoFrame().addActionListener(tipoEventoGerenteEventos.new NovoFrame());
+		panelCadastroTipoEvento.getToolBar().getButtonExcluiRegistro()
+				.addActionListener(tipoEventoGerenteEventos.new ExcluiRegistro());
+		panelCadastroTipoEvento.getToolBar().getButtonNovoFrame()
+				.addActionListener(tipoEventoGerenteEventos.new NovoFrame());
 		panelCadastroTipoEvento.getToolBar().getButtonPesquisaRegistro()
 				.addActionListener(tipoEventoGerenteEventos.new PesquisaRegistro());
 		panelCadastroTipoEvento.getToolBar().getButtonImprimiUnicoRegistro()
@@ -104,8 +106,10 @@ public final class FrameCadastroTipoEvento extends JFrame implements Gui {
 		panelCadastroTipoEvento.getToolBar().getButtonImprimiTodosRegistros()
 				.addActionListener(tipoEventoGerenteEventos.new ImprimiTodosRegistros());
 		panelCadastroTipoEvento.getToolBar().getButtonSalvar().addActionListener(tipoEventoGerenteEventos.new Salva());
-		panelCadastroTipoEvento.getToolBar().getButtonFechar().addActionListener(tipoEventoGerenteEventos.new FechaJanela());
-		panelCadastroTipoEvento.getToolBar().getButtonSair().addActionListener(tipoEventoGerenteEventos.new SaidaSistema());
+		panelCadastroTipoEvento.getToolBar().getButtonFechar()
+				.addActionListener(tipoEventoGerenteEventos.new FechaJanela());
+		panelCadastroTipoEvento.getToolBar().getButtonSair()
+				.addActionListener(tipoEventoGerenteEventos.new SaidaSistema());
 		panelCadastroTipoEvento.getToolBar().getButtonAjuda().addActionListener(tipoEventoGerenteEventos.new Ajuda());
 		panelCadastroTipoEvento.getToolBar().getButtonHome().addActionListener(tipoEventoGerenteEventos.new Home());
 

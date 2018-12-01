@@ -10,10 +10,10 @@ import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 import javax.swing.WindowConstants;
 
-import erp.aop.gui.FocusTabListener;
-import erp.aop.gui.Gui;
-import erp.aop.gui.GuiHandle;
-import erp.aop.gui.Imagem;
+import arquitetura.gui.FocusTabListener;
+import arquitetura.gui.Gui;
+import arquitetura.gui.GuiHandle;
+import arquitetura.gui.Imagem;
 
 @SuppressWarnings("serial")
 public final class FrameCadastroEvento extends JFrame implements Gui {
@@ -28,7 +28,7 @@ public final class FrameCadastroEvento extends JFrame implements Gui {
 		iniciarGui();
 		iniciarFocusTabListener();
 		iniciarGuiGerenteEventos();
-		iniciarGerenteEventos();		
+		iniciarGerenteEventos();
 	}
 
 	@Override
@@ -57,7 +57,7 @@ public final class FrameCadastroEvento extends JFrame implements Gui {
 
 	@Override
 	public void iniciarGui() {
-		setTitle("AGENDA");
+		setTitle("EVENTO");
 		setIconImage(Imagem.getLogoTipoImage());
 
 		panelCadastroEvento = new PanelCadastroEvento();
@@ -95,7 +95,8 @@ public final class FrameCadastroEvento extends JFrame implements Gui {
 		eventoGerenteEventos = new EventoGerenteEventos();
 		addWindowListener(eventoGerenteEventos.new Frame());
 		panelCadastroEvento.getLabelEmpresa().addMouseListener(eventoGerenteEventos.new MostraFrameEmpresa());
-		panelCadastroEvento.getToolBar().getButtonExcluiRegistro().addActionListener(eventoGerenteEventos.new ExcluiRegistro());
+		panelCadastroEvento.getToolBar().getButtonExcluiRegistro()
+				.addActionListener(eventoGerenteEventos.new ExcluiRegistro());
 		panelCadastroEvento.getToolBar().getButtonNovoFrame().addActionListener(eventoGerenteEventos.new NovoFrame());
 		panelCadastroEvento.getToolBar().getButtonPesquisaRegistro()
 				.addActionListener(eventoGerenteEventos.new PesquisaRegistro());

@@ -5,8 +5,8 @@ import java.awt.Dimension;
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
 
-import erp.aop.gui.Gui;
-import erp.aop.gui.GuiHandle;
+import arquitetura.gui.Gui;
+import arquitetura.gui.GuiHandle;
 
 @SuppressWarnings("serial")
 public final class FramePesquisaVeiculoMarca extends JFrame implements Gui {
@@ -42,7 +42,7 @@ public final class FramePesquisaVeiculoMarca extends JFrame implements Gui {
 	@Override
 	public void iniciarGui() {
 		setTitle("VEÍCULO - MARCA");
-		setIconImage(erp.aop.gui.Imagem.getLogoTipoImage());
+		setIconImage(arquitetura.gui.Imagem.getLogoTipoImage());
 		PanelPesquisaVeiculoMarca = new PanelPesquisaVeiculoMarca();
 		setContentPane(PanelPesquisaVeiculoMarca);
 	}

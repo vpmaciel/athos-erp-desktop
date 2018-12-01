@@ -9,7 +9,7 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
-import erp.aop.gui.Msg;
+import arquitetura.gui.Msg;
 import erp.main.MainGerenteEventos;
 
 final class CartorioGerenteEventos {
@@ -161,8 +161,8 @@ final class CartorioGerenteEventos {
 					return;
 				}
 
-				if ((getPanelCadastroCartorio().getTextFieldNomeFantasia().getText()) == null ||
-						getPanelCadastroCartorio().getTextFieldNomeFantasia().getText().length() == 0) {
+				if ((getPanelCadastroCartorio().getTextFieldNomeFantasia().getText()) == null
+						|| getPanelCadastroCartorio().getTextFieldNomeFantasia().getText().length() == 0) {
 					getPanelCadastroCartorio().getTextFieldNomeFantasia().requestFocus();
 					Msg.avisoCampoObrigatorio("NOME FANTASIA");
 					return;
@@ -243,15 +243,15 @@ final class CartorioGerenteEventos {
 	public void setCartorio(Cartorio cartorio) {
 		this.cartorio = cartorio;
 	}
-	
+
 	public FrameCadastroCartorio getFrameCadastroCartorio() {
 		return MainGerenteEventos.getFrameCadastroCartorio();
 	}
-	
+
 	public PanelCadastroCartorio getPanelCadastroCartorio() {
 		return MainGerenteEventos.getFrameCadastroCartorio().getPanelCadastroCartorio();
 	}
-	
+
 	public FramePesquisaCartorio getFramePesquisaCartorio() {
 		return MainGerenteEventos.getFramePesquisaCartorio();
 	}

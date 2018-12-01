@@ -10,18 +10,18 @@ import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
 
-import erp.aop.relatorio.Relatorio;
+import arquitetura.relatorio.Relatorio;
 
 public class ContadorRelatorio {
-	
+
 	private PdfWriter writer = null;
 	private Document document = new Document();
 	private String arquivo = "contador.pdf";
 	private String titulo = "contadores";
 	private Relatorio relatorio = new Relatorio();
-	
+
 	public ContadorRelatorio(List<Contador> contadores) {
-		
+
 		try {
 			writer = PdfWriter.getInstance(document, new FileOutputStream(arquivo));
 			relatorio.criarRelatorio(writer, document, titulo);
@@ -44,8 +44,8 @@ public class ContadorRelatorio {
 		relatorio.getRodape(writer, document);
 		document.close();
 		relatorio.retornarRelatorio(arquivo, false);
-	}	
-	
+	}
+
 	public File retornarRelatorio(boolean abrirRelatorio) {
 		return relatorio.retornarRelatorio(arquivo, abrirRelatorio);
 	}

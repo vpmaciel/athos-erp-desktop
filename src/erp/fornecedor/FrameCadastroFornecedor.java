@@ -10,10 +10,10 @@ import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 import javax.swing.WindowConstants;
 
-import erp.aop.gui.FocusTabListener;
-import erp.aop.gui.Gui;
-import erp.aop.gui.GuiHandle;
-import erp.aop.gui.Imagem;
+import arquitetura.gui.FocusTabListener;
+import arquitetura.gui.Gui;
+import arquitetura.gui.GuiHandle;
+import arquitetura.gui.Imagem;
 
 @SuppressWarnings("serial")
 public final class FrameCadastroFornecedor extends JFrame implements Gui {
@@ -96,7 +96,8 @@ public final class FrameCadastroFornecedor extends JFrame implements Gui {
 		addWindowListener(fornecedorGerenteEventos.new Frame());
 		panelCadastroFornecedor.getToolBar().getButtonExcluiRegistro()
 				.addActionListener(fornecedorGerenteEventos.new ExcluiRegistro());
-		panelCadastroFornecedor.getToolBar().getButtonNovoFrame().addActionListener(fornecedorGerenteEventos.new NovoFrame());
+		panelCadastroFornecedor.getToolBar().getButtonNovoFrame()
+				.addActionListener(fornecedorGerenteEventos.new NovoFrame());
 		panelCadastroFornecedor.getToolBar().getButtonPesquisaRegistro()
 				.addActionListener(fornecedorGerenteEventos.new PesquisaRegistro());
 		panelCadastroFornecedor.getToolBar().getButtonImprimiUnicoRegistro()
@@ -104,8 +105,10 @@ public final class FrameCadastroFornecedor extends JFrame implements Gui {
 		panelCadastroFornecedor.getToolBar().getButtonImprimiTodosRegistros()
 				.addActionListener(fornecedorGerenteEventos.new ImprimiTodosRegistros());
 		panelCadastroFornecedor.getToolBar().getButtonSalvar().addActionListener(fornecedorGerenteEventos.new Salva());
-		panelCadastroFornecedor.getToolBar().getButtonFechar().addActionListener(fornecedorGerenteEventos.new FechaJanela());
-		panelCadastroFornecedor.getToolBar().getButtonSair().addActionListener(fornecedorGerenteEventos.new SaidaSistema());
+		panelCadastroFornecedor.getToolBar().getButtonFechar()
+				.addActionListener(fornecedorGerenteEventos.new FechaJanela());
+		panelCadastroFornecedor.getToolBar().getButtonSair()
+				.addActionListener(fornecedorGerenteEventos.new SaidaSistema());
 		panelCadastroFornecedor.getToolBar().getButtonAjuda().addActionListener(fornecedorGerenteEventos.new Ajuda());
 		panelCadastroFornecedor.getToolBar().getButtonHome().addActionListener(fornecedorGerenteEventos.new Home());
 	}

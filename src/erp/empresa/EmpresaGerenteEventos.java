@@ -11,9 +11,8 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
-import erp.aop.gui.Msg;
+import arquitetura.gui.Msg;
 import erp.main.MainGerenteEventos;
-import erp.main.PanelSobre;
 
 final class EmpresaGerenteEventos {
 
@@ -269,15 +268,15 @@ final class EmpresaGerenteEventos {
 	public void setEmpresa(Empresa empresa) {
 		this.empresa = empresa;
 	}
-	
+
 	public FrameCadastroEmpresa getFrameCadastroEmpresa() {
 		return MainGerenteEventos.getFrameCadastroEmpresa();
 	}
-	
+
 	public PanelCadastroEmpresa getPanelCadastroEmpresa() {
 		return MainGerenteEventos.getFrameCadastroEmpresa().getPanelCadastroEmpresa();
 	}
-	
+
 	public FramePesquisaEmpresa getFramePesquisaEmpresa() {
 		return MainGerenteEventos.getFramePesquisaEmpresa();
 	}

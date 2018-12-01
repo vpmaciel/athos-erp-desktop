@@ -28,11 +28,11 @@ class SelectionListener implements ListSelectionListener {
 					Evento evento = EventoDaoFacade.getRegistro(agendaPesquisaRegistro);
 					EventoTableModel eventoTableModel = (EventoTableModel) table.getModel();
 					eventoTableModel.getAgenda(table.getSelectedRow());
-					MainGerenteEventos.mostrarFrame(MainGerenteEventos.getFrameCadastroEvento());
-					MainGerenteEventos.getFrameCadastroEvento().getEventoGerenteEventos().setAgenda(evento);
-					MainGerenteEventos.getFrameCadastroEvento().getEventoGerenteEventos().atualizarGui();
-					MainGerenteEventos.getFrameCadastroEvento().setFocusable(true);
-					MainGerenteEventos.getFramePesquisaEvento().setVisible(false);
+					MainGerenteEventos.mostrarFrame(MainGerenteEventos.getFrameCadastroAgendaEvento());
+					MainGerenteEventos.getFrameCadastroAgendaEvento().getEventoGerenteEventos().setAgenda(evento);
+					MainGerenteEventos.getFrameCadastroAgendaEvento().getEventoGerenteEventos().atualizarGui();
+					MainGerenteEventos.getFrameCadastroAgendaEvento().setFocusable(true);
+					MainGerenteEventos.getFramePesquisaAgendaEvento().setVisible(false);
 				}
 			}
 		}

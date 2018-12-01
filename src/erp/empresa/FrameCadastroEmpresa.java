@@ -10,10 +10,10 @@ import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 import javax.swing.WindowConstants;
 
-import erp.aop.gui.FocusTabListener;
-import erp.aop.gui.Gui;
-import erp.aop.gui.GuiHandle;
-import erp.aop.gui.Imagem;
+import arquitetura.gui.FocusTabListener;
+import arquitetura.gui.Gui;
+import arquitetura.gui.GuiHandle;
+import arquitetura.gui.Imagem;
 
 @SuppressWarnings("serial")
 public final class FrameCadastroEmpresa extends JFrame implements Gui {

@@ -10,10 +10,10 @@ import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 import javax.swing.WindowConstants;
 
-import erp.aop.gui.FocusTabListener;
-import erp.aop.gui.Gui;
-import erp.aop.gui.GuiHandle;
-import erp.aop.gui.Imagem;
+import arquitetura.gui.FocusTabListener;
+import arquitetura.gui.Gui;
+import arquitetura.gui.GuiHandle;
+import arquitetura.gui.Imagem;
 import erp.usuario.Usuario;
 
 @SuppressWarnings("serial")
@@ -22,7 +22,7 @@ public final class FrameLogin extends JFrame implements Gui {
 	private static Usuario usuario;
 	private LoginGerenteEventos loginGerenteEventos;
 	private PanelLogin panelLogin;
-	
+
 	public static Usuario getUsuario() {
 		return usuario;
 	}

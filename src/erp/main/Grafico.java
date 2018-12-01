@@ -25,7 +25,7 @@ import com.itextpdf.text.PageSize;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
 
-import erp.aop.data.Data;
+import arquitetura.data.Data;
 
 public class Grafico {
 
@@ -33,9 +33,9 @@ public class Grafico {
 
 	public Grafico() {
 		final CategoryDataset dataset = createDataset();
-        chart = createChart(dataset);
-       
-    }
+		chart = createChart(dataset);
+
+	}
 
 	public static void main(String[] args) throws FileNotFoundException, DocumentException, IOException {
 		(new Grafico()).create(new FileOutputStream(new File("ugly-demo.pdf")));
@@ -54,7 +54,7 @@ public class Grafico {
 
 		try {
 			// instantiate document and writer
-			document = new Document(PageSize.A4.rotate(),10f,10f,10f,10f);
+			document = new Document(PageSize.A4.rotate(), 10f, 10f, 10f, 10f);
 			writer = PdfWriter.getInstance(document, outputStream);
 
 			// open document
@@ -67,7 +67,7 @@ public class Grafico {
 			BufferedImage bufferedImage = chart.createBufferedImage(width, height);
 			Image image = Image.getInstance(writer, bufferedImage, 1.0f);
 			document.add(image);
-			
+
 			document.add(new Paragraph("\n"));
 			document.add(new Paragraph(Data.getDateTime()));
 
@@ -99,120 +99,105 @@ public class Grafico {
 		}
 	}
 
-	 /**
-     * Creates a sample dataset.
-     * 
-     * @return The dataset.
-     */
-    private CategoryDataset createDataset() {
-        
-        // row keys...
-        final String series1 = "Arroz";
-        final String series2 = "Feijão";
-        final String series3 = "Macarrão";
+	/**
+	 * Creates a sample dataset.
+	 * 
+	 * @return The dataset.
+	 */
+	private CategoryDataset createDataset() {
 
-        // column keys...
-        final String type1 = "Janeiro";
-        final String type2 = "Fevereiro";
-        final String type3 = "Março";
-        final String type4 = "Abril";
-        final String type5 = "Maio";
-        final String type6 = "Junho";
-        final String type7 = "Julho";
-        final String type8 = "Agosto";
+		// row keys...
+		final String series1 = "Arroz";
+		final String series2 = "Feijão";
+		final String series3 = "Macarrão";
 
-        // create the dataset...
-        final DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+		// column keys...
+		final String type1 = "Janeiro";
+		final String type2 = "Fevereiro";
+		final String type3 = "Março";
+		final String type4 = "Abril";
+		final String type5 = "Maio";
+		final String type6 = "Junho";
+		final String type7 = "Julho";
+		final String type8 = "Agosto";
 
-        dataset.addValue(1.0, series1, type1);
-        dataset.addValue(4.0, series1, type2);
-        dataset.addValue(3.0, series1, type3);
-        dataset.addValue(5.0, series1, type4);
-        dataset.addValue(5.0, series1, type5);
-        dataset.addValue(7.0, series1, type6);
-        dataset.addValue(7.0, series1, type7);
-        dataset.addValue(8.0, series1, type8);
+		// create the dataset...
+		final DefaultCategoryDataset dataset = new DefaultCategoryDataset();
 
-        dataset.addValue(5.0, series2, type1);
-        dataset.addValue(7.0, series2, type2);
-        dataset.addValue(6.0, series2, type3);
-        dataset.addValue(8.0, series2, type4);
-        dataset.addValue(4.0, series2, type5);
-        dataset.addValue(4.0, series2, type6);
-        dataset.addValue(2.0, series2, type7);
-        dataset.addValue(1.0, series2, type8);
+		dataset.addValue(1.0, series1, type1);
+		dataset.addValue(4.0, series1, type2);
+		dataset.addValue(3.0, series1, type3);
+		dataset.addValue(5.0, series1, type4);
+		dataset.addValue(5.0, series1, type5);
+		dataset.addValue(7.0, series1, type6);
+		dataset.addValue(7.0, series1, type7);
+		dataset.addValue(8.0, series1, type8);
 
-        dataset.addValue(4.0, series3, type1);
-        dataset.addValue(3.0, series3, type2);
-        dataset.addValue(2.0, series3, type3);
-        dataset.addValue(3.0, series3, type4);
-        dataset.addValue(6.0, series3, type5);
-        dataset.addValue(3.0, series3, type6);
-        dataset.addValue(4.0, series3, type7);
-        dataset.addValue(3.0, series3, type8);
+		dataset.addValue(5.0, series2, type1);
+		dataset.addValue(7.0, series2, type2);
+		dataset.addValue(6.0, series2, type3);
+		dataset.addValue(8.0, series2, type4);
+		dataset.addValue(4.0, series2, type5);
+		dataset.addValue(4.0, series2, type6);
+		dataset.addValue(2.0, series2, type7);
+		dataset.addValue(1.0, series2, type8);
 
-        return dataset;
-                
-    }
-    
-    /**
-     * Creates a sample chart.
-     * 
-     * @param dataset  a dataset.
-     * 
-     * @return The chart.
-     */
-    private JFreeChart createChart(final CategoryDataset dataset) {
-        
-        // create the chart...
-        final JFreeChart chart = ChartFactory.createLineChart(
-            "Variação de preços",       // chart title
-            "Mês",                    // domain axis label
-            "Aumento Valor (R$)",                   // range axis label
-            dataset,                   // data
-            PlotOrientation.VERTICAL,  // orientation
-            true,                      // include legend
-            true,                      // tooltips
-            false                      // urls
-        );
+		dataset.addValue(4.0, series3, type1);
+		dataset.addValue(3.0, series3, type2);
+		dataset.addValue(2.0, series3, type3);
+		dataset.addValue(3.0, series3, type4);
+		dataset.addValue(6.0, series3, type5);
+		dataset.addValue(3.0, series3, type6);
+		dataset.addValue(4.0, series3, type7);
+		dataset.addValue(3.0, series3, type8);
 
+		return dataset;
 
-        chart.setBackgroundPaint(Color.white);
+	}
 
-        final CategoryPlot plot = (CategoryPlot) chart.getPlot();
-        plot.setBackgroundPaint(Color.lightGray);
-        plot.setRangeGridlinePaint(Color.white);
+	/**
+	 * Creates a sample chart.
+	 * 
+	 * @param dataset a dataset.
+	 * 
+	 * @return The chart.
+	 */
+	private JFreeChart createChart(final CategoryDataset dataset) {
 
-        // customise the range axis...
-        final NumberAxis rangeAxis = (NumberAxis) plot.getRangeAxis();
-        rangeAxis.setStandardTickUnits(NumberAxis.createIntegerTickUnits());
-        rangeAxis.setAutoRangeIncludesZero(true);
+		// create the chart...
+		final JFreeChart chart = ChartFactory.createLineChart("Variação de preços", // chart title
+				"Mês", // domain axis label
+				"Aumento Valor (R$)", // range axis label
+				dataset, // data
+				PlotOrientation.VERTICAL, // orientation
+				true, // include legend
+				true, // tooltips
+				false // urls
+		);
 
-        
-        // customise the renderer...
-        final LineAndShapeRenderer renderer = (LineAndShapeRenderer) plot.getRenderer();
+		chart.setBackgroundPaint(Color.white);
+
+		final CategoryPlot plot = (CategoryPlot) chart.getPlot();
+		plot.setBackgroundPaint(Color.lightGray);
+		plot.setRangeGridlinePaint(Color.white);
+
+		// customise the range axis...
+		final NumberAxis rangeAxis = (NumberAxis) plot.getRangeAxis();
+		rangeAxis.setStandardTickUnits(NumberAxis.createIntegerTickUnits());
+		rangeAxis.setAutoRangeIncludesZero(true);
+
+		// customise the renderer...
+		final LineAndShapeRenderer renderer = (LineAndShapeRenderer) plot.getRenderer();
 //        renderer.setDrawShapes(true);
-        
-        renderer.setSeriesStroke(
-            0, new BasicStroke(
-                2.0f, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND,
-                1.0f, new float[] {10.0f, 6.0f}, 0.0f
-            )
-        );
-        renderer.setSeriesStroke(
-            1, new BasicStroke(
-                2.0f, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND,
-                1.0f, new float[] {6.0f, 6.0f}, 0.0f
-            )
-        );
-        renderer.setSeriesStroke(
-            2, new BasicStroke(
-                2.0f, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND,
-                1.0f, new float[] {2.0f, 6.0f}, 0.0f
-            )
-        );
-        // OPTIONAL CUSTOMISATION COMPLETED.
-        
-        return chart;
-    }
+
+		renderer.setSeriesStroke(0, new BasicStroke(2.0f, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND, 1.0f,
+				new float[] { 10.0f, 6.0f }, 0.0f));
+		renderer.setSeriesStroke(1, new BasicStroke(2.0f, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND, 1.0f,
+				new float[] { 6.0f, 6.0f }, 0.0f));
+		renderer.setSeriesStroke(2, new BasicStroke(2.0f, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND, 1.0f,
+				new float[] { 2.0f, 6.0f }, 0.0f));
+		// OPTIONAL CUSTOMISATION COMPLETED.
+
+		return chart;
+	}
 }

@@ -10,7 +10,7 @@ import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
 
-import erp.aop.relatorio.Relatorio;
+import arquitetura.relatorio.Relatorio;
 
 public class EventoRelatorio {
 
@@ -19,8 +19,8 @@ public class EventoRelatorio {
 	private String arquivo = "agenda.pdf";
 	private String titulo = "AGENDA";
 	private Relatorio relatorio = new Relatorio();
-	
-	public EventoRelatorio(List<Evento> eventos) {	
+
+	public EventoRelatorio(List<Evento> eventos) {
 		try {
 			writer = PdfWriter.getInstance(document, new FileOutputStream(arquivo));
 			relatorio.criarRelatorio(writer, document, titulo);
@@ -51,8 +51,8 @@ public class EventoRelatorio {
 		relatorio.getRodape(writer, document);
 		document.close();
 		relatorio.retornarRelatorio(arquivo, false);
-	}	
-	
+	}
+
 	public File retornarRelatorio(boolean abrirRelatorio) {
 		return relatorio.retornarRelatorio(arquivo, abrirRelatorio);
 	}

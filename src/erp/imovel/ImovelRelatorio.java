@@ -10,18 +10,18 @@ import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
 
-import erp.aop.relatorio.Relatorio;
+import arquitetura.relatorio.Relatorio;
 
 public class ImovelRelatorio {
-	
+
 	private PdfWriter writer = null;
 	private Document document = new Document();
 	private String arquivo = "imovel.pdf";
 	private String titulo = "IMÓVEIS";
 	private Relatorio relatorio = new Relatorio();
-	
+
 	public ImovelRelatorio(List<Imovel> imoveis) {
-		
+
 		try {
 			writer = PdfWriter.getInstance(document, new FileOutputStream(arquivo));
 			relatorio.criarRelatorio(writer, document, titulo);
@@ -58,8 +58,8 @@ public class ImovelRelatorio {
 		relatorio.getRodape(writer, document);
 		document.close();
 		relatorio.retornarRelatorio(arquivo, false);
-	}	
-	
+	}
+
 	public File retornarRelatorio(boolean abrirRelatorio) {
 		return relatorio.retornarRelatorio(arquivo, abrirRelatorio);
 	}

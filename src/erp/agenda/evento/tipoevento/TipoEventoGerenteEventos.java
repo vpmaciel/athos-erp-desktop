@@ -11,10 +11,9 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
-import erp.aop.gui.Msg;
+import arquitetura.gui.Msg;
 import erp.empresa.Empresa;
 import erp.main.MainGerenteEventos;
-import erp.main.PanelSobre;
 
 final class TipoEventoGerenteEventos {
 
@@ -146,7 +145,7 @@ final class TipoEventoGerenteEventos {
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
 			tipoEvento = new TipoEvento();
-			MainGerenteEventos.getFrameCadastroAgenda().limparGui();
+			MainGerenteEventos.getFrameCadastroAgendaTipoEvento().limparGui();
 			getPanelCadastroTipoEvento().getTextFieldNome().requestFocus();
 		}
 	}
@@ -158,7 +157,7 @@ final class TipoEventoGerenteEventos {
 			tipoEvento = new TipoEvento();
 			atualizarObjeto();
 			getPanelPesquisaTipoEvento().pesquisarRegistroAgenda(tipoEvento);
-			MainGerenteEventos.mostrarFrame(MainGerenteEventos.getFramePesquisaAgenda());
+			MainGerenteEventos.mostrarFrame(MainGerenteEventos.getFramePesquisaAgendaTipoEvento());
 		}
 	}
 
@@ -196,7 +195,7 @@ final class TipoEventoGerenteEventos {
 					atualizarObjeto();
 					TipoEventoDaoFacade.salvarRegistro(tipoEvento);
 					tipoEvento = new TipoEvento();
-					MainGerenteEventos.getFrameCadastroAgenda().limparGui();
+					MainGerenteEventos.getFrameCadastroAgendaTipoEvento().limparGui();
 					getPanelCadastroTipoEvento().getTextFieldNome().requestFocus();
 					Msg.sucessoSalvarRegistro();
 				}
@@ -257,20 +256,20 @@ final class TipoEventoGerenteEventos {
 	public void setAgenda(TipoEvento tipoEvento) {
 		this.tipoEvento = tipoEvento;
 	}
-	
+
 	public FrameCadastroTipoEvento getFrameCadastroTipoEvento() {
-		return MainGerenteEventos.getFrameCadastroTipoEvento();
+		return MainGerenteEventos.getFrameCadastroAgendaTipoEvento();
 	}
-	
+
 	public PanelCadastroTipoEvento getPanelCadastroTipoEvento() {
-		return MainGerenteEventos.getFrameCadastroTipoEvento().getPanelCadastroTipoEvento();
+		return MainGerenteEventos.getFrameCadastroAgendaTipoEvento().getPanelCadastroTipoEvento();
 	}
-	
+
 	public FramePesquisaTipoEvento getFramePesquisaTipoEvento() {
-		return MainGerenteEventos.getFramePesquisaTipoEvento();
+		return MainGerenteEventos.getFramePesquisaAgendaTipoEvento();
 	}
 
 	public PanelPesquisaTipoEvento getPanelPesquisaTipoEvento() {
-		return MainGerenteEventos.getFramePesquisaTipoEvento().getPanelPesquisaTipoEvento();
+		return MainGerenteEventos.getFramePesquisaAgendaTipoEvento().getPanelPesquisaTipoEvento();
 	}
 }

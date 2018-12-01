@@ -10,10 +10,10 @@ import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 import javax.swing.WindowConstants;
 
-import erp.aop.gui.FocusTabListener;
-import erp.aop.gui.Gui;
-import erp.aop.gui.GuiHandle;
-import erp.aop.gui.Imagem;
+import arquitetura.gui.FocusTabListener;
+import arquitetura.gui.Gui;
+import arquitetura.gui.GuiHandle;
+import arquitetura.gui.Imagem;
 
 @SuppressWarnings("serial")
 public final class FrameCadastroRecado extends JFrame implements Gui {
@@ -96,7 +96,8 @@ public final class FrameCadastroRecado extends JFrame implements Gui {
 		recadoGerenteEventos = new RecadoGerenteEventos();
 		addWindowListener(recadoGerenteEventos.new Frame());
 		panelCadastroRecado.getLabelEmpresa().addMouseListener(recadoGerenteEventos.new MostraFrameRecado());
-		panelCadastroRecado.getToolBar().getButtonExcluiRegistro().addActionListener(recadoGerenteEventos.new ExcluiRegistro());
+		panelCadastroRecado.getToolBar().getButtonExcluiRegistro()
+				.addActionListener(recadoGerenteEventos.new ExcluiRegistro());
 		panelCadastroRecado.getToolBar().getButtonNovoFrame().addActionListener(recadoGerenteEventos.new NovoFrame());
 		panelCadastroRecado.getToolBar().getButtonPesquisaRegistro()
 				.addActionListener(recadoGerenteEventos.new PesquisaRegistro());

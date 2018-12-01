@@ -10,13 +10,13 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 
-import erp.aop.gui.FocusTabListener;
-import erp.aop.gui.Gui;
-import erp.aop.gui.GuiHandle;
-import erp.aop.gui.TamanhoLowerCase;
-import erp.aop.gui.TamanhoUpperCase;
-import erp.aop.gui.registro.ToolBar;
-import erp.aop.util.SpringUtilities;
+import arquitetura.gui.FocusTabListener;
+import arquitetura.gui.Gui;
+import arquitetura.gui.GuiHandle;
+import arquitetura.gui.TamanhoLowerCase;
+import arquitetura.gui.TamanhoUpperCase;
+import arquitetura.registro.ToolBar;
+import arquitetura.util.SpringUtilities;
 import erp.empresa.Empresa;
 import erp.empresa.EmpresaDaoFacade;
 import erp.empresa.EmpresaSort;
@@ -330,9 +330,10 @@ public final class PanelCadastroTipoEvento extends JPanel implements Gui {
 		for (Empresa b : empresas) {
 			boxEmpresa.addItem(b);
 		}
-		if (!MainGerenteEventos.getFrameCadastroAgenda().isShowing()
-				&& MainGerenteEventos.getFrameCadastroTipoEvento().getTipoEventoGerenteEventos().getEvento() != null) {
-			empresa = MainGerenteEventos.getFrameCadastroTipoEvento().getTipoEventoGerenteEventos().getEvento().getEmpresa();
+		if (!MainGerenteEventos.getFrameCadastroAgendaTipoEvento().isShowing() && MainGerenteEventos
+				.getFrameCadastroAgendaTipoEvento().getTipoEventoGerenteEventos().getEvento() != null) {
+			empresa = MainGerenteEventos.getFrameCadastroAgendaTipoEvento().getTipoEventoGerenteEventos().getEvento()
+					.getEmpresa();
 			boxEmpresa.setSelectedItem(empresa);
 		}
 

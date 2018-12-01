@@ -10,9 +10,9 @@ import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 import javax.swing.WindowConstants;
 
-import erp.aop.gui.FocusTabListener;
-import erp.aop.gui.Gui;
-import erp.aop.gui.GuiHandle;
+import arquitetura.gui.FocusTabListener;
+import arquitetura.gui.Gui;
+import arquitetura.gui.GuiHandle;
 
 @SuppressWarnings("serial")
 public final class FrameCadastroFuncionario extends JFrame implements Gui {
@@ -57,7 +57,7 @@ public final class FrameCadastroFuncionario extends JFrame implements Gui {
 	@Override
 	public void iniciarGui() {
 		setTitle("FUNCIONÁRIO");
-		setIconImage(erp.aop.gui.Imagem.getLogoTipoImage());
+		setIconImage(arquitetura.gui.Imagem.getLogoTipoImage());
 		panelCadastroFuncionario = new PanelCadastroFuncionario();
 		panelCadastroFuncionario.setOpaque(true); // content panes must be opaque
 
@@ -91,20 +91,25 @@ public final class FrameCadastroFuncionario extends JFrame implements Gui {
 	@Override
 	public void iniciarGerenteEventos() {
 		funcionarioGerenteEventos = new FuncionarioGerenteEventos();
-		panelCadastroFuncionario.getLabelCentroCusto().addMouseListener(funcionarioGerenteEventos.new MostraFrameCentroCusto());
+		panelCadastroFuncionario.getLabelCentroCusto()
+				.addMouseListener(funcionarioGerenteEventos.new MostraFrameCentroCusto());
 		addWindowListener(funcionarioGerenteEventos.new Frame());
 		panelCadastroFuncionario.getToolBar().getButtonExcluiRegistro()
 				.addActionListener(funcionarioGerenteEventos.new ExcluiRegistro());
-		panelCadastroFuncionario.getToolBar().getButtonNovoFrame().addActionListener(funcionarioGerenteEventos.new NovoFrame());
+		panelCadastroFuncionario.getToolBar().getButtonNovoFrame()
+				.addActionListener(funcionarioGerenteEventos.new NovoFrame());
 		panelCadastroFuncionario.getToolBar().getButtonPesquisaRegistro()
 				.addActionListener(funcionarioGerenteEventos.new PesquisaRegistro());
 		panelCadastroFuncionario.getToolBar().getButtonImprimiUnicoRegistro()
 				.addActionListener(funcionarioGerenteEventos.new ImprimiUnicoRegistro());
 		panelCadastroFuncionario.getToolBar().getButtonImprimiTodosRegistros()
 				.addActionListener(funcionarioGerenteEventos.new ImprimiTodosRegistros());
-		panelCadastroFuncionario.getToolBar().getButtonSalvar().addActionListener(funcionarioGerenteEventos.new Salva());
-		panelCadastroFuncionario.getToolBar().getButtonFechar().addActionListener(funcionarioGerenteEventos.new FechaJanela());
-		panelCadastroFuncionario.getToolBar().getButtonSair().addActionListener(funcionarioGerenteEventos.new SaidaSistema());
+		panelCadastroFuncionario.getToolBar().getButtonSalvar()
+				.addActionListener(funcionarioGerenteEventos.new Salva());
+		panelCadastroFuncionario.getToolBar().getButtonFechar()
+				.addActionListener(funcionarioGerenteEventos.new FechaJanela());
+		panelCadastroFuncionario.getToolBar().getButtonSair()
+				.addActionListener(funcionarioGerenteEventos.new SaidaSistema());
 		panelCadastroFuncionario.getToolBar().getButtonAjuda().addActionListener(funcionarioGerenteEventos.new Ajuda());
 		panelCadastroFuncionario.getToolBar().getButtonHome().addActionListener(funcionarioGerenteEventos.new Home());
 

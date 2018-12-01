@@ -12,7 +12,7 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
-import erp.aop.JPA;
+import arquitetura.JPA;
 
 final class CartorioDaoImp implements CartorioDao {
 
@@ -63,10 +63,12 @@ final class CartorioDaoImp implements CartorioDao {
 			predicates.add(criteriaBuilder.equal(rootCartorio.get("id"), cartorio.getId()));
 		}
 		if (cartorio.getNomeFantasia() != null && !cartorio.getNomeFantasia().equals("")) {
-			predicates.add(criteriaBuilder.like(rootCartorio.get("nomeFantasia"), "%" + cartorio.getNomeFantasia() + "%"));
+			predicates.add(
+					criteriaBuilder.like(rootCartorio.get("nomeFantasia"), "%" + cartorio.getNomeFantasia() + "%"));
 		}
 		if (cartorio.getRazaoSocial() != null && !cartorio.getRazaoSocial().equals("")) {
-			predicates.add(criteriaBuilder.like(rootCartorio.get("razaoSocial"), "%" + cartorio.getRazaoSocial() + "%"));
+			predicates
+					.add(criteriaBuilder.like(rootCartorio.get("razaoSocial"), "%" + cartorio.getRazaoSocial() + "%"));
 		}
 		if (cartorio.getComarca() != null && !cartorio.getComarca().equals("")) {
 			predicates.add(criteriaBuilder.like(rootCartorio.get("comarca"), "%" + cartorio.getComarca() + "%"));
@@ -117,7 +119,8 @@ final class CartorioDaoImp implements CartorioDao {
 			predicates.add(criteriaBuilder.like(rootCartorio.get("logradouro"), "%" + cartorio.getLogradouro() + "%"));
 		}
 		if (cartorio.getComplemento() != null && !cartorio.getComplemento().equals("")) {
-			predicates.add(criteriaBuilder.like(rootCartorio.get("complemento"), "%" + cartorio.getComplemento() + "%"));
+			predicates
+					.add(criteriaBuilder.like(rootCartorio.get("complemento"), "%" + cartorio.getComplemento() + "%"));
 		}
 		if (cartorio.getCep() != null && !cartorio.getCep().equals("")) {
 			predicates.add(criteriaBuilder.like(rootCartorio.get("cep"), "%" + cartorio.getCep() + "%"));

@@ -12,9 +12,8 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
-import erp.aop.gui.Msg;
+import arquitetura.gui.Msg;
 import erp.main.MainGerenteEventos;
-import erp.main.PanelSobre;
 
 final class UsuarioGerenteEventos {
 

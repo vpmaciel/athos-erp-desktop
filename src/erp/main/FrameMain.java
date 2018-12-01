@@ -8,8 +8,8 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.WindowConstants;
 
-import erp.aop.AOP;
-import erp.aop.gui.Imagem;
+import arquitetura.AOP;
+import arquitetura.gui.Imagem;
 
 @SuppressWarnings("serial")
 public class FrameMain extends JFrame {
@@ -23,7 +23,7 @@ public class FrameMain extends JFrame {
 	public static FrameMain getFrameMain() {
 		return MainGerenteEventos.getFrameMain();
 	}
-	
+
 	public static void mostrarFrame(JFrame frame) {
 		MainGerenteEventos.mostrarFrame(frame);
 	}
@@ -71,10 +71,10 @@ public class FrameMain extends JFrame {
 	private JMenuItem menuItemCadastroVeiculoModelo;
 	private JMenuItem menuItemCadastroVeiculoMarca;
 	private JMenuItem menuItemCadastroSindicato;
-	private JMenuItem menuItemUtilitarioAgendaAgenda;
-	private JMenuItem menuItemUtilitarioAgendaCompromisso;
+	private JMenuItem menuItemUtilitarioAgendaContato;
+	private JMenuItem menuItemUtilitarioAgendaEvento;
+	private JMenuItem menuItemUtilitarioAgendaTipoEvento;
 	private JMenuItem menuItemUtilitarioAgendaRecado;
-	private JMenuItem menuItemUtilitarioAgendaTarefa;
 	private JMenuItem menuItemUtilitarioCalculadora;
 	private JMenuItem menuItemUtilitarioEditorTexto;
 	private JMenuItem menuItemSistemaBackup;
@@ -82,7 +82,7 @@ public class FrameMain extends JFrame {
 	private JMenuItem menuItemSistemaUsuario;
 	private JMenuItem menuItemEstatisticaRelatorio;
 	private JMenuItem menuItemEstatisticaGrafico;
-	
+
 	public FrameMain() {
 		iniciarGUI();
 		iniciarHandle();
@@ -236,26 +236,26 @@ public class FrameMain extends JFrame {
 		return menuItemSistemaUsuario;
 	}
 
-	public JMenuItem getMenuItemUtilitarioAgendaAgenda() {
-		return menuItemUtilitarioAgendaAgenda;
+	public JMenuItem getMenuItemUtilitarioAgendaContato() {
+		return menuItemUtilitarioAgendaContato;
+	}
+
+	public JMenuItem getMenuItemUtilitarioAgendaEvento() {
+		return menuItemUtilitarioAgendaEvento;
 	}
 
 	public JMenuItem getMenuItemUtilitarioAgendaRecado() {
 		return menuItemUtilitarioAgendaRecado;
 	}
 
-	public JMenuItem getMenuItemUtilitarioAgendaTarefa() {
-		return menuItemUtilitarioAgendaTarefa;
-	}
-
-	public JMenuItem getMenuItemUtilitarioAgendaCompromisso() {
-		return menuItemUtilitarioAgendaCompromisso;
+	public JMenuItem getMenuItemUtilitarioAgendaTipoEvento() {
+		return menuItemUtilitarioAgendaTipoEvento;
 	}
 
 	public JMenuItem getMenuItemUtilitarioMalaDireta() {
 		return menuItemUtilitarioMalaDireta;
 	}
-	
+
 	public JMenuItem getMenuItemUtilitarioCalculadora() {
 		return menuItemUtilitarioCalculadora;
 	}
@@ -411,7 +411,7 @@ public class FrameMain extends JFrame {
 
 		menuEstatistica = new JMenu("Estatística");
 		menuEstatistica.setMnemonic('E');
-		
+
 		menuItemEstatisticaGrafico = new JMenuItem("Gráficos");
 		menuEstatistica.add(menuItemEstatisticaGrafico);
 
@@ -423,27 +423,27 @@ public class FrameMain extends JFrame {
 		menuUtilitario = new JMenu("Utilitários");
 		menuUtilitario.setMnemonic('U');
 
-		menuUtilitarioAgenda = new JMenu("Evento");
+		menuUtilitarioAgenda = new JMenu("Agenda");
 		menuUtilitario.add(menuUtilitarioAgenda);
 
-		menuItemUtilitarioAgendaAgenda = new JMenuItem("Evento");
-		menuUtilitarioAgenda.add(menuItemUtilitarioAgendaAgenda);
+		menuItemUtilitarioAgendaContato = new JMenuItem("Contato");
+		menuUtilitarioAgenda.add(menuItemUtilitarioAgendaContato);
 
-		menuItemUtilitarioAgendaCompromisso = new JMenuItem("Compromisso");
-		menuUtilitarioAgenda.add(menuItemUtilitarioAgendaCompromisso);
+		menuItemUtilitarioAgendaEvento = new JMenuItem("Evento");
+		menuUtilitarioAgenda.add(menuItemUtilitarioAgendaEvento);
+
+		menuItemUtilitarioAgendaTipoEvento = new JMenuItem("Tipo de Evento");
+		menuUtilitarioAgenda.add(menuItemUtilitarioAgendaTipoEvento);
 
 		menuItemUtilitarioAgendaRecado = new JMenuItem("Recado");
 		menuUtilitarioAgenda.add(menuItemUtilitarioAgendaRecado);
 
-		menuItemUtilitarioAgendaTarefa = new JMenuItem("Tarefa");
-		menuUtilitarioAgenda.add(menuItemUtilitarioAgendaTarefa);
-
 		menuItemUtilitarioMalaDireta = new JMenuItem("Mala Direta");
 		menuUtilitario.add(menuItemUtilitarioMalaDireta);
-		
+
 		menuItemUtilitarioCalculadora = new JMenuItem("Calculadora");
 		menuUtilitario.add(menuItemUtilitarioCalculadora);
-		
+
 		menuItemUtilitarioEditorTexto = new JMenuItem("Editor de Texto");
 		menuUtilitario.add(menuItemUtilitarioEditorTexto);
 
@@ -494,10 +494,10 @@ public class FrameMain extends JFrame {
 		menuItemCadastroImovel.addActionListener(mainGerenteEventos.new MenuCadastroGerenteEventos());
 		menuItemAjudaSobreSistema.addActionListener(mainGerenteEventos.new MenuAjudaGerenteEventos());
 		menuItemSistemaUsuario.addActionListener(mainGerenteEventos.new MenuSistemaGerenteEventos());
-		menuItemUtilitarioAgendaAgenda.addActionListener(mainGerenteEventos.new MenuUtilitarioGerenteEventos());
-		menuItemUtilitarioAgendaCompromisso.addActionListener(mainGerenteEventos.new MenuUtilitarioGerenteEventos());
+		menuItemUtilitarioAgendaEvento.addActionListener(mainGerenteEventos.new MenuUtilitarioGerenteEventos());
+		menuItemUtilitarioAgendaTipoEvento.addActionListener(mainGerenteEventos.new MenuUtilitarioGerenteEventos());
 		menuItemUtilitarioAgendaRecado.addActionListener(mainGerenteEventos.new MenuUtilitarioGerenteEventos());
-		menuItemUtilitarioAgendaTarefa.addActionListener(mainGerenteEventos.new MenuUtilitarioGerenteEventos());
+		menuItemUtilitarioAgendaContato.addActionListener(mainGerenteEventos.new MenuUtilitarioGerenteEventos());
 		menuItemUtilitarioCalculadora.addActionListener(mainGerenteEventos.new MenuUtilitarioGerenteEventos());
 		menuItemUtilitarioEditorTexto.addActionListener(mainGerenteEventos.new MenuUtilitarioGerenteEventos());
 	}

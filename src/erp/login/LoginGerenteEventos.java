@@ -8,8 +8,8 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.List;
 
-import erp.aop.AOP;
-import erp.aop.gui.Msg;
+import arquitetura.AOP;
+import arquitetura.gui.Msg;
 import erp.main.MainGerenteEventos;
 import erp.usuario.Usuario;
 import erp.usuario.UsuarioDaoFacade;

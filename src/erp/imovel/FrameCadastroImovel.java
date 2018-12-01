@@ -9,10 +9,10 @@ import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 import javax.swing.WindowConstants;
 
-import erp.aop.gui.FocusTabListener;
-import erp.aop.gui.Gui;
-import erp.aop.gui.GuiHandle;
-import erp.aop.gui.Imagem;
+import arquitetura.gui.FocusTabListener;
+import arquitetura.gui.Gui;
+import arquitetura.gui.GuiHandle;
+import arquitetura.gui.Imagem;
 
 @SuppressWarnings("serial")
 public final class FrameCadastroImovel extends JFrame implements Gui {
@@ -92,7 +92,8 @@ public final class FrameCadastroImovel extends JFrame implements Gui {
 	public void iniciarGerenteEventos() {
 		imovelGerenteEventos = new ImovelGerenteEventos();
 		addWindowListener(imovelGerenteEventos.new Frame());
-		panelCadastroImovel.getToolBar().getButtonExcluiRegistro().addActionListener(imovelGerenteEventos.new ExcluiRegistro());
+		panelCadastroImovel.getToolBar().getButtonExcluiRegistro()
+				.addActionListener(imovelGerenteEventos.new ExcluiRegistro());
 		panelCadastroImovel.getToolBar().getButtonNovoFrame().addActionListener(imovelGerenteEventos.new NovoFrame());
 		panelCadastroImovel.getToolBar().getButtonPesquisaRegistro()
 				.addActionListener(imovelGerenteEventos.new PesquisaRegistro());

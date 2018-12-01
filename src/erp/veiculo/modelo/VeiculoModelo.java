@@ -35,7 +35,8 @@ public class VeiculoModelo implements Serializable {
 	}
 
 	public void setModelo(String modelo) {
-		this.modelo = modelo;;
+		this.modelo = modelo;
+		;
 	}
 
 	@Override

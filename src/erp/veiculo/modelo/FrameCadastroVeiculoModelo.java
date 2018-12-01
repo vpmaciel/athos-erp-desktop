@@ -10,10 +10,10 @@ import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 import javax.swing.WindowConstants;
 
-import erp.aop.gui.FocusTabListener;
-import erp.aop.gui.Gui;
-import erp.aop.gui.GuiHandle;
-import erp.aop.gui.Imagem;
+import arquitetura.gui.FocusTabListener;
+import arquitetura.gui.Gui;
+import arquitetura.gui.GuiHandle;
+import arquitetura.gui.Imagem;
 
 @SuppressWarnings("serial")
 public final class FrameCadastroVeiculoModelo extends JFrame implements Gui {
@@ -104,13 +104,16 @@ public final class FrameCadastroVeiculoModelo extends JFrame implements Gui {
 				.addActionListener(veiculoModeloGerenteEventos.new ImprimiUnicoRegistro());
 		panelCadastroVeiculoModelo.getToolBar().getButtonImprimiTodosRegistros()
 				.addActionListener(veiculoModeloGerenteEventos.new ImprimiTodosRegistros());
-		panelCadastroVeiculoModelo.getToolBar().getButtonSalvar().addActionListener(veiculoModeloGerenteEventos.new Salva());
+		panelCadastroVeiculoModelo.getToolBar().getButtonSalvar()
+				.addActionListener(veiculoModeloGerenteEventos.new Salva());
 		panelCadastroVeiculoModelo.getToolBar().getButtonFechar()
 				.addActionListener(veiculoModeloGerenteEventos.new FechaJanela());
 		panelCadastroVeiculoModelo.getToolBar().getButtonSair()
 				.addActionListener(veiculoModeloGerenteEventos.new SaidaSistema());
-		panelCadastroVeiculoModelo.getToolBar().getButtonAjuda().addActionListener(veiculoModeloGerenteEventos.new Ajuda());
-		panelCadastroVeiculoModelo.getToolBar().getButtonHome().addActionListener(veiculoModeloGerenteEventos.new Home());
+		panelCadastroVeiculoModelo.getToolBar().getButtonAjuda()
+				.addActionListener(veiculoModeloGerenteEventos.new Ajuda());
+		panelCadastroVeiculoModelo.getToolBar().getButtonHome()
+				.addActionListener(veiculoModeloGerenteEventos.new Home());
 	}
 
 	@Override

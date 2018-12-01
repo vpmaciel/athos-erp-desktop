@@ -10,10 +10,10 @@ import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 import javax.swing.WindowConstants;
 
-import erp.aop.gui.FocusTabListener;
-import erp.aop.gui.Gui;
-import erp.aop.gui.GuiHandle;
-import erp.aop.gui.Imagem;
+import arquitetura.gui.FocusTabListener;
+import arquitetura.gui.Gui;
+import arquitetura.gui.GuiHandle;
+import arquitetura.gui.Imagem;
 
 @SuppressWarnings("serial")
 public final class FrameCadastroSindicato extends JFrame implements Gui {
@@ -95,7 +95,8 @@ public final class FrameCadastroSindicato extends JFrame implements Gui {
 		addWindowListener(sindicatoGerenteEventos.new Frame());
 		panelCadastroSindicato.getToolBar().getButtonExcluiRegistro()
 				.addActionListener(sindicatoGerenteEventos.new ExcluiRegistro());
-		panelCadastroSindicato.getToolBar().getButtonNovoFrame().addActionListener(sindicatoGerenteEventos.new NovoFrame());
+		panelCadastroSindicato.getToolBar().getButtonNovoFrame()
+				.addActionListener(sindicatoGerenteEventos.new NovoFrame());
 		panelCadastroSindicato.getToolBar().getButtonPesquisaRegistro()
 				.addActionListener(sindicatoGerenteEventos.new PesquisaRegistro());
 		panelCadastroSindicato.getToolBar().getButtonImprimiUnicoRegistro()
@@ -103,8 +104,10 @@ public final class FrameCadastroSindicato extends JFrame implements Gui {
 		panelCadastroSindicato.getToolBar().getButtonImprimiTodosRegistros()
 				.addActionListener(sindicatoGerenteEventos.new ImprimiTodosRegistros());
 		panelCadastroSindicato.getToolBar().getButtonSalvar().addActionListener(sindicatoGerenteEventos.new Salva());
-		panelCadastroSindicato.getToolBar().getButtonFechar().addActionListener(sindicatoGerenteEventos.new FechaJanela());
-		panelCadastroSindicato.getToolBar().getButtonSair().addActionListener(sindicatoGerenteEventos.new SaidaSistema());
+		panelCadastroSindicato.getToolBar().getButtonFechar()
+				.addActionListener(sindicatoGerenteEventos.new FechaJanela());
+		panelCadastroSindicato.getToolBar().getButtonSair()
+				.addActionListener(sindicatoGerenteEventos.new SaidaSistema());
 		panelCadastroSindicato.getToolBar().getButtonAjuda().addActionListener(sindicatoGerenteEventos.new Ajuda());
 		panelCadastroSindicato.getToolBar().getButtonHome().addActionListener(sindicatoGerenteEventos.new Home());
 	}

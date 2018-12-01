@@ -10,10 +10,10 @@ import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 import javax.swing.WindowConstants;
 
-import erp.aop.gui.FocusTabListener;
-import erp.aop.gui.Gui;
-import erp.aop.gui.GuiHandle;
-import erp.aop.gui.Imagem;
+import arquitetura.gui.FocusTabListener;
+import arquitetura.gui.Gui;
+import arquitetura.gui.GuiHandle;
+import arquitetura.gui.Imagem;
 
 @SuppressWarnings("serial")
 public final class FrameCadastroContador extends JFrame implements Gui {
@@ -96,7 +96,8 @@ public final class FrameCadastroContador extends JFrame implements Gui {
 		addWindowListener(contadorGerenteEventos.new Frame());
 		panelCadastroContador.getToolBar().getButtonExcluiRegistro()
 				.addActionListener(contadorGerenteEventos.new ExcluiRegistro());
-		panelCadastroContador.getToolBar().getButtonNovoFrame().addActionListener(contadorGerenteEventos.new NovoFrame());
+		panelCadastroContador.getToolBar().getButtonNovoFrame()
+				.addActionListener(contadorGerenteEventos.new NovoFrame());
 		panelCadastroContador.getToolBar().getButtonPesquisaRegistro()
 				.addActionListener(contadorGerenteEventos.new PesquisaRegistro());
 		panelCadastroContador.getToolBar().getButtonImprimiUnicoRegistro()
@@ -104,7 +105,8 @@ public final class FrameCadastroContador extends JFrame implements Gui {
 		panelCadastroContador.getToolBar().getButtonImprimiTodosRegistros()
 				.addActionListener(contadorGerenteEventos.new ImprimiTodosRegistros());
 		panelCadastroContador.getToolBar().getButtonSalvar().addActionListener(contadorGerenteEventos.new Salva());
-		panelCadastroContador.getToolBar().getButtonFechar().addActionListener(contadorGerenteEventos.new FechaJanela());
+		panelCadastroContador.getToolBar().getButtonFechar()
+				.addActionListener(contadorGerenteEventos.new FechaJanela());
 		panelCadastroContador.getToolBar().getButtonSair().addActionListener(contadorGerenteEventos.new SaidaSistema());
 		panelCadastroContador.getToolBar().getButtonAjuda().addActionListener(contadorGerenteEventos.new Ajuda());
 		panelCadastroContador.getToolBar().getButtonHome().addActionListener(contadorGerenteEventos.new Home());

@@ -12,86 +12,47 @@ import java.security.ProtectionDomain;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-import erp.agenda.agenda.FrameCadastroAgenda;
-import erp.agenda.agenda.FramePesquisaAgenda;
-import erp.agenda.agenda.PanelCadastroAgenda;
-import erp.agenda.agenda.PanelPesquisaAgenda;
-import erp.agenda.compromisso.FrameCadastroCompromisso;
-import erp.agenda.compromisso.FramePesquisaCompromisso;
-import erp.agenda.compromisso.PanelCadastroCompromisso;
-import erp.agenda.compromisso.PanelPesquisaCompromisso;
+import arquitetura.AOP;
+import arquitetura.gui.Msg;
+import erp.agenda.contato.FrameCadastroContato;
+import erp.agenda.contato.FramePesquisaContato;
 import erp.agenda.evento.FrameCadastroEvento;
 import erp.agenda.evento.FramePesquisaEvento;
 import erp.agenda.evento.tipoevento.FrameCadastroTipoEvento;
 import erp.agenda.evento.tipoevento.FramePesquisaTipoEvento;
 import erp.agenda.recado.FrameCadastroRecado;
 import erp.agenda.recado.FramePesquisaRecado;
-import erp.agenda.recado.PanelCadastroRecado;
-import erp.agenda.recado.PanelPesquisaRecado;
-import erp.agenda.tarefa.FrameCadastroTarefa;
-import erp.agenda.tarefa.FramePesquisaTarefa;
-import erp.agenda.tarefa.PanelCadastroTarefa;
-import erp.agenda.tarefa.PanelPesquisaTarefa;
-import erp.aop.AOP;
-import erp.aop.gui.Msg;
 import erp.banco.FrameCadastroBanco;
 import erp.banco.FramePesquisaBanco;
-import erp.banco.PanelPesquisaBanco;
-import erp.calculadora.FrameCalculadora;
 import erp.cartorio.FrameCadastroCartorio;
 import erp.cartorio.FramePesquisaCartorio;
-import erp.cartorio.PanelCadastroCartorio;
-import erp.cartorio.PanelPesquisaCartorio;
 import erp.centrocusto.FrameCadastroCentroCusto;
 import erp.centrocusto.FramePesquisaCentroCusto;
-import erp.centrocusto.PanelCadastroCentroCusto;
-import erp.centrocusto.PanelPesquisaCentroCusto;
 import erp.cliente.FrameCadastroCliente;
 import erp.cliente.FramePesquisaCliente;
-import erp.cliente.PanelCadastroCliente;
-import erp.cliente.PanelPesquisaCliente;
 import erp.contador.FrameCadastroContador;
 import erp.contador.FramePesquisaContador;
-import erp.contador.PanelCadastroContador;
-import erp.contador.PanelPesquisaContador;
-import erp.editor.texto.FrameEditorTexto;
 import erp.empresa.FrameCadastroEmpresa;
 import erp.empresa.FramePesquisaEmpresa;
-import erp.empresa.PanelCadastroEmpresa;
-import erp.empresa.PanelPesquisaEmpresa;
 import erp.fornecedor.FrameCadastroFornecedor;
 import erp.fornecedor.FramePesquisaFornecedor;
-import erp.fornecedor.PanelCadastroFornecedor;
-import erp.fornecedor.PanelPesquisaFornecedor;
 import erp.funcionario.FrameCadastroFuncionario;
 import erp.funcionario.FramePesquisaFuncionario;
-import erp.funcionario.PanelCadastroFuncionario;
-import erp.funcionario.PanelPesquisaFuncionario;
 import erp.imovel.FrameCadastroImovel;
 import erp.imovel.FramePesquisaImovel;
-import erp.imovel.PanelCadastroImovel;
-import erp.imovel.PanelPesquisaImovel;
 import erp.login.FrameLogin;
 import erp.sindicato.FrameCadastroSindicato;
 import erp.sindicato.FramePesquisaSindicato;
-import erp.sindicato.PanelCadastroSindicato;
-import erp.sindicato.PanelPesquisaSindicato;
 import erp.usuario.FrameCadastroUsuario;
 import erp.usuario.FramePesquisaUsuario;
-import erp.usuario.PanelCadastroUsuario;
-import erp.usuario.PanelPesquisaUsuario;
+import erp.utilitario.calculadora.FrameCalculadora;
+import erp.utilitario.editortexto.FrameEditorTexto;
 import erp.veiculo.marca.FrameCadastroVeiculoMarca;
 import erp.veiculo.marca.FramePesquisaVeiculoMarca;
-import erp.veiculo.marca.PanelCadastroVeiculoMarca;
-import erp.veiculo.marca.PanelPesquisaVeiculoMarca;
 import erp.veiculo.modelo.FrameCadastroVeiculoModelo;
 import erp.veiculo.modelo.FramePesquisaVeiculoModelo;
-import erp.veiculo.modelo.PanelCadastroVeiculoModelo;
-import erp.veiculo.modelo.PanelPesquisaVeiculoModelo;
 import erp.veiculo.veiculo.FrameCadastroVeiculo;
 import erp.veiculo.veiculo.FramePesquisaVeiculo;
-import erp.veiculo.veiculo.PanelCadastroVeiculo;
-import erp.veiculo.veiculo.PanelPesquisaVeiculo;
 
 public final class MainGerenteEventos {
 
@@ -228,17 +189,17 @@ public final class MainGerenteEventos {
 				Msg.avisoUsuarioNaoLogado();
 				return;
 			}
-			if (actionEvent.getSource() == frameMain.getMenuItemUtilitarioAgendaAgenda()) {
-				mostrarFrame(frameCadastroAgenda);
+			if (actionEvent.getSource() == frameMain.getMenuItemUtilitarioAgendaEvento()) {
+				mostrarFrame(frameCadastroAgendaEvento);
 			}
-			if (actionEvent.getSource() == frameMain.getMenuItemUtilitarioAgendaCompromisso()) {
-				mostrarFrame(frameCadastroAgendaCompromisso);
-			}
-			if (actionEvent.getSource() == frameMain.getMenuItemUtilitarioAgendaTarefa()) {
-				mostrarFrame(frameCadastroAgendaTarefa);
+			if (actionEvent.getSource() == frameMain.getMenuItemUtilitarioAgendaTipoEvento()) {
+				mostrarFrame(frameCadastroAgendaTipoEvento);
 			}
 			if (actionEvent.getSource() == frameMain.getMenuItemUtilitarioAgendaRecado()) {
 				mostrarFrame(frameCadastroAgendaRecado);
+			}
+			if (actionEvent.getSource() == frameMain.getMenuItemUtilitarioAgendaContato()) {
+				mostrarFrame(frameCadastroAgendaContato);
 			}
 			if (actionEvent.getSource() == frameMain.getMenuItemUtilitarioCalculadora()) {
 				mostrarFrame(frameCalculadora);
@@ -254,12 +215,14 @@ public final class MainGerenteEventos {
 	private static FramePesquisaBanco framePesquisaBanco;
 	private static FrameCadastroCentroCusto frameCadastroCentroCusto;
 	private static FramePesquisaCentroCusto framePesquisaCentroCusto;
-	private static FrameCadastroCompromisso frameCadastroAgendaCompromisso;
-	private static FramePesquisaCompromisso framePesquisaCompromisso;
+	private static FrameCadastroEvento frameCadastroAgendaEvento;
+	private static FramePesquisaEvento framePesquisaAgendaEvento;
+	private static FrameCadastroTipoEvento frameCadastroAgendaTipoEvento;
+	private static FramePesquisaTipoEvento framePesquisaAgendaTipoEvento;
+	private static FrameCadastroContato frameCadastroAgendaContato;
+	private static FramePesquisaContato framePesquisaAgendaContato;
 	private static FrameCadastroRecado frameCadastroAgendaRecado;
-	private static FramePesquisaRecado framePesquisaRecado;
-	private static FrameCadastroTarefa frameCadastroAgendaTarefa;
-	private static FramePesquisaTarefa framePesquisaTarefa;
+	private static FramePesquisaRecado framePesquisaAgendaRecado;
 	private static FrameCadastroCartorio frameCadastroCartorio;
 	private static FramePesquisaCartorio framePesquisaCartorio;
 	private static FrameCadastroContador frameCadastroContador;
@@ -284,12 +247,6 @@ public final class MainGerenteEventos {
 	private static FramePesquisaVeiculoModelo framePesquisaVeiculoModelo;
 	private static FrameCadastroImovel frameCadastroImovel;
 	private static FramePesquisaImovel framePesquisaImovel;
-	private static FrameCadastroAgenda frameCadastroAgenda;
-	private static FramePesquisaAgenda framePesquisaAgenda;
-	private static FrameCadastroEvento frameCadastroEvento;
-	private static FramePesquisaEvento framePesquisaEvento;
-	private static FrameCadastroTipoEvento frameCadastroTipoEvento;
-	private static FramePesquisaTipoEvento framePesquisaTipoEvento;
 	private static FrameCalculadora frameCalculadora;
 	private static FrameEditorTexto frameEditorTexto;
 	private static MainGerenteEventos mainGerenteEventos;
@@ -308,8 +265,8 @@ public final class MainGerenteEventos {
 		return frameCalculadora;
 	}
 
-	public static FrameCadastroAgenda getFrameCadastroAgenda() {
-		return frameCadastroAgenda;
+	public static FrameCadastroEvento getFrameCadastroAgendaEvento() {
+		return frameCadastroAgendaEvento;
 	}
 
 	public static FrameCadastroBanco getFrameCadastroBanco() {
@@ -328,8 +285,12 @@ public final class MainGerenteEventos {
 		return frameCadastroCliente;
 	}
 
-	public static FrameCadastroCompromisso getFrameCadastroCompromisso() {
-		return frameCadastroAgendaCompromisso;
+	public static FrameCadastroTipoEvento getFrameCadastroAgendaTipoEvento() {
+		return frameCadastroAgendaTipoEvento;
+	}
+
+	public static FrameCadastroContato getFrameCadastroAgendaContato() {
+		return frameCadastroAgendaContato;
 	}
 
 	public static FrameCadastroContador getFrameCadastroContador() {
@@ -360,10 +321,6 @@ public final class MainGerenteEventos {
 		return frameCadastroSindicato;
 	}
 
-	public static FrameCadastroTarefa getFrameCadastroTarefa() {
-		return frameCadastroAgendaTarefa;
-	}
-
 	public static FrameCadastroUsuario getFrameCadastroUsuario() {
 		return frameCadastroUsuario;
 	}
@@ -388,24 +345,16 @@ public final class MainGerenteEventos {
 		return frameMain;
 	}
 
-	public static FrameCadastroTipoEvento getFrameCadastroTipoEvento() {
-		return frameCadastroTipoEvento;
+	public static FramePesquisaTipoEvento getFramePesquisaAgendaTipoEvento() {
+		return framePesquisaAgendaTipoEvento;
 	}
 
-	public static FramePesquisaTipoEvento getFramePesquisaTipoEvento() {
-		return framePesquisaTipoEvento;
+	public static FramePesquisaEvento getFramePesquisaAgendaEvento() {
+		return framePesquisaAgendaEvento;
 	}
 
-	public static FrameCadastroEvento getFrameCadastroEvento() {
-		return frameCadastroEvento;
-	}
-
-	public static FramePesquisaEvento getFramePesquisaEvento() {
-		return framePesquisaEvento;
-	}
-
-	public static FramePesquisaAgenda getFramePesquisaAgenda() {
-		return framePesquisaAgenda;
+	public static FramePesquisaContato getFramePesquisaAgendaContato() {
+		return framePesquisaAgendaContato;
 	}
 
 	public static FramePesquisaBanco getFramePesquisaBanco() {
@@ -422,10 +371,6 @@ public final class MainGerenteEventos {
 
 	public static FramePesquisaCliente getFramePesquisaCliente() {
 		return framePesquisaCliente;
-	}
-
-	public static FramePesquisaCompromisso getFramePesquisaCompromisso() {
-		return framePesquisaCompromisso;
 	}
 
 	public static FramePesquisaContador getFramePesquisaContador() {
@@ -449,15 +394,11 @@ public final class MainGerenteEventos {
 	}
 
 	public static FramePesquisaRecado getFramePesquisaRecado() {
-		return framePesquisaRecado;
+		return framePesquisaAgendaRecado;
 	}
 
 	public static FramePesquisaSindicato getFramePesquisaSindicato() {
 		return framePesquisaSindicato;
-	}
-
-	public static FramePesquisaTarefa getFramePesquisaTarefa() {
-		return framePesquisaTarefa;
 	}
 
 	public static FramePesquisaUsuario getFramePesquisaUsuario() {
@@ -485,146 +426,6 @@ public final class MainGerenteEventos {
 			return new MainGerenteEventos(frameMain);
 		}
 		return mainGerenteEventos;
-	}
-
-	public static PanelCadastroAgenda getPanelCadastroAgenda() {
-		return frameCadastroAgenda.getPanelCadastroAgenda();
-	}
-
-	public static PanelCadastroCartorio getPanelCadastroCartorio() {
-		return frameCadastroCartorio.getPanelCadastroCartorio();
-	}
-
-	public static PanelCadastroCentroCusto getPanelCadastroCentroCusto() {
-		return frameCadastroCentroCusto.getPanelCadastroCentroCusto();
-	}
-
-	public static PanelCadastroCliente getPanelCadastroCliente() {
-		return frameCadastroCliente.getPanelCadastroCliente();
-	}
-
-	public static PanelCadastroCompromisso getPanelCadastroCompromisso() {
-		return frameCadastroAgendaCompromisso.getPanelCadastroCompromisso();
-	}
-
-	public static PanelCadastroContador getPanelCadastroContador() {
-		return frameCadastroContador.getPanelCadastroContador();
-	}
-
-	public static PanelCadastroEmpresa getPanelCadastroEmpresa() {
-		return frameCadastroEmpresa.getPanelCadastroEmpresa();
-	}
-
-	public static PanelCadastroFornecedor getPanelCadastroFornecedor() {
-		return frameCadastroFornecedor.getPanelCadastroFornecedor();
-	}
-
-	public static PanelCadastroFuncionario getPanelCadastroFuncionario() {
-		return frameCadastroFuncionario.getPanelCadastroFuncionario();
-	}
-
-	public static PanelCadastroImovel getPanelCadastroImovel() {
-		return frameCadastroImovel.getPanelCadastroImovel();
-	}
-
-	public static PanelCadastroRecado getPanelCadastroRecado() {
-		return frameCadastroAgendaRecado.getPanelCadastroRecado();
-	}
-
-	public static PanelCadastroSindicato getPanelCadastroSindicato() {
-		return frameCadastroSindicato.getPanelCadastroSindicato();
-	}
-
-	public static PanelCadastroTarefa getPanelCadastroTarefa() {
-		return frameCadastroAgendaTarefa.getPanelCadastroTarefa();
-	}
-
-	public static PanelCadastroUsuario getPanelCadastroUsuario() {
-		return frameCadastroUsuario.getPanelCadastroUsuario();
-	}
-
-	public static PanelCadastroVeiculo getPanelCadastroVeiculo() {
-		return frameCadastroVeiculo.getPanelCadastroVeiculo();
-	}
-
-	public static PanelCadastroVeiculoMarca getPanelCadastroVeiculoMarca() {
-		return getPanelCadastroVeiculoMarca();
-	}
-
-	public static PanelCadastroVeiculoModelo getPanelCadastroVeiculoModelo() {
-		return frameCadastroVeiculoModelo.getPanelCadastroVeiculoModelo();
-	}
-
-	public static PanelPesquisaAgenda getPanelPesquisaAgenda() {
-		return framePesquisaAgenda.getPanelPesquisaAgenda();
-	}
-
-	public static PanelPesquisaBanco getPanelPesquisaBanco() {
-		return framePesquisaBanco.getPanelPesquisaBanco();
-	}
-
-	public static PanelPesquisaCartorio getPanelPesquisaCartorio() {
-		return framePesquisaCartorio.getPanelPesquisaCartorio();
-	}
-
-	public static PanelPesquisaCentroCusto getPanelPesquisaCentroCusto() {
-		return framePesquisaCentroCusto.getPanelPesquisaCentroCusto();
-	}
-
-	public static PanelPesquisaCliente getPanelPesquisaCliente() {
-		return framePesquisaCliente.getPanelPesquisaCliente();
-	}
-
-	public static PanelPesquisaCompromisso getPanelPesquisaCompromisso() {
-		return framePesquisaCompromisso.getPanelPesquisaCompromisso();
-	}
-
-	public static PanelPesquisaContador getPanelPesquisaContador() {
-		return framePesquisaContador.getPanelPesquisaContador();
-	}
-
-	public static PanelPesquisaEmpresa getPanelPesquisaEmpresa() {
-		return framePesquisaEmpresa.getPanelPesquisaEmpresa();
-	}
-
-	public static PanelPesquisaFornecedor getPanelPesquisaFornecedor() {
-		return framePesquisaFornecedor.getPanelPesquisaFornecedor();
-	}
-
-	public static PanelPesquisaFuncionario getPanelPesquisaFuncionario() {
-		return framePesquisaFuncionario.getPanelPesquisaFuncionario();
-	}
-
-	public static PanelPesquisaImovel getPanelPesquisaImovel() {
-		return framePesquisaImovel.getPanelPesquisaImovel();
-	}
-
-	public static PanelPesquisaRecado getPanelPesquisaRecado() {
-		return framePesquisaRecado.getPanelPesquisaRecado();
-	}
-
-	public static PanelPesquisaSindicato getPanelPesquisaSindicato() {
-		return framePesquisaSindicato.getPanelPesquisaSindicato();
-	}
-
-	public static PanelPesquisaTarefa getPanelPesquisaTarefa() {
-		return framePesquisaTarefa.getPanelPesquisaTarefa();
-	}
-
-	public static PanelPesquisaUsuario getPanelPesquisaUsuario() {
-		return framePesquisaUsuario.getPanelPesquisaUsuario();
-	}
-
-	public static PanelPesquisaVeiculo getPanelPesquisaVeiculo() {
-		return framePesquisaVeiculo.getPanelPesquisaVeiculo();
-	}
-
-	public static PanelPesquisaVeiculoMarca getPanelPesquisaVeiculoMarca() {
-		return getPanelPesquisaVeiculoMarca();
-	}
-
-	public static PanelPesquisaVeiculoModelo getPanelPesquisaVeiculoModelo() {
-		return framePesquisaVeiculoModelo.getPanelPesquisaVeiculoModelo();
 	}
 
 	public static void mostrarFrame(JFrame frame) {
@@ -673,105 +474,90 @@ public final class MainGerenteEventos {
 
 		frameCadastroEmpresa = new FrameCadastroEmpresa();
 		criarFrame(frameCadastroEmpresa);
-		// frameCadastroEmpresa.iniciarGerenteEventos();
 
 		framePesquisaEmpresa = new FramePesquisaEmpresa();
 		criarFrame(framePesquisaEmpresa);
 
 		frameCadastroUsuario = new FrameCadastroUsuario();
 		criarFrame(frameCadastroUsuario);
-		// frameCadastroUsuario.iniciarGerenteEventos();
 
 		framePesquisaUsuario = new FramePesquisaUsuario();
 		criarFrame(framePesquisaUsuario);
 
 		frameCadastroCartorio = new FrameCadastroCartorio();
 		criarFrame(frameCadastroCartorio);
-		frameCadastroCartorio.iniciarGerenteEventos();
 
 		framePesquisaCartorio = new FramePesquisaCartorio();
 		criarFrame(framePesquisaCartorio);
 
 		frameCadastroContador = new FrameCadastroContador();
 		criarFrame(frameCadastroContador);
-		frameCadastroContador.iniciarGerenteEventos();
 
 		framePesquisaContador = new FramePesquisaContador();
 		criarFrame(framePesquisaContador);
 
 		frameCadastroFuncionario = new FrameCadastroFuncionario();
 		criarFrame(frameCadastroFuncionario);
-		// frameCadastroFuncionario.iniciarGerenteEventos();
 
 		framePesquisaFuncionario = new FramePesquisaFuncionario();
 		criarFrame(framePesquisaFuncionario);
 
 		frameCadastroSindicato = new FrameCadastroSindicato();
 		criarFrame(frameCadastroSindicato);
-		// frameCadastroSindicato.iniciarGerenteEventos();
 
 		framePesquisaSindicato = new FramePesquisaSindicato();
 		criarFrame(framePesquisaSindicato);
 
 		frameCadastroFornecedor = new FrameCadastroFornecedor();
 		criarFrame(frameCadastroFornecedor);
-		// frameCadastroFornecedor.iniciarGerenteEventos();
 
 		framePesquisaFornecedor = new FramePesquisaFornecedor();
 		criarFrame(framePesquisaFornecedor);
 
 		frameCadastroVeiculo = new FrameCadastroVeiculo();
 		criarFrame(frameCadastroVeiculo);
-		frameCadastroVeiculo.iniciarGerenteEventos();
 
 		framePesquisaVeiculo = new FramePesquisaVeiculo();
 		criarFrame(framePesquisaVeiculo);
 
 		frameCadastroImovel = new FrameCadastroImovel();
 		criarFrame(frameCadastroImovel);
-		// frameCadastroImovel.iniciarGerenteEventos();
 
 		framePesquisaImovel = new FramePesquisaImovel();
 		criarFrame(framePesquisaImovel);
 
-		frameCadastroAgenda = new FrameCadastroAgenda();
-		criarFrame(frameCadastroAgenda);
-		// frameCadastroAgenda.iniciarGerenteEventos();
+		frameCadastroAgendaContato = new FrameCadastroContato();
+		criarFrame(frameCadastroAgendaContato);
 
-		framePesquisaAgenda = new FramePesquisaAgenda();
-		criarFrame(framePesquisaAgenda);
+		framePesquisaAgendaContato = new FramePesquisaContato();
+		criarFrame(framePesquisaAgendaContato);
 
-		frameCadastroAgendaCompromisso = new FrameCadastroCompromisso();
-		criarFrame(frameCadastroAgendaCompromisso);
-		// frameCadastroAgendaCompromisso.iniciarGerenteEventos();
+		frameCadastroAgendaEvento = new FrameCadastroEvento();
+		criarFrame(frameCadastroAgendaEvento);
 
-		framePesquisaCompromisso = new FramePesquisaCompromisso();
-		criarFrame(framePesquisaCompromisso);
+		framePesquisaAgendaEvento = new FramePesquisaEvento();
+		criarFrame(framePesquisaAgendaEvento);
+
+		frameCadastroAgendaTipoEvento = new FrameCadastroTipoEvento();
+		criarFrame(frameCadastroAgendaTipoEvento);
+
+		framePesquisaAgendaTipoEvento = new FramePesquisaTipoEvento();
+		criarFrame(framePesquisaAgendaTipoEvento);
 
 		frameCadastroAgendaRecado = new FrameCadastroRecado();
 		criarFrame(frameCadastroAgendaRecado);
-		// frameCadastroAgendaRecado.iniciarGerenteEventos();
 
-		framePesquisaRecado = new FramePesquisaRecado();
-		criarFrame(framePesquisaRecado);
-
-		frameCadastroAgendaTarefa = new FrameCadastroTarefa();
-		criarFrame(frameCadastroAgendaTarefa);
-		// frameCadastroAgendaTarefa.iniciarGerenteEventos();
-
-		framePesquisaTarefa = new FramePesquisaTarefa();
-		criarFrame(framePesquisaTarefa);
+		framePesquisaAgendaRecado = new FramePesquisaRecado();
+		criarFrame(framePesquisaAgendaRecado);
 
 		frameCadastroVeiculoMarca = new FrameCadastroVeiculoMarca();
 		criarFrame(frameCadastroVeiculoMarca);
-		frameCadastroVeiculoMarca.iniciarGerenteEventos();
 
 		framePesquisaVeiculoMarca = new FramePesquisaVeiculoMarca();
 		criarFrame(framePesquisaVeiculoMarca);
 
 		frameCadastroVeiculoModelo = new FrameCadastroVeiculoModelo();
 		criarFrame(frameCadastroVeiculoModelo);
-		frameCadastroVeiculoModelo.iniciarGerenteEventos();
 
 		framePesquisaVeiculoModelo = new FramePesquisaVeiculoModelo();
 		criarFrame(framePesquisaVeiculoModelo);
@@ -782,5 +568,4 @@ public final class MainGerenteEventos {
 		frameEditorTexto = new FrameEditorTexto();
 		criarFrame(frameEditorTexto);
 	}
-
 }

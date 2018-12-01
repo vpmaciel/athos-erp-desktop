@@ -11,10 +11,9 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
-import erp.aop.gui.Msg;
+import arquitetura.gui.Msg;
 import erp.empresa.Empresa;
 import erp.main.MainGerenteEventos;
-import erp.main.PanelSobre;
 
 final class RecadoGerenteEventos {
 
@@ -22,7 +21,7 @@ final class RecadoGerenteEventos {
 
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
-			Msg.ajuda();	
+			Msg.ajuda();
 		}
 	}
 
@@ -254,15 +253,15 @@ final class RecadoGerenteEventos {
 	public void setRecado(Recado recado) {
 		this.recado = recado;
 	}
-	
+
 	public FrameCadastroRecado getFrameCadastroRecado() {
 		return MainGerenteEventos.getFrameCadastroRecado();
 	}
-	
+
 	public PanelCadastroRecado getPanelCadastroRecado() {
 		return MainGerenteEventos.getFrameCadastroRecado().getPanelCadastroRecado();
 	}
-	
+
 	public FramePesquisaRecado getFramePesquisaRecado() {
 		return MainGerenteEventos.getFramePesquisaRecado();
 	}

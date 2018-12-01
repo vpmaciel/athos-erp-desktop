@@ -27,8 +27,8 @@ class SelectionListener implements ListSelectionListener {
 				usuarioPesquisaRegistro.setId((Long) tm.getValueAt(selRows[0], UsuarioTableModel.COL_ID));
 
 				if (table.getSelectedRow() != -1) {
-					Usuario usuario = ((List<Usuario>) UsuarioDaoFacade
-							.pesquisarRegistro(usuarioPesquisaRegistro)).get(0);
+					Usuario usuario = ((List<Usuario>) UsuarioDaoFacade.pesquisarRegistro(usuarioPesquisaRegistro))
+							.get(0);
 					UsuarioTableModel usuarioTableModel = (UsuarioTableModel) table.getModel();
 					usuarioTableModel.getUsuario(table.getSelectedRow());
 

@@ -5,14 +5,14 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 
-import erp.aop.gui.FocusTabListener;
-import erp.aop.gui.Gui;
-import erp.aop.gui.GuiHandle;
-import erp.aop.gui.TamanhoUpperCase;
-import erp.aop.gui.registro.ToolBar;
-import erp.aop.util.SpringUtilities;
-import erp.aop.validacao.Entrada;
-import erp.aop.validacao.RegExp;
+import arquitetura.gui.FocusTabListener;
+import arquitetura.gui.Gui;
+import arquitetura.gui.GuiHandle;
+import arquitetura.gui.TamanhoUpperCase;
+import arquitetura.registro.ToolBar;
+import arquitetura.util.SpringUtilities;
+import arquitetura.validacao.Entrada;
+import arquitetura.validacao.RegExp;
 
 @SuppressWarnings("serial")
 public final class PanelCadastroCentroCusto extends JPanel implements Gui {

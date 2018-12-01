@@ -9,7 +9,7 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
-import erp.aop.gui.Msg;
+import arquitetura.gui.Msg;
 import erp.main.MainGerenteEventos;
 
 final class CentroCustoGerenteEventos {
@@ -58,7 +58,7 @@ final class CentroCustoGerenteEventos {
 		public void windowActivated(WindowEvent e) {
 			getFrameCadastroCentroCusto().reiniciarBox();
 		}
-		
+
 		@Override
 		public void windowClosing(WindowEvent e) {
 			getFrameCadastroCentroCusto().setVisible(false);
@@ -127,7 +127,6 @@ final class CentroCustoGerenteEventos {
 
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
-			
 
 			atualizarObjeto();
 			long totalPesquisaRegistro = 0;
@@ -161,8 +160,8 @@ final class CentroCustoGerenteEventos {
 					return;
 				}
 
-				if ((getPanelCadastroCentroCusto().getTextFieldNome().getText()) == null || 
-						getPanelCadastroCentroCusto().getTextFieldNome().getText().length() == 0) {
+				if ((getPanelCadastroCentroCusto().getTextFieldNome().getText()) == null
+						|| getPanelCadastroCentroCusto().getTextFieldNome().getText().length() == 0) {
 					getPanelCadastroCentroCusto().getTextFieldNome().requestFocus();
 					Msg.avisoCampoObrigatorio("NOME");
 					return;
@@ -205,15 +204,15 @@ final class CentroCustoGerenteEventos {
 	public void setCentroCusto(CentroCusto centroCusto) {
 		this.centroCusto = centroCusto;
 	}
-	
+
 	public FrameCadastroCentroCusto getFrameCadastroCentroCusto() {
 		return MainGerenteEventos.getFrameCadastroCentroCusto();
 	}
-	
+
 	public PanelCadastroCentroCusto getPanelCadastroCentroCusto() {
 		return MainGerenteEventos.getFrameCadastroCentroCusto().getPanelCadastroCentroCusto();
 	}
-	
+
 	public FramePesquisaCentroCusto getFramePesquisaCentroCusto() {
 		return MainGerenteEventos.getFramePesquisaCentroCusto();
 	}

@@ -10,10 +10,10 @@ import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 import javax.swing.WindowConstants;
 
-import erp.aop.gui.FocusTabListener;
-import erp.aop.gui.Gui;
-import erp.aop.gui.GuiHandle;
-import erp.aop.gui.Imagem;
+import arquitetura.gui.FocusTabListener;
+import arquitetura.gui.Gui;
+import arquitetura.gui.GuiHandle;
+import arquitetura.gui.Imagem;
 
 @SuppressWarnings("serial")
 public final class FrameCadastroBanco extends JFrame implements Gui {
@@ -95,7 +95,8 @@ public final class FrameCadastroBanco extends JFrame implements Gui {
 	public void iniciarGerenteEventos() {
 		bancoGerenteEventos = new BancoGerenteEventos();
 		addWindowListener(bancoGerenteEventos.new Frame());
-		panelCadastroBanco.getToolBar().getButtonExcluiRegistro().addActionListener(bancoGerenteEventos.new ExcluiRegistro());
+		panelCadastroBanco.getToolBar().getButtonExcluiRegistro()
+				.addActionListener(bancoGerenteEventos.new ExcluiRegistro());
 		panelCadastroBanco.getToolBar().getButtonNovoFrame().addActionListener(bancoGerenteEventos.new NovoFrame());
 		panelCadastroBanco.getToolBar().getButtonPesquisaRegistro()
 				.addActionListener(bancoGerenteEventos.new PesquisaRegistro());

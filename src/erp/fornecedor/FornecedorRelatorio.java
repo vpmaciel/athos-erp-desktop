@@ -10,7 +10,7 @@ import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
 
-import erp.aop.relatorio.Relatorio;
+import arquitetura.relatorio.Relatorio;
 
 public class FornecedorRelatorio {
 
@@ -19,9 +19,9 @@ public class FornecedorRelatorio {
 	private String arquivo = "fornecedor.pdf";
 	private String titulo = "FORNECEDORES";
 	private Relatorio relatorio = new Relatorio();
-	
+
 	public FornecedorRelatorio(List<Fornecedor> fornecedores) {
-		
+
 		try {
 			writer = PdfWriter.getInstance(document, new FileOutputStream(arquivo));
 			relatorio.criarRelatorio(writer, document, titulo);
@@ -58,8 +58,8 @@ public class FornecedorRelatorio {
 		relatorio.getRodape(writer, document);
 		document.close();
 		relatorio.retornarRelatorio(arquivo, false);
-	}	
-	
+	}
+
 	public File retornarRelatorio(boolean abrirRelatorio) {
 		return relatorio.retornarRelatorio(arquivo, abrirRelatorio);
 	}

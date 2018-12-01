@@ -11,9 +11,8 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
-import erp.aop.gui.Msg;
+import arquitetura.gui.Msg;
 import erp.main.MainGerenteEventos;
-import erp.main.PanelSobre;
 
 final class ImovelGerenteEventos {
 
@@ -203,8 +202,7 @@ final class ImovelGerenteEventos {
 		}
 	}
 
-	private  Imovel imovel;
-
+	private Imovel imovel;
 
 	public void atualizarGui() {
 		if (imovel == null) {
@@ -268,15 +266,15 @@ final class ImovelGerenteEventos {
 	public void setImovel(Imovel imovel) {
 		this.imovel = imovel;
 	}
-	
+
 	public FrameCadastroImovel getFrameCadastroImovel() {
 		return MainGerenteEventos.getFrameCadastroImovel();
 	}
-	
+
 	public PanelCadastroImovel getPanelCadastroImovel() {
 		return MainGerenteEventos.getFrameCadastroImovel().getPanelCadastroImovel();
 	}
-	
+
 	public FramePesquisaImovel getFramePesquisaImovel() {
 		return MainGerenteEventos.getFramePesquisaImovel();
 	}

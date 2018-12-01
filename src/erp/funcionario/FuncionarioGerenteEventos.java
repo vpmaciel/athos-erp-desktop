@@ -11,10 +11,9 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
-import erp.aop.gui.Msg;
+import arquitetura.gui.Msg;
 import erp.centrocusto.CentroCusto;
 import erp.main.MainGerenteEventos;
-import erp.main.PanelSobre;
 
 final class FuncionarioGerenteEventos {
 
@@ -297,15 +296,15 @@ final class FuncionarioGerenteEventos {
 	public void setFuncionario(Funcionario funcionario) {
 		this.funcionario = funcionario;
 	}
-	
+
 	public FrameCadastroFuncionario getFrameCadastroFuncionario() {
 		return MainGerenteEventos.getFrameCadastroFuncionario();
 	}
-	
+
 	public PanelCadastroFuncionario getPanelCadastroFuncionario() {
 		return MainGerenteEventos.getFrameCadastroFuncionario().getPanelCadastroFuncionario();
 	}
-	
+
 	public FramePesquisaFuncionario getFramePesquisaFuncionario() {
 		return MainGerenteEventos.getFramePesquisaFuncionario();
 	}

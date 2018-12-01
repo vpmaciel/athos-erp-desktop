@@ -38,7 +38,7 @@ public class Banco implements Serializable {
 	}
 
 	public void setCodigo(String codigo) {
-		this.codigo = codigo.replaceAll("\\s+"," ").trim();
+		this.codigo = codigo.replaceAll("\\s+", " ").trim();
 	}
 
 	public void setId(Long id) {
@@ -46,7 +46,7 @@ public class Banco implements Serializable {
 	}
 
 	public void setNome(String nome) {
-		this.nome = nome.replaceAll("\\s+"," ").trim();
+		this.nome = nome.replaceAll("\\s+", " ").trim();
 	}
 
 	@Override

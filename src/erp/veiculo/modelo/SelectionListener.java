@@ -29,7 +29,8 @@ class SelectionListener implements ListSelectionListener {
 					VeiculoModeloTableModel veiculoModeloTableModel = (VeiculoModeloTableModel) table.getModel();
 					veiculoModeloTableModel.getVeiculoModelo(table.getSelectedRow());
 					MainGerenteEventos.mostrarFrame(MainGerenteEventos.getFrameCadastroVeiculoModelo());
-					MainGerenteEventos.getFrameCadastroVeiculoModelo().getVeiculoModeloHandle().setVeiculoModelo(veiculoModelo);
+					MainGerenteEventos.getFrameCadastroVeiculoModelo().getVeiculoModeloHandle()
+							.setVeiculoModelo(veiculoModelo);
 					MainGerenteEventos.getFrameCadastroVeiculoModelo().getVeiculoModeloHandle().atualizarGui();
 					MainGerenteEventos.getFrameCadastroVeiculoModelo().setFocusable(true);
 					MainGerenteEventos.getFramePesquisaVeiculoModelo().setVisible(false);

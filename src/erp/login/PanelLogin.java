@@ -9,11 +9,11 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 
-import erp.aop.gui.FocusTabListener;
-import erp.aop.gui.Gui;
-import erp.aop.gui.GuiHandle;
-import erp.aop.gui.TamanhoUpperCase;
-import erp.aop.util.SpringUtilities;
+import arquitetura.gui.FocusTabListener;
+import arquitetura.gui.Gui;
+import arquitetura.gui.GuiHandle;
+import arquitetura.gui.TamanhoUpperCase;
+import arquitetura.util.SpringUtilities;
 
 @SuppressWarnings("serial")
 public final class PanelLogin extends JPanel implements Gui {
@@ -36,7 +36,7 @@ public final class PanelLogin extends JPanel implements Gui {
 		buttonEntrar.setSize(new Dimension(740, 25));
 		buttonEntrar.setMaximumSize(new Dimension(740, 25));
 	}
-	
+
 	public void atualizarLabel() {
 	}
 
@@ -106,7 +106,7 @@ public final class PanelLogin extends JPanel implements Gui {
 
 	@Override
 	public void iniciarGerenteEventos() {
-	
+
 	}
 
 	@Override
@@ -116,7 +116,7 @@ public final class PanelLogin extends JPanel implements Gui {
 
 	@Override
 	public void iniciarTable() {
-	
+
 	}
 
 	@Override
@@ -126,7 +126,7 @@ public final class PanelLogin extends JPanel implements Gui {
 
 	@Override
 	public void reiniciarBox() {
-		
+
 	}
 
 	public boolean validarCamposCadastro() {

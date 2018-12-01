@@ -12,7 +12,7 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
-import erp.aop.JPA;
+import arquitetura.JPA;
 
 final class VeiculoDaoImp implements VeiculoDao {
 
@@ -64,7 +64,8 @@ final class VeiculoDaoImp implements VeiculoDao {
 			predicates.add(criteriaBuilder.equal(rootVeiculo.get("id"), veiculo.getId()));
 		}
 		if (veiculo.getAnoFabricacao() != null && !veiculo.getAnoFabricacao().equals("")) {
-			predicates.add(criteriaBuilder.like(rootVeiculo.get("anoFabricacao"), "%" + veiculo.getAnoFabricacao() + "%"));
+			predicates.add(
+					criteriaBuilder.like(rootVeiculo.get("anoFabricacao"), "%" + veiculo.getAnoFabricacao() + "%"));
 		}
 		if (veiculo.getAnoModelo() != null && !veiculo.getAnoModelo().equals("")) {
 			predicates.add(criteriaBuilder.like(rootVeiculo.get("anoModelo"), "%" + veiculo.getAnoModelo() + "%"));
@@ -79,7 +80,8 @@ final class VeiculoDaoImp implements VeiculoDao {
 			predicates.add(criteriaBuilder.like(rootVeiculo.get("capCarga"), "%" + veiculo.getCapCarga() + "%"));
 		}
 		if (veiculo.getCapacidadePassageiros() != null && !veiculo.getCapacidadePassageiros().equals("")) {
-			predicates.add(criteriaBuilder.like(rootVeiculo.get("capacidadePassageiros"), "%" + veiculo.getCapacidadePassageiros() + "%"));
+			predicates.add(criteriaBuilder.like(rootVeiculo.get("capacidadePassageiros"),
+					"%" + veiculo.getCapacidadePassageiros() + "%"));
 		}
 		if (veiculo.getCarroceria() != null && !veiculo.getCarroceria().equals("")) {
 			predicates.add(criteriaBuilder.like(rootVeiculo.get("carroceria"), "%" + veiculo.getCarroceria() + "%"));
@@ -94,7 +96,8 @@ final class VeiculoDaoImp implements VeiculoDao {
 			predicates.add(criteriaBuilder.like(rootVeiculo.get("chassi"), "%" + veiculo.getChassi() + "%"));
 		}
 		if (veiculo.getChassiRemarcado() != null && !veiculo.getChassiRemarcado().equals("")) {
-			predicates.add(criteriaBuilder.like(rootVeiculo.get("chassiRemarcado"), "%" + veiculo.getChassiRemarcado() + "%"));
+			predicates.add(
+					criteriaBuilder.like(rootVeiculo.get("chassiRemarcado"), "%" + veiculo.getChassiRemarcado() + "%"));
 		}
 		if (veiculo.getCidade() != null && !veiculo.getCidade().equals("")) {
 			predicates.add(criteriaBuilder.like(rootVeiculo.get("cidade"), "%" + veiculo.getCidade() + "%"));
@@ -133,7 +136,8 @@ final class VeiculoDaoImp implements VeiculoDao {
 			predicates.add(criteriaBuilder.like(rootVeiculo.get("estado"), "%" + veiculo.getEstado() + "%"));
 		}
 		if (veiculo.getFabricacao() != null && !veiculo.getFabricacao().equals("")) {
-			predicates.add(criteriaBuilder.like(rootVeiculo.get("fabricacao"), "%" + veiculo.getChassiRemarcado() + "%"));
+			predicates
+					.add(criteriaBuilder.like(rootVeiculo.get("fabricacao"), "%" + veiculo.getChassiRemarcado() + "%"));
 		}
 		if (veiculo.getIpva() != null && !veiculo.getIpva().equals("")) {
 			predicates.add(criteriaBuilder.like(rootVeiculo.get("ipva"), "%" + veiculo.getIpva() + "%"));

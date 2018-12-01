@@ -10,7 +10,7 @@ import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
 
-import erp.aop.relatorio.Relatorio;
+import arquitetura.relatorio.Relatorio;
 
 public class SindicatoRelatorio {
 
@@ -19,9 +19,9 @@ public class SindicatoRelatorio {
 	private String arquivo = "sindicato.pdf";
 	private String titulo = "SINDICATOS";
 	private Relatorio relatorio = new Relatorio();
-	
+
 	public SindicatoRelatorio(List<Sindicato> sindicatos) {
-		
+
 		try {
 			writer = PdfWriter.getInstance(document, new FileOutputStream(arquivo));
 			relatorio.criarRelatorio(writer, document, titulo);
@@ -58,8 +58,8 @@ public class SindicatoRelatorio {
 		relatorio.getRodape(writer, document);
 		document.close();
 		relatorio.retornarRelatorio(arquivo, false);
-	}	
-	
+	}
+
 	public File retornarRelatorio(boolean abrirRelatorio) {
 		return relatorio.retornarRelatorio(arquivo, abrirRelatorio);
 	}

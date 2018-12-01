@@ -10,7 +10,7 @@ import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
 
-import erp.aop.relatorio.Relatorio;
+import arquitetura.relatorio.Relatorio;
 
 public class UsuarioRelatorio {
 
@@ -19,9 +19,9 @@ public class UsuarioRelatorio {
 	private String arquivo = "usuario.pdf";
 	private String titulo = "USUÁRIOS";
 	private Relatorio relatorio = new Relatorio();
-	
+
 	public UsuarioRelatorio(List<Usuario> usuarios) {
-		
+
 		try {
 			writer = PdfWriter.getInstance(document, new FileOutputStream(arquivo));
 			relatorio.criarRelatorio(writer, document, titulo);
@@ -35,8 +35,8 @@ public class UsuarioRelatorio {
 		relatorio.getRodape(writer, document);
 		document.close();
 		relatorio.retornarRelatorio(arquivo, false);
-	}	
-	
+	}
+
 	public File retornarRelatorio(boolean abrirRelatorio) {
 		return relatorio.retornarRelatorio(arquivo, abrirRelatorio);
 	}

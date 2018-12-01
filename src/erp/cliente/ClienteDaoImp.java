@@ -12,10 +12,10 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
-import erp.aop.JPA;
+import arquitetura.JPA;
 
 final class ClienteDaoImp implements ClienteDao {
-	
+
 	@Override
 	public void deletarRegistro(Cliente cliente) {
 		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
@@ -66,7 +66,7 @@ final class ClienteDaoImp implements ClienteDao {
 			predicates.add(criteriaBuilder.like(rootCliente.get("nome"), "%" + cliente.getBairro() + "%"));
 		}
 		if (cliente.getCargo() != null && !cliente.getCargo().equals("")) {
-			predicates.add(criteriaBuilder.like(rootCliente.get("nome"), "%" + cliente.getCargo()+ "%"));
+			predicates.add(criteriaBuilder.like(rootCliente.get("nome"), "%" + cliente.getCargo() + "%"));
 		}
 		if (cliente.getClasseEconomica() != null && !cliente.getClasseEconomica().equals("")) {
 			predicates.add(criteriaBuilder.like(rootCliente.get("nome"), "%" + cliente.getClasseEconomica() + "%"));
@@ -139,7 +139,8 @@ final class ClienteDaoImp implements ClienteDao {
 		}
 
 		if (cliente.getNumeroAgenciaBancaria() != null && !cliente.getNumeroAgenciaBancaria().equals("")) {
-			predicates.add(criteriaBuilder.like(rootCliente.get("nome"), "%" + cliente.getNumeroAgenciaBancaria() + "%"));
+			predicates
+					.add(criteriaBuilder.like(rootCliente.get("nome"), "%" + cliente.getNumeroAgenciaBancaria() + "%"));
 		}
 
 		if (cliente.getNumeroContaBancaria() != null && !cliente.getNumeroContaBancaria().equals("")) {
@@ -171,15 +172,18 @@ final class ClienteDaoImp implements ClienteDao {
 		}
 
 		if (cliente.getRelacionamentoReferencia1() != null && !cliente.getRelacionamentoReferencia1().equals("")) {
-			predicates.add(criteriaBuilder.like(rootCliente.get("relacionamentoReferencia1"), "%" + cliente.getRelacionamentoReferencia1() + "%"));
+			predicates.add(criteriaBuilder.like(rootCliente.get("relacionamentoReferencia1"),
+					"%" + cliente.getRelacionamentoReferencia1() + "%"));
 		}
 
 		if (cliente.getRelacionamentoReferencia2() != null && !cliente.getRelacionamentoReferencia2().equals("")) {
-			predicates.add(criteriaBuilder.like(rootCliente.get("relacionamentoReferencia2"), "%" + cliente.getRelacionamentoReferencia2() + "%"));
+			predicates.add(criteriaBuilder.like(rootCliente.get("relacionamentoReferencia2"),
+					"%" + cliente.getRelacionamentoReferencia2() + "%"));
 		}
 
 		if (cliente.getRelacionamentoReferencia3() != null && !cliente.getRelacionamentoReferencia3().equals("")) {
-			predicates.add(criteriaBuilder.like(rootCliente.get("relacionamentoReferencia3"), "%" + cliente.getRelacionamentoReferencia3() + "%"));
+			predicates.add(criteriaBuilder.like(rootCliente.get("relacionamentoReferencia3"),
+					"%" + cliente.getRelacionamentoReferencia3() + "%"));
 		}
 
 		criteriaQuery.select(rootCliente).where(predicates.toArray(new Predicate[] {}));

@@ -10,10 +10,10 @@ import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 import javax.swing.WindowConstants;
 
-import erp.aop.gui.FocusTabListener;
-import erp.aop.gui.Gui;
-import erp.aop.gui.GuiHandle;
-import erp.aop.gui.Imagem;
+import arquitetura.gui.FocusTabListener;
+import arquitetura.gui.Gui;
+import arquitetura.gui.GuiHandle;
+import arquitetura.gui.Imagem;
 
 @SuppressWarnings("serial")
 public final class FrameCadastroCartorio extends JFrame implements Gui {
@@ -96,7 +96,8 @@ public final class FrameCadastroCartorio extends JFrame implements Gui {
 		addWindowListener(cartorioGerenteEventos.new Frame());
 		panelCadastroCartorio.getToolBar().getButtonExcluiRegistro()
 				.addActionListener(cartorioGerenteEventos.new ExcluiRegistro());
-		panelCadastroCartorio.getToolBar().getButtonNovoFrame().addActionListener(cartorioGerenteEventos.new NovoFrame());
+		panelCadastroCartorio.getToolBar().getButtonNovoFrame()
+				.addActionListener(cartorioGerenteEventos.new NovoFrame());
 		panelCadastroCartorio.getToolBar().getButtonPesquisaRegistro()
 				.addActionListener(cartorioGerenteEventos.new PesquisaRegistro());
 		panelCadastroCartorio.getToolBar().getButtonImprimiUnicoRegistro()
@@ -104,7 +105,8 @@ public final class FrameCadastroCartorio extends JFrame implements Gui {
 		panelCadastroCartorio.getToolBar().getButtonImprimiTodosRegistros()
 				.addActionListener(cartorioGerenteEventos.new ImprimiTodosRegistros());
 		panelCadastroCartorio.getToolBar().getButtonSalvar().addActionListener(cartorioGerenteEventos.new Salva());
-		panelCadastroCartorio.getToolBar().getButtonFechar().addActionListener(cartorioGerenteEventos.new FechaJanela());
+		panelCadastroCartorio.getToolBar().getButtonFechar()
+				.addActionListener(cartorioGerenteEventos.new FechaJanela());
 		panelCadastroCartorio.getToolBar().getButtonSair().addActionListener(cartorioGerenteEventos.new SaidaSistema());
 		panelCadastroCartorio.getToolBar().getButtonAjuda().addActionListener(cartorioGerenteEventos.new Ajuda());
 		panelCadastroCartorio.getToolBar().getButtonHome().addActionListener(cartorioGerenteEventos.new Home());

@@ -11,10 +11,9 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
-import erp.aop.gui.Msg;
+import arquitetura.gui.Msg;
 import erp.empresa.Empresa;
 import erp.main.MainGerenteEventos;
-import erp.main.PanelSobre;
 
 final class EventoGerenteEventos {
 
@@ -159,7 +158,7 @@ final class EventoGerenteEventos {
 			atualizarObjeto();
 			getPanelPesquisaEvento().pesquisarRegistroAgenda(evento);
 
-			MainGerenteEventos.mostrarFrame(MainGerenteEventos.getFramePesquisaAgenda());
+			MainGerenteEventos.mostrarFrame(MainGerenteEventos.getFramePesquisaAgendaEvento());
 		}
 	}
 
@@ -258,20 +257,20 @@ final class EventoGerenteEventos {
 	public void setAgenda(Evento evento) {
 		this.evento = evento;
 	}
-	
+
 	public FrameCadastroEvento getFrameCadastroEvento() {
-		return MainGerenteEventos.getFrameCadastroEvento();
+		return MainGerenteEventos.getFrameCadastroAgendaEvento();
 	}
-	
+
 	public PanelCadastroEvento getPanelCadastroEvento() {
-		return MainGerenteEventos.getFrameCadastroEvento().getPanelCadastroEvento();
+		return MainGerenteEventos.getFrameCadastroAgendaEvento().getPanelCadastroEvento();
 	}
-	
+
 	public FramePesquisaEvento getFramePesquisaEvento() {
-		return MainGerenteEventos.getFramePesquisaEvento();
+		return MainGerenteEventos.getFramePesquisaAgendaEvento();
 	}
 
 	public PanelPesquisaEvento getPanelPesquisaEvento() {
-		return MainGerenteEventos.getFramePesquisaEvento().getPanelPesquisaEvento();
+		return MainGerenteEventos.getFramePesquisaAgendaEvento().getPanelPesquisaEvento();
 	}
 }
