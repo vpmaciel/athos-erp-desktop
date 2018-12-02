@@ -11,14 +11,14 @@ import javax.swing.WindowConstants;
 
 import arquitetura.gui.FocusTabListener;
 import arquitetura.gui.Gui;
-import arquitetura.gui.GuiHandle;
+import arquitetura.gui.GuiGerenteEventos;
 import arquitetura.gui.Imagem;
 
 @SuppressWarnings("serial")
 public final class FrameCadastroImovel extends JFrame implements Gui {
 
 	private ImovelGerenteEventos imovelGerenteEventos;
-	private GuiHandle guiHandle;
+	private GuiGerenteEventos guiGerenteEventos;
 	private PanelCadastroImovel panelCadastroImovel;
 
 	public FrameCadastroImovel() {
@@ -36,8 +36,8 @@ public final class FrameCadastroImovel extends JFrame implements Gui {
 	}
 
 	@Override
-	public GuiHandle getGuiGerenteEventos() {
-		return guiHandle;
+	public GuiGerenteEventos getGuiGerenteEventos() {
+		return guiGerenteEventos;
 	}
 
 	public ImovelGerenteEventos getImovelHandle() {
@@ -85,7 +85,7 @@ public final class FrameCadastroImovel extends JFrame implements Gui {
 
 	@Override
 	public void iniciarGuiGerenteEventos() {
-		guiHandle = new GuiHandle(this);
+		guiGerenteEventos = new GuiGerenteEventos(this);
 	}
 
 	@Override
@@ -119,7 +119,7 @@ public final class FrameCadastroImovel extends JFrame implements Gui {
 
 	@Override
 	public void limparGui() {
-		guiHandle.limparGui();
+		guiGerenteEventos.limparGui();
 	}
 
 	@Override

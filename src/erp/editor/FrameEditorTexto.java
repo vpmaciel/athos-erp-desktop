@@ -1,4 +1,4 @@
-package erp.utilitario.editortexto;
+package erp.editor;
 
 import java.awt.BorderLayout;
 import java.awt.Color;

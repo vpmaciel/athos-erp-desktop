@@ -12,7 +12,7 @@ import javax.swing.SpringLayout;
 
 import arquitetura.gui.FocusTabListener;
 import arquitetura.gui.Gui;
-import arquitetura.gui.GuiHandle;
+import arquitetura.gui.GuiGerenteEventos;
 import arquitetura.gui.TamanhoLowerCase;
 import arquitetura.gui.TamanhoUpperCase;
 import arquitetura.registro.ToolBar;
@@ -26,7 +26,7 @@ import erp.main.MainGerenteEventos;
 public final class PanelCadastroContato extends JPanel implements Gui {
 
 	private ToolBar toolBar;
-	private GuiHandle guiHandle;
+	private GuiGerenteEventos guiGerenteEventos;
 	private JComboBox<String> boxSexo;
 	private JTextField textFieldNome;
 	private JTextField textFieldDataC;
@@ -78,8 +78,8 @@ public final class PanelCadastroContato extends JPanel implements Gui {
 	}
 
 	@Override
-	public GuiHandle getGuiGerenteEventos() {
-		return guiHandle;
+	public GuiGerenteEventos getGuiGerenteEventos() {
+		return guiGerenteEventos;
 	}
 
 	public JLabel getLabelEmpresa() {
@@ -298,7 +298,7 @@ public final class PanelCadastroContato extends JPanel implements Gui {
 
 	@Override
 	public void iniciarGuiGerenteEventos() {
-		guiHandle = new GuiHandle(this);
+		guiGerenteEventos = new GuiGerenteEventos(this);
 	}
 
 	@Override

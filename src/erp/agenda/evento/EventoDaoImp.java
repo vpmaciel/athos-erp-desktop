@@ -1,16 +1,19 @@
 package erp.agenda.evento;
 
+import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.Root;
 
 import arquitetura.JPA;
+import erp.agenda.evento.tipoevento.TipoEvento;
 
 final class EventoDaoImp implements EventoDao {
 
@@ -25,7 +28,7 @@ final class EventoDaoImp implements EventoDao {
 			PesquisaRegistro = stringBuilder.substring(0, stringBuilder.length() - 5);
 			stringBuilder = new StringBuilder(PesquisaRegistro);
 		}
-		stringBuilder.append(" order by C.nome");
+		stringBuilder.append(" order by C.data, C.horaInicio");
 		PesquisaRegistro = stringBuilder.toString();
 		return PesquisaRegistro;
 	}
@@ -53,7 +56,7 @@ final class EventoDaoImp implements EventoDao {
 		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
 		EntityTransaction tx = em.getTransaction();
 		tx.begin();
-		Query query = em.createQuery("from erp.agenda.agenda.Agenda C order by C.nome");
+		Query query = em.createQuery("from erp.agenda.evento.Evento C order by C.data, C.horaInicio");
 		@SuppressWarnings("unchecked")
 		List<Evento> list = query.getResultList();
 		tx.commit();
@@ -63,98 +66,42 @@ final class EventoDaoImp implements EventoDao {
 
 	@Override
 	public Collection<Evento> pesquisarRegistro(Evento evento) {
-		StringBuilder qsb = new StringBuilder();
-		qsb.setLength(0);
-		qsb = new StringBuilder();
-		qsb.append("select C from erp.agenda.agenda.Agenda C where");
-		HashMap<String, Object> parametros = new HashMap<String, Object>();
-
-		if (evento.getId() != null && !evento.getId().equals("")) {
-			qsb.append(" C.id = :id and");
-			parametros.put("id", evento.getId());
-		}
-		if (evento.getBairro() != null && !evento.getBairro().trim().equals("")) {
-			qsb.append(" C.bairro like :bairro and");
-			parametros.put("bairro", "%" + evento.getBairro().toUpperCase() + "%");
-		}
-		if (evento.getCep() != null && !evento.getCep().trim().equals("")) {
-			qsb.append(" C.cep like :cep and");
-			parametros.put("cep", "%" + evento.getCep().toUpperCase() + "%");
-		}
-		if (evento.getCidade() != null && !evento.getCidade().trim().equals("")) {
-			qsb.append(" C.cidade like :cidade and");
-			parametros.put("cidade", "%" + evento.getCidade().toUpperCase() + "%");
-		}
-		if (evento.getComplemento() != null && !evento.getComplemento().trim().equals("")) {
-			qsb.append(" C.complemento like :complemento and");
-			parametros.put("complemento", "%" + evento.getComplemento().toUpperCase() + "%");
-		}
-		if (evento.getCpfNumero() != null && !evento.getCpfNumero().trim().equals("")) {
-			qsb.append(" C.cpfNumero like :cpfNumero and");
-			parametros.put("cpfNumero", "%" + evento.getCpfNumero().toUpperCase() + "%");
-		}
-		if (evento.getEmail() != null && !evento.getEmail().trim().equals("")) {
-			qsb.append(" C.email like :email and");
-			parametros.put("email", "%" + evento.getEmail().toUpperCase() + "%");
-		}
-		if (evento.getEmpresa() != null) {
-			qsb.append(" C.empresa = :empresa and");
-			parametros.put("empresa", evento.getEmpresa() + "%");
-		}
-		if (evento.getEstado() != null && !evento.getEstado().trim().equals("")) {
-			qsb.append(" C.estado like :estado and");
-			parametros.put("estado", "%" + evento.getEstado().toUpperCase() + "%");
-		}
-		if (evento.getFax() != null && !evento.getFax().trim().equals("")) {
-			qsb.append(" C.fax like :fax and");
-			parametros.put("fax", "%" + evento.getFax().toUpperCase() + "%");
-		}
-		if (evento.getFone1() != null && !evento.getFone1().trim().equals("")) {
-			qsb.append(" C.fone1 like :fone1 and");
-			parametros.put("fone1", "%" + evento.getFone1().toUpperCase() + "%");
-		}
-		if (evento.getFone2() != null && !evento.getFone2().trim().equals("")) {
-			qsb.append(" C.fone2 like :fone2 and");
-			parametros.put("fone2", "%" + evento.getFone2().toUpperCase() + "%");
-		}
-		if (evento.getLogradouro() != null && !evento.getLogradouro().trim().equals("")) {
-			qsb.append(" C.logradouro like :logradouro and");
-			parametros.put("logradouro", "%" + evento.getLogradouro().toUpperCase() + "%");
-		}
-		if (evento.getNome() != null && !evento.getNome().trim().equals("")) {
-			qsb.append(" C.nome like :nome and");
-			parametros.put("nome", "%" + evento.getNome().toUpperCase() + "%");
-		}
-		if (evento.getPais() != null && !evento.getPais().trim().equals("")) {
-			qsb.append(" C.pais like :pais and");
-			parametros.put("pais", "%" + evento.getPais().toUpperCase() + "%");
-		}
-		if (evento.getCnpj() != null && !evento.getCnpj().trim().equals("")) {
-			qsb.append(" C.cnpj like :cnpj and");
-			parametros.put("cnpj", "%" + evento.getCnpj().toUpperCase() + "%");
-		}
-		if (evento.getSalario() != null && !evento.getSalario().trim().equals("")) {
-			qsb.append(" C.salario like :salario and");
-			parametros.put("salario", "%" + evento.getSalario().toUpperCase() + "%");
-		}
-		if (evento.getSexo() != null && !evento.getSexo().trim().equals("")) {
-			qsb.append(" C.sexo like :sexo and");
-			parametros.put("sexo", "%" + evento.getSexo().toUpperCase() + "%");
-		}
-
-		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
-		Query query = em.createQuery(this.construirQuery(qsb));
-		Set<Map.Entry<String, Object>> set = parametros.entrySet();
-
-		for (Map.Entry<String, Object> me : set) {
-			query.setParameter(me.getKey(), me.getValue());
-		}
-		EntityTransaction tx = em.getTransaction();
+		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
+		EntityTransaction tx = entityManager.getTransaction();
 		tx.begin();
-		@SuppressWarnings("unchecked")
-		List<Evento> list = query.getResultList();
+
+		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+		CriteriaQuery<Evento> criteriaQuery = criteriaBuilder.createQuery(Evento.class);
+		Root<Evento> rootEvento = criteriaQuery.from(Evento.class);
+		Root<TipoEvento> rootTipoEvento = criteriaQuery.from(TipoEvento.class);
+
+		List<Predicate> predicates = new ArrayList<Predicate>();
+
+		if (evento.getId() != null) {
+			predicates.add(criteriaBuilder.equal(rootEvento.get("id"), evento.getId()));
+		}
+		if (evento.getData() != null && !evento.getData().equals("__/__/____")) {
+			predicates.add(criteriaBuilder.like(rootEvento.get("data"), "%" + evento.getData() + "%"));
+		}
+		if (evento.getDescricao() != null && !evento.getDescricao().equals("")) {
+			predicates.add(criteriaBuilder.like(rootEvento.get("descricao"), "%" + evento.getDescricao() + "%"));
+		}
+		if (evento.getHoraInicio() != null && !evento.getHoraInicio().equals("__:__")) {
+			predicates.add(criteriaBuilder.like(rootEvento.get("horaInicio"), "%" + evento.getHoraInicio() + "%"));
+		}
+		if (evento.getHoraTermino() != null && !evento.getHoraTermino().equals("__:__")) {
+			predicates.add(criteriaBuilder.like(rootEvento.get("horaTermino"), "%" + evento.getHoraTermino() + "%"));
+		}
+		if (evento.getTipoEvento() != null && evento.getTipoEvento().getId() != null) {
+			predicates.add(criteriaBuilder.equal(rootEvento.get("tipoEvento"), evento.getTipoEvento()));
+			System.out.println(evento.getTipoEvento().getId());
+		}
+		
+		criteriaQuery.select(rootEvento).where(predicates.toArray(new Predicate[] {}));
+
+		List<Evento> list = entityManager.createQuery(criteriaQuery).getResultList();
 		tx.commit();
-		em.close();
+		entityManager.close();
 		return list;
 	}
 

@@ -16,7 +16,7 @@ public class EventoSort {
 
 		@Override
 		public int compare(Object o1, Object o2) {
-			return ((Evento) o1).getNome().compareToIgnoreCase(((Evento) o2).getNome());
+			return ((Evento) o1).getDescricao().compareToIgnoreCase(((Evento) o2).getDescricao());
 		}
 	}
 

@@ -94,6 +94,17 @@ public final class Mascara {
 		return mascara;
 	}
 
+	public static MaskFormatter getHora() {
+		MaskFormatter mascara = null;
+		try {
+			mascara = new MaskFormatter("##:##");
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		mascara.setPlaceholderCharacter('_');
+		return mascara;
+	}
+
 	public static MaskFormatter getFone() {
 		MaskFormatter mascara = null;
 		try {

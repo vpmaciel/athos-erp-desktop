@@ -12,7 +12,7 @@ import javax.swing.SpringLayout;
 
 import arquitetura.gui.FocusTabListener;
 import arquitetura.gui.Gui;
-import arquitetura.gui.GuiHandle;
+import arquitetura.gui.GuiGerenteEventos;
 import arquitetura.gui.TamanhoLowerCase;
 import arquitetura.gui.TamanhoUpperCase;
 import arquitetura.registro.ToolBar;
@@ -25,7 +25,7 @@ import erp.main.MainGerenteEventos;
 @SuppressWarnings("serial")
 public final class PanelCadastroFuncionario extends JPanel implements Gui {
 
-	private GuiHandle guiHandle;
+	private GuiGerenteEventos guiGerenteEventos;
 	private JComboBox<String> boxSexo;
 	private JTextField textFieldNome;
 	private JComboBox<String> boxEstadoCivil;
@@ -141,8 +141,8 @@ public final class PanelCadastroFuncionario extends JPanel implements Gui {
 	}
 
 	@Override
-	public GuiHandle getGuiGerenteEventos() {
-		return guiHandle;
+	public GuiGerenteEventos getGuiGerenteEventos() {
+		return guiGerenteEventos;
 	}
 
 	public JLabel getLabelCentroCusto() {
@@ -582,7 +582,7 @@ public final class PanelCadastroFuncionario extends JPanel implements Gui {
 
 	@Override
 	public void iniciarGuiGerenteEventos() {
-		guiHandle = new GuiHandle(this);
+		guiGerenteEventos = new GuiGerenteEventos(this);
 	}
 
 	@Override

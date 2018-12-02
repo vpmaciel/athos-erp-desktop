@@ -12,14 +12,14 @@ import javax.swing.WindowConstants;
 
 import arquitetura.gui.FocusTabListener;
 import arquitetura.gui.Gui;
-import arquitetura.gui.GuiHandle;
+import arquitetura.gui.GuiGerenteEventos;
 import arquitetura.gui.Imagem;
 
 @SuppressWarnings("serial")
 public final class FrameCadastroEvento extends JFrame implements Gui {
 
 	private EventoGerenteEventos eventoGerenteEventos;
-	private GuiHandle guiHandle;
+	private GuiGerenteEventos guiGerenteEventos;
 	private PanelCadastroEvento panelCadastroEvento;
 
 	public FrameCadastroEvento() {
@@ -41,8 +41,8 @@ public final class FrameCadastroEvento extends JFrame implements Gui {
 	}
 
 	@Override
-	public GuiHandle getGuiGerenteEventos() {
-		return guiHandle;
+	public GuiGerenteEventos getGuiGerenteEventos() {
+		return guiGerenteEventos;
 	}
 
 	public PanelCadastroEvento getPanelCadastroEvento() {
@@ -87,14 +87,14 @@ public final class FrameCadastroEvento extends JFrame implements Gui {
 
 	@Override
 	public void iniciarGuiGerenteEventos() {
-		guiHandle = new GuiHandle(this);
+		guiGerenteEventos = new GuiGerenteEventos(this);
 	}
 
 	@Override
 	public void iniciarGerenteEventos() {
 		eventoGerenteEventos = new EventoGerenteEventos();
 		addWindowListener(eventoGerenteEventos.new Frame());
-		panelCadastroEvento.getLabelEmpresa().addMouseListener(eventoGerenteEventos.new MostraFrameEmpresa());
+		panelCadastroEvento.getLabelTipoEvento().addMouseListener(eventoGerenteEventos.new MostraFrameEmpresa());
 		panelCadastroEvento.getToolBar().getButtonExcluiRegistro()
 				.addActionListener(eventoGerenteEventos.new ExcluiRegistro());
 		panelCadastroEvento.getToolBar().getButtonNovoFrame().addActionListener(eventoGerenteEventos.new NovoFrame());
@@ -127,7 +127,7 @@ public final class FrameCadastroEvento extends JFrame implements Gui {
 
 	@Override
 	public void limparGui() {
-		guiHandle.limparGui();
+		guiGerenteEventos.limparGui();
 	}
 
 	@Override

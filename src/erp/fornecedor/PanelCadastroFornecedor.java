@@ -8,7 +8,7 @@ import javax.swing.SpringLayout;
 
 import arquitetura.gui.FocusTabListener;
 import arquitetura.gui.Gui;
-import arquitetura.gui.GuiHandle;
+import arquitetura.gui.GuiGerenteEventos;
 import arquitetura.gui.TamanhoLowerCase;
 import arquitetura.gui.TamanhoUpperCase;
 import arquitetura.registro.ToolBar;
@@ -18,7 +18,7 @@ import arquitetura.util.SpringUtilities;
 public final class PanelCadastroFornecedor extends JPanel implements Gui {
 
 	private ToolBar toolBar;
-	private GuiHandle guiHandle;
+	private GuiGerenteEventos guiGerenteEventos;
 	private JTextField textFieldRamoAtividade;
 	private JTextField textFieldNomeFantasia;
 	private JTextField textFieldRazaoSocial;
@@ -84,8 +84,8 @@ public final class PanelCadastroFornecedor extends JPanel implements Gui {
 	}
 
 	@Override
-	public GuiHandle getGuiGerenteEventos() {
-		return guiHandle;
+	public GuiGerenteEventos getGuiGerenteEventos() {
+		return guiGerenteEventos;
 	}
 
 	public JTextField getTextFieldBairro() {
@@ -364,7 +364,7 @@ public final class PanelCadastroFornecedor extends JPanel implements Gui {
 
 	@Override
 	public void iniciarGuiGerenteEventos() {
-		guiHandle = new GuiHandle(this);
+		guiGerenteEventos = new GuiGerenteEventos(this);
 	}
 
 	@Override

@@ -1,4 +1,4 @@
-package erp.veiculo.veiculo;
+package erp.veiculo;
 
 import java.util.Collections;
 import java.util.List;
@@ -11,7 +11,7 @@ import javax.swing.SpringLayout;
 
 import arquitetura.gui.FocusTabListener;
 import arquitetura.gui.Gui;
-import arquitetura.gui.GuiHandle;
+import arquitetura.gui.GuiGerenteEventos;
 import arquitetura.gui.TamanhoLowerCase;
 import arquitetura.gui.TamanhoUpperCase;
 import arquitetura.registro.ToolBar;
@@ -27,7 +27,7 @@ import erp.veiculo.modelo.VeiculoModelo;
 public final class PanelCadastroVeiculo extends JPanel implements Gui {
 
 	private ToolBar toolBar;
-	private GuiHandle guiHandle;
+	private GuiGerenteEventos guiGerenteEventos;
 	private JLabel labelSubCategoria;
 	private JLabel labelCambio;
 	private JLabel labelNumeroMotor;
@@ -360,8 +360,8 @@ public final class PanelCadastroVeiculo extends JPanel implements Gui {
 	}
 
 	@Override
-	public GuiHandle getGuiGerenteEventos() {
-		return guiHandle;
+	public GuiGerenteEventos getGuiGerenteEventos() {
+		return guiGerenteEventos;
 	}
 
 	public JTextField getTextFieldAnoFabricacao() {
@@ -1467,7 +1467,7 @@ public final class PanelCadastroVeiculo extends JPanel implements Gui {
 
 	@Override
 	public void iniciarGuiGerenteEventos() {
-		guiHandle = new GuiHandle(this);
+		guiGerenteEventos = new GuiGerenteEventos(this);
 	}
 
 	@Override
@@ -1500,8 +1500,8 @@ public final class PanelCadastroVeiculo extends JPanel implements Gui {
 			this.boxCentroCusto.addItem(b);
 		}
 		if (!MainGerenteEventos.getFrameCadastroVeiculo().isShowing()
-				&& MainGerenteEventos.getFrameCadastroVeiculo().getVeiculoHandle().getVeiculo() != null) {
-			centroCusto = MainGerenteEventos.getFrameCadastroVeiculo().getVeiculoHandle().getVeiculo().getCentroCusto();
+				&& MainGerenteEventos.getFrameCadastroVeiculo().getVeiculoGerenteEventos().getVeiculo() != null) {
+			centroCusto = MainGerenteEventos.getFrameCadastroVeiculo().getVeiculoGerenteEventos().getVeiculo().getCentroCusto();
 			boxCentroCusto.setSelectedItem(centroCusto);
 		}
 	}

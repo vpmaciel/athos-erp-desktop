@@ -7,7 +7,7 @@ import javax.swing.SpringLayout;
 
 import arquitetura.gui.FocusTabListener;
 import arquitetura.gui.Gui;
-import arquitetura.gui.GuiHandle;
+import arquitetura.gui.GuiGerenteEventos;
 import arquitetura.gui.TamanhoUpperCase;
 import arquitetura.registro.ToolBar;
 import arquitetura.util.SpringUtilities;
@@ -20,7 +20,7 @@ public final class PanelCadastroBanco extends JPanel implements Gui {
 	private BancoGerenteEventos bancoGerenteEventos;
 	private JTextField textFieldCodigo;
 	private JTextField textFieldNome;
-	private GuiHandle guiHandle;
+	private GuiGerenteEventos guiGerenteEventos;
 	private JLabel labelCodigo;
 	private JLabel labelNome;
 	private ToolBar toolBar;
@@ -41,8 +41,8 @@ public final class PanelCadastroBanco extends JPanel implements Gui {
 	}
 
 	@Override
-	public GuiHandle getGuiGerenteEventos() {
-		return guiHandle;
+	public GuiGerenteEventos getGuiGerenteEventos() {
+		return guiGerenteEventos;
 	}
 
 	public JTextField getTextFieldCodigo() {
@@ -88,7 +88,7 @@ public final class PanelCadastroBanco extends JPanel implements Gui {
 
 	@Override
 	public void iniciarGuiGerenteEventos() {
-		guiHandle = new GuiHandle(this);
+		guiGerenteEventos = new GuiGerenteEventos(this);
 	}
 
 	@Override
@@ -106,7 +106,7 @@ public final class PanelCadastroBanco extends JPanel implements Gui {
 
 	@Override
 	public void limparGui() {
-		guiHandle.limparGui();
+		guiGerenteEventos.limparGui();
 	}
 
 	@Override

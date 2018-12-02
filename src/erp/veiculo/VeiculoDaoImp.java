@@ -1,6 +1,7 @@
-package erp.veiculo.veiculo;
+package erp.veiculo;
 
 import java.util.ArrayList;
+
 import java.util.Collection;
 import java.util.List;
 
@@ -39,7 +40,7 @@ final class VeiculoDaoImp implements VeiculoDao {
 		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
 		EntityTransaction tx = em.getTransaction();
 		tx.begin();
-		Query query = em.createQuery("from erp.veiculo.veiculo.Veiculo C order by C.modelo");
+		Query query = em.createQuery("from erp.veiculo.Veiculo C order by C.modelo");
 		@SuppressWarnings("unchecked")
 		List<Veiculo> list = query.getResultList();
 		tx.commit();

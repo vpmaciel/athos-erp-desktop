@@ -6,7 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.WindowConstants;
 
 import arquitetura.gui.Gui;
-import arquitetura.gui.GuiHandle;
+import arquitetura.gui.GuiGerenteEventos;
 
 @SuppressWarnings("serial")
 public final class FramePesquisaVeiculoMarca extends JFrame implements Gui {
@@ -26,7 +26,7 @@ public final class FramePesquisaVeiculoMarca extends JFrame implements Gui {
 	}
 
 	@Override
-	public GuiHandle getGuiGerenteEventos() {
+	public GuiGerenteEventos getGuiGerenteEventos() {
 		return null;
 	}
 

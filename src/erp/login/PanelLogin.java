@@ -11,7 +11,7 @@ import javax.swing.SpringLayout;
 
 import arquitetura.gui.FocusTabListener;
 import arquitetura.gui.Gui;
-import arquitetura.gui.GuiHandle;
+import arquitetura.gui.GuiGerenteEventos;
 import arquitetura.gui.TamanhoUpperCase;
 import arquitetura.util.SpringUtilities;
 
@@ -20,7 +20,7 @@ public final class PanelLogin extends JPanel implements Gui {
 
 	private JButton buttonEntrar;
 	private JPasswordField textFieldSenha;
-	private GuiHandle guiHandle;
+	private GuiGerenteEventos guiGerenteEventos;
 	private JLabel labelNome;
 	private JLabel labelSenha;
 	private JLabel labelEntrar;
@@ -49,8 +49,8 @@ public final class PanelLogin extends JPanel implements Gui {
 	}
 
 	@Override
-	public GuiHandle getGuiGerenteEventos() {
-		return guiHandle;
+	public GuiGerenteEventos getGuiGerenteEventos() {
+		return guiGerenteEventos;
 	}
 
 	public JTextField getTextFieldNome() {
@@ -101,7 +101,7 @@ public final class PanelLogin extends JPanel implements Gui {
 
 	@Override
 	public void iniciarGuiGerenteEventos() {
-		guiHandle = new GuiHandle(this);
+		guiGerenteEventos = new GuiGerenteEventos(this);
 	}
 
 	@Override

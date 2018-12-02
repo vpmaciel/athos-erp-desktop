@@ -4,7 +4,7 @@ public interface Gui {
 
 	void atualizarTable();
 
-	GuiHandle getGuiGerenteEventos();
+	GuiGerenteEventos getGuiGerenteEventos();
 
 	void iniciarFocusTabListener();
 

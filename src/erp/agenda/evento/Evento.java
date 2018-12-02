@@ -11,7 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.PersistenceContext;
 
-import erp.empresa.Empresa;
+import erp.agenda.evento.tipoevento.TipoEvento;
 
 @SuppressWarnings("serial")
 @PersistenceContext(unitName = "erp")
@@ -20,187 +20,78 @@ public class Evento implements Serializable {
 	@Id
 	@GeneratedValue
 	private Long id;
-	@Column(length = 19)
-	private String cnpj;
-	@Column(length = 14)
-	private String cpfNumero;
-	@Column(length = 15)
-	private String email;
+	@Column(length = 50)
+	private String descricao;
+	@Column(length = 10)
+	private String data;
+	@Column(length = 5)
+	private String horaInicio;
+	@Column(length = 5)
+	private String horaTermino;
 	@ManyToOne(cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
-	private Empresa empresa;
-	@Column(length = 16)
-	private String fax;
-	@Column(length = 16)
-	private String fone1;
-	@Column(length = 16)
-	private String fone2;
-	@Column(length = 50)
-	private String nome;
-	@Column(length = 15)
-	private String salario;
-	@Column(length = 9)
-	private String sexo;
-	@Column(length = 50)
-	private String pais;
-	@Column(length = 50)
-	private String estado;
-	@Column(length = 50)
-	private String cidade;
-	@Column(length = 50)
-	private String bairro;
-	@Column(length = 50)
-	private String logradouro;
-	@Column(length = 50)
-	private String complemento;
-	@Column(length = 15)
-	private String cep;
-
-	public String getBairro() {
-		return this.bairro;
-	}
-
-	public String getCep() {
-		return this.cep;
-	}
-
-	public String getCidade() {
-		return this.cidade;
-	}
-
-	public String getCnpj() {
-		return this.cnpj;
-	}
-
-	public String getComplemento() {
-		return this.complemento;
-	}
-
-	public String getCpfNumero() {
-		return this.cpfNumero;
-	}
-
-	public String getEmail() {
-		return this.email;
-	}
-
-	public Empresa getEmpresa() {
-		return this.empresa;
-	}
-
-	public String getEstado() {
-		return this.estado;
-	}
-
-	public String getFax() {
-		return this.fax;
-	}
-
-	public String getFone1() {
-		return this.fone1;
-	}
-
-	public String getFone2() {
-		return this.fone2;
-	}
+	private TipoEvento tipoEvento;
 
 	public Long getId() {
-		return this.id;
-	}
-
-	public String getLogradouro() {
-		return this.logradouro;
-	}
-
-	public String getNome() {
-		return this.nome;
-	}
-
-	public String getPais() {
-		return this.pais;
-	}
-
-	public String getSalario() {
-		return this.salario;
-	}
-
-	public String getSexo() {
-		return this.sexo;
-	}
-
-	public void setBairro(String bairro) {
-		this.bairro = bairro;
-	}
-
-	public void setCep(String cep) {
-		this.cep = cep;
-	}
-
-	public void setCidade(String cidade) {
-		this.cidade = cidade;
-	}
-
-	public void setCnpj(String cnpj) {
-		this.cnpj = cnpj;
-	}
-
-	public void setComplemento(String complemento) {
-		this.complemento = complemento;
-	}
-
-	public void setCpfNumero(String cpfNumero) {
-		this.cpfNumero = cpfNumero;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public void setEmpresa(Empresa empresa) {
-		this.empresa = empresa;
-	}
-
-	public void setEstado(String estado) {
-		this.estado = estado;
-	}
-
-	public void setFax(String fax) {
-		this.fax = fax;
-	}
-
-	public void setFone1(String fone1) {
-		this.fone1 = fone1;
-	}
-
-	public void setFone2(String fone2) {
-		this.fone2 = fone2;
+		return id;
 	}
 
 	public void setId(Long id) {
 		this.id = id;
 	}
 
-	public void setLogradouro(String logradouro) {
-		this.logradouro = logradouro;
+	public String getDescricao() {
+		return descricao;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
 	}
 
-	public void setPais(String pais) {
-		this.pais = pais;
+	public String getData() {
+		return data;
 	}
 
-	public void setSalario(String salario) {
-		this.salario = salario;
+	public void setData(String data) {
+		this.data = data;
 	}
 
-	public void setSexo(String sexo) {
-		this.sexo = sexo;
+	public String getHoraInicio() {
+		return horaInicio;
+	}
+
+	public void setHoraInicio(String horaInicio) {
+		this.horaInicio = horaInicio;
+	}
+
+	public String getHoraTermino() {
+		return horaTermino;
+	}
+
+	public void setHoraTermino(String horaTermino) {
+		this.horaTermino = horaTermino;
+	}
+
+	public TipoEvento getTipoEvento() {
+		return tipoEvento;
+	}
+
+	public void setTipoEvento(TipoEvento tipoEvento) {
+		this.tipoEvento = tipoEvento;
 	}
 
 	@Override
 	public String toString() {
-		return this.nome;
+		return this.descricao;
+	}
+
+	@Override
+	public boolean equals(Object object) {
+		if (!(object instanceof Evento)) {
+			return false;
+		}
+		if (((Evento) object).getId() == this.id) {
+			return true;
+		}
+		return false;
 	}
 }

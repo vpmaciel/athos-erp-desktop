@@ -24,6 +24,7 @@ import erp.agenda.recado.FrameCadastroRecado;
 import erp.agenda.recado.FramePesquisaRecado;
 import erp.banco.FrameCadastroBanco;
 import erp.banco.FramePesquisaBanco;
+import erp.calculadora.FrameCalculadora;
 import erp.cartorio.FrameCadastroCartorio;
 import erp.cartorio.FramePesquisaCartorio;
 import erp.centrocusto.FrameCadastroCentroCusto;
@@ -32,6 +33,7 @@ import erp.cliente.FrameCadastroCliente;
 import erp.cliente.FramePesquisaCliente;
 import erp.contador.FrameCadastroContador;
 import erp.contador.FramePesquisaContador;
+import erp.editor.FrameEditorTexto;
 import erp.empresa.FrameCadastroEmpresa;
 import erp.empresa.FramePesquisaEmpresa;
 import erp.fornecedor.FrameCadastroFornecedor;
@@ -45,14 +47,12 @@ import erp.sindicato.FrameCadastroSindicato;
 import erp.sindicato.FramePesquisaSindicato;
 import erp.usuario.FrameCadastroUsuario;
 import erp.usuario.FramePesquisaUsuario;
-import erp.utilitario.calculadora.FrameCalculadora;
-import erp.utilitario.editortexto.FrameEditorTexto;
+import erp.veiculo.FrameCadastroVeiculo;
+import erp.veiculo.FramePesquisaVeiculo;
 import erp.veiculo.marca.FrameCadastroVeiculoMarca;
 import erp.veiculo.marca.FramePesquisaVeiculoMarca;
 import erp.veiculo.modelo.FrameCadastroVeiculoModelo;
 import erp.veiculo.modelo.FramePesquisaVeiculoModelo;
-import erp.veiculo.veiculo.FrameCadastroVeiculo;
-import erp.veiculo.veiculo.FramePesquisaVeiculo;
 
 public final class MainGerenteEventos {
 

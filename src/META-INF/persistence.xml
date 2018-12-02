@@ -20,10 +20,10 @@
 		<class>erp.centrocusto.CentroCusto</class>
 		<class>erp.cartorio.Cartorio</class>
 		<class>erp.banco.Banco</class>
-		<class>erp.agenda.tarefa.Tarefa</class>
+		<class>erp.agenda.contato.Contato</class>
+		<class>erp.agenda.evento.tipoevento.TipoEvento</class>
+		<class>erp.agenda.evento.evento.Evento</class>
 		<class>erp.agenda.recado.Recado</class>
-		<class>erp.agenda.compromisso.Compromisso</class>
-		<class>erp.agenda.agenda.Agenda</class>
 		<properties>
 			<property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect"/>
 			<property name="hibernate.hbm2ddl.auto" value="update"/>

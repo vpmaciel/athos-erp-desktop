@@ -1,4 +1,4 @@
-package erp.veiculo.veiculo;
+package erp.veiculo;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

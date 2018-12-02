@@ -1,4 +1,4 @@
-package erp.veiculo.veiculo;
+package erp.veiculo;
 
 import java.util.Collection;
 

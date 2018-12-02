@@ -2,8 +2,6 @@ package erp.agenda.evento.tipoevento;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.LinkedList;
@@ -12,7 +10,6 @@ import java.util.List;
 import javax.swing.JOptionPane;
 
 import arquitetura.gui.Msg;
-import erp.empresa.Empresa;
 import erp.main.MainGerenteEventos;
 
 final class TipoEventoGerenteEventos {
@@ -128,18 +125,6 @@ final class TipoEventoGerenteEventos {
 		}
 	}
 
-	public class MostraFrameEmpresa extends MouseAdapter {
-
-		@Override
-		public void mouseClicked(MouseEvent event) {
-			if (event.getButton() == MouseEvent.BUTTON1) {
-				MainGerenteEventos.mostrarFrame(MainGerenteEventos.getFrameCadastroEmpresa());
-			} else {
-				MainGerenteEventos.getFrameCadastroEmpresa().reiniciarBox();
-			}
-		}
-	}
-
 	public class NovoFrame implements ActionListener {
 
 		@Override
@@ -213,40 +198,10 @@ final class TipoEventoGerenteEventos {
 			return;
 		}
 		getPanelCadastroTipoEvento().getTextFieldNome().setText(tipoEvento.getNome());
-		getPanelCadastroTipoEvento().getTextFieldSexo().setSelectedItem(tipoEvento.getSexo());
-		getPanelCadastroTipoEvento().getTextFieldEmail().setText(tipoEvento.getEmail());
-		getPanelCadastroTipoEvento().getTextFieldFax().setText(tipoEvento.getFax());
-		getPanelCadastroTipoEvento().getTextFieldFone1().setText(tipoEvento.getFone1());
-		getPanelCadastroTipoEvento().getTextFieldFone2().setText(tipoEvento.getFone2());
-		getPanelCadastroTipoEvento().getBoxEmpresa().setSelectedItem(tipoEvento.getEmpresa());
-		getPanelCadastroTipoEvento().getTextFieldBairro().setText(tipoEvento.getBairro());
-		getPanelCadastroTipoEvento().getTextFieldCep().setText(tipoEvento.getCep());
-		getPanelCadastroTipoEvento().getTextFieldCidade().setText(tipoEvento.getCidade());
-		getPanelCadastroTipoEvento().getTextFieldComplemento().setText(tipoEvento.getComplemento());
-		getPanelCadastroTipoEvento().getTextFieldEstado().setText(tipoEvento.getEstado());
-		getPanelCadastroTipoEvento().getTextFieldLogradouro().setText(tipoEvento.getLogradouro());
-		getPanelCadastroTipoEvento().getTextFieldPais().setText(tipoEvento.getPais());
-		getPanelCadastroTipoEvento().getTextFieldCNPJ().setText(tipoEvento.getCnpj());
-		getPanelCadastroTipoEvento().getTextFieldCPF().setText(tipoEvento.getCpfNumero());
 	}
 
 	public void atualizarObjeto() {
 		tipoEvento.setNome(getPanelCadastroTipoEvento().getTextFieldNome().getText());
-		tipoEvento.setSexo((String) getPanelCadastroTipoEvento().getTextFieldSexo().getSelectedItem());
-		tipoEvento.setEmail(getPanelCadastroTipoEvento().getTextFieldEmail().getText());
-		tipoEvento.setFax(getPanelCadastroTipoEvento().getTextFieldFax().getText());
-		tipoEvento.setFone1(getPanelCadastroTipoEvento().getTextFieldFone1().getText());
-		tipoEvento.setFone2(getPanelCadastroTipoEvento().getTextFieldFone2().getText());
-		tipoEvento.setEmpresa((Empresa) getPanelCadastroTipoEvento().getBoxEmpresa().getSelectedItem());
-		tipoEvento.setBairro(getPanelCadastroTipoEvento().getTextFieldBairro().getText());
-		tipoEvento.setCep(getPanelCadastroTipoEvento().getTextFieldCep().getText());
-		tipoEvento.setCidade(getPanelCadastroTipoEvento().getTextFieldCidade().getText());
-		tipoEvento.setComplemento(getPanelCadastroTipoEvento().getTextFieldComplemento().getText());
-		tipoEvento.setEstado(getPanelCadastroTipoEvento().getTextFieldEstado().getText());
-		tipoEvento.setLogradouro(getPanelCadastroTipoEvento().getTextFieldLogradouro().getText());
-		tipoEvento.setPais(getPanelCadastroTipoEvento().getTextFieldPais().getText());
-		tipoEvento.setCnpj(getPanelCadastroTipoEvento().getTextFieldCNPJ().getText());
-		tipoEvento.setCpfNumero(getPanelCadastroTipoEvento().getTextFieldCPF().getText());
 	}
 
 	public TipoEvento getEvento() {

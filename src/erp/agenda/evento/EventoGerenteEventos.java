@@ -12,7 +12,7 @@ import java.util.List;
 import javax.swing.JOptionPane;
 
 import arquitetura.gui.Msg;
-import erp.empresa.Empresa;
+import erp.agenda.evento.tipoevento.TipoEvento;
 import erp.main.MainGerenteEventos;
 
 final class EventoGerenteEventos {
@@ -146,7 +146,7 @@ final class EventoGerenteEventos {
 		public void actionPerformed(ActionEvent actionEvent) {
 			evento = new Evento();
 			getFrameCadastroEvento().limparGui();
-			getPanelCadastroEvento().getTextFieldNome().requestFocus();
+			getPanelCadastroEvento().getTextFieldDescricao().requestFocus();
 		}
 	}
 
@@ -186,9 +186,9 @@ final class EventoGerenteEventos {
 				if (mensagem != JOptionPane.YES_OPTION) {
 					return;
 				}
-				String nome = getPanelCadastroEvento().getTextFieldNome().getText();
+				String nome = getPanelCadastroEvento().getTextFieldDescricao().getText();
 				if (nome == null || nome.length() == 0) {
-					getPanelCadastroEvento().getTextFieldNome().requestFocus();
+					getPanelCadastroEvento().getTextFieldDescricao().requestFocus();
 					Msg.avisoCampoObrigatorio("Nome");
 					return;
 				}
@@ -197,7 +197,7 @@ final class EventoGerenteEventos {
 					EventoDaoFacade.salvarRegistro(evento);
 					evento = new Evento();
 					getFrameCadastroEvento().limparGui();
-					getPanelCadastroEvento().getTextFieldNome().requestFocus();
+					getPanelCadastroEvento().getTextFieldDescricao().requestFocus();
 					Msg.sucessoSalvarRegistro();
 				}
 			} catch (Exception e) {
@@ -213,41 +213,20 @@ final class EventoGerenteEventos {
 		if (evento == null) {
 			return;
 		}
-		getPanelCadastroEvento().getTextFieldNome().setText(evento.getNome());
-		getPanelCadastroEvento().getTextFieldSexo().setSelectedItem(evento.getSexo());
-		getPanelCadastroEvento().getTextFieldEmail().setText(evento.getEmail());
-		getPanelCadastroEvento().getTextFieldFax().setText(evento.getFax());
-		getPanelCadastroEvento().getTextFieldFone1().setText(evento.getFone1());
-		getPanelCadastroEvento().getTextFieldFone2().setText(evento.getFone2());
-		getPanelCadastroEvento().getBoxEmpresa().setSelectedItem(evento.getEmpresa());
-		getPanelCadastroEvento().getTextFieldBairro().setText(evento.getBairro());
-		getPanelCadastroEvento().getTextFieldCep().setText(evento.getCep());
-		getPanelCadastroEvento().getTextFieldCidade().setText(evento.getCidade());
-		getPanelCadastroEvento().getTextFieldComplemento().setText(evento.getComplemento());
-		getPanelCadastroEvento().getTextFieldEstado().setText(evento.getEstado());
-		getPanelCadastroEvento().getTextFieldLogradouro().setText(evento.getLogradouro());
-		getPanelCadastroEvento().getTextFieldPais().setText(evento.getPais());
-		getPanelCadastroEvento().getTextFieldCNPJ().setText(evento.getCnpj());
-		getPanelCadastroEvento().getTextFieldCPF().setText(evento.getCpfNumero());
+
+		getPanelCadastroEvento().getBoxTipoEvento().setSelectedItem(evento.getTipoEvento());
+		getPanelCadastroEvento().getTextFieldDescricao().setText(evento.getDescricao());
+		getPanelCadastroEvento().getTextFieldData().setText(evento.getData());
+		getPanelCadastroEvento().getTextFieldHoraTermino().setText(evento.getHoraTermino());
+		getPanelCadastroEvento().getTextFieldHoraInicio().setText(evento.getHoraInicio());
 	}
 
 	public void atualizarObjeto() {
-		evento.setNome(getPanelCadastroEvento().getTextFieldNome().getText());
-		evento.setSexo((String) getPanelCadastroEvento().getTextFieldSexo().getSelectedItem());
-		evento.setEmail(getPanelCadastroEvento().getTextFieldEmail().getText());
-		evento.setFax(getPanelCadastroEvento().getTextFieldFax().getText());
-		evento.setFone1(getPanelCadastroEvento().getTextFieldFone1().getText());
-		evento.setFone2(getPanelCadastroEvento().getTextFieldFone2().getText());
-		evento.setEmpresa((Empresa) getPanelCadastroEvento().getBoxEmpresa().getSelectedItem());
-		evento.setBairro(getPanelCadastroEvento().getTextFieldBairro().getText());
-		evento.setCep(getPanelCadastroEvento().getTextFieldCep().getText());
-		evento.setCidade(getPanelCadastroEvento().getTextFieldCidade().getText());
-		evento.setComplemento(getPanelCadastroEvento().getTextFieldComplemento().getText());
-		evento.setEstado(getPanelCadastroEvento().getTextFieldEstado().getText());
-		evento.setLogradouro(getPanelCadastroEvento().getTextFieldLogradouro().getText());
-		evento.setPais(getPanelCadastroEvento().getTextFieldPais().getText());
-		evento.setCnpj(getPanelCadastroEvento().getTextFieldCNPJ().getText());
-		evento.setCpfNumero(getPanelCadastroEvento().getTextFieldCPF().getText());
+		evento.setTipoEvento((TipoEvento) getPanelCadastroEvento().getBoxTipoEvento().getSelectedItem());
+		evento.setDescricao(getPanelCadastroEvento().getTextFieldDescricao().getText());
+		evento.setData(getPanelCadastroEvento().getTextFieldData().getText());
+		evento.setHoraTermino(getPanelCadastroEvento().getTextFieldHoraTermino().getText());
+		evento.setHoraInicio(getPanelCadastroEvento().getTextFieldHoraInicio().getText());
 	}
 
 	public Evento getEvento() {

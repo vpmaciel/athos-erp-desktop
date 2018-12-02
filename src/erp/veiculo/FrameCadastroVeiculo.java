@@ -1,4 +1,4 @@
-package erp.veiculo.veiculo;
+package erp.veiculo;
 
 import java.awt.Dimension;
 import java.awt.KeyboardFocusManager;
@@ -12,14 +12,14 @@ import javax.swing.WindowConstants;
 
 import arquitetura.gui.FocusTabListener;
 import arquitetura.gui.Gui;
-import arquitetura.gui.GuiHandle;
+import arquitetura.gui.GuiGerenteEventos;
 import arquitetura.gui.Imagem;
 
 @SuppressWarnings("serial")
 public final class FrameCadastroVeiculo extends JFrame implements Gui {
 
 	private VeiculoGerenteEventos veiculoGerenteEventos;
-	private GuiHandle guiHandle;
+	private GuiGerenteEventos guiGerenteEventos;
 	private PanelCadastroVeiculo panelCadastroVeiculo;
 
 	public FrameCadastroVeiculo() {
@@ -37,15 +37,15 @@ public final class FrameCadastroVeiculo extends JFrame implements Gui {
 	}
 
 	@Override
-	public GuiHandle getGuiGerenteEventos() {
-		return guiHandle;
+	public GuiGerenteEventos getGuiGerenteEventos() {
+		return guiGerenteEventos;
 	}
 
 	public PanelCadastroVeiculo getPanelCadastroVeiculo() {
 		return panelCadastroVeiculo;
 	}
 
-	public VeiculoGerenteEventos getVeiculoHandle() {
+	public VeiculoGerenteEventos getVeiculoGerenteEventos() {
 		return veiculoGerenteEventos;
 	}
 
@@ -87,7 +87,7 @@ public final class FrameCadastroVeiculo extends JFrame implements Gui {
 
 	@Override
 	public void iniciarGuiGerenteEventos() {
-		guiHandle = new GuiHandle(this);
+		guiGerenteEventos = new GuiGerenteEventos(this);
 	}
 
 	@Override
@@ -125,7 +125,7 @@ public final class FrameCadastroVeiculo extends JFrame implements Gui {
 
 	@Override
 	public void limparGui() {
-		guiHandle.limparGui();
+		guiGerenteEventos.limparGui();
 	}
 
 	@Override

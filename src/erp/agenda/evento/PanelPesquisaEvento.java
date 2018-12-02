@@ -19,12 +19,12 @@ import arquitetura.gui.Tabela;
 public final class PanelPesquisaEvento extends JPanel {
 
 	private final EventoTableModel agenciaTableModel;
-	List<Evento> agendaList = null;
+	List<Evento> eventoList = null;
 	private final JTable table;
 
 	public PanelPesquisaEvento() {
-		agendaList = new LinkedList<>();
-		agenciaTableModel = new EventoTableModel(agendaList);
+		eventoList = new LinkedList<>();
+		agenciaTableModel = new EventoTableModel(eventoList);
 
 		table = new JTable();
 		table.setModel(agenciaTableModel);
@@ -63,13 +63,13 @@ public final class PanelPesquisaEvento extends JPanel {
 	}
 
 	public int pesquisarRegistroAgenda(Evento evento) {
-		agendaList = new LinkedList<>();
+		eventoList = new LinkedList<>();
 		try {
-			agendaList = new LinkedList<>(EventoDaoFacade.pesquisarRegistro(evento));
+			eventoList = new LinkedList<>(EventoDaoFacade.pesquisarRegistro(evento));
 		} catch (Exception e) {
 			System.out.println(e);
 		}
-		atualizarGui(agendaList);
-		return agendaList.size();
+		atualizarGui(eventoList);
+		return eventoList.size();
 	}
 }

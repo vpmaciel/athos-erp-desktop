@@ -27,23 +27,11 @@ public class EventoRelatorio {
 
 			for (Evento evento : eventos) {
 				document.newPage();
-				document.add(new Paragraph("NOME: " + evento.getNome()));
-				document.add(new Paragraph("SEXO: " + evento.getSexo()));
-				document.add(new Paragraph("CNPJ: " + evento.getCnpj()));
-				document.add(new Paragraph("CPF: " + evento.getCpfNumero()));
-				document.add(new Paragraph("SALÁRIO: " + evento.getSalario()));
-				document.add(new Paragraph("EMPRESA: " + evento.getEmpresa()));
-				document.add(new Paragraph("FAX: " + evento.getFax()));
-				document.add(new Paragraph("TELEFONE: " + evento.getFone1()));
-				document.add(new Paragraph("TELEFONE: " + evento.getFone2()));
-				document.add(new Paragraph("E-MAIL: " + evento.getEmail()));
-				document.add(new Paragraph("PAÍS: " + evento.getPais()));
-				document.add(new Paragraph("ESTADO: " + evento.getEstado()));
-				document.add(new Paragraph("CIDADE: " + evento.getCidade()));
-				document.add(new Paragraph("BAIRRO: " + evento.getBairro()));
-				document.add(new Paragraph("LOGRADOURO: " + evento.getLogradouro()));
-				document.add(new Paragraph("COMPLEMENTO: " + evento.getComplemento()));
-				document.add(new Paragraph("CEP: " + evento.getCep()));
+				document.add(new Paragraph("DATA: " + evento.getData()));
+				document.add(new Paragraph("HORA INÍCIO: " + evento.getHoraInicio()));
+				document.add(new Paragraph("HORA TÉRMINO: " + evento.getHoraTermino()));
+				document.add(new Paragraph("TIPO DE EVENTO: " + evento.getTipoEvento()));
+				document.add(new Paragraph("REUNIÃO: " + evento.getDescricao()));
 			}
 		} catch (DocumentException | FileNotFoundException e) {
 			System.err.println(e.getMessage());
