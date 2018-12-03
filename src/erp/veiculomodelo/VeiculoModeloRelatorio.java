@@ -1,4 +1,4 @@
-package erp.veiculo.modelo;
+package erp.veiculomodelo;
 
 import java.io.File;
 import java.io.FileNotFoundException;

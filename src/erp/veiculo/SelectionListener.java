@@ -5,9 +5,9 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.TableModel;
 
-import erp.main.MainGerenteEventos;
+import erp.main.MainControlador;
 
-class SelectionListener implements ListSelectionListener {
+public final class SelectionListener implements ListSelectionListener {
 
 	JTable table;
 
@@ -28,11 +28,11 @@ class SelectionListener implements ListSelectionListener {
 					Veiculo veiculo = VeiculoDaoFacade.getRegistro(veiculoPesquisaRegistro);
 					VeiculoTableModel veiculoTableModel = (VeiculoTableModel) table.getModel();
 					veiculoTableModel.getVeiculo(table.getSelectedRow());
-					MainGerenteEventos.mostrarFrame(MainGerenteEventos.getFrameCadastroVeiculo());
-					MainGerenteEventos.getFrameCadastroVeiculo().getVeiculoGerenteEventos().setVeiculo(veiculo);
-					MainGerenteEventos.getFrameCadastroVeiculo().getVeiculoGerenteEventos().atualizarGui();
-					MainGerenteEventos.getFrameCadastroVeiculo().setFocusable(true);
-					MainGerenteEventos.getFramePesquisaVeiculo().setVisible(false);
+					MainControlador.mostrarFrame(MainControlador.getFrameCadastroVeiculo());
+					MainControlador.getFrameCadastroVeiculo().getVeiculoGerenteEventos().setVeiculo(veiculo);
+					MainControlador.getFrameCadastroVeiculo().getVeiculoGerenteEventos().atualizarGui();
+					MainControlador.getFrameCadastroVeiculo().setFocusable(true);
+					MainControlador.getFramePesquisaVeiculo().setVisible(false);
 				}
 			}
 		}

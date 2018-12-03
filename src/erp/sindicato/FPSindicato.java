@@ -10,11 +10,11 @@ import arquitetura.gui.GuiGerenteEventos;
 import arquitetura.gui.Imagem;
 
 @SuppressWarnings("serial")
-public final class FramePesquisaSindicato extends JFrame implements Gui {
+public final class FPSindicato extends JFrame implements Gui {
 
-	private PanelPesquisaSindicato PanelPesquisaSindicato;
+	private PPSindicato PPSindicato;
 
-	public FramePesquisaSindicato() {
+	public FPSindicato() {
 		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		iniciarLayout();
 		iniciarGui();
@@ -31,8 +31,8 @@ public final class FramePesquisaSindicato extends JFrame implements Gui {
 		return null;
 	}
 
-	public PanelPesquisaSindicato getPanelPesquisaSindicato() {
-		return PanelPesquisaSindicato;
+	public PPSindicato getPanelPesquisaSindicato() {
+		return PPSindicato;
 	}
 
 	@Override
@@ -44,8 +44,8 @@ public final class FramePesquisaSindicato extends JFrame implements Gui {
 	public void iniciarGui() {
 		setTitle("SINDICATO");
 		setIconImage(Imagem.getLogoTipoImage());
-		PanelPesquisaSindicato = new PanelPesquisaSindicato();
-		setContentPane(PanelPesquisaSindicato);
+		PPSindicato = new PPSindicato();
+		setContentPane(PPSindicato);
 	}
 
 	@Override
@@ -55,7 +55,7 @@ public final class FramePesquisaSindicato extends JFrame implements Gui {
 
 	@Override
 	public void iniciarGerenteEventos() {
-		PanelPesquisaSindicato.iniciarHandle();
+		PPSindicato.iniciarHandle();
 	}
 
 	@Override

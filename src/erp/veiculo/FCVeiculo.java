@@ -16,13 +16,13 @@ import arquitetura.gui.GuiGerenteEventos;
 import arquitetura.gui.Imagem;
 
 @SuppressWarnings("serial")
-public final class FrameCadastroVeiculo extends JFrame implements Gui {
+public final class FCVeiculo extends JFrame implements Gui {
 
-	private VeiculoGerenteEventos veiculoGerenteEventos;
+	private VeiculoControlador veiculoControlador;
 	private GuiGerenteEventos guiGerenteEventos;
-	private PanelCadastroVeiculo panelCadastroVeiculo;
+	private PCVeiculo pCVeiculo;
 
-	public FrameCadastroVeiculo() {
+	public FCVeiculo() {
 		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		iniciarLayout();
 		iniciarGui();
@@ -41,12 +41,12 @@ public final class FrameCadastroVeiculo extends JFrame implements Gui {
 		return guiGerenteEventos;
 	}
 
-	public PanelCadastroVeiculo getPanelCadastroVeiculo() {
-		return panelCadastroVeiculo;
+	public PCVeiculo getPanelCadastroVeiculo() {
+		return pCVeiculo;
 	}
 
-	public VeiculoGerenteEventos getVeiculoGerenteEventos() {
-		return veiculoGerenteEventos;
+	public VeiculoControlador getVeiculoGerenteEventos() {
+		return veiculoControlador;
 	}
 
 	@Override
@@ -59,10 +59,10 @@ public final class FrameCadastroVeiculo extends JFrame implements Gui {
 	public void iniciarGui() {
 		setTitle("VEÍCULO");
 		setIconImage(Imagem.getLogoTipoImage());
-		panelCadastroVeiculo = new PanelCadastroVeiculo();
-		panelCadastroVeiculo.setOpaque(true); // content panes must be opaque
+		pCVeiculo = new PCVeiculo();
+		pCVeiculo.setOpaque(true); // content panes must be opaque
 
-		final JScrollPane scrollPane = new JScrollPane(panelCadastroVeiculo);
+		final JScrollPane scrollPane = new JScrollPane(pCVeiculo);
 
 		KeyboardFocusManager.getCurrentKeyboardFocusManager().addPropertyChangeListener("focusOwner",
 				new PropertyChangeListener() {
@@ -73,8 +73,8 @@ public final class FrameCadastroVeiculo extends JFrame implements Gui {
 							return;
 						}
 						JComponent focused = (JComponent) evt.getNewValue();
-						if (panelCadastroVeiculo.isAncestorOf(focused)) {
-							panelCadastroVeiculo.scrollRectToVisible(focused.getBounds());
+						if (pCVeiculo.isAncestorOf(focused)) {
+							pCVeiculo.scrollRectToVisible(focused.getBounds());
 						}
 					}
 				});
@@ -92,22 +92,22 @@ public final class FrameCadastroVeiculo extends JFrame implements Gui {
 
 	@Override
 	public void iniciarGerenteEventos() {
-		veiculoGerenteEventos = new VeiculoGerenteEventos();
-		addWindowListener(veiculoGerenteEventos.new Frame());
-		panelCadastroVeiculo.getToolBar().getButtonExcluiRegistro()
-				.addActionListener(veiculoGerenteEventos.new ExcluiRegistro());
-		panelCadastroVeiculo.getToolBar().getButtonNovoFrame().addActionListener(veiculoGerenteEventos.new NovoFrame());
-		panelCadastroVeiculo.getToolBar().getButtonPesquisaRegistro()
-				.addActionListener(veiculoGerenteEventos.new PesquisaRegistro());
-		panelCadastroVeiculo.getToolBar().getButtonImprimiUnicoRegistro()
-				.addActionListener(veiculoGerenteEventos.new ImprimiUnicoRegistro());
-		panelCadastroVeiculo.getToolBar().getButtonImprimiTodosRegistros()
-				.addActionListener(veiculoGerenteEventos.new ImprimiTodosRegistros());
-		panelCadastroVeiculo.getToolBar().getButtonSalvar().addActionListener(veiculoGerenteEventos.new Salva());
-		panelCadastroVeiculo.getToolBar().getButtonFechar().addActionListener(veiculoGerenteEventos.new FechaJanela());
-		panelCadastroVeiculo.getToolBar().getButtonSair().addActionListener(veiculoGerenteEventos.new SaidaSistema());
-		panelCadastroVeiculo.getToolBar().getButtonAjuda().addActionListener(veiculoGerenteEventos.new Ajuda());
-		panelCadastroVeiculo.getToolBar().getButtonHome().addActionListener(veiculoGerenteEventos.new Home());
+		veiculoControlador = new VeiculoControlador();
+		addWindowListener(veiculoControlador.new Frame());
+		pCVeiculo.getToolBar().getButtonExcluiRegistro()
+				.addActionListener(veiculoControlador.new ExcluiRegistro());
+		pCVeiculo.getToolBar().getButtonNovoFrame().addActionListener(veiculoControlador.new NovoFrame());
+		pCVeiculo.getToolBar().getButtonPesquisaRegistro()
+				.addActionListener(veiculoControlador.new PesquisaRegistro());
+		pCVeiculo.getToolBar().getButtonImprimiUnicoRegistro()
+				.addActionListener(veiculoControlador.new ImprimiUnicoRegistro());
+		pCVeiculo.getToolBar().getButtonImprimiTodosRegistros()
+				.addActionListener(veiculoControlador.new ImprimiTodosRegistros());
+		pCVeiculo.getToolBar().getButtonSalvar().addActionListener(veiculoControlador.new Salva());
+		pCVeiculo.getToolBar().getButtonFechar().addActionListener(veiculoControlador.new FechaJanela());
+		pCVeiculo.getToolBar().getButtonSair().addActionListener(veiculoControlador.new SaidaSistema());
+		pCVeiculo.getToolBar().getButtonAjuda().addActionListener(veiculoControlador.new Ajuda());
+		pCVeiculo.getToolBar().getButtonHome().addActionListener(veiculoControlador.new Home());
 	}
 
 	@Override

@@ -17,21 +17,21 @@ import arquitetura.gui.Imagem;
 import erp.usuario.Usuario;
 
 @SuppressWarnings("serial")
-public final class FrameLogin extends JFrame implements Gui {
+public final class FLogin extends JFrame implements Gui {
 
 	private static Usuario usuario;
 	private LoginGerenteEventos loginGerenteEventos;
-	private PanelLogin panelLogin;
+	private PLogin pLogin;
 
 	public static Usuario getUsuario() {
 		return usuario;
 	}
 
 	public static void setUsuario(Usuario usuario) {
-		FrameLogin.usuario = usuario;
+		FLogin.usuario = usuario;
 	}
 
-	public FrameLogin() {
+	public FLogin() {
 		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		iniciarLayout();
 		iniciarGui();
@@ -52,12 +52,12 @@ public final class FrameLogin extends JFrame implements Gui {
 		return loginGerenteEventos;
 	}
 
-	public PanelLogin getPanelInternalFrameLogin() {
-		return panelLogin;
+	public PLogin getPanelInternalFrameLogin() {
+		return pLogin;
 	}
 
-	public PanelLogin getPanelLogin() {
-		return panelLogin;
+	public PLogin getPanelLogin() {
+		return pLogin;
 	}
 
 	@Override
@@ -70,10 +70,10 @@ public final class FrameLogin extends JFrame implements Gui {
 	public void iniciarGui() {
 		setTitle("LOGIN");
 		setIconImage(Imagem.getLogoTipoImage());
-		panelLogin = new PanelLogin();
-		panelLogin.setOpaque(true); // content panes must be opaque
+		pLogin = new PLogin();
+		pLogin.setOpaque(true); // content panes must be opaque
 
-		final JScrollPane scrollPane = new JScrollPane(panelLogin);
+		final JScrollPane scrollPane = new JScrollPane(pLogin);
 
 		KeyboardFocusManager.getCurrentKeyboardFocusManager().addPropertyChangeListener("focusOwner",
 				new PropertyChangeListener() {
@@ -84,8 +84,8 @@ public final class FrameLogin extends JFrame implements Gui {
 							return;
 						}
 						JComponent focused = (JComponent) evt.getNewValue();
-						if (panelLogin.isAncestorOf(focused)) {
-							panelLogin.scrollRectToVisible(focused.getBounds());
+						if (pLogin.isAncestorOf(focused)) {
+							pLogin.scrollRectToVisible(focused.getBounds());
 						}
 					}
 				});
@@ -104,9 +104,9 @@ public final class FrameLogin extends JFrame implements Gui {
 	public void iniciarGerenteEventos() {
 		loginGerenteEventos = new LoginGerenteEventos();
 		addWindowListener(loginGerenteEventos.new Frame());
-		panelLogin.getTextFieldSenha().addActionListener(loginGerenteEventos.new ButtonEntrarHandle());
-		panelLogin.getTextFieldSenha().addKeyListener(loginGerenteEventos.new ButtonEntrarTecladoHandle());
-		panelLogin.getButtonEntrar().addActionListener(loginGerenteEventos.new ButtonEntrarHandle());
+		pLogin.getTextFieldSenha().addActionListener(loginGerenteEventos.new ButtonEntrarHandle());
+		pLogin.getTextFieldSenha().addKeyListener(loginGerenteEventos.new ButtonEntrarTecladoHandle());
+		pLogin.getButtonEntrar().addActionListener(loginGerenteEventos.new ButtonEntrarHandle());
 
 	}
 

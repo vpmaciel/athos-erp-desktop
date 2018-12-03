@@ -10,11 +10,11 @@ import arquitetura.gui.GuiGerenteEventos;
 import arquitetura.gui.Imagem;
 
 @SuppressWarnings("serial")
-public final class FramePesquisaContato extends JFrame implements Gui {
+public final class FPContato extends JFrame implements Gui {
 
-	private PanelPesquisaContato PanelPesquisaContato;
+	private PPContato PPContato;
 
-	public FramePesquisaContato() {
+	public FPContato() {
 		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		iniciarLayout();
 		iniciarGui();
@@ -31,8 +31,8 @@ public final class FramePesquisaContato extends JFrame implements Gui {
 		return null;
 	}
 
-	public PanelPesquisaContato getPanelPesquisaContato() {
-		return PanelPesquisaContato;
+	public PPContato getPanelPesquisaContato() {
+		return PPContato;
 	}
 
 	@Override
@@ -44,8 +44,8 @@ public final class FramePesquisaContato extends JFrame implements Gui {
 	public void iniciarGui() {
 		setTitle("CONTATO");
 		setIconImage(Imagem.getLogoTipoImage());
-		PanelPesquisaContato = new PanelPesquisaContato();
-		setContentPane(PanelPesquisaContato);
+		PPContato = new PPContato();
+		setContentPane(PPContato);
 	}
 
 	@Override
@@ -55,7 +55,7 @@ public final class FramePesquisaContato extends JFrame implements Gui {
 
 	@Override
 	public void iniciarGerenteEventos() {
-		PanelPesquisaContato.iniciarHandle();
+		PPContato.iniciarHandle();
 	}
 
 	@Override

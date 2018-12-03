@@ -12,9 +12,9 @@ import java.util.List;
 import javax.swing.JOptionPane;
 
 import arquitetura.gui.Msg;
-import erp.main.MainGerenteEventos;
+import erp.main.MainControlador;
 
-final class ImovelGerenteEventos {
+final class ImovelControlador {
 
 	public class Ajuda implements ActionListener {
 
@@ -80,7 +80,7 @@ final class ImovelGerenteEventos {
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
 			try {
-				MainGerenteEventos.mostrarFrame(MainGerenteEventos.getFrameMain());
+				MainControlador.mostrarFrame(MainControlador.getFrameMain());
 			} catch (Exception e) {
 				System.out.println(e);
 			}
@@ -130,7 +130,7 @@ final class ImovelGerenteEventos {
 		@Override
 		public void mouseClicked(MouseEvent event) {
 			if (event.getButton() == MouseEvent.BUTTON1) {
-				MainGerenteEventos.mostrarFrame(MainGerenteEventos.getFrameCadastroImovel());
+				MainControlador.mostrarFrame(MainControlador.getFrameCadastroImovel());
 			} else {
 				getFrameCadastroImovel().reiniciarBox();
 			}
@@ -152,9 +152,9 @@ final class ImovelGerenteEventos {
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
 			imovel = new Imovel();
-			ImovelGerenteEventos.this.atualizarObjeto();
+			ImovelControlador.this.atualizarObjeto();
 			getPanelPesquisaImovel().pesquisarRegistroImovel(imovel);
-			MainGerenteEventos.mostrarFrame(MainGerenteEventos.getFramePesquisaImovel());
+			MainControlador.mostrarFrame(MainControlador.getFramePesquisaImovel());
 		}
 	}
 
@@ -189,7 +189,7 @@ final class ImovelGerenteEventos {
 					return;
 				}
 				if (mensagem == JOptionPane.YES_OPTION) {
-					ImovelGerenteEventos.this.atualizarObjeto();
+					ImovelControlador.this.atualizarObjeto();
 					ImovelDaoFacade.salvarRegistro(imovel);
 					imovel = new Imovel();
 					getFrameCadastroImovel().limparGui();
@@ -267,19 +267,19 @@ final class ImovelGerenteEventos {
 		this.imovel = imovel;
 	}
 
-	public FrameCadastroImovel getFrameCadastroImovel() {
-		return MainGerenteEventos.getFrameCadastroImovel();
+	public FCImovel getFrameCadastroImovel() {
+		return MainControlador.getFrameCadastroImovel();
 	}
 
-	public PanelCadastroImovel getPanelCadastroImovel() {
-		return MainGerenteEventos.getFrameCadastroImovel().getPanelCadastroImovel();
+	public PCImovel getPanelCadastroImovel() {
+		return MainControlador.getFrameCadastroImovel().getPanelCadastroImovel();
 	}
 
-	public FramePesquisaImovel getFramePesquisaImovel() {
-		return MainGerenteEventos.getFramePesquisaImovel();
+	public FPImovel getFramePesquisaImovel() {
+		return MainControlador.getFramePesquisaImovel();
 	}
 
-	public PanelPesquisaImovel getPanelPesquisaImovel() {
-		return MainGerenteEventos.getFramePesquisaImovel().getPanelPesquisaImovel();
+	public PPImovel getPanelPesquisaImovel() {
+		return MainControlador.getFramePesquisaImovel().getPanelPesquisaImovel();
 	}
 }

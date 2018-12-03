@@ -13,9 +13,9 @@ import javax.swing.JOptionPane;
 
 import arquitetura.gui.Msg;
 import erp.centrocusto.CentroCusto;
-import erp.main.MainGerenteEventos;
+import erp.main.MainControlador;
 
-final class FuncionarioGerenteEventos {
+final class FuncionarioControlador {
 
 	public class Ajuda implements ActionListener {
 
@@ -51,7 +51,7 @@ final class FuncionarioGerenteEventos {
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
 			try {
-				MainGerenteEventos.getFrameCadastroFuncionario().setVisible(false);
+				MainControlador.getFrameCadastroFuncionario().setVisible(false);
 			} catch (Exception e) {
 				System.out.println(e);
 			}
@@ -81,7 +81,7 @@ final class FuncionarioGerenteEventos {
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
 			try {
-				MainGerenteEventos.mostrarFrame(MainGerenteEventos.getFrameMain());
+				MainControlador.mostrarFrame(MainControlador.getFrameMain());
 			} catch (Exception e) {
 				System.out.println(e);
 			}
@@ -131,9 +131,9 @@ final class FuncionarioGerenteEventos {
 		@Override
 		public void mouseClicked(MouseEvent event) {
 			if (event.getSource() == getPanelCadastroFuncionario().getLabelCentroCusto()) {
-				MainGerenteEventos.mostrarFrame(MainGerenteEventos.getFrameCadastroCentroCusto());
+				MainControlador.mostrarFrame(MainControlador.getFrameCadastroCentroCusto());
 			} else {
-				MainGerenteEventos.getFrameCadastroCentroCusto().reiniciarBox();
+				MainControlador.getFrameCadastroCentroCusto().reiniciarBox();
 			}
 		}
 	}
@@ -143,7 +143,7 @@ final class FuncionarioGerenteEventos {
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
 			funcionario = new Funcionario();
-			MainGerenteEventos.getFrameCadastroFuncionario().limparGui();
+			MainControlador.getFrameCadastroFuncionario().limparGui();
 			getPanelCadastroFuncionario().getTextFieldNome().requestFocus();
 		}
 	}
@@ -153,9 +153,9 @@ final class FuncionarioGerenteEventos {
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
 			funcionario = new Funcionario();
-			FuncionarioGerenteEventos.this.atualizarObjeto();
+			FuncionarioControlador.this.atualizarObjeto();
 			getPanelPesquisaFuncionario().pesquisarRegistroFuncionario(funcionario);
-			MainGerenteEventos.mostrarFrame(getFramePesquisaFuncionario());
+			MainControlador.mostrarFrame(getFramePesquisaFuncionario());
 		}
 	}
 
@@ -297,19 +297,19 @@ final class FuncionarioGerenteEventos {
 		this.funcionario = funcionario;
 	}
 
-	public FrameCadastroFuncionario getFrameCadastroFuncionario() {
-		return MainGerenteEventos.getFrameCadastroFuncionario();
+	public FCFuncionario getFrameCadastroFuncionario() {
+		return MainControlador.getFrameCadastroFuncionario();
 	}
 
-	public PanelCadastroFuncionario getPanelCadastroFuncionario() {
-		return MainGerenteEventos.getFrameCadastroFuncionario().getPanelCadastroFuncionario();
+	public PCFuncionario getPanelCadastroFuncionario() {
+		return MainControlador.getFrameCadastroFuncionario().getPanelCadastroFuncionario();
 	}
 
-	public FramePesquisaFuncionario getFramePesquisaFuncionario() {
-		return MainGerenteEventos.getFramePesquisaFuncionario();
+	public FPFuncionario getFramePesquisaFuncionario() {
+		return MainControlador.getFramePesquisaFuncionario();
 	}
 
-	public PanelPesquisaFuncionario getPanelPesquisaFuncionario() {
-		return MainGerenteEventos.getFramePesquisaFuncionario().getPanelPesquisaFuncionario();
+	public PPFuncionario getPanelPesquisaFuncionario() {
+		return MainControlador.getFramePesquisaFuncionario().getPanelPesquisaFuncionario();
 	}
 }

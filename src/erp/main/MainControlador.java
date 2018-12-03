@@ -14,47 +14,47 @@ import javax.swing.JOptionPane;
 
 import arquitetura.AOP;
 import arquitetura.gui.Msg;
-import erp.agenda.contato.FrameCadastroContato;
-import erp.agenda.contato.FramePesquisaContato;
-import erp.agenda.evento.FrameCadastroEvento;
-import erp.agenda.evento.FramePesquisaEvento;
-import erp.agenda.evento.tipoevento.FrameCadastroTipoEvento;
-import erp.agenda.evento.tipoevento.FramePesquisaTipoEvento;
-import erp.agenda.recado.FrameCadastroRecado;
-import erp.agenda.recado.FramePesquisaRecado;
-import erp.banco.FrameCadastroBanco;
-import erp.banco.FramePesquisaBanco;
+import erp.agenda.contato.FCContato;
+import erp.agenda.contato.FPContato;
+import erp.agenda.evento.FCEvento;
+import erp.agenda.evento.FPEvento;
+import erp.agenda.evento.tipoevento.FCTipoEvento;
+import erp.agenda.evento.tipoevento.FPTipoEvento;
+import erp.agenda.recado.FCRecado;
+import erp.agenda.recado.FPRecado;
+import erp.banco.FCBanco;
+import erp.banco.FPBanco;
 import erp.calculadora.FrameCalculadora;
-import erp.cartorio.FrameCadastroCartorio;
-import erp.cartorio.FramePesquisaCartorio;
-import erp.centrocusto.FrameCadastroCentroCusto;
-import erp.centrocusto.FramePesquisaCentroCusto;
-import erp.cliente.FrameCadastroCliente;
-import erp.cliente.FramePesquisaCliente;
-import erp.contador.FrameCadastroContador;
-import erp.contador.FramePesquisaContador;
+import erp.cartorio.FCCartorio;
+import erp.cartorio.FPCartorio;
+import erp.centrocusto.FCCentroCusto;
+import erp.centrocusto.FPCentroCusto;
+import erp.cliente.FCCliente;
+import erp.cliente.FPCliente;
+import erp.contador.FCContador;
+import erp.contador.FPContador;
 import erp.editor.FrameEditorTexto;
-import erp.empresa.FrameCadastroEmpresa;
-import erp.empresa.FramePesquisaEmpresa;
-import erp.fornecedor.FrameCadastroFornecedor;
-import erp.fornecedor.FramePesquisaFornecedor;
-import erp.funcionario.FrameCadastroFuncionario;
-import erp.funcionario.FramePesquisaFuncionario;
-import erp.imovel.FrameCadastroImovel;
-import erp.imovel.FramePesquisaImovel;
-import erp.login.FrameLogin;
-import erp.sindicato.FrameCadastroSindicato;
-import erp.sindicato.FramePesquisaSindicato;
-import erp.usuario.FrameCadastroUsuario;
-import erp.usuario.FramePesquisaUsuario;
-import erp.veiculo.FrameCadastroVeiculo;
-import erp.veiculo.FramePesquisaVeiculo;
-import erp.veiculo.marca.FrameCadastroVeiculoMarca;
-import erp.veiculo.marca.FramePesquisaVeiculoMarca;
-import erp.veiculo.modelo.FrameCadastroVeiculoModelo;
-import erp.veiculo.modelo.FramePesquisaVeiculoModelo;
+import erp.empresa.FCEmpresa;
+import erp.empresa.FPEmpresa;
+import erp.fornecedor.FCFornecedor;
+import erp.fornecedor.FPFornecedor;
+import erp.funcionario.FCFuncionario;
+import erp.funcionario.FPFuncionario;
+import erp.imovel.FCImovel;
+import erp.imovel.FPImovel;
+import erp.login.FLogin;
+import erp.sindicato.FCSindicato;
+import erp.sindicato.FPSindicato;
+import erp.usuario.FCUsuario;
+import erp.usuario.FPUsuario;
+import erp.veiculo.FCVeiculo;
+import erp.veiculo.FPVeiculo;
+import erp.veiculomarca.FCVeiculoMarca;
+import erp.veiculomarca.FPVeiculoMarca;
+import erp.veiculomodelo.FCVeiculoModelo;
+import erp.veiculomodelo.FPVeiculoModelo;
 
-public final class MainGerenteEventos {
+public final class MainControlador {
 
 	public class FrameGerenteEventos extends WindowAdapter {
 
@@ -93,7 +93,7 @@ public final class MainGerenteEventos {
 					System.exit(0);
 				}
 			} else if (actionEvent.getSource() == frameMain.getMenuItemArquivoLogin()) {
-				mostrarFrame(frameLogin);
+				mostrarFrame(fLogin);
 			} else if (actionEvent.getSource() == frameMain.getMenuItemArquivoLogoff()) {
 				AOP.setUsuario(null);
 				Msg.avisoUsuarioNaoLogado();
@@ -126,31 +126,31 @@ public final class MainGerenteEventos {
 				return;
 			}
 			if (actionEvent.getSource() == frameMain.getMenuItemCadastroCentroCusto()) {
-				mostrarFrame(frameCadastroCentroCusto);
+				mostrarFrame(fCCentroCusto);
 			} else if (actionEvent.getSource() == frameMain.getMenuItemCadastroBanco()) {
-				mostrarFrame(frameCadastroBanco);
+				mostrarFrame(fCBanco);
 			} else if (actionEvent.getSource() == frameMain.getMenuItemCadastroCartorio()) {
-				mostrarFrame(frameCadastroCartorio);
+				mostrarFrame(fCCartorio);
 			} else if (actionEvent.getSource() == frameMain.getMenuItemCadastroFuncionario()) {
-				mostrarFrame(frameCadastroFuncionario);
+				mostrarFrame(fCFuncionario);
 			} else if (actionEvent.getSource() == frameMain.getMenuItemCadastroContador()) {
-				mostrarFrame(frameCadastroContador);
+				mostrarFrame(fCContador);
 			} else if (actionEvent.getSource() == frameMain.getMenuItemCadastroCliente()) {
-				mostrarFrame(frameCadastroCliente);
+				mostrarFrame(fCCliente);
 			} else if (actionEvent.getSource() == frameMain.getMenuItemCadastroEmpresa()) {
-				mostrarFrame(frameCadastroEmpresa);
+				mostrarFrame(fCEmpresa);
 			} else if (actionEvent.getSource() == frameMain.getMenuItemCadastroSindicato()) {
-				mostrarFrame(frameCadastroSindicato);
+				mostrarFrame(fCSindicato);
 			} else if (actionEvent.getSource() == frameMain.getMenuItemCadastroFornecedor()) {
-				mostrarFrame(frameCadastroFornecedor);
+				mostrarFrame(fCFornecedor);
 			} else if (actionEvent.getSource() == frameMain.getMenuItemCadastroVeiculoVeiculo()) {
-				mostrarFrame(frameCadastroVeiculo);
+				mostrarFrame(fCVeiculo);
 			} else if (actionEvent.getSource() == frameMain.getMenuItemCadastroVeiculoModelo()) {
-				mostrarFrame(frameCadastroVeiculoModelo);
+				mostrarFrame(fCVeiculoModelo);
 			} else if (actionEvent.getSource() == frameMain.getMenuItemCadastroVeiculoMarca()) {
-				mostrarFrame(frameCadastroVeiculoMarca);
+				mostrarFrame(fCVeiculoMarca);
 			} else if (actionEvent.getSource() == frameMain.getMenuItemCadastroImovel()) {
-				mostrarFrame(frameCadastroImovel);
+				mostrarFrame(fCImovel);
 			}
 		}
 	}
@@ -176,7 +176,7 @@ public final class MainGerenteEventos {
 				return;
 			}
 			if (actionEvent.getSource() == frameMain.getMenuItemSistemaUsuario()) {
-				mostrarFrame(frameCadastroUsuario);
+				mostrarFrame(fCUsuario);
 			}
 		}
 	}
@@ -210,46 +210,46 @@ public final class MainGerenteEventos {
 		}
 	}
 
-	private static FrameLogin frameLogin;
-	private static FrameCadastroBanco frameCadastroBanco;
-	private static FramePesquisaBanco framePesquisaBanco;
-	private static FrameCadastroCentroCusto frameCadastroCentroCusto;
-	private static FramePesquisaCentroCusto framePesquisaCentroCusto;
-	private static FrameCadastroEvento frameCadastroAgendaEvento;
-	private static FramePesquisaEvento framePesquisaAgendaEvento;
-	private static FrameCadastroTipoEvento frameCadastroAgendaTipoEvento;
-	private static FramePesquisaTipoEvento framePesquisaAgendaTipoEvento;
-	private static FrameCadastroContato frameCadastroAgendaContato;
-	private static FramePesquisaContato framePesquisaAgendaContato;
-	private static FrameCadastroRecado frameCadastroAgendaRecado;
-	private static FramePesquisaRecado framePesquisaAgendaRecado;
-	private static FrameCadastroCartorio frameCadastroCartorio;
-	private static FramePesquisaCartorio framePesquisaCartorio;
-	private static FrameCadastroContador frameCadastroContador;
-	private static FramePesquisaContador framePesquisaContador;
-	private static FrameCadastroFuncionario frameCadastroFuncionario;
-	private static FramePesquisaFuncionario framePesquisaFuncionario;
-	private static FrameCadastroUsuario frameCadastroUsuario;
-	private static FramePesquisaUsuario framePesquisaUsuario;
-	private static FrameCadastroCliente frameCadastroCliente;
-	private static FramePesquisaCliente framePesquisaCliente;
-	private static FrameCadastroEmpresa frameCadastroEmpresa;
-	private static FramePesquisaEmpresa framePesquisaEmpresa;
-	private static FrameCadastroSindicato frameCadastroSindicato;
-	private static FramePesquisaSindicato framePesquisaSindicato;
-	private static FrameCadastroFornecedor frameCadastroFornecedor;
-	private static FramePesquisaFornecedor framePesquisaFornecedor;
-	private static FrameCadastroVeiculo frameCadastroVeiculo;
-	private static FramePesquisaVeiculo framePesquisaVeiculo;
-	private static FrameCadastroVeiculoMarca frameCadastroVeiculoMarca;
-	private static FramePesquisaVeiculoMarca framePesquisaVeiculoMarca;
-	private static FrameCadastroVeiculoModelo frameCadastroVeiculoModelo;
-	private static FramePesquisaVeiculoModelo framePesquisaVeiculoModelo;
-	private static FrameCadastroImovel frameCadastroImovel;
-	private static FramePesquisaImovel framePesquisaImovel;
+	private static FLogin fLogin;
+	private static FCBanco fCBanco;
+	private static FPBanco fPBanco;
+	private static FCCentroCusto fCCentroCusto;
+	private static FPCentroCusto fPCentroCusto;
+	private static FCEvento frameCadastroAgendaEvento;
+	private static FPEvento framePesquisaAgendaEvento;
+	private static FCTipoEvento frameCadastroAgendaTipoEvento;
+	private static FPTipoEvento framePesquisaAgendaTipoEvento;
+	private static FCContato frameCadastroAgendaContato;
+	private static FPContato framePesquisaAgendaContato;
+	private static FCRecado frameCadastroAgendaRecado;
+	private static FPRecado framePesquisaAgendaRecado;
+	private static FCCartorio fCCartorio;
+	private static FPCartorio fPCartorio;
+	private static FCContador fCContador;
+	private static FPContador fPContador;
+	private static FCFuncionario fCFuncionario;
+	private static FPFuncionario fPFuncionario;
+	private static FCUsuario fCUsuario;
+	private static FPUsuario fPUsuario;
+	private static FCCliente fCCliente;
+	private static FPCliente fPCliente;
+	private static FCEmpresa fCEmpresa;
+	private static FPEmpresa fPEmpresa;
+	private static FCSindicato fCSindicato;
+	private static FPSindicato fPSindicato;
+	private static FCFornecedor fCFornecedor;
+	private static FPFornecedor fPFornecedor;
+	private static FCVeiculo fCVeiculo;
+	private static FPVeiculo fPVeiculo;
+	private static FCVeiculoMarca fCVeiculoMarca;
+	private static FPVeiculoMarca fPVeiculoMarca;
+	private static FCVeiculoModelo fCVeiculoModelo;
+	private static FPVeiculoModelo fPVeiculoModelo;
+	private static FCImovel fCImovel;
+	private static FPImovel fPImovel;
 	private static FrameCalculadora frameCalculadora;
 	private static FrameEditorTexto frameEditorTexto;
-	private static MainGerenteEventos mainGerenteEventos;
+	private static MainControlador mainControlador;
 	private static FrameMain frameMain;
 	private static int totalPrincipalHandle;
 
@@ -265,167 +265,167 @@ public final class MainGerenteEventos {
 		return frameCalculadora;
 	}
 
-	public static FrameCadastroEvento getFrameCadastroAgendaEvento() {
+	public static FCEvento getFrameCadastroAgendaEvento() {
 		return frameCadastroAgendaEvento;
 	}
 
-	public static FrameCadastroBanco getFrameCadastroBanco() {
-		return frameCadastroBanco;
+	public static FCBanco getFrameCadastroBanco() {
+		return fCBanco;
 	}
 
-	public static FrameCadastroCartorio getFrameCadastroCartorio() {
-		return frameCadastroCartorio;
+	public static FCCartorio getFrameCadastroCartorio() {
+		return fCCartorio;
 	}
 
-	public static FrameCadastroCentroCusto getFrameCadastroCentroCusto() {
-		return frameCadastroCentroCusto;
+	public static FCCentroCusto getFrameCadastroCentroCusto() {
+		return fCCentroCusto;
 	}
 
-	public static FrameCadastroCliente getFrameCadastroCliente() {
-		return frameCadastroCliente;
+	public static FCCliente getFrameCadastroCliente() {
+		return fCCliente;
 	}
 
-	public static FrameCadastroTipoEvento getFrameCadastroAgendaTipoEvento() {
+	public static FCTipoEvento getFrameCadastroAgendaTipoEvento() {
 		return frameCadastroAgendaTipoEvento;
 	}
 
-	public static FrameCadastroContato getFrameCadastroAgendaContato() {
+	public static FCContato getFrameCadastroAgendaContato() {
 		return frameCadastroAgendaContato;
 	}
 
-	public static FrameCadastroContador getFrameCadastroContador() {
-		return frameCadastroContador;
+	public static FCContador getFrameCadastroContador() {
+		return fCContador;
 	}
 
-	public static FrameCadastroEmpresa getFrameCadastroEmpresa() {
-		return frameCadastroEmpresa;
+	public static FCEmpresa getFrameCadastroEmpresa() {
+		return fCEmpresa;
 	}
 
-	public static FrameCadastroFornecedor getFrameCadastroFornecedor() {
-		return frameCadastroFornecedor;
+	public static FCFornecedor getFrameCadastroFornecedor() {
+		return fCFornecedor;
 	}
 
-	public static FrameCadastroFuncionario getFrameCadastroFuncionario() {
-		return frameCadastroFuncionario;
+	public static FCFuncionario getFrameCadastroFuncionario() {
+		return fCFuncionario;
 	}
 
-	public static FrameCadastroImovel getFrameCadastroImovel() {
-		return frameCadastroImovel;
+	public static FCImovel getFrameCadastroImovel() {
+		return fCImovel;
 	}
 
-	public static FrameCadastroRecado getFrameCadastroRecado() {
+	public static FCRecado getFrameCadastroRecado() {
 		return frameCadastroAgendaRecado;
 	}
 
-	public static FrameCadastroSindicato getFrameCadastroSindicato() {
-		return frameCadastroSindicato;
+	public static FCSindicato getFrameCadastroSindicato() {
+		return fCSindicato;
 	}
 
-	public static FrameCadastroUsuario getFrameCadastroUsuario() {
-		return frameCadastroUsuario;
+	public static FCUsuario getFrameCadastroUsuario() {
+		return fCUsuario;
 	}
 
-	public static FrameCadastroVeiculo getFrameCadastroVeiculo() {
-		return frameCadastroVeiculo;
+	public static FCVeiculo getFrameCadastroVeiculo() {
+		return fCVeiculo;
 	}
 
-	public static FrameCadastroVeiculoMarca getFrameCadastroVeiculoMarca() {
-		return frameCadastroVeiculoMarca;
+	public static FCVeiculoMarca getFrameCadastroVeiculoMarca() {
+		return fCVeiculoMarca;
 	}
 
-	public static FrameCadastroVeiculoModelo getFrameCadastroVeiculoModelo() {
-		return frameCadastroVeiculoModelo;
+	public static FCVeiculoModelo getFrameCadastroVeiculoModelo() {
+		return fCVeiculoModelo;
 	}
 
-	public static FrameLogin getFrameLogin() {
-		return frameLogin;
+	public static FLogin getFrameLogin() {
+		return fLogin;
 	}
 
 	public static FrameMain getFrameMain() {
 		return frameMain;
 	}
 
-	public static FramePesquisaTipoEvento getFramePesquisaAgendaTipoEvento() {
+	public static FPTipoEvento getFramePesquisaAgendaTipoEvento() {
 		return framePesquisaAgendaTipoEvento;
 	}
 
-	public static FramePesquisaEvento getFramePesquisaAgendaEvento() {
+	public static FPEvento getFramePesquisaAgendaEvento() {
 		return framePesquisaAgendaEvento;
 	}
 
-	public static FramePesquisaContato getFramePesquisaAgendaContato() {
+	public static FPContato getFramePesquisaAgendaContato() {
 		return framePesquisaAgendaContato;
 	}
 
-	public static FramePesquisaBanco getFramePesquisaBanco() {
-		return framePesquisaBanco;
+	public static FPBanco getFramePesquisaBanco() {
+		return fPBanco;
 	}
 
-	public static FramePesquisaCartorio getFramePesquisaCartorio() {
-		return framePesquisaCartorio;
+	public static FPCartorio getFramePesquisaCartorio() {
+		return fPCartorio;
 	}
 
-	public static FramePesquisaCentroCusto getFramePesquisaCentroCusto() {
-		return framePesquisaCentroCusto;
+	public static FPCentroCusto getFramePesquisaCentroCusto() {
+		return fPCentroCusto;
 	}
 
-	public static FramePesquisaCliente getFramePesquisaCliente() {
-		return framePesquisaCliente;
+	public static FPCliente getFramePesquisaCliente() {
+		return fPCliente;
 	}
 
-	public static FramePesquisaContador getFramePesquisaContador() {
-		return framePesquisaContador;
+	public static FPContador getFramePesquisaContador() {
+		return fPContador;
 	}
 
-	public static FramePesquisaEmpresa getFramePesquisaEmpresa() {
-		return framePesquisaEmpresa;
+	public static FPEmpresa getFramePesquisaEmpresa() {
+		return fPEmpresa;
 	}
 
-	public static FramePesquisaFornecedor getFramePesquisaFornecedor() {
-		return framePesquisaFornecedor;
+	public static FPFornecedor getFramePesquisaFornecedor() {
+		return fPFornecedor;
 	}
 
-	public static FramePesquisaFuncionario getFramePesquisaFuncionario() {
-		return framePesquisaFuncionario;
+	public static FPFuncionario getFramePesquisaFuncionario() {
+		return fPFuncionario;
 	}
 
-	public static FramePesquisaImovel getFramePesquisaImovel() {
-		return framePesquisaImovel;
+	public static FPImovel getFramePesquisaImovel() {
+		return fPImovel;
 	}
 
-	public static FramePesquisaRecado getFramePesquisaRecado() {
+	public static FPRecado getFramePesquisaRecado() {
 		return framePesquisaAgendaRecado;
 	}
 
-	public static FramePesquisaSindicato getFramePesquisaSindicato() {
-		return framePesquisaSindicato;
+	public static FPSindicato getFramePesquisaSindicato() {
+		return fPSindicato;
 	}
 
-	public static FramePesquisaUsuario getFramePesquisaUsuario() {
-		return framePesquisaUsuario;
+	public static FPUsuario getFramePesquisaUsuario() {
+		return fPUsuario;
 	}
 
-	public static FramePesquisaVeiculo getFramePesquisaVeiculo() {
-		return framePesquisaVeiculo;
+	public static FPVeiculo getFramePesquisaVeiculo() {
+		return fPVeiculo;
 	}
 
-	public static FramePesquisaVeiculoMarca getFramePesquisaVeiculoMarca() {
-		return framePesquisaVeiculoMarca;
+	public static FPVeiculoMarca getFramePesquisaVeiculoMarca() {
+		return fPVeiculoMarca;
 	}
 
-	public static FramePesquisaVeiculoModelo getFramePesquisaVeiculoModelo() {
-		return framePesquisaVeiculoModelo;
+	public static FPVeiculoModelo getFramePesquisaVeiculoModelo() {
+		return fPVeiculoModelo;
 	}
 
-	public static synchronized MainGerenteEventos getInstance(FrameMain frameMain) {
+	public static synchronized MainControlador getInstance(FrameMain frameMain) {
 		if (totalPrincipalHandle > 1) {
 			JOptionPane.showMessageDialog(null, "Foi instanciado mais de uma Objeto:" + Main.class);
 		}
-		if (mainGerenteEventos == null) {
+		if (mainControlador == null) {
 			++totalPrincipalHandle;
-			return new MainGerenteEventos(frameMain);
+			return new MainControlador(frameMain);
 		}
-		return mainGerenteEventos;
+		return mainControlador;
 	}
 
 	public static void mostrarFrame(JFrame frame) {
@@ -437,8 +437,8 @@ public final class MainGerenteEventos {
 		frame.setLocationRelativeTo(null);
 	}
 
-	private MainGerenteEventos(FrameMain frameMain) {
-		MainGerenteEventos.frameMain = frameMain;
+	private MainControlador(FrameMain frameMain) {
+		MainControlador.frameMain = frameMain;
 		criarFrames();
 	}
 
@@ -448,119 +448,119 @@ public final class MainGerenteEventos {
 	}
 
 	private void criarFrames() {
-		frameLogin = new FrameLogin();
-		criarFrame(frameLogin);
-		frameLogin.iniciarGerenteEventos();
+		fLogin = new FLogin();
+		criarFrame(fLogin);
+		fLogin.iniciarGerenteEventos();
 
-		frameCadastroBanco = new FrameCadastroBanco();
-		criarFrame(frameCadastroBanco);
+		fCBanco = new FCBanco();
+		criarFrame(fCBanco);
 
-		framePesquisaBanco = new FramePesquisaBanco();
-		criarFrame(framePesquisaBanco);
+		fPBanco = new FPBanco();
+		criarFrame(fPBanco);
 
-		frameCadastroCentroCusto = new FrameCadastroCentroCusto();
-		criarFrame(frameCadastroCentroCusto);
-		frameCadastroCentroCusto.iniciarGerenteEventos();
+		fCCentroCusto = new FCCentroCusto();
+		criarFrame(fCCentroCusto);
+		fCCentroCusto.iniciarGerenteEventos();
 
-		framePesquisaCentroCusto = new FramePesquisaCentroCusto();
-		criarFrame(framePesquisaCentroCusto);
+		fPCentroCusto = new FPCentroCusto();
+		criarFrame(fPCentroCusto);
 
-		frameCadastroCliente = new FrameCadastroCliente();
-		criarFrame(frameCadastroCliente);
-		frameCadastroCliente.iniciarGerenteEventos();
+		fCCliente = new FCCliente();
+		criarFrame(fCCliente);
+		fCCliente.iniciarGerenteEventos();
 
-		framePesquisaCliente = new FramePesquisaCliente();
-		criarFrame(framePesquisaCliente);
+		fPCliente = new FPCliente();
+		criarFrame(fPCliente);
 
-		frameCadastroEmpresa = new FrameCadastroEmpresa();
-		criarFrame(frameCadastroEmpresa);
+		fCEmpresa = new FCEmpresa();
+		criarFrame(fCEmpresa);
 
-		framePesquisaEmpresa = new FramePesquisaEmpresa();
-		criarFrame(framePesquisaEmpresa);
+		fPEmpresa = new FPEmpresa();
+		criarFrame(fPEmpresa);
 
-		frameCadastroUsuario = new FrameCadastroUsuario();
-		criarFrame(frameCadastroUsuario);
+		fCUsuario = new FCUsuario();
+		criarFrame(fCUsuario);
 
-		framePesquisaUsuario = new FramePesquisaUsuario();
-		criarFrame(framePesquisaUsuario);
+		fPUsuario = new FPUsuario();
+		criarFrame(fPUsuario);
 
-		frameCadastroCartorio = new FrameCadastroCartorio();
-		criarFrame(frameCadastroCartorio);
+		fCCartorio = new FCCartorio();
+		criarFrame(fCCartorio);
 
-		framePesquisaCartorio = new FramePesquisaCartorio();
-		criarFrame(framePesquisaCartorio);
+		fPCartorio = new FPCartorio();
+		criarFrame(fPCartorio);
 
-		frameCadastroContador = new FrameCadastroContador();
-		criarFrame(frameCadastroContador);
+		fCContador = new FCContador();
+		criarFrame(fCContador);
 
-		framePesquisaContador = new FramePesquisaContador();
-		criarFrame(framePesquisaContador);
+		fPContador = new FPContador();
+		criarFrame(fPContador);
 
-		frameCadastroFuncionario = new FrameCadastroFuncionario();
-		criarFrame(frameCadastroFuncionario);
+		fCFuncionario = new FCFuncionario();
+		criarFrame(fCFuncionario);
 
-		framePesquisaFuncionario = new FramePesquisaFuncionario();
-		criarFrame(framePesquisaFuncionario);
+		fPFuncionario = new FPFuncionario();
+		criarFrame(fPFuncionario);
 
-		frameCadastroSindicato = new FrameCadastroSindicato();
-		criarFrame(frameCadastroSindicato);
+		fCSindicato = new FCSindicato();
+		criarFrame(fCSindicato);
 
-		framePesquisaSindicato = new FramePesquisaSindicato();
-		criarFrame(framePesquisaSindicato);
+		fPSindicato = new FPSindicato();
+		criarFrame(fPSindicato);
 
-		frameCadastroFornecedor = new FrameCadastroFornecedor();
-		criarFrame(frameCadastroFornecedor);
+		fCFornecedor = new FCFornecedor();
+		criarFrame(fCFornecedor);
 
-		framePesquisaFornecedor = new FramePesquisaFornecedor();
-		criarFrame(framePesquisaFornecedor);
+		fPFornecedor = new FPFornecedor();
+		criarFrame(fPFornecedor);
 
-		frameCadastroVeiculo = new FrameCadastroVeiculo();
-		criarFrame(frameCadastroVeiculo);
+		fCVeiculo = new FCVeiculo();
+		criarFrame(fCVeiculo);
 
-		framePesquisaVeiculo = new FramePesquisaVeiculo();
-		criarFrame(framePesquisaVeiculo);
+		fPVeiculo = new FPVeiculo();
+		criarFrame(fPVeiculo);
 
-		frameCadastroImovel = new FrameCadastroImovel();
-		criarFrame(frameCadastroImovel);
+		fCImovel = new FCImovel();
+		criarFrame(fCImovel);
 
-		framePesquisaImovel = new FramePesquisaImovel();
-		criarFrame(framePesquisaImovel);
+		fPImovel = new FPImovel();
+		criarFrame(fPImovel);
 
-		frameCadastroAgendaContato = new FrameCadastroContato();
+		frameCadastroAgendaContato = new FCContato();
 		criarFrame(frameCadastroAgendaContato);
 
-		framePesquisaAgendaContato = new FramePesquisaContato();
+		framePesquisaAgendaContato = new FPContato();
 		criarFrame(framePesquisaAgendaContato);
 
-		frameCadastroAgendaEvento = new FrameCadastroEvento();
+		frameCadastroAgendaEvento = new FCEvento();
 		criarFrame(frameCadastroAgendaEvento);
 
-		framePesquisaAgendaEvento = new FramePesquisaEvento();
+		framePesquisaAgendaEvento = new FPEvento();
 		criarFrame(framePesquisaAgendaEvento);
 
-		frameCadastroAgendaTipoEvento = new FrameCadastroTipoEvento();
+		frameCadastroAgendaTipoEvento = new FCTipoEvento();
 		criarFrame(frameCadastroAgendaTipoEvento);
 
-		framePesquisaAgendaTipoEvento = new FramePesquisaTipoEvento();
+		framePesquisaAgendaTipoEvento = new FPTipoEvento();
 		criarFrame(framePesquisaAgendaTipoEvento);
 
-		frameCadastroAgendaRecado = new FrameCadastroRecado();
+		frameCadastroAgendaRecado = new FCRecado();
 		criarFrame(frameCadastroAgendaRecado);
 
-		framePesquisaAgendaRecado = new FramePesquisaRecado();
+		framePesquisaAgendaRecado = new FPRecado();
 		criarFrame(framePesquisaAgendaRecado);
 
-		frameCadastroVeiculoMarca = new FrameCadastroVeiculoMarca();
-		criarFrame(frameCadastroVeiculoMarca);
+		fCVeiculoMarca = new FCVeiculoMarca();
+		criarFrame(fCVeiculoMarca);
 
-		framePesquisaVeiculoMarca = new FramePesquisaVeiculoMarca();
-		criarFrame(framePesquisaVeiculoMarca);
+		fPVeiculoMarca = new FPVeiculoMarca();
+		criarFrame(fPVeiculoMarca);
 
-		frameCadastroVeiculoModelo = new FrameCadastroVeiculoModelo();
-		criarFrame(frameCadastroVeiculoModelo);
+		fCVeiculoModelo = new FCVeiculoModelo();
+		criarFrame(fCVeiculoModelo);
 
-		framePesquisaVeiculoModelo = new FramePesquisaVeiculoModelo();
-		criarFrame(framePesquisaVeiculoModelo);
+		fPVeiculoModelo = new FPVeiculoModelo();
+		criarFrame(fPVeiculoModelo);
 
 		frameCalculadora = new FrameCalculadora();
 		criarFrame(frameCalculadora);

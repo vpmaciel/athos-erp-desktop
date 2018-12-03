@@ -1,4 +1,4 @@
-package erp.veiculo.modelo;
+package erp.veiculomodelo;
 
 import java.awt.BorderLayout;
 import java.awt.Rectangle;
@@ -16,13 +16,13 @@ import javax.swing.table.DefaultTableCellRenderer;
 import arquitetura.gui.Tabela;
 
 @SuppressWarnings("serial")
-public final class PanelPesquisaVeiculoModelo extends JPanel {
+public final class PPVeiculoModelo extends JPanel {
 
 	private final VeiculoModeloTableModel veiculoModeloTableModel;
 	List<VeiculoModelo> veiculoList = null;
 	private final JTable table;
 
-	public PanelPesquisaVeiculoModelo() {
+	public PPVeiculoModelo() {
 		veiculoList = new LinkedList<>();
 		veiculoModeloTableModel = new VeiculoModeloTableModel(veiculoList);
 
@@ -34,6 +34,9 @@ public final class PanelPesquisaVeiculoModelo extends JPanel {
 		Tabela.configurarLarguraColunasTabela(table, VeiculoModeloTableModel.WIDTH);
 		((DefaultTableCellRenderer) table.getTableHeader().getDefaultRenderer())
 				.setHorizontalAlignment(SwingConstants.RIGHT);
+		table.getColumnModel().getColumn(0).setMaxWidth(0);
+		table.getColumnModel().getColumn(0).setMinWidth(0);
+		table.getColumnModel().getColumn(0).setPreferredWidth(0);
 		table.setRowSelectionAllowed(true);
 		table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);

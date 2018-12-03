@@ -13,14 +13,14 @@ import arquitetura.registro.ToolBar;
 import arquitetura.util.SpringUtilities;
 
 @SuppressWarnings("serial")
-public final class PanelCadastroTipoEvento extends JPanel implements Gui {
+public final class PCTipoEvento extends JPanel implements Gui {
 
 	private ToolBar toolBar;
 	private GuiGerenteEventos guiGerenteEventos;
 	private JLabel labelNome;
 	private JTextField textFieldNome;
 
-	public PanelCadastroTipoEvento() {
+	public PCTipoEvento() {
 		iniciarLayout();
 		iniciarGui();
 		iniciarFocusTabListener();

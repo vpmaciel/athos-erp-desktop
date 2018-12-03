@@ -15,15 +15,15 @@ import arquitetura.validacao.Entrada;
 import arquitetura.validacao.RegExp;
 
 @SuppressWarnings("serial")
-public final class PanelCadastroCentroCusto extends JPanel implements Gui {
+public final class PCCentroCusto extends JPanel implements Gui {
 
-	private CentroCustoGerenteEventos centroCustoGerenteEventos;
+	private CentroCustoControlador centroCustoControlador;
 	private JTextField textFieldNome;
 	private GuiGerenteEventos guiGerenteEventos;
 	private JLabel labelNome;
 	private ToolBar toolBar;
 
-	public PanelCadastroCentroCusto() {
+	public PCCentroCusto() {
 		iniciarLayout();
 		iniciarGui();
 		iniciarFocusTabListener();
@@ -34,8 +34,8 @@ public final class PanelCadastroCentroCusto extends JPanel implements Gui {
 	public void atualizarTable() {
 	}
 
-	public CentroCustoGerenteEventos getCentroCustoHandle() {
-		return centroCustoGerenteEventos;
+	public CentroCustoControlador getCentroCustoHandle() {
+		return centroCustoControlador;
 	}
 
 	@Override

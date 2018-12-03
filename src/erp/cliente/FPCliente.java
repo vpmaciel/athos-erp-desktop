@@ -10,11 +10,11 @@ import arquitetura.gui.GuiGerenteEventos;
 import arquitetura.gui.Imagem;
 
 @SuppressWarnings("serial")
-public final class FramePesquisaCliente extends JFrame implements Gui {
+public final class FPCliente extends JFrame implements Gui {
 
-	private PanelPesquisaCliente PanelPesquisaCliente;
+	private PPCliente PPCliente;
 
-	public FramePesquisaCliente() {
+	public FPCliente() {
 		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		iniciarLayout();
 		iniciarGui();
@@ -31,8 +31,8 @@ public final class FramePesquisaCliente extends JFrame implements Gui {
 		return null;
 	}
 
-	public PanelPesquisaCliente getPanelPesquisaCliente() {
-		return PanelPesquisaCliente;
+	public PPCliente getPanelPesquisaCliente() {
+		return PPCliente;
 	}
 
 	@Override
@@ -44,8 +44,8 @@ public final class FramePesquisaCliente extends JFrame implements Gui {
 	public void iniciarGui() {
 		setTitle("CLIENTE");
 		setIconImage(Imagem.getLogoTipoImage());
-		PanelPesquisaCliente = new PanelPesquisaCliente();
-		setContentPane(PanelPesquisaCliente);
+		PPCliente = new PPCliente();
+		setContentPane(PPCliente);
 	}
 
 	@Override
@@ -55,7 +55,7 @@ public final class FramePesquisaCliente extends JFrame implements Gui {
 
 	@Override
 	public void iniciarGerenteEventos() {
-		PanelPesquisaCliente.iniciarHandle();
+		PPCliente.iniciarHandle();
 	}
 
 	@Override

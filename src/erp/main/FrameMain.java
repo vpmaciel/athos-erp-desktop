@@ -14,18 +14,18 @@ import arquitetura.gui.Imagem;
 @SuppressWarnings("serial")
 public class FrameMain extends JFrame {
 
-	private static MainGerenteEventos mainGerenteEventos;
+	private static MainControlador mainControlador;
 
-	public static MainGerenteEventos getMainGerenteEventos() {
-		return mainGerenteEventos;
+	public static MainControlador getMainGerenteEventos() {
+		return mainControlador;
 	}
 
 	public static FrameMain getFrameMain() {
-		return MainGerenteEventos.getFrameMain();
+		return MainControlador.getFrameMain();
 	}
 
 	public static void mostrarFrame(JFrame frame) {
-		MainGerenteEventos.mostrarFrame(frame);
+		MainControlador.mostrarFrame(frame);
 	}
 
 	private final JMenuBar menuBar = new JMenuBar();
@@ -473,32 +473,32 @@ public class FrameMain extends JFrame {
 	}
 
 	public void iniciarHandle() {
-		mainGerenteEventos = MainGerenteEventos.getInstance(this);
-		addWindowListener(mainGerenteEventos.new FrameGerenteEventos());
-		menuItemArquivoLogin.addActionListener(mainGerenteEventos.new MenuArquivoGerenteEventos());
-		menuItemArquivoLogoff.addActionListener(mainGerenteEventos.new MenuArquivoGerenteEventos());
-		menuItemArquivoReiniciar.addActionListener(mainGerenteEventos.new MenuArquivoGerenteEventos());
-		menuItemArquivoSair.addActionListener(mainGerenteEventos.new MenuArquivoGerenteEventos());
-		menuItemCadastroBanco.addActionListener(mainGerenteEventos.new MenuCadastroGerenteEventos());
-		menuItemCadastroCentroCusto.addActionListener(mainGerenteEventos.new MenuCadastroGerenteEventos());
-		menuItemCadastroCartorio.addActionListener(mainGerenteEventos.new MenuCadastroGerenteEventos());
-		menuItemCadastroContador.addActionListener(mainGerenteEventos.new MenuCadastroGerenteEventos());
-		menuItemCadastroFuncionario.addActionListener(mainGerenteEventos.new MenuCadastroGerenteEventos());
-		menuItemCadastroCliente.addActionListener(mainGerenteEventos.new MenuCadastroGerenteEventos());
-		menuItemCadastroEmpresa.addActionListener(mainGerenteEventos.new MenuCadastroGerenteEventos());
-		menuItemCadastroSindicato.addActionListener(mainGerenteEventos.new MenuCadastroGerenteEventos());
-		menuItemCadastroFornecedor.addActionListener(mainGerenteEventos.new MenuCadastroGerenteEventos());
-		menuItemCadastroVeiculoVeiculo.addActionListener(mainGerenteEventos.new MenuCadastroGerenteEventos());
-		menuItemCadastroVeiculoModelo.addActionListener(mainGerenteEventos.new MenuCadastroGerenteEventos());
-		menuItemCadastroVeiculoMarca.addActionListener(mainGerenteEventos.new MenuCadastroGerenteEventos());
-		menuItemCadastroImovel.addActionListener(mainGerenteEventos.new MenuCadastroGerenteEventos());
-		menuItemAjudaSobreSistema.addActionListener(mainGerenteEventos.new MenuAjudaGerenteEventos());
-		menuItemSistemaUsuario.addActionListener(mainGerenteEventos.new MenuSistemaGerenteEventos());
-		menuItemUtilitarioAgendaEvento.addActionListener(mainGerenteEventos.new MenuUtilitarioGerenteEventos());
-		menuItemUtilitarioAgendaTipoEvento.addActionListener(mainGerenteEventos.new MenuUtilitarioGerenteEventos());
-		menuItemUtilitarioAgendaRecado.addActionListener(mainGerenteEventos.new MenuUtilitarioGerenteEventos());
-		menuItemUtilitarioAgendaContato.addActionListener(mainGerenteEventos.new MenuUtilitarioGerenteEventos());
-		menuItemUtilitarioCalculadora.addActionListener(mainGerenteEventos.new MenuUtilitarioGerenteEventos());
-		menuItemUtilitarioEditorTexto.addActionListener(mainGerenteEventos.new MenuUtilitarioGerenteEventos());
+		mainControlador = MainControlador.getInstance(this);
+		addWindowListener(mainControlador.new FrameGerenteEventos());
+		menuItemArquivoLogin.addActionListener(mainControlador.new MenuArquivoGerenteEventos());
+		menuItemArquivoLogoff.addActionListener(mainControlador.new MenuArquivoGerenteEventos());
+		menuItemArquivoReiniciar.addActionListener(mainControlador.new MenuArquivoGerenteEventos());
+		menuItemArquivoSair.addActionListener(mainControlador.new MenuArquivoGerenteEventos());
+		menuItemCadastroBanco.addActionListener(mainControlador.new MenuCadastroGerenteEventos());
+		menuItemCadastroCentroCusto.addActionListener(mainControlador.new MenuCadastroGerenteEventos());
+		menuItemCadastroCartorio.addActionListener(mainControlador.new MenuCadastroGerenteEventos());
+		menuItemCadastroContador.addActionListener(mainControlador.new MenuCadastroGerenteEventos());
+		menuItemCadastroFuncionario.addActionListener(mainControlador.new MenuCadastroGerenteEventos());
+		menuItemCadastroCliente.addActionListener(mainControlador.new MenuCadastroGerenteEventos());
+		menuItemCadastroEmpresa.addActionListener(mainControlador.new MenuCadastroGerenteEventos());
+		menuItemCadastroSindicato.addActionListener(mainControlador.new MenuCadastroGerenteEventos());
+		menuItemCadastroFornecedor.addActionListener(mainControlador.new MenuCadastroGerenteEventos());
+		menuItemCadastroVeiculoVeiculo.addActionListener(mainControlador.new MenuCadastroGerenteEventos());
+		menuItemCadastroVeiculoModelo.addActionListener(mainControlador.new MenuCadastroGerenteEventos());
+		menuItemCadastroVeiculoMarca.addActionListener(mainControlador.new MenuCadastroGerenteEventos());
+		menuItemCadastroImovel.addActionListener(mainControlador.new MenuCadastroGerenteEventos());
+		menuItemAjudaSobreSistema.addActionListener(mainControlador.new MenuAjudaGerenteEventos());
+		menuItemSistemaUsuario.addActionListener(mainControlador.new MenuSistemaGerenteEventos());
+		menuItemUtilitarioAgendaEvento.addActionListener(mainControlador.new MenuUtilitarioGerenteEventos());
+		menuItemUtilitarioAgendaTipoEvento.addActionListener(mainControlador.new MenuUtilitarioGerenteEventos());
+		menuItemUtilitarioAgendaRecado.addActionListener(mainControlador.new MenuUtilitarioGerenteEventos());
+		menuItemUtilitarioAgendaContato.addActionListener(mainControlador.new MenuUtilitarioGerenteEventos());
+		menuItemUtilitarioCalculadora.addActionListener(mainControlador.new MenuUtilitarioGerenteEventos());
+		menuItemUtilitarioEditorTexto.addActionListener(mainControlador.new MenuUtilitarioGerenteEventos());
 	}
 }

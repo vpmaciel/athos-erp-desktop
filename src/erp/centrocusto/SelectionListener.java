@@ -5,9 +5,9 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.TableModel;
 
-import erp.main.MainGerenteEventos;
+import erp.main.MainControlador;
 
-class SelectionListener implements ListSelectionListener {
+final class SelectionListener implements ListSelectionListener {
 
 	JTable table;
 
@@ -28,11 +28,11 @@ class SelectionListener implements ListSelectionListener {
 					CentroCusto centroCusto = CentroCustoDaoFacade.getRegistro(centroCustoPesquisaRegistro);
 					CentroCustoTableModel centroCustoTableModel = (CentroCustoTableModel) table.getModel();
 					centroCustoTableModel.getCentroCusto(table.getSelectedRow());
-					MainGerenteEventos.mostrarFrame(MainGerenteEventos.getFrameCadastroCentroCusto());
-					MainGerenteEventos.getFrameCadastroCentroCusto().getCentroCustoHandle().setCentroCusto(centroCusto);
-					MainGerenteEventos.getFrameCadastroCentroCusto().getCentroCustoHandle().atualizarGui();
-					MainGerenteEventos.getFrameCadastroCentroCusto().setFocusable(true);
-					MainGerenteEventos.getFramePesquisaCentroCusto().setVisible(false);
+					MainControlador.mostrarFrame(MainControlador.getFrameCadastroCentroCusto());
+					MainControlador.getFrameCadastroCentroCusto().getCentroCustoHandle().setCentroCusto(centroCusto);
+					MainControlador.getFrameCadastroCentroCusto().getCentroCustoHandle().atualizarGui();
+					MainControlador.getFrameCadastroCentroCusto().setFocusable(true);
+					MainControlador.getFramePesquisaCentroCusto().setVisible(false);
 				}
 			}
 		}

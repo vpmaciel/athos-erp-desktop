@@ -1,4 +1,4 @@
-package erp.veiculo.marca;
+package erp.veiculomarca;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -10,9 +10,9 @@ import java.util.List;
 import javax.swing.JOptionPane;
 
 import arquitetura.gui.Msg;
-import erp.main.MainGerenteEventos;
+import erp.main.MainControlador;
 
-final class VeiculoMarcaGerenteEventos {
+final class VeiculoMarcaControlador {
 
 	public class Ajuda implements ActionListener {
 
@@ -78,7 +78,7 @@ final class VeiculoMarcaGerenteEventos {
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
 			try {
-				MainGerenteEventos.mostrarFrame(MainGerenteEventos.getFrameMain());
+				MainControlador.mostrarFrame(MainControlador.getFrameMain());
 			} catch (Exception e) {
 				System.out.println(e);
 			}
@@ -140,7 +140,7 @@ final class VeiculoMarcaGerenteEventos {
 			veiculoMarca = new VeiculoMarca();
 			atualizarObjeto();
 			getPanelPesquisaVeiculoMarca().pesquisarRegistroVeiculoMarca(veiculoMarca);
-			MainGerenteEventos.mostrarFrame(getFramePesquisaVeiculoMarca());
+			MainControlador.mostrarFrame(getFramePesquisaVeiculoMarca());
 		}
 	}
 
@@ -209,19 +209,19 @@ final class VeiculoMarcaGerenteEventos {
 		this.veiculoMarca = veiculoMarca;
 	}
 
-	public FrameCadastroVeiculoMarca getFrameCadastroVeiculoMarca() {
-		return MainGerenteEventos.getFrameCadastroVeiculoMarca();
+	public FCVeiculoMarca getFrameCadastroVeiculoMarca() {
+		return MainControlador.getFrameCadastroVeiculoMarca();
 	}
 
-	public PanelCadastroVeiculoMarca getPanelCadastroVeiculoMarca() {
-		return MainGerenteEventos.getFrameCadastroVeiculoMarca().getPanelCadastroVeiculoMarca();
+	public PCVeiculoMarca getPanelCadastroVeiculoMarca() {
+		return MainControlador.getFrameCadastroVeiculoMarca().getPanelCadastroVeiculoMarca();
 	}
 
-	public FramePesquisaVeiculoMarca getFramePesquisaVeiculoMarca() {
-		return MainGerenteEventos.getFramePesquisaVeiculoMarca();
+	public FPVeiculoMarca getFramePesquisaVeiculoMarca() {
+		return MainControlador.getFramePesquisaVeiculoMarca();
 	}
 
-	public PanelPesquisaVeiculoMarca getPanelPesquisaVeiculoMarca() {
-		return MainGerenteEventos.getFramePesquisaVeiculoMarca().getPanelPesquisaVeiculoMarca();
+	public PPVeiculoMarca getPanelPesquisaVeiculoMarca() {
+		return MainControlador.getFramePesquisaVeiculoMarca().getPanelPesquisaVeiculoMarca();
 	}
 }

@@ -16,13 +16,13 @@ import arquitetura.gui.GuiGerenteEventos;
 import arquitetura.gui.Imagem;
 
 @SuppressWarnings("serial")
-public final class FrameCadastroEmpresa extends JFrame implements Gui {
+public final class FCEmpresa extends JFrame implements Gui {
 
-	private EmpresaGerenteEventos empresaGerenteEventos;
+	private EmpresaControlador empresaControlador;
 	private GuiGerenteEventos guiGerenteEventos;
-	private PanelCadastroEmpresa panelCadastroEmpresa;
+	private PCEmpresa pCEmpresa;
 
-	public FrameCadastroEmpresa() {
+	public FCEmpresa() {
 		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		iniciarLayout();
 		iniciarGui();
@@ -36,8 +36,8 @@ public final class FrameCadastroEmpresa extends JFrame implements Gui {
 
 	}
 
-	public EmpresaGerenteEventos getEmpresaHandle() {
-		return empresaGerenteEventos;
+	public EmpresaControlador getEmpresaHandle() {
+		return empresaControlador;
 	}
 
 	@Override
@@ -45,8 +45,8 @@ public final class FrameCadastroEmpresa extends JFrame implements Gui {
 		return guiGerenteEventos;
 	}
 
-	public PanelCadastroEmpresa getPanelCadastroEmpresa() {
-		return panelCadastroEmpresa;
+	public PCEmpresa getPanelCadastroEmpresa() {
+		return pCEmpresa;
 	}
 
 	@Override
@@ -59,10 +59,10 @@ public final class FrameCadastroEmpresa extends JFrame implements Gui {
 	public void iniciarGui() {
 		setTitle("EMPRESA");
 		setIconImage(Imagem.getLogoTipoImage());
-		panelCadastroEmpresa = new PanelCadastroEmpresa();
-		panelCadastroEmpresa.setOpaque(true); // content panes must be opaque
+		pCEmpresa = new PCEmpresa();
+		pCEmpresa.setOpaque(true); // content panes must be opaque
 
-		final JScrollPane scrollPane = new JScrollPane(panelCadastroEmpresa);
+		final JScrollPane scrollPane = new JScrollPane(pCEmpresa);
 
 		KeyboardFocusManager.getCurrentKeyboardFocusManager().addPropertyChangeListener("focusOwner",
 				new PropertyChangeListener() {
@@ -73,8 +73,8 @@ public final class FrameCadastroEmpresa extends JFrame implements Gui {
 							return;
 						}
 						JComponent focused = (JComponent) evt.getNewValue();
-						if (panelCadastroEmpresa.isAncestorOf(focused)) {
-							panelCadastroEmpresa.scrollRectToVisible(focused.getBounds());
+						if (pCEmpresa.isAncestorOf(focused)) {
+							pCEmpresa.scrollRectToVisible(focused.getBounds());
 						}
 					}
 				});
@@ -91,22 +91,22 @@ public final class FrameCadastroEmpresa extends JFrame implements Gui {
 
 	@Override
 	public void iniciarGerenteEventos() {
-		empresaGerenteEventos = new EmpresaGerenteEventos();
-		addWindowListener(empresaGerenteEventos.new Frame());
-		panelCadastroEmpresa.getToolBar().getButtonExcluiRegistro()
-				.addActionListener(empresaGerenteEventos.new ExcluiRegistro());
-		panelCadastroEmpresa.getToolBar().getButtonNovoFrame().addActionListener(empresaGerenteEventos.new NovoFrame());
-		panelCadastroEmpresa.getToolBar().getButtonPesquisaRegistro()
-				.addActionListener(empresaGerenteEventos.new PesquisaRegistro());
-		panelCadastroEmpresa.getToolBar().getButtonImprimiUnicoRegistro()
-				.addActionListener(empresaGerenteEventos.new ImprimiUnicoRegistro());
-		panelCadastroEmpresa.getToolBar().getButtonImprimiTodosRegistros()
-				.addActionListener(empresaGerenteEventos.new ImprimiTodosRegistros());
-		panelCadastroEmpresa.getToolBar().getButtonSalvar().addActionListener(empresaGerenteEventos.new Salva());
-		panelCadastroEmpresa.getToolBar().getButtonFechar().addActionListener(empresaGerenteEventos.new FechaJanela());
-		panelCadastroEmpresa.getToolBar().getButtonSair().addActionListener(empresaGerenteEventos.new SaidaSistema());
-		panelCadastroEmpresa.getToolBar().getButtonAjuda().addActionListener(empresaGerenteEventos.new Ajuda());
-		panelCadastroEmpresa.getToolBar().getButtonHome().addActionListener(empresaGerenteEventos.new Home());
+		empresaControlador = new EmpresaControlador();
+		addWindowListener(empresaControlador.new Frame());
+		pCEmpresa.getToolBar().getButtonExcluiRegistro()
+				.addActionListener(empresaControlador.new ExcluiRegistro());
+		pCEmpresa.getToolBar().getButtonNovoFrame().addActionListener(empresaControlador.new NovoFrame());
+		pCEmpresa.getToolBar().getButtonPesquisaRegistro()
+				.addActionListener(empresaControlador.new PesquisaRegistro());
+		pCEmpresa.getToolBar().getButtonImprimiUnicoRegistro()
+				.addActionListener(empresaControlador.new ImprimiUnicoRegistro());
+		pCEmpresa.getToolBar().getButtonImprimiTodosRegistros()
+				.addActionListener(empresaControlador.new ImprimiTodosRegistros());
+		pCEmpresa.getToolBar().getButtonSalvar().addActionListener(empresaControlador.new Salva());
+		pCEmpresa.getToolBar().getButtonFechar().addActionListener(empresaControlador.new FechaJanela());
+		pCEmpresa.getToolBar().getButtonSair().addActionListener(empresaControlador.new SaidaSistema());
+		pCEmpresa.getToolBar().getButtonAjuda().addActionListener(empresaControlador.new Ajuda());
+		pCEmpresa.getToolBar().getButtonHome().addActionListener(empresaControlador.new Home());
 	}
 
 	@Override

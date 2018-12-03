@@ -10,11 +10,11 @@ import arquitetura.gui.GuiGerenteEventos;
 import arquitetura.gui.Imagem;
 
 @SuppressWarnings("serial")
-public final class FramePesquisaCartorio extends JFrame implements Gui {
+public final class FPCartorio extends JFrame implements Gui {
 
-	private PanelPesquisaCartorio PanelPesquisaCartorio;
+	private PPCartorio PPCartorio;
 
-	public FramePesquisaCartorio() {
+	public FPCartorio() {
 		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		iniciarLayout();
 		iniciarGui();
@@ -31,8 +31,8 @@ public final class FramePesquisaCartorio extends JFrame implements Gui {
 		return null;
 	}
 
-	public PanelPesquisaCartorio getPanelPesquisaCartorio() {
-		return PanelPesquisaCartorio;
+	public PPCartorio getPanelPesquisaCartorio() {
+		return PPCartorio;
 	}
 
 	public void habilitarPesquisaRegistroGui() {
@@ -47,8 +47,8 @@ public final class FramePesquisaCartorio extends JFrame implements Gui {
 	public void iniciarGui() {
 		setTitle("CARTÓRIO");
 		setIconImage(Imagem.getLogoTipoImage());
-		PanelPesquisaCartorio = new PanelPesquisaCartorio();
-		setContentPane(PanelPesquisaCartorio);
+		PPCartorio = new PPCartorio();
+		setContentPane(PPCartorio);
 	}
 
 	@Override
@@ -58,7 +58,7 @@ public final class FramePesquisaCartorio extends JFrame implements Gui {
 
 	@Override
 	public void iniciarGerenteEventos() {
-		PanelPesquisaCartorio.iniciarHandle();
+		PPCartorio.iniciarHandle();
 	}
 
 	@Override

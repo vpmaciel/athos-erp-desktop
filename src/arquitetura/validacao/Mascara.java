@@ -108,7 +108,7 @@ public final class Mascara {
 	public static MaskFormatter getFone() {
 		MaskFormatter mascara = null;
 		try {
-			mascara = new MaskFormatter("#xx##-####-####");
+			mascara = new MaskFormatter("##-#####-####");
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}

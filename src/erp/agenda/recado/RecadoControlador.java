@@ -13,9 +13,9 @@ import javax.swing.JOptionPane;
 
 import arquitetura.gui.Msg;
 import erp.empresa.Empresa;
-import erp.main.MainGerenteEventos;
+import erp.main.MainControlador;
 
-final class RecadoGerenteEventos {
+final class RecadoControlador {
 
 	public class Ajuda implements ActionListener {
 
@@ -79,7 +79,7 @@ final class RecadoGerenteEventos {
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
 			try {
-				MainGerenteEventos.mostrarFrame(MainGerenteEventos.getFrameMain());
+				MainControlador.mostrarFrame(MainControlador.getFrameMain());
 			} catch (Exception e) {
 				System.out.println(e);
 			}
@@ -130,9 +130,9 @@ final class RecadoGerenteEventos {
 		@Override
 		public void mouseClicked(MouseEvent event) {
 			if (event.getButton() == MouseEvent.BUTTON1) {
-				MainGerenteEventos.mostrarFrame(MainGerenteEventos.getFrameCadastroEmpresa());
+				MainControlador.mostrarFrame(MainControlador.getFrameCadastroEmpresa());
 			} else {
-				MainGerenteEventos.getFrameCadastroEmpresa().reiniciarBox();
+				MainControlador.getFrameCadastroEmpresa().reiniciarBox();
 			}
 		}
 	}
@@ -154,7 +154,7 @@ final class RecadoGerenteEventos {
 			recado = new Recado();
 			atualizarObjeto();
 			getPanelPesquisaRecado().pesquisarRegistroRecado(recado);
-			MainGerenteEventos.mostrarFrame(MainGerenteEventos.getFramePesquisaRecado());
+			MainControlador.mostrarFrame(MainControlador.getFramePesquisaRecado());
 		}
 	}
 
@@ -192,7 +192,7 @@ final class RecadoGerenteEventos {
 					atualizarObjeto();
 					RecadoDaoFacade.salvarRegistro(recado);
 					recado = new Recado();
-					MainGerenteEventos.getFrameCadastroRecado().limparGui();
+					MainControlador.getFrameCadastroRecado().limparGui();
 					getPanelCadastroRecado().getTextFieldNome().requestFocus();
 					Msg.sucessoSalvarRegistro();
 				}
@@ -254,19 +254,19 @@ final class RecadoGerenteEventos {
 		this.recado = recado;
 	}
 
-	public FrameCadastroRecado getFrameCadastroRecado() {
-		return MainGerenteEventos.getFrameCadastroRecado();
+	public FCRecado getFrameCadastroRecado() {
+		return MainControlador.getFrameCadastroRecado();
 	}
 
-	public PanelCadastroRecado getPanelCadastroRecado() {
-		return MainGerenteEventos.getFrameCadastroRecado().getPanelCadastroRecado();
+	public PCRecado getPanelCadastroRecado() {
+		return MainControlador.getFrameCadastroRecado().getPanelCadastroRecado();
 	}
 
-	public FramePesquisaRecado getFramePesquisaRecado() {
-		return MainGerenteEventos.getFramePesquisaRecado();
+	public FPRecado getFramePesquisaRecado() {
+		return MainControlador.getFramePesquisaRecado();
 	}
 
-	public PanelPesquisaRecado getPanelPesquisaRecado() {
-		return MainGerenteEventos.getFramePesquisaRecado().getPanelPesquisaRecado();
+	public PPRecado getPanelPesquisaRecado() {
+		return MainControlador.getFramePesquisaRecado().getPanelPesquisaRecado();
 	}
 }

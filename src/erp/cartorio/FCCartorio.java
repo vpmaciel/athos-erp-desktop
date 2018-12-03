@@ -16,13 +16,13 @@ import arquitetura.gui.GuiGerenteEventos;
 import arquitetura.gui.Imagem;
 
 @SuppressWarnings("serial")
-public final class FrameCadastroCartorio extends JFrame implements Gui {
+public final class FCCartorio extends JFrame implements Gui {
 
-	private CartorioGerenteEventos cartorioGerenteEventos;
+	private CartorioControlador cartorioControlador;
 	private GuiGerenteEventos guiGerenteEventos;
-	private PanelCadastroCartorio panelCadastroCartorio;
+	private PCCartorio pCCartorio;
 
-	public FrameCadastroCartorio() {
+	public FCCartorio() {
 		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		iniciarLayout();
 		iniciarGui();
@@ -36,8 +36,8 @@ public final class FrameCadastroCartorio extends JFrame implements Gui {
 
 	}
 
-	public CartorioGerenteEventos getCartorioHandle() {
-		return cartorioGerenteEventos;
+	public CartorioControlador getCartorioHandle() {
+		return cartorioControlador;
 	}
 
 	@Override
@@ -45,8 +45,8 @@ public final class FrameCadastroCartorio extends JFrame implements Gui {
 		return guiGerenteEventos;
 	}
 
-	public PanelCadastroCartorio getPanelCadastroCartorio() {
-		return panelCadastroCartorio;
+	public PCCartorio getPanelCadastroCartorio() {
+		return pCCartorio;
 	}
 
 	@Override
@@ -59,10 +59,10 @@ public final class FrameCadastroCartorio extends JFrame implements Gui {
 	public void iniciarGui() {
 		setTitle("CARTÓRIO");
 		setIconImage(Imagem.getLogoTipoImage());
-		panelCadastroCartorio = new PanelCadastroCartorio();
-		panelCadastroCartorio.setOpaque(true); // content panes must be opaque
+		pCCartorio = new PCCartorio();
+		pCCartorio.setOpaque(true); // content panes must be opaque
 
-		final JScrollPane scrollPane = new JScrollPane(panelCadastroCartorio);
+		final JScrollPane scrollPane = new JScrollPane(pCCartorio);
 
 		KeyboardFocusManager.getCurrentKeyboardFocusManager().addPropertyChangeListener("focusOwner",
 				new PropertyChangeListener() {
@@ -73,8 +73,8 @@ public final class FrameCadastroCartorio extends JFrame implements Gui {
 							return;
 						}
 						JComponent focused = (JComponent) evt.getNewValue();
-						if (panelCadastroCartorio.isAncestorOf(focused)) {
-							panelCadastroCartorio.scrollRectToVisible(focused.getBounds());
+						if (pCCartorio.isAncestorOf(focused)) {
+							pCCartorio.scrollRectToVisible(focused.getBounds());
 						}
 					}
 				});
@@ -92,24 +92,24 @@ public final class FrameCadastroCartorio extends JFrame implements Gui {
 
 	@Override
 	public void iniciarGerenteEventos() {
-		cartorioGerenteEventos = new CartorioGerenteEventos();
-		addWindowListener(cartorioGerenteEventos.new Frame());
-		panelCadastroCartorio.getToolBar().getButtonExcluiRegistro()
-				.addActionListener(cartorioGerenteEventos.new ExcluiRegistro());
-		panelCadastroCartorio.getToolBar().getButtonNovoFrame()
-				.addActionListener(cartorioGerenteEventos.new NovoFrame());
-		panelCadastroCartorio.getToolBar().getButtonPesquisaRegistro()
-				.addActionListener(cartorioGerenteEventos.new PesquisaRegistro());
-		panelCadastroCartorio.getToolBar().getButtonImprimiUnicoRegistro()
-				.addActionListener(cartorioGerenteEventos.new ImprimiUnicoRegistro());
-		panelCadastroCartorio.getToolBar().getButtonImprimiTodosRegistros()
-				.addActionListener(cartorioGerenteEventos.new ImprimiTodosRegistros());
-		panelCadastroCartorio.getToolBar().getButtonSalvar().addActionListener(cartorioGerenteEventos.new Salva());
-		panelCadastroCartorio.getToolBar().getButtonFechar()
-				.addActionListener(cartorioGerenteEventos.new FechaJanela());
-		panelCadastroCartorio.getToolBar().getButtonSair().addActionListener(cartorioGerenteEventos.new SaidaSistema());
-		panelCadastroCartorio.getToolBar().getButtonAjuda().addActionListener(cartorioGerenteEventos.new Ajuda());
-		panelCadastroCartorio.getToolBar().getButtonHome().addActionListener(cartorioGerenteEventos.new Home());
+		cartorioControlador = new CartorioControlador();
+		addWindowListener(cartorioControlador.new Frame());
+		pCCartorio.getToolBar().getButtonExcluiRegistro()
+				.addActionListener(cartorioControlador.new ExcluiRegistro());
+		pCCartorio.getToolBar().getButtonNovoFrame()
+				.addActionListener(cartorioControlador.new NovoFrame());
+		pCCartorio.getToolBar().getButtonPesquisaRegistro()
+				.addActionListener(cartorioControlador.new PesquisaRegistro());
+		pCCartorio.getToolBar().getButtonImprimiUnicoRegistro()
+				.addActionListener(cartorioControlador.new ImprimiUnicoRegistro());
+		pCCartorio.getToolBar().getButtonImprimiTodosRegistros()
+				.addActionListener(cartorioControlador.new ImprimiTodosRegistros());
+		pCCartorio.getToolBar().getButtonSalvar().addActionListener(cartorioControlador.new Salva());
+		pCCartorio.getToolBar().getButtonFechar()
+				.addActionListener(cartorioControlador.new FechaJanela());
+		pCCartorio.getToolBar().getButtonSair().addActionListener(cartorioControlador.new SaidaSistema());
+		pCCartorio.getToolBar().getButtonAjuda().addActionListener(cartorioControlador.new Ajuda());
+		pCCartorio.getToolBar().getButtonHome().addActionListener(cartorioControlador.new Home());
 
 	}
 

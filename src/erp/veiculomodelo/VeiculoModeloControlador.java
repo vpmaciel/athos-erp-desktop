@@ -1,4 +1,4 @@
-package erp.veiculo.modelo;
+package erp.veiculomodelo;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -10,9 +10,9 @@ import java.util.List;
 import javax.swing.JOptionPane;
 
 import arquitetura.gui.Msg;
-import erp.main.MainGerenteEventos;
+import erp.main.MainControlador;
 
-final class VeiculoModeloGerenteEventos {
+final class VeiculoModeloControlador {
 
 	public class Ajuda implements ActionListener {
 
@@ -78,7 +78,7 @@ final class VeiculoModeloGerenteEventos {
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
 			try {
-				MainGerenteEventos.mostrarFrame(MainGerenteEventos.getFrameMain());
+				MainControlador.mostrarFrame(MainControlador.getFrameMain());
 			} catch (Exception e) {
 				System.out.println(e);
 			}
@@ -139,9 +139,9 @@ final class VeiculoModeloGerenteEventos {
 		public void actionPerformed(ActionEvent actionEvent) {
 			veiculoModelo = new VeiculoModelo();
 			atualizarObjeto();
-			MainGerenteEventos.getFramePesquisaVeiculoModelo().getPanelPesquisaVeiculoModelo()
+			MainControlador.getFramePesquisaVeiculoModelo().getPanelPesquisaVeiculoModelo()
 					.pesquisarRegistroVeiculoModelo(veiculoModelo);
-			MainGerenteEventos.mostrarFrame(getFramePesquisaVeiculoModelo());
+			MainControlador.mostrarFrame(getFramePesquisaVeiculoModelo());
 		}
 	}
 
@@ -210,19 +210,19 @@ final class VeiculoModeloGerenteEventos {
 		this.veiculoModelo = veiculoModelo;
 	}
 
-	public FrameCadastroVeiculoModelo getFrameCadastroVeiculoModelo() {
-		return MainGerenteEventos.getFrameCadastroVeiculoModelo();
+	public FCVeiculoModelo getFrameCadastroVeiculoModelo() {
+		return MainControlador.getFrameCadastroVeiculoModelo();
 	}
 
-	public PanelCadastroVeiculoModelo getPanelCadastroVeiculoModelo() {
-		return MainGerenteEventos.getFrameCadastroVeiculoModelo().getPanelCadastroVeiculoModelo();
+	public PCVeiculoModelo getPanelCadastroVeiculoModelo() {
+		return MainControlador.getFrameCadastroVeiculoModelo().getPanelCadastroVeiculoModelo();
 	}
 
-	public FramePesquisaVeiculoModelo getFramePesquisaVeiculoModelo() {
-		return MainGerenteEventos.getFramePesquisaVeiculoModelo();
+	public FPVeiculoModelo getFramePesquisaVeiculoModelo() {
+		return MainControlador.getFramePesquisaVeiculoModelo();
 	}
 
-	public PanelPesquisaVeiculoModelo getPanelPesquisaVeiculoModelo() {
-		return MainGerenteEventos.getFramePesquisaVeiculoModelo().getPanelPesquisaVeiculoModelo();
+	public PPVeiculoModelo getPanelPesquisaVeiculoModelo() {
+		return MainControlador.getFramePesquisaVeiculoModelo().getPanelPesquisaVeiculoModelo();
 	}
 }

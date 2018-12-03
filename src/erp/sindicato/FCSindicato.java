@@ -16,13 +16,13 @@ import arquitetura.gui.GuiGerenteEventos;
 import arquitetura.gui.Imagem;
 
 @SuppressWarnings("serial")
-public final class FrameCadastroSindicato extends JFrame implements Gui {
+public final class FCSindicato extends JFrame implements Gui {
 
-	private SindicatoGerenteEventos sindicatoGerenteEventos;
+	private SindicatoControlador sindicatoControlador;
 	private GuiGerenteEventos guiGerenteEventos;
-	private PanelCadastroSindicato panelCadastroSindicato;
+	private PCSindicato pCSindicato;
 
-	public FrameCadastroSindicato() {
+	public FCSindicato() {
 		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		iniciarLayout();
 		iniciarGui();
@@ -41,12 +41,12 @@ public final class FrameCadastroSindicato extends JFrame implements Gui {
 		return guiGerenteEventos;
 	}
 
-	public PanelCadastroSindicato getPanelCadastroSindicato() {
-		return panelCadastroSindicato;
+	public PCSindicato getPanelCadastroSindicato() {
+		return pCSindicato;
 	}
 
-	public SindicatoGerenteEventos getSindicatoHandle() {
-		return sindicatoGerenteEventos;
+	public SindicatoControlador getSindicatoHandle() {
+		return sindicatoControlador;
 	}
 
 	@Override
@@ -59,10 +59,10 @@ public final class FrameCadastroSindicato extends JFrame implements Gui {
 	public void iniciarGui() {
 		setTitle("SINDICATO");
 		setIconImage(Imagem.getLogoTipoImage());
-		panelCadastroSindicato = new PanelCadastroSindicato();
-		panelCadastroSindicato.setOpaque(true); // content panes must be opaque
+		pCSindicato = new PCSindicato();
+		pCSindicato.setOpaque(true); // content panes must be opaque
 
-		final JScrollPane scrollPane = new JScrollPane(panelCadastroSindicato);
+		final JScrollPane scrollPane = new JScrollPane(pCSindicato);
 
 		KeyboardFocusManager.getCurrentKeyboardFocusManager().addPropertyChangeListener("focusOwner",
 				new PropertyChangeListener() {
@@ -73,8 +73,8 @@ public final class FrameCadastroSindicato extends JFrame implements Gui {
 							return;
 						}
 						JComponent focused = (JComponent) evt.getNewValue();
-						if (panelCadastroSindicato.isAncestorOf(focused)) {
-							panelCadastroSindicato.scrollRectToVisible(focused.getBounds());
+						if (pCSindicato.isAncestorOf(focused)) {
+							pCSindicato.scrollRectToVisible(focused.getBounds());
 						}
 					}
 				});
@@ -91,25 +91,25 @@ public final class FrameCadastroSindicato extends JFrame implements Gui {
 
 	@Override
 	public void iniciarGerenteEventos() {
-		sindicatoGerenteEventos = new SindicatoGerenteEventos();
-		addWindowListener(sindicatoGerenteEventos.new Frame());
-		panelCadastroSindicato.getToolBar().getButtonExcluiRegistro()
-				.addActionListener(sindicatoGerenteEventos.new ExcluiRegistro());
-		panelCadastroSindicato.getToolBar().getButtonNovoFrame()
-				.addActionListener(sindicatoGerenteEventos.new NovoFrame());
-		panelCadastroSindicato.getToolBar().getButtonPesquisaRegistro()
-				.addActionListener(sindicatoGerenteEventos.new PesquisaRegistro());
-		panelCadastroSindicato.getToolBar().getButtonImprimiUnicoRegistro()
-				.addActionListener(sindicatoGerenteEventos.new ImprimiUnicoRegistro());
-		panelCadastroSindicato.getToolBar().getButtonImprimiTodosRegistros()
-				.addActionListener(sindicatoGerenteEventos.new ImprimiTodosRegistros());
-		panelCadastroSindicato.getToolBar().getButtonSalvar().addActionListener(sindicatoGerenteEventos.new Salva());
-		panelCadastroSindicato.getToolBar().getButtonFechar()
-				.addActionListener(sindicatoGerenteEventos.new FechaJanela());
-		panelCadastroSindicato.getToolBar().getButtonSair()
-				.addActionListener(sindicatoGerenteEventos.new SaidaSistema());
-		panelCadastroSindicato.getToolBar().getButtonAjuda().addActionListener(sindicatoGerenteEventos.new Ajuda());
-		panelCadastroSindicato.getToolBar().getButtonHome().addActionListener(sindicatoGerenteEventos.new Home());
+		sindicatoControlador = new SindicatoControlador();
+		addWindowListener(sindicatoControlador.new Frame());
+		pCSindicato.getToolBar().getButtonExcluiRegistro()
+				.addActionListener(sindicatoControlador.new ExcluiRegistro());
+		pCSindicato.getToolBar().getButtonNovoFrame()
+				.addActionListener(sindicatoControlador.new NovoFrame());
+		pCSindicato.getToolBar().getButtonPesquisaRegistro()
+				.addActionListener(sindicatoControlador.new PesquisaRegistro());
+		pCSindicato.getToolBar().getButtonImprimiUnicoRegistro()
+				.addActionListener(sindicatoControlador.new ImprimiUnicoRegistro());
+		pCSindicato.getToolBar().getButtonImprimiTodosRegistros()
+				.addActionListener(sindicatoControlador.new ImprimiTodosRegistros());
+		pCSindicato.getToolBar().getButtonSalvar().addActionListener(sindicatoControlador.new Salva());
+		pCSindicato.getToolBar().getButtonFechar()
+				.addActionListener(sindicatoControlador.new FechaJanela());
+		pCSindicato.getToolBar().getButtonSair()
+				.addActionListener(sindicatoControlador.new SaidaSistema());
+		pCSindicato.getToolBar().getButtonAjuda().addActionListener(sindicatoControlador.new Ajuda());
+		pCSindicato.getToolBar().getButtonHome().addActionListener(sindicatoControlador.new Home());
 	}
 
 	@Override

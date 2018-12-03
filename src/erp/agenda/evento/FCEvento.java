@@ -16,13 +16,13 @@ import arquitetura.gui.GuiGerenteEventos;
 import arquitetura.gui.Imagem;
 
 @SuppressWarnings("serial")
-public final class FrameCadastroEvento extends JFrame implements Gui {
+public final class FCEvento extends JFrame implements Gui {
 
-	private EventoGerenteEventos eventoGerenteEventos;
+	private EventoControlador eventoControlador;
 	private GuiGerenteEventos guiGerenteEventos;
-	private PanelCadastroEvento panelCadastroEvento;
+	private PCEvento pCEvento;
 
-	public FrameCadastroEvento() {
+	public FCEvento() {
 		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		iniciarLayout();
 		iniciarGui();
@@ -36,8 +36,8 @@ public final class FrameCadastroEvento extends JFrame implements Gui {
 
 	}
 
-	public EventoGerenteEventos getEventoGerenteEventos() {
-		return eventoGerenteEventos;
+	public EventoControlador getEventoGerenteEventos() {
+		return eventoControlador;
 	}
 
 	@Override
@@ -45,8 +45,8 @@ public final class FrameCadastroEvento extends JFrame implements Gui {
 		return guiGerenteEventos;
 	}
 
-	public PanelCadastroEvento getPanelCadastroEvento() {
-		return panelCadastroEvento;
+	public PCEvento getPanelCadastroEvento() {
+		return pCEvento;
 	}
 
 	@Override
@@ -60,10 +60,10 @@ public final class FrameCadastroEvento extends JFrame implements Gui {
 		setTitle("EVENTO");
 		setIconImage(Imagem.getLogoTipoImage());
 
-		panelCadastroEvento = new PanelCadastroEvento();
-		panelCadastroEvento.setOpaque(true); // content panes must be opaque
+		pCEvento = new PCEvento();
+		pCEvento.setOpaque(true); // content panes must be opaque
 
-		final JScrollPane scrollPane = new JScrollPane(panelCadastroEvento);
+		final JScrollPane scrollPane = new JScrollPane(pCEvento);
 
 		KeyboardFocusManager.getCurrentKeyboardFocusManager().addPropertyChangeListener("focusOwner",
 				new PropertyChangeListener() {
@@ -74,8 +74,8 @@ public final class FrameCadastroEvento extends JFrame implements Gui {
 							return;
 						}
 						JComponent focused = (JComponent) evt.getNewValue();
-						if (panelCadastroEvento.isAncestorOf(focused)) {
-							panelCadastroEvento.scrollRectToVisible(focused.getBounds());
+						if (pCEvento.isAncestorOf(focused)) {
+							pCEvento.scrollRectToVisible(focused.getBounds());
 						}
 					}
 				});
@@ -92,23 +92,23 @@ public final class FrameCadastroEvento extends JFrame implements Gui {
 
 	@Override
 	public void iniciarGerenteEventos() {
-		eventoGerenteEventos = new EventoGerenteEventos();
-		addWindowListener(eventoGerenteEventos.new Frame());
-		panelCadastroEvento.getLabelTipoEvento().addMouseListener(eventoGerenteEventos.new MostraFrameEmpresa());
-		panelCadastroEvento.getToolBar().getButtonExcluiRegistro()
-				.addActionListener(eventoGerenteEventos.new ExcluiRegistro());
-		panelCadastroEvento.getToolBar().getButtonNovoFrame().addActionListener(eventoGerenteEventos.new NovoFrame());
-		panelCadastroEvento.getToolBar().getButtonPesquisaRegistro()
-				.addActionListener(eventoGerenteEventos.new PesquisaRegistro());
-		panelCadastroEvento.getToolBar().getButtonImprimiUnicoRegistro()
-				.addActionListener(eventoGerenteEventos.new ImprimiUnicoRegistro());
-		panelCadastroEvento.getToolBar().getButtonImprimiTodosRegistros()
-				.addActionListener(eventoGerenteEventos.new ImprimiTodosRegistros());
-		panelCadastroEvento.getToolBar().getButtonSalvar().addActionListener(eventoGerenteEventos.new Salva());
-		panelCadastroEvento.getToolBar().getButtonFechar().addActionListener(eventoGerenteEventos.new FechaJanela());
-		panelCadastroEvento.getToolBar().getButtonSair().addActionListener(eventoGerenteEventos.new SaidaSistema());
-		panelCadastroEvento.getToolBar().getButtonAjuda().addActionListener(eventoGerenteEventos.new Ajuda());
-		panelCadastroEvento.getToolBar().getButtonHome().addActionListener(eventoGerenteEventos.new Home());
+		eventoControlador = new EventoControlador();
+		addWindowListener(eventoControlador.new Frame());
+		pCEvento.getLabelTipoEvento().addMouseListener(eventoControlador.new MostraFrameEmpresa());
+		pCEvento.getToolBar().getButtonExcluiRegistro()
+				.addActionListener(eventoControlador.new ExcluiRegistro());
+		pCEvento.getToolBar().getButtonNovoFrame().addActionListener(eventoControlador.new NovoFrame());
+		pCEvento.getToolBar().getButtonPesquisaRegistro()
+				.addActionListener(eventoControlador.new PesquisaRegistro());
+		pCEvento.getToolBar().getButtonImprimiUnicoRegistro()
+				.addActionListener(eventoControlador.new ImprimiUnicoRegistro());
+		pCEvento.getToolBar().getButtonImprimiTodosRegistros()
+				.addActionListener(eventoControlador.new ImprimiTodosRegistros());
+		pCEvento.getToolBar().getButtonSalvar().addActionListener(eventoControlador.new Salva());
+		pCEvento.getToolBar().getButtonFechar().addActionListener(eventoControlador.new FechaJanela());
+		pCEvento.getToolBar().getButtonSair().addActionListener(eventoControlador.new SaidaSistema());
+		pCEvento.getToolBar().getButtonAjuda().addActionListener(eventoControlador.new Ajuda());
+		pCEvento.getToolBar().getButtonHome().addActionListener(eventoControlador.new Home());
 
 	}
 
@@ -132,6 +132,6 @@ public final class FrameCadastroEvento extends JFrame implements Gui {
 
 	@Override
 	public void reiniciarBox() {
-		panelCadastroEvento.reiniciarBox();
+		pCEvento.reiniciarBox();
 	}
 }

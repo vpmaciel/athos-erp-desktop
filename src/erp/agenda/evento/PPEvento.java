@@ -16,13 +16,13 @@ import javax.swing.table.DefaultTableCellRenderer;
 import arquitetura.gui.Tabela;
 
 @SuppressWarnings("serial")
-public final class PanelPesquisaEvento extends JPanel {
+public final class PPEvento extends JPanel {
 
 	private final EventoTableModel agenciaTableModel;
 	List<Evento> eventoList = null;
 	private final JTable table;
 
-	public PanelPesquisaEvento() {
+	public PPEvento() {
 		eventoList = new LinkedList<>();
 		agenciaTableModel = new EventoTableModel(eventoList);
 
@@ -34,6 +34,9 @@ public final class PanelPesquisaEvento extends JPanel {
 		Tabela.configurarLarguraColunasTabela(table, EventoTableModel.WIDTH);
 		((DefaultTableCellRenderer) table.getTableHeader().getDefaultRenderer())
 				.setHorizontalAlignment(SwingConstants.RIGHT);
+		table.getColumnModel().getColumn(0).setMaxWidth(0);
+		table.getColumnModel().getColumn(0).setMinWidth(0);
+		table.getColumnModel().getColumn(0).setPreferredWidth(0);
 		table.setRowSelectionAllowed(true);
 		table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);

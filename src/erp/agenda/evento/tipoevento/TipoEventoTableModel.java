@@ -5,18 +5,32 @@ import java.util.List;
 
 import javax.swing.table.AbstractTableModel;
 
+import arquitetura.util.TabelaModelo;
+
 @SuppressWarnings("serial")
 public class TipoEventoTableModel extends AbstractTableModel {
 
 	public static final int ID = 0;
-	public static final int COL_NOME = 1;
-	public static final int[] WIDTH = new int[] { 100, 500 };
-	private final boolean[] podeEditar = new boolean[] { false, false };
+	public static int[] largura;
+	private static boolean[] podeEditar;
 	private List<TipoEvento> agendaList = new LinkedList<>();
 	private TipoEvento tipoEvento;
+	private static TabelaModelo tabelaModelo = new TabelaModelo();
 
 	public TipoEventoTableModel() {
 
+	}
+
+	static {
+		tabelaModelo.adicionar("ID", 0, 100);
+		tabelaModelo.adicionar("NOME", 1, 500);
+		
+		largura = new int[tabelaModelo.getTotalColunas()];
+		podeEditar = new boolean[tabelaModelo.getTotalColunas()];
+		for (int i = 0; i < tabelaModelo.getTotalColunas(); i++) {
+			largura[i] = tabelaModelo.getLargura(i);
+			podeEditar[i] = false;
+		}
 	}
 
 	public TipoEventoTableModel(List<TipoEvento> lista) {
@@ -36,31 +50,22 @@ public class TipoEventoTableModel extends AbstractTableModel {
 
 	@Override
 	public Class<?> getColumnClass(int columnIndex) {
-		switch (columnIndex) {
-		case ID:
+
+		if (tabelaModelo.getNome(columnIndex).equals("ID")) {
 			return Long.class;
-		case COL_NOME:
-			return String.class;
-		default:
-			return String.class;
 		}
+
+		return String.class;
 	}
 
 	@Override
 	public int getColumnCount() {
-		return WIDTH.length;
+		return largura.length;
 	}
 
 	@Override
 	public String getColumnName(int column) {
-		switch (column) {
-		case ID:
-			return "REGISTRO";
-		case COL_NOME:
-			return "NOME";
-		default:
-			return "";
-		}
+		return tabelaModelo.getNome(column);
 	}
 
 	@Override
@@ -71,14 +76,14 @@ public class TipoEventoTableModel extends AbstractTableModel {
 	@Override
 	public Object getValueAt(int rowIndex, int columnIndex) {
 		TipoEvento tipoEvento = agendaList.get(rowIndex);
-		switch (columnIndex) {
-		case ID:
+
+		if (tabelaModelo.getNome(columnIndex).equals("ID")) {
 			return tipoEvento.getId();
-		case COL_NOME:
-			return tipoEvento.getNome();
-		default:
-			return tipoEvento;
 		}
+		if (tabelaModelo.getNome(columnIndex).equals("NOME")) {
+			return tipoEvento.getNome();
+		}
+		return tipoEvento;
 	}
 
 	@Override
@@ -93,13 +98,9 @@ public class TipoEventoTableModel extends AbstractTableModel {
 	@Override
 	public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
 		tipoEvento = agendaList.get(rowIndex);
-		switch (columnIndex) {
-		case ID:
+
+		if (tabelaModelo.getNome(columnIndex).equals("ID")) {
 			tipoEvento.setId(Long.parseLong(aValue.toString()));
-			break;
-		case COL_NOME:
-			tipoEvento.setNome(aValue.toString());
-			break;
 		}
 
 		fireTableDataChanged();

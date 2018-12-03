@@ -5,9 +5,9 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.TableModel;
 
-import erp.main.MainGerenteEventos;
+import erp.main.MainControlador;
 
-class SelectionListener implements ListSelectionListener {
+final class SelectionListener implements ListSelectionListener {
 
 	JTable table;
 
@@ -28,11 +28,11 @@ class SelectionListener implements ListSelectionListener {
 					Sindicato sindicato = SindicatoDaoFacade.getRegistro(sindicatoPesquisaRegistro);
 					SindicatoTableModel sindicatoTableModel = (SindicatoTableModel) table.getModel();
 					sindicatoTableModel.getSindicato(table.getSelectedRow());
-					MainGerenteEventos.mostrarFrame(MainGerenteEventos.getFrameCadastroSindicato());
-					MainGerenteEventos.getFrameCadastroSindicato().getSindicatoHandle().setSindicato(sindicato);
-					MainGerenteEventos.getFrameCadastroSindicato().getSindicatoHandle().atualizarGui();
-					MainGerenteEventos.getFrameCadastroSindicato().setFocusable(true);
-					MainGerenteEventos.getFramePesquisaSindicato().setVisible(false);
+					MainControlador.mostrarFrame(MainControlador.getFrameCadastroSindicato());
+					MainControlador.getFrameCadastroSindicato().getSindicatoHandle().setSindicato(sindicato);
+					MainControlador.getFrameCadastroSindicato().getSindicatoHandle().atualizarGui();
+					MainControlador.getFrameCadastroSindicato().setFocusable(true);
+					MainControlador.getFramePesquisaSindicato().setVisible(false);
 				}
 			}
 		}

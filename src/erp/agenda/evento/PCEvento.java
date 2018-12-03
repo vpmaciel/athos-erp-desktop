@@ -21,10 +21,10 @@ import arquitetura.validacao.Mascara;
 import erp.agenda.evento.tipoevento.TipoEvento;
 import erp.agenda.evento.tipoevento.TipoEventoDaoFacade;
 import erp.agenda.evento.tipoevento.TipoEventoSort;
-import erp.main.MainGerenteEventos;
+import erp.main.MainControlador;
 
 @SuppressWarnings("serial")
-public final class PanelCadastroEvento extends JPanel implements Gui {
+public final class PCEvento extends JPanel implements Gui {
 
 	private ToolBar toolBar;
 	private GuiGerenteEventos guiGerenteEventos;
@@ -39,7 +39,7 @@ public final class PanelCadastroEvento extends JPanel implements Gui {
 	private JComboBox<TipoEvento> boxTipoEvento;
 	private JLabel labelTipoEvento;
 
-	public PanelCadastroEvento() {
+	public PCEvento() {
 		iniciarLayout();
 		iniciarGui();
 		iniciarFocusTabListener();
@@ -167,7 +167,8 @@ public final class PanelCadastroEvento extends JPanel implements Gui {
 
 	@Override
 	public void limparGui() {
-
+		guiGerenteEventos.limparGui();
+		reiniciarBox();
 	}
 
 	@Override
@@ -180,9 +181,10 @@ public final class PanelCadastroEvento extends JPanel implements Gui {
 			boxTipoEvento.addItem(b);
 		}
 
-		if (!MainGerenteEventos.getFrameCadastroAgendaEvento().isShowing()
-				&& MainGerenteEventos.getFrameCadastroAgendaEvento().getEventoGerenteEventos().getEvento() != null) {
-			tipoEvento = MainGerenteEventos.getFrameCadastroAgendaEvento().getEventoGerenteEventos().getEvento().getTipoEvento();
+		if (!MainControlador.getFrameCadastroAgendaEvento().isShowing()
+				&& MainControlador.getFrameCadastroAgendaEvento().getEventoGerenteEventos().getEvento() != null) {
+			tipoEvento = MainControlador.getFrameCadastroAgendaEvento().getEventoGerenteEventos().getEvento().getTipoEvento();
+			System.out.println(tipoEvento);
 			boxTipoEvento.setSelectedItem(tipoEvento);
 		}
 	}

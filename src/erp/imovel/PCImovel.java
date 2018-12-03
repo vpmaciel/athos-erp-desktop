@@ -15,7 +15,7 @@ import arquitetura.registro.ToolBar;
 import arquitetura.util.SpringUtilities;
 
 @SuppressWarnings("serial")
-public final class PanelCadastroImovel extends JPanel implements Gui {
+public final class PCImovel extends JPanel implements Gui {
 
 	private ToolBar toolBar;
 	private GuiGerenteEventos guiGerenteEventos;
@@ -66,7 +66,7 @@ public final class PanelCadastroImovel extends JPanel implements Gui {
 	private JLabel labelTerraco;
 	private JLabel labelVaranda;
 
-	public PanelCadastroImovel() {
+	public PCImovel() {
 		iniciarLayout();
 		iniciarGui();
 		iniciarFocusTabListener();

@@ -5,9 +5,9 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.TableModel;
 
-import erp.main.MainGerenteEventos;
+import erp.main.MainControlador;
 
-class SelectionListener implements ListSelectionListener {
+final class SelectionListener implements ListSelectionListener {
 
 	JTable table;
 
@@ -28,11 +28,11 @@ class SelectionListener implements ListSelectionListener {
 					Recado recado = RecadoDaoFacade.getRegistro(recadoPesquisaRegistro);
 					RecadoTableModel recadoTableModel = (RecadoTableModel) table.getModel();
 					recadoTableModel.getRecado(table.getSelectedRow());
-					MainGerenteEventos.mostrarFrame(MainGerenteEventos.getFrameCadastroRecado());
-					MainGerenteEventos.getFrameCadastroRecado().getRecadoHandle().setRecado(recado);
-					MainGerenteEventos.getFrameCadastroRecado().getRecadoHandle().atualizarGui();
-					MainGerenteEventos.getFrameCadastroRecado().setFocusable(true);
-					MainGerenteEventos.getFramePesquisaRecado().setVisible(false);
+					MainControlador.mostrarFrame(MainControlador.getFrameCadastroRecado());
+					MainControlador.getFrameCadastroRecado().getRecadoHandle().setRecado(recado);
+					MainControlador.getFrameCadastroRecado().getRecadoHandle().atualizarGui();
+					MainControlador.getFrameCadastroRecado().setFocusable(true);
+					MainControlador.getFramePesquisaRecado().setVisible(false);
 				}
 			}
 		}

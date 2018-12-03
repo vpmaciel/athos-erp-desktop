@@ -1,7 +1,9 @@
 package erp.agenda.contato;
 
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 import javax.swing.table.AbstractTableModel;
 
@@ -11,33 +13,34 @@ import erp.empresa.Empresa;
 public class ContatoTableModel extends AbstractTableModel {
 
 	public static final int ID = 0;
-	public static final int COL_CNPJ = 1;
-	public static final int COL_CPF_NUMERO = 2;
-	public static final int COL_EMAIL = 3;
-	public static final int COL_EMPRESA = 4;
-	public static final int COL_FAX = 5;
-	public static final int COL_FONE1 = 6;
-	public static final int COL_FONE2 = 7;
-	public static final int COL_NOME = 8;
-	public static final int COL_PIS_NUMERO = 9;
-	public static final int COL_SALARIO = 10;
-	public static final int COL_SEXO = 11;
-	public static final int COL_PAIS = 12;
-	public static final int COL_ESTADO = 13;
-	public static final int COL_CIDADE = 14;
-	public static final int COL_BAIRRO = 15;
-	public static final int COL_LOGRADOURO = 16;
-	public static final int COL_COMPLEMENTO = 17;
-	public static final int COL_CEP = 18;
+	public final int COL_CNPJ = 1;
+	public final int COL_CPF_NUMERO = 2;
+	public final int COL_EMAIL = 3;
+	public final int COL_EMPRESA = 4;
+	public final int COL_FAX = 5;
+	public final int COL_FONE1 = 6;
+	public final int COL_FONE2 = 7;
+	public final int COL_NOME = 8;
+	public final int COL_PIS_NUMERO = 9;
+	public final int COL_SALARIO = 10;
+	public final int COL_SEXO = 11;
+	public final int COL_PAIS = 12;
+	public final int COL_ESTADO = 13;
+	public final int COL_CIDADE = 14;
+	public final int COL_BAIRRO = 15;
+	public final int COL_LOGRADOURO = 16;
+	public final int COL_COMPLEMENTO = 17;
+	public final int COL_CEP = 18;
 	public static final int[] WIDTH = new int[] { 100, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500,
 			500, 500, 500, 500, 500 };
 	private final boolean[] podeEditar = new boolean[] { false, false, false, false, false, false, false, false, false,
 			false, false, false, false, false, false, false, false, false, false };
 	private List<Contato> recadoList = new LinkedList<>();
 	private Contato contato;
+	private Map<String, String> mapNomeColuna = new HashMap<>();
 
 	public ContatoTableModel() {
-
+	
 	}
 
 	public ContatoTableModel(List<Contato> lista) {
@@ -47,42 +50,8 @@ public class ContatoTableModel extends AbstractTableModel {
 	@Override
 	public Class<?> getColumnClass(int columnIndex) {
 		switch (columnIndex) {
-		case COL_BAIRRO:
-			return String.class;
-		case COL_CEP:
-			return String.class;
-		case COL_CIDADE:
-			return String.class;
-		case COL_CNPJ:
-			return String.class;
-		case COL_COMPLEMENTO:
-			return String.class;
-		case COL_CPF_NUMERO:
-			return String.class;
-		case COL_EMAIL:
-			return String.class;
-		case COL_EMPRESA:
-			return Empresa.class;
-		case COL_ESTADO:
-			return String.class;
-		case COL_FAX:
-			return String.class;
-		case COL_FONE1:
-			return String.class;
-		case COL_FONE2:
-			return String.class;
 		case ID:
 			return Long.class;
-		case COL_LOGRADOURO:
-			return String.class;
-		case COL_NOME:
-			return String.class;
-		case COL_PAIS:
-			return String.class;
-		case COL_SALARIO:
-			return String.class;
-		case COL_SEXO:
-			return String.class;
 		default:
 			return String.class;
 		}

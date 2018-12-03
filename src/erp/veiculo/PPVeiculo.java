@@ -16,13 +16,13 @@ import javax.swing.table.DefaultTableCellRenderer;
 import arquitetura.gui.Tabela;
 
 @SuppressWarnings("serial")
-public final class PanelPesquisaVeiculo extends JPanel {
+public final class PPVeiculo extends JPanel {
 
 	private final VeiculoTableModel veiculoTableModel;
 	List<Veiculo> veiculoList = null;
 	private final JTable table;
 
-	public PanelPesquisaVeiculo() {
+	public PPVeiculo() {
 		veiculoList = new LinkedList<>();
 		veiculoTableModel = new VeiculoTableModel(veiculoList);
 
@@ -34,6 +34,9 @@ public final class PanelPesquisaVeiculo extends JPanel {
 		Tabela.configurarLarguraColunasTabela(table, VeiculoTableModel.WIDTH);
 		((DefaultTableCellRenderer) table.getTableHeader().getDefaultRenderer())
 				.setHorizontalAlignment(SwingConstants.RIGHT);
+		table.getColumnModel().getColumn(0).setMaxWidth(0);
+		table.getColumnModel().getColumn(0).setMinWidth(0);
+		table.getColumnModel().getColumn(0).setPreferredWidth(0);
 		table.setRowSelectionAllowed(true);
 		table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);

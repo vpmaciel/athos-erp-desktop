@@ -16,13 +16,13 @@ import arquitetura.gui.GuiGerenteEventos;
 import arquitetura.gui.Imagem;
 
 @SuppressWarnings("serial")
-public final class FrameCadastroUsuario extends JFrame implements Gui {
+public final class FCUsuario extends JFrame implements Gui {
 
-	private UsuarioGerenteEventos usuarioGerenteEventos;
+	private UsuarioControlador usuarioControlador;
 	private GuiGerenteEventos guiGerenteEventos;
-	private PanelCadastroUsuario panelCadastroUsuario;
+	private PCUsuario pCUsuario;
 
-	public FrameCadastroUsuario() {
+	public FCUsuario() {
 		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		iniciarLayout();
 		iniciarGui();
@@ -45,16 +45,16 @@ public final class FrameCadastroUsuario extends JFrame implements Gui {
 		return guiGerenteEventos;
 	}
 
-	public PanelCadastroUsuario getPanelCadastroUsuario() {
-		return panelCadastroUsuario;
+	public PCUsuario getPanelCadastroUsuario() {
+		return pCUsuario;
 	}
 
-	public PanelCadastroUsuario getPanelUsuario() {
-		return panelCadastroUsuario;
+	public PCUsuario getPanelUsuario() {
+		return pCUsuario;
 	}
 
-	public UsuarioGerenteEventos getUsuarioHandle() {
-		return usuarioGerenteEventos;
+	public UsuarioControlador getUsuarioHandle() {
+		return usuarioControlador;
 	}
 
 	@Override
@@ -67,10 +67,10 @@ public final class FrameCadastroUsuario extends JFrame implements Gui {
 	public void iniciarGui() {
 		setTitle("USUÁRIO");
 		setIconImage(Imagem.getLogoTipoImage());
-		panelCadastroUsuario = new PanelCadastroUsuario();
-		panelCadastroUsuario.setOpaque(true); // content panes must be opaque
+		pCUsuario = new PCUsuario();
+		pCUsuario.setOpaque(true); // content panes must be opaque
 
-		final JScrollPane scrollPane = new JScrollPane(panelCadastroUsuario);
+		final JScrollPane scrollPane = new JScrollPane(pCUsuario);
 
 		KeyboardFocusManager.getCurrentKeyboardFocusManager().addPropertyChangeListener("focusOwner",
 				new PropertyChangeListener() {
@@ -81,8 +81,8 @@ public final class FrameCadastroUsuario extends JFrame implements Gui {
 							return;
 						}
 						JComponent focused = (JComponent) evt.getNewValue();
-						if (panelCadastroUsuario.isAncestorOf(focused)) {
-							panelCadastroUsuario.scrollRectToVisible(focused.getBounds());
+						if (pCUsuario.isAncestorOf(focused)) {
+							pCUsuario.scrollRectToVisible(focused.getBounds());
 						}
 					}
 				});
@@ -100,22 +100,22 @@ public final class FrameCadastroUsuario extends JFrame implements Gui {
 
 	@Override
 	public void iniciarGerenteEventos() {
-		usuarioGerenteEventos = new UsuarioGerenteEventos();
-		addWindowListener(usuarioGerenteEventos.new Frame());
-		panelCadastroUsuario.getToolBar().getButtonExcluiRegistro()
-				.addActionListener(usuarioGerenteEventos.new ExcluiRegistro());
-		panelCadastroUsuario.getToolBar().getButtonNovoFrame().addActionListener(usuarioGerenteEventos.new NovoFrame());
-		panelCadastroUsuario.getToolBar().getButtonPesquisaRegistro()
-				.addActionListener(usuarioGerenteEventos.new PesquisaRegistro());
-		panelCadastroUsuario.getToolBar().getButtonImprimiUnicoRegistro()
-				.addActionListener(usuarioGerenteEventos.new ImprimiUnicoRegistro());
-		panelCadastroUsuario.getToolBar().getButtonImprimiTodosRegistros()
-				.addActionListener(usuarioGerenteEventos.new ImprimiTodosRegistros());
-		panelCadastroUsuario.getToolBar().getButtonSalvar().addActionListener(usuarioGerenteEventos.new Salva());
-		panelCadastroUsuario.getToolBar().getButtonFechar().addActionListener(usuarioGerenteEventos.new FechaJanela());
-		panelCadastroUsuario.getToolBar().getButtonSair().addActionListener(usuarioGerenteEventos.new SaidaSistema());
-		panelCadastroUsuario.getToolBar().getButtonAjuda().addActionListener(usuarioGerenteEventos.new Ajuda());
-		panelCadastroUsuario.getToolBar().getButtonHome().addActionListener(usuarioGerenteEventos.new Home());
+		usuarioControlador = new UsuarioControlador();
+		addWindowListener(usuarioControlador.new Frame());
+		pCUsuario.getToolBar().getButtonExcluiRegistro()
+				.addActionListener(usuarioControlador.new ExcluiRegistro());
+		pCUsuario.getToolBar().getButtonNovoFrame().addActionListener(usuarioControlador.new NovoFrame());
+		pCUsuario.getToolBar().getButtonPesquisaRegistro()
+				.addActionListener(usuarioControlador.new PesquisaRegistro());
+		pCUsuario.getToolBar().getButtonImprimiUnicoRegistro()
+				.addActionListener(usuarioControlador.new ImprimiUnicoRegistro());
+		pCUsuario.getToolBar().getButtonImprimiTodosRegistros()
+				.addActionListener(usuarioControlador.new ImprimiTodosRegistros());
+		pCUsuario.getToolBar().getButtonSalvar().addActionListener(usuarioControlador.new Salva());
+		pCUsuario.getToolBar().getButtonFechar().addActionListener(usuarioControlador.new FechaJanela());
+		pCUsuario.getToolBar().getButtonSair().addActionListener(usuarioControlador.new SaidaSistema());
+		pCUsuario.getToolBar().getButtonAjuda().addActionListener(usuarioControlador.new Ajuda());
+		pCUsuario.getToolBar().getButtonHome().addActionListener(usuarioControlador.new Home());
 	}
 
 	@Override
@@ -134,7 +134,7 @@ public final class FrameCadastroUsuario extends JFrame implements Gui {
 
 	@Override
 	public void limparGui() {
-		panelCadastroUsuario.limparGui();
+		pCUsuario.limparGui();
 	}
 
 	@Override
@@ -143,6 +143,6 @@ public final class FrameCadastroUsuario extends JFrame implements Gui {
 	}
 
 	public boolean validarCamposCadastro() {
-		return panelCadastroUsuario.validarCamposCadastro();
+		return pCUsuario.validarCamposCadastro();
 	}
 }

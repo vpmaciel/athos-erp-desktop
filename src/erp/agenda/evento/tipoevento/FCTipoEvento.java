@@ -16,13 +16,13 @@ import arquitetura.gui.GuiGerenteEventos;
 import arquitetura.gui.Imagem;
 
 @SuppressWarnings("serial")
-public final class FrameCadastroTipoEvento extends JFrame implements Gui {
+public final class FCTipoEvento extends JFrame implements Gui {
 
-	private TipoEventoGerenteEventos tipoEventoGerenteEventos;
+	private TipoEventoControlador tipoEventoControlador;
 	private GuiGerenteEventos guiGerenteEventos;
-	private PanelCadastroTipoEvento panelCadastroTipoEvento;
+	private PCTipoEvento pCTipoEvento;
 
-	public FrameCadastroTipoEvento() {
+	public FCTipoEvento() {
 		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		iniciarLayout();
 		iniciarGui();
@@ -36,8 +36,8 @@ public final class FrameCadastroTipoEvento extends JFrame implements Gui {
 
 	}
 
-	public TipoEventoGerenteEventos getTipoEventoGerenteEventos() {
-		return tipoEventoGerenteEventos;
+	public TipoEventoControlador getTipoEventoGerenteEventos() {
+		return tipoEventoControlador;
 	}
 
 	@Override
@@ -45,8 +45,8 @@ public final class FrameCadastroTipoEvento extends JFrame implements Gui {
 		return guiGerenteEventos;
 	}
 
-	public PanelCadastroTipoEvento getPanelCadastroTipoEvento() {
-		return panelCadastroTipoEvento;
+	public PCTipoEvento getPanelCadastroTipoEvento() {
+		return pCTipoEvento;
 	}
 
 	@Override
@@ -60,10 +60,10 @@ public final class FrameCadastroTipoEvento extends JFrame implements Gui {
 		setTitle("TIPO DE EVENTO");
 		setIconImage(Imagem.getLogoTipoImage());
 
-		panelCadastroTipoEvento = new PanelCadastroTipoEvento();
-		panelCadastroTipoEvento.setOpaque(true); // content panes must be opaque
+		pCTipoEvento = new PCTipoEvento();
+		pCTipoEvento.setOpaque(true); // content panes must be opaque
 
-		final JScrollPane scrollPane = new JScrollPane(panelCadastroTipoEvento);
+		final JScrollPane scrollPane = new JScrollPane(pCTipoEvento);
 
 		KeyboardFocusManager.getCurrentKeyboardFocusManager().addPropertyChangeListener("focusOwner",
 				new PropertyChangeListener() {
@@ -74,8 +74,8 @@ public final class FrameCadastroTipoEvento extends JFrame implements Gui {
 							return;
 						}
 						JComponent focused = (JComponent) evt.getNewValue();
-						if (panelCadastroTipoEvento.isAncestorOf(focused)) {
-							panelCadastroTipoEvento.scrollRectToVisible(focused.getBounds());
+						if (pCTipoEvento.isAncestorOf(focused)) {
+							pCTipoEvento.scrollRectToVisible(focused.getBounds());
 						}
 					}
 				});
@@ -92,25 +92,25 @@ public final class FrameCadastroTipoEvento extends JFrame implements Gui {
 
 	@Override
 	public void iniciarGerenteEventos() {
-		tipoEventoGerenteEventos = new TipoEventoGerenteEventos();
-		addWindowListener(tipoEventoGerenteEventos.new Frame());
-		panelCadastroTipoEvento.getToolBar().getButtonExcluiRegistro()
-				.addActionListener(tipoEventoGerenteEventos.new ExcluiRegistro());
-		panelCadastroTipoEvento.getToolBar().getButtonNovoFrame()
-				.addActionListener(tipoEventoGerenteEventos.new NovoFrame());
-		panelCadastroTipoEvento.getToolBar().getButtonPesquisaRegistro()
-				.addActionListener(tipoEventoGerenteEventos.new PesquisaRegistro());
-		panelCadastroTipoEvento.getToolBar().getButtonImprimiUnicoRegistro()
-				.addActionListener(tipoEventoGerenteEventos.new ImprimiUnicoRegistro());
-		panelCadastroTipoEvento.getToolBar().getButtonImprimiTodosRegistros()
-				.addActionListener(tipoEventoGerenteEventos.new ImprimiTodosRegistros());
-		panelCadastroTipoEvento.getToolBar().getButtonSalvar().addActionListener(tipoEventoGerenteEventos.new Salva());
-		panelCadastroTipoEvento.getToolBar().getButtonFechar()
-				.addActionListener(tipoEventoGerenteEventos.new FechaJanela());
-		panelCadastroTipoEvento.getToolBar().getButtonSair()
-				.addActionListener(tipoEventoGerenteEventos.new SaidaSistema());
-		panelCadastroTipoEvento.getToolBar().getButtonAjuda().addActionListener(tipoEventoGerenteEventos.new Ajuda());
-		panelCadastroTipoEvento.getToolBar().getButtonHome().addActionListener(tipoEventoGerenteEventos.new Home());
+		tipoEventoControlador = new TipoEventoControlador();
+		addWindowListener(tipoEventoControlador.new Frame());
+		pCTipoEvento.getToolBar().getButtonExcluiRegistro()
+				.addActionListener(tipoEventoControlador.new ExcluiRegistro());
+		pCTipoEvento.getToolBar().getButtonNovoFrame()
+				.addActionListener(tipoEventoControlador.new NovoFrame());
+		pCTipoEvento.getToolBar().getButtonPesquisaRegistro()
+				.addActionListener(tipoEventoControlador.new PesquisaRegistro());
+		pCTipoEvento.getToolBar().getButtonImprimiUnicoRegistro()
+				.addActionListener(tipoEventoControlador.new ImprimiUnicoRegistro());
+		pCTipoEvento.getToolBar().getButtonImprimiTodosRegistros()
+				.addActionListener(tipoEventoControlador.new ImprimiTodosRegistros());
+		pCTipoEvento.getToolBar().getButtonSalvar().addActionListener(tipoEventoControlador.new Salva());
+		pCTipoEvento.getToolBar().getButtonFechar()
+				.addActionListener(tipoEventoControlador.new FechaJanela());
+		pCTipoEvento.getToolBar().getButtonSair()
+				.addActionListener(tipoEventoControlador.new SaidaSistema());
+		pCTipoEvento.getToolBar().getButtonAjuda().addActionListener(tipoEventoControlador.new Ajuda());
+		pCTipoEvento.getToolBar().getButtonHome().addActionListener(tipoEventoControlador.new Home());
 
 	}
 
@@ -134,6 +134,6 @@ public final class FrameCadastroTipoEvento extends JFrame implements Gui {
 
 	@Override
 	public void reiniciarBox() {
-		panelCadastroTipoEvento.reiniciarBox();
+		pCTipoEvento.reiniciarBox();
 	}
 }

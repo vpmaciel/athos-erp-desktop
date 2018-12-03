@@ -16,13 +16,13 @@ import arquitetura.gui.GuiGerenteEventos;
 import arquitetura.gui.Imagem;
 
 @SuppressWarnings("serial")
-public final class FrameCadastroFornecedor extends JFrame implements Gui {
+public final class FCFornecedor extends JFrame implements Gui {
 
-	private FornecedorGerenteEventos fornecedorGerenteEventos;
+	private FornecedorControlador fornecedorControlador;
 	private GuiGerenteEventos guiGerenteEventos;
-	private PanelCadastroFornecedor panelCadastroFornecedor;
+	private PCFornecedor pCFornecedor;
 
-	public FrameCadastroFornecedor() {
+	public FCFornecedor() {
 		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		iniciarLayout();
 		iniciarGui();
@@ -36,8 +36,8 @@ public final class FrameCadastroFornecedor extends JFrame implements Gui {
 
 	}
 
-	public FornecedorGerenteEventos getFornecedorHandle() {
-		return fornecedorGerenteEventos;
+	public FornecedorControlador getFornecedorHandle() {
+		return fornecedorControlador;
 	}
 
 	@Override
@@ -45,8 +45,8 @@ public final class FrameCadastroFornecedor extends JFrame implements Gui {
 		return guiGerenteEventos;
 	}
 
-	public PanelCadastroFornecedor getPanelCadastroFornecedor() {
-		return panelCadastroFornecedor;
+	public PCFornecedor getPanelCadastroFornecedor() {
+		return pCFornecedor;
 	}
 
 	@Override
@@ -59,10 +59,10 @@ public final class FrameCadastroFornecedor extends JFrame implements Gui {
 	public void iniciarGui() {
 		setTitle("FORNECEDOR");
 		setIconImage(Imagem.getLogoTipoImage());
-		panelCadastroFornecedor = new PanelCadastroFornecedor();
-		panelCadastroFornecedor.setOpaque(true); // content panes must be opaque
+		pCFornecedor = new PCFornecedor();
+		pCFornecedor.setOpaque(true); // content panes must be opaque
 
-		final JScrollPane scrollPane = new JScrollPane(panelCadastroFornecedor);
+		final JScrollPane scrollPane = new JScrollPane(pCFornecedor);
 
 		KeyboardFocusManager.getCurrentKeyboardFocusManager().addPropertyChangeListener("focusOwner",
 				new PropertyChangeListener() {
@@ -73,8 +73,8 @@ public final class FrameCadastroFornecedor extends JFrame implements Gui {
 							return;
 						}
 						JComponent focused = (JComponent) evt.getNewValue();
-						if (panelCadastroFornecedor.isAncestorOf(focused)) {
-							panelCadastroFornecedor.scrollRectToVisible(focused.getBounds());
+						if (pCFornecedor.isAncestorOf(focused)) {
+							pCFornecedor.scrollRectToVisible(focused.getBounds());
 						}
 					}
 				});
@@ -92,25 +92,25 @@ public final class FrameCadastroFornecedor extends JFrame implements Gui {
 
 	@Override
 	public void iniciarGerenteEventos() {
-		fornecedorGerenteEventos = new FornecedorGerenteEventos();
-		addWindowListener(fornecedorGerenteEventos.new Frame());
-		panelCadastroFornecedor.getToolBar().getButtonExcluiRegistro()
-				.addActionListener(fornecedorGerenteEventos.new ExcluiRegistro());
-		panelCadastroFornecedor.getToolBar().getButtonNovoFrame()
-				.addActionListener(fornecedorGerenteEventos.new NovoFrame());
-		panelCadastroFornecedor.getToolBar().getButtonPesquisaRegistro()
-				.addActionListener(fornecedorGerenteEventos.new PesquisaRegistro());
-		panelCadastroFornecedor.getToolBar().getButtonImprimiUnicoRegistro()
-				.addActionListener(fornecedorGerenteEventos.new ImprimiUnicoRegistro());
-		panelCadastroFornecedor.getToolBar().getButtonImprimiTodosRegistros()
-				.addActionListener(fornecedorGerenteEventos.new ImprimiTodosRegistros());
-		panelCadastroFornecedor.getToolBar().getButtonSalvar().addActionListener(fornecedorGerenteEventos.new Salva());
-		panelCadastroFornecedor.getToolBar().getButtonFechar()
-				.addActionListener(fornecedorGerenteEventos.new FechaJanela());
-		panelCadastroFornecedor.getToolBar().getButtonSair()
-				.addActionListener(fornecedorGerenteEventos.new SaidaSistema());
-		panelCadastroFornecedor.getToolBar().getButtonAjuda().addActionListener(fornecedorGerenteEventos.new Ajuda());
-		panelCadastroFornecedor.getToolBar().getButtonHome().addActionListener(fornecedorGerenteEventos.new Home());
+		fornecedorControlador = new FornecedorControlador();
+		addWindowListener(fornecedorControlador.new Frame());
+		pCFornecedor.getToolBar().getButtonExcluiRegistro()
+				.addActionListener(fornecedorControlador.new ExcluiRegistro());
+		pCFornecedor.getToolBar().getButtonNovoFrame()
+				.addActionListener(fornecedorControlador.new NovoFrame());
+		pCFornecedor.getToolBar().getButtonPesquisaRegistro()
+				.addActionListener(fornecedorControlador.new PesquisaRegistro());
+		pCFornecedor.getToolBar().getButtonImprimiUnicoRegistro()
+				.addActionListener(fornecedorControlador.new ImprimiUnicoRegistro());
+		pCFornecedor.getToolBar().getButtonImprimiTodosRegistros()
+				.addActionListener(fornecedorControlador.new ImprimiTodosRegistros());
+		pCFornecedor.getToolBar().getButtonSalvar().addActionListener(fornecedorControlador.new Salva());
+		pCFornecedor.getToolBar().getButtonFechar()
+				.addActionListener(fornecedorControlador.new FechaJanela());
+		pCFornecedor.getToolBar().getButtonSair()
+				.addActionListener(fornecedorControlador.new SaidaSistema());
+		pCFornecedor.getToolBar().getButtonAjuda().addActionListener(fornecedorControlador.new Ajuda());
+		pCFornecedor.getToolBar().getButtonHome().addActionListener(fornecedorControlador.new Home());
 	}
 
 	@Override

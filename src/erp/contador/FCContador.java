@@ -16,13 +16,13 @@ import arquitetura.gui.GuiGerenteEventos;
 import arquitetura.gui.Imagem;
 
 @SuppressWarnings("serial")
-public final class FrameCadastroContador extends JFrame implements Gui {
+public final class FCContador extends JFrame implements Gui {
 
-	private ContadorGerenteEventos contadorGerenteEventos;
+	private ContadorControlador contadorControlador;
 	private GuiGerenteEventos guiGerenteEventos;
-	private PanelCadastroContador panelCadastroContador;
+	private PCContador pCContador;
 
-	public FrameCadastroContador() {
+	public FCContador() {
 		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		iniciarLayout();
 		iniciarGui();
@@ -36,8 +36,8 @@ public final class FrameCadastroContador extends JFrame implements Gui {
 
 	}
 
-	public ContadorGerenteEventos getContadorHandle() {
-		return contadorGerenteEventos;
+	public ContadorControlador getContadorHandle() {
+		return contadorControlador;
 	}
 
 	@Override
@@ -45,8 +45,8 @@ public final class FrameCadastroContador extends JFrame implements Gui {
 		return guiGerenteEventos;
 	}
 
-	public PanelCadastroContador getPanelCadastroContador() {
-		return panelCadastroContador;
+	public PCContador getPanelCadastroContador() {
+		return pCContador;
 	}
 
 	@Override
@@ -60,10 +60,10 @@ public final class FrameCadastroContador extends JFrame implements Gui {
 
 		setTitle("CONTADOR");
 		setIconImage(Imagem.getLogoTipoImage());
-		panelCadastroContador = new PanelCadastroContador();
-		panelCadastroContador.setOpaque(true); // content panes must be opaque
+		pCContador = new PCContador();
+		pCContador.setOpaque(true); // content panes must be opaque
 
-		final JScrollPane scrollPane = new JScrollPane(panelCadastroContador);
+		final JScrollPane scrollPane = new JScrollPane(pCContador);
 
 		KeyboardFocusManager.getCurrentKeyboardFocusManager().addPropertyChangeListener("focusOwner",
 				new PropertyChangeListener() {
@@ -74,8 +74,8 @@ public final class FrameCadastroContador extends JFrame implements Gui {
 							return;
 						}
 						JComponent focused = (JComponent) evt.getNewValue();
-						if (panelCadastroContador.isAncestorOf(focused)) {
-							panelCadastroContador.scrollRectToVisible(focused.getBounds());
+						if (pCContador.isAncestorOf(focused)) {
+							pCContador.scrollRectToVisible(focused.getBounds());
 						}
 					}
 				});
@@ -92,24 +92,24 @@ public final class FrameCadastroContador extends JFrame implements Gui {
 
 	@Override
 	public void iniciarGerenteEventos() {
-		contadorGerenteEventos = new ContadorGerenteEventos();
-		addWindowListener(contadorGerenteEventos.new Frame());
-		panelCadastroContador.getToolBar().getButtonExcluiRegistro()
-				.addActionListener(contadorGerenteEventos.new ExcluiRegistro());
-		panelCadastroContador.getToolBar().getButtonNovoFrame()
-				.addActionListener(contadorGerenteEventos.new NovoFrame());
-		panelCadastroContador.getToolBar().getButtonPesquisaRegistro()
-				.addActionListener(contadorGerenteEventos.new PesquisaRegistro());
-		panelCadastroContador.getToolBar().getButtonImprimiUnicoRegistro()
-				.addActionListener(contadorGerenteEventos.new ImprimiUnicoRegistro());
-		panelCadastroContador.getToolBar().getButtonImprimiTodosRegistros()
-				.addActionListener(contadorGerenteEventos.new ImprimiTodosRegistros());
-		panelCadastroContador.getToolBar().getButtonSalvar().addActionListener(contadorGerenteEventos.new Salva());
-		panelCadastroContador.getToolBar().getButtonFechar()
-				.addActionListener(contadorGerenteEventos.new FechaJanela());
-		panelCadastroContador.getToolBar().getButtonSair().addActionListener(contadorGerenteEventos.new SaidaSistema());
-		panelCadastroContador.getToolBar().getButtonAjuda().addActionListener(contadorGerenteEventos.new Ajuda());
-		panelCadastroContador.getToolBar().getButtonHome().addActionListener(contadorGerenteEventos.new Home());
+		contadorControlador = new ContadorControlador();
+		addWindowListener(contadorControlador.new Frame());
+		pCContador.getToolBar().getButtonExcluiRegistro()
+				.addActionListener(contadorControlador.new ExcluiRegistro());
+		pCContador.getToolBar().getButtonNovoFrame()
+				.addActionListener(contadorControlador.new NovoFrame());
+		pCContador.getToolBar().getButtonPesquisaRegistro()
+				.addActionListener(contadorControlador.new PesquisaRegistro());
+		pCContador.getToolBar().getButtonImprimiUnicoRegistro()
+				.addActionListener(contadorControlador.new ImprimiUnicoRegistro());
+		pCContador.getToolBar().getButtonImprimiTodosRegistros()
+				.addActionListener(contadorControlador.new ImprimiTodosRegistros());
+		pCContador.getToolBar().getButtonSalvar().addActionListener(contadorControlador.new Salva());
+		pCContador.getToolBar().getButtonFechar()
+				.addActionListener(contadorControlador.new FechaJanela());
+		pCContador.getToolBar().getButtonSair().addActionListener(contadorControlador.new SaidaSistema());
+		pCContador.getToolBar().getButtonAjuda().addActionListener(contadorControlador.new Ajuda());
+		pCContador.getToolBar().getButtonHome().addActionListener(contadorControlador.new Home());
 	}
 
 	@Override

@@ -19,12 +19,12 @@ import arquitetura.util.SpringUtilities;
 import erp.centrocusto.CentroCusto;
 import erp.centrocusto.CentroCustoDaoFacade;
 import erp.centrocusto.CentroCustoSort;
-import erp.main.MainGerenteEventos;
-import erp.veiculo.marca.VeiculoMarca;
-import erp.veiculo.modelo.VeiculoModelo;
+import erp.main.MainControlador;
+import erp.veiculomarca.VeiculoMarca;
+import erp.veiculomodelo.VeiculoModelo;
 
 @SuppressWarnings("serial")
-public final class PanelCadastroVeiculo extends JPanel implements Gui {
+public final class PCVeiculo extends JPanel implements Gui {
 
 	private ToolBar toolBar;
 	private GuiGerenteEventos guiGerenteEventos;
@@ -187,7 +187,7 @@ public final class PanelCadastroVeiculo extends JPanel implements Gui {
 	private JTextField textFieldProprietarioAnteriorFone2;
 	private JTextField textFieldProprietarioAnteriorEmail;
 
-	public PanelCadastroVeiculo() {
+	public PCVeiculo() {
 		iniciarLayout();
 		iniciarGui();
 		iniciarFocusTabListener();
@@ -1499,9 +1499,9 @@ public final class PanelCadastroVeiculo extends JPanel implements Gui {
 		for (CentroCusto b : centroCustos) {
 			this.boxCentroCusto.addItem(b);
 		}
-		if (!MainGerenteEventos.getFrameCadastroVeiculo().isShowing()
-				&& MainGerenteEventos.getFrameCadastroVeiculo().getVeiculoGerenteEventos().getVeiculo() != null) {
-			centroCusto = MainGerenteEventos.getFrameCadastroVeiculo().getVeiculoGerenteEventos().getVeiculo().getCentroCusto();
+		if (!MainControlador.getFrameCadastroVeiculo().isShowing()
+				&& MainControlador.getFrameCadastroVeiculo().getVeiculoGerenteEventos().getVeiculo() != null) {
+			centroCusto = MainControlador.getFrameCadastroVeiculo().getVeiculoGerenteEventos().getVeiculo().getCentroCusto();
 			boxCentroCusto.setSelectedItem(centroCusto);
 		}
 	}

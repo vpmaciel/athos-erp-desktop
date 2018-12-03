@@ -20,10 +20,10 @@ import arquitetura.util.SpringUtilities;
 import erp.centrocusto.CentroCusto;
 import erp.centrocusto.CentroCustoDaoFacade;
 import erp.centrocusto.CentroCustoSort;
-import erp.main.MainGerenteEventos;
+import erp.main.MainControlador;
 
 @SuppressWarnings("serial")
-public final class PanelCadastroFuncionario extends JPanel implements Gui {
+public final class PCFuncionario extends JPanel implements Gui {
 
 	private GuiGerenteEventos guiGerenteEventos;
 	private JComboBox<String> boxSexo;
@@ -100,7 +100,7 @@ public final class PanelCadastroFuncionario extends JPanel implements Gui {
 	private JLabel labelEmpresa;
 	private ToolBar toolBar;
 
-	public PanelCadastroFuncionario() {
+	public PCFuncionario() {
 		iniciarLayout();
 		iniciarGui();
 		iniciarFocusTabListener();
@@ -614,9 +614,9 @@ public final class PanelCadastroFuncionario extends JPanel implements Gui {
 		for (CentroCusto b : centroCustos) {
 			this.boxCentroCusto.addItem(b);
 		}
-		if (!MainGerenteEventos.getFrameCadastroFuncionario().isShowing()
-				&& MainGerenteEventos.getFrameCadastroFuncionario().getFuncionarioHandle().getFuncionario() != null) {
-			centroCusto = MainGerenteEventos.getFrameCadastroFuncionario().getFuncionarioHandle().getFuncionario()
+		if (!MainControlador.getFrameCadastroFuncionario().isShowing()
+				&& MainControlador.getFrameCadastroFuncionario().getFuncionarioHandle().getFuncionario() != null) {
+			centroCusto = MainControlador.getFrameCadastroFuncionario().getFuncionarioHandle().getFuncionario()
 					.getCentroCusto();
 			boxCentroCusto.setSelectedItem(centroCusto);
 		}

@@ -16,13 +16,13 @@ import javax.swing.table.DefaultTableCellRenderer;
 import arquitetura.gui.Tabela;
 
 @SuppressWarnings("serial")
-public final class PanelPesquisaImovel extends JPanel {
+public final class PPImovel extends JPanel {
 
 	private final ImovelTableModel imovelTableModel;
 	List<Imovel> imovelList = null;
 	private final JTable table;
 
-	public PanelPesquisaImovel() {
+	public PPImovel() {
 		imovelList = new LinkedList<>();
 		imovelTableModel = new ImovelTableModel(imovelList);
 
@@ -34,6 +34,9 @@ public final class PanelPesquisaImovel extends JPanel {
 		Tabela.configurarLarguraColunasTabela(table, ImovelTableModel.WIDTH);
 		((DefaultTableCellRenderer) table.getTableHeader().getDefaultRenderer())
 				.setHorizontalAlignment(SwingConstants.RIGHT);
+		table.getColumnModel().getColumn(0).setMaxWidth(0);
+		table.getColumnModel().getColumn(0).setMinWidth(0);
+		table.getColumnModel().getColumn(0).setPreferredWidth(0);
 		table.setRowSelectionAllowed(true);
 		table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);

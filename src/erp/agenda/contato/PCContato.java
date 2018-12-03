@@ -20,10 +20,10 @@ import arquitetura.util.SpringUtilities;
 import erp.empresa.Empresa;
 import erp.empresa.EmpresaDaoFacade;
 import erp.empresa.EmpresaSort;
-import erp.main.MainGerenteEventos;
+import erp.main.MainControlador;
 
 @SuppressWarnings("serial")
-public final class PanelCadastroContato extends JPanel implements Gui {
+public final class PCContato extends JPanel implements Gui {
 
 	private ToolBar toolBar;
 	private GuiGerenteEventos guiGerenteEventos;
@@ -61,7 +61,7 @@ public final class PanelCadastroContato extends JPanel implements Gui {
 	private JComboBox<Empresa> boxEmpresa;
 	private JLabel labelEmpresa;
 
-	public PanelCadastroContato() {
+	public PCContato() {
 		iniciarLayout();
 		iniciarGui();
 		iniciarFocusTabListener();
@@ -330,9 +330,9 @@ public final class PanelCadastroContato extends JPanel implements Gui {
 		for (Empresa b : empresas) {
 			boxEmpresa.addItem(b);
 		}
-		if (!MainGerenteEventos.getFrameCadastroAgendaContato().isShowing()
-				&& MainGerenteEventos.getFrameCadastroAgendaContato().getContatoHandle().getContato() != null) {
-			empresa = MainGerenteEventos.getFrameCadastroAgendaContato().getContatoHandle().getContato().getEmpresa();
+		if (!MainControlador.getFrameCadastroAgendaContato().isShowing()
+				&& MainControlador.getFrameCadastroAgendaContato().getContatoHandle().getContato() != null) {
+			empresa = MainControlador.getFrameCadastroAgendaContato().getContatoHandle().getContato().getEmpresa();
 			boxEmpresa.setSelectedItem(empresa);
 		}
 

@@ -10,19 +10,19 @@ import java.util.List;
 
 import arquitetura.AOP;
 import arquitetura.gui.Msg;
-import erp.main.MainGerenteEventos;
+import erp.main.MainControlador;
 import erp.usuario.Usuario;
 import erp.usuario.UsuarioDaoFacade;
 
 public class LoginGerenteEventos {
 
-	private PanelLogin panelLogin = MainGerenteEventos.getFrameLogin().getPanelLogin();
+	private PLogin pLogin = MainControlador.getFrameLogin().getPanelLogin();
 
 	public class ButtonCancelarHandle implements ActionListener {
 
 		@Override
 		public void actionPerformed(final ActionEvent actionEvent) {
-			panelLogin.limparGui();
+			pLogin.limparGui();
 		}
 	}
 
@@ -30,16 +30,16 @@ public class LoginGerenteEventos {
 
 		@Override
 		public void actionPerformed(final ActionEvent actionEvent) {
-			panelLogin.validarCamposCadastro();
+			pLogin.validarCamposCadastro();
 			usuario = new Usuario();
-			usuario.setNome(panelLogin.getTextFieldNome().getText());
-			usuario.setSenha(new String(panelLogin.getTextFieldSenha().getPassword()));
+			usuario.setNome(pLogin.getTextFieldNome().getText());
+			usuario.setSenha(new String(pLogin.getTextFieldSenha().getPassword()));
 
 			if (UsuarioDaoFacade.isRegistroValido(usuario)) {
 				List<Usuario> list = (List<Usuario>) UsuarioDaoFacade.pesquisarRegistro(usuario);
 
 				AOP.setUsuario(list.get(0));
-				MainGerenteEventos.getFrameLogin().setVisible(false);
+				MainControlador.getFrameLogin().setVisible(false);
 
 			} else {
 				Msg.avisoUsuarioInvalido();
@@ -60,7 +60,7 @@ public class LoginGerenteEventos {
 			final int key = evt.getKeyCode();
 			if (key == KeyEvent.VK_ENTER) {
 				evt.getComponent().requestFocus();
-				panelLogin.validarCamposCadastro();
+				pLogin.validarCamposCadastro();
 			}
 		}
 	}
@@ -69,7 +69,7 @@ public class LoginGerenteEventos {
 
 		@Override
 		public void windowClosing(WindowEvent e) {
-			MainGerenteEventos.getFrameLogin().setVisible(false);
+			MainControlador.getFrameLogin().setVisible(false);
 		}
 	}
 

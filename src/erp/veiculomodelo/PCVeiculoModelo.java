@@ -1,4 +1,4 @@
-package erp.veiculo.modelo;
+package erp.veiculomodelo;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -13,7 +13,7 @@ import arquitetura.registro.ToolBar;
 import arquitetura.util.SpringUtilities;
 
 @SuppressWarnings("serial")
-public final class PanelCadastroVeiculoModelo extends JPanel implements Gui {
+public final class PCVeiculoModelo extends JPanel implements Gui {
 
 	private ToolBar toolBar;
 	private GuiGerenteEventos guiGerenteEventos;
@@ -21,7 +21,7 @@ public final class PanelCadastroVeiculoModelo extends JPanel implements Gui {
 	private JTextField textFieldModelo;
 	private JLabel labelModelo;
 
-	public PanelCadastroVeiculoModelo() {
+	public PCVeiculoModelo() {
 		iniciarLayout();
 		iniciarGui();
 		iniciarFocusTabListener();

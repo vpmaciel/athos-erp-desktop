@@ -14,7 +14,7 @@ import arquitetura.registro.ToolBar;
 import arquitetura.util.SpringUtilities;
 
 @SuppressWarnings("serial")
-public final class PanelCadastroCartorio extends JPanel implements Gui {
+public final class PCCartorio extends JPanel implements Gui {
 
 	private GuiGerenteEventos guiGerenteEventos;
 	private JTextField textFieldComarca;
@@ -59,7 +59,7 @@ public final class PanelCadastroCartorio extends JPanel implements Gui {
 	private JLabel labelPais;
 	private ToolBar toolBar;
 
-	public PanelCadastroCartorio() {
+	public PCCartorio() {
 		iniciarLayout();
 		iniciarGui();
 		iniciarFocusTabListener();

@@ -15,13 +15,13 @@ import arquitetura.gui.GuiGerenteEventos;
 import arquitetura.gui.Imagem;
 
 @SuppressWarnings("serial")
-public final class FrameCadastroImovel extends JFrame implements Gui {
+public final class FCImovel extends JFrame implements Gui {
 
-	private ImovelGerenteEventos imovelGerenteEventos;
+	private ImovelControlador imovelControlador;
 	private GuiGerenteEventos guiGerenteEventos;
-	private PanelCadastroImovel panelCadastroImovel;
+	private PCImovel pCImovel;
 
-	public FrameCadastroImovel() {
+	public FCImovel() {
 		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		iniciarLayout();
 		iniciarGui();
@@ -40,12 +40,12 @@ public final class FrameCadastroImovel extends JFrame implements Gui {
 		return guiGerenteEventos;
 	}
 
-	public ImovelGerenteEventos getImovelHandle() {
-		return imovelGerenteEventos;
+	public ImovelControlador getImovelHandle() {
+		return imovelControlador;
 	}
 
-	public PanelCadastroImovel getPanelCadastroImovel() {
-		return panelCadastroImovel;
+	public PCImovel getPanelCadastroImovel() {
+		return pCImovel;
 	}
 
 	@Override
@@ -58,10 +58,10 @@ public final class FrameCadastroImovel extends JFrame implements Gui {
 	public void iniciarGui() {
 		setTitle("Imóveis");
 		setIconImage(Imagem.getLogoTipoImage());
-		panelCadastroImovel = new PanelCadastroImovel();
-		panelCadastroImovel.setOpaque(true); // content panes must be opaque
+		pCImovel = new PCImovel();
+		pCImovel.setOpaque(true); // content panes must be opaque
 
-		final JScrollPane scrollPane = new JScrollPane(panelCadastroImovel);
+		final JScrollPane scrollPane = new JScrollPane(pCImovel);
 
 		KeyboardFocusManager.getCurrentKeyboardFocusManager().addPropertyChangeListener("focusOwner",
 				new PropertyChangeListener() {
@@ -72,8 +72,8 @@ public final class FrameCadastroImovel extends JFrame implements Gui {
 							return;
 						}
 						JComponent focused = (JComponent) evt.getNewValue();
-						if (panelCadastroImovel.isAncestorOf(focused)) {
-							panelCadastroImovel.scrollRectToVisible(focused.getBounds());
+						if (pCImovel.isAncestorOf(focused)) {
+							pCImovel.scrollRectToVisible(focused.getBounds());
 						}
 					}
 				});
@@ -90,22 +90,22 @@ public final class FrameCadastroImovel extends JFrame implements Gui {
 
 	@Override
 	public void iniciarGerenteEventos() {
-		imovelGerenteEventos = new ImovelGerenteEventos();
-		addWindowListener(imovelGerenteEventos.new Frame());
-		panelCadastroImovel.getToolBar().getButtonExcluiRegistro()
-				.addActionListener(imovelGerenteEventos.new ExcluiRegistro());
-		panelCadastroImovel.getToolBar().getButtonNovoFrame().addActionListener(imovelGerenteEventos.new NovoFrame());
-		panelCadastroImovel.getToolBar().getButtonPesquisaRegistro()
-				.addActionListener(imovelGerenteEventos.new PesquisaRegistro());
-		panelCadastroImovel.getToolBar().getButtonImprimiUnicoRegistro()
-				.addActionListener(imovelGerenteEventos.new ImprimiUnicoRegistro());
-		panelCadastroImovel.getToolBar().getButtonImprimiTodosRegistros()
-				.addActionListener(imovelGerenteEventos.new ImprimiTodosRegistros());
-		panelCadastroImovel.getToolBar().getButtonSalvar().addActionListener(imovelGerenteEventos.new Salva());
-		panelCadastroImovel.getToolBar().getButtonFechar().addActionListener(imovelGerenteEventos.new FechaJanela());
-		panelCadastroImovel.getToolBar().getButtonSair().addActionListener(imovelGerenteEventos.new SaidaSistema());
-		panelCadastroImovel.getToolBar().getButtonAjuda().addActionListener(imovelGerenteEventos.new Ajuda());
-		panelCadastroImovel.getToolBar().getButtonHome().addActionListener(imovelGerenteEventos.new Home());
+		imovelControlador = new ImovelControlador();
+		addWindowListener(imovelControlador.new Frame());
+		pCImovel.getToolBar().getButtonExcluiRegistro()
+				.addActionListener(imovelControlador.new ExcluiRegistro());
+		pCImovel.getToolBar().getButtonNovoFrame().addActionListener(imovelControlador.new NovoFrame());
+		pCImovel.getToolBar().getButtonPesquisaRegistro()
+				.addActionListener(imovelControlador.new PesquisaRegistro());
+		pCImovel.getToolBar().getButtonImprimiUnicoRegistro()
+				.addActionListener(imovelControlador.new ImprimiUnicoRegistro());
+		pCImovel.getToolBar().getButtonImprimiTodosRegistros()
+				.addActionListener(imovelControlador.new ImprimiTodosRegistros());
+		pCImovel.getToolBar().getButtonSalvar().addActionListener(imovelControlador.new Salva());
+		pCImovel.getToolBar().getButtonFechar().addActionListener(imovelControlador.new FechaJanela());
+		pCImovel.getToolBar().getButtonSair().addActionListener(imovelControlador.new SaidaSistema());
+		pCImovel.getToolBar().getButtonAjuda().addActionListener(imovelControlador.new Ajuda());
+		pCImovel.getToolBar().getButtonHome().addActionListener(imovelControlador.new Home());
 	}
 
 	@Override

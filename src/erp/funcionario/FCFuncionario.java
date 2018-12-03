@@ -15,13 +15,13 @@ import arquitetura.gui.Gui;
 import arquitetura.gui.GuiGerenteEventos;
 
 @SuppressWarnings("serial")
-public final class FrameCadastroFuncionario extends JFrame implements Gui {
+public final class FCFuncionario extends JFrame implements Gui {
 
-	private FuncionarioGerenteEventos funcionarioGerenteEventos;
+	private FuncionarioControlador funcionarioControlador;
 	private GuiGerenteEventos guiGerenteEventos;
-	private PanelCadastroFuncionario panelCadastroFuncionario;
+	private PCFuncionario pCFuncionario;
 
-	public FrameCadastroFuncionario() {
+	public FCFuncionario() {
 		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		iniciarLayout();
 		iniciarGui();
@@ -35,8 +35,8 @@ public final class FrameCadastroFuncionario extends JFrame implements Gui {
 
 	}
 
-	public FuncionarioGerenteEventos getFuncionarioHandle() {
-		return funcionarioGerenteEventos;
+	public FuncionarioControlador getFuncionarioHandle() {
+		return funcionarioControlador;
 	}
 
 	@Override
@@ -44,8 +44,8 @@ public final class FrameCadastroFuncionario extends JFrame implements Gui {
 		return guiGerenteEventos;
 	}
 
-	public PanelCadastroFuncionario getPanelCadastroFuncionario() {
-		return panelCadastroFuncionario;
+	public PCFuncionario getPanelCadastroFuncionario() {
+		return pCFuncionario;
 	}
 
 	@Override
@@ -58,10 +58,10 @@ public final class FrameCadastroFuncionario extends JFrame implements Gui {
 	public void iniciarGui() {
 		setTitle("FUNCIONÁRIO");
 		setIconImage(arquitetura.gui.Imagem.getLogoTipoImage());
-		panelCadastroFuncionario = new PanelCadastroFuncionario();
-		panelCadastroFuncionario.setOpaque(true); // content panes must be opaque
+		pCFuncionario = new PCFuncionario();
+		pCFuncionario.setOpaque(true); // content panes must be opaque
 
-		final JScrollPane scrollPane = new JScrollPane(panelCadastroFuncionario);
+		final JScrollPane scrollPane = new JScrollPane(pCFuncionario);
 
 		KeyboardFocusManager.getCurrentKeyboardFocusManager().addPropertyChangeListener("focusOwner",
 				new PropertyChangeListener() {
@@ -72,8 +72,8 @@ public final class FrameCadastroFuncionario extends JFrame implements Gui {
 							return;
 						}
 						JComponent focused = (JComponent) evt.getNewValue();
-						if (panelCadastroFuncionario.isAncestorOf(focused)) {
-							panelCadastroFuncionario.scrollRectToVisible(focused.getBounds());
+						if (pCFuncionario.isAncestorOf(focused)) {
+							pCFuncionario.scrollRectToVisible(focused.getBounds());
 						}
 					}
 				});
@@ -90,28 +90,28 @@ public final class FrameCadastroFuncionario extends JFrame implements Gui {
 
 	@Override
 	public void iniciarGerenteEventos() {
-		funcionarioGerenteEventos = new FuncionarioGerenteEventos();
-		panelCadastroFuncionario.getLabelCentroCusto()
-				.addMouseListener(funcionarioGerenteEventos.new MostraFrameCentroCusto());
-		addWindowListener(funcionarioGerenteEventos.new Frame());
-		panelCadastroFuncionario.getToolBar().getButtonExcluiRegistro()
-				.addActionListener(funcionarioGerenteEventos.new ExcluiRegistro());
-		panelCadastroFuncionario.getToolBar().getButtonNovoFrame()
-				.addActionListener(funcionarioGerenteEventos.new NovoFrame());
-		panelCadastroFuncionario.getToolBar().getButtonPesquisaRegistro()
-				.addActionListener(funcionarioGerenteEventos.new PesquisaRegistro());
-		panelCadastroFuncionario.getToolBar().getButtonImprimiUnicoRegistro()
-				.addActionListener(funcionarioGerenteEventos.new ImprimiUnicoRegistro());
-		panelCadastroFuncionario.getToolBar().getButtonImprimiTodosRegistros()
-				.addActionListener(funcionarioGerenteEventos.new ImprimiTodosRegistros());
-		panelCadastroFuncionario.getToolBar().getButtonSalvar()
-				.addActionListener(funcionarioGerenteEventos.new Salva());
-		panelCadastroFuncionario.getToolBar().getButtonFechar()
-				.addActionListener(funcionarioGerenteEventos.new FechaJanela());
-		panelCadastroFuncionario.getToolBar().getButtonSair()
-				.addActionListener(funcionarioGerenteEventos.new SaidaSistema());
-		panelCadastroFuncionario.getToolBar().getButtonAjuda().addActionListener(funcionarioGerenteEventos.new Ajuda());
-		panelCadastroFuncionario.getToolBar().getButtonHome().addActionListener(funcionarioGerenteEventos.new Home());
+		funcionarioControlador = new FuncionarioControlador();
+		pCFuncionario.getLabelCentroCusto()
+				.addMouseListener(funcionarioControlador.new MostraFrameCentroCusto());
+		addWindowListener(funcionarioControlador.new Frame());
+		pCFuncionario.getToolBar().getButtonExcluiRegistro()
+				.addActionListener(funcionarioControlador.new ExcluiRegistro());
+		pCFuncionario.getToolBar().getButtonNovoFrame()
+				.addActionListener(funcionarioControlador.new NovoFrame());
+		pCFuncionario.getToolBar().getButtonPesquisaRegistro()
+				.addActionListener(funcionarioControlador.new PesquisaRegistro());
+		pCFuncionario.getToolBar().getButtonImprimiUnicoRegistro()
+				.addActionListener(funcionarioControlador.new ImprimiUnicoRegistro());
+		pCFuncionario.getToolBar().getButtonImprimiTodosRegistros()
+				.addActionListener(funcionarioControlador.new ImprimiTodosRegistros());
+		pCFuncionario.getToolBar().getButtonSalvar()
+				.addActionListener(funcionarioControlador.new Salva());
+		pCFuncionario.getToolBar().getButtonFechar()
+				.addActionListener(funcionarioControlador.new FechaJanela());
+		pCFuncionario.getToolBar().getButtonSair()
+				.addActionListener(funcionarioControlador.new SaidaSistema());
+		pCFuncionario.getToolBar().getButtonAjuda().addActionListener(funcionarioControlador.new Ajuda());
+		pCFuncionario.getToolBar().getButtonHome().addActionListener(funcionarioControlador.new Home());
 
 	}
 
@@ -135,6 +135,6 @@ public final class FrameCadastroFuncionario extends JFrame implements Gui {
 
 	@Override
 	public void reiniciarBox() {
-		panelCadastroFuncionario.reiniciarBox();
+		pCFuncionario.reiniciarBox();
 	}
 }

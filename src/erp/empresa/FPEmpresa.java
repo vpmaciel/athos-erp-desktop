@@ -10,11 +10,11 @@ import arquitetura.gui.GuiGerenteEventos;
 import arquitetura.gui.Imagem;
 
 @SuppressWarnings("serial")
-public final class FramePesquisaEmpresa extends JFrame implements Gui {
+public final class FPEmpresa extends JFrame implements Gui {
 
-	private PanelPesquisaEmpresa PanelPesquisaEmpresa;
+	private PPEmpresa PPEmpresa;
 
-	public FramePesquisaEmpresa() {
+	public FPEmpresa() {
 		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		iniciarLayout();
 		iniciarGui();
@@ -31,8 +31,8 @@ public final class FramePesquisaEmpresa extends JFrame implements Gui {
 		return null;
 	}
 
-	public PanelPesquisaEmpresa getPanelPesquisaEmpresa() {
-		return PanelPesquisaEmpresa;
+	public PPEmpresa getPanelPesquisaEmpresa() {
+		return PPEmpresa;
 	}
 
 	@Override
@@ -44,8 +44,8 @@ public final class FramePesquisaEmpresa extends JFrame implements Gui {
 	public void iniciarGui() {
 		setTitle("EMPRESA");
 		setIconImage(Imagem.getLogoTipoImage());
-		PanelPesquisaEmpresa = new PanelPesquisaEmpresa();
-		setContentPane(PanelPesquisaEmpresa);
+		PPEmpresa = new PPEmpresa();
+		setContentPane(PPEmpresa);
 	}
 
 	@Override
@@ -55,7 +55,7 @@ public final class FramePesquisaEmpresa extends JFrame implements Gui {
 
 	@Override
 	public void iniciarGerenteEventos() {
-		PanelPesquisaEmpresa.iniciarHandle();
+		PPEmpresa.iniciarHandle();
 	}
 
 	@Override

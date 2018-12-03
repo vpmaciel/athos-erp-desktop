@@ -13,9 +13,9 @@ import javax.swing.JOptionPane;
 
 import arquitetura.gui.Msg;
 import erp.empresa.Empresa;
-import erp.main.MainGerenteEventos;
+import erp.main.MainControlador;
 
-final class ContatoGerenteEventos {
+final class ContatoControlador {
 
 	public class Ajuda implements ActionListener {
 
@@ -79,7 +79,7 @@ final class ContatoGerenteEventos {
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
 			try {
-				MainGerenteEventos.mostrarFrame(MainGerenteEventos.getFrameMain());
+				MainControlador.mostrarFrame(MainControlador.getFrameMain());
 			} catch (Exception e) {
 				System.out.println(e);
 			}
@@ -130,9 +130,9 @@ final class ContatoGerenteEventos {
 		@Override
 		public void mouseClicked(MouseEvent event) {
 			if (event.getButton() == MouseEvent.BUTTON1) {
-				MainGerenteEventos.mostrarFrame(MainGerenteEventos.getFrameCadastroEmpresa());
+				MainControlador.mostrarFrame(MainControlador.getFrameCadastroEmpresa());
 			} else {
-				MainGerenteEventos.getFrameCadastroEmpresa().reiniciarBox();
+				MainControlador.getFrameCadastroEmpresa().reiniciarBox();
 			}
 		}
 	}
@@ -154,7 +154,7 @@ final class ContatoGerenteEventos {
 			contato = new Contato();
 			atualizarObjeto();
 			getPanelPesquisaContato().pesquisarRegistroContato(contato);
-			MainGerenteEventos.mostrarFrame(MainGerenteEventos.getFramePesquisaAgendaContato());
+			MainControlador.mostrarFrame(MainControlador.getFramePesquisaAgendaContato());
 		}
 	}
 
@@ -192,7 +192,7 @@ final class ContatoGerenteEventos {
 					atualizarObjeto();
 					ContatoDaoFacade.salvarRegistro(contato);
 					contato = new Contato();
-					MainGerenteEventos.getFrameCadastroAgendaContato().limparGui();
+					MainControlador.getFrameCadastroAgendaContato().limparGui();
 					getPanelCadastroContato().getTextFieldNome().requestFocus();
 					Msg.sucessoSalvarRegistro();
 				}
@@ -254,19 +254,19 @@ final class ContatoGerenteEventos {
 		this.contato = contato;
 	}
 
-	public FrameCadastroContato getFrameCadastroContato() {
-		return MainGerenteEventos.getFrameCadastroAgendaContato();
+	public FCContato getFrameCadastroContato() {
+		return MainControlador.getFrameCadastroAgendaContato();
 	}
 
-	public PanelCadastroContato getPanelCadastroContato() {
-		return MainGerenteEventos.getFrameCadastroAgendaContato().getPanelCadastroContato();
+	public PCContato getPanelCadastroContato() {
+		return MainControlador.getFrameCadastroAgendaContato().getPanelCadastroContato();
 	}
 
-	public FramePesquisaContato getFramePesquisaContato() {
-		return MainGerenteEventos.getFramePesquisaAgendaContato();
+	public FPContato getFramePesquisaContato() {
+		return MainControlador.getFramePesquisaAgendaContato();
 	}
 
-	public PanelPesquisaContato getPanelPesquisaContato() {
-		return MainGerenteEventos.getFramePesquisaAgendaContato().getPanelPesquisaContato();
+	public PPContato getPanelPesquisaContato() {
+		return MainControlador.getFramePesquisaAgendaContato().getPanelPesquisaContato();
 	}
 }

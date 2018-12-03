@@ -16,13 +16,13 @@ import arquitetura.gui.GuiGerenteEventos;
 import arquitetura.gui.Imagem;
 
 @SuppressWarnings("serial")
-public final class FrameCadastroCentroCusto extends JFrame implements Gui {
+public final class FCCentroCusto extends JFrame implements Gui {
 
-	private CentroCustoGerenteEventos centroCustoGerenteEventos;
+	private CentroCustoControlador centroCustoControlador;
 	private GuiGerenteEventos guiGerenteEventos;
-	private PanelCadastroCentroCusto panelCadastroCentroCusto;
+	private PCCentroCusto pCCentroCusto;
 
-	public FrameCadastroCentroCusto() {
+	public FCCentroCusto() {
 		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		iniciarLayout();
 		iniciarGui();
@@ -38,8 +38,8 @@ public final class FrameCadastroCentroCusto extends JFrame implements Gui {
 	public void desabilitarGui() {
 	}
 
-	public CentroCustoGerenteEventos getCentroCustoHandle() {
-		return centroCustoGerenteEventos;
+	public CentroCustoControlador getCentroCustoHandle() {
+		return centroCustoControlador;
 	}
 
 	@Override
@@ -47,12 +47,12 @@ public final class FrameCadastroCentroCusto extends JFrame implements Gui {
 		return guiGerenteEventos;
 	}
 
-	public PanelCadastroCentroCusto getPanelCadastroCentroCusto() {
-		return panelCadastroCentroCusto;
+	public PCCentroCusto getPanelCadastroCentroCusto() {
+		return pCCentroCusto;
 	}
 
-	public PanelCadastroCentroCusto getPanelCentroCustoCadastro() {
-		return panelCadastroCentroCusto;
+	public PCCentroCusto getPanelCentroCustoCadastro() {
+		return pCCentroCusto;
 	}
 
 	@Override
@@ -65,10 +65,10 @@ public final class FrameCadastroCentroCusto extends JFrame implements Gui {
 	public void iniciarGui() {
 		setTitle("CENTRO DE CUSTO");
 		setIconImage(Imagem.getLogoTipoImage());
-		panelCadastroCentroCusto = new PanelCadastroCentroCusto();
-		panelCadastroCentroCusto.setOpaque(true); // content panes must be opaque
+		pCCentroCusto = new PCCentroCusto();
+		pCCentroCusto.setOpaque(true); // content panes must be opaque
 
-		final JScrollPane scrollPane = new JScrollPane(panelCadastroCentroCusto);
+		final JScrollPane scrollPane = new JScrollPane(pCCentroCusto);
 
 		KeyboardFocusManager.getCurrentKeyboardFocusManager().addPropertyChangeListener("focusOwner",
 				new PropertyChangeListener() {
@@ -79,8 +79,8 @@ public final class FrameCadastroCentroCusto extends JFrame implements Gui {
 							return;
 						}
 						JComponent focused = (JComponent) evt.getNewValue();
-						if (panelCadastroCentroCusto.isAncestorOf(focused)) {
-							panelCadastroCentroCusto.scrollRectToVisible(focused.getBounds());
+						if (pCCentroCusto.isAncestorOf(focused)) {
+							pCCentroCusto.scrollRectToVisible(focused.getBounds());
 						}
 					}
 				});
@@ -97,26 +97,26 @@ public final class FrameCadastroCentroCusto extends JFrame implements Gui {
 
 	@Override
 	public void iniciarGerenteEventos() {
-		centroCustoGerenteEventos = new CentroCustoGerenteEventos();
-		addWindowListener(centroCustoGerenteEventos.new Frame());
-		panelCadastroCentroCusto.getToolBar().getButtonExcluiRegistro()
-				.addActionListener(centroCustoGerenteEventos.new ExcluiRegistro());
-		panelCadastroCentroCusto.getToolBar().getButtonNovoFrame()
-				.addActionListener(centroCustoGerenteEventos.new NovoFrame());
-		panelCadastroCentroCusto.getToolBar().getButtonPesquisaRegistro()
-				.addActionListener(centroCustoGerenteEventos.new PesquisaRegistro());
-		panelCadastroCentroCusto.getToolBar().getButtonImprimiUnicoRegistro()
-				.addActionListener(centroCustoGerenteEventos.new ImprimiUnicoRegistro());
-		panelCadastroCentroCusto.getToolBar().getButtonImprimiTodosRegistros()
-				.addActionListener(centroCustoGerenteEventos.new ImprimiTodosRegistros());
-		panelCadastroCentroCusto.getToolBar().getButtonSalvar()
-				.addActionListener(centroCustoGerenteEventos.new Salva());
-		panelCadastroCentroCusto.getToolBar().getButtonFechar()
-				.addActionListener(centroCustoGerenteEventos.new FechaJanela());
-		panelCadastroCentroCusto.getToolBar().getButtonSair()
-				.addActionListener(centroCustoGerenteEventos.new SaidaSistema());
-		panelCadastroCentroCusto.getToolBar().getButtonAjuda().addActionListener(centroCustoGerenteEventos.new Ajuda());
-		panelCadastroCentroCusto.getToolBar().getButtonHome().addActionListener(centroCustoGerenteEventos.new Home());
+		centroCustoControlador = new CentroCustoControlador();
+		addWindowListener(centroCustoControlador.new Frame());
+		pCCentroCusto.getToolBar().getButtonExcluiRegistro()
+				.addActionListener(centroCustoControlador.new ExcluiRegistro());
+		pCCentroCusto.getToolBar().getButtonNovoFrame()
+				.addActionListener(centroCustoControlador.new NovoFrame());
+		pCCentroCusto.getToolBar().getButtonPesquisaRegistro()
+				.addActionListener(centroCustoControlador.new PesquisaRegistro());
+		pCCentroCusto.getToolBar().getButtonImprimiUnicoRegistro()
+				.addActionListener(centroCustoControlador.new ImprimiUnicoRegistro());
+		pCCentroCusto.getToolBar().getButtonImprimiTodosRegistros()
+				.addActionListener(centroCustoControlador.new ImprimiTodosRegistros());
+		pCCentroCusto.getToolBar().getButtonSalvar()
+				.addActionListener(centroCustoControlador.new Salva());
+		pCCentroCusto.getToolBar().getButtonFechar()
+				.addActionListener(centroCustoControlador.new FechaJanela());
+		pCCentroCusto.getToolBar().getButtonSair()
+				.addActionListener(centroCustoControlador.new SaidaSistema());
+		pCCentroCusto.getToolBar().getButtonAjuda().addActionListener(centroCustoControlador.new Ajuda());
+		pCCentroCusto.getToolBar().getButtonHome().addActionListener(centroCustoControlador.new Home());
 	}
 
 	@Override
@@ -134,7 +134,7 @@ public final class FrameCadastroCentroCusto extends JFrame implements Gui {
 
 	@Override
 	public void limparGui() {
-		panelCadastroCentroCusto.limparGui();
+		pCCentroCusto.limparGui();
 	}
 
 	@Override
@@ -142,6 +142,6 @@ public final class FrameCadastroCentroCusto extends JFrame implements Gui {
 	}
 
 	public boolean validarCamposCadastro() {
-		return panelCadastroCentroCusto.validarCamposCadastro();
+		return pCCentroCusto.validarCamposCadastro();
 	}
 }

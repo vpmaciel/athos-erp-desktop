@@ -5,9 +5,9 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.TableModel;
 
-import erp.main.MainGerenteEventos;
+import erp.main.MainControlador;
 
-class SelectionListener implements ListSelectionListener {
+final class SelectionListener implements ListSelectionListener {
 
 	JTable table;
 
@@ -28,11 +28,11 @@ class SelectionListener implements ListSelectionListener {
 					Imovel imovel = ImovelDaoFacade.getRegistro(imovelPesquisaRegistro);
 					ImovelTableModel imovelTableModel = (ImovelTableModel) table.getModel();
 					imovelTableModel.getImovel(table.getSelectedRow());
-					MainGerenteEventos.mostrarFrame(MainGerenteEventos.getFrameCadastroImovel());
-					MainGerenteEventos.getFrameCadastroImovel().getImovelHandle().setImovel(imovel);
-					MainGerenteEventos.getFrameCadastroImovel().getImovelHandle().atualizarGui();
-					MainGerenteEventos.getFrameCadastroImovel().setFocusable(true);
-					MainGerenteEventos.getFramePesquisaImovel().setVisible(false);
+					MainControlador.mostrarFrame(MainControlador.getFrameCadastroImovel());
+					MainControlador.getFrameCadastroImovel().getImovelHandle().setImovel(imovel);
+					MainControlador.getFrameCadastroImovel().getImovelHandle().atualizarGui();
+					MainControlador.getFrameCadastroImovel().setFocusable(true);
+					MainControlador.getFramePesquisaImovel().setVisible(false);
 				}
 			}
 		}

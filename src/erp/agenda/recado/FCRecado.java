@@ -16,13 +16,13 @@ import arquitetura.gui.GuiGerenteEventos;
 import arquitetura.gui.Imagem;
 
 @SuppressWarnings("serial")
-public final class FrameCadastroRecado extends JFrame implements Gui {
+public final class FCRecado extends JFrame implements Gui {
 
-	private RecadoGerenteEventos recadoGerenteEventos;
+	private RecadoControlador recadoControlador;
 	private GuiGerenteEventos guiGerenteEventos;
-	private PanelCadastroRecado panelCadastroRecado;
+	private PCRecado pCRecado;
 
-	public FrameCadastroRecado() {
+	public FCRecado() {
 		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		iniciarLayout();
 		iniciarGui();
@@ -41,12 +41,12 @@ public final class FrameCadastroRecado extends JFrame implements Gui {
 		return guiGerenteEventos;
 	}
 
-	public PanelCadastroRecado getPanelCadastroRecado() {
-		return panelCadastroRecado;
+	public PCRecado getPanelCadastroRecado() {
+		return pCRecado;
 	}
 
-	public RecadoGerenteEventos getRecadoHandle() {
-		return recadoGerenteEventos;
+	public RecadoControlador getRecadoHandle() {
+		return recadoControlador;
 	}
 
 	@Override
@@ -60,11 +60,11 @@ public final class FrameCadastroRecado extends JFrame implements Gui {
 		setTitle("RECADO");
 		setIconImage(Imagem.getLogoTipoImage());
 
-		panelCadastroRecado = new PanelCadastroRecado();
+		pCRecado = new PCRecado();
 
-		panelCadastroRecado.setOpaque(true); // content panes must be opaque
+		pCRecado.setOpaque(true); // content panes must be opaque
 
-		final JScrollPane scrollPane = new JScrollPane(panelCadastroRecado);
+		final JScrollPane scrollPane = new JScrollPane(pCRecado);
 
 		KeyboardFocusManager.getCurrentKeyboardFocusManager().addPropertyChangeListener("focusOwner",
 				new PropertyChangeListener() {
@@ -75,8 +75,8 @@ public final class FrameCadastroRecado extends JFrame implements Gui {
 							return;
 						}
 						JComponent focused = (JComponent) evt.getNewValue();
-						if (panelCadastroRecado.isAncestorOf(focused)) {
-							panelCadastroRecado.scrollRectToVisible(focused.getBounds());
+						if (pCRecado.isAncestorOf(focused)) {
+							pCRecado.scrollRectToVisible(focused.getBounds());
 						}
 					}
 				});
@@ -93,23 +93,23 @@ public final class FrameCadastroRecado extends JFrame implements Gui {
 
 	@Override
 	public void iniciarGerenteEventos() {
-		recadoGerenteEventos = new RecadoGerenteEventos();
-		addWindowListener(recadoGerenteEventos.new Frame());
-		panelCadastroRecado.getLabelEmpresa().addMouseListener(recadoGerenteEventos.new MostraFrameRecado());
-		panelCadastroRecado.getToolBar().getButtonExcluiRegistro()
-				.addActionListener(recadoGerenteEventos.new ExcluiRegistro());
-		panelCadastroRecado.getToolBar().getButtonNovoFrame().addActionListener(recadoGerenteEventos.new NovoFrame());
-		panelCadastroRecado.getToolBar().getButtonPesquisaRegistro()
-				.addActionListener(recadoGerenteEventos.new PesquisaRegistro());
-		panelCadastroRecado.getToolBar().getButtonImprimiUnicoRegistro()
-				.addActionListener(recadoGerenteEventos.new ImprimiUnicoRegistro());
-		panelCadastroRecado.getToolBar().getButtonImprimiTodosRegistros()
-				.addActionListener(recadoGerenteEventos.new ImprimiTodosRegistros());
-		panelCadastroRecado.getToolBar().getButtonSalvar().addActionListener(recadoGerenteEventos.new Salva());
-		panelCadastroRecado.getToolBar().getButtonFechar().addActionListener(recadoGerenteEventos.new FechaJanela());
-		panelCadastroRecado.getToolBar().getButtonSair().addActionListener(recadoGerenteEventos.new SaidaSistema());
-		panelCadastroRecado.getToolBar().getButtonAjuda().addActionListener(recadoGerenteEventos.new Ajuda());
-		panelCadastroRecado.getToolBar().getButtonHome().addActionListener(recadoGerenteEventos.new Home());
+		recadoControlador = new RecadoControlador();
+		addWindowListener(recadoControlador.new Frame());
+		pCRecado.getLabelEmpresa().addMouseListener(recadoControlador.new MostraFrameRecado());
+		pCRecado.getToolBar().getButtonExcluiRegistro()
+				.addActionListener(recadoControlador.new ExcluiRegistro());
+		pCRecado.getToolBar().getButtonNovoFrame().addActionListener(recadoControlador.new NovoFrame());
+		pCRecado.getToolBar().getButtonPesquisaRegistro()
+				.addActionListener(recadoControlador.new PesquisaRegistro());
+		pCRecado.getToolBar().getButtonImprimiUnicoRegistro()
+				.addActionListener(recadoControlador.new ImprimiUnicoRegistro());
+		pCRecado.getToolBar().getButtonImprimiTodosRegistros()
+				.addActionListener(recadoControlador.new ImprimiTodosRegistros());
+		pCRecado.getToolBar().getButtonSalvar().addActionListener(recadoControlador.new Salva());
+		pCRecado.getToolBar().getButtonFechar().addActionListener(recadoControlador.new FechaJanela());
+		pCRecado.getToolBar().getButtonSair().addActionListener(recadoControlador.new SaidaSistema());
+		pCRecado.getToolBar().getButtonAjuda().addActionListener(recadoControlador.new Ajuda());
+		pCRecado.getToolBar().getButtonHome().addActionListener(recadoControlador.new Home());
 
 	}
 
@@ -133,6 +133,6 @@ public final class FrameCadastroRecado extends JFrame implements Gui {
 
 	@Override
 	public void reiniciarBox() {
-		panelCadastroRecado.reiniciarBox();
+		pCRecado.reiniciarBox();
 	}
 }

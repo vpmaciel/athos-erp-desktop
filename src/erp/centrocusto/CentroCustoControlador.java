@@ -10,9 +10,9 @@ import java.util.List;
 import javax.swing.JOptionPane;
 
 import arquitetura.gui.Msg;
-import erp.main.MainGerenteEventos;
+import erp.main.MainControlador;
 
-final class CentroCustoGerenteEventos {
+final class CentroCustoControlador {
 
 	public class Ajuda implements ActionListener {
 
@@ -75,7 +75,7 @@ final class CentroCustoGerenteEventos {
 
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
-			MainGerenteEventos.mostrarFrame(MainGerenteEventos.getFrameMain());
+			MainControlador.mostrarFrame(MainControlador.getFrameMain());
 		}
 	}
 
@@ -134,7 +134,7 @@ final class CentroCustoGerenteEventos {
 			Msg.avisoRegistroEncontrado(totalPesquisaRegistro);
 
 			if (totalPesquisaRegistro > 0) {
-				MainGerenteEventos.mostrarFrame(getFramePesquisaCentroCusto());
+				MainControlador.mostrarFrame(getFramePesquisaCentroCusto());
 			}
 		}
 	}
@@ -182,7 +182,7 @@ final class CentroCustoGerenteEventos {
 
 	private CentroCusto centroCusto;
 
-	public CentroCustoGerenteEventos() {
+	public CentroCustoControlador() {
 
 	}
 
@@ -205,19 +205,19 @@ final class CentroCustoGerenteEventos {
 		this.centroCusto = centroCusto;
 	}
 
-	public FrameCadastroCentroCusto getFrameCadastroCentroCusto() {
-		return MainGerenteEventos.getFrameCadastroCentroCusto();
+	public FCCentroCusto getFrameCadastroCentroCusto() {
+		return MainControlador.getFrameCadastroCentroCusto();
 	}
 
-	public PanelCadastroCentroCusto getPanelCadastroCentroCusto() {
-		return MainGerenteEventos.getFrameCadastroCentroCusto().getPanelCadastroCentroCusto();
+	public PCCentroCusto getPanelCadastroCentroCusto() {
+		return MainControlador.getFrameCadastroCentroCusto().getPanelCadastroCentroCusto();
 	}
 
-	public FramePesquisaCentroCusto getFramePesquisaCentroCusto() {
-		return MainGerenteEventos.getFramePesquisaCentroCusto();
+	public FPCentroCusto getFramePesquisaCentroCusto() {
+		return MainControlador.getFramePesquisaCentroCusto();
 	}
 
-	public PanelPesquisaCentroCusto getPanelPesquisaCentroCusto() {
-		return MainGerenteEventos.getFramePesquisaCentroCusto().getPanelPesquisaCentroCusto();
+	public PPCentroCusto getPanelPesquisaCentroCusto() {
+		return MainControlador.getFramePesquisaCentroCusto().getPanelPesquisaCentroCusto();
 	}
 }

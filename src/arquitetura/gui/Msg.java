@@ -4,15 +4,15 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 import erp.main.FrameMain;
-import erp.main.MainGerenteEventos;
-import erp.main.PanelSobre;
+import erp.main.MainControlador;
+import erp.main.PSobre;
 
 public final class Msg {
 
 	private static Object[] botoesSimNao = new Object[] { "Sim", "Nao" };
 
 	public static final void ajuda() {
-		JOptionPane.showMessageDialog(FrameMain.getFrameMain(), new PanelSobre(), "Sobre o Sistema",
+		JOptionPane.showMessageDialog(FrameMain.getFrameMain(), new PSobre(), "Sobre o Sistema",
 				JOptionPane.INFORMATION_MESSAGE);
 	}
 
@@ -57,7 +57,7 @@ public final class Msg {
 	}
 
 	public static final void avisoFecharSistema() {
-		JOptionPane.showMessageDialog(MainGerenteEventos.getFrameLogin().getPanelLogin(), "O sistema será fechado !",
+		JOptionPane.showMessageDialog(MainControlador.getFrameLogin().getPanelLogin(), "O sistema será fechado !",
 				"Erro", JOptionPane.ERROR_MESSAGE);
 	}
 

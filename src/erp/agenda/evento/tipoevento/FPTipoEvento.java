@@ -10,11 +10,11 @@ import arquitetura.gui.GuiGerenteEventos;
 import arquitetura.gui.Imagem;
 
 @SuppressWarnings("serial")
-public final class FramePesquisaTipoEvento extends JFrame implements Gui {
+public final class FPTipoEvento extends JFrame implements Gui {
 
-	private PanelPesquisaTipoEvento PanelPesquisaTipoEvento;
+	private PPTipoEvento PPTipoEvento;
 
-	public FramePesquisaTipoEvento() {
+	public FPTipoEvento() {
 		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		iniciarLayout();
 		iniciarGui();
@@ -31,8 +31,8 @@ public final class FramePesquisaTipoEvento extends JFrame implements Gui {
 		return null;
 	}
 
-	public PanelPesquisaTipoEvento getPanelPesquisaTipoEvento() {
-		return PanelPesquisaTipoEvento;
+	public PPTipoEvento getPanelPesquisaTipoEvento() {
+		return PPTipoEvento;
 	}
 
 	@Override
@@ -44,8 +44,8 @@ public final class FramePesquisaTipoEvento extends JFrame implements Gui {
 	public void iniciarGui() {
 		setTitle("TIPO DE EVENTO");
 		setIconImage(Imagem.getLogoTipoImage());
-		PanelPesquisaTipoEvento = new PanelPesquisaTipoEvento();
-		setContentPane(PanelPesquisaTipoEvento);
+		PPTipoEvento = new PPTipoEvento();
+		setContentPane(PPTipoEvento);
 	}
 
 	@Override
@@ -55,7 +55,7 @@ public final class FramePesquisaTipoEvento extends JFrame implements Gui {
 
 	@Override
 	public void iniciarGerenteEventos() {
-		PanelPesquisaTipoEvento.iniciarHandle();
+		PPTipoEvento.iniciarHandle();
 	}
 
 	@Override

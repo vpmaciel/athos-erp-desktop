@@ -13,7 +13,6 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
 import arquitetura.JPA;
-import erp.agenda.evento.tipoevento.TipoEvento;
 
 final class EventoDaoImp implements EventoDao {
 
@@ -73,7 +72,6 @@ final class EventoDaoImp implements EventoDao {
 		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
 		CriteriaQuery<Evento> criteriaQuery = criteriaBuilder.createQuery(Evento.class);
 		Root<Evento> rootEvento = criteriaQuery.from(Evento.class);
-		Root<TipoEvento> rootTipoEvento = criteriaQuery.from(TipoEvento.class);
 
 		List<Predicate> predicates = new ArrayList<Predicate>();
 

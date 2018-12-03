@@ -5,9 +5,9 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.TableModel;
 
-import erp.main.MainGerenteEventos;
+import erp.main.MainControlador;
 
-class SelectionListener implements ListSelectionListener {
+final class SelectionListener implements ListSelectionListener {
 
 	JTable table;
 
@@ -28,11 +28,11 @@ class SelectionListener implements ListSelectionListener {
 					Contador contador = ContadorDaoFacade.getRegistro(contadorPesquisaRegistro);
 					ContadorTableModel contadorTableModel = (ContadorTableModel) table.getModel();
 					contadorTableModel.getContador(table.getSelectedRow());
-					MainGerenteEventos.mostrarFrame(MainGerenteEventos.getFrameCadastroContador());
-					MainGerenteEventos.getFrameCadastroContador().getContadorHandle().setContador(contador);
-					MainGerenteEventos.getFrameCadastroContador().getContadorHandle().atualizarGui();
-					MainGerenteEventos.getFrameCadastroContador().setFocusable(true);
-					MainGerenteEventos.getFramePesquisaContador().setVisible(false);
+					MainControlador.mostrarFrame(MainControlador.getFrameCadastroContador());
+					MainControlador.getFrameCadastroContador().getContadorHandle().setContador(contador);
+					MainControlador.getFrameCadastroContador().getContadorHandle().atualizarGui();
+					MainControlador.getFrameCadastroContador().setFocusable(true);
+					MainControlador.getFramePesquisaContador().setVisible(false);
 				}
 			}
 		}

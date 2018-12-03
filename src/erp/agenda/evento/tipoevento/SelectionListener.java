@@ -5,7 +5,7 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.TableModel;
 
-import erp.main.MainGerenteEventos;
+import erp.main.MainControlador;
 
 class SelectionListener implements ListSelectionListener {
 
@@ -28,12 +28,12 @@ class SelectionListener implements ListSelectionListener {
 					TipoEvento tipoEvento = TipoEventoDaoFacade.getRegistro(agendaPesquisaRegistro);
 					TipoEventoTableModel tipoEventoTableModel = (TipoEventoTableModel) table.getModel();
 					tipoEventoTableModel.getAgenda(table.getSelectedRow());
-					MainGerenteEventos.mostrarFrame(MainGerenteEventos.getFrameCadastroAgendaTipoEvento());
-					MainGerenteEventos.getFrameCadastroAgendaTipoEvento().getTipoEventoGerenteEventos()
+					MainControlador.mostrarFrame(MainControlador.getFrameCadastroAgendaTipoEvento());
+					MainControlador.getFrameCadastroAgendaTipoEvento().getTipoEventoGerenteEventos()
 							.setAgenda(tipoEvento);
-					MainGerenteEventos.getFrameCadastroAgendaTipoEvento().getTipoEventoGerenteEventos().atualizarGui();
-					MainGerenteEventos.getFrameCadastroAgendaTipoEvento().setFocusable(true);
-					MainGerenteEventos.getFramePesquisaAgendaTipoEvento().setVisible(false);
+					MainControlador.getFrameCadastroAgendaTipoEvento().getTipoEventoGerenteEventos().atualizarGui();
+					MainControlador.getFrameCadastroAgendaTipoEvento().setFocusable(true);
+					MainControlador.getFramePesquisaAgendaTipoEvento().setVisible(false);
 				}
 			}
 		}

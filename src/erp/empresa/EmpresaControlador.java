@@ -12,9 +12,9 @@ import java.util.List;
 import javax.swing.JOptionPane;
 
 import arquitetura.gui.Msg;
-import erp.main.MainGerenteEventos;
+import erp.main.MainControlador;
 
-final class EmpresaGerenteEventos {
+final class EmpresaControlador {
 
 	public class Ajuda implements ActionListener {
 
@@ -80,7 +80,7 @@ final class EmpresaGerenteEventos {
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
 			try {
-				MainGerenteEventos.mostrarFrame(MainGerenteEventos.getFrameMain());
+				MainControlador.mostrarFrame(MainControlador.getFrameMain());
 			} catch (Exception e) {
 				System.out.println(e);
 			}
@@ -130,7 +130,7 @@ final class EmpresaGerenteEventos {
 		@Override
 		public void mouseClicked(MouseEvent event) {
 			if (event.getButton() == MouseEvent.BUTTON1) {
-				MainGerenteEventos.mostrarFrame(getFrameCadastroEmpresa());
+				MainControlador.mostrarFrame(getFrameCadastroEmpresa());
 			} else {
 				getFrameCadastroEmpresa().reiniciarBox();
 			}
@@ -154,7 +154,7 @@ final class EmpresaGerenteEventos {
 			empresa = new Empresa();
 			atualizarObjeto();
 			getPanelPesquisaEmpresa().pesquisarRegistroEmpresa(empresa);
-			MainGerenteEventos.mostrarFrame(getFramePesquisaEmpresa());
+			MainControlador.mostrarFrame(getFramePesquisaEmpresa());
 		}
 	}
 
@@ -269,19 +269,19 @@ final class EmpresaGerenteEventos {
 		this.empresa = empresa;
 	}
 
-	public FrameCadastroEmpresa getFrameCadastroEmpresa() {
-		return MainGerenteEventos.getFrameCadastroEmpresa();
+	public FCEmpresa getFrameCadastroEmpresa() {
+		return MainControlador.getFrameCadastroEmpresa();
 	}
 
-	public PanelCadastroEmpresa getPanelCadastroEmpresa() {
-		return MainGerenteEventos.getFrameCadastroEmpresa().getPanelCadastroEmpresa();
+	public PCEmpresa getPanelCadastroEmpresa() {
+		return MainControlador.getFrameCadastroEmpresa().getPanelCadastroEmpresa();
 	}
 
-	public FramePesquisaEmpresa getFramePesquisaEmpresa() {
-		return MainGerenteEventos.getFramePesquisaEmpresa();
+	public FPEmpresa getFramePesquisaEmpresa() {
+		return MainControlador.getFramePesquisaEmpresa();
 	}
 
-	public PanelPesquisaEmpresa getPanelPesquisaEmpresa() {
-		return MainGerenteEventos.getFramePesquisaEmpresa().getPanelPesquisaEmpresa();
+	public PPEmpresa getPanelPesquisaEmpresa() {
+		return MainControlador.getFramePesquisaEmpresa().getPanelPesquisaEmpresa();
 	}
 }

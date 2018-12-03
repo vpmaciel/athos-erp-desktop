@@ -16,13 +16,13 @@ import javax.swing.table.DefaultTableCellRenderer;
 import arquitetura.gui.Tabela;
 
 @SuppressWarnings("serial")
-public final class PanelPesquisaContador extends JPanel {
+public final class PPContador extends JPanel {
 
 	private final ContadorTableModel contadorTableModel;
 	List<Contador> contadorList = null;
 	private final JTable table;
 
-	public PanelPesquisaContador() {
+	public PPContador() {
 		contadorList = new LinkedList<>();
 		contadorTableModel = new ContadorTableModel(contadorList);
 
@@ -34,6 +34,9 @@ public final class PanelPesquisaContador extends JPanel {
 		Tabela.configurarLarguraColunasTabela(table, ContadorTableModel.WIDTH);
 		((DefaultTableCellRenderer) table.getTableHeader().getDefaultRenderer())
 				.setHorizontalAlignment(SwingConstants.RIGHT);
+		table.getColumnModel().getColumn(0).setMaxWidth(0);
+		table.getColumnModel().getColumn(0).setMinWidth(0);
+		table.getColumnModel().getColumn(0).setPreferredWidth(0);
 		table.setRowSelectionAllowed(true);
 		table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);

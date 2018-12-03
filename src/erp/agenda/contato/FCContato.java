@@ -16,13 +16,13 @@ import arquitetura.gui.GuiGerenteEventos;
 import arquitetura.gui.Imagem;
 
 @SuppressWarnings("serial")
-public final class FrameCadastroContato extends JFrame implements Gui {
+public final class FCContato extends JFrame implements Gui {
 
-	private ContatoGerenteEventos contatoGerenteEventos;
+	private ContatoControlador contatoControlador;
 	private GuiGerenteEventos guiGerenteEventos;
-	private PanelCadastroContato panelCadastroContato;
+	private PCContato pCContato;
 
-	public FrameCadastroContato() {
+	public FCContato() {
 		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		iniciarLayout();
 		iniciarGui();
@@ -41,12 +41,12 @@ public final class FrameCadastroContato extends JFrame implements Gui {
 		return guiGerenteEventos;
 	}
 
-	public PanelCadastroContato getPanelCadastroContato() {
-		return panelCadastroContato;
+	public PCContato getPanelCadastroContato() {
+		return pCContato;
 	}
 
-	public ContatoGerenteEventos getContatoHandle() {
-		return contatoGerenteEventos;
+	public ContatoControlador getContatoHandle() {
+		return contatoControlador;
 	}
 
 	@Override
@@ -60,11 +60,11 @@ public final class FrameCadastroContato extends JFrame implements Gui {
 		setTitle("CONTATO");
 		setIconImage(Imagem.getLogoTipoImage());
 
-		panelCadastroContato = new PanelCadastroContato();
+		pCContato = new PCContato();
 
-		panelCadastroContato.setOpaque(true); // content panes must be opaque
+		pCContato.setOpaque(true); // content panes must be opaque
 
-		final JScrollPane scrollPane = new JScrollPane(panelCadastroContato);
+		final JScrollPane scrollPane = new JScrollPane(pCContato);
 
 		KeyboardFocusManager.getCurrentKeyboardFocusManager().addPropertyChangeListener("focusOwner",
 				new PropertyChangeListener() {
@@ -75,8 +75,8 @@ public final class FrameCadastroContato extends JFrame implements Gui {
 							return;
 						}
 						JComponent focused = (JComponent) evt.getNewValue();
-						if (panelCadastroContato.isAncestorOf(focused)) {
-							panelCadastroContato.scrollRectToVisible(focused.getBounds());
+						if (pCContato.isAncestorOf(focused)) {
+							pCContato.scrollRectToVisible(focused.getBounds());
 						}
 					}
 				});
@@ -93,23 +93,23 @@ public final class FrameCadastroContato extends JFrame implements Gui {
 
 	@Override
 	public void iniciarGerenteEventos() {
-		contatoGerenteEventos = new ContatoGerenteEventos();
-		addWindowListener(contatoGerenteEventos.new Frame());
-		panelCadastroContato.getLabelEmpresa().addMouseListener(contatoGerenteEventos.new MostraFrameContato());
-		panelCadastroContato.getToolBar().getButtonExcluiRegistro()
-				.addActionListener(contatoGerenteEventos.new ExcluiRegistro());
-		panelCadastroContato.getToolBar().getButtonNovoFrame().addActionListener(contatoGerenteEventos.new NovoFrame());
-		panelCadastroContato.getToolBar().getButtonPesquisaRegistro()
-				.addActionListener(contatoGerenteEventos.new PesquisaRegistro());
-		panelCadastroContato.getToolBar().getButtonImprimiUnicoRegistro()
-				.addActionListener(contatoGerenteEventos.new ImprimiUnicoRegistro());
-		panelCadastroContato.getToolBar().getButtonImprimiTodosRegistros()
-				.addActionListener(contatoGerenteEventos.new ImprimiTodosRegistros());
-		panelCadastroContato.getToolBar().getButtonSalvar().addActionListener(contatoGerenteEventos.new Salva());
-		panelCadastroContato.getToolBar().getButtonFechar().addActionListener(contatoGerenteEventos.new FechaJanela());
-		panelCadastroContato.getToolBar().getButtonSair().addActionListener(contatoGerenteEventos.new SaidaSistema());
-		panelCadastroContato.getToolBar().getButtonAjuda().addActionListener(contatoGerenteEventos.new Ajuda());
-		panelCadastroContato.getToolBar().getButtonHome().addActionListener(contatoGerenteEventos.new Home());
+		contatoControlador = new ContatoControlador();
+		addWindowListener(contatoControlador.new Frame());
+		pCContato.getLabelEmpresa().addMouseListener(contatoControlador.new MostraFrameContato());
+		pCContato.getToolBar().getButtonExcluiRegistro()
+				.addActionListener(contatoControlador.new ExcluiRegistro());
+		pCContato.getToolBar().getButtonNovoFrame().addActionListener(contatoControlador.new NovoFrame());
+		pCContato.getToolBar().getButtonPesquisaRegistro()
+				.addActionListener(contatoControlador.new PesquisaRegistro());
+		pCContato.getToolBar().getButtonImprimiUnicoRegistro()
+				.addActionListener(contatoControlador.new ImprimiUnicoRegistro());
+		pCContato.getToolBar().getButtonImprimiTodosRegistros()
+				.addActionListener(contatoControlador.new ImprimiTodosRegistros());
+		pCContato.getToolBar().getButtonSalvar().addActionListener(contatoControlador.new Salva());
+		pCContato.getToolBar().getButtonFechar().addActionListener(contatoControlador.new FechaJanela());
+		pCContato.getToolBar().getButtonSair().addActionListener(contatoControlador.new SaidaSistema());
+		pCContato.getToolBar().getButtonAjuda().addActionListener(contatoControlador.new Ajuda());
+		pCContato.getToolBar().getButtonHome().addActionListener(contatoControlador.new Home());
 
 	}
 
@@ -133,6 +133,6 @@ public final class FrameCadastroContato extends JFrame implements Gui {
 
 	@Override
 	public void reiniciarBox() {
-		panelCadastroContato.reiniciarBox();
+		pCContato.reiniciarBox();
 	}
 }

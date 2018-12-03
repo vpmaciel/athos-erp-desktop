@@ -16,13 +16,13 @@ import arquitetura.gui.GuiGerenteEventos;
 import arquitetura.gui.Imagem;
 
 @SuppressWarnings("serial")
-public final class FrameCadastroBanco extends JFrame implements Gui {
+public final class FCBanco extends JFrame implements Gui {
 
-	private BancoGerenteEventos bancoGerenteEventos;
+	private BancoControlador bancoControlador;
 	private GuiGerenteEventos guiGerenteEventos;
-	private PanelCadastroBanco panelCadastroBanco;
+	private PCBanco pCBanco;
 
-	public FrameCadastroBanco() {
+	public FCBanco() {
 		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		iniciarLayout();
 		iniciarGui();
@@ -38,8 +38,8 @@ public final class FrameCadastroBanco extends JFrame implements Gui {
 	public void desabilitarGui() {
 	}
 
-	public BancoGerenteEventos getBancoHandle() {
-		return bancoGerenteEventos;
+	public BancoControlador getBancoHandle() {
+		return bancoControlador;
 	}
 
 	@Override
@@ -47,8 +47,8 @@ public final class FrameCadastroBanco extends JFrame implements Gui {
 		return guiGerenteEventos;
 	}
 
-	public PanelCadastroBanco getPanelCadastroBanco() {
-		return panelCadastroBanco;
+	public PCBanco getPanelCadastroBanco() {
+		return pCBanco;
 	}
 
 	@Override
@@ -61,10 +61,10 @@ public final class FrameCadastroBanco extends JFrame implements Gui {
 	public void iniciarGui() {
 		setTitle("BANCO");
 		setIconImage(Imagem.getLogoTipoImage());
-		panelCadastroBanco = new PanelCadastroBanco();
-		panelCadastroBanco.setOpaque(true); // content panes must be opaque
+		pCBanco = new PCBanco();
+		pCBanco.setOpaque(true); // content panes must be opaque
 
-		final JScrollPane scrollPane = new JScrollPane(panelCadastroBanco);
+		final JScrollPane scrollPane = new JScrollPane(pCBanco);
 
 		KeyboardFocusManager.getCurrentKeyboardFocusManager().addPropertyChangeListener("focusOwner",
 				new PropertyChangeListener() {
@@ -75,8 +75,8 @@ public final class FrameCadastroBanco extends JFrame implements Gui {
 							return;
 						}
 						JComponent focused = (JComponent) evt.getNewValue();
-						if (panelCadastroBanco.isAncestorOf(focused)) {
-							panelCadastroBanco.scrollRectToVisible(focused.getBounds());
+						if (pCBanco.isAncestorOf(focused)) {
+							pCBanco.scrollRectToVisible(focused.getBounds());
 						}
 					}
 				});
@@ -93,22 +93,22 @@ public final class FrameCadastroBanco extends JFrame implements Gui {
 
 	@Override
 	public void iniciarGerenteEventos() {
-		bancoGerenteEventos = new BancoGerenteEventos();
-		addWindowListener(bancoGerenteEventos.new Frame());
-		panelCadastroBanco.getToolBar().getButtonExcluiRegistro()
-				.addActionListener(bancoGerenteEventos.new ExcluiRegistro());
-		panelCadastroBanco.getToolBar().getButtonNovoFrame().addActionListener(bancoGerenteEventos.new NovoFrame());
-		panelCadastroBanco.getToolBar().getButtonPesquisaRegistro()
-				.addActionListener(bancoGerenteEventos.new PesquisaRegistro());
-		panelCadastroBanco.getToolBar().getButtonImprimiUnicoRegistro()
-				.addActionListener(bancoGerenteEventos.new ImprimiUnicoRegistro());
-		panelCadastroBanco.getToolBar().getButtonImprimiTodosRegistros()
-				.addActionListener(bancoGerenteEventos.new ImprimiTodosRegistros());
-		panelCadastroBanco.getToolBar().getButtonSalvar().addActionListener(bancoGerenteEventos.new Salva());
-		panelCadastroBanco.getToolBar().getButtonFechar().addActionListener(bancoGerenteEventos.new FechaJanela());
-		panelCadastroBanco.getToolBar().getButtonSair().addActionListener(bancoGerenteEventos.new SaidaSistema());
-		panelCadastroBanco.getToolBar().getButtonAjuda().addActionListener(bancoGerenteEventos.new Ajuda());
-		panelCadastroBanco.getToolBar().getButtonHome().addActionListener(bancoGerenteEventos.new Home());
+		bancoControlador = new BancoControlador();
+		addWindowListener(bancoControlador.new Frame());
+		pCBanco.getToolBar().getButtonExcluiRegistro()
+				.addActionListener(bancoControlador.new ExcluiRegistro());
+		pCBanco.getToolBar().getButtonNovoFrame().addActionListener(bancoControlador.new NovoFrame());
+		pCBanco.getToolBar().getButtonPesquisaRegistro()
+				.addActionListener(bancoControlador.new PesquisaRegistro());
+		pCBanco.getToolBar().getButtonImprimiUnicoRegistro()
+				.addActionListener(bancoControlador.new ImprimiUnicoRegistro());
+		pCBanco.getToolBar().getButtonImprimiTodosRegistros()
+				.addActionListener(bancoControlador.new ImprimiTodosRegistros());
+		pCBanco.getToolBar().getButtonSalvar().addActionListener(bancoControlador.new Salva());
+		pCBanco.getToolBar().getButtonFechar().addActionListener(bancoControlador.new FechaJanela());
+		pCBanco.getToolBar().getButtonSair().addActionListener(bancoControlador.new SaidaSistema());
+		pCBanco.getToolBar().getButtonAjuda().addActionListener(bancoControlador.new Ajuda());
+		pCBanco.getToolBar().getButtonHome().addActionListener(bancoControlador.new Home());
 	}
 
 	@Override
@@ -126,15 +126,15 @@ public final class FrameCadastroBanco extends JFrame implements Gui {
 
 	@Override
 	public void limparGui() {
-		panelCadastroBanco.limparGui();
+		pCBanco.limparGui();
 	}
 
 	@Override
 	public void reiniciarBox() {
-		panelCadastroBanco.reiniciarBox();
+		pCBanco.reiniciarBox();
 	}
 
 	public boolean validarCamposCadastro() {
-		return panelCadastroBanco.validarCamposCadastro();
+		return pCBanco.validarCamposCadastro();
 	}
 }

@@ -5,9 +5,9 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.TableModel;
 
-import erp.main.MainGerenteEventos;
+import erp.main.MainControlador;
 
-class SelectionListener implements ListSelectionListener {
+final class SelectionListener implements ListSelectionListener {
 
 	JTable table;
 
@@ -28,11 +28,11 @@ class SelectionListener implements ListSelectionListener {
 					Fornecedor fornecedor = FornecedorDaoFacade.getRegistro(fornecedorPesquisaRegistro);
 					FornecedorTableModel fornecedorTableModel = (FornecedorTableModel) table.getModel();
 					fornecedorTableModel.getFornecedor(table.getSelectedRow());
-					MainGerenteEventos.mostrarFrame(MainGerenteEventos.getFrameCadastroFornecedor());
-					MainGerenteEventos.getFrameCadastroFornecedor().getFornecedorHandle().setFornecedor(fornecedor);
-					MainGerenteEventos.getFrameCadastroFornecedor().getFornecedorHandle().atualizarGui();
-					MainGerenteEventos.getFrameCadastroFornecedor().setFocusable(true);
-					MainGerenteEventos.getFramePesquisaFornecedor().setVisible(false);
+					MainControlador.mostrarFrame(MainControlador.getFrameCadastroFornecedor());
+					MainControlador.getFrameCadastroFornecedor().getFornecedorHandle().setFornecedor(fornecedor);
+					MainControlador.getFrameCadastroFornecedor().getFornecedorHandle().atualizarGui();
+					MainControlador.getFrameCadastroFornecedor().setFocusable(true);
+					MainControlador.getFramePesquisaFornecedor().setVisible(false);
 				}
 			}
 		}

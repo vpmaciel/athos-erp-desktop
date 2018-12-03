@@ -10,11 +10,11 @@ import arquitetura.gui.GuiGerenteEventos;
 import arquitetura.gui.Imagem;
 
 @SuppressWarnings("serial")
-public final class FramePesquisaCentroCusto extends JFrame implements Gui {
+public final class FPCentroCusto extends JFrame implements Gui {
 
-	private PanelPesquisaCentroCusto PanelPesquisaCentroCusto;
+	private PPCentroCusto PPCentroCusto;
 
-	public FramePesquisaCentroCusto() {
+	public FPCentroCusto() {
 		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		iniciarLayout();
 		iniciarGui();
@@ -31,8 +31,8 @@ public final class FramePesquisaCentroCusto extends JFrame implements Gui {
 		return null;
 	}
 
-	public PanelPesquisaCentroCusto getPanelPesquisaCentroCusto() {
-		return PanelPesquisaCentroCusto;
+	public PPCentroCusto getPanelPesquisaCentroCusto() {
+		return PPCentroCusto;
 	}
 
 	@Override
@@ -44,8 +44,8 @@ public final class FramePesquisaCentroCusto extends JFrame implements Gui {
 	public void iniciarGui() {
 		setTitle("CENTRO DE CUSTO");
 		setIconImage(Imagem.getLogoTipoImage());
-		PanelPesquisaCentroCusto = new PanelPesquisaCentroCusto();
-		setContentPane(PanelPesquisaCentroCusto);
+		PPCentroCusto = new PPCentroCusto();
+		setContentPane(PPCentroCusto);
 	}
 
 	@Override
@@ -55,7 +55,7 @@ public final class FramePesquisaCentroCusto extends JFrame implements Gui {
 
 	@Override
 	public void iniciarGerenteEventos() {
-		PanelPesquisaCentroCusto.iniciarHandle();
+		PPCentroCusto.iniciarHandle();
 	}
 
 	@Override

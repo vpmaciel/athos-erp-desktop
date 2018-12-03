@@ -16,13 +16,13 @@ import javax.swing.table.DefaultTableCellRenderer;
 import arquitetura.gui.Tabela;
 
 @SuppressWarnings("serial")
-public class PanelPesquisaCentroCusto extends JPanel {
+public final class PPCentroCusto extends JPanel {
 
 	private final CentroCustoTableModel centroCustoTableModel;
 	List<CentroCusto> centroCustos = null;
 	private final JTable table;
 
-	public PanelPesquisaCentroCusto() {
+	public PPCentroCusto() {
 		centroCustos = new LinkedList<>();
 		centroCustoTableModel = new CentroCustoTableModel(centroCustos);
 
@@ -34,6 +34,9 @@ public class PanelPesquisaCentroCusto extends JPanel {
 		Tabela.configurarLarguraColunasTabela(table, CentroCustoTableModel.WIDTH);
 		((DefaultTableCellRenderer) table.getTableHeader().getDefaultRenderer())
 				.setHorizontalAlignment(SwingConstants.RIGHT);
+		table.getColumnModel().getColumn(0).setMaxWidth(0);
+		table.getColumnModel().getColumn(0).setMinWidth(0);
+		table.getColumnModel().getColumn(0).setPreferredWidth(0);
 		table.setRowSelectionAllowed(true);
 		table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);

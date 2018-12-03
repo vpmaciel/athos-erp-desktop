@@ -12,9 +12,9 @@ import java.util.List;
 import javax.swing.JOptionPane;
 
 import arquitetura.gui.Msg;
-import erp.main.MainGerenteEventos;
+import erp.main.MainControlador;
 
-final class ContadorGerenteEventos {
+final class ContadorControlador {
 
 	public class Ajuda implements ActionListener {
 
@@ -50,7 +50,7 @@ final class ContadorGerenteEventos {
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
 			try {
-				MainGerenteEventos.getFrameCadastroContador().setVisible(false);
+				MainControlador.getFrameCadastroContador().setVisible(false);
 			} catch (Exception e) {
 				System.out.println(e);
 			}
@@ -80,7 +80,7 @@ final class ContadorGerenteEventos {
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
 			try {
-				MainGerenteEventos.mostrarFrame(MainGerenteEventos.getFrameMain());
+				MainControlador.mostrarFrame(MainControlador.getFrameMain());
 			} catch (Exception e) {
 				System.out.println(e);
 			}
@@ -130,9 +130,9 @@ final class ContadorGerenteEventos {
 		@Override
 		public void mouseClicked(MouseEvent event) {
 			if (event.getButton() == MouseEvent.BUTTON1) {
-				MainGerenteEventos.mostrarFrame(MainGerenteEventos.getFrameCadastroContador());
+				MainControlador.mostrarFrame(MainControlador.getFrameCadastroContador());
 			} else {
-				MainGerenteEventos.getFrameCadastroContador().reiniciarBox();
+				MainControlador.getFrameCadastroContador().reiniciarBox();
 			}
 		}
 	}
@@ -153,10 +153,10 @@ final class ContadorGerenteEventos {
 		public void actionPerformed(ActionEvent actionEvent) {
 			contador = new Contador();
 			atualizarObjeto();
-			MainGerenteEventos.getFramePesquisaContador().getPanelPesquisaContador()
+			MainControlador.getFramePesquisaContador().getPanelPesquisaContador()
 					.pesquisarRegistroContador(contador);
 
-			MainGerenteEventos.mostrarFrame(MainGerenteEventos.getFramePesquisaContador());
+			MainControlador.mostrarFrame(MainControlador.getFramePesquisaContador());
 		}
 	}
 
@@ -207,7 +207,7 @@ final class ContadorGerenteEventos {
 
 	private Contador contador;
 
-	ContadorGerenteEventos() {
+	ContadorControlador() {
 	}
 
 	public void atualizarGui() {
@@ -245,19 +245,19 @@ final class ContadorGerenteEventos {
 		this.contador = contador;
 	}
 
-	public FrameCadastroContador getFrameCadastroContador() {
-		return MainGerenteEventos.getFrameCadastroContador();
+	public FCContador getFrameCadastroContador() {
+		return MainControlador.getFrameCadastroContador();
 	}
 
-	public PanelCadastroContador getPanelCadastroContador() {
-		return MainGerenteEventos.getFrameCadastroContador().getPanelCadastroContador();
+	public PCContador getPanelCadastroContador() {
+		return MainControlador.getFrameCadastroContador().getPanelCadastroContador();
 	}
 
-	public FramePesquisaContador getFramePesquisaContador() {
-		return MainGerenteEventos.getFramePesquisaContador();
+	public FPContador getFramePesquisaContador() {
+		return MainControlador.getFramePesquisaContador();
 	}
 
-	public PanelPesquisaContador getPanelPesquisaContador() {
-		return MainGerenteEventos.getFramePesquisaContador().getPanelPesquisaContador();
+	public PPContador getPanelPesquisaContador() {
+		return MainControlador.getFramePesquisaContador().getPanelPesquisaContador();
 	}
 }

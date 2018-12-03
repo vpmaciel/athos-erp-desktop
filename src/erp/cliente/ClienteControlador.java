@@ -14,20 +14,20 @@ import javax.swing.JOptionPane;
 import arquitetura.gui.Msg;
 import erp.banco.Banco;
 import erp.empresa.Empresa;
-import erp.main.MainGerenteEventos;
+import erp.main.MainControlador;
 
-final class ClienteGerenteEventos {
+final class ClienteControlador {
 
 	public class MostraFrame extends MouseAdapter {
 
 		@Override
 		public void mouseClicked(MouseEvent event) {
 			if (event.getSource() == getPanelCadastroCliente().getLabelEmpresa()) {
-				MainGerenteEventos.mostrarFrame(MainGerenteEventos.getFrameCadastroEmpresa());
+				MainControlador.mostrarFrame(MainControlador.getFrameCadastroEmpresa());
 			} else if (event.getSource() == getPanelCadastroCliente().getLabelBanco()) {
-				MainGerenteEventos.mostrarFrame(MainGerenteEventos.getFrameCadastroBanco());
+				MainControlador.mostrarFrame(MainControlador.getFrameCadastroBanco());
 			}
-			MainGerenteEventos.getFrameCadastroEmpresa().reiniciarBox();
+			MainControlador.getFrameCadastroEmpresa().reiniciarBox();
 		}
 	}
 
@@ -92,7 +92,7 @@ final class ClienteGerenteEventos {
 
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
-			MainGerenteEventos.mostrarFrame(MainGerenteEventos.getFrameMain());
+			MainControlador.mostrarFrame(MainControlador.getFrameMain());
 		}
 	}
 
@@ -152,7 +152,7 @@ final class ClienteGerenteEventos {
 			Msg.avisoRegistroEncontrado(totalPesquisaRegistro);
 
 			if (totalPesquisaRegistro > 0) {
-				MainGerenteEventos.mostrarFrame(getFramePesquisaCliente());
+				MainControlador.mostrarFrame(getFramePesquisaCliente());
 			}
 		}
 	}
@@ -309,19 +309,19 @@ final class ClienteGerenteEventos {
 		this.cliente = cliente;
 	}
 
-	public FrameCadastroCliente getFrameCadastroCliente() {
-		return MainGerenteEventos.getFrameCadastroCliente();
+	public FCCliente getFrameCadastroCliente() {
+		return MainControlador.getFrameCadastroCliente();
 	}
 
-	public PanelCadastroCliente getPanelCadastroCliente() {
-		return MainGerenteEventos.getFrameCadastroCliente().getPanelCadastroCliente();
+	public PCCliente getPanelCadastroCliente() {
+		return MainControlador.getFrameCadastroCliente().getPanelCadastroCliente();
 	}
 
-	public FramePesquisaCliente getFramePesquisaCliente() {
-		return MainGerenteEventos.getFramePesquisaCliente();
+	public FPCliente getFramePesquisaCliente() {
+		return MainControlador.getFramePesquisaCliente();
 	}
 
-	public PanelPesquisaCliente getPanelPesquisaCliente() {
-		return MainGerenteEventos.getFramePesquisaCliente().getPanelPesquisaCliente();
+	public PPCliente getPanelPesquisaCliente() {
+		return MainControlador.getFramePesquisaCliente().getPanelPesquisaCliente();
 	}
 }

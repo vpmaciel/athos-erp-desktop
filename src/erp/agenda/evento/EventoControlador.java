@@ -13,9 +13,9 @@ import javax.swing.JOptionPane;
 
 import arquitetura.gui.Msg;
 import erp.agenda.evento.tipoevento.TipoEvento;
-import erp.main.MainGerenteEventos;
+import erp.main.MainControlador;
 
-final class EventoGerenteEventos {
+final class EventoControlador {
 
 	public class Ajuda implements ActionListener {
 
@@ -81,11 +81,7 @@ final class EventoGerenteEventos {
 
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
-			try {
-				MainGerenteEventos.mostrarFrame(MainGerenteEventos.getFrameMain());
-			} catch (Exception e) {
-				System.out.println(e);
-			}
+			MainControlador.mostrarFrame(MainControlador.getFrameMain());
 		}
 	}
 
@@ -133,9 +129,9 @@ final class EventoGerenteEventos {
 		@Override
 		public void mouseClicked(MouseEvent event) {
 			if (event.getButton() == MouseEvent.BUTTON1) {
-				MainGerenteEventos.mostrarFrame(MainGerenteEventos.getFrameCadastroEmpresa());
+				MainControlador.mostrarFrame(MainControlador.getFrameCadastroEmpresa());
 			} else {
-				MainGerenteEventos.getFrameCadastroEmpresa().reiniciarBox();
+				MainControlador.getFrameCadastroEmpresa().reiniciarBox();
 			}
 		}
 	}
@@ -146,7 +142,8 @@ final class EventoGerenteEventos {
 		public void actionPerformed(ActionEvent actionEvent) {
 			evento = new Evento();
 			getFrameCadastroEvento().limparGui();
-			getPanelCadastroEvento().getTextFieldDescricao().requestFocus();
+			getFrameCadastroEvento().getPanelCadastroEvento().reiniciarBox();
+			getPanelCadastroEvento().getBoxTipoEvento().requestFocus();
 		}
 	}
 
@@ -158,7 +155,7 @@ final class EventoGerenteEventos {
 			atualizarObjeto();
 			getPanelPesquisaEvento().pesquisarRegistroAgenda(evento);
 
-			MainGerenteEventos.mostrarFrame(MainGerenteEventos.getFramePesquisaAgendaEvento());
+			MainControlador.mostrarFrame(MainControlador.getFramePesquisaAgendaEvento());
 		}
 	}
 
@@ -197,7 +194,8 @@ final class EventoGerenteEventos {
 					EventoDaoFacade.salvarRegistro(evento);
 					evento = new Evento();
 					getFrameCadastroEvento().limparGui();
-					getPanelCadastroEvento().getTextFieldDescricao().requestFocus();
+					getFrameCadastroEvento().getPanelCadastroEvento().reiniciarBox();
+					getPanelCadastroEvento().getBoxTipoEvento().requestFocus();
 					Msg.sucessoSalvarRegistro();
 				}
 			} catch (Exception e) {
@@ -237,19 +235,19 @@ final class EventoGerenteEventos {
 		this.evento = evento;
 	}
 
-	public FrameCadastroEvento getFrameCadastroEvento() {
-		return MainGerenteEventos.getFrameCadastroAgendaEvento();
+	public FCEvento getFrameCadastroEvento() {
+		return MainControlador.getFrameCadastroAgendaEvento();
 	}
 
-	public PanelCadastroEvento getPanelCadastroEvento() {
-		return MainGerenteEventos.getFrameCadastroAgendaEvento().getPanelCadastroEvento();
+	public PCEvento getPanelCadastroEvento() {
+		return MainControlador.getFrameCadastroAgendaEvento().getPanelCadastroEvento();
 	}
 
-	public FramePesquisaEvento getFramePesquisaEvento() {
-		return MainGerenteEventos.getFramePesquisaAgendaEvento();
+	public FPEvento getFramePesquisaEvento() {
+		return MainControlador.getFramePesquisaAgendaEvento();
 	}
 
-	public PanelPesquisaEvento getPanelPesquisaEvento() {
-		return MainGerenteEventos.getFramePesquisaAgendaEvento().getPanelPesquisaEvento();
+	public PPEvento getPanelPesquisaEvento() {
+		return MainControlador.getFramePesquisaAgendaEvento().getPanelPesquisaEvento();
 	}
 }

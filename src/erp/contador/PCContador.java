@@ -14,7 +14,7 @@ import arquitetura.registro.ToolBar;
 import arquitetura.util.SpringUtilities;
 
 @SuppressWarnings("serial")
-public final class PanelCadastroContador extends JPanel implements Gui {
+public final class PCContador extends JPanel implements Gui {
 
 	private JTextField textFieldCnpj;
 	private JTextField textFieldCpf;
@@ -37,7 +37,7 @@ public final class PanelCadastroContador extends JPanel implements Gui {
 	private JLabel labelFone1;
 	private ToolBar toolBar;
 
-	public PanelCadastroContador() {
+	public PCContador() {
 		iniciarLayout();
 		iniciarGui();
 		iniciarFocusTabListener();

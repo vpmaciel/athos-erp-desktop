@@ -10,11 +10,11 @@ import arquitetura.gui.GuiGerenteEventos;
 import arquitetura.gui.Imagem;
 
 @SuppressWarnings("serial")
-public final class FramePesquisaImovel extends JFrame implements Gui {
+public final class FPImovel extends JFrame implements Gui {
 
-	private PanelPesquisaImovel PanelPesquisaImovel;
+	private PPImovel PPImovel;
 
-	public FramePesquisaImovel() {
+	public FPImovel() {
 		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		iniciarLayout();
 		iniciarGui();
@@ -31,8 +31,8 @@ public final class FramePesquisaImovel extends JFrame implements Gui {
 		return null;
 	}
 
-	public PanelPesquisaImovel getPanelPesquisaImovel() {
-		return PanelPesquisaImovel;
+	public PPImovel getPanelPesquisaImovel() {
+		return PPImovel;
 	}
 
 	@Override
@@ -44,8 +44,8 @@ public final class FramePesquisaImovel extends JFrame implements Gui {
 	public void iniciarGui() {
 		setTitle("Imóveis");
 		setIconImage(Imagem.getLogoTipoImage());
-		PanelPesquisaImovel = new PanelPesquisaImovel();
-		setContentPane(PanelPesquisaImovel);
+		PPImovel = new PPImovel();
+		setContentPane(PPImovel);
 	}
 
 	@Override
@@ -55,7 +55,7 @@ public final class FramePesquisaImovel extends JFrame implements Gui {
 
 	@Override
 	public void iniciarGerenteEventos() {
-		PanelPesquisaImovel.iniciarHandle();
+		PPImovel.iniciarHandle();
 	}
 
 	@Override

@@ -16,7 +16,7 @@ import arquitetura.gui.TamanhoUpperCase;
 import arquitetura.util.SpringUtilities;
 
 @SuppressWarnings("serial")
-public final class PanelLogin extends JPanel implements Gui {
+public final class PLogin extends JPanel implements Gui {
 
 	private JButton buttonEntrar;
 	private JPasswordField textFieldSenha;
@@ -26,7 +26,7 @@ public final class PanelLogin extends JPanel implements Gui {
 	private JLabel labelEntrar;
 	private JTextField textFieldNome;
 
-	public PanelLogin() {
+	public PLogin() {
 		iniciarLayout();
 		iniciarGui();
 		iniciarFocusTabListener();

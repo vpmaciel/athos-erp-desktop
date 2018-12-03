@@ -16,14 +16,14 @@ import javax.swing.table.DefaultTableCellRenderer;
 import arquitetura.gui.Tabela;
 
 @SuppressWarnings("serial")
-public final class PanelPesquisaBanco extends JPanel {
+public final class PPBanco extends JPanel {
 
 	private final BancoTableModel bancoTableModel;
 	List<Banco> bancos = null;
 	private final JTable table;
 	private final BancoDaoFacade bancoDaoFacade = new BancoDaoFacade();
 
-	public PanelPesquisaBanco() {
+	public PPBanco() {
 		bancos = new LinkedList<>();
 		bancoTableModel = new BancoTableModel(bancos);
 
@@ -35,6 +35,9 @@ public final class PanelPesquisaBanco extends JPanel {
 		Tabela.configurarLarguraColunasTabela(table, BancoTableModel.WIDTH);
 		((DefaultTableCellRenderer) table.getTableHeader().getDefaultRenderer())
 				.setHorizontalAlignment(SwingConstants.RIGHT);
+		table.getColumnModel().getColumn(0).setMaxWidth(0);
+		table.getColumnModel().getColumn(0).setMinWidth(0);
+		table.getColumnModel().getColumn(0).setPreferredWidth(0);
 		table.setRowSelectionAllowed(true);
 		table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);

@@ -5,7 +5,7 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.TableModel;
 
-import erp.main.MainGerenteEventos;
+import erp.main.MainControlador;
 
 final class SelectionListener implements ListSelectionListener {
 
@@ -29,11 +29,11 @@ final class SelectionListener implements ListSelectionListener {
 					Banco banco = bancoDaoFacade.getRegistro(bancoPesquisaRegistro);
 					BancoTableModel bancoTableModel = (BancoTableModel) table.getModel();
 					bancoTableModel.getBanco(table.getSelectedRow());
-					MainGerenteEventos.mostrarFrame(MainGerenteEventos.getFrameCadastroBanco());
-					MainGerenteEventos.getFrameCadastroBanco().getBancoHandle().setBanco(banco);
-					MainGerenteEventos.getFrameCadastroBanco().getBancoHandle().atualizarGui();
-					MainGerenteEventos.getFrameCadastroBanco().setFocusable(true);
-					MainGerenteEventos.getFramePesquisaBanco().setVisible(false);
+					MainControlador.mostrarFrame(MainControlador.getFrameCadastroBanco());
+					MainControlador.getFrameCadastroBanco().getBancoHandle().setBanco(banco);
+					MainControlador.getFrameCadastroBanco().getBancoHandle().atualizarGui();
+					MainControlador.getFrameCadastroBanco().setFocusable(true);
+					MainControlador.getFramePesquisaBanco().setVisible(false);
 				}
 			}
 		}

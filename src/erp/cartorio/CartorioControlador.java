@@ -10,9 +10,9 @@ import java.util.List;
 import javax.swing.JOptionPane;
 
 import arquitetura.gui.Msg;
-import erp.main.MainGerenteEventos;
+import erp.main.MainControlador;
 
-final class CartorioGerenteEventos {
+final class CartorioControlador {
 
 	public class Ajuda implements ActionListener {
 
@@ -75,7 +75,7 @@ final class CartorioGerenteEventos {
 
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
-			MainGerenteEventos.mostrarFrame(MainGerenteEventos.getFrameMain());
+			MainControlador.mostrarFrame(MainControlador.getFrameMain());
 		}
 	}
 
@@ -135,7 +135,7 @@ final class CartorioGerenteEventos {
 			Msg.avisoRegistroEncontrado(totalPesquisaRegistro);
 
 			if (totalPesquisaRegistro > 0) {
-				MainGerenteEventos.mostrarFrame(getFramePesquisaCartorio());
+				MainControlador.mostrarFrame(getFramePesquisaCartorio());
 			}
 		}
 	}
@@ -183,7 +183,7 @@ final class CartorioGerenteEventos {
 
 	private Cartorio cartorio;
 
-	public CartorioGerenteEventos() {
+	public CartorioControlador() {
 
 	}
 
@@ -244,19 +244,19 @@ final class CartorioGerenteEventos {
 		this.cartorio = cartorio;
 	}
 
-	public FrameCadastroCartorio getFrameCadastroCartorio() {
-		return MainGerenteEventos.getFrameCadastroCartorio();
+	public FCCartorio getFrameCadastroCartorio() {
+		return MainControlador.getFrameCadastroCartorio();
 	}
 
-	public PanelCadastroCartorio getPanelCadastroCartorio() {
-		return MainGerenteEventos.getFrameCadastroCartorio().getPanelCadastroCartorio();
+	public PCCartorio getPanelCadastroCartorio() {
+		return MainControlador.getFrameCadastroCartorio().getPanelCadastroCartorio();
 	}
 
-	public FramePesquisaCartorio getFramePesquisaCartorio() {
-		return MainGerenteEventos.getFramePesquisaCartorio();
+	public FPCartorio getFramePesquisaCartorio() {
+		return MainControlador.getFramePesquisaCartorio();
 	}
 
-	public PanelPesquisaCartorio getPanelPesquisaCartorio() {
-		return MainGerenteEventos.getFramePesquisaCartorio().getPanelPesquisaCartorio();
+	public PPCartorio getPanelPesquisaCartorio() {
+		return MainControlador.getFramePesquisaCartorio().getPanelPesquisaCartorio();
 	}
 }

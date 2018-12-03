@@ -12,14 +12,14 @@ import javax.swing.JPanel;
 import arquitetura.internet.Internet;
 
 @SuppressWarnings("serial")
-public class PanelSobre extends JPanel {
+public class PSobre extends JPanel {
 
 	private final JLabel labelAutor = new JLabel();
 	private final JLabel labelCopyright = new JLabel();
 	private final JLabel labelEmpresa = new JLabel();
 	private final JLabel labelTitulo = new JLabel();
 
-	public PanelSobre() {
+	public PSobre() {
 		super();
 		inicializarGui();
 	}

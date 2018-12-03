@@ -5,9 +5,9 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.TableModel;
 
-import erp.main.MainGerenteEventos;
+import erp.main.MainControlador;
 
-class SelectionListener implements ListSelectionListener {
+final class SelectionListener implements ListSelectionListener {
 
 	JTable table;
 
@@ -28,11 +28,11 @@ class SelectionListener implements ListSelectionListener {
 					Cartorio cartorio = CartorioDaoFacade.getCartorio(cartorioPesquisaRegistro);
 					CartorioTableModel cartorioTableModel = (CartorioTableModel) table.getModel();
 					cartorioTableModel.getCartorio(table.getSelectedRow());
-					MainGerenteEventos.mostrarFrame(MainGerenteEventos.getFrameCadastroCartorio());
-					MainGerenteEventos.getFrameCadastroCartorio().getCartorioHandle().setCartorio(cartorio);
-					MainGerenteEventos.getFrameCadastroCartorio().getCartorioHandle().atualizarGui();
-					MainGerenteEventos.getFrameCadastroCartorio().setFocusable(true);
-					MainGerenteEventos.getFramePesquisaCartorio().setVisible(false);
+					MainControlador.mostrarFrame(MainControlador.getFrameCadastroCartorio());
+					MainControlador.getFrameCadastroCartorio().getCartorioHandle().setCartorio(cartorio);
+					MainControlador.getFrameCadastroCartorio().getCartorioHandle().atualizarGui();
+					MainControlador.getFrameCadastroCartorio().setFocusable(true);
+					MainControlador.getFramePesquisaCartorio().setVisible(false);
 				}
 			}
 		}

@@ -15,9 +15,9 @@ import arquitetura.validacao.Entrada;
 import arquitetura.validacao.RegExp;
 
 @SuppressWarnings("serial")
-public final class PanelCadastroUsuario extends JPanel implements Gui {
+public final class PCUsuario extends JPanel implements Gui {
 
-	private UsuarioGerenteEventos usuarioGerenteEventos;
+	private UsuarioControlador usuarioControlador;
 	private JTextField textFieldSenha;
 	private JTextField textFieldNome;
 	private GuiGerenteEventos guiGerenteEventos;
@@ -25,7 +25,7 @@ public final class PanelCadastroUsuario extends JPanel implements Gui {
 	private JLabel labelNome;
 	private ToolBar toolBar;
 
-	public PanelCadastroUsuario() {
+	public PCUsuario() {
 		iniciarLayout();
 		iniciarGui();
 		iniciarFocusTabListener();
@@ -53,8 +53,8 @@ public final class PanelCadastroUsuario extends JPanel implements Gui {
 		return toolBar;
 	}
 
-	public UsuarioGerenteEventos getUsuarioHandle() {
-		return usuarioGerenteEventos;
+	public UsuarioControlador getUsuarioHandle() {
+		return usuarioControlador;
 	}
 
 	@Override

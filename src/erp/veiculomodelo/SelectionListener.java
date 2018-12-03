@@ -1,13 +1,13 @@
-package erp.veiculo.modelo;
+package erp.veiculomodelo;
 
 import javax.swing.JTable;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.TableModel;
 
-import erp.main.MainGerenteEventos;
+import erp.main.MainControlador;
 
-class SelectionListener implements ListSelectionListener {
+final class SelectionListener implements ListSelectionListener {
 
 	JTable table;
 
@@ -28,12 +28,12 @@ class SelectionListener implements ListSelectionListener {
 					VeiculoModelo veiculoModelo = VeiculoModeloDaoFacade.getRegistro(veiculoModeloPesquisaRegistro);
 					VeiculoModeloTableModel veiculoModeloTableModel = (VeiculoModeloTableModel) table.getModel();
 					veiculoModeloTableModel.getVeiculoModelo(table.getSelectedRow());
-					MainGerenteEventos.mostrarFrame(MainGerenteEventos.getFrameCadastroVeiculoModelo());
-					MainGerenteEventos.getFrameCadastroVeiculoModelo().getVeiculoModeloHandle()
+					MainControlador.mostrarFrame(MainControlador.getFrameCadastroVeiculoModelo());
+					MainControlador.getFrameCadastroVeiculoModelo().getVeiculoModeloHandle()
 							.setVeiculoModelo(veiculoModelo);
-					MainGerenteEventos.getFrameCadastroVeiculoModelo().getVeiculoModeloHandle().atualizarGui();
-					MainGerenteEventos.getFrameCadastroVeiculoModelo().setFocusable(true);
-					MainGerenteEventos.getFramePesquisaVeiculoModelo().setVisible(false);
+					MainControlador.getFrameCadastroVeiculoModelo().getVeiculoModeloHandle().atualizarGui();
+					MainControlador.getFrameCadastroVeiculoModelo().setFocusable(true);
+					MainControlador.getFramePesquisaVeiculoModelo().setVisible(false);
 				}
 			}
 		}

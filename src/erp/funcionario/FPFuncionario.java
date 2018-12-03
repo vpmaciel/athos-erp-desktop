@@ -9,11 +9,11 @@ import arquitetura.gui.Gui;
 import arquitetura.gui.GuiGerenteEventos;
 
 @SuppressWarnings("serial")
-public final class FramePesquisaFuncionario extends JFrame implements Gui {
+public final class FPFuncionario extends JFrame implements Gui {
 
-	private PanelPesquisaFuncionario PanelPesquisaFuncionario;
+	private PPFuncionario PPFuncionario;
 
-	public FramePesquisaFuncionario() {
+	public FPFuncionario() {
 		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		iniciarLayout();
 		iniciarGui();
@@ -30,8 +30,8 @@ public final class FramePesquisaFuncionario extends JFrame implements Gui {
 		return null;
 	}
 
-	public PanelPesquisaFuncionario getPanelPesquisaFuncionario() {
-		return PanelPesquisaFuncionario;
+	public PPFuncionario getPanelPesquisaFuncionario() {
+		return PPFuncionario;
 	}
 
 	@Override
@@ -43,8 +43,8 @@ public final class FramePesquisaFuncionario extends JFrame implements Gui {
 	public void iniciarGui() {
 		setTitle("FUNCIONÁRIO");
 		setIconImage(arquitetura.gui.Imagem.getLogoTipoImage());
-		PanelPesquisaFuncionario = new PanelPesquisaFuncionario();
-		setContentPane(PanelPesquisaFuncionario);
+		PPFuncionario = new PPFuncionario();
+		setContentPane(PPFuncionario);
 	}
 
 	@Override
@@ -54,7 +54,7 @@ public final class FramePesquisaFuncionario extends JFrame implements Gui {
 
 	@Override
 	public void iniciarGerenteEventos() {
-		PanelPesquisaFuncionario.iniciarHandle();
+		PPFuncionario.iniciarHandle();
 	}
 
 	@Override

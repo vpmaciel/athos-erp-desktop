@@ -15,9 +15,9 @@ import arquitetura.validacao.Entrada;
 import arquitetura.validacao.RegExp;
 
 @SuppressWarnings("serial")
-public final class PanelCadastroBanco extends JPanel implements Gui {
+public final class PCBanco extends JPanel implements Gui {
 
-	private BancoGerenteEventos bancoGerenteEventos;
+	private BancoControlador bancoControlador;
 	private JTextField textFieldCodigo;
 	private JTextField textFieldNome;
 	private GuiGerenteEventos guiGerenteEventos;
@@ -25,7 +25,7 @@ public final class PanelCadastroBanco extends JPanel implements Gui {
 	private JLabel labelNome;
 	private ToolBar toolBar;
 
-	public PanelCadastroBanco() {
+	public PCBanco() {
 		iniciarLayout();
 		iniciarGui();
 		iniciarFocusTabListener();
@@ -36,8 +36,8 @@ public final class PanelCadastroBanco extends JPanel implements Gui {
 	public void atualizarTable() {
 	}
 
-	public BancoGerenteEventos getBancoHandle() {
-		return bancoGerenteEventos;
+	public BancoControlador getBancoHandle() {
+		return bancoControlador;
 	}
 
 	@Override

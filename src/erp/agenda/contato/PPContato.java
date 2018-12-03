@@ -16,13 +16,13 @@ import javax.swing.table.DefaultTableCellRenderer;
 import arquitetura.gui.Tabela;
 
 @SuppressWarnings("serial")
-public final class PanelPesquisaContato extends JPanel {
+public final class PPContato extends JPanel {
 
 	private final ContatoTableModel contatoTableModel;
 	List<Contato> recadoList = null;
 	private final JTable table;
 
-	public PanelPesquisaContato() {
+	public PPContato() {
 		recadoList = new LinkedList<>();
 		contatoTableModel = new ContatoTableModel(recadoList);
 
@@ -34,6 +34,9 @@ public final class PanelPesquisaContato extends JPanel {
 		Tabela.configurarLarguraColunasTabela(table, ContatoTableModel.WIDTH);
 		((DefaultTableCellRenderer) table.getTableHeader().getDefaultRenderer())
 				.setHorizontalAlignment(SwingConstants.RIGHT);
+		table.getColumnModel().getColumn(0).setMaxWidth(0);
+		table.getColumnModel().getColumn(0).setMinWidth(0);
+		table.getColumnModel().getColumn(0).setPreferredWidth(0);
 		table.setRowSelectionAllowed(true);
 		table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);

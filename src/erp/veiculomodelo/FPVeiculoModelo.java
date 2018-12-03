@@ -1,4 +1,4 @@
-package erp.veiculo.modelo;
+package erp.veiculomodelo;
 
 import java.awt.Dimension;
 
@@ -9,11 +9,11 @@ import arquitetura.gui.Gui;
 import arquitetura.gui.GuiGerenteEventos;
 
 @SuppressWarnings("serial")
-public final class FramePesquisaVeiculoModelo extends JFrame implements Gui {
+public final class FPVeiculoModelo extends JFrame implements Gui {
 
-	private PanelPesquisaVeiculoModelo PanelPesquisaVeiculoModelo;
+	private PPVeiculoModelo PPVeiculoModelo;
 
-	public FramePesquisaVeiculoModelo() {
+	public FPVeiculoModelo() {
 		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		iniciarLayout();
 		iniciarGui();
@@ -30,8 +30,8 @@ public final class FramePesquisaVeiculoModelo extends JFrame implements Gui {
 		return null;
 	}
 
-	public PanelPesquisaVeiculoModelo getPanelPesquisaVeiculoModelo() {
-		return PanelPesquisaVeiculoModelo;
+	public PPVeiculoModelo getPanelPesquisaVeiculoModelo() {
+		return PPVeiculoModelo;
 	}
 
 	@Override
@@ -43,8 +43,8 @@ public final class FramePesquisaVeiculoModelo extends JFrame implements Gui {
 	public void iniciarGui() {
 		setTitle("VEÍCULO - MODELO");
 		setIconImage(arquitetura.gui.Imagem.getLogoTipoImage());
-		PanelPesquisaVeiculoModelo = new PanelPesquisaVeiculoModelo();
-		setContentPane(PanelPesquisaVeiculoModelo);
+		PPVeiculoModelo = new PPVeiculoModelo();
+		setContentPane(PPVeiculoModelo);
 	}
 
 	@Override
@@ -54,7 +54,7 @@ public final class FramePesquisaVeiculoModelo extends JFrame implements Gui {
 
 	@Override
 	public void iniciarGerenteEventos() {
-		PanelPesquisaVeiculoModelo.iniciarHandle();
+		PPVeiculoModelo.iniciarHandle();
 	}
 
 	@Override

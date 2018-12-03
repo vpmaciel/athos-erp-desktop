@@ -1,4 +1,4 @@
-package erp.veiculo.modelo;
+package erp.veiculomodelo;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -9,7 +9,7 @@ import javax.swing.table.AbstractTableModel;
 public class VeiculoModeloTableModel extends AbstractTableModel {
 
 	public static final int ID = 0;
-	public static final int COL_MARCA = 1;
+	public final int COL_MARCA = 1;
 	public static final int[] WIDTH = new int[] { 100, 300 };
 	private final boolean[] podeEditar = new boolean[] { false, false, false };
 	private List<VeiculoModelo> veiculoModeloList = new LinkedList<>();

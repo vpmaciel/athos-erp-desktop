@@ -10,9 +10,9 @@ import java.util.List;
 import javax.swing.JOptionPane;
 
 import arquitetura.gui.Msg;
-import erp.main.MainGerenteEventos;
+import erp.main.MainControlador;
 
-final class TipoEventoGerenteEventos {
+final class TipoEventoControlador {
 
 	public class Ajuda implements ActionListener {
 
@@ -79,7 +79,7 @@ final class TipoEventoGerenteEventos {
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
 			try {
-				MainGerenteEventos.mostrarFrame(MainGerenteEventos.getFrameMain());
+				MainControlador.mostrarFrame(MainControlador.getFrameMain());
 			} catch (Exception e) {
 				System.out.println(e);
 			}
@@ -130,7 +130,7 @@ final class TipoEventoGerenteEventos {
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
 			tipoEvento = new TipoEvento();
-			MainGerenteEventos.getFrameCadastroAgendaTipoEvento().limparGui();
+			MainControlador.getFrameCadastroAgendaTipoEvento().limparGui();
 			getPanelCadastroTipoEvento().getTextFieldNome().requestFocus();
 		}
 	}
@@ -142,7 +142,7 @@ final class TipoEventoGerenteEventos {
 			tipoEvento = new TipoEvento();
 			atualizarObjeto();
 			getPanelPesquisaTipoEvento().pesquisarRegistroAgenda(tipoEvento);
-			MainGerenteEventos.mostrarFrame(MainGerenteEventos.getFramePesquisaAgendaTipoEvento());
+			MainControlador.mostrarFrame(MainControlador.getFramePesquisaAgendaTipoEvento());
 		}
 	}
 
@@ -180,7 +180,7 @@ final class TipoEventoGerenteEventos {
 					atualizarObjeto();
 					TipoEventoDaoFacade.salvarRegistro(tipoEvento);
 					tipoEvento = new TipoEvento();
-					MainGerenteEventos.getFrameCadastroAgendaTipoEvento().limparGui();
+					MainControlador.getFrameCadastroAgendaTipoEvento().limparGui();
 					getPanelCadastroTipoEvento().getTextFieldNome().requestFocus();
 					Msg.sucessoSalvarRegistro();
 				}
@@ -212,19 +212,19 @@ final class TipoEventoGerenteEventos {
 		this.tipoEvento = tipoEvento;
 	}
 
-	public FrameCadastroTipoEvento getFrameCadastroTipoEvento() {
-		return MainGerenteEventos.getFrameCadastroAgendaTipoEvento();
+	public FCTipoEvento getFrameCadastroTipoEvento() {
+		return MainControlador.getFrameCadastroAgendaTipoEvento();
 	}
 
-	public PanelCadastroTipoEvento getPanelCadastroTipoEvento() {
-		return MainGerenteEventos.getFrameCadastroAgendaTipoEvento().getPanelCadastroTipoEvento();
+	public PCTipoEvento getPanelCadastroTipoEvento() {
+		return MainControlador.getFrameCadastroAgendaTipoEvento().getPanelCadastroTipoEvento();
 	}
 
-	public FramePesquisaTipoEvento getFramePesquisaTipoEvento() {
-		return MainGerenteEventos.getFramePesquisaAgendaTipoEvento();
+	public FPTipoEvento getFramePesquisaTipoEvento() {
+		return MainControlador.getFramePesquisaAgendaTipoEvento();
 	}
 
-	public PanelPesquisaTipoEvento getPanelPesquisaTipoEvento() {
-		return MainGerenteEventos.getFramePesquisaAgendaTipoEvento().getPanelPesquisaTipoEvento();
+	public PPTipoEvento getPanelPesquisaTipoEvento() {
+		return MainControlador.getFramePesquisaAgendaTipoEvento().getPanelPesquisaTipoEvento();
 	}
 }

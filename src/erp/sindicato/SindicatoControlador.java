@@ -12,9 +12,9 @@ import java.util.List;
 import javax.swing.JOptionPane;
 
 import arquitetura.gui.Msg;
-import erp.main.MainGerenteEventos;
+import erp.main.MainControlador;
 
-final class SindicatoGerenteEventos {
+final class SindicatoControlador {
 
 	public class Ajuda implements ActionListener {
 
@@ -80,7 +80,7 @@ final class SindicatoGerenteEventos {
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
 			try {
-				MainGerenteEventos.mostrarFrame(MainGerenteEventos.getFrameMain());
+				MainControlador.mostrarFrame(MainControlador.getFrameMain());
 			} catch (Exception e) {
 				System.out.println(e);
 			}
@@ -130,9 +130,9 @@ final class SindicatoGerenteEventos {
 		@Override
 		public void mouseClicked(MouseEvent event) {
 			if (event.getButton() == MouseEvent.BUTTON1) {
-				MainGerenteEventos.mostrarFrame(MainGerenteEventos.getFrameCadastroSindicato());
+				MainControlador.mostrarFrame(MainControlador.getFrameCadastroSindicato());
 			} else {
-				MainGerenteEventos.getFrameCadastroSindicato().reiniciarBox();
+				MainControlador.getFrameCadastroSindicato().reiniciarBox();
 			}
 		}
 	}
@@ -154,7 +154,7 @@ final class SindicatoGerenteEventos {
 			sindicato = new Sindicato();
 			atualizarObjeto();
 			getPanelPesquisaSindicato().pesquisarRegistroSindicato(sindicato);
-			MainGerenteEventos.mostrarFrame(MainGerenteEventos.getFrameCadastroSindicato());
+			MainControlador.mostrarFrame(MainControlador.getFrameCadastroSindicato());
 		}
 	}
 
@@ -269,19 +269,19 @@ final class SindicatoGerenteEventos {
 		this.sindicato = sindicato;
 	}
 
-	public FrameCadastroSindicato getFrameCadastroSindicato() {
-		return MainGerenteEventos.getFrameCadastroSindicato();
+	public FCSindicato getFrameCadastroSindicato() {
+		return MainControlador.getFrameCadastroSindicato();
 	}
 
-	public PanelCadastroSindicato getPanelCadastroSindicato() {
-		return MainGerenteEventos.getFrameCadastroSindicato().getPanelCadastroSindicato();
+	public PCSindicato getPanelCadastroSindicato() {
+		return MainControlador.getFrameCadastroSindicato().getPanelCadastroSindicato();
 	}
 
-	public FramePesquisaSindicato getFramePesquisaSindicato() {
-		return MainGerenteEventos.getFramePesquisaSindicato();
+	public FPSindicato getFramePesquisaSindicato() {
+		return MainControlador.getFramePesquisaSindicato();
 	}
 
-	public PanelPesquisaSindicato getPanelPesquisaSindicato() {
-		return MainGerenteEventos.getFramePesquisaSindicato().getPanelPesquisaSindicato();
+	public PPSindicato getPanelPesquisaSindicato() {
+		return MainControlador.getFramePesquisaSindicato().getPanelPesquisaSindicato();
 	}
 }

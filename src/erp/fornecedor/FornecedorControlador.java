@@ -12,9 +12,9 @@ import java.util.List;
 import javax.swing.JOptionPane;
 
 import arquitetura.gui.Msg;
-import erp.main.MainGerenteEventos;
+import erp.main.MainControlador;
 
-final class FornecedorGerenteEventos {
+final class FornecedorControlador {
 
 	public class Ajuda implements ActionListener {
 
@@ -80,7 +80,7 @@ final class FornecedorGerenteEventos {
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
 			try {
-				MainGerenteEventos.mostrarFrame(MainGerenteEventos.getFrameMain());
+				MainControlador.mostrarFrame(MainControlador.getFrameMain());
 			} catch (Exception e) {
 				System.out.println(e);
 			}
@@ -130,7 +130,7 @@ final class FornecedorGerenteEventos {
 		@Override
 		public void mouseClicked(MouseEvent event) {
 			if (event.getButton() == MouseEvent.BUTTON1) {
-				MainGerenteEventos.mostrarFrame(getFrameCadastroFornecedor());
+				MainControlador.mostrarFrame(getFrameCadastroFornecedor());
 			} else {
 				getFrameCadastroFornecedor().reiniciarBox();
 			}
@@ -154,7 +154,7 @@ final class FornecedorGerenteEventos {
 			fornecedor = new Fornecedor();
 			atualizarObjeto();
 			getPanelPesquisaFornecedor().pesquisarRegistroFornecedor(fornecedor);
-			MainGerenteEventos.mostrarFrame(MainGerenteEventos.getFramePesquisaFornecedor());
+			MainControlador.mostrarFrame(MainControlador.getFramePesquisaFornecedor());
 		}
 	}
 
@@ -267,19 +267,19 @@ final class FornecedorGerenteEventos {
 		this.fornecedor = fornecedor;
 	}
 
-	public FrameCadastroFornecedor getFrameCadastroFornecedor() {
-		return MainGerenteEventos.getFrameCadastroFornecedor();
+	public FCFornecedor getFrameCadastroFornecedor() {
+		return MainControlador.getFrameCadastroFornecedor();
 	}
 
-	public PanelCadastroFornecedor getPanelCadastroFornecedor() {
-		return MainGerenteEventos.getFrameCadastroFornecedor().getPanelCadastroFornecedor();
+	public PCFornecedor getPanelCadastroFornecedor() {
+		return MainControlador.getFrameCadastroFornecedor().getPanelCadastroFornecedor();
 	}
 
-	public FramePesquisaFornecedor getFramePesquisaFornecedor() {
-		return MainGerenteEventos.getFramePesquisaFornecedor();
+	public FPFornecedor getFramePesquisaFornecedor() {
+		return MainControlador.getFramePesquisaFornecedor();
 	}
 
-	public PanelPesquisaFornecedor getPanelPesquisaFornecedor() {
-		return MainGerenteEventos.getFramePesquisaFornecedor().getPanelPesquisaFornecedor();
+	public PPFornecedor getPanelPesquisaFornecedor() {
+		return MainControlador.getFramePesquisaFornecedor().getPanelPesquisaFornecedor();
 	}
 }

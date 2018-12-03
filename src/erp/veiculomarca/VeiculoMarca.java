@@ -1,4 +1,4 @@
-package erp.veiculo.marca;
+package erp.veiculomarca;
 
 import java.io.Serializable;
 

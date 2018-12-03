@@ -10,11 +10,11 @@ import arquitetura.gui.GuiGerenteEventos;
 import arquitetura.gui.Imagem;
 
 @SuppressWarnings("serial")
-public final class FramePesquisaContador extends JFrame implements Gui {
+public final class FPContador extends JFrame implements Gui {
 
-	private PanelPesquisaContador PanelPesquisaContador;
+	private PPContador PPContador;
 
-	public FramePesquisaContador() {
+	public FPContador() {
 		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		iniciarLayout();
 		iniciarGui();
@@ -31,8 +31,8 @@ public final class FramePesquisaContador extends JFrame implements Gui {
 		return null;
 	}
 
-	public PanelPesquisaContador getPanelPesquisaContador() {
-		return PanelPesquisaContador;
+	public PPContador getPanelPesquisaContador() {
+		return PPContador;
 	}
 
 	public void habilitarPesquisaRegistroGui() {
@@ -47,8 +47,8 @@ public final class FramePesquisaContador extends JFrame implements Gui {
 	public void iniciarGui() {
 		setTitle("CONTADOR");
 		setIconImage(Imagem.getLogoTipoImage());
-		PanelPesquisaContador = new PanelPesquisaContador();
-		setContentPane(PanelPesquisaContador);
+		PPContador = new PPContador();
+		setContentPane(PPContador);
 	}
 
 	@Override
@@ -58,7 +58,7 @@ public final class FramePesquisaContador extends JFrame implements Gui {
 
 	@Override
 	public void iniciarGerenteEventos() {
-		PanelPesquisaContador.iniciarHandle();
+		PPContador.iniciarHandle();
 	}
 
 	@Override

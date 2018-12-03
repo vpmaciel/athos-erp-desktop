@@ -13,9 +13,9 @@ import java.util.List;
 import javax.swing.JOptionPane;
 
 import arquitetura.gui.Msg;
-import erp.main.MainGerenteEventos;
+import erp.main.MainControlador;
 
-final class UsuarioGerenteEventos {
+final class UsuarioControlador {
 
 	public class Ajuda implements ActionListener {
 
@@ -81,7 +81,7 @@ final class UsuarioGerenteEventos {
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
 			try {
-				MainGerenteEventos.mostrarFrame(MainGerenteEventos.getFrameMain());
+				MainControlador.mostrarFrame(MainControlador.getFrameMain());
 			} catch (Exception e) {
 				System.out.println(e);
 			}
@@ -132,9 +132,9 @@ final class UsuarioGerenteEventos {
 		@Override
 		public void mouseClicked(MouseEvent event) {
 			if (event.getButton() == MouseEvent.BUTTON1) {
-				MainGerenteEventos.mostrarFrame(MainGerenteEventos.getFrameCadastroUsuario());
+				MainControlador.mostrarFrame(MainControlador.getFrameCadastroUsuario());
 			} else {
-				MainGerenteEventos.getFrameCadastroUsuario().reiniciarBox();
+				MainControlador.getFrameCadastroUsuario().reiniciarBox();
 			}
 		}
 	}
@@ -156,7 +156,7 @@ final class UsuarioGerenteEventos {
 			usuario = new Usuario();
 			atualizarObjeto();
 			getPanelPesquisaUsuario().pesquisarRegistroUsuario(usuario);
-			MainGerenteEventos.mostrarFrame(getFramePesquisaUsuario());
+			MainControlador.mostrarFrame(getFramePesquisaUsuario());
 		}
 	}
 
@@ -196,7 +196,7 @@ final class UsuarioGerenteEventos {
 					atualizarObjeto();
 					UsuarioDaoFacade.salvarRegistro(usuario);
 					usuario = new Usuario();
-					MainGerenteEventos.getFrameCadastroUsuario().limparGui();
+					MainControlador.getFrameCadastroUsuario().limparGui();
 					getPanelCadastroUsuario().getTextFieldNome().requestFocus();
 					Msg.sucessoSalvarRegistro();
 				}
@@ -208,7 +208,7 @@ final class UsuarioGerenteEventos {
 
 	private Usuario usuario;
 
-	UsuarioGerenteEventos() {
+	UsuarioControlador() {
 	}
 
 	public void atualizarGUI() {
@@ -233,19 +233,19 @@ final class UsuarioGerenteEventos {
 		this.usuario = usuario;
 	}
 
-	public FrameCadastroUsuario getFrameCadastroUsuario() {
-		return MainGerenteEventos.getFrameCadastroUsuario();
+	public FCUsuario getFrameCadastroUsuario() {
+		return MainControlador.getFrameCadastroUsuario();
 	}
 
-	public PanelCadastroUsuario getPanelCadastroUsuario() {
-		return MainGerenteEventos.getFrameCadastroUsuario().getPanelCadastroUsuario();
+	public PCUsuario getPanelCadastroUsuario() {
+		return MainControlador.getFrameCadastroUsuario().getPanelCadastroUsuario();
 	}
 
-	public FramePesquisaUsuario getFramePesquisaUsuario() {
-		return MainGerenteEventos.getFramePesquisaUsuario();
+	public FPUsuario getFramePesquisaUsuario() {
+		return MainControlador.getFramePesquisaUsuario();
 	}
 
-	public PanelPesquisaUsuario getPanelPesquisaUsuario() {
-		return MainGerenteEventos.getFramePesquisaUsuario().getPanelPesquisaUsuario();
+	public PPUsuario getPanelPesquisaUsuario() {
+		return MainControlador.getFramePesquisaUsuario().getPanelPesquisaUsuario();
 	}
 }

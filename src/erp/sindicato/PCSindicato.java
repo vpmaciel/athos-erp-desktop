@@ -15,7 +15,7 @@ import arquitetura.registro.ToolBar;
 import arquitetura.util.SpringUtilities;
 
 @SuppressWarnings("serial")
-public final class PanelCadastroSindicato extends JPanel implements Gui {
+public final class PCSindicato extends JPanel implements Gui {
 
 	private ToolBar toolBar;
 	private GuiGerenteEventos guiGerenteEventos;
@@ -66,7 +66,7 @@ public final class PanelCadastroSindicato extends JPanel implements Gui {
 	private JLabel labelDataFundacao;
 	private JLabel labelCapitalSocial;
 
-	public PanelCadastroSindicato() {
+	public PCSindicato() {
 		iniciarLayout();
 		iniciarGui();
 		iniciarFocusTabListener();

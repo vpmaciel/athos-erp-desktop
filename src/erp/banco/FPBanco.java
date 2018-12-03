@@ -10,11 +10,11 @@ import arquitetura.gui.GuiGerenteEventos;
 import arquitetura.gui.Imagem;
 
 @SuppressWarnings("serial")
-public final class FramePesquisaBanco extends JFrame implements Gui {
+public final class FPBanco extends JFrame implements Gui {
 
-	private PanelPesquisaBanco PanelPesquisaBanco;
+	private PPBanco PPBanco;
 
-	public FramePesquisaBanco() {
+	public FPBanco() {
 		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		iniciarLayout();
 		iniciarGui();
@@ -31,8 +31,8 @@ public final class FramePesquisaBanco extends JFrame implements Gui {
 		return null;
 	}
 
-	public PanelPesquisaBanco getPanelPesquisaBanco() {
-		return PanelPesquisaBanco;
+	public PPBanco getPanelPesquisaBanco() {
+		return PPBanco;
 	}
 
 	@Override
@@ -44,8 +44,8 @@ public final class FramePesquisaBanco extends JFrame implements Gui {
 	public void iniciarGui() {
 		setTitle("BANCO");
 		setIconImage(Imagem.getLogoTipoImage());
-		PanelPesquisaBanco = new PanelPesquisaBanco();
-		setContentPane(PanelPesquisaBanco);
+		PPBanco = new PPBanco();
+		setContentPane(PPBanco);
 	}
 
 	@Override
@@ -55,7 +55,7 @@ public final class FramePesquisaBanco extends JFrame implements Gui {
 
 	@Override
 	public void iniciarGerenteEventos() {
-		PanelPesquisaBanco.iniciarHandle();
+		PPBanco.iniciarHandle();
 	}
 
 	@Override

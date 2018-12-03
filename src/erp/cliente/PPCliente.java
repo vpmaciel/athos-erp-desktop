@@ -16,13 +16,13 @@ import javax.swing.table.DefaultTableCellRenderer;
 import arquitetura.gui.Tabela;
 
 @SuppressWarnings("serial")
-public class PanelPesquisaCliente extends JPanel {
+public final class PPCliente extends JPanel {
 
 	private final ClienteTableModel clienteTableModel;
 	List<Cliente> clientes = null;
 	private final JTable table;
 
-	public PanelPesquisaCliente() {
+	public PPCliente() {
 		clientes = new LinkedList<>();
 		clienteTableModel = new ClienteTableModel(clientes);
 
@@ -34,6 +34,9 @@ public class PanelPesquisaCliente extends JPanel {
 		Tabela.configurarLarguraColunasTabela(table, ClienteTableModel.WIDTH);
 		((DefaultTableCellRenderer) table.getTableHeader().getDefaultRenderer())
 				.setHorizontalAlignment(SwingConstants.RIGHT);
+		table.getColumnModel().getColumn(0).setMaxWidth(0);
+		table.getColumnModel().getColumn(0).setMinWidth(0);
+		table.getColumnModel().getColumn(0).setPreferredWidth(0);
 		table.setRowSelectionAllowed(true);
 		table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);

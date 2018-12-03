@@ -11,9 +11,9 @@ import javax.swing.JOptionPane;
 
 import arquitetura.gui.Msg;
 import erp.main.FrameMain;
-import erp.main.MainGerenteEventos;
+import erp.main.MainControlador;
 
-final class BancoGerenteEventos {
+final class BancoControlador {
 
 	public class Ajuda implements ActionListener {
 
@@ -188,7 +188,7 @@ final class BancoGerenteEventos {
 	private Banco banco;
 	private final BancoDaoFacade bancoDaoFacade = new BancoDaoFacade();
 
-	public BancoGerenteEventos() {
+	public BancoControlador() {
 
 	}
 
@@ -209,20 +209,20 @@ final class BancoGerenteEventos {
 		return banco;
 	}
 
-	public FrameCadastroBanco getFrameCadastroBanco() {
-		return MainGerenteEventos.getFrameCadastroBanco();
+	public FCBanco getFrameCadastroBanco() {
+		return MainControlador.getFrameCadastroBanco();
 	}
 
-	public PanelCadastroBanco getPanelCadastroBanco() {
-		return MainGerenteEventos.getFrameCadastroBanco().getPanelCadastroBanco();
+	public PCBanco getPanelCadastroBanco() {
+		return MainControlador.getFrameCadastroBanco().getPanelCadastroBanco();
 	}
 
-	public FramePesquisaBanco getFramePesquisaBanco() {
-		return MainGerenteEventos.getFramePesquisaBanco();
+	public FPBanco getFramePesquisaBanco() {
+		return MainControlador.getFramePesquisaBanco();
 	}
 
-	public PanelPesquisaBanco getPanelPesquisaBanco() {
-		return MainGerenteEventos.getFramePesquisaBanco().getPanelPesquisaBanco();
+	public PPBanco getPanelPesquisaBanco() {
+		return MainControlador.getFramePesquisaBanco().getPanelPesquisaBanco();
 	}
 
 	public void setBanco(Banco banco) {

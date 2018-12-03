@@ -23,10 +23,10 @@ import erp.banco.BancoSort;
 import erp.empresa.Empresa;
 import erp.empresa.EmpresaDaoFacade;
 import erp.empresa.EmpresaSort;
-import erp.main.MainGerenteEventos;
+import erp.main.MainControlador;
 
 @SuppressWarnings("serial")
-public final class PanelCadastroCliente extends JPanel implements Gui {
+public final class PCCliente extends JPanel implements Gui {
 
 	private final BancoDaoFacade bancoDaoFacade = new BancoDaoFacade();
 	private ToolBar toolBar;
@@ -116,7 +116,7 @@ public final class PanelCadastroCliente extends JPanel implements Gui {
 	private JTextField textFieldFoneReferencia2;
 	private JTextField textFieldFoneReferencia3;
 
-	public PanelCadastroCliente() {
+	public PCCliente() {
 		iniciarLayout();
 		iniciarGui();
 		iniciarFocusTabListener();
@@ -818,16 +818,16 @@ public final class PanelCadastroCliente extends JPanel implements Gui {
 		for (Banco b : bancos) {
 			boxBanco.addItem(b);
 		}
-		if (!MainGerenteEventos.getFrameCadastroCliente().isShowing()
-				&& MainGerenteEventos.getFrameCadastroCliente().getClienteHandle().getCliente() != null) {
-			empresa = MainGerenteEventos.getFrameCadastroCliente().getClienteHandle().getCliente().getEmpresa();
+		if (!MainControlador.getFrameCadastroCliente().isShowing()
+				&& MainControlador.getFrameCadastroCliente().getClienteHandle().getCliente() != null) {
+			empresa = MainControlador.getFrameCadastroCliente().getClienteHandle().getCliente().getEmpresa();
 			if (empresa != null) {
 				boxEmpresa.setSelectedItem(empresa);
 			}
-			banco = MainGerenteEventos.getFrameCadastroCliente().getClienteHandle().getCliente().getBanco();
+			banco = MainControlador.getFrameCadastroCliente().getClienteHandle().getCliente().getBanco();
 
 			if (banco != null) {
-				banco = MainGerenteEventos.getFrameCadastroCliente().getClienteHandle().getCliente().getBanco();
+				banco = MainControlador.getFrameCadastroCliente().getClienteHandle().getCliente().getBanco();
 			}
 		}
 

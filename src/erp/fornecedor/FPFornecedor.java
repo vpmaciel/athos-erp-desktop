@@ -10,11 +10,11 @@ import arquitetura.gui.GuiGerenteEventos;
 import arquitetura.gui.Imagem;
 
 @SuppressWarnings("serial")
-public final class FramePesquisaFornecedor extends JFrame implements Gui {
+public final class FPFornecedor extends JFrame implements Gui {
 
-	private PanelPesquisaFornecedor PanelPesquisaFornecedor;
+	private PPFornecedor PPFornecedor;
 
-	public FramePesquisaFornecedor() {
+	public FPFornecedor() {
 		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		iniciarLayout();
 		iniciarGui();
@@ -31,8 +31,8 @@ public final class FramePesquisaFornecedor extends JFrame implements Gui {
 		return null;
 	}
 
-	public PanelPesquisaFornecedor getPanelPesquisaFornecedor() {
-		return PanelPesquisaFornecedor;
+	public PPFornecedor getPanelPesquisaFornecedor() {
+		return PPFornecedor;
 	}
 
 	@Override
@@ -44,8 +44,8 @@ public final class FramePesquisaFornecedor extends JFrame implements Gui {
 	public void iniciarGui() {
 		setTitle("FORNECEDOR");
 		setIconImage(Imagem.getLogoTipoImage());
-		PanelPesquisaFornecedor = new PanelPesquisaFornecedor();
-		setContentPane(PanelPesquisaFornecedor);
+		PPFornecedor = new PPFornecedor();
+		setContentPane(PPFornecedor);
 	}
 
 	@Override
@@ -55,7 +55,7 @@ public final class FramePesquisaFornecedor extends JFrame implements Gui {
 
 	@Override
 	public void iniciarGerenteEventos() {
-		PanelPesquisaFornecedor.iniciarHandle();
+		PPFornecedor.iniciarHandle();
 	}
 
 	@Override

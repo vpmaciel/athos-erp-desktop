@@ -1,4 +1,4 @@
-package erp.veiculo.marca;
+package erp.veiculomarca;
 
 import java.awt.Dimension;
 import java.awt.KeyboardFocusManager;
@@ -16,13 +16,13 @@ import arquitetura.gui.GuiGerenteEventos;
 import arquitetura.gui.Imagem;
 
 @SuppressWarnings("serial")
-public final class FrameCadastroVeiculoMarca extends JFrame implements Gui {
+public final class FCVeiculoMarca extends JFrame implements Gui {
 
-	private VeiculoMarcaGerenteEventos veiculoMarcaGerenteEventos;
+	private VeiculoMarcaControlador veiculoMarcaControlador;
 	private GuiGerenteEventos guiGerenteEventos;
-	private PanelCadastroVeiculoMarca panelCadastroVeiculoMarca;
+	private PCVeiculoMarca pCVeiculoMarca;
 
-	public FrameCadastroVeiculoMarca() {
+	public FCVeiculoMarca() {
 		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		iniciarLayout();
 		iniciarGui();
@@ -41,12 +41,12 @@ public final class FrameCadastroVeiculoMarca extends JFrame implements Gui {
 		return guiGerenteEventos;
 	}
 
-	public PanelCadastroVeiculoMarca getPanelCadastroVeiculoMarca() {
-		return panelCadastroVeiculoMarca;
+	public PCVeiculoMarca getPanelCadastroVeiculoMarca() {
+		return pCVeiculoMarca;
 	}
 
-	public VeiculoMarcaGerenteEventos getVeiculoMarcaHandle() {
-		return veiculoMarcaGerenteEventos;
+	public VeiculoMarcaControlador getVeiculoMarcaHandle() {
+		return veiculoMarcaControlador;
 	}
 
 	@Override
@@ -59,10 +59,10 @@ public final class FrameCadastroVeiculoMarca extends JFrame implements Gui {
 	public void iniciarGui() {
 		setTitle("VEÍCULO - MARCA");
 		setIconImage(Imagem.getLogoTipoImage());
-		panelCadastroVeiculoMarca = new PanelCadastroVeiculoMarca();
-		panelCadastroVeiculoMarca.setOpaque(true); // content panes must be opaque
+		pCVeiculoMarca = new PCVeiculoMarca();
+		pCVeiculoMarca.setOpaque(true); // content panes must be opaque
 
-		final JScrollPane scrollPane = new JScrollPane(panelCadastroVeiculoMarca);
+		final JScrollPane scrollPane = new JScrollPane(pCVeiculoMarca);
 
 		KeyboardFocusManager.getCurrentKeyboardFocusManager().addPropertyChangeListener("focusOwner",
 				new PropertyChangeListener() {
@@ -73,8 +73,8 @@ public final class FrameCadastroVeiculoMarca extends JFrame implements Gui {
 							return;
 						}
 						JComponent focused = (JComponent) evt.getNewValue();
-						if (panelCadastroVeiculoMarca.isAncestorOf(focused)) {
-							panelCadastroVeiculoMarca.scrollRectToVisible(focused.getBounds());
+						if (pCVeiculoMarca.isAncestorOf(focused)) {
+							pCVeiculoMarca.scrollRectToVisible(focused.getBounds());
 						}
 					}
 				});
@@ -92,27 +92,27 @@ public final class FrameCadastroVeiculoMarca extends JFrame implements Gui {
 
 	@Override
 	public void iniciarGerenteEventos() {
-		veiculoMarcaGerenteEventos = new VeiculoMarcaGerenteEventos();
-		addWindowListener(veiculoMarcaGerenteEventos.new Frame());
-		panelCadastroVeiculoMarca.getToolBar().getButtonExcluiRegistro()
-				.addActionListener(veiculoMarcaGerenteEventos.new ExcluiRegistro());
-		panelCadastroVeiculoMarca.getToolBar().getButtonNovoFrame()
-				.addActionListener(veiculoMarcaGerenteEventos.new NovoFrame());
-		panelCadastroVeiculoMarca.getToolBar().getButtonPesquisaRegistro()
-				.addActionListener(veiculoMarcaGerenteEventos.new PesquisaRegistro());
-		panelCadastroVeiculoMarca.getToolBar().getButtonImprimiUnicoRegistro()
-				.addActionListener(veiculoMarcaGerenteEventos.new ImprimiUnicoRegistro());
-		panelCadastroVeiculoMarca.getToolBar().getButtonImprimiTodosRegistros()
-				.addActionListener(veiculoMarcaGerenteEventos.new ImprimiTodosRegistros());
-		panelCadastroVeiculoMarca.getToolBar().getButtonSalvar()
-				.addActionListener(veiculoMarcaGerenteEventos.new Salva());
-		panelCadastroVeiculoMarca.getToolBar().getButtonFechar()
-				.addActionListener(veiculoMarcaGerenteEventos.new FechaJanela());
-		panelCadastroVeiculoMarca.getToolBar().getButtonSair()
-				.addActionListener(veiculoMarcaGerenteEventos.new SaidaSistema());
-		panelCadastroVeiculoMarca.getToolBar().getButtonAjuda()
-				.addActionListener(veiculoMarcaGerenteEventos.new Ajuda());
-		panelCadastroVeiculoMarca.getToolBar().getButtonHome().addActionListener(veiculoMarcaGerenteEventos.new Home());
+		veiculoMarcaControlador = new VeiculoMarcaControlador();
+		addWindowListener(veiculoMarcaControlador.new Frame());
+		pCVeiculoMarca.getToolBar().getButtonExcluiRegistro()
+				.addActionListener(veiculoMarcaControlador.new ExcluiRegistro());
+		pCVeiculoMarca.getToolBar().getButtonNovoFrame()
+				.addActionListener(veiculoMarcaControlador.new NovoFrame());
+		pCVeiculoMarca.getToolBar().getButtonPesquisaRegistro()
+				.addActionListener(veiculoMarcaControlador.new PesquisaRegistro());
+		pCVeiculoMarca.getToolBar().getButtonImprimiUnicoRegistro()
+				.addActionListener(veiculoMarcaControlador.new ImprimiUnicoRegistro());
+		pCVeiculoMarca.getToolBar().getButtonImprimiTodosRegistros()
+				.addActionListener(veiculoMarcaControlador.new ImprimiTodosRegistros());
+		pCVeiculoMarca.getToolBar().getButtonSalvar()
+				.addActionListener(veiculoMarcaControlador.new Salva());
+		pCVeiculoMarca.getToolBar().getButtonFechar()
+				.addActionListener(veiculoMarcaControlador.new FechaJanela());
+		pCVeiculoMarca.getToolBar().getButtonSair()
+				.addActionListener(veiculoMarcaControlador.new SaidaSistema());
+		pCVeiculoMarca.getToolBar().getButtonAjuda()
+				.addActionListener(veiculoMarcaControlador.new Ajuda());
+		pCVeiculoMarca.getToolBar().getButtonHome().addActionListener(veiculoMarcaControlador.new Home());
 	}
 
 	@Override

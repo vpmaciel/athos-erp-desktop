@@ -10,11 +10,11 @@ import arquitetura.gui.GuiGerenteEventos;
 import arquitetura.gui.Imagem;
 
 @SuppressWarnings("serial")
-public final class FramePesquisaRecado extends JFrame implements Gui {
+public final class FPRecado extends JFrame implements Gui {
 
-	private PanelPesquisaRecado PanelPesquisaRecado;
+	private PPRecado PPRecado;
 
-	public FramePesquisaRecado() {
+	public FPRecado() {
 		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		iniciarLayout();
 		iniciarGui();
@@ -31,8 +31,8 @@ public final class FramePesquisaRecado extends JFrame implements Gui {
 		return null;
 	}
 
-	public PanelPesquisaRecado getPanelPesquisaRecado() {
-		return PanelPesquisaRecado;
+	public PPRecado getPanelPesquisaRecado() {
+		return PPRecado;
 	}
 
 	@Override
@@ -44,8 +44,8 @@ public final class FramePesquisaRecado extends JFrame implements Gui {
 	public void iniciarGui() {
 		setTitle("RECADO");
 		setIconImage(Imagem.getLogoTipoImage());
-		PanelPesquisaRecado = new PanelPesquisaRecado();
-		setContentPane(PanelPesquisaRecado);
+		PPRecado = new PPRecado();
+		setContentPane(PPRecado);
 	}
 
 	@Override
@@ -55,7 +55,7 @@ public final class FramePesquisaRecado extends JFrame implements Gui {
 
 	@Override
 	public void iniciarGerenteEventos() {
-		PanelPesquisaRecado.iniciarHandle();
+		PPRecado.iniciarHandle();
 	}
 
 	@Override
