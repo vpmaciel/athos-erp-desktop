@@ -52,7 +52,7 @@ public final class PPTipoEvento extends JPanel {
 	}
 
 	public void atualizarGui(List<TipoEvento> tipoEventos) {
-		agenciaTableModel.setAgendaList(tipoEventos);
+		agenciaTableModel.setTipoEventoList(tipoEventos);
 		agenciaTableModel.fireTableDataChanged();
 	}
 

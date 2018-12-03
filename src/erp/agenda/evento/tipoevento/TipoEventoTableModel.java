@@ -13,7 +13,7 @@ public class TipoEventoTableModel extends AbstractTableModel {
 	public static final int ID = 0;
 	public static int[] largura;
 	private static boolean[] podeEditar;
-	private List<TipoEvento> agendaList = new LinkedList<>();
+	private List<TipoEvento> tipoEventoList = new LinkedList<>();
 	private TipoEvento tipoEvento;
 	private static TabelaModelo tabelaModelo = new TabelaModelo();
 
@@ -34,18 +34,18 @@ public class TipoEventoTableModel extends AbstractTableModel {
 	}
 
 	public TipoEventoTableModel(List<TipoEvento> lista) {
-		agendaList.addAll(lista);
+		tipoEventoList.addAll(lista);
 	}
 
-	public TipoEvento getAgenda(int linha) {
-		if (agendaList.size() > 0) {
-			return agendaList.get(linha);
+	public TipoEvento getTipoEvento(int linha) {
+		if (tipoEventoList.size() > 0) {
+			return tipoEventoList.get(linha);
 		}
 		return null;
 	}
 
-	public List<TipoEvento> getAgendaList() {
-		return agendaList;
+	public List<TipoEvento> getTipoEventoList() {
+		return tipoEventoList;
 	}
 
 	@Override
@@ -70,12 +70,12 @@ public class TipoEventoTableModel extends AbstractTableModel {
 
 	@Override
 	public int getRowCount() {
-		return agendaList.size();
+		return tipoEventoList.size();
 	}
 
 	@Override
 	public Object getValueAt(int rowIndex, int columnIndex) {
-		TipoEvento tipoEvento = agendaList.get(rowIndex);
+		TipoEvento tipoEvento = tipoEventoList.get(rowIndex);
 
 		if (tabelaModelo.getNome(columnIndex).equals("ID")) {
 			return tipoEvento.getId();
@@ -91,13 +91,13 @@ public class TipoEventoTableModel extends AbstractTableModel {
 		return podeEditar[columnIndex];
 	}
 
-	public void setAgendaList(List<TipoEvento> banco) {
-		agendaList = banco;
+	public void setTipoEventoList(List<TipoEvento> tipoEvento) {
+		tipoEventoList = tipoEvento;
 	}
 
 	@Override
 	public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
-		tipoEvento = agendaList.get(rowIndex);
+		tipoEvento = tipoEventoList.get(rowIndex);
 
 		if (tabelaModelo.getNome(columnIndex).equals("ID")) {
 			tipoEvento.setId(Long.parseLong(aValue.toString()));

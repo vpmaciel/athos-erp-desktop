@@ -32,7 +32,6 @@ public class ContatoRelatorio {
 				document.add(new Paragraph("SEXO: " + contato.getSexo()));
 				document.add(new Paragraph("CNPJ: " + contato.getCnpj()));
 				document.add(new Paragraph("CPF: " + contato.getCpfNumero()));
-				document.add(new Paragraph("SALÁRIO: " + contato.getSalario()));
 				document.add(new Paragraph("EMPRESA: " + contato.getEmpresa()));
 				document.add(new Paragraph("FAX: " + contato.getFax()));
 				document.add(new Paragraph("TELEFONE: " + contato.getFone1()));

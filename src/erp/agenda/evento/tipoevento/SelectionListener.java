@@ -27,7 +27,7 @@ class SelectionListener implements ListSelectionListener {
 				if (table.getSelectedRow() != -1) {
 					TipoEvento tipoEvento = TipoEventoDaoFacade.getRegistro(agendaPesquisaRegistro);
 					TipoEventoTableModel tipoEventoTableModel = (TipoEventoTableModel) table.getModel();
-					tipoEventoTableModel.getAgenda(table.getSelectedRow());
+					tipoEventoTableModel.getTipoEvento(table.getSelectedRow());
 					MainControlador.mostrarFrame(MainControlador.getFrameCadastroAgendaTipoEvento());
 					MainControlador.getFrameCadastroAgendaTipoEvento().getTipoEventoGerenteEventos()
 							.setAgenda(tipoEvento);

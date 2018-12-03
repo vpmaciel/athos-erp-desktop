@@ -36,8 +36,6 @@ public class Contato implements Serializable {
 	private String fone2;
 	@Column(length = 50)
 	private String nome;
-	@Column(length = 15)
-	private String salario;
 	@Column(length = 9)
 	private String sexo;
 	@Column(length = 50)
@@ -119,10 +117,6 @@ public class Contato implements Serializable {
 		return this.pais;
 	}
 
-	public String getSalario() {
-		return this.salario;
-	}
-
 	public String getSexo() {
 		return this.sexo;
 	}
@@ -189,10 +183,6 @@ public class Contato implements Serializable {
 
 	public void setPais(String pais) {
 		this.pais = pais;
-	}
-
-	public void setSalario(String salario) {
-		this.salario = salario;
 	}
 
 	public void setSexo(String sexo) {

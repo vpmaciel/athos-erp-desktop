@@ -1,14 +1,16 @@
 package erp.agenda.contato;
 
+import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.Root;
 
 import arquitetura.JPA;
 
@@ -53,7 +55,7 @@ final class ContatoDaoImp implements ContatoDao {
 		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
 		EntityTransaction tx = em.getTransaction();
 		tx.begin();
-		Query query = em.createQuery("from erp.agenda.Contato C order by C.nome");
+		Query query = em.createQuery("from erp.agenda.contato.Contato C order by C.nome");
 		@SuppressWarnings("unchecked")
 		List<Contato> list = query.getResultList();
 		tx.commit();
@@ -63,98 +65,73 @@ final class ContatoDaoImp implements ContatoDao {
 
 	@Override
 	public Collection<Contato> pesquisarRegistro(Contato contato) {
-		StringBuilder qsb = new StringBuilder();
-		qsb.setLength(0);
-		qsb = new StringBuilder();
-		qsb.append("select C from erp.agenda.Contato C where");
-		HashMap<String, Object> parametros = new HashMap<String, Object>();
-
-		if (contato.getId() != null && !contato.getId().equals("")) {
-			qsb.append(" C.id = :id and");
-			parametros.put("id", contato.getId());
-		}
-		if (contato.getBairro() != null && !contato.getBairro().trim().equals("")) {
-			qsb.append(" C.bairro like :bairro and");
-			parametros.put("bairro", "%" + contato.getBairro().toUpperCase() + "%");
-		}
-		if (contato.getCep() != null && !contato.getCep().trim().equals("")) {
-			qsb.append(" C.cep like :cep and");
-			parametros.put("cep", "%" + contato.getCep().toUpperCase() + "%");
-		}
-		if (contato.getCidade() != null && !contato.getCidade().trim().equals("")) {
-			qsb.append(" C.cidade like :cidade and");
-			parametros.put("cidade", "%" + contato.getCidade().toUpperCase() + "%");
-		}
-		if (contato.getComplemento() != null && !contato.getComplemento().trim().equals("")) {
-			qsb.append(" C.complemento like :complemento and");
-			parametros.put("complemento", "%" + contato.getComplemento().toUpperCase() + "%");
-		}
-		if (contato.getCpfNumero() != null && !contato.getCpfNumero().trim().equals("")) {
-			qsb.append(" C.cpfNumero like :cpfNumero and");
-			parametros.put("cpfNumero", "%" + contato.getCpfNumero().toUpperCase() + "%");
-		}
-		if (contato.getEmail() != null && !contato.getEmail().trim().equals("")) {
-			qsb.append(" C.email like :email and");
-			parametros.put("email", "%" + contato.getEmail().toUpperCase() + "%");
-		}
-		if (contato.getEmpresa() != null) {
-			qsb.append(" C.empresa = :empresa and");
-			parametros.put("empresa", contato.getEmpresa() + "%");
-		}
-		if (contato.getEstado() != null && !contato.getEstado().trim().equals("")) {
-			qsb.append(" C.estado like :estado and");
-			parametros.put("estado", "%" + contato.getEstado().toUpperCase() + "%");
-		}
-		if (contato.getFax() != null && !contato.getFax().trim().equals("")) {
-			qsb.append(" C.fax like :fax and");
-			parametros.put("fax", "%" + contato.getFax().toUpperCase() + "%");
-		}
-		if (contato.getFone1() != null && !contato.getFone1().trim().equals("")) {
-			qsb.append(" C.fone1 like :fone1 and");
-			parametros.put("fone1", "%" + contato.getFone1().toUpperCase() + "%");
-		}
-		if (contato.getFone2() != null && !contato.getFone2().trim().equals("")) {
-			qsb.append(" C.fone2 like :fone2 and");
-			parametros.put("fone2", "%" + contato.getFone2().toUpperCase() + "%");
-		}
-		if (contato.getLogradouro() != null && !contato.getLogradouro().trim().equals("")) {
-			qsb.append(" C.logradouro like :logradouro and");
-			parametros.put("logradouro", "%" + contato.getLogradouro().toUpperCase() + "%");
-		}
-		if (contato.getNome() != null && !contato.getNome().trim().equals("")) {
-			qsb.append(" C.nome like :nome and");
-			parametros.put("nome", "%" + contato.getNome().toUpperCase() + "%");
-		}
-		if (contato.getPais() != null && !contato.getPais().trim().equals("")) {
-			qsb.append(" C.pais like :pais and");
-			parametros.put("pais", "%" + contato.getPais().toUpperCase() + "%");
-		}
-		if (contato.getCnpj() != null && !contato.getCnpj().trim().equals("")) {
-			qsb.append(" C.cnpj like :cnpj and");
-			parametros.put("cnpj", "%" + contato.getCnpj().toUpperCase() + "%");
-		}
-		if (contato.getSalario() != null && !contato.getSalario().trim().equals("")) {
-			qsb.append(" C.salario like :salario and");
-			parametros.put("salario", "%" + contato.getSalario().toUpperCase() + "%");
-		}
-		if (contato.getSexo() != null && !contato.getSexo().trim().equals("")) {
-			qsb.append(" C.sexo like :sexo and");
-			parametros.put("sexo", "%" + contato.getSexo().toUpperCase() + "%");
-		}
-
-		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
-		Query query = em.createQuery(this.construirQuery(qsb));
-		Set<Map.Entry<String, Object>> set = parametros.entrySet();
-
-		for (Map.Entry<String, Object> me : set) {
-			query.setParameter(me.getKey(), me.getValue());
-		}
-		EntityTransaction tx = em.getTransaction();
+		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
+		EntityTransaction tx = entityManager.getTransaction();
 		tx.begin();
-		@SuppressWarnings("unchecked")
-		List<Contato> list = query.getResultList();
+
+		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+		CriteriaQuery<Contato> criteriaQuery = criteriaBuilder.createQuery(Contato.class);
+		Root<Contato> rootContato = criteriaQuery.from(Contato.class);
+
+		List<Predicate> predicates = new ArrayList<Predicate>();
+
+		if (contato.getId() != null) {
+			predicates.add(criteriaBuilder.equal(rootContato.get("id"), contato.getId()));
+		}
+		if (contato.getBairro() != null && !contato.getBairro().equals("")) {
+			predicates.add(criteriaBuilder.like(rootContato.get("bairro"), "%" + contato.getBairro() + "%"));
+		}
+		if (contato.getCep() != null && !contato.getCep().equals("")) {
+			predicates.add(criteriaBuilder.like(rootContato.get("cep"), "%" + contato.getCep() + "%"));
+		}
+		if (contato.getCidade() != null && !contato.getCidade().equals("")) {
+			predicates.add(criteriaBuilder.like(rootContato.get("cidade"), "%" + contato.getCidade() + "%"));
+		}
+		if (contato.getCnpj() != null && !contato.getCnpj().equals("")) {
+			predicates.add(criteriaBuilder.like(rootContato.get("cnpj"), "%" + contato.getCnpj() + "%"));
+		}
+		if (contato.getComplemento() != null && !contato.getComplemento().equals("")) {
+			predicates.add(criteriaBuilder.like(rootContato.get("complemento"), "%" + contato.getComplemento() + "%"));
+		}
+		if (contato.getCpfNumero() != null && !contato.getCpfNumero().equals("")) {
+			predicates.add(criteriaBuilder.like(rootContato.get("cpfNumero"), "%" + contato.getCpfNumero() + "%"));
+		}
+		if (contato.getEmail() != null && !contato.getEmail().equals("")) {
+			predicates.add(criteriaBuilder.like(rootContato.get("email"), "%" + contato.getEmail() + "%"));
+		}
+		if (contato.getEmpresa() != null && contato.getEmpresa().getId() != null) {
+			predicates.add(criteriaBuilder.equal(rootContato.get("empresa"), contato.getEmpresa()));
+		}
+		if (contato.getEstado() != null && !contato.getEstado().equals("")) {
+			predicates.add(criteriaBuilder.like(rootContato.get("estado"), "%" + contato.getEstado() + "%"));
+		}
+		if (contato.getFax() != null && !contato.getFax().equals("")) {
+			predicates.add(criteriaBuilder.like(rootContato.get("fax"), "%" + contato.getFax() + "%"));
+		}
+		if (contato.getFone1() != null && !contato.getFone1().equals("")) {
+			predicates.add(criteriaBuilder.like(rootContato.get("fone1"), "%" + contato.getFone1() + "%"));
+		}
+		if (contato.getFone2() != null && !contato.getFone2().equals("")) {
+			predicates.add(criteriaBuilder.like(rootContato.get("fone2"), "%" + contato.getFone2() + "%"));
+		}
+		if (contato.getLogradouro() != null && !contato.getLogradouro().equals("")) {
+			predicates.add(criteriaBuilder.like(rootContato.get("logradouro"), "%" + contato.getLogradouro() + "%"));
+		}
+		if (contato.getNome() != null && !contato.getNome().equals("")) {
+			predicates.add(criteriaBuilder.like(rootContato.get("nome"), "%" + contato.getNome() + "%"));
+		}
+		if (contato.getPais() != null && !contato.getPais().equals("")) {
+			predicates.add(criteriaBuilder.like(rootContato.get("pais"), "%" + contato.getPais() + "%"));
+		}
+		if (contato.getSexo() != null && !contato.getSexo().equals("")) {
+			predicates.add(criteriaBuilder.like(rootContato.get("sexo"), "%" + contato.getSexo() + "%"));
+		}
+		
+		criteriaQuery.select(rootContato).where(predicates.toArray(new Predicate[] {}));
+
+		List<Contato> list = entityManager.createQuery(criteriaQuery).getResultList();
 		tx.commit();
-		em.close();
+		entityManager.close();
 		return list;
 	}
 

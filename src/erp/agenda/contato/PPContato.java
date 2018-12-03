@@ -31,7 +31,7 @@ public final class PPContato extends JPanel {
 		for (int c = 0; c < table.getColumnCount(); ++c) {
 			table.setDefaultRenderer(table.getColumnClass(c), Tabela.getDefaultTableCellRenderer());
 		}
-		Tabela.configurarLarguraColunasTabela(table, ContatoTableModel.WIDTH);
+		Tabela.configurarLarguraColunasTabela(table, ContatoTableModel.largura);
 		((DefaultTableCellRenderer) table.getTableHeader().getDefaultRenderer())
 				.setHorizontalAlignment(SwingConstants.RIGHT);
 		table.getColumnModel().getColumn(0).setMaxWidth(0);

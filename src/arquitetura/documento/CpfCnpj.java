@@ -1,4 +1,4 @@
-package arquitetura.documento.cpfcnpj;
+package arquitetura.documento;
 
 public class CpfCnpj {
 
