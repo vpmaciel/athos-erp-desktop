@@ -4,8 +4,6 @@ import java.util.Collection;
 
 public interface UsuarioDao {
 
-	public String construirQuery(StringBuilder stringBuilder);
-
 	public void deletarRegistro(Usuario usuario);
 
 	public Usuario getRegistro(Usuario usuario);

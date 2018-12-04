@@ -36,7 +36,7 @@ final class ContadorControlador {
 			}
 			try {
 				ContadorDaoFacade.deletarRegistro(contador);
-				getFrameCadastroContador().limparGui();
+				getFrameCadastroContador().limparGUI();
 				contador = new Contador();
 				Msg.sucessoExcluiRegistro();
 			} catch (Exception e) {
@@ -61,7 +61,7 @@ final class ContadorControlador {
 
 		@Override
 		public void windowActivated(WindowEvent e) {
-			getFrameCadastroContador().reiniciarBox();
+			getFrameCadastroContador().reiniciarGUI();
 		}
 
 		@Override
@@ -132,7 +132,7 @@ final class ContadorControlador {
 			if (event.getButton() == MouseEvent.BUTTON1) {
 				MainControlador.mostrarFrame(MainControlador.getFrameCadastroContador());
 			} else {
-				MainControlador.getFrameCadastroContador().reiniciarBox();
+				MainControlador.getFrameCadastroContador().reiniciarGUI();
 			}
 		}
 	}
@@ -142,7 +142,7 @@ final class ContadorControlador {
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
 			contador = new Contador();
-			getFrameCadastroContador().limparGui();
+			getFrameCadastroContador().limparGUI();
 			getPanelCadastroContador().getTextFieldNome().requestFocus();
 		}
 	}
@@ -194,7 +194,7 @@ final class ContadorControlador {
 					atualizarObjeto();
 					ContadorDaoFacade.salvarRegistro(contador);
 					contador = new Contador();
-					getFrameCadastroContador().limparGui();
+					getFrameCadastroContador().limparGUI();
 					getPanelCadastroContador().getTextFieldNome().requestFocus();
 					Msg.sucessoSalvarRegistro();
 				}

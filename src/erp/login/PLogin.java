@@ -10,17 +10,17 @@ import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 
 import arquitetura.gui.FocusTabListener;
-import arquitetura.gui.Gui;
-import arquitetura.gui.GuiGerenteEventos;
+import arquitetura.gui.GUI;
+import arquitetura.gui.GUIConfiguracao;
 import arquitetura.gui.TamanhoUpperCase;
 import arquitetura.util.SpringUtilities;
 
 @SuppressWarnings("serial")
-public final class PLogin extends JPanel implements Gui {
+public final class PLogin extends JPanel implements GUI {
 
 	private JButton buttonEntrar;
 	private JPasswordField textFieldSenha;
-	private GuiGerenteEventos guiGerenteEventos;
+	private GUIConfiguracao gUIConfiguracao;
 	private JLabel labelNome;
 	private JLabel labelSenha;
 	private JLabel labelEntrar;
@@ -28,9 +28,9 @@ public final class PLogin extends JPanel implements Gui {
 
 	public PLogin() {
 		iniciarLayout();
-		iniciarGui();
-		iniciarFocusTabListener();
-		iniciarGuiGerenteEventos();
+		iniciarGUI();
+		iniciarFocoControlador();
+		iniciarGUIControlador();
 		buttonEntrar.setPreferredSize(new Dimension(740, 25));
 		buttonEntrar.setMinimumSize(new Dimension(740, 25));
 		buttonEntrar.setSize(new Dimension(740, 25));
@@ -49,8 +49,8 @@ public final class PLogin extends JPanel implements Gui {
 	}
 
 	@Override
-	public GuiGerenteEventos getGuiGerenteEventos() {
-		return guiGerenteEventos;
+	public GUIConfiguracao getGUIConfiguracao() {
+		return gUIConfiguracao;
 	}
 
 	public JTextField getTextFieldNome() {
@@ -62,13 +62,13 @@ public final class PLogin extends JPanel implements Gui {
 	}
 
 	@Override
-	public void iniciarFocusTabListener() {
+	public void iniciarFocoControlador() {
 		@SuppressWarnings("unused")
 		FocusTabListener focusTabListener = new FocusTabListener(this);
 	}
 
 	@Override
-	public void iniciarGui() {
+	public void iniciarGUI() {
 
 		labelNome = new JLabel("USUÁRIO");
 		add(labelNome);
@@ -100,12 +100,12 @@ public final class PLogin extends JPanel implements Gui {
 	}
 
 	@Override
-	public void iniciarGuiGerenteEventos() {
-		guiGerenteEventos = new GuiGerenteEventos(this);
+	public void iniciarGUIControlador() {
+		gUIConfiguracao = new GUIConfiguracao(this);
 	}
 
 	@Override
-	public void iniciarGerenteEventos() {
+	public void iniciarControlador() {
 
 	}
 
@@ -115,17 +115,17 @@ public final class PLogin extends JPanel implements Gui {
 	}
 
 	@Override
-	public void iniciarTable() {
+	public void iniciarTabela() {
 
 	}
 
 	@Override
-	public void limparGui() {
+	public void limparGUI() {
 
 	}
 
 	@Override
-	public void reiniciarBox() {
+	public void reiniciarGUI() {
 
 	}
 

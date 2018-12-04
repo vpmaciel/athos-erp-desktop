@@ -4,8 +4,6 @@ import java.util.Collection;
 
 public interface FuncionarioDao {
 
-	public String construirQuery(StringBuilder builder);
-
 	public void deletarRegistro(Funcionario funcionario);
 
 	public Funcionario getRegistro(Funcionario funcionario);

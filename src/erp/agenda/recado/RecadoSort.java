@@ -12,11 +12,11 @@ public class RecadoSort {
 		}
 	}
 
-	public class Nome implements Comparator<Object> {
+	public class Data implements Comparator<Object> {
 
 		@Override
 		public int compare(Object o1, Object o2) {
-			return ((Recado) o1).getNome().compareToIgnoreCase(((Recado) o2).getNome());
+			return ((Recado) o1).getData().compareToIgnoreCase(((Recado) o2).getData());
 		}
 	}
 

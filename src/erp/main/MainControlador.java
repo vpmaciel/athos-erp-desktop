@@ -14,8 +14,8 @@ import javax.swing.JOptionPane;
 
 import arquitetura.AOP;
 import arquitetura.gui.Msg;
-import erp.agenda.contato.FCContato;
-import erp.agenda.contato.FPContato;
+import erp.agenda.contato.ContatoFC;
+import erp.agenda.contato.ContatoFP;
 import erp.agenda.evento.FCEvento;
 import erp.agenda.evento.FPEvento;
 import erp.agenda.evento.tipoevento.FCTipoEvento;
@@ -49,10 +49,10 @@ import erp.usuario.FCUsuario;
 import erp.usuario.FPUsuario;
 import erp.veiculo.FCVeiculo;
 import erp.veiculo.FPVeiculo;
-import erp.veiculomarca.FCVeiculoMarca;
-import erp.veiculomarca.FPVeiculoMarca;
-import erp.veiculomodelo.FCVeiculoModelo;
-import erp.veiculomodelo.FPVeiculoModelo;
+import erp.veiculo.marca.FCVeiculoMarca;
+import erp.veiculo.marca.FPVeiculoMarca;
+import erp.veiculo.modelo.FCVeiculoModelo;
+import erp.veiculo.modelo.FPVeiculoModelo;
 
 public final class MainControlador {
 
@@ -219,8 +219,8 @@ public final class MainControlador {
 	private static FPEvento framePesquisaAgendaEvento;
 	private static FCTipoEvento frameCadastroAgendaTipoEvento;
 	private static FPTipoEvento framePesquisaAgendaTipoEvento;
-	private static FCContato frameCadastroAgendaContato;
-	private static FPContato framePesquisaAgendaContato;
+	private static ContatoFC frameCadastroAgendaContato;
+	private static ContatoFP framePesquisaAgendaContato;
 	private static FCRecado frameCadastroAgendaRecado;
 	private static FPRecado framePesquisaAgendaRecado;
 	private static FCCartorio fCCartorio;
@@ -289,7 +289,7 @@ public final class MainControlador {
 		return frameCadastroAgendaTipoEvento;
 	}
 
-	public static FCContato getFrameCadastroAgendaContato() {
+	public static ContatoFC getFrameCadastroAgendaContato() {
 		return frameCadastroAgendaContato;
 	}
 
@@ -353,7 +353,7 @@ public final class MainControlador {
 		return framePesquisaAgendaEvento;
 	}
 
-	public static FPContato getFramePesquisaAgendaContato() {
+	public static ContatoFP getFramePesquisaAgendaContato() {
 		return framePesquisaAgendaContato;
 	}
 
@@ -450,7 +450,7 @@ public final class MainControlador {
 	private void criarFrames() {
 		fLogin = new FLogin();
 		criarFrame(fLogin);
-		fLogin.iniciarGerenteEventos();
+		fLogin.iniciarControlador();
 
 		fCBanco = new FCBanco();
 		criarFrame(fCBanco);
@@ -460,14 +460,14 @@ public final class MainControlador {
 
 		fCCentroCusto = new FCCentroCusto();
 		criarFrame(fCCentroCusto);
-		fCCentroCusto.iniciarGerenteEventos();
+		fCCentroCusto.iniciarControlador();
 
 		fPCentroCusto = new FPCentroCusto();
 		criarFrame(fPCentroCusto);
 
 		fCCliente = new FCCliente();
 		criarFrame(fCCliente);
-		fCCliente.iniciarGerenteEventos();
+		fCCliente.iniciarControlador();
 
 		fPCliente = new FPCliente();
 		criarFrame(fPCliente);
@@ -526,10 +526,10 @@ public final class MainControlador {
 		fPImovel = new FPImovel();
 		criarFrame(fPImovel);
 
-		frameCadastroAgendaContato = new FCContato();
+		frameCadastroAgendaContato = new ContatoFC();
 		criarFrame(frameCadastroAgendaContato);
 
-		framePesquisaAgendaContato = new FPContato();
+		framePesquisaAgendaContato = new ContatoFP();
 		criarFrame(framePesquisaAgendaContato);
 
 		frameCadastroAgendaEvento = new FCEvento();

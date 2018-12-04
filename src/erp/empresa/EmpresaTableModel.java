@@ -252,9 +252,6 @@ public class EmpresaTableModel extends AbstractTableModel {
 		if (columnIndex == NUMERO_DE_FUNCIONARIOS) {
 			return empresa.getNumeroFuncionarios();
 		}
-		if (columnIndex == CPF_NUMERO) {
-			return empresa.getCpfNumero();
-		}
 		if (columnIndex == EMAIL) {
 			return empresa.getEmail();
 		}
@@ -339,9 +336,6 @@ public class EmpresaTableModel extends AbstractTableModel {
 		}
 		if (columnIndex == NUMERO_DE_FUNCIONARIOS) {
 			empresa.setNumeroFuncionarios(aValue.toString());
-		}
-		if (columnIndex == CPF_NUMERO) {
-			empresa.setCpfNumero(aValue.toString());
 		}
 		if (columnIndex == EMAIL) {
 			empresa.setEmail(aValue.toString());

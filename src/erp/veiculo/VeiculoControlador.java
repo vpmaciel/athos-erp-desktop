@@ -34,7 +34,7 @@ final class VeiculoControlador {
 			}
 			try {
 				VeiculoDaoFacade.deletarRegistro(veiculo);
-				getFrameCadastroVeiculo().limparGui();
+				getFrameCadastroVeiculo().limparGUI();
 				veiculo = new Veiculo();
 				Msg.sucessoExcluiRegistro();
 			} catch (Exception e) {
@@ -59,7 +59,7 @@ final class VeiculoControlador {
 
 		@Override
 		public void windowActivated(WindowEvent e) {
-			getFrameCadastroVeiculo().reiniciarBox();
+			getFrameCadastroVeiculo().reiniciarGUI();
 		}
 
 		@Override
@@ -128,7 +128,7 @@ final class VeiculoControlador {
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
 			veiculo = new Veiculo();
-			getFrameCadastroVeiculo().limparGui();
+			getFrameCadastroVeiculo().limparGUI();
 			getPanelCadastroVeiculo().getTextFieldPlaca().requestFocus();
 		}
 	}
@@ -172,14 +172,14 @@ final class VeiculoControlador {
 				String placa = getPanelCadastroVeiculo().getTextFieldPlaca().getText();
 				if (placa == null || placa.length() == 0) {
 					getPanelCadastroVeiculo().getTextFieldPlaca().requestFocus();
-					Msg.avisoCampoObrigatorio("Nome");
+					Msg.avisoCampoObrigatorio("Data");
 					return;
 				}
 				if (mensagem == JOptionPane.YES_OPTION) {
 					atualizarObjeto();
 					VeiculoDaoFacade.salvarRegistro(veiculo);
 					veiculo = new Veiculo();
-					MainControlador.getFrameCadastroVeiculo().limparGui();
+					MainControlador.getFrameCadastroVeiculo().limparGUI();
 					getPanelCadastroVeiculo().getTextFieldPlaca().requestFocus();
 					Msg.sucessoSalvarRegistro();
 				}

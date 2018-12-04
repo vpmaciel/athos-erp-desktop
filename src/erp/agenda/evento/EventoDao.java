@@ -4,8 +4,6 @@ import java.util.Collection;
 
 public interface EventoDao {
 
-	public String construirQuery(StringBuilder agenda);
-
 	public void deletarRegistro(Evento evento);
 
 	public Evento getRegistro(Evento evento);

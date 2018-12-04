@@ -4,8 +4,6 @@ import java.util.Collection;
 
 public interface ImovelDao {
 
-	public String construirQuery(StringBuilder imovel);
-
 	public void deletarRegistro(Imovel imovel);
 
 	public Imovel getRegistro(Imovel imovel);

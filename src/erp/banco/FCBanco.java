@@ -11,24 +11,24 @@ import javax.swing.JScrollPane;
 import javax.swing.WindowConstants;
 
 import arquitetura.gui.FocusTabListener;
-import arquitetura.gui.Gui;
-import arquitetura.gui.GuiGerenteEventos;
+import arquitetura.gui.GUI;
+import arquitetura.gui.GUIConfiguracao;
 import arquitetura.gui.Imagem;
 
 @SuppressWarnings("serial")
-public final class FCBanco extends JFrame implements Gui {
+public final class FCBanco extends JFrame implements GUI {
 
 	private BancoControlador bancoControlador;
-	private GuiGerenteEventos guiGerenteEventos;
+	private GUIConfiguracao gUIConfiguracao;
 	private PCBanco pCBanco;
 
 	public FCBanco() {
 		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		iniciarLayout();
-		iniciarGui();
-		iniciarFocusTabListener();
-		iniciarGuiGerenteEventos();
-		iniciarGerenteEventos();
+		iniciarGUI();
+		iniciarFocoControlador();
+		iniciarGUIControlador();
+		iniciarControlador();
 	}
 
 	@Override
@@ -43,8 +43,8 @@ public final class FCBanco extends JFrame implements Gui {
 	}
 
 	@Override
-	public GuiGerenteEventos getGuiGerenteEventos() {
-		return guiGerenteEventos;
+	public GUIConfiguracao getGUIConfiguracao() {
+		return gUIConfiguracao;
 	}
 
 	public PCBanco getPanelCadastroBanco() {
@@ -52,13 +52,13 @@ public final class FCBanco extends JFrame implements Gui {
 	}
 
 	@Override
-	public void iniciarFocusTabListener() {
+	public void iniciarFocoControlador() {
 		@SuppressWarnings("unused")
 		FocusTabListener focusTabListener = new FocusTabListener(this);
 	}
 
 	@Override
-	public void iniciarGui() {
+	public void iniciarGUI() {
 		setTitle("BANCO");
 		setIconImage(Imagem.getLogoTipoImage());
 		pCBanco = new PCBanco();
@@ -87,12 +87,12 @@ public final class FCBanco extends JFrame implements Gui {
 	}
 
 	@Override
-	public void iniciarGuiGerenteEventos() {
-		guiGerenteEventos = new GuiGerenteEventos(this);
+	public void iniciarGUIControlador() {
+		gUIConfiguracao = new GUIConfiguracao(this);
 	}
 
 	@Override
-	public void iniciarGerenteEventos() {
+	public void iniciarControlador() {
 		bancoControlador = new BancoControlador();
 		addWindowListener(bancoControlador.new Frame());
 		pCBanco.getToolBar().getButtonExcluiRegistro()
@@ -121,17 +121,17 @@ public final class FCBanco extends JFrame implements Gui {
 	}
 
 	@Override
-	public void iniciarTable() {
+	public void iniciarTabela() {
 	}
 
 	@Override
-	public void limparGui() {
-		pCBanco.limparGui();
+	public void limparGUI() {
+		pCBanco.limparGUI();
 	}
 
 	@Override
-	public void reiniciarBox() {
-		pCBanco.reiniciarBox();
+	public void reiniciarGUI() {
+		pCBanco.reiniciarGUI();
 	}
 
 	public boolean validarCamposCadastro() {

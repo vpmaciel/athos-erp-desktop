@@ -35,7 +35,7 @@ final class CentroCustoControlador {
 			}
 			try {
 				CentroCustoDaoFacade.deletarRegistro(centroCusto);
-				getFrameCadastroCentroCusto().limparGui();
+				getFrameCadastroCentroCusto().limparGUI();
 				centroCusto = new CentroCusto();
 				Msg.sucessoExcluiRegistro();
 			} catch (Exception e) {
@@ -56,7 +56,7 @@ final class CentroCustoControlador {
 
 		@Override
 		public void windowActivated(WindowEvent e) {
-			getFrameCadastroCentroCusto().reiniciarBox();
+			getFrameCadastroCentroCusto().reiniciarGUI();
 		}
 
 		@Override
@@ -118,7 +118,7 @@ final class CentroCustoControlador {
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
 			centroCusto = new CentroCusto();
-			getFrameCadastroCentroCusto().limparGui();
+			getFrameCadastroCentroCusto().limparGUI();
 			getPanelCadastroCentroCusto().getTextFieldNome().requestFocus();
 		}
 	}
@@ -170,7 +170,7 @@ final class CentroCustoControlador {
 					atualizarObjeto();
 					CentroCustoDaoFacade.salvarRegistro(centroCusto);
 					centroCusto = new CentroCusto();
-					getFrameCadastroCentroCusto().limparGui();
+					getFrameCadastroCentroCusto().limparGUI();
 					getPanelCadastroCentroCusto().getTextFieldNome().requestFocus();
 					Msg.sucessoSalvarRegistro();
 				}

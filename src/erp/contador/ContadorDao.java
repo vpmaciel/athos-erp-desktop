@@ -4,8 +4,6 @@ import java.util.Collection;
 
 public interface ContadorDao {
 
-	public String construirQuery(StringBuilder contador);
-
 	public void deletarRegistro(Contador contador);
 
 	public Contador getRegistro(Contador contador);

@@ -36,7 +36,7 @@ final class SindicatoControlador {
 			}
 			try {
 				SindicatoDaoFacade.deletarRegistro(sindicato);
-				getFrameCadastroSindicato().limparGui();
+				getFrameCadastroSindicato().limparGUI();
 				sindicato = new Sindicato();
 				Msg.sucessoExcluiRegistro();
 			} catch (Exception e) {
@@ -61,7 +61,7 @@ final class SindicatoControlador {
 
 		@Override
 		public void windowActivated(WindowEvent e) {
-			getFrameCadastroSindicato().reiniciarBox();
+			getFrameCadastroSindicato().reiniciarGUI();
 		}
 
 		@Override
@@ -132,7 +132,7 @@ final class SindicatoControlador {
 			if (event.getButton() == MouseEvent.BUTTON1) {
 				MainControlador.mostrarFrame(MainControlador.getFrameCadastroSindicato());
 			} else {
-				MainControlador.getFrameCadastroSindicato().reiniciarBox();
+				MainControlador.getFrameCadastroSindicato().reiniciarGUI();
 			}
 		}
 	}
@@ -142,7 +142,7 @@ final class SindicatoControlador {
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
 			sindicato = new Sindicato();
-			getFrameCadastroSindicato().limparGui();
+			getFrameCadastroSindicato().limparGUI();
 			getPanelCadastroSindicato().getTextFieldNomeFantasia().requestFocus();
 		}
 	}
@@ -192,7 +192,7 @@ final class SindicatoControlador {
 					atualizarObjeto();
 					SindicatoDaoFacade.salvarRegistro(sindicato);
 					sindicato = new Sindicato();
-					getFrameCadastroSindicato().limparGui();
+					getFrameCadastroSindicato().limparGUI();
 					getPanelCadastroSindicato().getTextFieldNomeFantasia().requestFocus();
 					Msg.sucessoSalvarRegistro();
 				}
@@ -229,7 +229,6 @@ final class SindicatoControlador {
 		getPanelCadastroSindicato().getTextFieldLogradouro().setText(sindicato.getLogradouro());
 		getPanelCadastroSindicato().getTextFieldPais().setText(sindicato.getPais());
 		getPanelCadastroSindicato().getTextFieldCNPJ().setText(sindicato.getCnpj());
-		getPanelCadastroSindicato().getTextFieldCPF().setText(sindicato.getCpfNumero());
 		getPanelCadastroSindicato().getBoxTipoSindicato().setSelectedItem(sindicato.getTipoSindicato());
 		getPanelCadastroSindicato().getTextFieldFaturamentoMensal().setText(sindicato.getFaturamentoMensal());
 	}
@@ -256,7 +255,6 @@ final class SindicatoControlador {
 		sindicato.setLogradouro(getPanelCadastroSindicato().getTextFieldLogradouro().getText());
 		sindicato.setPais(getPanelCadastroSindicato().getTextFieldPais().getText());
 		sindicato.setCnpj(getPanelCadastroSindicato().getTextFieldCNPJ().getText());
-		sindicato.setCpfNumero(getPanelCadastroSindicato().getTextFieldCPF().getText());
 		sindicato.setTipoSindicato((String) getPanelCadastroSindicato().getBoxTipoSindicato().getSelectedItem());
 		sindicato.setFaturamentoMensal(getPanelCadastroSindicato().getTextFieldFaturamentoMensal().getText());
 	}

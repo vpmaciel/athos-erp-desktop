@@ -11,24 +11,24 @@ import javax.swing.JScrollPane;
 import javax.swing.WindowConstants;
 
 import arquitetura.gui.FocusTabListener;
-import arquitetura.gui.Gui;
-import arquitetura.gui.GuiGerenteEventos;
+import arquitetura.gui.GUI;
+import arquitetura.gui.GUIConfiguracao;
 import arquitetura.gui.Imagem;
 
 @SuppressWarnings("serial")
-public final class FCCentroCusto extends JFrame implements Gui {
+public final class FCCentroCusto extends JFrame implements GUI {
 
 	private CentroCustoControlador centroCustoControlador;
-	private GuiGerenteEventos guiGerenteEventos;
+	private GUIConfiguracao gUIConfiguracao;
 	private PCCentroCusto pCCentroCusto;
 
 	public FCCentroCusto() {
 		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		iniciarLayout();
-		iniciarGui();
-		iniciarFocusTabListener();
-		iniciarGuiGerenteEventos();
-		iniciarGerenteEventos();
+		iniciarGUI();
+		iniciarFocoControlador();
+		iniciarGUIControlador();
+		iniciarControlador();
 	}
 
 	@Override
@@ -43,8 +43,8 @@ public final class FCCentroCusto extends JFrame implements Gui {
 	}
 
 	@Override
-	public GuiGerenteEventos getGuiGerenteEventos() {
-		return guiGerenteEventos;
+	public GUIConfiguracao getGUIConfiguracao() {
+		return gUIConfiguracao;
 	}
 
 	public PCCentroCusto getPanelCadastroCentroCusto() {
@@ -56,13 +56,13 @@ public final class FCCentroCusto extends JFrame implements Gui {
 	}
 
 	@Override
-	public void iniciarFocusTabListener() {
+	public void iniciarFocoControlador() {
 		@SuppressWarnings("unused")
 		FocusTabListener focusTabListener = new FocusTabListener(this);
 	}
 
 	@Override
-	public void iniciarGui() {
+	public void iniciarGUI() {
 		setTitle("CENTRO DE CUSTO");
 		setIconImage(Imagem.getLogoTipoImage());
 		pCCentroCusto = new PCCentroCusto();
@@ -91,12 +91,12 @@ public final class FCCentroCusto extends JFrame implements Gui {
 	}
 
 	@Override
-	public void iniciarGuiGerenteEventos() {
-		guiGerenteEventos = new GuiGerenteEventos(this);
+	public void iniciarGUIControlador() {
+		gUIConfiguracao = new GUIConfiguracao(this);
 	}
 
 	@Override
-	public void iniciarGerenteEventos() {
+	public void iniciarControlador() {
 		centroCustoControlador = new CentroCustoControlador();
 		addWindowListener(centroCustoControlador.new Frame());
 		pCCentroCusto.getToolBar().getButtonExcluiRegistro()
@@ -129,16 +129,16 @@ public final class FCCentroCusto extends JFrame implements Gui {
 	}
 
 	@Override
-	public void iniciarTable() {
+	public void iniciarTabela() {
 	}
 
 	@Override
-	public void limparGui() {
-		pCCentroCusto.limparGui();
+	public void limparGUI() {
+		pCCentroCusto.limparGUI();
 	}
 
 	@Override
-	public void reiniciarBox() {
+	public void reiniciarGUI() {
 	}
 
 	public boolean validarCamposCadastro() {

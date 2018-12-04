@@ -5,20 +5,20 @@ import java.awt.Dimension;
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
 
-import arquitetura.gui.Gui;
-import arquitetura.gui.GuiGerenteEventos;
+import arquitetura.gui.GUI;
+import arquitetura.gui.GUIConfiguracao;
 import arquitetura.gui.Imagem;
 
 @SuppressWarnings("serial")
-public final class FPCartorio extends JFrame implements Gui {
+public final class FPCartorio extends JFrame implements GUI {
 
 	private PPCartorio PPCartorio;
 
 	public FPCartorio() {
 		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		iniciarLayout();
-		iniciarGui();
-		iniciarGerenteEventos();
+		iniciarGUI();
+		iniciarControlador();
 	}
 
 	@Override
@@ -27,7 +27,7 @@ public final class FPCartorio extends JFrame implements Gui {
 	}
 
 	@Override
-	public GuiGerenteEventos getGuiGerenteEventos() {
+	public GUIConfiguracao getGUIConfiguracao() {
 		return null;
 	}
 
@@ -39,12 +39,12 @@ public final class FPCartorio extends JFrame implements Gui {
 	}
 
 	@Override
-	public void iniciarFocusTabListener() {
+	public void iniciarFocoControlador() {
 
 	}
 
 	@Override
-	public void iniciarGui() {
+	public void iniciarGUI() {
 		setTitle("CARTÓRIO");
 		setIconImage(Imagem.getLogoTipoImage());
 		PPCartorio = new PPCartorio();
@@ -52,12 +52,12 @@ public final class FPCartorio extends JFrame implements Gui {
 	}
 
 	@Override
-	public void iniciarGuiGerenteEventos() {
+	public void iniciarGUIControlador() {
 
 	}
 
 	@Override
-	public void iniciarGerenteEventos() {
+	public void iniciarControlador() {
 		PPCartorio.iniciarHandle();
 	}
 
@@ -71,17 +71,17 @@ public final class FPCartorio extends JFrame implements Gui {
 	}
 
 	@Override
-	public void iniciarTable() {
+	public void iniciarTabela() {
 
 	}
 
 	@Override
-	public void limparGui() {
+	public void limparGUI() {
 
 	}
 
 	@Override
-	public void reiniciarBox() {
+	public void reiniciarGUI() {
 
 	}
 }

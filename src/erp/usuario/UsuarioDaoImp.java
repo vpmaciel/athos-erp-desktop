@@ -1,34 +1,20 @@
 package erp.usuario;
 
+import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.Root;
 
 import arquitetura.JPA;
 
 final class UsuarioDaoImp implements UsuarioDao {
-
-	@Override
-	public String construirQuery(StringBuilder stringBuilder) {
-		String PesquisaRegistro = stringBuilder.toString();
-		if (PesquisaRegistro.endsWith("and")) {
-			PesquisaRegistro = stringBuilder.substring(0, stringBuilder.length() - 4);
-			stringBuilder = new StringBuilder(PesquisaRegistro);
-		}
-		if (PesquisaRegistro.endsWith("where")) {
-			PesquisaRegistro = stringBuilder.substring(0, stringBuilder.length() - 5);
-			stringBuilder = new StringBuilder(PesquisaRegistro);
-		}
-		stringBuilder.append(" order by U.nome");
-		PesquisaRegistro = stringBuilder.toString();
-		return PesquisaRegistro;
-	}
 
 	@Override
 	public void deletarRegistro(Usuario usuario) {
@@ -63,79 +49,61 @@ final class UsuarioDaoImp implements UsuarioDao {
 
 	@Override
 	public boolean isRegistroValido(Usuario usuario) {
-		StringBuilder qsb = new StringBuilder();
-		qsb.setLength(0);
-		qsb = new StringBuilder();
-		qsb.append("select U from erp.usuario.Usuario U where");
-		HashMap<String, Object> parametros = new HashMap<String, Object>();
-		if (usuario.getId() != null && !usuario.getId().equals("")) {
-			qsb.append(" U.id = :id and");
-			parametros.put("id", usuario.getId());
-		}
-		if (usuario.getNome() != null && !usuario.getNome().trim().equals("")) {
-			qsb.append(" U.nome like :nome and");
-			parametros.put("nome", "%" + usuario.getNome() + "%");
-		}
-		if (usuario.getSenha() != null && !usuario.getSenha().trim().equals("")) {
-			qsb.append(" U.senha like :senha and");
-			parametros.put("senha", "%" + usuario.getSenha() + "%");
-		}
-
-		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
-		Query query = em.createQuery(this.construirQuery(qsb));
-
-		Set<Map.Entry<String, Object>> set = parametros.entrySet();
-
-		for (Map.Entry<String, Object> me : set) {
-			query.setParameter(me.getKey(), me.getValue());
-		}
-
-		EntityTransaction tx = em.getTransaction();
+		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
+		EntityTransaction tx = entityManager.getTransaction();
 		tx.begin();
-		@SuppressWarnings("unchecked")
-		List<Usuario> list = query.getResultList();
-		tx.commit();
-		em.close();
 
+		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+		CriteriaQuery<Usuario> criteriaQuery = criteriaBuilder.createQuery(Usuario.class);
+		Root<Usuario> rootUsuario = criteriaQuery.from(Usuario.class);
+
+		List<Predicate> predicates = new ArrayList<Predicate>();
+
+		if (usuario.getId() != null) {
+			predicates.add(criteriaBuilder.equal(rootUsuario.get("id"), usuario.getId()));
+		}
+		if (usuario.getNome() != null && !usuario.getNome().equals("")) {
+			predicates.add(criteriaBuilder.equal(rootUsuario.get("nome"), usuario.getNome()));
+		}
+		if (usuario.getSenha() != null && !usuario.getSenha().equals("")) {
+			predicates.add(criteriaBuilder.equal(rootUsuario.get("senha"), usuario.getSenha()));
+		}
+		criteriaQuery.select(rootUsuario).where(predicates.toArray(new Predicate[] {}));
+
+		List<Usuario> list = entityManager.createQuery(criteriaQuery).getResultList();
+		tx.commit();
+		entityManager.close();
+		
 		return list.size() > 0;
 	}
 
 	@Override
 	public Collection<Usuario> pesquisarRegistro(Usuario usuario) {
-		StringBuilder qsb = new StringBuilder();
-		qsb.setLength(0);
-		qsb = new StringBuilder();
-		qsb.append("select U from erp.usuario.Usuario U where");
-		HashMap<String, Object> parametros = new HashMap<String, Object>();
+		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
+		EntityTransaction tx = entityManager.getTransaction();
+		tx.begin();
+
+		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+		CriteriaQuery<Usuario> criteriaQuery = criteriaBuilder.createQuery(Usuario.class);
+		Root<Usuario> rootUsuario = criteriaQuery.from(Usuario.class);
+
+		List<Predicate> predicates = new ArrayList<Predicate>();
 
 		if (usuario.getId() != null) {
-			qsb.append(" U.id = :id and");
-			parametros.put("id", usuario.getId());
+			predicates.add(criteriaBuilder.equal(rootUsuario.get("id"), usuario.getId()));
 		}
-		if (usuario.getNome() != null && !usuario.getNome().trim().equals("")) {
-			qsb.append(" U.nome like :nome and");
-			parametros.put("nome", "%" + usuario.getNome() + "%");
+		if (usuario.getNome() != null && !usuario.getNome().equals("")) {
+			predicates.add(criteriaBuilder.equal(rootUsuario.get("nome"), usuario.getNome()));
 		}
-		if (usuario.getSenha() != null && !usuario.getSenha().trim().equals("")) {
-			qsb.append(" U.senha like :senha and");
-			parametros.put("senha", "%" + usuario.getSenha() + "%");
+		if (usuario.getSenha() != null && !usuario.getSenha().equals("")) {
+			predicates.add(criteriaBuilder.equal(rootUsuario.get("senha"), usuario.getSenha()));
 		}
+		criteriaQuery.select(rootUsuario).where(predicates.toArray(new Predicate[] {}));
 
-		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
-		Query query = em.createQuery(this.construirQuery(qsb));
-
-		Set<Map.Entry<String, Object>> set = parametros.entrySet();
-
-		for (Map.Entry<String, Object> me : set) {
-			query.setParameter(me.getKey(), me.getValue());
-		}
-
-		EntityTransaction tx = em.getTransaction();
-		tx.begin();
-		@SuppressWarnings("unchecked")
-		List<Usuario> list = query.getResultList();
+		List<Usuario> list = entityManager.createQuery(criteriaQuery).getResultList();
 		tx.commit();
-		em.close();
+		entityManager.close();
+		
 		return list;
 	}
 

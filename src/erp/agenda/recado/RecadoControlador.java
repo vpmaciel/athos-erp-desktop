@@ -12,7 +12,6 @@ import java.util.List;
 import javax.swing.JOptionPane;
 
 import arquitetura.gui.Msg;
-import erp.empresa.Empresa;
 import erp.main.MainControlador;
 
 final class RecadoControlador {
@@ -60,7 +59,7 @@ final class RecadoControlador {
 
 		@Override
 		public void windowActivated(WindowEvent e) {
-			getFrameCadastroRecado().reiniciarBox();
+			getFrameCadastroRecado().reiniciarGUI();
 		}
 
 		@Override
@@ -132,7 +131,7 @@ final class RecadoControlador {
 			if (event.getButton() == MouseEvent.BUTTON1) {
 				MainControlador.mostrarFrame(MainControlador.getFrameCadastroEmpresa());
 			} else {
-				MainControlador.getFrameCadastroEmpresa().reiniciarBox();
+				MainControlador.getFrameCadastroEmpresa().reiniciarGUI();
 			}
 		}
 	}
@@ -142,8 +141,8 @@ final class RecadoControlador {
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
 			recado = new Recado();
-			getFrameCadastroRecado().limparGui();
-			getPanelCadastroRecado().getTextFieldNome().requestFocus();
+			getFrameCadastroRecado().limparGUI();
+			getPanelCadastroRecado().getTextFieldData().requestFocus();
 		}
 	}
 
@@ -182,18 +181,18 @@ final class RecadoControlador {
 				if (mensagem != JOptionPane.YES_OPTION) {
 					return;
 				}
-				String nome = getPanelCadastroRecado().getTextFieldNome().getText();
-				if (nome == null || nome.length() == 0) {
-					getPanelCadastroRecado().getTextFieldNome().requestFocus();
-					Msg.avisoCampoObrigatorio("Nome");
+				String data = getPanelCadastroRecado().getTextFieldData().getText();
+				if (data == null || data.length() == 0) {
+					getPanelCadastroRecado().getTextFieldData().requestFocus();
+					Msg.avisoCampoObrigatorio("Data");
 					return;
 				}
 				if (mensagem == JOptionPane.YES_OPTION) {
 					atualizarObjeto();
 					RecadoDaoFacade.salvarRegistro(recado);
 					recado = new Recado();
-					MainControlador.getFrameCadastroRecado().limparGui();
-					getPanelCadastroRecado().getTextFieldNome().requestFocus();
+					MainControlador.getFrameCadastroRecado().limparGUI();
+					getPanelCadastroRecado().getTextFieldData().requestFocus();
 					Msg.sucessoSalvarRegistro();
 				}
 			} catch (Exception e) {
@@ -209,41 +208,17 @@ final class RecadoControlador {
 		if (recado == null) {
 			return;
 		}
-		getPanelCadastroRecado().getTextFieldNome().setText(recado.getNome());
-		getPanelCadastroRecado().getTextFieldSexo().setSelectedItem(recado.getSexo());
-		getPanelCadastroRecado().getTextFieldEmail().setText(recado.getEmail());
-		getPanelCadastroRecado().getTextFieldFax().setText(recado.getFax());
-		getPanelCadastroRecado().getTextFieldFone1().setText(recado.getFone1());
-		getPanelCadastroRecado().getTextFieldFone2().setText(recado.getFone2());
-		getPanelCadastroRecado().getBoxEmpresa().setSelectedItem(recado.getEmpresa());
-		getPanelCadastroRecado().getTextFieldBairro().setText(recado.getBairro());
-		getPanelCadastroRecado().getTextFieldCep().setText(recado.getCep());
-		getPanelCadastroRecado().getTextFieldCidade().setText(recado.getCidade());
-		getPanelCadastroRecado().getTextFieldComplemento().setText(recado.getComplemento());
-		getPanelCadastroRecado().getTextFieldEstado().setText(recado.getEstado());
-		getPanelCadastroRecado().getTextFieldLogradouro().setText(recado.getLogradouro());
-		getPanelCadastroRecado().getTextFieldPais().setText(recado.getPais());
-		getPanelCadastroRecado().getTextFieldCNPJ().setText(recado.getCnpj());
-		getPanelCadastroRecado().getTextFieldCPF().setText(recado.getCpfNumero());
+		getPanelCadastroRecado().getTextFieldRemetente().setText(recado.getRemetente());
+		getPanelCadastroRecado().getTextFieldData().setText(recado.getData());
+		getPanelCadastroRecado().getTextFieldRecado().setText(recado.getRecado());
+		getPanelCadastroRecado().getTextFieldDestinatario().setText(recado.getDestinatario());
 	}
 
 	public void atualizarObjeto() {
-		recado.setNome(getPanelCadastroRecado().getTextFieldNome().getText());
-		recado.setSexo((String) getPanelCadastroRecado().getTextFieldSexo().getSelectedItem());
-		recado.setEmail(getPanelCadastroRecado().getTextFieldEmail().getText());
-		recado.setFax(getPanelCadastroRecado().getTextFieldFax().getText());
-		recado.setFone1(getPanelCadastroRecado().getTextFieldFone1().getText());
-		recado.setFone2(getPanelCadastroRecado().getTextFieldFone2().getText());
-		recado.setEmpresa((Empresa) getPanelCadastroRecado().getBoxEmpresa().getSelectedItem());
-		recado.setBairro(getPanelCadastroRecado().getTextFieldBairro().getText());
-		recado.setCep(getPanelCadastroRecado().getTextFieldCep().getText());
-		recado.setCidade(getPanelCadastroRecado().getTextFieldCidade().getText());
-		recado.setComplemento(getPanelCadastroRecado().getTextFieldComplemento().getText());
-		recado.setEstado(getPanelCadastroRecado().getTextFieldEstado().getText());
-		recado.setLogradouro(getPanelCadastroRecado().getTextFieldLogradouro().getText());
-		recado.setPais(getPanelCadastroRecado().getTextFieldPais().getText());
-		recado.setCnpj(getPanelCadastroRecado().getTextFieldCNPJ().getText());
-		recado.setCpfNumero(getPanelCadastroRecado().getTextFieldCPF().getText());
+		recado.setRemetente(getPanelCadastroRecado().getTextFieldRemetente().getText());
+		recado.setData(getPanelCadastroRecado().getTextFieldData().getText());
+		recado.setRecado(getPanelCadastroRecado().getTextFieldRecado().getText());
+		recado.setDestinatario(getPanelCadastroRecado().getTextFieldDestinatario().getText());
 	}
 
 	public Recado getRecado() {

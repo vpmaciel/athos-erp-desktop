@@ -18,20 +18,20 @@ import arquitetura.gui.Tabela;
 @SuppressWarnings("serial")
 public final class PPEvento extends JPanel {
 
-	private final EventoTableModel agenciaTableModel;
+	private final EventoTM agenciaTableModel;
 	List<Evento> eventoList = null;
 	private final JTable table;
 
 	public PPEvento() {
 		eventoList = new LinkedList<>();
-		agenciaTableModel = new EventoTableModel(eventoList);
+		agenciaTableModel = new EventoTM(eventoList);
 
 		table = new JTable();
 		table.setModel(agenciaTableModel);
 		for (int c = 0; c < table.getColumnCount(); ++c) {
 			table.setDefaultRenderer(table.getColumnClass(c), Tabela.getDefaultTableCellRenderer());
 		}
-		Tabela.configurarLarguraColunasTabela(table, EventoTableModel.WIDTH);
+		Tabela.configurarLarguraColunasTabela(table, EventoTM.WIDTH);
 		((DefaultTableCellRenderer) table.getTableHeader().getDefaultRenderer())
 				.setHorizontalAlignment(SwingConstants.RIGHT);
 		table.getColumnModel().getColumn(0).setMaxWidth(0);
@@ -56,7 +56,7 @@ public final class PPEvento extends JPanel {
 		agenciaTableModel.fireTableDataChanged();
 	}
 
-	public EventoTableModel getAgendaTableModel() {
+	public EventoTM getAgendaTableModel() {
 		return agenciaTableModel;
 	}
 

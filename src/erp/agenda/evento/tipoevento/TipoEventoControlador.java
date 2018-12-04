@@ -34,7 +34,7 @@ final class TipoEventoControlador {
 			}
 			try {
 				TipoEventoDaoFacade.deletarRegistro(tipoEvento);
-				getFrameCadastroTipoEvento().limparGui();
+				getFrameCadastroTipoEvento().limparGUI();
 				tipoEvento = new TipoEvento();
 				Msg.sucessoExcluiRegistro();
 			} catch (Exception e) {
@@ -59,7 +59,7 @@ final class TipoEventoControlador {
 
 		@Override
 		public void windowActivated(WindowEvent e) {
-			getFrameCadastroTipoEvento().reiniciarBox();
+			getFrameCadastroTipoEvento().reiniciarGUI();
 			atualizarGui();
 		}
 
@@ -130,7 +130,7 @@ final class TipoEventoControlador {
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
 			tipoEvento = new TipoEvento();
-			MainControlador.getFrameCadastroAgendaTipoEvento().limparGui();
+			MainControlador.getFrameCadastroAgendaTipoEvento().limparGUI();
 			getPanelCadastroTipoEvento().getTextFieldNome().requestFocus();
 		}
 	}
@@ -173,14 +173,14 @@ final class TipoEventoControlador {
 				String nome = getPanelCadastroTipoEvento().getTextFieldNome().getText();
 				if (nome == null || nome.length() == 0) {
 					getPanelCadastroTipoEvento().getTextFieldNome().requestFocus();
-					Msg.avisoCampoObrigatorio("Nome");
+					Msg.avisoCampoObrigatorio("Data");
 					return;
 				}
 				if (mensagem == JOptionPane.YES_OPTION) {
 					atualizarObjeto();
 					TipoEventoDaoFacade.salvarRegistro(tipoEvento);
 					tipoEvento = new TipoEvento();
-					MainControlador.getFrameCadastroAgendaTipoEvento().limparGui();
+					MainControlador.getFrameCadastroAgendaTipoEvento().limparGUI();
 					getPanelCadastroTipoEvento().getTextFieldNome().requestFocus();
 					Msg.sucessoSalvarRegistro();
 				}

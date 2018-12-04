@@ -22,12 +22,12 @@ final class SelectionListener implements ListSelectionListener {
 			TableModel tm = table.getModel();
 			if (selRows.length > 0) {
 				Evento eventoPesquisaRegistro = new Evento();
-				eventoPesquisaRegistro.setId((Long) tm.getValueAt(selRows[0], EventoTableModel.ID));
+				eventoPesquisaRegistro.setId((Long) tm.getValueAt(selRows[0], EventoTM.ID));
 
 				if (table.getSelectedRow() != -1) {
 					Evento evento = EventoDaoFacade.getRegistro(eventoPesquisaRegistro);
-					EventoTableModel eventoTableModel = (EventoTableModel) table.getModel();
-					eventoTableModel.getAgenda(table.getSelectedRow());
+					EventoTM eventoTM = (EventoTM) table.getModel();
+					eventoTM.getAgenda(table.getSelectedRow());
 					MainControlador.mostrarFrame(MainControlador.getFrameCadastroAgendaEvento());
 					MainControlador.getFrameCadastroAgendaEvento().getEventoGerenteEventos().setAgenda(evento);
 					MainControlador.getFrameCadastroAgendaEvento().getEventoGerenteEventos().atualizarGui();

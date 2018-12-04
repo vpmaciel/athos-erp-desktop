@@ -22,7 +22,7 @@ public class LoginGerenteEventos {
 
 		@Override
 		public void actionPerformed(final ActionEvent actionEvent) {
-			pLogin.limparGui();
+			pLogin.limparGUI();
 		}
 	}
 

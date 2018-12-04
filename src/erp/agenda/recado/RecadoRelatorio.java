@@ -28,23 +28,10 @@ public class RecadoRelatorio {
 
 			for (Recado recado : recados) {
 				document.newPage();
-				document.add(new Paragraph("NOME: " + recado.getNome()));
-				document.add(new Paragraph("SEXO: " + recado.getSexo()));
-				document.add(new Paragraph("CNPJ: " + recado.getCnpj()));
-				document.add(new Paragraph("CPF: " + recado.getCpfNumero()));
-				document.add(new Paragraph("SALÁRIO: " + recado.getSalario()));
-				document.add(new Paragraph("EMPRESA: " + recado.getEmpresa()));
-				document.add(new Paragraph("FAX: " + recado.getFax()));
-				document.add(new Paragraph("TELEFONE: " + recado.getFone1()));
-				document.add(new Paragraph("TELEFONE: " + recado.getFone2()));
-				document.add(new Paragraph("E-MAIL: " + recado.getEmail()));
-				document.add(new Paragraph("PAÍS: " + recado.getPais()));
-				document.add(new Paragraph("ESTADO: " + recado.getEstado()));
-				document.add(new Paragraph("CIDADE: " + recado.getCidade()));
-				document.add(new Paragraph("BAIRRO: " + recado.getBairro()));
-				document.add(new Paragraph("LOGRADOURO: " + recado.getLogradouro()));
-				document.add(new Paragraph("COMPLEMENTO: " + recado.getComplemento()));
-				document.add(new Paragraph("CEP: " + recado.getCep()));
+				document.add(new Paragraph("DATA: " + recado.getData()));
+				document.add(new Paragraph("REMETENTE: " + recado.getRemetente()));
+				document.add(new Paragraph("DESTINATÁRIO: " + recado.getDestinatario()));
+				document.add(new Paragraph("RECADO: " + recado.getRecado()));
 			}
 		} catch (DocumentException | FileNotFoundException e) {
 			System.err.println(e.getMessage());

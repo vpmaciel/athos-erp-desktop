@@ -11,24 +11,24 @@ import javax.swing.JScrollPane;
 import javax.swing.WindowConstants;
 
 import arquitetura.gui.FocusTabListener;
-import arquitetura.gui.Gui;
-import arquitetura.gui.GuiGerenteEventos;
+import arquitetura.gui.GUI;
+import arquitetura.gui.GUIConfiguracao;
 import arquitetura.gui.Imagem;
 
 @SuppressWarnings("serial")
-public final class FCFornecedor extends JFrame implements Gui {
+public final class FCFornecedor extends JFrame implements GUI {
 
 	private FornecedorControlador fornecedorControlador;
-	private GuiGerenteEventos guiGerenteEventos;
+	private GUIConfiguracao gUIConfiguracao;
 	private PCFornecedor pCFornecedor;
 
 	public FCFornecedor() {
 		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		iniciarLayout();
-		iniciarGui();
-		iniciarFocusTabListener();
-		iniciarGuiGerenteEventos();
-		iniciarGerenteEventos();
+		iniciarGUI();
+		iniciarFocoControlador();
+		iniciarGUIControlador();
+		iniciarControlador();
 	}
 
 	@Override
@@ -41,8 +41,8 @@ public final class FCFornecedor extends JFrame implements Gui {
 	}
 
 	@Override
-	public GuiGerenteEventos getGuiGerenteEventos() {
-		return guiGerenteEventos;
+	public GUIConfiguracao getGUIConfiguracao() {
+		return gUIConfiguracao;
 	}
 
 	public PCFornecedor getPanelCadastroFornecedor() {
@@ -50,13 +50,13 @@ public final class FCFornecedor extends JFrame implements Gui {
 	}
 
 	@Override
-	public void iniciarFocusTabListener() {
+	public void iniciarFocoControlador() {
 		@SuppressWarnings("unused")
 		FocusTabListener focusTabListener = new FocusTabListener(this);
 	}
 
 	@Override
-	public void iniciarGui() {
+	public void iniciarGUI() {
 		setTitle("FORNECEDOR");
 		setIconImage(Imagem.getLogoTipoImage());
 		pCFornecedor = new PCFornecedor();
@@ -86,12 +86,12 @@ public final class FCFornecedor extends JFrame implements Gui {
 	}
 
 	@Override
-	public void iniciarGuiGerenteEventos() {
-		guiGerenteEventos = new GuiGerenteEventos(this);
+	public void iniciarGUIControlador() {
+		gUIConfiguracao = new GUIConfiguracao(this);
 	}
 
 	@Override
-	public void iniciarGerenteEventos() {
+	public void iniciarControlador() {
 		fornecedorControlador = new FornecedorControlador();
 		addWindowListener(fornecedorControlador.new Frame());
 		pCFornecedor.getToolBar().getButtonExcluiRegistro()
@@ -123,16 +123,16 @@ public final class FCFornecedor extends JFrame implements Gui {
 	}
 
 	@Override
-	public void iniciarTable() {
+	public void iniciarTabela() {
 	}
 
 	@Override
-	public void limparGui() {
-		guiGerenteEventos.limparGui();
+	public void limparGUI() {
+		gUIConfiguracao.limparGui();
 	}
 
 	@Override
-	public void reiniciarBox() {
+	public void reiniciarGUI() {
 
 	}
 }

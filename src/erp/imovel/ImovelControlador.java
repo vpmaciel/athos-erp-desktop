@@ -36,7 +36,7 @@ final class ImovelControlador {
 			}
 			try {
 				ImovelDaoFacade.deletarRegistro(imovel);
-				getFrameCadastroImovel().limparGui();
+				getFrameCadastroImovel().limparGUI();
 				imovel = new Imovel();
 				Msg.sucessoExcluiRegistro();
 			} catch (Exception e) {
@@ -61,7 +61,7 @@ final class ImovelControlador {
 
 		@Override
 		public void windowActivated(WindowEvent e) {
-			getFrameCadastroImovel().reiniciarBox();
+			getFrameCadastroImovel().reiniciarGUI();
 		}
 
 		@Override
@@ -132,7 +132,7 @@ final class ImovelControlador {
 			if (event.getButton() == MouseEvent.BUTTON1) {
 				MainControlador.mostrarFrame(MainControlador.getFrameCadastroImovel());
 			} else {
-				getFrameCadastroImovel().reiniciarBox();
+				getFrameCadastroImovel().reiniciarGUI();
 			}
 		}
 	}
@@ -142,7 +142,7 @@ final class ImovelControlador {
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
 			imovel = new Imovel();
-			getFrameCadastroImovel().limparGui();
+			getFrameCadastroImovel().limparGUI();
 			getPanelCadastroImovel().getTextFieldNomeProprietario().requestFocus();
 		}
 	}
@@ -192,7 +192,7 @@ final class ImovelControlador {
 					ImovelControlador.this.atualizarObjeto();
 					ImovelDaoFacade.salvarRegistro(imovel);
 					imovel = new Imovel();
-					getFrameCadastroImovel().limparGui();
+					getFrameCadastroImovel().limparGUI();
 					getPanelCadastroImovel().getTextFieldNomeProprietario().requestFocus();
 					Msg.sucessoSalvarRegistro();
 				}

@@ -17,22 +17,6 @@ import arquitetura.JPA;
 final class EventoDaoImp implements EventoDao {
 
 	@Override
-	public String construirQuery(StringBuilder stringBuilder) {
-		String PesquisaRegistro = stringBuilder.toString();
-		if (PesquisaRegistro.endsWith("and")) {
-			PesquisaRegistro = stringBuilder.substring(0, stringBuilder.length() - 4);
-			stringBuilder = new StringBuilder(PesquisaRegistro);
-		}
-		if (PesquisaRegistro.endsWith("where")) {
-			PesquisaRegistro = stringBuilder.substring(0, stringBuilder.length() - 5);
-			stringBuilder = new StringBuilder(PesquisaRegistro);
-		}
-		stringBuilder.append(" order by C.data, C.horaInicio");
-		PesquisaRegistro = stringBuilder.toString();
-		return PesquisaRegistro;
-	}
-
-	@Override
 	public void deletarRegistro(Evento evento) {
 		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
 		EntityTransaction tx = em.getTransaction();

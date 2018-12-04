@@ -37,7 +37,7 @@ final class UsuarioControlador {
 			}
 			try {
 				UsuarioDaoFacade.deletarRegistro(usuario);
-				getFrameCadastroUsuario().limparGui();
+				getFrameCadastroUsuario().limparGUI();
 				usuario = new Usuario();
 				Msg.sucessoExcluiRegistro();
 			} catch (Exception e) {
@@ -62,7 +62,7 @@ final class UsuarioControlador {
 
 		@Override
 		public void windowActivated(WindowEvent e) {
-			getFrameCadastroUsuario().reiniciarBox();
+			getFrameCadastroUsuario().reiniciarGUI();
 		}
 
 		@Override
@@ -134,7 +134,7 @@ final class UsuarioControlador {
 			if (event.getButton() == MouseEvent.BUTTON1) {
 				MainControlador.mostrarFrame(MainControlador.getFrameCadastroUsuario());
 			} else {
-				MainControlador.getFrameCadastroUsuario().reiniciarBox();
+				MainControlador.getFrameCadastroUsuario().reiniciarGUI();
 			}
 		}
 	}
@@ -144,7 +144,7 @@ final class UsuarioControlador {
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
 			usuario = new Usuario();
-			getFrameCadastroUsuario().limparGui();
+			getFrameCadastroUsuario().limparGUI();
 			getPanelCadastroUsuario().getTextFieldNome().requestFocus();
 		}
 	}
@@ -189,14 +189,14 @@ final class UsuarioControlador {
 				if ((getPanelCadastroUsuario().getTextFieldNome().getText()) == null
 						|| getPanelCadastroUsuario().getTextFieldNome().getText().length() == 0) {
 					getPanelCadastroUsuario().getTextFieldNome().requestFocus();
-					Msg.avisoCampoObrigatorio("Nome");
+					Msg.avisoCampoObrigatorio("Data");
 					return;
 				}
 				if (mensagem == JOptionPane.YES_OPTION) {
 					atualizarObjeto();
 					UsuarioDaoFacade.salvarRegistro(usuario);
 					usuario = new Usuario();
-					MainControlador.getFrameCadastroUsuario().limparGui();
+					MainControlador.getFrameCadastroUsuario().limparGUI();
 					getPanelCadastroUsuario().getTextFieldNome().requestFocus();
 					Msg.sucessoSalvarRegistro();
 				}

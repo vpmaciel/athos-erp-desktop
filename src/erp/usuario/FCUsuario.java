@@ -11,24 +11,24 @@ import javax.swing.JScrollPane;
 import javax.swing.WindowConstants;
 
 import arquitetura.gui.FocusTabListener;
-import arquitetura.gui.Gui;
-import arquitetura.gui.GuiGerenteEventos;
+import arquitetura.gui.GUI;
+import arquitetura.gui.GUIConfiguracao;
 import arquitetura.gui.Imagem;
 
 @SuppressWarnings("serial")
-public final class FCUsuario extends JFrame implements Gui {
+public final class FCUsuario extends JFrame implements GUI {
 
 	private UsuarioControlador usuarioControlador;
-	private GuiGerenteEventos guiGerenteEventos;
+	private GUIConfiguracao gUIConfiguracao;
 	private PCUsuario pCUsuario;
 
 	public FCUsuario() {
 		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		iniciarLayout();
-		iniciarGui();
-		iniciarFocusTabListener();
-		iniciarGuiGerenteEventos();
-		iniciarGerenteEventos();
+		iniciarGUI();
+		iniciarFocoControlador();
+		iniciarGUIControlador();
+		iniciarControlador();
 	}
 
 	@Override
@@ -41,8 +41,8 @@ public final class FCUsuario extends JFrame implements Gui {
 	}
 
 	@Override
-	public GuiGerenteEventos getGuiGerenteEventos() {
-		return guiGerenteEventos;
+	public GUIConfiguracao getGUIConfiguracao() {
+		return gUIConfiguracao;
 	}
 
 	public PCUsuario getPanelCadastroUsuario() {
@@ -58,13 +58,13 @@ public final class FCUsuario extends JFrame implements Gui {
 	}
 
 	@Override
-	public void iniciarFocusTabListener() {
+	public void iniciarFocoControlador() {
 		@SuppressWarnings("unused")
 		final FocusTabListener focusTabListener = new FocusTabListener(this);
 	}
 
 	@Override
-	public void iniciarGui() {
+	public void iniciarGUI() {
 		setTitle("USUÁRIO");
 		setIconImage(Imagem.getLogoTipoImage());
 		pCUsuario = new PCUsuario();
@@ -94,12 +94,12 @@ public final class FCUsuario extends JFrame implements Gui {
 	}
 
 	@Override
-	public void iniciarGuiGerenteEventos() {
-		guiGerenteEventos = new GuiGerenteEventos(this);
+	public void iniciarGUIControlador() {
+		gUIConfiguracao = new GUIConfiguracao(this);
 	}
 
 	@Override
-	public void iniciarGerenteEventos() {
+	public void iniciarControlador() {
 		usuarioControlador = new UsuarioControlador();
 		addWindowListener(usuarioControlador.new Frame());
 		pCUsuario.getToolBar().getButtonExcluiRegistro()
@@ -128,17 +128,17 @@ public final class FCUsuario extends JFrame implements Gui {
 	}
 
 	@Override
-	public void iniciarTable() {
+	public void iniciarTabela() {
 
 	}
 
 	@Override
-	public void limparGui() {
-		pCUsuario.limparGui();
+	public void limparGUI() {
+		pCUsuario.limparGUI();
 	}
 
 	@Override
-	public void reiniciarBox() {
+	public void reiniciarGUI() {
 
 	}
 

@@ -1,37 +1,20 @@
 package erp.contador;
 
+import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.Root;
 
 import arquitetura.JPA;
 
 final class ContadorDaoImp implements ContadorDao {
-
-	@Override
-	public String construirQuery(StringBuilder stringBuilder) {
-		String PesquisaRegistro = stringBuilder.toString();
-
-		if (PesquisaRegistro.endsWith("and")) {
-			PesquisaRegistro = stringBuilder.substring(0, stringBuilder.length() - 4);
-			stringBuilder = new StringBuilder(PesquisaRegistro);
-		}
-
-		if (PesquisaRegistro.endsWith("where")) {
-			PesquisaRegistro = stringBuilder.substring(0, stringBuilder.length() - 5);
-			stringBuilder = new StringBuilder(PesquisaRegistro);
-		}
-
-		stringBuilder.append(" order by C.nome");
-		PesquisaRegistro = stringBuilder.toString();
-		return PesquisaRegistro;
-	}
 
 	@Override
 	public void deletarRegistro(Contador contador) {
@@ -66,79 +49,52 @@ final class ContadorDaoImp implements ContadorDao {
 
 	@Override
 	public Collection<Contador> pesquisarRegistro(Contador contador) {
-		StringBuilder qsb = new StringBuilder();
-
-		qsb.setLength(0);
-		qsb = new StringBuilder();
-		qsb.append("select C from erp.contador.Contador C where");
-
-		Map<String, Object> parametros = new HashMap<String, Object>();
-		if (contador.getId() != null) {
-			qsb.append(" C.id = :id and");
-			parametros.put("id", contador.getId());
-		}
-
-		if ((contador.getCnpj() != null) && (!contador.getCnpj().trim().equals(""))) {
-			qsb.append(" C.cnpj like :cnpj and");
-			parametros.put("cnpj", "%" + contador.getCnpj() + "%");
-		}
-
-		if ((contador.getCpf() != null) && (!contador.getCpf().trim().equals(""))) {
-			qsb.append(" C.cpf like :cpf and");
-			parametros.put("cpf", "%" + contador.getCpf() + "%");
-		}
-
-		if ((contador.getCrc() != null) && (!contador.getCrc().trim().equals(""))) {
-			qsb.append(" C.crc like :crc and");
-			parametros.put("crc", "%" + contador.getCrc() + "%");
-		}
-
-		if ((contador.getEmail() != null) && (!contador.getEmail().trim().equals(""))) {
-			qsb.append(" C.email like :email and");
-			parametros.put("email", "%" + contador.getEmail() + "%");
-		}
-
-		if ((contador.getFax() != null) && (!contador.getFax().trim().equals(""))) {
-			qsb.append(" C.fax like :fax and");
-			parametros.put("fax", "%" + contador.getFax() + "%");
-		}
-
-		if ((contador.getFone1() != null) && (!contador.getFone1().trim().equals(""))) {
-			qsb.append(" C.fone1 like :fone1 and");
-			parametros.put("fone1", "%" + contador.getFone1() + "%");
-		}
-
-		if ((contador.getFone2() != null) && (!contador.getFone2().trim().equals(""))) {
-			qsb.append(" C.fone2 like :fone2 and");
-			parametros.put("fone2", "%" + contador.getFone2() + "%");
-		}
-
-		if ((contador.getNome() != null) && (!contador.getNome().trim().equals(""))) {
-			qsb.append(" C.nome like :nome and");
-			parametros.put("nome", "%" + contador.getNome() + "%");
-		}
-
-		if ((contador.getSite() != null) && (!contador.getSite().trim().equals(""))) {
-			qsb.append(" C.site like :site and");
-			parametros.put("site", "%" + contador.getSite() + "%");
-		}
-
-		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
-		Query query = em.createQuery(construirQuery(qsb));
-
-		Set<Map.Entry<String, Object>> set = parametros.entrySet();
-
-		for (Map.Entry<String, Object> me : set) {
-			query.setParameter(me.getKey(), me.getValue());
-		}
-
-		EntityTransaction tx = em.getTransaction();
+		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
+		EntityTransaction tx = entityManager.getTransaction();
 		tx.begin();
-		@SuppressWarnings("unchecked")
-		List<Contador> list = query.getResultList();
-		tx.commit();
 
-		em.close();
+		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+		CriteriaQuery<Contador> criteriaQuery = criteriaBuilder.createQuery(Contador.class);
+		Root<Contador> rootContador = criteriaQuery.from(Contador.class);
+
+		List<Predicate> predicates = new ArrayList<Predicate>();
+
+		if (contador.getId() != null) {
+			predicates.add(criteriaBuilder.equal(rootContador.get("id"), contador.getId()));
+		}
+		if (contador.getCnpj() != null && !contador.getCnpj().equals("")) {
+			predicates.add(criteriaBuilder.like(rootContador.get("cnpj"), "%" + contador.getCnpj() + "%"));
+		}
+		if (contador.getCpf() != null && !contador.getCpf().equals("")) {
+			predicates.add(criteriaBuilder.like(rootContador.get("cpf"), "%" + contador.getCpf() + "%"));
+		}
+		if (contador.getCrc() != null && !contador.getCrc().equals("")) {
+			predicates.add(criteriaBuilder.like(rootContador.get("crc"), "%" + contador.getCrc() + "%"));
+		}
+		if (contador.getEmail() != null && !contador.getEmail().equals("")) {
+			predicates.add(criteriaBuilder.like(rootContador.get("email"), "%" + contador.getEmail() + "%"));
+		}
+		if (contador.getFax() != null && !contador.getFax().equals("")) {
+			predicates.add(criteriaBuilder.like(rootContador.get("fax"), "%" + contador.getFax() + "%"));
+		}
+		if (contador.getFone1() != null && !contador.getFone1().equals("")) {
+			predicates.add(criteriaBuilder.like(rootContador.get("fone1"), "%" + contador.getFone1() + "%"));
+		}
+		if (contador.getFone2() != null && !contador.getFone2().equals("")) {
+			predicates.add(criteriaBuilder.like(rootContador.get("fone2"), "%" + contador.getFone2() + "%"));
+		}
+		if (contador.getNome() != null && !contador.getNome().equals("")) {
+			predicates.add(criteriaBuilder.like(rootContador.get("nome"), "%" + contador.getNome() + "%"));
+		}
+		if (contador.getSite() != null && !contador.getSite().equals("")) {
+			predicates.add(criteriaBuilder.like(rootContador.get("site"), "%" + contador.getSite() + "%"));
+		}
+
+		criteriaQuery.select(rootContador).where(predicates.toArray(new Predicate[] {}));
+
+		List<Contador> list = entityManager.createQuery(criteriaQuery).getResultList();
+		tx.commit();
+		entityManager.close();
 		return list;
 	}
 

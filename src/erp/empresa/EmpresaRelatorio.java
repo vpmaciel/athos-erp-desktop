@@ -33,7 +33,6 @@ public class EmpresaRelatorio {
 				document.add(new Paragraph("TIPO DE EMPRESA: " + empresa.getTipoEmpresa()));
 				document.add(new Paragraph("FATURAMENTO MENSAL: " + empresa.getFaturamentoMensal()));
 				document.add(new Paragraph("CNPJ: " + empresa.getCnpj()));
-				document.add(new Paragraph("CPF: " + empresa.getCpfNumero()));
 				document.add(new Paragraph("NÚMERO DE FUNCIONÁRIOS: " + empresa.getNumeroFuncionarios()));
 				document.add(new Paragraph("INSCRIÇÃO ESTADUAL: " + empresa.getInscricaoEstadual()));
 				document.add(new Paragraph("DATA DE FUNDAÇÃO: " + empresa.getDataFundacao()));

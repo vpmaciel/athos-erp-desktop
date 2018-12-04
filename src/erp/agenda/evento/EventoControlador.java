@@ -37,7 +37,7 @@ final class EventoControlador {
 			}
 			try {
 				EventoDaoFacade.deletarRegistro(evento);
-				getFrameCadastroEvento().limparGui();
+				getFrameCadastroEvento().limparGUI();
 				evento = new Evento();
 				Msg.sucessoExcluiRegistro();
 			} catch (Exception e) {
@@ -62,7 +62,7 @@ final class EventoControlador {
 
 		@Override
 		public void windowActivated(WindowEvent e) {
-			getFrameCadastroEvento().reiniciarBox();
+			getFrameCadastroEvento().reiniciarGUI();
 			atualizarGui();
 		}
 
@@ -131,7 +131,7 @@ final class EventoControlador {
 			if (event.getButton() == MouseEvent.BUTTON1) {
 				MainControlador.mostrarFrame(MainControlador.getFrameCadastroEmpresa());
 			} else {
-				MainControlador.getFrameCadastroEmpresa().reiniciarBox();
+				MainControlador.getFrameCadastroEmpresa().reiniciarGUI();
 			}
 		}
 	}
@@ -141,8 +141,8 @@ final class EventoControlador {
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
 			evento = new Evento();
-			getFrameCadastroEvento().limparGui();
-			getFrameCadastroEvento().getPanelCadastroEvento().reiniciarBox();
+			getFrameCadastroEvento().limparGUI();
+			getFrameCadastroEvento().getPanelCadastroEvento().reiniciarGUI();
 			getPanelCadastroEvento().getBoxTipoEvento().requestFocus();
 		}
 	}
@@ -186,15 +186,15 @@ final class EventoControlador {
 				String nome = getPanelCadastroEvento().getTextFieldDescricao().getText();
 				if (nome == null || nome.length() == 0) {
 					getPanelCadastroEvento().getTextFieldDescricao().requestFocus();
-					Msg.avisoCampoObrigatorio("Nome");
+					Msg.avisoCampoObrigatorio("Data");
 					return;
 				}
 				if (mensagem == JOptionPane.YES_OPTION) {
 					atualizarObjeto();
 					EventoDaoFacade.salvarRegistro(evento);
 					evento = new Evento();
-					getFrameCadastroEvento().limparGui();
-					getFrameCadastroEvento().getPanelCadastroEvento().reiniciarBox();
+					getFrameCadastroEvento().limparGUI();
+					getFrameCadastroEvento().getPanelCadastroEvento().reiniciarGUI();
 					getPanelCadastroEvento().getBoxTipoEvento().requestFocus();
 					Msg.sucessoSalvarRegistro();
 				}

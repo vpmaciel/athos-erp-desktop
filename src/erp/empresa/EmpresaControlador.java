@@ -36,7 +36,7 @@ final class EmpresaControlador {
 			}
 			try {
 				EmpresaDaoFacade.deletarRegistro(empresa);
-				getFrameCadastroEmpresa().limparGui();
+				getFrameCadastroEmpresa().limparGUI();
 				empresa = new Empresa();
 				Msg.sucessoExcluiRegistro();
 			} catch (Exception e) {
@@ -61,7 +61,7 @@ final class EmpresaControlador {
 
 		@Override
 		public void windowActivated(WindowEvent e) {
-			getFrameCadastroEmpresa().reiniciarBox();
+			getFrameCadastroEmpresa().reiniciarGUI();
 		}
 
 		@Override
@@ -132,7 +132,7 @@ final class EmpresaControlador {
 			if (event.getButton() == MouseEvent.BUTTON1) {
 				MainControlador.mostrarFrame(getFrameCadastroEmpresa());
 			} else {
-				getFrameCadastroEmpresa().reiniciarBox();
+				getFrameCadastroEmpresa().reiniciarGUI();
 			}
 		}
 	}
@@ -142,7 +142,7 @@ final class EmpresaControlador {
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
 			empresa = new Empresa();
-			getFrameCadastroEmpresa().limparGui();
+			getFrameCadastroEmpresa().limparGUI();
 			getPanelCadastroEmpresa().getTextFieldNomeFantasia().requestFocus();
 		}
 	}
@@ -192,7 +192,7 @@ final class EmpresaControlador {
 					atualizarObjeto();
 					EmpresaDaoFacade.salvarRegistro(empresa);
 					empresa = new Empresa();
-					getFrameCadastroEmpresa().limparGui();
+					getFrameCadastroEmpresa().limparGUI();
 					getPanelCadastroEmpresa().getTextFieldNomeFantasia().requestFocus();
 					Msg.sucessoSalvarRegistro();
 				}
@@ -229,7 +229,6 @@ final class EmpresaControlador {
 		getPanelCadastroEmpresa().getTextFieldLogradouro().setText(empresa.getLogradouro());
 		getPanelCadastroEmpresa().getTextFieldPais().setText(empresa.getPais());
 		getPanelCadastroEmpresa().getTextFieldCNPJ().setText(empresa.getCnpj());
-		getPanelCadastroEmpresa().getTextFieldCPF().setText(empresa.getCpfNumero());
 		getPanelCadastroEmpresa().getBoxTipoEmpresa().setSelectedItem(empresa.getTipoEmpresa());
 		getPanelCadastroEmpresa().getTextFieldFaturamentoMensal().setText(empresa.getFaturamentoMensal());
 	}
@@ -256,7 +255,6 @@ final class EmpresaControlador {
 		empresa.setLogradouro(getPanelCadastroEmpresa().getTextFieldLogradouro().getText());
 		empresa.setPais(getPanelCadastroEmpresa().getTextFieldPais().getText());
 		empresa.setCnpj(getPanelCadastroEmpresa().getTextFieldCNPJ().getText());
-		empresa.setCpfNumero(getPanelCadastroEmpresa().getTextFieldCPF().getText());
 		empresa.setTipoEmpresa((String) getPanelCadastroEmpresa().getBoxTipoEmpresa().getSelectedItem());
 		empresa.setFaturamentoMensal(getPanelCadastroEmpresa().getTextFieldFaturamentoMensal().getText());
 	}

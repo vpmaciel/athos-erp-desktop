@@ -5,20 +5,20 @@ import java.awt.Dimension;
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
 
-import arquitetura.gui.Gui;
-import arquitetura.gui.GuiGerenteEventos;
+import arquitetura.gui.GUI;
+import arquitetura.gui.GUIConfiguracao;
 import arquitetura.gui.Imagem;
 
 @SuppressWarnings("serial")
-public final class FPFornecedor extends JFrame implements Gui {
+public final class FPFornecedor extends JFrame implements GUI {
 
 	private PPFornecedor PPFornecedor;
 
 	public FPFornecedor() {
 		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		iniciarLayout();
-		iniciarGui();
-		iniciarGerenteEventos();
+		iniciarGUI();
+		iniciarControlador();
 	}
 
 	@Override
@@ -27,7 +27,7 @@ public final class FPFornecedor extends JFrame implements Gui {
 	}
 
 	@Override
-	public GuiGerenteEventos getGuiGerenteEventos() {
+	public GUIConfiguracao getGUIConfiguracao() {
 		return null;
 	}
 
@@ -36,12 +36,12 @@ public final class FPFornecedor extends JFrame implements Gui {
 	}
 
 	@Override
-	public void iniciarFocusTabListener() {
+	public void iniciarFocoControlador() {
 
 	}
 
 	@Override
-	public void iniciarGui() {
+	public void iniciarGUI() {
 		setTitle("FORNECEDOR");
 		setIconImage(Imagem.getLogoTipoImage());
 		PPFornecedor = new PPFornecedor();
@@ -49,12 +49,12 @@ public final class FPFornecedor extends JFrame implements Gui {
 	}
 
 	@Override
-	public void iniciarGuiGerenteEventos() {
+	public void iniciarGUIControlador() {
 
 	}
 
 	@Override
-	public void iniciarGerenteEventos() {
+	public void iniciarControlador() {
 		PPFornecedor.iniciarHandle();
 	}
 
@@ -68,17 +68,17 @@ public final class FPFornecedor extends JFrame implements Gui {
 	}
 
 	@Override
-	public void iniciarTable() {
+	public void iniciarTabela() {
 
 	}
 
 	@Override
-	public void limparGui() {
+	public void limparGUI() {
 
 	}
 
 	@Override
-	public void reiniciarBox() {
+	public void reiniciarGUI() {
 
 	}
 }

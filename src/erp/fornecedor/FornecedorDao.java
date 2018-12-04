@@ -4,8 +4,6 @@ import java.util.Collection;
 
 public interface FornecedorDao {
 
-	public String construirQuery(StringBuilder fornecedor);
-
 	public void deletarRegistro(Fornecedor fornecedor);
 
 	public Fornecedor getRegistro(Fornecedor fornecedor);

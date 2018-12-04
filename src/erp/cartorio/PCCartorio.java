@@ -6,17 +6,17 @@ import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 
 import arquitetura.gui.FocusTabListener;
-import arquitetura.gui.Gui;
-import arquitetura.gui.GuiGerenteEventos;
+import arquitetura.gui.GUI;
+import arquitetura.gui.GUIConfiguracao;
 import arquitetura.gui.TamanhoLowerCase;
 import arquitetura.gui.TamanhoUpperCase;
 import arquitetura.registro.ToolBar;
 import arquitetura.util.SpringUtilities;
 
 @SuppressWarnings("serial")
-public final class PCCartorio extends JPanel implements Gui {
+public final class PCCartorio extends JPanel implements GUI {
 
-	private GuiGerenteEventos guiGerenteEventos;
+	private GUIConfiguracao gUIConfiguracao;
 	private JTextField textFieldComarca;
 	private JTextField textFieldNomeFantasia;
 	private JTextField textFieldRazaoSocial;
@@ -61,9 +61,9 @@ public final class PCCartorio extends JPanel implements Gui {
 
 	public PCCartorio() {
 		iniciarLayout();
-		iniciarGui();
-		iniciarFocusTabListener();
-		iniciarGuiGerenteEventos();
+		iniciarGUI();
+		iniciarFocoControlador();
+		iniciarGUIControlador();
 	}
 
 	@Override
@@ -71,8 +71,8 @@ public final class PCCartorio extends JPanel implements Gui {
 	}
 
 	@Override
-	public GuiGerenteEventos getGuiGerenteEventos() {
-		return guiGerenteEventos;
+	public GUIConfiguracao getGUIConfiguracao() {
+		return gUIConfiguracao;
 	}
 
 	public JLabel getLabelBairro() {
@@ -240,13 +240,13 @@ public final class PCCartorio extends JPanel implements Gui {
 	}
 
 	@Override
-	public void iniciarFocusTabListener() {
+	public void iniciarFocoControlador() {
 		@SuppressWarnings("unused")
 		FocusTabListener focusTabListener = new FocusTabListener(this);
 	}
 
 	@Override
-	public void iniciarGui() {
+	public void iniciarGUI() {
 		toolBar = new ToolBar();
 
 		this.add(toolBar.getToolBar());
@@ -355,12 +355,12 @@ public final class PCCartorio extends JPanel implements Gui {
 	}
 
 	@Override
-	public void iniciarGuiGerenteEventos() {
-		guiGerenteEventos = new GuiGerenteEventos(this);
+	public void iniciarGUIControlador() {
+		gUIConfiguracao = new GUIConfiguracao(this);
 	}
 
 	@Override
-	public void iniciarGerenteEventos() {
+	public void iniciarControlador() {
 	}
 
 	@Override
@@ -369,15 +369,15 @@ public final class PCCartorio extends JPanel implements Gui {
 	}
 
 	@Override
-	public void iniciarTable() {
+	public void iniciarTabela() {
 	}
 
 	@Override
-	public void limparGui() {
-		guiGerenteEventos.limparGui();
+	public void limparGUI() {
+		gUIConfiguracao.limparGui();
 	}
 
 	@Override
-	public void reiniciarBox() {
+	public void reiniciarGUI() {
 	}
 }

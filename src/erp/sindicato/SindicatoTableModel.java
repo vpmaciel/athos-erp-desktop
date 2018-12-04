@@ -205,7 +205,7 @@ public class SindicatoTableModel extends AbstractTableModel {
 		case COL_NUMERO_DE_FUNCIONARIOS:
 			return sindicato.getNumeroFuncionarios();
 		case COL_CPF_NUMERO:
-			return sindicato.getCpfNumero();
+			return sindicato.getCep();
 		case COL_EMAIL:
 			return sindicato.getEmail();
 		case COL_CAPITAL_SOCIAL:
@@ -280,7 +280,7 @@ public class SindicatoTableModel extends AbstractTableModel {
 			sindicato.setNumeroFuncionarios(aValue.toString());
 			break;
 		case COL_CPF_NUMERO:
-			sindicato.setCpfNumero(aValue.toString());
+			sindicato.setCnpj(aValue.toString());
 			break;
 		case COL_EMAIL:
 			sindicato.setEmail(aValue.toString());

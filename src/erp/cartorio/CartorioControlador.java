@@ -35,7 +35,7 @@ final class CartorioControlador {
 			}
 			try {
 				CartorioDaoFacade.deletarCartorio(cartorio);
-				getFrameCadastroCartorio().limparGui();
+				getFrameCadastroCartorio().limparGUI();
 				cartorio = new Cartorio();
 				Msg.sucessoExcluiRegistro();
 			} catch (Exception e) {
@@ -56,7 +56,7 @@ final class CartorioControlador {
 
 		@Override
 		public void windowActivated(WindowEvent e) {
-			getFrameCadastroCartorio().reiniciarBox();
+			getFrameCadastroCartorio().reiniciarGUI();
 		}
 
 		@Override
@@ -119,7 +119,7 @@ final class CartorioControlador {
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
 			cartorio = new Cartorio();
-			getFrameCadastroCartorio().limparGui();
+			getFrameCadastroCartorio().limparGUI();
 			getPanelCadastroCartorio().getTextFieldNomeFantasia().requestFocus();
 		}
 	}
@@ -171,7 +171,7 @@ final class CartorioControlador {
 					atualizarObjeto();
 					CartorioDaoFacade.salvarCartorio(cartorio);
 					cartorio = new Cartorio();
-					getFrameCadastroCartorio().limparGui();
+					getFrameCadastroCartorio().limparGUI();
 					getPanelCadastroCartorio().getTextFieldNomeFantasia().requestFocus();
 					Msg.sucessoSalvarRegistro();
 				}

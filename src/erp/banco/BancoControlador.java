@@ -36,7 +36,7 @@ final class BancoControlador {
 			}
 			try {
 				bancoDaoFacade.deletarRegistro(banco);
-				getFrameCadastroBanco().limparGui();
+				getFrameCadastroBanco().limparGUI();
 				banco = new Banco();
 				Msg.sucessoExcluiRegistro();
 			} catch (Exception e) {
@@ -57,7 +57,7 @@ final class BancoControlador {
 
 		@Override
 		public void windowActivated(WindowEvent e) {
-			getFrameCadastroBanco().reiniciarBox();
+			getFrameCadastroBanco().reiniciarGUI();
 		}
 
 		@Override
@@ -122,7 +122,7 @@ final class BancoControlador {
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
 			banco = new Banco();
-			getFrameCadastroBanco().limparGui();
+			getFrameCadastroBanco().limparGUI();
 			getPanelCadastroBanco().getTextFieldNome().requestFocus();
 		}
 	}
@@ -174,7 +174,7 @@ final class BancoControlador {
 					atualizarObjeto();
 					bancoDaoFacade.salvarBanco(banco);
 					banco = new Banco();
-					getFrameCadastroBanco().limparGui();
+					getFrameCadastroBanco().limparGUI();
 					getPanelCadastroBanco().getTextFieldNome().requestFocus();
 					Msg.sucessoSalvarRegistro();
 				}

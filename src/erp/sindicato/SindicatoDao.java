@@ -4,8 +4,6 @@ import java.util.Collection;
 
 public interface SindicatoDao {
 
-	public String construirQuery(StringBuilder sindicato);
-
 	public void deletarRegistro(Sindicato sindicato);
 
 	public Sindicato getRegistro(Sindicato sindicato);

@@ -12,8 +12,8 @@ import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 
 import arquitetura.gui.FocusTabListener;
-import arquitetura.gui.Gui;
-import arquitetura.gui.GuiGerenteEventos;
+import arquitetura.gui.GUI;
+import arquitetura.gui.GUIConfiguracao;
 import arquitetura.gui.TamanhoUpperCase;
 import arquitetura.registro.ToolBar;
 import arquitetura.util.SpringUtilities;
@@ -24,10 +24,10 @@ import erp.agenda.evento.tipoevento.TipoEventoSort;
 import erp.main.MainControlador;
 
 @SuppressWarnings("serial")
-public final class PCEvento extends JPanel implements Gui {
+public final class PCEvento extends JPanel implements GUI {
 
 	private ToolBar toolBar;
-	private GuiGerenteEventos guiGerenteEventos;
+	private GUIConfiguracao gUIConfiguracao;
 	private JTextField textFieldDescricao;
 	private JLabel labelDescricao;
 	private JFormattedTextField	 textFieldHoraInicio;
@@ -41,9 +41,9 @@ public final class PCEvento extends JPanel implements Gui {
 
 	public PCEvento() {
 		iniciarLayout();
-		iniciarGui();
-		iniciarFocusTabListener();
-		iniciarGuiGerenteEventos();
+		iniciarGUI();
+		iniciarFocoControlador();
+		iniciarGUIControlador();
 	}
 
 	@Override
@@ -56,8 +56,8 @@ public final class PCEvento extends JPanel implements Gui {
 	}
 
 	@Override
-	public GuiGerenteEventos getGuiGerenteEventos() {
-		return guiGerenteEventos;
+	public GUIConfiguracao getGUIConfiguracao() {
+		return gUIConfiguracao;
 	}
 
 	public JLabel getLabelTipoEvento() {
@@ -86,13 +86,13 @@ public final class PCEvento extends JPanel implements Gui {
 	}
 
 	@Override
-	public void iniciarFocusTabListener() {
+	public void iniciarFocoControlador() {
 		@SuppressWarnings("unused")
 		FocusTabListener focusTabListener = new FocusTabListener(this);
 	}
 
 	@Override
-	public void iniciarGui() {
+	public void iniciarGUI() {
 
 		final Cursor cursor = Cursor.getPredefinedCursor(Cursor.HAND_CURSOR);
 		
@@ -146,12 +146,12 @@ public final class PCEvento extends JPanel implements Gui {
 	}
 
 	@Override
-	public void iniciarGuiGerenteEventos() {
-		guiGerenteEventos = new GuiGerenteEventos(this);
+	public void iniciarGUIControlador() {
+		gUIConfiguracao = new GUIConfiguracao(this);
 	}
 
 	@Override
-	public void iniciarGerenteEventos() {
+	public void iniciarControlador() {
 
 	}
 
@@ -161,18 +161,18 @@ public final class PCEvento extends JPanel implements Gui {
 	}
 
 	@Override
-	public void iniciarTable() {
+	public void iniciarTabela() {
 
 	}
 
 	@Override
-	public void limparGui() {
-		guiGerenteEventos.limparGui();
-		reiniciarBox();
+	public void limparGUI() {
+		gUIConfiguracao.limparGui();
+		reiniciarGUI();
 	}
 
 	@Override
-	public void reiniciarBox() {
+	public void reiniciarGUI() {
 		TipoEvento tipoEvento = null;
 		List<TipoEvento> tipoEventos = (List<TipoEvento>) TipoEventoDaoFacade.getRegistro();
 		Collections.sort(tipoEventos, new TipoEventoSort().new Nome());

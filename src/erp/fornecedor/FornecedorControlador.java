@@ -36,7 +36,7 @@ final class FornecedorControlador {
 			}
 			try {
 				FornecedorDaoFacade.deletarRegistro(fornecedor);
-				getFrameCadastroFornecedor().limparGui();
+				getFrameCadastroFornecedor().limparGUI();
 				fornecedor = new Fornecedor();
 				Msg.sucessoExcluiRegistro();
 			} catch (Exception e) {
@@ -61,7 +61,7 @@ final class FornecedorControlador {
 
 		@Override
 		public void windowActivated(WindowEvent e) {
-			getFrameCadastroFornecedor().reiniciarBox();
+			getFrameCadastroFornecedor().reiniciarGUI();
 		}
 
 		@Override
@@ -132,7 +132,7 @@ final class FornecedorControlador {
 			if (event.getButton() == MouseEvent.BUTTON1) {
 				MainControlador.mostrarFrame(getFrameCadastroFornecedor());
 			} else {
-				getFrameCadastroFornecedor().reiniciarBox();
+				getFrameCadastroFornecedor().reiniciarGUI();
 			}
 		}
 	}
@@ -142,7 +142,7 @@ final class FornecedorControlador {
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
 			fornecedor = new Fornecedor();
-			getFrameCadastroFornecedor().limparGui();
+			getFrameCadastroFornecedor().limparGUI();
 			getPanelCadastroFornecedor().getTextFieldNomeFantasia().requestFocus();
 		}
 	}
@@ -192,7 +192,7 @@ final class FornecedorControlador {
 					atualizarObjeto();
 					FornecedorDaoFacade.salvarRegistro(fornecedor);
 					fornecedor = new Fornecedor();
-					getFrameCadastroFornecedor().limparGui();
+					getFrameCadastroFornecedor().limparGUI();
 					getPanelCadastroFornecedor().getTextFieldNomeFantasia().requestFocus();
 					Msg.sucessoSalvarRegistro();
 				}

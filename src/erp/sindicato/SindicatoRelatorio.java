@@ -33,7 +33,6 @@ public class SindicatoRelatorio {
 				document.add(new Paragraph("TIPO DE EMPRESA: " + sindicato.getTipoSindicato()));
 				document.add(new Paragraph("FATURAMENTO MENSAL: " + sindicato.getFaturamentoMensal()));
 				document.add(new Paragraph("CNPJ: " + sindicato.getCnpj()));
-				document.add(new Paragraph("CPF: " + sindicato.getCpfNumero()));
 				document.add(new Paragraph("NÚMERO DE FUNCIONÁRIOS: " + sindicato.getNumeroFuncionarios()));
 				document.add(new Paragraph("INSCRIÇÃO ESTADUAL: " + sindicato.getInscricaoEstadual()));
 				document.add(new Paragraph("DATA DE FUNDAÇÃO: " + sindicato.getDataFundacao()));

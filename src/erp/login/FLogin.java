@@ -11,13 +11,13 @@ import javax.swing.JScrollPane;
 import javax.swing.WindowConstants;
 
 import arquitetura.gui.FocusTabListener;
-import arquitetura.gui.Gui;
-import arquitetura.gui.GuiGerenteEventos;
+import arquitetura.gui.GUI;
+import arquitetura.gui.GUIConfiguracao;
 import arquitetura.gui.Imagem;
 import erp.usuario.Usuario;
 
 @SuppressWarnings("serial")
-public final class FLogin extends JFrame implements Gui {
+public final class FLogin extends JFrame implements GUI {
 
 	private static Usuario usuario;
 	private LoginGerenteEventos loginGerenteEventos;
@@ -34,9 +34,9 @@ public final class FLogin extends JFrame implements Gui {
 	public FLogin() {
 		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		iniciarLayout();
-		iniciarGui();
-		iniciarFocusTabListener();
-		iniciarGuiGerenteEventos();
+		iniciarGUI();
+		iniciarFocoControlador();
+		iniciarGUIControlador();
 	}
 
 	@Override
@@ -44,7 +44,7 @@ public final class FLogin extends JFrame implements Gui {
 	}
 
 	@Override
-	public GuiGerenteEventos getGuiGerenteEventos() {
+	public GUIConfiguracao getGUIConfiguracao() {
 		return null;
 	}
 
@@ -61,13 +61,13 @@ public final class FLogin extends JFrame implements Gui {
 	}
 
 	@Override
-	public void iniciarFocusTabListener() {
+	public void iniciarFocoControlador() {
 		@SuppressWarnings("unused")
 		FocusTabListener focusTabListener = new FocusTabListener(this);
 	}
 
 	@Override
-	public void iniciarGui() {
+	public void iniciarGUI() {
 		setTitle("LOGIN");
 		setIconImage(Imagem.getLogoTipoImage());
 		pLogin = new PLogin();
@@ -96,12 +96,12 @@ public final class FLogin extends JFrame implements Gui {
 	}
 
 	@Override
-	public void iniciarGuiGerenteEventos() {
+	public void iniciarGUIControlador() {
 
 	}
 
 	@Override
-	public void iniciarGerenteEventos() {
+	public void iniciarControlador() {
 		loginGerenteEventos = new LoginGerenteEventos();
 		addWindowListener(loginGerenteEventos.new Frame());
 		pLogin.getTextFieldSenha().addActionListener(loginGerenteEventos.new ButtonEntrarHandle());
@@ -120,15 +120,15 @@ public final class FLogin extends JFrame implements Gui {
 	}
 
 	@Override
-	public void iniciarTable() {
+	public void iniciarTabela() {
 	}
 
 	@Override
-	public void limparGui() {
+	public void limparGUI() {
 
 	}
 
 	@Override
-	public void reiniciarBox() {
+	public void reiniciarGUI() {
 	}
 }

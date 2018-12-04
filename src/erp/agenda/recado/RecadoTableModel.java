@@ -160,41 +160,7 @@ public class RecadoTableModel extends AbstractTableModel {
 		Recado recado = recadoList.get(rowIndex);
 		switch (columnIndex) {
 		case COL_BAIRRO:
-			return recado.getBairro();
-		case COL_CEP:
-			return recado.getCep();
-		case COL_CIDADE:
-			return recado.getCidade();
-		case COL_CNPJ:
-			return recado.getCnpj();
-		case COL_COMPLEMENTO:
-			return recado.getComplemento();
-		case COL_CPF_NUMERO:
-			return recado.getCpfNumero();
-		case COL_EMAIL:
-			return recado.getEmail();
-		case COL_EMPRESA:
-			return recado.getEmpresa();
-		case COL_ESTADO:
-			return recado.getEstado();
-		case COL_FAX:
-			return recado.getFax();
-		case COL_FONE1:
-			return recado.getFone1();
-		case COL_FONE2:
-			return recado.getFone2();
-		case ID:
-			return recado.getId();
-		case COL_LOGRADOURO:
-			return recado.getLogradouro();
-		case COL_NOME:
-			return recado.getNome();
-		case COL_PAIS:
-			return recado.getPais();
-		case COL_SALARIO:
-			return recado.getSalario();
-		case COL_SEXO:
-			return recado.getSexo();
+			return recado.getData();
 		default:
 			return recado;
 		}
@@ -214,58 +180,10 @@ public class RecadoTableModel extends AbstractTableModel {
 		recado = recadoList.get(rowIndex);
 		switch (columnIndex) {
 		case COL_BAIRRO:
-			recado.setBairro(aValue.toString());
-			break;
-		case COL_CEP:
-			recado.setCep(aValue.toString());
-			break;
-		case COL_CIDADE:
-			recado.setCidade(aValue.toString());
-			break;
-		case COL_CNPJ:
-			recado.setCnpj(aValue.toString());
-			break;
-		case COL_COMPLEMENTO:
-			recado.setComplemento(aValue.toString());
-			break;
-		case COL_CPF_NUMERO:
-			recado.setCpfNumero(aValue.toString());
-			break;
-		case COL_EMAIL:
-			recado.setEmail(aValue.toString());
-			break;
-		case COL_EMPRESA:
-			recado.setEmpresa((Empresa) aValue);
-			break;
-		case COL_ESTADO:
-			recado.setEstado(aValue.toString());
-			break;
-		case COL_FAX:
-			recado.setFax(aValue.toString());
-			break;
-		case COL_FONE1:
-			recado.setFone1(aValue.toString());
-			break;
-		case COL_FONE2:
-			recado.setFone2(aValue.toString());
+			recado.setData(aValue.toString());
 			break;
 		case ID:
 			recado.setId(Long.parseLong(aValue.toString()));
-			break;
-		case COL_LOGRADOURO:
-			recado.setLogradouro(aValue.toString());
-			break;
-		case COL_NOME:
-			recado.setNome(aValue.toString());
-			break;
-		case COL_PAIS:
-			recado.setPais(aValue.toString());
-			break;
-		case COL_SALARIO:
-			recado.setSalario(aValue.toString());
-			break;
-		case COL_SEXO:
-			recado.setSexo(aValue.toString());
 			break;
 		}
 

@@ -4,8 +4,6 @@ import java.util.Collection;
 
 public interface RecadoDao {
 
-	public String construirQuery(StringBuilder recado);
-
 	public void deletarRegistro(Recado recado);
 
 	public Recado getRegistro(Recado recado);

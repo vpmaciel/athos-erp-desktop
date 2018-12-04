@@ -37,7 +37,7 @@ final class FuncionarioControlador {
 			}
 			try {
 				FuncionarioDaoFacade.deletarRegistro(funcionario);
-				getFrameCadastroFuncionario().limparGui();
+				getFrameCadastroFuncionario().limparGUI();
 				funcionario = new Funcionario();
 				Msg.sucessoExcluiRegistro();
 			} catch (Exception e) {
@@ -62,7 +62,7 @@ final class FuncionarioControlador {
 
 		@Override
 		public void windowActivated(WindowEvent e) {
-			getFrameCadastroFuncionario().reiniciarBox();
+			getFrameCadastroFuncionario().reiniciarGUI();
 		}
 
 		@Override
@@ -133,7 +133,7 @@ final class FuncionarioControlador {
 			if (event.getSource() == getPanelCadastroFuncionario().getLabelCentroCusto()) {
 				MainControlador.mostrarFrame(MainControlador.getFrameCadastroCentroCusto());
 			} else {
-				MainControlador.getFrameCadastroCentroCusto().reiniciarBox();
+				MainControlador.getFrameCadastroCentroCusto().reiniciarGUI();
 			}
 		}
 	}
@@ -143,7 +143,7 @@ final class FuncionarioControlador {
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
 			funcionario = new Funcionario();
-			MainControlador.getFrameCadastroFuncionario().limparGui();
+			MainControlador.getFrameCadastroFuncionario().limparGUI();
 			getPanelCadastroFuncionario().getTextFieldNome().requestFocus();
 		}
 	}
@@ -186,14 +186,14 @@ final class FuncionarioControlador {
 				String nome = getPanelCadastroFuncionario().getTextFieldNome().getText();
 				if (nome == null || nome.length() == 0) {
 					getPanelCadastroFuncionario().getTextFieldNome().requestFocus();
-					Msg.avisoCampoObrigatorio("Nome");
+					Msg.avisoCampoObrigatorio("Data");
 					return;
 				}
 				if (mensagem == JOptionPane.YES_OPTION) {
 					atualizarObjeto();
 					FuncionarioDaoFacade.salvarRegistro(funcionario);
 					funcionario = new Funcionario();
-					getFrameCadastroFuncionario().limparGui();
+					getFrameCadastroFuncionario().limparGUI();
 					getPanelCadastroFuncionario().getTextFieldNome().requestFocus();
 					Msg.sucessoSalvarRegistro();
 				}

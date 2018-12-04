@@ -27,7 +27,7 @@ final class ClienteControlador {
 			} else if (event.getSource() == getPanelCadastroCliente().getLabelBanco()) {
 				MainControlador.mostrarFrame(MainControlador.getFrameCadastroBanco());
 			}
-			MainControlador.getFrameCadastroEmpresa().reiniciarBox();
+			MainControlador.getFrameCadastroEmpresa().reiniciarGUI();
 		}
 	}
 
@@ -52,7 +52,7 @@ final class ClienteControlador {
 			}
 			try {
 				ClienteDaoFacade.deletarRegistro(cliente);
-				getFrameCadastroCliente().limparGui();
+				getFrameCadastroCliente().limparGUI();
 				cliente = new Cliente();
 				Msg.sucessoExcluiRegistro();
 			} catch (Exception e) {
@@ -73,7 +73,7 @@ final class ClienteControlador {
 
 		@Override
 		public void windowActivated(WindowEvent e) {
-			getFrameCadastroCliente().reiniciarBox();
+			getFrameCadastroCliente().reiniciarGUI();
 		}
 
 		@Override
@@ -136,7 +136,7 @@ final class ClienteControlador {
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
 			cliente = new Cliente();
-			getFrameCadastroCliente().limparGui();
+			getFrameCadastroCliente().limparGUI();
 			getPanelCadastroCliente().getTextFieldNome().requestFocus();
 		}
 	}
@@ -188,7 +188,7 @@ final class ClienteControlador {
 					atualizarObjeto();
 					ClienteDaoFacade.salvar(cliente);
 					cliente = new Cliente();
-					getFrameCadastroCliente().limparGui();
+					getFrameCadastroCliente().limparGUI();
 					getPanelCadastroCliente().getTextFieldNome().requestFocus();
 					Msg.sucessoSalvarRegistro();
 				}

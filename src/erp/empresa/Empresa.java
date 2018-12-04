@@ -25,8 +25,6 @@ public class Empresa implements Serializable {
 	private String inscricaoEstadual;
 	@Column(length = 20)
 	private String inscricaoMunicipal;
-	@Column(length = 14)
-	private String cpfNumero;
 	@Column(length = 50)
 	private String email;
 	@Column(length = 10)
@@ -86,10 +84,6 @@ public class Empresa implements Serializable {
 
 	public String getComplemento() {
 		return this.complemento;
-	}
-
-	public String getCpfNumero() {
-		return this.cpfNumero;
 	}
 
 	public String getDataFundacao() {
@@ -182,10 +176,6 @@ public class Empresa implements Serializable {
 
 	public void setComplemento(String complemento) {
 		this.complemento = complemento;
-	}
-
-	public void setCpfNumero(String cpfNumero) {
-		this.cpfNumero = cpfNumero;
 	}
 
 	public void setDataFundacao(String dataFundacao) {
