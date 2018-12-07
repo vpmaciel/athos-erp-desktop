@@ -64,43 +64,43 @@ public class ToolBar {
 		toolBar.add(buttonSair);
 	}
 
-	public JButton getButtonAjuda() {
+	public JButton getAjudaBTN() {
 		return this.buttonAjuda;
 	}
 
-	public JButton getButtonExcluiRegistro() {
+	public JButton getExcluirBTN() {
 		return buttonExcluiRegistro;
 	}
 
-	public JButton getButtonFechar() {
+	public JButton getFecharBTN() {
 		return buttonFechar;
 	}
 
-	public JButton getButtonHome() {
+	public JButton getHomeBTN() {
 		return buttonHome;
 	}
 
-	public JButton getButtonImprimiTodosRegistros() {
+	public JButton getRelatorioBTN() {
 		return this.buttonImprimiTodosRegistros;
 	}
 
-	public JButton getButtonImprimiUnicoRegistro() {
+	public JButton getImprimirBTN() {
 		return this.buttonImprimiUnicoRegistro;
 	}
 
-	public JButton getButtonNovoFrame() {
+	public JButton getNovoBTN() {
 		return this.buttonNovoFrame;
 	}
 
-	public JButton getButtonPesquisaRegistro() {
+	public JButton getPesquisarBTN() {
 		return this.buttonPesquisaRegistro;
 	}
 
-	public JButton getButtonSair() {
+	public JButton getSairBTN() {
 		return buttonSair;
 	}
 
-	public JButton getButtonSalvar() {
+	public JButton getSalvarBTN() {
 		return this.buttonSalvar;
 	}
 

@@ -24,8 +24,8 @@ public class ContatoTM extends AbstractTableModel {
 	static {
 		tabelaModelo.adicionar("ID", 0, 100);
 		tabelaModelo.adicionar("NOME", 1, 500);
-		tabelaModelo.adicionar("CPF", 2, 100);
-		tabelaModelo.adicionar("CNPJ", 3, 100);
+		tabelaModelo.adicionar("CPF", 2, 500);
+		tabelaModelo.adicionar("CNPJ", 3, 500);
 		
 		largura = new int[tabelaModelo.getTotalColunas()];
 		podeEditar = new boolean[tabelaModelo.getTotalColunas()];
@@ -84,6 +84,12 @@ public class ContatoTM extends AbstractTableModel {
 		}
 		if (tabelaModelo.getNome(columnIndex).equals("NOME")) {
 			return tipoEvento.getNome();
+		}
+		if (tabelaModelo.getNome(columnIndex).equals("CPF")) {
+			return tipoEvento.getCpf();
+		}
+		if (tabelaModelo.getNome(columnIndex).equals("CNPJ")) {
+			return tipoEvento.getCnpj();
 		}
 		return tipoEvento;
 	}

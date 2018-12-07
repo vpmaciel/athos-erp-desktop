@@ -77,8 +77,8 @@ final class ContatoIMP implements ContatoDAO {
 		if (contato.getComplemento() != null && !contato.getComplemento().equals("")) {
 			predicates.add(criteriaBuilder.like(rootContato.get("complemento"), "%" + contato.getComplemento() + "%"));
 		}
-		if (contato.getCpfNumero() != null && !contato.getCpfNumero().equals("")) {
-			predicates.add(criteriaBuilder.like(rootContato.get("cpfNumero"), "%" + contato.getCpfNumero() + "%"));
+		if (contato.getCpf() != null && !contato.getCpf().equals("")) {
+			predicates.add(criteriaBuilder.like(rootContato.get("cpfNumero"), "%" + contato.getCpf() + "%"));
 		}
 		if (contato.getEmail() != null && !contato.getEmail().equals("")) {
 			predicates.add(criteriaBuilder.like(rootContato.get("email"), "%" + contato.getEmail() + "%"));

@@ -6,7 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.WindowConstants;
 
 import arquitetura.gui.GUI;
-import arquitetura.gui.GUIConfiguracao;
+import arquitetura.gui.ConfiguracaoGUI;
 import arquitetura.gui.Imagem;
 
 @SuppressWarnings("serial")
@@ -27,11 +27,11 @@ public final class ContatoFP extends JFrame implements GUI {
 	}
 
 	@Override
-	public GUIConfiguracao getGUIConfiguracao() {
+	public ConfiguracaoGUI getGUIConfiguracao() {
 		return null;
 	}
 
-	public ContatoPP getPanelPesquisaContato() {
+	public ContatoPP getContatoPP() {
 		return ContatoPP;
 	}
 

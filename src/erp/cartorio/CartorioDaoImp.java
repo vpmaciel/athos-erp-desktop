@@ -14,7 +14,7 @@ import javax.persistence.criteria.Root;
 
 import arquitetura.JPA;
 
-final class CartorioDaoImp implements CartorioDao {
+final class CartorioDaoImp implements CartorioDAO {
 
 	@Override
 	public void deletarCartorio(Cartorio cartorio) {

@@ -1,0 +1,16 @@
+package erp.contador;
+
+import java.util.Collection;
+
+public interface ContadorDAO {
+
+	public void deletarRegistro(Contador contador);
+
+	public Contador getRegistro(Contador contador);
+
+	public Collection<Contador> getRegistro();
+
+	public Collection<Contador> pesquisarRegistro(Contador contador);
+
+	public void salvarRegistro(Contador contador);
+}

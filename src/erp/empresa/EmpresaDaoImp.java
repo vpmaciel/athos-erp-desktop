@@ -14,7 +14,7 @@ import javax.persistence.criteria.Root;
 
 import arquitetura.JPA;
 
-final class EmpresaDaoImp implements EmpresaDao {
+final class EmpresaDaoImp implements EmpresaDAO {
 
 	@Override
 	public void deletarRegistro(Empresa empresa) {

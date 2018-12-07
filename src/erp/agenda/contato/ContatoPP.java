@@ -19,12 +19,12 @@ import arquitetura.gui.Tabela;
 public final class ContatoPP extends JPanel {
 
 	private final ContatoTM contatoTM;
-	List<Contato> recadoList = null;
+	List<Contato> contatoList = null;
 	private final JTable table;
 
 	public ContatoPP() {
-		recadoList = new LinkedList<>();
-		contatoTM = new ContatoTM(recadoList);
+		contatoList = new LinkedList<>();
+		contatoTM = new ContatoTM(contatoList);
 
 		table = new JTable();
 		table.setModel(contatoTM);
@@ -66,13 +66,13 @@ public final class ContatoPP extends JPanel {
 	}
 
 	public int pesquisarRegistroContato(Contato contato) {
-		recadoList = new LinkedList<>();
+		contatoList = new LinkedList<>();
 		try {
-			recadoList = new LinkedList<>(ContatoFAC.pesquisarRegistro(contato));
+			contatoList = new LinkedList<>(ContatoFAC.pesquisarRegistro(contato));
 		} catch (Exception e) {
 			System.out.println(e);
 		}
-		atualizarGui(recadoList);
-		return recadoList.size();
+		atualizarGui(contatoList);
+		return contatoList.size();
 	}
 }

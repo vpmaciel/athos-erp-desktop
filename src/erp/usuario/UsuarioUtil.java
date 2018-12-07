@@ -7,10 +7,10 @@ public final class UsuarioUtil {
 		usuario.setNome("ADMIN");
 		usuario.setSenha("123");
 
-		int usuarioRegTotal = UsuarioDaoFacade.getRegistro().size();
+		int usuarioRegTotal = UsuarioFAC.getRegistro().size();
 
 		if (usuarioRegTotal < 1) {
-			UsuarioDaoFacade.salvarRegistro(usuario);
+			UsuarioFAC.salvarRegistro(usuario);
 		}
 	}
 }

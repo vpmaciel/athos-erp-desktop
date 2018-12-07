@@ -142,7 +142,7 @@ public class Funcionario implements Serializable {
 		return cor;
 	}
 
-	public String getCpfNumero() {
+	public String getCpf() {
 		return this.cpfNumero;
 	}
 
@@ -290,7 +290,7 @@ public class Funcionario implements Serializable {
 		this.cor = cor;
 	}
 
-	public void setCpfNumero(String cpfNumero) {
+	public void setCpf(String cpfNumero) {
 		this.cpfNumero = cpfNumero;
 	}
 

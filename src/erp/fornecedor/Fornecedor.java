@@ -188,7 +188,7 @@ public class Fornecedor implements Serializable {
 		this.complemento = complemento;
 	}
 
-	public void setCpfNumero(String cpfNumero) {
+	public void setCpf(String cpfNumero) {
 		this.cpfNumero = cpfNumero;
 	}
 

@@ -5,100 +5,96 @@ import java.util.List;
 
 import javax.swing.table.AbstractTableModel;
 
-import erp.agenda.evento.tipoevento.TipoEvento;
+import arquitetura.util.TabelaModelo;
 
 @SuppressWarnings("serial")
 public class EventoTM extends AbstractTableModel {
 
 	public static final int ID = 0;
-	public final int COL_DATA = 1;
-	public final int COL_HORA_INICIO = 2;
-	public final int COL_HORA_TERMINO = 3;
-	public final int COL_TIPO_EVENTO = 4;
-	public final int COL_DESCRICAO = 5;
-	public static final int[] WIDTH = new int[] { 100, 500, 500, 500, 500, 500 };
-	public final boolean[] podeEditar = new boolean[] { false, false, false, false, false, false };
-	private List<Evento> eventoList = new LinkedList<>();
+	public static int[] largura;
+	private static boolean[] podeEditar;
+	private List<Evento> EventoList = new LinkedList<>();
 	private Evento evento;
+	private static TabelaModelo tabelaModelo = new TabelaModelo();
 
 	public EventoTM() {
 
 	}
 
-	public EventoTM(List<Evento> lista) {
-		eventoList.addAll(lista);
+	static {
+		tabelaModelo.adicionar("ID", 0, 100);
+		tabelaModelo.adicionar("DESCRIÇÃO", 1, 500);
+		tabelaModelo.adicionar("DATA", 2, 100);
+		tabelaModelo.adicionar("HORA INÍCIO", 3, 100);
+		tabelaModelo.adicionar("HORA TÉMINO", 4, 100);
+		
+		largura = new int[tabelaModelo.getTotalColunas()];
+		podeEditar = new boolean[tabelaModelo.getTotalColunas()];
+		for (int i = 0; i < tabelaModelo.getTotalColunas(); i++) {
+			largura[i] = tabelaModelo.getLargura(i);
+			podeEditar[i] = false;
+		}
 	}
 
-	public Evento getAgenda(int linha) {
-		if (eventoList.size() > 0) {
-			return eventoList.get(linha);
+	public EventoTM(List<Evento> lista) {
+		EventoList.addAll(lista);
+	}
+
+	public Evento getEvento(int linha) {
+		if (EventoList.size() > 0) {
+			return EventoList.get(linha);
 		}
 		return null;
 	}
 
-	public List<Evento> getAgendaList() {
-		return eventoList;
+	public List<Evento> getEventoList() {
+		return EventoList;
 	}
 
 	@Override
 	public Class<?> getColumnClass(int columnIndex) {
-		switch (columnIndex) {
-		case ID:
+
+		if (tabelaModelo.getNome(columnIndex).equals("ID")) {
 			return Long.class;
-		default:
-			return String.class;
 		}
+		return String.class;
 	}
 
 	@Override
 	public int getColumnCount() {
-		return WIDTH.length;
+		return largura.length;
 	}
 
 	@Override
 	public String getColumnName(int column) {
-		switch (column) {
-		case ID:
-			return "REGISTRO";
-		case COL_DATA:
-			return "DATA";
-		case COL_HORA_INICIO:
-			return "CPF";
-		case COL_HORA_TERMINO:
-			return "HORA_TERMINO";
-		case COL_TIPO_EVENTO:
-			return "TIPO_EVENTO";
-		case COL_DESCRICAO:
-			return "DESCRICAO";
-		default:
-			return "";
-		}
+		return tabelaModelo.getNome(column);
 	}
 
 	@Override
 	public int getRowCount() {
-		return eventoList.size();
+		return EventoList.size();
 	}
 
 	@Override
 	public Object getValueAt(int rowIndex, int columnIndex) {
-		Evento evento = eventoList.get(rowIndex);
-		switch (columnIndex) {
-		case COL_DATA:
-			return evento.getData();
-		case COL_HORA_INICIO:
-			return evento.getHoraInicio();
-		case COL_HORA_TERMINO:
-			return evento.getHoraTermino();
-		case COL_TIPO_EVENTO:
-			return evento.getTipoEvento();
-		case COL_DESCRICAO:
-			return evento.getDescricao();
-		case ID:
+		Evento evento = EventoList.get(rowIndex);
+
+		if (tabelaModelo.getNome(columnIndex).equals("ID")) {
 			return evento.getId();
-		default:
-			return evento;
 		}
+		if (tabelaModelo.getNome(columnIndex).equals("DESCRIÇÃO")) {
+			return evento.getDescricao();
+		}
+		if (tabelaModelo.getNome(columnIndex).equals("DATA")) {
+			return evento.getData();
+		}
+		if (tabelaModelo.getNome(columnIndex).equals("HORA INÍCIO")) {
+			return evento.getHoraInicio();
+		}
+		if (tabelaModelo.getNome(columnIndex).equals("HORA TÉRMINO")) {
+			return evento.getHoraTermino();
+		}
+		return evento;
 	}
 
 	@Override
@@ -106,34 +102,29 @@ public class EventoTM extends AbstractTableModel {
 		return podeEditar[columnIndex];
 	}
 
-	public void setAgendaList(List<Evento> banco) {
-		eventoList = banco;
+	public void setEventoList(List<Evento> Evento) {
+		EventoList = Evento;
 	}
 
 	@Override
 	public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
-		evento = eventoList.get(rowIndex);
-		switch (columnIndex) {
-		case COL_DATA:
-			evento.setData(aValue.toString());
-			break;
-		case COL_HORA_INICIO:
-			evento.setHoraInicio(aValue.toString());
-			break;
-		case COL_HORA_TERMINO:
-			evento.setHoraTermino(aValue.toString());
-			break;
-		case COL_TIPO_EVENTO:
-			evento.setTipoEvento((TipoEvento) aValue);
-			break;
-		case COL_DESCRICAO:
-			evento.setDescricao(aValue.toString());
-			break;
-		case ID:
-			evento.setId(Long.parseLong(aValue.toString()));
-			break;
-		}
+		evento = EventoList.get(rowIndex);
 
+		if (tabelaModelo.getNome(columnIndex).equals("ID")) {
+			evento.setId(Long.parseLong(aValue.toString()));
+		}
+		if (tabelaModelo.getNome(columnIndex).equals("DESCRIÇÃO")) {
+			evento.setDescricao(aValue.toString());
+		}
+		if (tabelaModelo.getNome(columnIndex).equals("DATA")) {
+			evento.setData(aValue.toString());
+		}
+		if (tabelaModelo.getNome(columnIndex).equals("HORA INÍCIO")) {
+			evento.setHoraInicio(aValue.toString());
+		}
+		if (tabelaModelo.getNome(columnIndex).equals("HORA TÉRMINO")) {
+			evento.setHoraTermino(aValue.toString());
+		}
 		fireTableDataChanged();
 	}
 }

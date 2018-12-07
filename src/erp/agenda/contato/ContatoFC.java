@@ -12,14 +12,14 @@ import javax.swing.WindowConstants;
 
 import arquitetura.gui.FocusTabListener;
 import arquitetura.gui.GUI;
-import arquitetura.gui.GUIConfiguracao;
+import arquitetura.gui.ConfiguracaoGUI;
 import arquitetura.gui.Imagem;
 
 @SuppressWarnings("serial")
 public final class ContatoFC extends JFrame implements GUI {
 
 	private ContatoCT contatoCT;
-	private GUIConfiguracao gUIConfiguracao;
+	private ConfiguracaoGUI configuracaoGUI;
 	private ContatoPC contatoPC;
 
 	public ContatoFC() {
@@ -37,8 +37,8 @@ public final class ContatoFC extends JFrame implements GUI {
 	}
 
 	@Override
-	public GUIConfiguracao getGUIConfiguracao() {
-		return gUIConfiguracao;
+	public ConfiguracaoGUI getGUIConfiguracao() {
+		return configuracaoGUI;
 	}
 
 	public ContatoPC getPanelCadastroContato() {
@@ -88,28 +88,24 @@ public final class ContatoFC extends JFrame implements GUI {
 
 	@Override
 	public void iniciarGUIControlador() {
-		gUIConfiguracao = new GUIConfiguracao(this);
+		configuracaoGUI = new ConfiguracaoGUI(this);
 	}
 
 	@Override
 	public void iniciarControlador() {
 		contatoCT = new ContatoCT();
 		addWindowListener(contatoCT.new Frame());
-		contatoPC.getLabelEmpresa().addMouseListener(contatoCT.new MostraFrameContato());
-		contatoPC.getToolBar().getButtonExcluiRegistro()
-				.addActionListener(contatoCT.new ExcluiRegistro());
-		contatoPC.getToolBar().getButtonNovoFrame().addActionListener(contatoCT.new NovoFrame());
-		contatoPC.getToolBar().getButtonPesquisaRegistro()
-				.addActionListener(contatoCT.new PesquisaRegistro());
-		contatoPC.getToolBar().getButtonImprimiUnicoRegistro()
-				.addActionListener(contatoCT.new ImprimiUnicoRegistro());
-		contatoPC.getToolBar().getButtonImprimiTodosRegistros()
-				.addActionListener(contatoCT.new ImprimiTodosRegistros());
-		contatoPC.getToolBar().getButtonSalvar().addActionListener(contatoCT.new Salva());
-		contatoPC.getToolBar().getButtonFechar().addActionListener(contatoCT.new FechaJanela());
-		contatoPC.getToolBar().getButtonSair().addActionListener(contatoCT.new SaidaSistema());
-		contatoPC.getToolBar().getButtonAjuda().addActionListener(contatoCT.new Ajuda());
-		contatoPC.getToolBar().getButtonHome().addActionListener(contatoCT.new Home());
+		contatoPC.getLabelEmpresa().addMouseListener(contatoCT.new MostraEmpresaFC());
+		contatoPC.getToolBar().getExcluirBTN().addActionListener(contatoCT.new Exclui());
+		contatoPC.getToolBar().getNovoBTN().addActionListener(contatoCT.new Novo());
+		contatoPC.getToolBar().getPesquisarBTN().addActionListener(contatoCT.new Pesquisa());
+		contatoPC.getToolBar().getImprimirBTN().addActionListener(contatoCT.new Imprime());
+		contatoPC.getToolBar().getRelatorioBTN().addActionListener(contatoCT.new Relatorio());
+		contatoPC.getToolBar().getSalvarBTN().addActionListener(contatoCT.new Salva());
+		contatoPC.getToolBar().getFecharBTN().addActionListener(contatoCT.new FechaJanela());
+		contatoPC.getToolBar().getSairBTN().addActionListener(contatoCT.new SaidaSistema());
+		contatoPC.getToolBar().getAjudaBTN().addActionListener(contatoCT.new Ajuda());
+		contatoPC.getToolBar().getHomeBTN().addActionListener(contatoCT.new Home());
 
 	}
 
@@ -128,7 +124,7 @@ public final class ContatoFC extends JFrame implements GUI {
 
 	@Override
 	public void limparGUI() {
-		gUIConfiguracao.limparGui();
+		configuracaoGUI.limparGui();
 	}
 
 	@Override

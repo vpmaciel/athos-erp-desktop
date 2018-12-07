@@ -24,7 +24,7 @@ public class Contato implements Serializable {
 	private String cnpj;
 	@Column(length = 14)
 	private String cpfNumero;
-	@Column(length = 15)
+	@Column(length = 50)
 	private String email;
 	@ManyToOne(cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
 	private Empresa empresa;
@@ -73,7 +73,7 @@ public class Contato implements Serializable {
 		return this.complemento;
 	}
 
-	public String getCpfNumero() {
+	public String getCpf() {
 		return this.cpfNumero;
 	}
 

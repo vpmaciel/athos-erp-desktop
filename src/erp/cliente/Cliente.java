@@ -159,7 +159,7 @@ public class Cliente implements Serializable {
 		return cor;
 	}
 
-	public String getCpfNumero() {
+	public String getCpf() {
 		return this.cpfNumero;
 	}
 
@@ -339,7 +339,7 @@ public class Cliente implements Serializable {
 		this.cor = cor.replaceAll("\\s+", " ").trim();
 	}
 
-	public void setCpfNumero(String cpfNumero) {
+	public void setCpf(String cpfNumero) {
 		this.cpfNumero = cpfNumero.replaceAll("\\s+", " ").trim();
 	}
 

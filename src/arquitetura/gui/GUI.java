@@ -4,7 +4,7 @@ public interface GUI {
 
 	void atualizarTable();
 
-	GUIConfiguracao getGUIConfiguracao();
+	ConfiguracaoGUI getGUIConfiguracao();
 
 	void iniciarFocoControlador();
 

@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
 
 import arquitetura.gui.Msg;
 import erp.empresa.Empresa;
-import erp.main.MainControlador;
+import erp.main.MainCT;
 
 final class ContatoCT {
 
@@ -25,7 +25,7 @@ final class ContatoCT {
 		}
 	}
 
-	public class ExcluiRegistro implements ActionListener {
+	public class Exclui implements ActionListener {
 
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
@@ -49,7 +49,7 @@ final class ContatoCT {
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
 			try {
-				getFrameCadastroContato().setVisible(false);
+				getContatoFC().setVisible(false);
 			} catch (Exception e) {
 				System.out.println(e);
 			}
@@ -60,12 +60,12 @@ final class ContatoCT {
 
 		@Override
 		public void windowActivated(WindowEvent e) {
-			getFrameCadastroContato().reiniciarGUI();
+			getContatoFC().reiniciarGUI();
 		}
 
 		@Override
 		public void windowClosing(WindowEvent e) {
-			getFrameCadastroContato().setVisible(false);
+			getContatoFC().setVisible(false);
 		}
 
 		@Override
@@ -79,14 +79,14 @@ final class ContatoCT {
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
 			try {
-				MainControlador.mostrarFrame(MainControlador.getFrameMain());
+				MainCT.mostrarFrame(MainCT.getFrameMain());
 			} catch (Exception e) {
 				System.out.println(e);
 			}
 		}
 	}
 
-	public class ImprimiTodosRegistros implements ActionListener {
+	public class Relatorio implements ActionListener {
 
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
@@ -109,7 +109,7 @@ final class ContatoCT {
 		}
 	}
 
-	public class ImprimiUnicoRegistro implements ActionListener {
+	public class Imprime implements ActionListener {
 
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
@@ -125,36 +125,36 @@ final class ContatoCT {
 		}
 	}
 
-	public class MostraFrameContato extends MouseAdapter {
+	public class MostraEmpresaFC extends MouseAdapter {
 
 		@Override
 		public void mouseClicked(MouseEvent event) {
 			if (event.getButton() == MouseEvent.BUTTON1) {
-				MainControlador.mostrarFrame(MainControlador.getFrameCadastroEmpresa());
+				MainCT.mostrarFrame(MainCT.getEmpresaFC());
 			} else {
-				MainControlador.getFrameCadastroEmpresa().reiniciarGUI();
+				MainCT.getEmpresaFC().reiniciarGUI();
 			}
 		}
 	}
 
-	public class NovoFrame implements ActionListener {
+	public class Novo implements ActionListener {
 
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
 			contato = new Contato();
-			getFrameCadastroContato().limparGUI();
-			getPanelCadastroContato().getTextFieldNome().requestFocus();
+			getContatoFC().limparGUI();
+			getContatoPC().getNomeGUI().requestFocus();
 		}
 	}
 
-	public class PesquisaRegistro implements ActionListener {
+	public class Pesquisa implements ActionListener {
 
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
 			contato = new Contato();
 			atualizarObjeto();
-			getPanelPesquisaContato().pesquisarRegistroContato(contato);
-			MainControlador.mostrarFrame(MainControlador.getFramePesquisaAgendaContato());
+			getContatoPP().pesquisarRegistroContato(contato);
+			MainCT.mostrarFrame(MainCT.getAgendaContatoFP());
 		}
 	}
 
@@ -182,9 +182,9 @@ final class ContatoCT {
 				if (mensagem != JOptionPane.YES_OPTION) {
 					return;
 				}
-				String nome = getPanelCadastroContato().getTextFieldNome().getText();
+				String nome = getContatoPC().getNomeGUI().getText();
 				if (nome == null || nome.length() == 0) {
-					getPanelCadastroContato().getTextFieldNome().requestFocus();
+					getContatoPC().getNomeGUI().requestFocus();
 					Msg.avisoCampoObrigatorio("Data");
 					return;
 				}
@@ -192,8 +192,8 @@ final class ContatoCT {
 					atualizarObjeto();
 					ContatoFAC.salvarRegistro(contato);
 					contato = new Contato();
-					MainControlador.getFrameCadastroAgendaContato().limparGUI();
-					getPanelCadastroContato().getTextFieldNome().requestFocus();
+					MainCT.getAgendaContatoFC().limparGUI();
+					getContatoPC().getNomeGUI().requestFocus();
 					Msg.sucessoSalvarRegistro();
 				}
 			} catch (Exception e) {
@@ -209,41 +209,41 @@ final class ContatoCT {
 		if (contato == null) {
 			return;
 		}
-		getPanelCadastroContato().getTextFieldNome().setText(contato.getNome());
-		getPanelCadastroContato().getTextFieldSexo().setSelectedItem(contato.getSexo());
-		getPanelCadastroContato().getTextFieldEmail().setText(contato.getEmail());
-		getPanelCadastroContato().getTextFieldFax().setText(contato.getFax());
-		getPanelCadastroContato().getTextFieldFone1().setText(contato.getFone1());
-		getPanelCadastroContato().getTextFieldFone2().setText(contato.getFone2());
-		getPanelCadastroContato().getBoxEmpresa().setSelectedItem(contato.getEmpresa());
-		getPanelCadastroContato().getTextFieldBairro().setText(contato.getBairro());
-		getPanelCadastroContato().getTextFieldCep().setText(contato.getCep());
-		getPanelCadastroContato().getTextFieldCidade().setText(contato.getCidade());
-		getPanelCadastroContato().getTextFieldComplemento().setText(contato.getComplemento());
-		getPanelCadastroContato().getTextFieldEstado().setText(contato.getEstado());
-		getPanelCadastroContato().getTextFieldLogradouro().setText(contato.getLogradouro());
-		getPanelCadastroContato().getTextFieldPais().setText(contato.getPais());
-		getPanelCadastroContato().getTextFieldCNPJ().setText(contato.getCnpj());
-		getPanelCadastroContato().getTextFieldCPF().setText(contato.getCpfNumero());
+		getContatoPC().getNomeGUI().setText(contato.getNome());
+		getContatoPC().getSexoGUI().setSelectedItem(contato.getSexo());
+		getContatoPC().getEmailGUI().setText(contato.getEmail());
+		getContatoPC().getFaxGUI().setText(contato.getFax());
+		getContatoPC().getFone1GUI().setText(contato.getFone1());
+		getContatoPC().getFone2GUI().setText(contato.getFone2());
+		getContatoPC().getEmpresaGUI().setSelectedItem(contato.getEmpresa());
+		getContatoPC().getBairroGUI().setText(contato.getBairro());
+		getContatoPC().getCepGUI().setText(contato.getCep());
+		getContatoPC().getCidadeGUI().setText(contato.getCidade());
+		getContatoPC().getComplementoGUI().setText(contato.getComplemento());
+		getContatoPC().getEstadoGUI().setText(contato.getEstado());
+		getContatoPC().getLogradouroGUI().setText(contato.getLogradouro());
+		getContatoPC().getPaisGUI().setText(contato.getPais());
+		getContatoPC().getCnpjGUI().setText(contato.getCnpj());
+		getContatoPC().getCpfGUI().setText(contato.getCpf());
 	}
 
 	public void atualizarObjeto() {
-		contato.setNome(getPanelCadastroContato().getTextFieldNome().getText());
-		contato.setSexo((String) getPanelCadastroContato().getTextFieldSexo().getSelectedItem());
-		contato.setEmail(getPanelCadastroContato().getTextFieldEmail().getText());
-		contato.setFax(getPanelCadastroContato().getTextFieldFax().getText());
-		contato.setFone1(getPanelCadastroContato().getTextFieldFone1().getText());
-		contato.setFone2(getPanelCadastroContato().getTextFieldFone2().getText());
-		contato.setEmpresa((Empresa) getPanelCadastroContato().getBoxEmpresa().getSelectedItem());
-		contato.setBairro(getPanelCadastroContato().getTextFieldBairro().getText());
-		contato.setCep(getPanelCadastroContato().getTextFieldCep().getText());
-		contato.setCidade(getPanelCadastroContato().getTextFieldCidade().getText());
-		contato.setComplemento(getPanelCadastroContato().getTextFieldComplemento().getText());
-		contato.setEstado(getPanelCadastroContato().getTextFieldEstado().getText());
-		contato.setLogradouro(getPanelCadastroContato().getTextFieldLogradouro().getText());
-		contato.setPais(getPanelCadastroContato().getTextFieldPais().getText());
-		contato.setCnpj(getPanelCadastroContato().getTextFieldCNPJ().getText());
-		contato.setCpfNumero(getPanelCadastroContato().getTextFieldCPF().getText());
+		contato.setNome(getContatoPC().getNomeGUI().getText());
+		contato.setSexo((String) getContatoPC().getSexoGUI().getSelectedItem());
+		contato.setEmail(getContatoPC().getEmailGUI().getText());
+		contato.setFax(getContatoPC().getFaxGUI().getText());
+		contato.setFone1(getContatoPC().getFone1GUI().getText());
+		contato.setFone2(getContatoPC().getFone2GUI().getText());
+		contato.setEmpresa((Empresa) getContatoPC().getEmpresaGUI().getSelectedItem());
+		contato.setBairro(getContatoPC().getBairroGUI().getText());
+		contato.setCep(getContatoPC().getCepGUI().getText());
+		contato.setCidade(getContatoPC().getCidadeGUI().getText());
+		contato.setComplemento(getContatoPC().getComplementoGUI().getText());
+		contato.setEstado(getContatoPC().getEstadoGUI().getText());
+		contato.setLogradouro(getContatoPC().getLogradouroGUI().getText());
+		contato.setPais(getContatoPC().getPaisGUI().getText());
+		contato.setCnpj(getContatoPC().getCnpjGUI().getText());
+		contato.setCpfNumero(getContatoPC().getCpfGUI().getText());
 	}
 
 	public Contato getContato() {
@@ -254,19 +254,19 @@ final class ContatoCT {
 		this.contato = contato;
 	}
 
-	public ContatoFC getFrameCadastroContato() {
-		return MainControlador.getFrameCadastroAgendaContato();
+	public ContatoFC getContatoFC() {
+		return MainCT.getAgendaContatoFC();
 	}
 
-	public ContatoPC getPanelCadastroContato() {
-		return MainControlador.getFrameCadastroAgendaContato().getPanelCadastroContato();
+	public ContatoPC getContatoPC() {
+		return MainCT.getAgendaContatoFC().getPanelCadastroContato();
 	}
 
-	public ContatoFP getFramePesquisaContato() {
-		return MainControlador.getFramePesquisaAgendaContato();
+	public ContatoFP getContatoFP() {
+		return MainCT.getAgendaContatoFP();
 	}
 
-	public ContatoPP getPanelPesquisaContato() {
-		return MainControlador.getFramePesquisaAgendaContato().getPanelPesquisaContato();
+	public ContatoPP getContatoPP() {
+		return MainCT.getAgendaContatoFP().getContatoPP();
 	}
 }

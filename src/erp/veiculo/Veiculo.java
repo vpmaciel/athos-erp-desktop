@@ -14,6 +14,8 @@ import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
 import erp.centrocusto.CentroCusto;
+import erp.veiculo.marca.VeiculoMarca;
+import erp.veiculo.modelo.VeiculoModelo;
 
 @SuppressWarnings("serial")
 @PersistenceContext(unitName = "erp")
@@ -24,6 +26,10 @@ public class Veiculo implements Serializable {
 	@Id
 	@GeneratedValue
 	private Long id;
+	@ManyToOne(cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
+	private VeiculoMarca marca;
+	@ManyToOne(cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
+	private VeiculoModelo modelo;
 	@Column(length = 9)
 	private String numeroMotor;
 	@Column(length = 9)
@@ -82,8 +88,6 @@ public class Veiculo implements Serializable {
 	private String chassi;
 	@Column(length = 50)
 	private String proprietarioEmail;
-	@Column(length = 20)
-	private String marca;
 	@Column(length = 50, nullable = false)
 	private String proprietarioNome;
 	@Column(length = 10)
@@ -140,8 +144,6 @@ public class Veiculo implements Serializable {
 	private String cmtTon;
 	@Column(length = 2)
 	private String eixos;
-	@Column(length = 20)
-	private String modelo;
 	@Column(length = 4)
 	private String anoFabricacao;
 	@Column(length = 4)
@@ -299,7 +301,7 @@ public class Veiculo implements Serializable {
 		return lucro;
 	}
 
-	public String getMarca() {
+	public VeiculoMarca getMarca() {
 		return marca;
 	}
 
@@ -311,7 +313,7 @@ public class Veiculo implements Serializable {
 		return mesReferenciaVenda;
 	}
 
-	public String getModelo() {
+	public VeiculoModelo getModelo() {
 		return modelo;
 	}
 
@@ -563,7 +565,7 @@ public class Veiculo implements Serializable {
 		this.lucro = lucro;
 	}
 
-	public void setMarca(String marca) {
+	public void setMarca(VeiculoMarca marca) {
 		this.marca = marca;
 	}
 
@@ -575,7 +577,7 @@ public class Veiculo implements Serializable {
 		this.mesReferenciaVenda = mesReferenciaVenda;
 	}
 
-	public void setModelo(String modelo) {
+	public void setModelo(VeiculoModelo modelo) {
 		this.modelo = modelo;
 	}
 

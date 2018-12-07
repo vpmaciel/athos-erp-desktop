@@ -12,21 +12,21 @@ import javax.swing.SpringLayout;
 
 import arquitetura.gui.FocusTabListener;
 import arquitetura.gui.GUI;
-import arquitetura.gui.GUIConfiguracao;
+import arquitetura.gui.ConfiguracaoGUI;
 import arquitetura.gui.TamanhoLowerCase;
 import arquitetura.gui.TamanhoUpperCase;
 import arquitetura.registro.ToolBar;
 import arquitetura.util.SpringUtilities;
 import erp.empresa.Empresa;
-import erp.empresa.EmpresaDaoFacade;
-import erp.empresa.EmpresaSort;
-import erp.main.MainControlador;
+import erp.empresa.EmpresaFAC;
+import erp.empresa.EmpresaCPT;
+import erp.main.MainCT;
 
 @SuppressWarnings("serial")
 public final class ContatoPC extends JPanel implements GUI {
 
 	private ToolBar toolBar;
-	private GUIConfiguracao gUIConfiguracao;
+	private ConfiguracaoGUI configuracaoGUI;
 	private JComboBox<String> boxSexo;
 	private JTextField textFieldNome;
 	private JTextField textFieldDataC;
@@ -73,40 +73,40 @@ public final class ContatoPC extends JPanel implements GUI {
 
 	}
 
-	public JComboBox<Empresa> getBoxEmpresa() {
+	public JComboBox<Empresa> getEmpresaGUI() {
 		return boxEmpresa;
 	}
 
 	@Override
-	public GUIConfiguracao getGUIConfiguracao() {
-		return gUIConfiguracao;
+	public ConfiguracaoGUI getGUIConfiguracao() {
+		return configuracaoGUI;
 	}
 
 	public JLabel getLabelEmpresa() {
 		return labelEmpresa;
 	}
 
-	public JTextField getTextFieldBairro() {
+	public JTextField getBairroGUI() {
 		return textFieldBairro;
 	}
 
-	public JTextField getTextFieldCep() {
+	public JTextField getCepGUI() {
 		return textFieldCep;
 	}
 
-	public JTextField getTextFieldCidade() {
+	public JTextField getCidadeGUI() {
 		return textFieldCidade;
 	}
 
-	public JTextField getTextFieldCNPJ() {
+	public JTextField getCnpjGUI() {
 		return textFieldCNPJ;
 	}
 
-	public JTextField getTextFieldComplemento() {
+	public JTextField getComplementoGUI() {
 		return textFieldComplemento;
 	}
 
-	public JTextField getTextFieldCPF() {
+	public JTextField getCpfGUI() {
 		return textFieldCPF;
 	}
 
@@ -114,39 +114,39 @@ public final class ContatoPC extends JPanel implements GUI {
 		return textFieldDataC;
 	}
 
-	public JTextField getTextFieldEmail() {
+	public JTextField getEmailGUI() {
 		return textFieldEmail;
 	}
 
-	public JTextField getTextFieldEstado() {
+	public JTextField getEstadoGUI() {
 		return textFieldEstado;
 	}
 
-	public JTextField getTextFieldFax() {
+	public JTextField getFaxGUI() {
 		return textFieldFax;
 	}
 
-	public JTextField getTextFieldFone1() {
+	public JTextField getFone1GUI() {
 		return textFieldFone1;
 	}
 
-	public JTextField getTextFieldFone2() {
+	public JTextField getFone2GUI() {
 		return textFieldFone2;
 	}
 
-	public JTextField getTextFieldLogradouro() {
+	public JTextField getLogradouroGUI() {
 		return textFieldLogradouro;
 	}
 
-	public JTextField getTextFieldNome() {
+	public JTextField getNomeGUI() {
 		return textFieldNome;
 	}
 
-	public JTextField getTextFieldPais() {
+	public JTextField getPaisGUI() {
 		return textFieldPais;
 	}
 
-	public JComboBox<String> getTextFieldSexo() {
+	public JComboBox<String> getSexoGUI() {
 		return boxSexo;
 	}
 
@@ -267,8 +267,8 @@ public final class ContatoPC extends JPanel implements GUI {
 		add(labelEmpresa);
 
 		boxEmpresa = new JComboBox<Empresa>();
-		List<Empresa> empresas = (List<Empresa>) EmpresaDaoFacade.getRegistro();
-		Collections.sort(empresas, new EmpresaSort().new NomeFantasia());
+		List<Empresa> empresas = (List<Empresa>) EmpresaFAC.getRegistro();
+		Collections.sort(empresas, new EmpresaCPT().new NomeFantasia());
 		for (Empresa empresa : empresas) {
 			boxEmpresa.addItem(empresa);
 		}
@@ -298,7 +298,7 @@ public final class ContatoPC extends JPanel implements GUI {
 
 	@Override
 	public void iniciarGUIControlador() {
-		gUIConfiguracao = new GUIConfiguracao(this);
+		configuracaoGUI = new ConfiguracaoGUI(this);
 	}
 
 	@Override
@@ -324,15 +324,15 @@ public final class ContatoPC extends JPanel implements GUI {
 	@Override
 	public void reiniciarGUI() {
 		Empresa empresa = null;
-		List<Empresa> empresas = (List<Empresa>) EmpresaDaoFacade.getRegistro();
-		Collections.sort(empresas, new EmpresaSort().new NomeFantasia());
+		List<Empresa> empresas = (List<Empresa>) EmpresaFAC.getRegistro();
+		Collections.sort(empresas, new EmpresaCPT().new NomeFantasia());
 		boxEmpresa.removeAllItems();
 		for (Empresa b : empresas) {
 			boxEmpresa.addItem(b);
 		}
-		if (!MainControlador.getFrameCadastroAgendaContato().isShowing()
-				&& MainControlador.getFrameCadastroAgendaContato().getContatoHandle().getContato() != null) {
-			empresa = MainControlador.getFrameCadastroAgendaContato().getContatoHandle().getContato().getEmpresa();
+		if (!MainCT.getAgendaContatoFC().isShowing()
+				&& MainCT.getAgendaContatoFC().getContatoHandle().getContato() != null) {
+			empresa = MainCT.getAgendaContatoFC().getContatoHandle().getContato().getEmpresa();
 			boxEmpresa.setSelectedItem(empresa);
 		}
 
