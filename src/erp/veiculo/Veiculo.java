@@ -605,11 +605,11 @@ public class Veiculo implements Serializable {
 		this.prejuizo = prejuizo;
 	}
 
-	public void setProprietarioAnteriorCNPJ(String proprietarioAnteriorCNPJ) {
+	public void setProprietarioAnteriorCnpj(String proprietarioAnteriorCNPJ) {
 		this.proprietarioAnteriorCNPJ = proprietarioAnteriorCNPJ;
 	}
 
-	public void setProprietarioAnteriorCPF(String proprietarioAnteriorCPF) {
+	public void setProprietarioAnteriorCpf(String proprietarioAnteriorCPF) {
 		this.proprietarioAnteriorCPF = proprietarioAnteriorCPF;
 	}
 
@@ -641,11 +641,11 @@ public class Veiculo implements Serializable {
 		this.proprietarioAnteriorRGOrgaoEmisssor = proprietarioAnteriorRGOrgaoEmisssor;
 	}
 
-	public void setProprietarioCNPJ(String proprietarioCNPJ) {
+	public void setProprietarioCnpj(String proprietarioCNPJ) {
 		this.proprietarioCNPJ = proprietarioCNPJ;
 	}
 
-	public void setProprietarioCPF(String proprietarioCPF) {
+	public void setProprietarioCpf(String proprietarioCPF) {
 		this.proprietarioCPF = proprietarioCPF;
 	}
 

@@ -319,47 +319,47 @@ public final class VeiculoPC extends JPanel implements GUI {
 		this.textFieldAnoFabricacao = textFieldAnoFabricacao;
 	}
 
-	public JComboBox<String> getBoxAtividade() {
+	public JComboBox<String> getAtividadeGUI() {
 		return boxAtividade;
 	}
 
-	public JComboBox<String> getBoxCarroceria() {
+	public JComboBox<String> getCarroceriaGUI() {
 		return boxCarroceria;
 	}
 
-	public JComboBox<String> getBoxCategoria() {
+	public JComboBox<String> getCategoriaGUI() {
 		return boxCategoria;
 	}
 
-	public JComboBox<String> getBoxChassiRemarcado() {
+	public JComboBox<String> getChassiRemarcadoGUI() {
 		return boxChassiRemarcado;
 	}
 
-	public JComboBox<String> getBoxCombustivel() {
+	public JComboBox<String> getCombustivelGUI() {
 		return boxCombustivel;
 	}
 
-	public JComboBox<String> getBoxCor() {
+	public JComboBox<String> getCorGUI() {
 		return boxCor;
 	}
 
-	public JComboBox<String> getBoxEspecie() {
+	public JComboBox<String> getEspecieGUI() {
 		return boxEspecie;
 	}
 
-	public JComboBox<String> getBoxFabricacao() {
+	public JComboBox<String> getFabricacaoGUI() {
 		return boxFabricacao;
 	}
 
-	public JComboBox<String> getBoxIpva() {
+	public JComboBox<String> getIpvaGUI() {
 		return boxIpva;
 	}
 
-	public JComboBox<String> getBoxRestricoes() {
+	public JComboBox<String> getRestricoesGUI() {
 		return boxRestricoes;
 	}
 
-	public JComboBox<String> getBoxTipo() {
+	public JComboBox<String> getTipoGUI() {
 		return boxTipo;
 	}
 
@@ -368,171 +368,171 @@ public final class VeiculoPC extends JPanel implements GUI {
 		return configuracaoGUI;
 	}
 
-	public JTextField getTextFieldAnoFabricacao() {
+	public JTextField getAnoFabricacaoGUI() {
 		return textFieldAnoFabricacao;
 	}
 
-	public JTextField getTextFieldAnoModelo() {
+	public JTextField getAnoModeloGUI() {
 		return textFieldAnoModelo;
 	}
 
-	public JTextField getTextFieldBairro() {
+	public JTextField getBairroGUI() {
 		return textFieldBairro;
 	}
 
-	public JTextField getTextFieldCapacidadePassageiros() {
+	public JTextField getCapacidadePassageirosGUI() {
 		return textFieldCapacidadePassageiros;
 	}
 
-	public JTextField getTextFieldCapCarga() {
+	public JTextField getCapCargaGUI() {
 		return textFieldCapCarga;
 	}
 
-	public JTextField getTextFieldCep() {
+	public JTextField getCepGUI() {
 		return textFieldCep;
 	}
 
-	public JTextField getTextFieldChassi() {
+	public JTextField getChassiGUI() {
 		return textFieldChassi;
 	}
 
-	public JTextField getTextFieldCidade() {
+	public JTextField getCidadeGUI() {
 		return textFieldCidade;
 	}
 
-	public JTextField getTextFieldCilindrada() {
+	public JTextField getCilindradaGUI() {
 		return textFieldCilindrada;
 	}
 
-	public JTextField getTextFieldCilindros() {
+	public JTextField getCilindrosGUI() {
 		return textFieldCilindros;
 	}
 
-	public JTextField getTextFieldCmtTon() {
+	public JTextField getCmtTonGUI() {
 		return textFieldCmtTon;
 	}
 
-	public JTextField getTextFieldComplemento() {
+	public JTextField getComplementoGUI() {
 		return textFieldComplemento;
 	}
 
-	public JTextField getTextFieldDataCompra() {
+	public JTextField getDataCompraGUI() {
 		return textFieldDataCompra;
 	}
 
-	public JTextField getTextFieldDataVenda() {
+	public JTextField getDataVendaGUI() {
 		return textFieldDataVenda;
 	}
 
-	public JTextField getTextFieldEixos() {
+	public JTextField getEixosGUI() {
 		return textFieldEixos;
 	}
 
-	public JTextField getTextFieldEstado() {
+	public JTextField getEstadoGUI() {
 		return textFieldEstado;
 	}
 
-	public JTextField getTextFieldLogradouro() {
+	public JTextField getLogradouroGUI() {
 		return textFieldLogradouro;
 	}
 
-	public JComboBox<VeiculoMarca> getTextFieldMarca() {
+	public JComboBox<VeiculoMarca> getMarcaGUI() {
 		return boxMarca;
 	}
 
-	public JComboBox<VeiculoModelo> getTextFieldModelo() {
+	public JComboBox<VeiculoModelo> getModeloGUI() {
 		return boxModelo;
 	}
 
-	public JTextField getTextFieldMunicipioEmplacamento() {
+	public JTextField getMunicipioEmplacamentoGUI() {
 		return textFieldMunicipioEmplacamento;
 	}
 
-	public JTextField getTextFieldPais() {
+	public JTextField getPaisGUI() {
 		return textFieldPais;
 	}
 
-	public JTextField getTextFieldPlaca() {
+	public JTextField getPlacaGUI() {
 		return textFieldPlaca;
 	}
 
-	public JTextField getTextFieldPotencia() {
+	public JTextField getPotenciaGUI() {
 		return textFieldPotencia;
 	}
 
-	public JTextField getTextFieldProprietarioAnteriorCNPJ() {
+	public JTextField getProprietarioAnteriorCnpjGUI() {
 		return textFieldProprietarioAnteriorCNPJ;
 	}
 
-	public JTextField getTextFieldProprietarioAnteriorCPF() {
+	public JTextField getProprietarioAnteriorCpfGUI() {
 		return textFieldProprietarioAnteriorCPF;
 	}
 
-	public JTextField getTextFieldProprietarioAnteriorEmail() {
+	public JTextField getProprietarioAnteriorEmailGUI() {
 		return textFieldProprietarioAnteriorEmail;
 	}
 
-	public JTextField getTextFieldProprietarioAnteriorFax() {
+	public JTextField getTextFieldProprietarioAnteriorFaxGUI() {
 		return textFieldProprietarioAnteriorFax;
 	}
 
-	public JTextField getTextFieldProprietarioAnteriorFone1() {
+	public JTextField getProprietarioAnteriorFone1GUI() {
 		return textFieldProprietarioAnteriorFone1;
 	}
 
-	public JTextField getTextFieldProprietarioAnteriorFone2() {
+	public JTextField getProprietarioAnteriorFone2GUI() {
 		return textFieldProprietarioAnteriorFone2;
 	}
 
-	public JTextField getTextFieldProprietarioAnteriorNome() {
+	public JTextField getProprietarioAnteriorNomeGUI() {
 		return textFieldProprietarioAnteriorNome;
 	}
 
-	public JTextField getTextFieldProprietarioCNPJ() {
+	public JTextField getProprietarioCnpjGUI() {
 		return textFieldProprietarioCNPJ;
 	}
 
-	public JTextField getTextFieldProprietarioCPF() {
+	public JTextField getProprietarioCpfGUI() {
 		return textFieldProprietarioCPF;
 	}
 
-	public JTextField getTextFieldProprietarioEmail() {
+	public JTextField getProprietarioEmailGUI() {
 		return textFieldProprietarioEmail;
 	}
 
-	public JTextField getTextFieldProprietarioFax() {
+	public JTextField getProprietarioFaxGUI() {
 		return textFieldProprietarioFax;
 	}
 
-	public JTextField getTextFieldProprietarioFone1() {
+	public JTextField getProprietarioFone1GUI() {
 		return textFieldProprietarioFone1;
 	}
 
-	public JTextField getTextFieldProprietarioFone2() {
+	public JTextField getProprietarioFone2GUI() {
 		return textFieldProprietarioFone2;
 	}
 
-	public JTextField getTextFieldProprietarioNome() {
+	public JTextField getProprietarioNomeGUI() {
 		return textFieldProprietarioNome;
 	}
 
-	public JTextField getTextFieldProprietarioRGNumero() {
+	public JTextField getProprietarioRGNumeroGUI() {
 		return textFieldProprietarioRGNumero;
 	}
 
-	public JTextField getTextFieldProprietarioRGOrgaoEmisssor() {
+	public JTextField getProprietarioRGOrgaoEmisssorGUI() {
 		return textFieldProprietarioRGOrgaoEmisssor;
 	}
 
-	public JTextField getTextFieldRenavam() {
+	public JTextField getRenavamGUI() {
 		return textFieldRenavam;
 	}
 
-	public JTextField getTextFieldValorCompra() {
+	public JTextField getValorCompraGUI() {
 		return textFieldValorCompra;
 	}
 
-	public JTextField getTextFieldValorVenda() {
+	public JTextField getValorVendaGUI() {
 		return textFieldValorVenda;
 	}
 

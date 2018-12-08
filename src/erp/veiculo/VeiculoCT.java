@@ -131,7 +131,7 @@ final class VeiculoCT {
 		public void actionPerformed(ActionEvent actionEvent) {
 			veiculo = new Veiculo();
 			getFrameCadastroVeiculo().limparGUI();
-			getPanelCadastroVeiculo().getTextFieldPlaca().requestFocus();
+			getVeiculoPC().getPlacaGUI().requestFocus();
 		}
 	}
 
@@ -171,9 +171,9 @@ final class VeiculoCT {
 				if (mensagem != JOptionPane.YES_OPTION) {
 					return;
 				}
-				String placa = getPanelCadastroVeiculo().getTextFieldPlaca().getText();
+				String placa = getVeiculoPC().getPlacaGUI().getText();
 				if (placa == null || placa.length() == 0) {
-					getPanelCadastroVeiculo().getTextFieldPlaca().requestFocus();
+					getVeiculoPC().getPlacaGUI().requestFocus();
 					Msg.avisoCampoObrigatorio("Data");
 					return;
 				}
@@ -182,7 +182,7 @@ final class VeiculoCT {
 					VeiculoFAC.salvarRegistro(veiculo);
 					veiculo = new Veiculo();
 					MainCT.getFrameCadastroVeiculo().limparGUI();
-					getPanelCadastroVeiculo().getTextFieldPlaca().requestFocus();
+					getVeiculoPC().getPlacaGUI().requestFocus();
 					Msg.sucessoSalvarRegistro();
 				}
 			} catch (Exception e) {
@@ -197,131 +197,123 @@ final class VeiculoCT {
 		if (veiculo == null) {
 			return;
 		}
-		getPanelCadastroVeiculo().getBoxAtividade().setSelectedItem(veiculo.getAtividade());
-		getPanelCadastroVeiculo().getBoxCarroceria().setSelectedItem(veiculo.getCarroceria());
-		getPanelCadastroVeiculo().getBoxCategoria().setSelectedItem(veiculo.getCategoria());
-		getPanelCadastroVeiculo().getBoxChassiRemarcado().setSelectedItem(veiculo.getChassiRemarcado());
-		getPanelCadastroVeiculo().getBoxCombustivel().setSelectedItem(veiculo.getCombustivel());
-		getPanelCadastroVeiculo().getBoxCor().setSelectedItem(veiculo.getCor());
-		getPanelCadastroVeiculo().getBoxEspecie().setSelectedItem(veiculo.getEspecie());
-		getPanelCadastroVeiculo().getBoxFabricacao().setSelectedItem(veiculo.getFabricacao());
-		getPanelCadastroVeiculo().getBoxIpva().setSelectedItem(veiculo.getIpva());
-		getPanelCadastroVeiculo().getBoxRestricoes().setSelectedItem(veiculo.getRestricoes());
-		getPanelCadastroVeiculo().getBoxTipo().setSelectedItem(veiculo.getTipo());
-		getPanelCadastroVeiculo().getTextFieldAnoFabricacao().setText(veiculo.getAnoFabricacao());
-		getPanelCadastroVeiculo().getTextFieldAnoModelo().setText(veiculo.getAnoModelo());
-		getPanelCadastroVeiculo().getTextFieldBairro().setText(veiculo.getBairro());
-		getPanelCadastroVeiculo().getTextFieldCapCarga().setText(veiculo.getCapCarga());
-		getPanelCadastroVeiculo().getTextFieldCapacidadePassageiros().setText(veiculo.getCapacidadePassageiros());
-		getPanelCadastroVeiculo().getBoxCategoria().setSelectedItem(veiculo.getCategoria());
-		getPanelCadastroVeiculo().getTextFieldCep().setText(veiculo.getCep());
-		getPanelCadastroVeiculo().getTextFieldChassi().setText(veiculo.getChassi());
-		getPanelCadastroVeiculo().getTextFieldCilindrada().setText(veiculo.getCilindrada());
-		getPanelCadastroVeiculo().getTextFieldCilindros().setText(veiculo.getCilindros());
-		getPanelCadastroVeiculo().getTextFieldCmtTon().setText(veiculo.getCmtTon());
-		getPanelCadastroVeiculo().getTextFieldComplemento().setText(veiculo.getComplemento());
-		getPanelCadastroVeiculo().getTextFieldDataCompra().setText(veiculo.getDataCompra());
-		getPanelCadastroVeiculo().getTextFieldDataVenda().setText(veiculo.getDataVenda());
-		getPanelCadastroVeiculo().getTextFieldEixos().setText(veiculo.getEixos());
-		getPanelCadastroVeiculo().getTextFieldEstado().setText(veiculo.getEstado());
-		getPanelCadastroVeiculo().getTextFieldLogradouro().setText(veiculo.getLogradouro());
-		getPanelCadastroVeiculo().getTextFieldMarca().setSelectedItem((VeiculoMarca)veiculo.getMarca());
-		getPanelCadastroVeiculo().getTextFieldModelo().setSelectedItem((VeiculoModelo)veiculo.getModelo());
-		getPanelCadastroVeiculo().getTextFieldMunicipioEmplacamento().setText(veiculo.getMunicipioEmplacamento());
-		getPanelCadastroVeiculo().getTextFieldPais().setText(veiculo.getPais());
-		getPanelCadastroVeiculo().getTextFieldPlaca().setText(veiculo.getPlaca());
-		getPanelCadastroVeiculo().getTextFieldPotencia().setText(veiculo.getPotencia());
-		getPanelCadastroVeiculo().getTextFieldProprietarioAnteriorCNPJ().setText(veiculo.getProprietarioAnteriorCNPJ());
-		getPanelCadastroVeiculo().getTextFieldProprietarioAnteriorCPF().setText(veiculo.getProprietarioAnteriorCPF());
-		getPanelCadastroVeiculo().getTextFieldProprietarioAnteriorEmail()
-				.setText(veiculo.getProprietarioAnteriorEmail());
-		getPanelCadastroVeiculo().getTextFieldProprietarioAnteriorFax().setText(veiculo.getProprietarioAnteriorFax());
-		getPanelCadastroVeiculo().getTextFieldProprietarioAnteriorNome().setText(veiculo.getProprietarioAnteriorNome());
-		getPanelCadastroVeiculo().getTextFieldProprietarioAnteriorFone1()
-				.setText(veiculo.getProprietarioAnteriorFone1());
-		getPanelCadastroVeiculo().getTextFieldProprietarioAnteriorFone2()
-				.setText(veiculo.getProprietarioAnteriorFone2());
-		getPanelCadastroVeiculo().getTextFieldProprietarioCNPJ().setText(veiculo.getProprietarioCNPJ());
-		getPanelCadastroVeiculo().getTextFieldProprietarioCPF().setText(veiculo.getProprietarioCPF());
-		getPanelCadastroVeiculo().getTextFieldProprietarioEmail().setText(veiculo.getProprietarioEmail());
-		getPanelCadastroVeiculo().getTextFieldProprietarioFax().setText(veiculo.getProprietarioFax());
-		getPanelCadastroVeiculo().getTextFieldProprietarioFone1().setText(veiculo.getProprietarioFone1());
-		getPanelCadastroVeiculo().getTextFieldProprietarioFone2().setText(veiculo.getProprietarioFone2());
-		getPanelCadastroVeiculo().getTextFieldProprietarioNome().setText(veiculo.getProprietarioNome());
-		getPanelCadastroVeiculo().getTextFieldProprietarioRGNumero().setText(veiculo.getProprietarioRGNumero());
-		getPanelCadastroVeiculo().getTextFieldProprietarioRGOrgaoEmisssor()
-				.setText(veiculo.getProprietarioRGOrgaoEmisssor());
-		getPanelCadastroVeiculo().getTextFieldValorCompra().setText(veiculo.getValorCompra());
-		getPanelCadastroVeiculo().getTextFieldValorVenda().setText(veiculo.getValorVenda());
-		getPanelCadastroVeiculo().getTextFieldRenavam().setText(veiculo.getRenavam());
-		getPanelCadastroVeiculo().getTextFieldCidade().setText(veiculo.getCidade());
+		getVeiculoPC().getAtividadeGUI().setSelectedItem(veiculo.getAtividade());
+		getVeiculoPC().getCarroceriaGUI().setSelectedItem(veiculo.getCarroceria());
+		getVeiculoPC().getCategoriaGUI().setSelectedItem(veiculo.getCategoria());
+		getVeiculoPC().getChassiRemarcadoGUI().setSelectedItem(veiculo.getChassiRemarcado());
+		getVeiculoPC().getCombustivelGUI().setSelectedItem(veiculo.getCombustivel());
+		getVeiculoPC().getCorGUI().setSelectedItem(veiculo.getCor());
+		getVeiculoPC().getEspecieGUI().setSelectedItem(veiculo.getEspecie());
+		getVeiculoPC().getFabricacaoGUI().setSelectedItem(veiculo.getFabricacao());
+		getVeiculoPC().getIpvaGUI().setSelectedItem(veiculo.getIpva());
+		getVeiculoPC().getRestricoesGUI().setSelectedItem(veiculo.getRestricoes());
+		getVeiculoPC().getTipoGUI().setSelectedItem(veiculo.getTipo());
+		getVeiculoPC().getAnoFabricacaoGUI().setText(veiculo.getAnoFabricacao());
+		getVeiculoPC().getAnoModeloGUI().setText(veiculo.getAnoModelo());
+		getVeiculoPC().getBairroGUI().setText(veiculo.getBairro());
+		getVeiculoPC().getCapCargaGUI().setText(veiculo.getCapCarga());
+		getVeiculoPC().getCapacidadePassageirosGUI().setText(veiculo.getCapacidadePassageiros());
+		getVeiculoPC().getCategoriaGUI().setSelectedItem(veiculo.getCategoria());
+		getVeiculoPC().getCepGUI().setText(veiculo.getCep());
+		getVeiculoPC().getChassiGUI().setText(veiculo.getChassi());
+		getVeiculoPC().getCilindradaGUI().setText(veiculo.getCilindrada());
+		getVeiculoPC().getCilindrosGUI().setText(veiculo.getCilindros());
+		getVeiculoPC().getCmtTonGUI().setText(veiculo.getCmtTon());
+		getVeiculoPC().getComplementoGUI().setText(veiculo.getComplemento());
+		getVeiculoPC().getDataCompraGUI().setText(veiculo.getDataCompra());
+		getVeiculoPC().getDataVendaGUI().setText(veiculo.getDataVenda());
+		getVeiculoPC().getEixosGUI().setText(veiculo.getEixos());
+		getVeiculoPC().getEstadoGUI().setText(veiculo.getEstado());
+		getVeiculoPC().getLogradouroGUI().setText(veiculo.getLogradouro());
+		getVeiculoPC().getMarcaGUI().setSelectedItem((VeiculoMarca) veiculo.getMarca());
+		getVeiculoPC().getModeloGUI().setSelectedItem((VeiculoModelo) veiculo.getModelo());
+		getVeiculoPC().getMunicipioEmplacamentoGUI().setText(veiculo.getMunicipioEmplacamento());
+		getVeiculoPC().getPaisGUI().setText(veiculo.getPais());
+		getVeiculoPC().getPlacaGUI().setText(veiculo.getPlaca());
+		getVeiculoPC().getPotenciaGUI().setText(veiculo.getPotencia());
+		getVeiculoPC().getProprietarioAnteriorCnpjGUI().setText(veiculo.getProprietarioAnteriorCNPJ());
+		getVeiculoPC().getProprietarioAnteriorCpfGUI().setText(veiculo.getProprietarioAnteriorCPF());
+		getVeiculoPC().getProprietarioAnteriorEmailGUI().setText(veiculo.getProprietarioAnteriorEmail());
+		getVeiculoPC().getTextFieldProprietarioAnteriorFaxGUI().setText(veiculo.getProprietarioAnteriorFax());
+		getVeiculoPC().getProprietarioAnteriorNomeGUI().setText(veiculo.getProprietarioAnteriorNome());
+		getVeiculoPC().getProprietarioAnteriorFone1GUI().setText(veiculo.getProprietarioAnteriorFone1());
+		getVeiculoPC().getProprietarioAnteriorFone2GUI().setText(veiculo.getProprietarioAnteriorFone2());
+		getVeiculoPC().getProprietarioCnpjGUI().setText(veiculo.getProprietarioCNPJ());
+		getVeiculoPC().getProprietarioCpfGUI().setText(veiculo.getProprietarioCPF());
+		getVeiculoPC().getProprietarioEmailGUI().setText(veiculo.getProprietarioEmail());
+		getVeiculoPC().getProprietarioFaxGUI().setText(veiculo.getProprietarioFax());
+		getVeiculoPC().getProprietarioFone1GUI().setText(veiculo.getProprietarioFone1());
+		getVeiculoPC().getProprietarioFone2GUI().setText(veiculo.getProprietarioFone2());
+		getVeiculoPC().getProprietarioNomeGUI().setText(veiculo.getProprietarioNome());
+		getVeiculoPC().getProprietarioRGNumeroGUI().setText(veiculo.getProprietarioRGNumero());
+		getVeiculoPC().getProprietarioRGOrgaoEmisssorGUI().setText(veiculo.getProprietarioRGOrgaoEmisssor());
+		getVeiculoPC().getValorCompraGUI().setText(veiculo.getValorCompra());
+		getVeiculoPC().getValorVendaGUI().setText(veiculo.getValorVenda());
+		getVeiculoPC().getRenavamGUI().setText(veiculo.getRenavam());
+		getVeiculoPC().getCidadeGUI().setText(veiculo.getCidade());
 	}
 
 	public void atualizarObjeto() {
-		veiculo.setAnoFabricacao(getPanelCadastroVeiculo().getTextFieldAnoFabricacao().getText());
-		veiculo.setAnoModelo(getPanelCadastroVeiculo().getTextFieldAnoModelo().getText());
-		veiculo.setAtividade((String) getPanelCadastroVeiculo().getBoxAtividade().getSelectedItem());
-		veiculo.setBairro(getPanelCadastroVeiculo().getTextFieldBairro().getText());
-		veiculo.setCapCarga(getPanelCadastroVeiculo().getTextFieldCapCarga().getText());
-		veiculo.setCapacidadePassageiros(getPanelCadastroVeiculo().getTextFieldCapacidadePassageiros().getText());
-		veiculo.setCarroceria((String) getPanelCadastroVeiculo().getBoxCategoria().getSelectedItem());
-		veiculo.setCategoria((String) getPanelCadastroVeiculo().getBoxCategoria().getSelectedItem());
-		veiculo.setCep(getPanelCadastroVeiculo().getTextFieldCep().getText());
-		veiculo.setChassi(getPanelCadastroVeiculo().getTextFieldChassi().getText());
-		veiculo.setChassiRemarcado((String) getPanelCadastroVeiculo().getBoxChassiRemarcado().getSelectedItem());
-		veiculo.setCidade(getPanelCadastroVeiculo().getTextFieldCidade().getText());
-		veiculo.setCilindrada(getPanelCadastroVeiculo().getTextFieldCilindrada().getText());
-		veiculo.setCilindros(getPanelCadastroVeiculo().getTextFieldCilindros().getText());
-		veiculo.setCmtTon(getPanelCadastroVeiculo().getTextFieldCmtTon().getText());
-		veiculo.setCombustivel((String) getPanelCadastroVeiculo().getBoxCombustivel().getSelectedItem());
-		veiculo.setComplemento(getPanelCadastroVeiculo().getTextFieldComplemento().getText());
-		veiculo.setCor((String) getPanelCadastroVeiculo().getBoxCor().getSelectedItem());
-		veiculo.setDataCompra(getPanelCadastroVeiculo().getTextFieldDataCompra().getText());
-		veiculo.setDataVenda(getPanelCadastroVeiculo().getTextFieldDataVenda().getText());
-		veiculo.setEixos(getPanelCadastroVeiculo().getTextFieldEixos().getText());
-		veiculo.setEspecie((String) getPanelCadastroVeiculo().getBoxEspecie().getSelectedItem());
-		veiculo.setEstado(getPanelCadastroVeiculo().getTextFieldEstado().getText());
-		veiculo.setFabricacao((String) getPanelCadastroVeiculo().getBoxFabricacao().getSelectedItem());
-		veiculo.setIpva((String) getPanelCadastroVeiculo().getBoxIpva().getSelectedItem());
-		veiculo.setLogradouro(getPanelCadastroVeiculo().getTextFieldLogradouro().getText());
-		veiculo.setMarca((VeiculoMarca)getPanelCadastroVeiculo().getTextFieldMarca().getSelectedItem());
-		veiculo.setModelo((VeiculoModelo)getPanelCadastroVeiculo().getTextFieldModelo().getSelectedItem());
-		veiculo.setMunicipioEmplacamento(getPanelCadastroVeiculo().getTextFieldMunicipioEmplacamento().getText());
-		veiculo.setPais(getPanelCadastroVeiculo().getTextFieldPais().getText());
-		veiculo.setPlaca(getPanelCadastroVeiculo().getTextFieldPlaca().getText());
-		veiculo.setPotencia(getPanelCadastroVeiculo().getTextFieldPotencia().getText());
-		veiculo.setProprietarioAnteriorCNPJ(getPanelCadastroVeiculo().getTextFieldProprietarioAnteriorCNPJ().getText());
-		veiculo.setProprietarioAnteriorCPF(getPanelCadastroVeiculo().getTextFieldProprietarioAnteriorCPF().getText());
-		veiculo.setProprietarioAnteriorEmail(
-				getPanelCadastroVeiculo().getTextFieldProprietarioAnteriorEmail().getText());
-		veiculo.setProprietarioAnteriorFax(getPanelCadastroVeiculo().getTextFieldProprietarioAnteriorFax().getText());
-		veiculo.setProprietarioAnteriorFone1(
-				getPanelCadastroVeiculo().getTextFieldProprietarioAnteriorFone1().getText());
-		veiculo.setProprietarioAnteriorFone2(
-				getPanelCadastroVeiculo().getTextFieldProprietarioAnteriorFone2().getText());
-		veiculo.setProprietarioAnteriorNome(getPanelCadastroVeiculo().getTextFieldProprietarioAnteriorNome().getText());
-		veiculo.setProprietarioCNPJ(getPanelCadastroVeiculo().getTextFieldProprietarioCNPJ().getText());
-		veiculo.setProprietarioCPF(getPanelCadastroVeiculo().getTextFieldProprietarioCPF().getText());
-		veiculo.setProprietarioEmail(getPanelCadastroVeiculo().getTextFieldProprietarioEmail().getText());
-		veiculo.setProprietarioFax(getPanelCadastroVeiculo().getTextFieldProprietarioFax().getText());
-		veiculo.setProprietarioFone1(getPanelCadastroVeiculo().getTextFieldProprietarioFone1().getText());
-		veiculo.setProprietarioFone2(getPanelCadastroVeiculo().getTextFieldProprietarioFone2().getText());
-		veiculo.setProprietarioNome(getPanelCadastroVeiculo().getTextFieldProprietarioNome().getText());
-		veiculo.setProprietarioRGNumero(getPanelCadastroVeiculo().getTextFieldProprietarioRGNumero().getText());
-		veiculo.setProprietarioRGOrgaoEmisssor(
-				getPanelCadastroVeiculo().getTextFieldProprietarioRGOrgaoEmisssor().getText());
-		veiculo.setRenavam(getPanelCadastroVeiculo().getTextFieldRenavam().getText());
-		veiculo.setRestricoes((String) getPanelCadastroVeiculo().getBoxRestricoes().getSelectedItem());
-		veiculo.setTipo((String) getPanelCadastroVeiculo().getBoxTipo().getSelectedItem());
-		veiculo.setValorCompra(getPanelCadastroVeiculo().getTextFieldValorCompra().getText());
-		veiculo.setValorVenda(getPanelCadastroVeiculo().getTextFieldValorVenda().getText());
+		veiculo.setAnoFabricacao(getVeiculoPC().getAnoFabricacaoGUI().getText());
+		veiculo.setAnoModelo(getVeiculoPC().getAnoModeloGUI().getText());
+		veiculo.setAtividade((String) getVeiculoPC().getAtividadeGUI().getSelectedItem());
+		veiculo.setBairro(getVeiculoPC().getBairroGUI().getText());
+		veiculo.setCapCarga(getVeiculoPC().getCapCargaGUI().getText());
+		veiculo.setCapacidadePassageiros(getVeiculoPC().getCapacidadePassageirosGUI().getText());
+		veiculo.setCarroceria((String) getVeiculoPC().getCarroceriaGUI().getSelectedItem());
+		veiculo.setCategoria((String) getVeiculoPC().getCategoriaGUI().getSelectedItem());
+		veiculo.setCep(getVeiculoPC().getCepGUI().getText());
+		veiculo.setChassi(getVeiculoPC().getChassiGUI().getText());
+		veiculo.setChassiRemarcado((String) getVeiculoPC().getChassiRemarcadoGUI().getSelectedItem());
+		veiculo.setCidade(getVeiculoPC().getCidadeGUI().getText());
+		veiculo.setCilindrada(getVeiculoPC().getCilindradaGUI().getText());
+		veiculo.setCilindros(getVeiculoPC().getCilindrosGUI().getText());
+		veiculo.setCmtTon(getVeiculoPC().getCmtTonGUI().getText());
+		veiculo.setCombustivel((String) getVeiculoPC().getCombustivelGUI().getSelectedItem());
+		veiculo.setComplemento(getVeiculoPC().getComplementoGUI().getText());
+		veiculo.setCor((String) getVeiculoPC().getCorGUI().getSelectedItem());
+		veiculo.setDataCompra(getVeiculoPC().getDataCompraGUI().getText());
+		veiculo.setDataVenda(getVeiculoPC().getDataVendaGUI().getText());
+		veiculo.setEixos(getVeiculoPC().getEixosGUI().getText());
+		veiculo.setEspecie((String) getVeiculoPC().getEspecieGUI().getSelectedItem());
+		veiculo.setEstado(getVeiculoPC().getEstadoGUI().getText());
+		veiculo.setFabricacao((String) getVeiculoPC().getFabricacaoGUI().getSelectedItem());
+		veiculo.setIpva((String) getVeiculoPC().getIpvaGUI().getSelectedItem());
+		veiculo.setLogradouro(getVeiculoPC().getLogradouroGUI().getText());
+		veiculo.setMarca((VeiculoMarca) getVeiculoPC().getMarcaGUI().getSelectedItem());
+		veiculo.setModelo((VeiculoModelo) getVeiculoPC().getModeloGUI().getSelectedItem());
+		veiculo.setMunicipioEmplacamento(getVeiculoPC().getMunicipioEmplacamentoGUI().getText());
+		veiculo.setPais(getVeiculoPC().getPaisGUI().getText());
+		veiculo.setPlaca(getVeiculoPC().getPlacaGUI().getText());
+		veiculo.setPotencia(getVeiculoPC().getPotenciaGUI().getText());
+		veiculo.setProprietarioAnteriorCnpj(getVeiculoPC().getProprietarioAnteriorCnpjGUI().getText());
+		veiculo.setProprietarioAnteriorCpf(getVeiculoPC().getProprietarioAnteriorCpfGUI().getText());
+		veiculo.setProprietarioAnteriorEmail(getVeiculoPC().getProprietarioAnteriorEmailGUI().getText());
+		veiculo.setProprietarioAnteriorFax(getVeiculoPC().getTextFieldProprietarioAnteriorFaxGUI().getText());
+		veiculo.setProprietarioAnteriorFone1(getVeiculoPC().getProprietarioAnteriorFone1GUI().getText());
+		veiculo.setProprietarioAnteriorFone2(getVeiculoPC().getProprietarioAnteriorFone2GUI().getText());
+		veiculo.setProprietarioAnteriorNome(getVeiculoPC().getProprietarioAnteriorNomeGUI().getText());
+		veiculo.setProprietarioCnpj(getVeiculoPC().getProprietarioCnpjGUI().getText());
+		veiculo.setProprietarioCpf(getVeiculoPC().getProprietarioCpfGUI().getText());
+		veiculo.setProprietarioEmail(getVeiculoPC().getProprietarioEmailGUI().getText());
+		veiculo.setProprietarioFax(getVeiculoPC().getProprietarioFaxGUI().getText());
+		veiculo.setProprietarioFone1(getVeiculoPC().getProprietarioFone1GUI().getText());
+		veiculo.setProprietarioFone2(getVeiculoPC().getProprietarioFone2GUI().getText());
+		veiculo.setProprietarioNome(getVeiculoPC().getProprietarioNomeGUI().getText());
+		veiculo.setProprietarioRGNumero(getVeiculoPC().getProprietarioRGNumeroGUI().getText());
+		veiculo.setProprietarioRGOrgaoEmisssor(getVeiculoPC().getProprietarioRGOrgaoEmisssorGUI().getText());
+		veiculo.setRenavam(getVeiculoPC().getRenavamGUI().getText());
+		veiculo.setRestricoes((String) getVeiculoPC().getRestricoesGUI().getSelectedItem());
+		veiculo.setTipo((String) getVeiculoPC().getTipoGUI().getSelectedItem());
+		veiculo.setValorCompra(getVeiculoPC().getValorCompraGUI().getText());
+		veiculo.setValorVenda(getVeiculoPC().getValorVendaGUI().getText());
 	}
 
 	public VeiculoFC getFrameCadastroVeiculo() {
 		return MainCT.getFrameCadastroVeiculo();
 	}
 
-	public VeiculoPC getPanelCadastroVeiculo() {
+	public VeiculoPC getVeiculoPC() {
 		return MainCT.getFrameCadastroVeiculo().getPanelCadastroVeiculo();
 	}
 
