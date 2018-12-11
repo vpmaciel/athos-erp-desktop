@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
 import arquitetura.gui.Msg;
 import erp.main.MainCT;
 
-final class VeiculoModeloCT {
+final class VeiculoModeloCont {
 
 	public class Ajuda implements ActionListener {
 
@@ -33,7 +33,7 @@ final class VeiculoModeloCT {
 				return;
 			}
 			try {
-				VeiculoModeloFAC.deletarRegistro(veiculoModelo);
+				VeiculoModeloFac.deletarRegistro(veiculoModelo);
 				getFrameCadastroVeiculoModelo().limparGUI();
 				veiculoModelo = new VeiculoModelo();
 				Msg.sucessoExcluiRegistro();
@@ -97,9 +97,9 @@ final class VeiculoModeloCT {
 			}
 
 			try {
-				if (veiculoModelos.add(VeiculoModeloFAC.getRegistro(veiculoModelo))) {
-					VeiculoModeloREL veiculoModeloREL = new VeiculoModeloREL(veiculoModelos);
-					veiculoModeloREL.retornarRelatorio(true);
+				if (veiculoModelos.add(VeiculoModeloFac.getRegistro(veiculoModelo))) {
+					VeiculoModeloRel veiculoModeloRel = new VeiculoModeloRel(veiculoModelos);
+					veiculoModeloRel.retornarRelatorio(true);
 				}
 			} catch (Exception e) {
 				System.out.println(e);
@@ -114,12 +114,12 @@ final class VeiculoModeloCT {
 			List<VeiculoModelo> veiculoModelos = new LinkedList<>();
 
 			try {
-				veiculoModelos = new LinkedList<>(VeiculoModeloFAC.pesquisarRegistro(veiculoModelo));
+				veiculoModelos = new LinkedList<>(VeiculoModeloFac.pesquisarRegistro(veiculoModelo));
 			} catch (Exception e) {
 				System.out.println(e);
 			}
-			VeiculoModeloREL veiculoModeloREL = new VeiculoModeloREL(veiculoModelos);
-			veiculoModeloREL.retornarRelatorio(true);
+			VeiculoModeloRel veiculoModeloRel = new VeiculoModeloRel(veiculoModelos);
+			veiculoModeloRel.retornarRelatorio(true);
 		}
 	}
 
@@ -177,7 +177,7 @@ final class VeiculoModeloCT {
 				}
 				if (mensagem == JOptionPane.YES_OPTION) {
 					atualizarObjeto();
-					VeiculoModeloFAC.salvarRegistro(veiculoModelo);
+					VeiculoModeloFac.salvarRegistro(veiculoModelo);
 					veiculoModelo = new VeiculoModelo();
 					getFrameCadastroVeiculoModelo().limparGUI();
 					getPanelCadastroVeiculoModelo().getTextFieldModelo().requestFocus();
@@ -210,19 +210,19 @@ final class VeiculoModeloCT {
 		this.veiculoModelo = veiculoModelo;
 	}
 
-	public VeiculoModeloFC getFrameCadastroVeiculoModelo() {
+	public VeiculoModeloFc getFrameCadastroVeiculoModelo() {
 		return MainCT.getFrameCadastroVeiculoModelo();
 	}
 
-	public VeiculoModeloPC getPanelCadastroVeiculoModelo() {
+	public VeiculoModeloPc getPanelCadastroVeiculoModelo() {
 		return MainCT.getFrameCadastroVeiculoModelo().getPanelCadastroVeiculoModelo();
 	}
 
-	public VeiculoModeloFP getFramePesquisaVeiculoModelo() {
+	public VeiculoModeloFp getFramePesquisaVeiculoModelo() {
 		return MainCT.getFramePesquisaVeiculoModelo();
 	}
 
-	public VeiculoModeloPP getPanelPesquisaVeiculoModelo() {
+	public VeiculoModeloPp getPanelPesquisaVeiculoModelo() {
 		return MainCT.getFramePesquisaVeiculoModelo().getPanelPesquisaVeiculoModelo();
 	}
 }

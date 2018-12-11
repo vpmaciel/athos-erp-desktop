@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
 import arquitetura.gui.Msg;
 import erp.main.MainCT;
 
-final class VeiculoMarcaCT {
+final class VeiculoMarcaCont {
 
 	public class Ajuda implements ActionListener {
 
@@ -33,7 +33,7 @@ final class VeiculoMarcaCT {
 				return;
 			}
 			try {
-				VeiculoMarcaFAC.deletarRegistro(veiculoMarca);
+				VeiculoMarcaFac.deletarRegistro(veiculoMarca);
 				getFrameCadastroVeiculoMarca().limparGUI();
 				veiculoMarca = new VeiculoMarca();
 				Msg.sucessoExcluiRegistro();
@@ -97,9 +97,9 @@ final class VeiculoMarcaCT {
 			}
 
 			try {
-				if (veiculoMarcas.add(VeiculoMarcaFAC.getRegistro(veiculoMarca))) {
-					VeiculoMarcaREL veiculoMarcaREL = new VeiculoMarcaREL(veiculoMarcas);
-					veiculoMarcaREL.retornarRelatorio(true);
+				if (veiculoMarcas.add(VeiculoMarcaFac.getRegistro(veiculoMarca))) {
+					VeiculoMarcaRel veiculoMarcaRel = new VeiculoMarcaRel(veiculoMarcas);
+					veiculoMarcaRel.retornarRelatorio(true);
 				}
 			} catch (Exception e) {
 				System.out.println(e);
@@ -114,12 +114,12 @@ final class VeiculoMarcaCT {
 			List<VeiculoMarca> veiculoMarcas = new LinkedList<>();
 
 			try {
-				veiculoMarcas = new LinkedList<>(VeiculoMarcaFAC.pesquisarRegistro(veiculoMarca));
+				veiculoMarcas = new LinkedList<>(VeiculoMarcaFac.pesquisarRegistro(veiculoMarca));
 			} catch (Exception e) {
 				System.out.println(e);
 			}
-			VeiculoMarcaREL veiculoMarcaREL = new VeiculoMarcaREL(veiculoMarcas);
-			veiculoMarcaREL.retornarRelatorio(true);
+			VeiculoMarcaRel veiculoMarcaRel = new VeiculoMarcaRel(veiculoMarcas);
+			veiculoMarcaRel.retornarRelatorio(true);
 		}
 	}
 
@@ -176,7 +176,7 @@ final class VeiculoMarcaCT {
 				}
 				if (mensagem == JOptionPane.YES_OPTION) {
 					atualizarObjeto();
-					VeiculoMarcaFAC.salvarRegistro(veiculoMarca);
+					VeiculoMarcaFac.salvarRegistro(veiculoMarca);
 					veiculoMarca = new VeiculoMarca();
 					getFrameCadastroVeiculoMarca().limparGUI();
 					getPanelCadastroVeiculoMarca().getTextFieldMarca().requestFocus();
@@ -209,19 +209,19 @@ final class VeiculoMarcaCT {
 		this.veiculoMarca = veiculoMarca;
 	}
 
-	public VeiculoMarcaFC getFrameCadastroVeiculoMarca() {
+	public VeiculoMarcaFc getFrameCadastroVeiculoMarca() {
 		return MainCT.getFrameCadastroVeiculoMarca();
 	}
 
-	public VeiculoMarcaPC getPanelCadastroVeiculoMarca() {
+	public VeiculoMarcaPc getPanelCadastroVeiculoMarca() {
 		return MainCT.getFrameCadastroVeiculoMarca().getPanelCadastroVeiculoMarca();
 	}
 
-	public VeiculoMarcaFP getFramePesquisaVeiculoMarca() {
+	public VeiculoMarcaFp getFramePesquisaVeiculoMarca() {
 		return MainCT.getFramePesquisaVeiculoMarca();
 	}
 
-	public VeiculoMarcaPP getPanelPesquisaVeiculoMarca() {
+	public VeiculoMarcaPp getPanelPesquisaVeiculoMarca() {
 		return MainCT.getFramePesquisaVeiculoMarca().getPanelPesquisaVeiculoMarca();
 	}
 }

@@ -13,7 +13,7 @@ import arquitetura.registro.ToolBar;
 import arquitetura.util.SpringUtilities;
 
 @SuppressWarnings("serial")
-public final class VeiculoMarcaPC extends JPanel implements GUI {
+public final class VeiculoMarcaPc extends JPanel implements GUI {
 
 	private ToolBar toolBar;
 	private ConfiguracaoGUI configuracaoGUI;
@@ -21,7 +21,7 @@ public final class VeiculoMarcaPC extends JPanel implements GUI {
 	private JTextField textFieldMarca;
 	private JLabel labelMarca;
 
-	public VeiculoMarcaPC() {
+	public VeiculoMarcaPc() {
 		iniciarLayout();
 		iniciarGUI();
 		iniciarFocoControlador();

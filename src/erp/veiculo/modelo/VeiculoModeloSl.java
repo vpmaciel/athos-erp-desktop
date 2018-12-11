@@ -7,11 +7,11 @@ import javax.swing.table.TableModel;
 
 import erp.main.MainCT;
 
-final class VeiculoModeloSL implements ListSelectionListener {
+final class VeiculoModeloSl implements ListSelectionListener {
 
 	JTable table;
 
-	VeiculoModeloSL(JTable table) {
+	VeiculoModeloSl(JTable table) {
 		this.table = table;
 	}
 
@@ -22,12 +22,12 @@ final class VeiculoModeloSL implements ListSelectionListener {
 			TableModel tm = table.getModel();
 			if (selRows.length > 0) {
 				VeiculoModelo veiculoModeloPesquisaRegistro = new VeiculoModelo();
-				veiculoModeloPesquisaRegistro.setId((Long) tm.getValueAt(selRows[0], VeiculoModeloTM.ID));
+				veiculoModeloPesquisaRegistro.setId((Long) tm.getValueAt(selRows[0], VeiculoModeloTm.ID));
 
 				if (table.getSelectedRow() != -1) {
-					VeiculoModelo veiculoModelo = VeiculoModeloFAC.getRegistro(veiculoModeloPesquisaRegistro);
-					VeiculoModeloTM veiculoModeloTM = (VeiculoModeloTM) table.getModel();
-					veiculoModeloTM.getVeiculoModelo(table.getSelectedRow());
+					VeiculoModelo veiculoModelo = VeiculoModeloFac.getRegistro(veiculoModeloPesquisaRegistro);
+					VeiculoModeloTm veiculoModeloTm = (VeiculoModeloTm) table.getModel();
+					veiculoModeloTm.getVeiculoModelo(table.getSelectedRow());
 					MainCT.mostrarFrame(MainCT.getFrameCadastroVeiculoModelo());
 					MainCT.getFrameCadastroVeiculoModelo().getVeiculoModeloHandle()
 							.setVeiculoModelo(veiculoModelo);

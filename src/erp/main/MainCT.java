@@ -47,12 +47,12 @@ import erp.sindicato.SindicatoFC;
 import erp.sindicato.SindicatoFP;
 import erp.usuario.UsuarioFC;
 import erp.usuario.UsuarioFP;
-import erp.veiculo.VeiculoFC;
-import erp.veiculo.VeiculoFP;
-import erp.veiculo.marca.VeiculoMarcaFC;
-import erp.veiculo.marca.VeiculoMarcaFP;
-import erp.veiculo.modelo.VeiculoModeloFC;
-import erp.veiculo.modelo.VeiculoModeloFP;
+import erp.veiculo.VeiculoFc;
+import erp.veiculo.VeiculoFp;
+import erp.veiculo.marca.VeiculoMarcaFc;
+import erp.veiculo.marca.VeiculoMarcaFp;
+import erp.veiculo.modelo.VeiculoModeloFc;
+import erp.veiculo.modelo.VeiculoModeloFp;
 
 public final class MainCT {
 
@@ -99,7 +99,7 @@ public final class MainCT {
 				Msg.avisoUsuarioNaoLogado();
 			} else if (actionEvent.getSource() == mainFC.getMenuItemArquivoReiniciar()) {
 				@SuppressWarnings("rawtypes")
-				Class cls = Athos.class;
+				Class cls = ERP.class;
 				ProtectionDomain pDomain = cls.getProtectionDomain();
 				CodeSource cSource = pDomain.getCodeSource();
 				URL loc = cSource.getLocation();
@@ -144,11 +144,11 @@ public final class MainCT {
 			} else if (actionEvent.getSource() == mainFC.getMenuItemCadastroFornecedor()) {
 				mostrarFrame(fornecedorFC);
 			} else if (actionEvent.getSource() == mainFC.getMenuItemCadastroVeiculoVeiculo()) {
-				mostrarFrame(veiculoFC);
+				mostrarFrame(veiculoFc);
 			} else if (actionEvent.getSource() == mainFC.getMenuItemCadastroVeiculoModelo()) {
-				mostrarFrame(veiculoModeloFC);
+				mostrarFrame(veiculoModeloFc);
 			} else if (actionEvent.getSource() == mainFC.getMenuItemCadastroVeiculoMarca()) {
-				mostrarFrame(veiculoMarcaFC);
+				mostrarFrame(veiculoMarcaFc);
 			} else if (actionEvent.getSource() == mainFC.getMenuItemCadastroImovel()) {
 				mostrarFrame(imovelFC);
 			}
@@ -239,12 +239,12 @@ public final class MainCT {
 	private static SindicatoFP sindicatoFP;
 	private static FornecedorFC fornecedorFC;
 	private static FornecedorFP fornecedorFP;
-	private static VeiculoFC veiculoFC;
-	private static VeiculoFP veiculoFP;
-	private static VeiculoMarcaFC veiculoMarcaFC;
-	private static VeiculoMarcaFP veiculoMarcaFP;
-	private static VeiculoModeloFC veiculoModeloFC;
-	private static VeiculoModeloFP veiculoModeloFP;
+	private static VeiculoFc veiculoFc;
+	private static VeiculoFp veiculoFp;
+	private static VeiculoMarcaFc veiculoMarcaFc;
+	private static VeiculoMarcaFp veiculoMarcaFp;
+	private static VeiculoModeloFc veiculoModeloFc;
+	private static VeiculoModeloFp veiculoModeloFp;
 	private static ImovelFC imovelFC;
 	private static ImovelFP imovelFP;
 	private static FrameCalculadora frameCalculadora;
@@ -325,16 +325,16 @@ public final class MainCT {
 		return usuarioFC;
 	}
 
-	public static VeiculoFC getFrameCadastroVeiculo() {
-		return veiculoFC;
+	public static VeiculoFc getFrameCadastroVeiculo() {
+		return veiculoFc;
 	}
 
-	public static VeiculoMarcaFC getFrameCadastroVeiculoMarca() {
-		return veiculoMarcaFC;
+	public static VeiculoMarcaFc getFrameCadastroVeiculoMarca() {
+		return veiculoMarcaFc;
 	}
 
-	public static VeiculoModeloFC getFrameCadastroVeiculoModelo() {
-		return veiculoModeloFC;
+	public static VeiculoModeloFc getFrameCadastroVeiculoModelo() {
+		return veiculoModeloFc;
 	}
 
 	public static LoginFC getFrameLogin() {
@@ -405,21 +405,21 @@ public final class MainCT {
 		return usuarioFP;
 	}
 
-	public static VeiculoFP getFramePesquisaVeiculo() {
-		return veiculoFP;
+	public static VeiculoFp getFramePesquisaVeiculo() {
+		return veiculoFp;
 	}
 
-	public static VeiculoMarcaFP getFramePesquisaVeiculoMarca() {
-		return veiculoMarcaFP;
+	public static VeiculoMarcaFp getFramePesquisaVeiculoMarca() {
+		return veiculoMarcaFp;
 	}
 
-	public static VeiculoModeloFP getFramePesquisaVeiculoModelo() {
-		return veiculoModeloFP;
+	public static VeiculoModeloFp getFramePesquisaVeiculoModelo() {
+		return veiculoModeloFp;
 	}
 
 	public static synchronized MainCT getInstance(MainFC mainFC) {
 		if (totalPrincipalHandle > 1) {
-			JOptionPane.showMessageDialog(null, "Foi instanciado mais de uma Objeto:" + Athos.class);
+			JOptionPane.showMessageDialog(null, "Foi instanciado mais de uma Objeto:" + ERP.class);
 		}
 		if (mainCT == null) {
 			++totalPrincipalHandle;
@@ -514,11 +514,11 @@ public final class MainCT {
 		fornecedorFP = new FornecedorFP();
 		criarFrame(fornecedorFP);
 
-		veiculoFC = new VeiculoFC();
-		criarFrame(veiculoFC);
+		veiculoFc = new VeiculoFc();
+		criarFrame(veiculoFc);
 
-		veiculoFP = new VeiculoFP();
-		criarFrame(veiculoFP);
+		veiculoFp = new VeiculoFp();
+		criarFrame(veiculoFp);
 
 		imovelFC = new ImovelFC();
 		criarFrame(imovelFC);
@@ -550,17 +550,17 @@ public final class MainCT {
 		framePesquisaAgendaRecado = new RecadoFP();
 		criarFrame(framePesquisaAgendaRecado);
 
-		veiculoMarcaFC = new VeiculoMarcaFC();
-		criarFrame(veiculoMarcaFC);
+		veiculoMarcaFc = new VeiculoMarcaFc();
+		criarFrame(veiculoMarcaFc);
 
-		veiculoMarcaFP = new VeiculoMarcaFP();
-		criarFrame(veiculoMarcaFP);
+		veiculoMarcaFp = new VeiculoMarcaFp();
+		criarFrame(veiculoMarcaFp);
 
-		veiculoModeloFC = new VeiculoModeloFC();
-		criarFrame(veiculoModeloFC);
+		veiculoModeloFc = new VeiculoModeloFc();
+		criarFrame(veiculoModeloFc);
 
-		veiculoModeloFP = new VeiculoModeloFP();
-		criarFrame(veiculoModeloFP);
+		veiculoModeloFp = new VeiculoModeloFp();
+		criarFrame(veiculoModeloFp);
 
 		frameCalculadora = new FrameCalculadora();
 		criarFrame(frameCalculadora);

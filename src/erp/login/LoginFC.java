@@ -113,10 +113,10 @@ public final class LoginFC extends JFrame implements GUI {
 	@Override
 	public void iniciarLayout() {
 		setLayout(null);
-		setPreferredSize(new Dimension(800, 600));
-		setMinimumSize(new Dimension(800, 600));
-		setSize(new Dimension(800, 600));
-		setMaximumSize(new Dimension(800, 600));
+		setPreferredSize(new Dimension(800, 420));
+		setMinimumSize(new Dimension(800, 420));
+		setSize(new Dimension(800, 420));
+		setMaximumSize(new Dimension(800, 420));
 	}
 
 	@Override

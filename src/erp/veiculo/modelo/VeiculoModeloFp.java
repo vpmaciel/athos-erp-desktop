@@ -9,11 +9,11 @@ import arquitetura.gui.GUI;
 import arquitetura.gui.ConfiguracaoGUI;
 
 @SuppressWarnings("serial")
-public final class VeiculoModeloFP extends JFrame implements GUI {
+public final class VeiculoModeloFp extends JFrame implements GUI {
 
-	private VeiculoModeloPP VeiculoModeloPP;
+	private VeiculoModeloPp VeiculoModeloPp;
 
-	public VeiculoModeloFP() {
+	public VeiculoModeloFp() {
 		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		iniciarLayout();
 		iniciarGUI();
@@ -30,8 +30,8 @@ public final class VeiculoModeloFP extends JFrame implements GUI {
 		return null;
 	}
 
-	public VeiculoModeloPP getPanelPesquisaVeiculoModelo() {
-		return VeiculoModeloPP;
+	public VeiculoModeloPp getPanelPesquisaVeiculoModelo() {
+		return VeiculoModeloPp;
 	}
 
 	@Override
@@ -43,8 +43,8 @@ public final class VeiculoModeloFP extends JFrame implements GUI {
 	public void iniciarGUI() {
 		setTitle("VEÍCULO - MODELO");
 		setIconImage(arquitetura.gui.Imagem.getLogoTipoImage());
-		VeiculoModeloPP = new VeiculoModeloPP();
-		setContentPane(VeiculoModeloPP);
+		VeiculoModeloPp = new VeiculoModeloPp();
+		setContentPane(VeiculoModeloPp);
 	}
 
 	@Override
@@ -54,16 +54,16 @@ public final class VeiculoModeloFP extends JFrame implements GUI {
 
 	@Override
 	public void iniciarControlador() {
-		VeiculoModeloPP.iniciarHandle();
+		VeiculoModeloPp.iniciarHandle();
 	}
 
 	@Override
 	public void iniciarLayout() {
 		setLayout(null);
-		setPreferredSize(new Dimension(800, 600));
-		setMinimumSize(new Dimension(800, 600));
-		setSize(new Dimension(800, 600));
-		setMaximumSize(new Dimension(800, 600));
+		setPreferredSize(new Dimension(800, 420));
+		setMinimumSize(new Dimension(800, 420));
+		setSize(new Dimension(800, 420));
+		setMaximumSize(new Dimension(800, 420));
 	}
 
 	@Override

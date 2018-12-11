@@ -12,7 +12,7 @@ import com.itextpdf.text.pdf.PdfWriter;
 
 import arquitetura.relatorio.Relatorio;
 
-public class VeiculoREL {
+public class VeiculoRel {
 
 	private PdfWriter writer = null;
 	private Document document = new Document();
@@ -20,7 +20,7 @@ public class VeiculoREL {
 	private String titulo = "VEÍCULOS";
 	private Relatorio relatorio = new Relatorio();
 
-	public VeiculoREL(List<Veiculo> veiculos) {
+	public VeiculoRel(List<Veiculo> veiculos) {
 		try {
 			writer = PdfWriter.getInstance(document, new FileOutputStream(arquivo));
 			relatorio.criarRelatorio(writer, document, titulo);

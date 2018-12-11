@@ -2,7 +2,7 @@ package erp.veiculo;
 
 import java.util.Comparator;
 
-public class VeiculoCPT {
+public class VeiculoComp {
 
 	public class Id implements Comparator<Object> {
 

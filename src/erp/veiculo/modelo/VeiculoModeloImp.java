@@ -14,7 +14,7 @@ import javax.persistence.criteria.Root;
 
 import arquitetura.JPA;
 
-final class VeiculoModeloIMP implements VeiculoModeloDAO {
+final class VeiculoModeloImp implements VeiculoModeloDao {
 
 	@Override
 	public void deletarRegistro(VeiculoModelo veiculoModelo) {

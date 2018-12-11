@@ -292,9 +292,9 @@ public class MainFC extends JFrame {
 		setIconImage(Imagem.getLogoTipoImage());
 		setTitle(AOP.getNomeSistema());
 		setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
-		setMinimumSize(new Dimension(1200, 600));
-		setMaximumSize(new Dimension(1200, 600));
-		setPreferredSize(new Dimension(1200, 600));
+		setMinimumSize(new Dimension(1200, 420));
+		setMaximumSize(new Dimension(1200, 420));
+		setPreferredSize(new Dimension(1200, 420));
 
 		menuArquivo = new JMenu("Arquivo");
 		menuArquivo.setMnemonic('A');

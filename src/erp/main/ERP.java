@@ -9,7 +9,7 @@ import javax.swing.UnsupportedLookAndFeelException;
 
 import erp.usuario.UsuarioUtil;
 
-public class Athos {
+public class ERP {
 
 	public static void main(String[] args) {
 		try {

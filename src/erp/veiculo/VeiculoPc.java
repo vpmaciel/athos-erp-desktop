@@ -21,14 +21,14 @@ import erp.centrocusto.CentroCustoFAC;
 import erp.centrocusto.CentroCustoCPT;
 import erp.main.MainCT;
 import erp.veiculo.marca.VeiculoMarca;
-import erp.veiculo.marca.VeiculoMarcaCPT;
-import erp.veiculo.marca.VeiculoMarcaFAC;
+import erp.veiculo.marca.VeiculoMarcaComp;
+import erp.veiculo.marca.VeiculoMarcaFac;
 import erp.veiculo.modelo.VeiculoModelo;
-import erp.veiculo.modelo.VeiculoModeloCPT;
-import erp.veiculo.modelo.VeiculoModeloFAC;
+import erp.veiculo.modelo.VeiculoModeloComp;
+import erp.veiculo.modelo.VeiculoModeloFac;
 
 @SuppressWarnings("serial")
-public final class VeiculoPC extends JPanel implements GUI {
+public final class VeiculoPc extends JPanel implements GUI {
 
 	private ToolBar toolBar;
 	private ConfiguracaoGUI configuracaoGUI;
@@ -191,7 +191,7 @@ public final class VeiculoPC extends JPanel implements GUI {
 	private JTextField textFieldProprietarioAnteriorFone2;
 	private JTextField textFieldProprietarioAnteriorEmail;
 
-	public VeiculoPC() {
+	public VeiculoPc() {
 		iniciarLayout();
 		iniciarGUI();
 		iniciarFocoControlador();
@@ -565,8 +565,8 @@ public final class VeiculoPC extends JPanel implements GUI {
 		
 		boxVeiculoMarca = new JComboBox<VeiculoMarca>();
 		
-		List<VeiculoMarca> veiculoMarcas = (List<VeiculoMarca>) VeiculoMarcaFAC.getRegistro();
-		Collections.sort(veiculoMarcas, new VeiculoMarcaCPT().new Marca());
+		List<VeiculoMarca> veiculoMarcas = (List<VeiculoMarca>) VeiculoMarcaFac.getRegistro();
+		Collections.sort(veiculoMarcas, new VeiculoMarcaComp().new Marca());
 		
 		for (VeiculoMarca v : veiculoMarcas) {
 			boxVeiculoMarca.addItem(v);
@@ -579,9 +579,9 @@ public final class VeiculoPC extends JPanel implements GUI {
 
 		boxVeiculoModelo = new JComboBox<VeiculoModelo>();
 		
-		List<VeiculoModelo> veiculoModelos = (List<VeiculoModelo>) VeiculoModeloFAC.getRegistro();
+		List<VeiculoModelo> veiculoModelos = (List<VeiculoModelo>) VeiculoModeloFac.getRegistro();
 		
-		Collections.sort(veiculoModelos, new VeiculoModeloCPT().new Modelo());
+		Collections.sort(veiculoModelos, new VeiculoModeloComp().new Modelo());
 		
 		for (VeiculoModelo v : veiculoModelos) {
 			this.boxVeiculoModelo.addItem(v);
@@ -1524,8 +1524,8 @@ public final class VeiculoPC extends JPanel implements GUI {
 		}
 		
 		VeiculoMarca veiculoMarca = null;
-		List<VeiculoMarca> veiculoMarcas = (List<VeiculoMarca>) VeiculoMarcaFAC.getRegistro();
-		Collections.sort(veiculoMarcas, new VeiculoMarcaCPT().new Marca());
+		List<VeiculoMarca> veiculoMarcas = (List<VeiculoMarca>) VeiculoMarcaFac.getRegistro();
+		Collections.sort(veiculoMarcas, new VeiculoMarcaComp().new Marca());
 		this.boxVeiculoMarca.removeAllItems();
 		
 		for (VeiculoMarca v : veiculoMarcas) {
@@ -1533,8 +1533,8 @@ public final class VeiculoPC extends JPanel implements GUI {
 		}
 		
 		VeiculoModelo veiculoModelo = null;
-		List<VeiculoModelo> veiculoModelos = (List<VeiculoModelo>) VeiculoModeloFAC.getRegistro();
-		Collections.sort(veiculoModelos, new VeiculoModeloCPT().new Modelo());
+		List<VeiculoModelo> veiculoModelos = (List<VeiculoModelo>) VeiculoModeloFac.getRegistro();
+		Collections.sort(veiculoModelos, new VeiculoModeloComp().new Modelo());
 		this.boxVeiculoModelo.removeAllItems();
 		
 		for (VeiculoModelo v : veiculoModelos) {

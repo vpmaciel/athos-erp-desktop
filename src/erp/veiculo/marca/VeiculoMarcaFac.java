@@ -2,30 +2,30 @@ package erp.veiculo.marca;
 
 import java.util.Collection;
 
-public final class VeiculoMarcaFAC {
+public final class VeiculoMarcaFac {
 
-	private static final VeiculoMarcaDAO veiculoMarcaDAO = new VeiculoMarcaIMP();
+	private static final VeiculoMarcaDao veiculoMarcaDao = new VeiculoMarcaImp();
 
 	public static void deletarRegistro(VeiculoMarca veiculoMarca) {
-		veiculoMarcaDAO.deletarRegistro(veiculoMarca);
+		veiculoMarcaDao.deletarRegistro(veiculoMarca);
 	}
 
 	public static VeiculoMarca getRegistro(VeiculoMarca veiculoMarca) {
-		return veiculoMarcaDAO.getRegistro(veiculoMarca);
+		return veiculoMarcaDao.getRegistro(veiculoMarca);
 	}
 
 	public static Collection<VeiculoMarca> getRegistro() {
-		return veiculoMarcaDAO.getRegistro();
+		return veiculoMarcaDao.getRegistro();
 	}
 
 	public static Collection<VeiculoMarca> pesquisarRegistro(VeiculoMarca veiculoMarca) {
-		return veiculoMarcaDAO.pesquisarRegistro(veiculoMarca);
+		return veiculoMarcaDao.pesquisarRegistro(veiculoMarca);
 	}
 
 	public static void salvarRegistro(VeiculoMarca veiculoMarca) {
-		veiculoMarcaDAO.salvarRegistro(veiculoMarca);
+		veiculoMarcaDao.salvarRegistro(veiculoMarca);
 	}
 
-	private VeiculoMarcaFAC() {
+	private VeiculoMarcaFac() {
 	}
 }

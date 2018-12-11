@@ -1,5 +1,6 @@
 package erp.imovel;
 
+import java.awt.Dimension;
 import java.awt.KeyboardFocusManager;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
@@ -107,6 +108,10 @@ public final class ImovelFC extends JFrame implements GUI {
 	@Override
 	public void iniciarLayout() {
 		setLayout(null);
+		setPreferredSize(new Dimension(800, 420));
+		setMinimumSize(new Dimension(800, 420));
+		setSize(new Dimension(800, 420));
+		setMaximumSize(new Dimension(800, 420));
 	}
 
 	@Override

@@ -10,7 +10,7 @@ import erp.veiculo.marca.VeiculoMarca;
 import erp.veiculo.modelo.VeiculoModelo;
 
 @SuppressWarnings("serial")
-public class VeiculoTM extends AbstractTableModel {
+public class VeiculoTm extends AbstractTableModel {
 
 	public static final int ID = 0;
 	public static int[] largura;
@@ -19,7 +19,7 @@ public class VeiculoTM extends AbstractTableModel {
 	private Veiculo veiculo;
 	private static TabelaModelo tabelaModelo = new TabelaModelo();
 
-	public VeiculoTM() {
+	public VeiculoTm() {
 
 	}
 
@@ -36,7 +36,7 @@ public class VeiculoTM extends AbstractTableModel {
 		}
 	}
 
-	public VeiculoTM(List<Veiculo> lista) {
+	public VeiculoTm(List<Veiculo> lista) {
 		veiculoList.addAll(lista);
 	}
 

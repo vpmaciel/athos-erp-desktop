@@ -2,7 +2,7 @@ package erp.veiculo.modelo;
 
 import java.util.Collection;
 
-public interface VeiculoModeloDAO {
+public interface VeiculoModeloDao {
 
 	public void deletarRegistro(VeiculoModelo veiculoModelo);
 

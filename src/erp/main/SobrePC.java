@@ -31,7 +31,7 @@ public class SobrePC extends JPanel {
 
 		final Cursor cursor = Cursor.getPredefinedCursor(Cursor.HAND_CURSOR);
 
-		labelTitulo.setText("Athos - ERP 1.0");
+		labelTitulo.setText("ERP - ERP 1.0");
 
 		labelAutor.setText("<html>Vicente Paulo Maciel - <a href=\"vpmaciel@gmail.com\">vpmaciel@gmail.com</a><html>");
 		labelAutor.setCursor(cursor);

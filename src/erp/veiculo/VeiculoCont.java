@@ -14,7 +14,7 @@ import erp.main.MainCT;
 import erp.veiculo.marca.VeiculoMarca;
 import erp.veiculo.modelo.VeiculoModelo;
 
-final class VeiculoCT {
+final class VeiculoCont {
 
 	public class Ajuda implements ActionListener {
 
@@ -35,7 +35,7 @@ final class VeiculoCT {
 				return;
 			}
 			try {
-				VeiculoFAC.deletarRegistro(veiculo);
+				VeiculoFac.deletarRegistro(veiculo);
 				getFrameCadastroVeiculo().limparGUI();
 				veiculo = new Veiculo();
 				Msg.sucessoExcluiRegistro();
@@ -99,9 +99,9 @@ final class VeiculoCT {
 			}
 
 			try {
-				if (veiculos.add(VeiculoFAC.getRegistro(veiculo))) {
-					VeiculoREL veiculoREL = new VeiculoREL(veiculos);
-					veiculoREL.retornarRelatorio(true);
+				if (veiculos.add(VeiculoFac.getRegistro(veiculo))) {
+					VeiculoRel veiculoRel = new VeiculoRel(veiculos);
+					veiculoRel.retornarRelatorio(true);
 				}
 			} catch (Exception e) {
 				System.out.println(e);
@@ -116,12 +116,12 @@ final class VeiculoCT {
 			List<Veiculo> veiculos = new LinkedList<>();
 
 			try {
-				veiculos = new LinkedList<>(VeiculoFAC.pesquisarRegistro(veiculo));
+				veiculos = new LinkedList<>(VeiculoFac.pesquisarRegistro(veiculo));
 			} catch (Exception e) {
 				System.out.println(e);
 			}
-			VeiculoREL veiculoREL = new VeiculoREL(veiculos);
-			veiculoREL.retornarRelatorio(true);
+			VeiculoRel veiculoRel = new VeiculoRel(veiculos);
+			veiculoRel.retornarRelatorio(true);
 		}
 	}
 
@@ -179,7 +179,7 @@ final class VeiculoCT {
 				}
 				if (mensagem == JOptionPane.YES_OPTION) {
 					atualizarObjeto();
-					VeiculoFAC.salvarRegistro(veiculo);
+					VeiculoFac.salvarRegistro(veiculo);
 					veiculo = new Veiculo();
 					MainCT.getFrameCadastroVeiculo().limparGUI();
 					getVeiculoPC().getPlacaGUI().requestFocus();
@@ -309,19 +309,19 @@ final class VeiculoCT {
 		veiculo.setValorVenda(getVeiculoPC().getValorVendaGUI().getText());
 	}
 
-	public VeiculoFC getFrameCadastroVeiculo() {
+	public VeiculoFc getFrameCadastroVeiculo() {
 		return MainCT.getFrameCadastroVeiculo();
 	}
 
-	public VeiculoPC getVeiculoPC() {
+	public VeiculoPc getVeiculoPC() {
 		return MainCT.getFrameCadastroVeiculo().getPanelCadastroVeiculo();
 	}
 
-	public VeiculoFP getFramePesquisaVeiculo() {
+	public VeiculoFp getFramePesquisaVeiculo() {
 		return MainCT.getFramePesquisaVeiculo();
 	}
 
-	public VeiculoPP getPanelPesquisaVeiculo() {
+	public VeiculoPp getPanelPesquisaVeiculo() {
 		return MainCT.getFramePesquisaVeiculo().getPanelPesquisaVeiculo();
 	}
 
@@ -330,6 +330,6 @@ final class VeiculoCT {
 	}
 
 	public void setVeiculo(Veiculo veiculo) {
-		VeiculoCT.veiculo = veiculo;
+		VeiculoCont.veiculo = veiculo;
 	}
 }

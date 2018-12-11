@@ -8,7 +8,7 @@ import javax.swing.table.AbstractTableModel;
 import arquitetura.util.TabelaModelo;
 
 @SuppressWarnings("serial")
-public class VeiculoMarcaTM extends AbstractTableModel {
+public class VeiculoMarcaTm extends AbstractTableModel {
 
 	public static final int ID = 0;
 	public static int[] largura;
@@ -17,7 +17,7 @@ public class VeiculoMarcaTM extends AbstractTableModel {
 	private VeiculoMarca veiculoMarca;
 	private static TabelaModelo tabelaModelo = new TabelaModelo();
 
-	public VeiculoMarcaTM() {
+	public VeiculoMarcaTm() {
 
 	}
 
@@ -33,7 +33,7 @@ public class VeiculoMarcaTM extends AbstractTableModel {
 		}
 	}
 
-	public VeiculoMarcaTM(List<VeiculoMarca> lista) {
+	public VeiculoMarcaTm(List<VeiculoMarca> lista) {
 		veiculoMarcaList.addAll(lista);
 	}
 

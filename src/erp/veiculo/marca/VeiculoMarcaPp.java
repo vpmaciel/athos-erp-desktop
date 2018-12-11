@@ -16,22 +16,22 @@ import javax.swing.table.DefaultTableCellRenderer;
 import arquitetura.gui.Tabela;
 
 @SuppressWarnings("serial")
-public final class VeiculoMarcaPP extends JPanel {
+public final class VeiculoMarcaPp extends JPanel {
 
-	private final VeiculoMarcaTM veiculoMarcaTM;
+	private final VeiculoMarcaTm veiculoMarcaTm;
 	List<VeiculoMarca> veiculoList = null;
 	private final JTable table;
 
-	public VeiculoMarcaPP() {
+	public VeiculoMarcaPp() {
 		veiculoList = new LinkedList<>();
-		veiculoMarcaTM = new VeiculoMarcaTM(veiculoList);
+		veiculoMarcaTm = new VeiculoMarcaTm(veiculoList);
 
 		table = new JTable();
-		table.setModel(veiculoMarcaTM);
+		table.setModel(veiculoMarcaTm);
 		for (int c = 0; c < table.getColumnCount(); ++c) {
 			table.setDefaultRenderer(table.getColumnClass(c), Tabela.getDefaultTableCellRenderer());
 		}
-		Tabela.configurarLarguraColunasTabela(table, VeiculoMarcaTM.largura);
+		Tabela.configurarLarguraColunasTabela(table, VeiculoMarcaTm.largura);
 		((DefaultTableCellRenderer) table.getTableHeader().getDefaultRenderer())
 				.setHorizontalAlignment(SwingConstants.RIGHT);
 		table.getColumnModel().getColumn(0).setMaxWidth(0);
@@ -52,23 +52,23 @@ public final class VeiculoMarcaPP extends JPanel {
 	}
 
 	public void atualizarGui(List<VeiculoMarca> veiculoMarcas) {
-		veiculoMarcaTM.setVeiculoMarcaList(veiculoMarcas);
-		veiculoMarcaTM.fireTableDataChanged();
+		veiculoMarcaTm.setVeiculoMarcaList(veiculoMarcas);
+		veiculoMarcaTm.fireTableDataChanged();
 	}
 
-	public VeiculoMarcaTM getVeiculoTableModel() {
-		return veiculoMarcaTM;
+	public VeiculoMarcaTm getVeiculoTableModel() {
+		return veiculoMarcaTm;
 	}
 
 	public void iniciarHandle() {
-		VeiculoMarcaSL listener = new VeiculoMarcaSL(table);
+		VeiculoMarcaSl listener = new VeiculoMarcaSl(table);
 		table.getSelectionModel().addListSelectionListener(listener);
 	}
 
 	public int pesquisarRegistroVeiculoMarca(VeiculoMarca veiculoMarca) {
 		veiculoList = new LinkedList<>();
 		try {
-			veiculoList = new LinkedList<>(VeiculoMarcaFAC.pesquisarRegistro(veiculoMarca));
+			veiculoList = new LinkedList<>(VeiculoMarcaFac.pesquisarRegistro(veiculoMarca));
 		} catch (Exception e) {
 			System.out.println(e);
 		}

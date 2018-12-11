@@ -9,7 +9,7 @@ import java.util.Locale;
 public class Data {
 
 	public Data() {
-		System.out.println(getDateTime());
+		
 	}
 
 	public static String getDateTime() {
@@ -49,8 +49,6 @@ public class Data {
 			nome = "SÁBADO";
 			break;
 		}
-
 		return nome;
 	}
-
 }

@@ -16,13 +16,13 @@ import arquitetura.gui.ConfiguracaoGUI;
 import arquitetura.gui.Imagem;
 
 @SuppressWarnings("serial")
-public final class VeiculoFC extends JFrame implements GUI {
+public final class VeiculoFc extends JFrame implements GUI {
 
-	private VeiculoCT veiculoCT;
+	private VeiculoCont veiculoCont;
 	private ConfiguracaoGUI configuracaoGUI;
-	private VeiculoPC veiculoPC;
+	private VeiculoPc veiculoPc;
 
-	public VeiculoFC() {
+	public VeiculoFc() {
 		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		iniciarLayout();
 		iniciarGUI();
@@ -41,12 +41,12 @@ public final class VeiculoFC extends JFrame implements GUI {
 		return configuracaoGUI;
 	}
 
-	public VeiculoPC getPanelCadastroVeiculo() {
-		return veiculoPC;
+	public VeiculoPc getPanelCadastroVeiculo() {
+		return veiculoPc;
 	}
 
-	public VeiculoCT getVeiculoGerenteEventos() {
-		return veiculoCT;
+	public VeiculoCont getVeiculoGerenteEventos() {
+		return veiculoCont;
 	}
 
 	@Override
@@ -59,10 +59,10 @@ public final class VeiculoFC extends JFrame implements GUI {
 	public void iniciarGUI() {
 		setTitle("VEÍCULO");
 		setIconImage(Imagem.getLogoTipoImage());
-		veiculoPC = new VeiculoPC();
-		veiculoPC.setOpaque(true); // content panes must be opaque
+		veiculoPc = new VeiculoPc();
+		veiculoPc.setOpaque(true); // content panes must be opaque
 
-		final JScrollPane scrollPane = new JScrollPane(veiculoPC);
+		final JScrollPane scrollPane = new JScrollPane(veiculoPc);
 
 		KeyboardFocusManager.getCurrentKeyboardFocusManager().addPropertyChangeListener("focusOwner",
 				new PropertyChangeListener() {
@@ -73,8 +73,8 @@ public final class VeiculoFC extends JFrame implements GUI {
 							return;
 						}
 						JComponent focused = (JComponent) evt.getNewValue();
-						if (veiculoPC.isAncestorOf(focused)) {
-							veiculoPC.scrollRectToVisible(focused.getBounds());
+						if (veiculoPc.isAncestorOf(focused)) {
+							veiculoPc.scrollRectToVisible(focused.getBounds());
 						}
 					}
 				});
@@ -92,27 +92,27 @@ public final class VeiculoFC extends JFrame implements GUI {
 
 	@Override
 	public void iniciarControlador() {
-		veiculoCT = new VeiculoCT();
-		addWindowListener(veiculoCT.new Frame());
-		veiculoPC.getToolBar().getExcluirBTN().addActionListener(veiculoCT.new Exclui());
-		veiculoPC.getToolBar().getNovoBTN().addActionListener(veiculoCT.new Novo());
-		veiculoPC.getToolBar().getPesquisarBTN().addActionListener(veiculoCT.new Pesquisa());
-		veiculoPC.getToolBar().getImprimirBTN().addActionListener(veiculoCT.new Imprime());
-		veiculoPC.getToolBar().getRelatorioBTN().addActionListener(veiculoCT.new Relatorio());
-		veiculoPC.getToolBar().getSalvarBTN().addActionListener(veiculoCT.new Salva());
-		veiculoPC.getToolBar().getFecharBTN().addActionListener(veiculoCT.new FechaJanela());
-		veiculoPC.getToolBar().getSairBTN().addActionListener(veiculoCT.new SaidaSistema());
-		veiculoPC.getToolBar().getAjudaBTN().addActionListener(veiculoCT.new Ajuda());
-		veiculoPC.getToolBar().getHomeBTN().addActionListener(veiculoCT.new Home());
+		veiculoCont = new VeiculoCont();
+		addWindowListener(veiculoCont.new Frame());
+		veiculoPc.getToolBar().getExcluirBTN().addActionListener(veiculoCont.new Exclui());
+		veiculoPc.getToolBar().getNovoBTN().addActionListener(veiculoCont.new Novo());
+		veiculoPc.getToolBar().getPesquisarBTN().addActionListener(veiculoCont.new Pesquisa());
+		veiculoPc.getToolBar().getImprimirBTN().addActionListener(veiculoCont.new Imprime());
+		veiculoPc.getToolBar().getRelatorioBTN().addActionListener(veiculoCont.new Relatorio());
+		veiculoPc.getToolBar().getSalvarBTN().addActionListener(veiculoCont.new Salva());
+		veiculoPc.getToolBar().getFecharBTN().addActionListener(veiculoCont.new FechaJanela());
+		veiculoPc.getToolBar().getSairBTN().addActionListener(veiculoCont.new SaidaSistema());
+		veiculoPc.getToolBar().getAjudaBTN().addActionListener(veiculoCont.new Ajuda());
+		veiculoPc.getToolBar().getHomeBTN().addActionListener(veiculoCont.new Home());
 	}
 
 	@Override
 	public void iniciarLayout() {
 		setLayout(null);
-		setPreferredSize(new Dimension(800, 600));
-		setMinimumSize(new Dimension(800, 600));
-		setSize(new Dimension(800, 600));
-		setMaximumSize(new Dimension(800, 600));
+		setPreferredSize(new Dimension(800, 420));
+		setMinimumSize(new Dimension(800, 420));
+		setSize(new Dimension(800, 420));
+		setMaximumSize(new Dimension(800, 420));
 	}
 
 	@Override

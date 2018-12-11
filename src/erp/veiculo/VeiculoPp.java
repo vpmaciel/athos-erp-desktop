@@ -16,22 +16,22 @@ import javax.swing.table.DefaultTableCellRenderer;
 import arquitetura.gui.Tabela;
 
 @SuppressWarnings("serial")
-public final class VeiculoPP extends JPanel {
+public final class VeiculoPp extends JPanel {
 
-	private final VeiculoTM veiculoTM;
+	private final VeiculoTm veiculoTm;
 	List<Veiculo> veiculoList = null;
 	private final JTable table;
 
-	public VeiculoPP() {
+	public VeiculoPp() {
 		veiculoList = new LinkedList<>();
-		veiculoTM = new VeiculoTM(veiculoList);
+		veiculoTm = new VeiculoTm(veiculoList);
 
 		table = new JTable();
-		table.setModel(veiculoTM);
+		table.setModel(veiculoTm);
 		for (int c = 0; c < table.getColumnCount(); ++c) {
 			table.setDefaultRenderer(table.getColumnClass(c), Tabela.getDefaultTableCellRenderer());
 		}
-		Tabela.configurarLarguraColunasTabela(table, VeiculoTM.largura);
+		Tabela.configurarLarguraColunasTabela(table, VeiculoTm.largura);
 		((DefaultTableCellRenderer) table.getTableHeader().getDefaultRenderer())
 				.setHorizontalAlignment(SwingConstants.RIGHT);
 		table.getColumnModel().getColumn(0).setMaxWidth(0);
@@ -52,23 +52,23 @@ public final class VeiculoPP extends JPanel {
 	}
 
 	public void atualizarGui(List<Veiculo> veiculos) {
-		veiculoTM.setVeiculoList(veiculos);
-		veiculoTM.fireTableDataChanged();
+		veiculoTm.setVeiculoList(veiculos);
+		veiculoTm.fireTableDataChanged();
 	}
 
-	public VeiculoTM getVeiculoTableModel() {
-		return veiculoTM;
+	public VeiculoTm getVeiculoTableModel() {
+		return veiculoTm;
 	}
 
 	public void iniciarHandle() {
-		VeiculoSL listener = new VeiculoSL(table);
+		VeiculoSl listener = new VeiculoSl(table);
 		table.getSelectionModel().addListSelectionListener(listener);
 	}
 
 	public int pesquisarRegistroVeiculo(Veiculo veiculo) {
 		veiculoList = new LinkedList<>();
 		try {
-			veiculoList = new LinkedList<>(VeiculoFAC.pesquisarRegistro(veiculo));
+			veiculoList = new LinkedList<>(VeiculoFac.pesquisarRegistro(veiculo));
 		} catch (Exception e) {
 			System.out.println(e);
 		}

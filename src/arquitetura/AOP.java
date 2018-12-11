@@ -32,6 +32,6 @@ public class AOP {
 	}
 
 	public static String getNomeSistema() {
-		return "Athos - Sistema de Gestão Empresarial";
+		return "ATHOS - SISTEMA DE GESTÃO EMPRESARIAL";
 	}
-}
+}	

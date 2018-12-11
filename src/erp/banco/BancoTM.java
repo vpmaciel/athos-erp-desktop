@@ -24,6 +24,7 @@ public class BancoTM extends AbstractTableModel {
 	static {
 		tabelaModelo.adicionar("ID", 0, 100);
 		tabelaModelo.adicionar("NOME", 1, 500);
+		tabelaModelo.adicionar("CÓDIGO", 2, 100);
 		
 		largura = new int[tabelaModelo.getTotalColunas()];
 		podeEditar = new boolean[tabelaModelo.getTotalColunas()];
@@ -83,6 +84,9 @@ public class BancoTM extends AbstractTableModel {
 		if (tabelaModelo.getNome(columnIndex).equals("NOME")) {
 			return banco.getNome();
 		}
+		if (tabelaModelo.getNome(columnIndex).equals("CÓDIGO")) {
+			return banco.getCodigo();
+		}
 		return banco;
 	}
 
@@ -104,6 +108,9 @@ public class BancoTM extends AbstractTableModel {
 		}
 		if (tabelaModelo.getNome(columnIndex).equals("NOME")) {
 			banco.setNome(aValue.toString());
+		}
+		if (tabelaModelo.getNome(columnIndex).equals("CÓDIGO")) {
+		 banco.setCodigo(aValue.toString());
 		}
 
 		fireTableDataChanged();

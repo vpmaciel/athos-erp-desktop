@@ -16,13 +16,13 @@ import arquitetura.gui.ConfiguracaoGUI;
 import arquitetura.gui.Imagem;
 
 @SuppressWarnings("serial")
-public final class VeiculoModeloFC extends JFrame implements GUI {
+public final class VeiculoModeloFc extends JFrame implements GUI {
 
-	private VeiculoModeloCT veiculoModeloCT;
+	private VeiculoModeloCont veiculoModeloCont;
 	private ConfiguracaoGUI configuracaoGUI;
-	private VeiculoModeloPC veiculoModeloPC;
+	private VeiculoModeloPc veiculoModeloPc;
 
-	public VeiculoModeloFC() {
+	public VeiculoModeloFc() {
 		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		iniciarLayout();
 		iniciarGUI();
@@ -41,12 +41,12 @@ public final class VeiculoModeloFC extends JFrame implements GUI {
 		return configuracaoGUI;
 	}
 
-	public VeiculoModeloPC getPanelCadastroVeiculoModelo() {
-		return veiculoModeloPC;
+	public VeiculoModeloPc getPanelCadastroVeiculoModelo() {
+		return veiculoModeloPc;
 	}
 
-	public VeiculoModeloCT getVeiculoModeloHandle() {
-		return veiculoModeloCT;
+	public VeiculoModeloCont getVeiculoModeloHandle() {
+		return veiculoModeloCont;
 	}
 
 	@Override
@@ -59,10 +59,10 @@ public final class VeiculoModeloFC extends JFrame implements GUI {
 	public void iniciarGUI() {
 		setTitle("VEÍCULO - MODELO");
 		setIconImage(Imagem.getLogoTipoImage());
-		veiculoModeloPC = new VeiculoModeloPC();
-		veiculoModeloPC.setOpaque(true); // content panes must be opaque
+		veiculoModeloPc = new VeiculoModeloPc();
+		veiculoModeloPc.setOpaque(true); // content panes must be opaque
 
-		final JScrollPane scrollPane = new JScrollPane(veiculoModeloPC);
+		final JScrollPane scrollPane = new JScrollPane(veiculoModeloPc);
 
 		KeyboardFocusManager.getCurrentKeyboardFocusManager().addPropertyChangeListener("focusOwner",
 				new PropertyChangeListener() {
@@ -73,8 +73,8 @@ public final class VeiculoModeloFC extends JFrame implements GUI {
 							return;
 						}
 						JComponent focused = (JComponent) evt.getNewValue();
-						if (veiculoModeloPC.isAncestorOf(focused)) {
-							veiculoModeloPC.scrollRectToVisible(focused.getBounds());
+						if (veiculoModeloPc.isAncestorOf(focused)) {
+							veiculoModeloPc.scrollRectToVisible(focused.getBounds());
 						}
 					}
 				});
@@ -92,37 +92,37 @@ public final class VeiculoModeloFC extends JFrame implements GUI {
 
 	@Override
 	public void iniciarControlador() {
-		veiculoModeloCT = new VeiculoModeloCT();
-		addWindowListener(veiculoModeloCT.new Frame());
-		veiculoModeloPC.getToolBar().getExcluirBTN()
-				.addActionListener(veiculoModeloCT.new ExcluiRegistro());
-		veiculoModeloPC.getToolBar().getNovoBTN()
-				.addActionListener(veiculoModeloCT.new NovoFrame());
-		veiculoModeloPC.getToolBar().getPesquisarBTN()
-				.addActionListener(veiculoModeloCT.new PesquisaRegistro());
-		veiculoModeloPC.getToolBar().getImprimirBTN()
-				.addActionListener(veiculoModeloCT.new ImprimiUnicoRegistro());
-		veiculoModeloPC.getToolBar().getRelatorioBTN()
-				.addActionListener(veiculoModeloCT.new ImprimiTodosRegistros());
-		veiculoModeloPC.getToolBar().getSalvarBTN()
-				.addActionListener(veiculoModeloCT.new Salva());
-		veiculoModeloPC.getToolBar().getFecharBTN()
-				.addActionListener(veiculoModeloCT.new FechaJanela());
-		veiculoModeloPC.getToolBar().getSairBTN()
-				.addActionListener(veiculoModeloCT.new SaidaSistema());
-		veiculoModeloPC.getToolBar().getAjudaBTN()
-				.addActionListener(veiculoModeloCT.new Ajuda());
-		veiculoModeloPC.getToolBar().getHomeBTN()
-				.addActionListener(veiculoModeloCT.new Home());
+		veiculoModeloCont = new VeiculoModeloCont();
+		addWindowListener(veiculoModeloCont.new Frame());
+		veiculoModeloPc.getToolBar().getExcluirBTN()
+				.addActionListener(veiculoModeloCont.new ExcluiRegistro());
+		veiculoModeloPc.getToolBar().getNovoBTN()
+				.addActionListener(veiculoModeloCont.new NovoFrame());
+		veiculoModeloPc.getToolBar().getPesquisarBTN()
+				.addActionListener(veiculoModeloCont.new PesquisaRegistro());
+		veiculoModeloPc.getToolBar().getImprimirBTN()
+				.addActionListener(veiculoModeloCont.new ImprimiUnicoRegistro());
+		veiculoModeloPc.getToolBar().getRelatorioBTN()
+				.addActionListener(veiculoModeloCont.new ImprimiTodosRegistros());
+		veiculoModeloPc.getToolBar().getSalvarBTN()
+				.addActionListener(veiculoModeloCont.new Salva());
+		veiculoModeloPc.getToolBar().getFecharBTN()
+				.addActionListener(veiculoModeloCont.new FechaJanela());
+		veiculoModeloPc.getToolBar().getSairBTN()
+				.addActionListener(veiculoModeloCont.new SaidaSistema());
+		veiculoModeloPc.getToolBar().getAjudaBTN()
+				.addActionListener(veiculoModeloCont.new Ajuda());
+		veiculoModeloPc.getToolBar().getHomeBTN()
+				.addActionListener(veiculoModeloCont.new Home());
 	}
 
 	@Override
 	public void iniciarLayout() {
 		setLayout(null);
-		setPreferredSize(new Dimension(800, 600));
-		setMinimumSize(new Dimension(800, 600));
-		setSize(new Dimension(800, 600));
-		setMaximumSize(new Dimension(800, 600));
+		setPreferredSize(new Dimension(800, 420));
+		setMinimumSize(new Dimension(800, 420));
+		setSize(new Dimension(800, 420));
+		setMaximumSize(new Dimension(800, 420));
 	}
 
 	@Override
