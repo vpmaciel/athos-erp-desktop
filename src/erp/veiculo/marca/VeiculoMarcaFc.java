@@ -41,7 +41,7 @@ public final class VeiculoMarcaFc extends JFrame implements GUI {
 		return configuracaoGUI;
 	}
 
-	public VeiculoMarcaPc getPanelCadastroVeiculoMarca() {
+	public VeiculoMarcaPc getVeiculoMarcaPc() {
 		return veiculoMarcaPc;
 	}
 

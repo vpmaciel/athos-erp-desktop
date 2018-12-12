@@ -10,7 +10,7 @@ import java.util.List;
 import javax.swing.JOptionPane;
 
 import arquitetura.gui.Msg;
-import erp.main.MainCT;
+import erp.main.MainCont;
 
 final class VeiculoMarcaCont {
 
@@ -34,7 +34,7 @@ final class VeiculoMarcaCont {
 			}
 			try {
 				VeiculoMarcaFac.deletarRegistro(veiculoMarca);
-				getFrameCadastroVeiculoMarca().limparGUI();
+				getVeiculoMarcaFc().limparGUI();
 				veiculoMarca = new VeiculoMarca();
 				Msg.sucessoExcluiRegistro();
 			} catch (Exception e) {
@@ -48,7 +48,7 @@ final class VeiculoMarcaCont {
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
 			try {
-				getFrameCadastroVeiculoMarca().setVisible(false);
+				getVeiculoMarcaFc().setVisible(false);
 			} catch (Exception e) {
 				System.out.println(e);
 			}
@@ -59,12 +59,12 @@ final class VeiculoMarcaCont {
 
 		@Override
 		public void windowActivated(WindowEvent e) {
-			getFrameCadastroVeiculoMarca().reiniciarGUI();
+			getVeiculoMarcaFc().reiniciarGUI();
 		}
 
 		@Override
 		public void windowClosing(WindowEvent e) {
-			getFrameCadastroVeiculoMarca().setVisible(false);
+			getVeiculoMarcaFc().setVisible(false);
 		}
 
 		@Override
@@ -78,7 +78,7 @@ final class VeiculoMarcaCont {
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
 			try {
-				MainCT.mostrarFrame(MainCT.getFrameMain());
+				MainCont.mostrarFrame(MainCont.getFrameMain());
 			} catch (Exception e) {
 				System.out.println(e);
 			}
@@ -128,8 +128,8 @@ final class VeiculoMarcaCont {
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
 			veiculoMarca = new VeiculoMarca();
-			getFrameCadastroVeiculoMarca().limparGUI();
-			getPanelCadastroVeiculoMarca().getTextFieldMarca().requestFocus();
+			getVeiculoMarcaFc().limparGUI();
+			getVeiculoMarcaPc().getTextFieldMarca().requestFocus();
 		}
 	}
 
@@ -139,8 +139,8 @@ final class VeiculoMarcaCont {
 		public void actionPerformed(ActionEvent actionEvent) {
 			veiculoMarca = new VeiculoMarca();
 			atualizarObjeto();
-			getPanelPesquisaVeiculoMarca().pesquisarRegistroVeiculoMarca(veiculoMarca);
-			MainCT.mostrarFrame(getFramePesquisaVeiculoMarca());
+			getVeiculoMarcaPp().pesquisarRegistroVeiculoMarca(veiculoMarca);
+			MainCont.mostrarFrame(getVeiculoMarcaFp());
 		}
 	}
 
@@ -168,9 +168,9 @@ final class VeiculoMarcaCont {
 				if (mensagem != JOptionPane.YES_OPTION) {
 					return;
 				}
-				String placa = getPanelCadastroVeiculoMarca().getTextFieldMarca().getText();
+				String placa = getVeiculoMarcaPc().getTextFieldMarca().getText();
 				if (placa == null || placa.length() == 0) {
-					getPanelCadastroVeiculoMarca().getTextFieldMarca().requestFocus();
+					getVeiculoMarcaPc().getTextFieldMarca().requestFocus();
 					Msg.avisoCampoObrigatorio("Data");
 					return;
 				}
@@ -178,8 +178,8 @@ final class VeiculoMarcaCont {
 					atualizarObjeto();
 					VeiculoMarcaFac.salvarRegistro(veiculoMarca);
 					veiculoMarca = new VeiculoMarca();
-					getFrameCadastroVeiculoMarca().limparGUI();
-					getPanelCadastroVeiculoMarca().getTextFieldMarca().requestFocus();
+					getVeiculoMarcaFc().limparGUI();
+					getVeiculoMarcaPc().getTextFieldMarca().requestFocus();
 					Msg.sucessoSalvarRegistro();
 				}
 			} catch (Exception e) {
@@ -194,11 +194,11 @@ final class VeiculoMarcaCont {
 		if (veiculoMarca == null) {
 			return;
 		}
-		getPanelCadastroVeiculoMarca().getTextFieldMarca().setText(veiculoMarca.getMarca());
+		getVeiculoMarcaPc().getTextFieldMarca().setText(veiculoMarca.getMarca());
 	}
 
 	public void atualizarObjeto() {
-		veiculoMarca.setMarca(getPanelCadastroVeiculoMarca().getTextFieldMarca().getText());
+		veiculoMarca.setMarca(getVeiculoMarcaPc().getTextFieldMarca().getText());
 	}
 
 	public VeiculoMarca getVeiculoMarca() {
@@ -209,19 +209,19 @@ final class VeiculoMarcaCont {
 		this.veiculoMarca = veiculoMarca;
 	}
 
-	public VeiculoMarcaFc getFrameCadastroVeiculoMarca() {
-		return MainCT.getFrameCadastroVeiculoMarca();
+	public VeiculoMarcaFc getVeiculoMarcaFc() {
+		return MainCont.getVeiculoMarcaFc();
 	}
 
-	public VeiculoMarcaPc getPanelCadastroVeiculoMarca() {
-		return MainCT.getFrameCadastroVeiculoMarca().getPanelCadastroVeiculoMarca();
+	public VeiculoMarcaPc getVeiculoMarcaPc() {
+		return MainCont.getVeiculoMarcaFc().getVeiculoMarcaPc();
 	}
 
-	public VeiculoMarcaFp getFramePesquisaVeiculoMarca() {
-		return MainCT.getFramePesquisaVeiculoMarca();
+	public VeiculoMarcaFp getVeiculoMarcaFp() {
+		return MainCont.getVeiculoMarcaFp();
 	}
 
-	public VeiculoMarcaPp getPanelPesquisaVeiculoMarca() {
-		return MainCT.getFramePesquisaVeiculoMarca().getPanelPesquisaVeiculoMarca();
+	public VeiculoMarcaPp getVeiculoMarcaPp() {
+		return MainCont.getVeiculoMarcaFp().getVeiculoMarcaPp();
 	}
 }

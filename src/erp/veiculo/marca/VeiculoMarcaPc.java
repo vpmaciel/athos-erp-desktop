@@ -8,7 +8,7 @@ import javax.swing.SpringLayout;
 import arquitetura.gui.FocusTabListener;
 import arquitetura.gui.GUI;
 import arquitetura.gui.ConfiguracaoGUI;
-import arquitetura.gui.TamanhoUpperCase;
+import arquitetura.gui.EntradaMaiuscula;
 import arquitetura.registro.ToolBar;
 import arquitetura.util.SpringUtilities;
 
@@ -62,7 +62,7 @@ public final class VeiculoMarcaPc extends JPanel implements GUI {
 		add(labelMarca);
 
 		textFieldMarca = new JTextField();
-		textFieldMarca.setDocument(new TamanhoUpperCase(20));
+		textFieldMarca.setDocument(new EntradaMaiuscula(20));
 		add(textFieldMarca);
 
 		// Lay out the panel.

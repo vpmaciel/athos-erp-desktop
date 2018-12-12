@@ -3,16 +3,16 @@ package arquitetura.gui;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
-import erp.main.MainFC;
-import erp.main.MainCT;
-import erp.main.SobrePC;
+import erp.main.MainFc;
+import erp.main.MainCont;
+import erp.main.SobrePc;
 
 public final class Msg {
 
 	private static Object[] botoesSimNao = new Object[] { "Sim", "Nao" };
 
 	public static final void ajuda() {
-		JOptionPane.showMessageDialog(MainFC.getFrameMain(), new SobrePC(), "Sobre o Sistema",
+		JOptionPane.showMessageDialog(MainFc.getFrameMain(), new SobrePc(), "Sobre o Sistema",
 				JOptionPane.INFORMATION_MESSAGE);
 	}
 
@@ -57,7 +57,7 @@ public final class Msg {
 	}
 
 	public static final void avisoFecharSistema() {
-		JOptionPane.showMessageDialog(MainCT.getFrameLogin().getPanelLogin(), "O sistema será fechado !",
+		JOptionPane.showMessageDialog(MainCont.getFrameLogin().getPanelLogin(), "O sistema será fechado !",
 				"Erro", JOptionPane.ERROR_MESSAGE);
 	}
 

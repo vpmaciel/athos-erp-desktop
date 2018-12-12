@@ -7,10 +7,10 @@ public final class UsuarioUtil {
 		usuario.setNome("ADMIN");
 		usuario.setSenha("123");
 
-		int usuarioRegTotal = UsuarioFAC.getRegistro().size();
+		int usuarioRegTotal = UsuarioFac.getRegistro().size();
 
 		if (usuarioRegTotal < 1) {
-			UsuarioFAC.salvarRegistro(usuario);
+			UsuarioFac.salvarRegistro(usuario);
 		}
 	}
 }

@@ -30,7 +30,7 @@ public final class VeiculoFp extends JFrame implements GUI {
 		return null;
 	}
 
-	public VeiculoPp getPanelPesquisaVeiculo() {
+	public VeiculoPp getVeiculoPp() {
 		return VeiculoPp;
 	}
 

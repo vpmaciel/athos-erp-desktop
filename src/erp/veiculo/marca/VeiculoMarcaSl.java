@@ -5,7 +5,7 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.TableModel;
 
-import erp.main.MainCT;
+import erp.main.MainCont;
 
 final class VeiculoMarcaSl implements ListSelectionListener {
 
@@ -28,12 +28,12 @@ final class VeiculoMarcaSl implements ListSelectionListener {
 					VeiculoMarca veiculoMarca = VeiculoMarcaFac.getRegistro(veiculoMarcaPesquisaRegistro);
 					VeiculoMarcaTm veiculoMarcaTm = (VeiculoMarcaTm) table.getModel();
 					veiculoMarcaTm.getVeiculoMarca(table.getSelectedRow());
-					MainCT.mostrarFrame(MainCT.getFrameCadastroVeiculoMarca());
-					MainCT.getFrameCadastroVeiculoMarca().getVeiculoMarcaHandle()
+					MainCont.mostrarFrame(MainCont.getVeiculoMarcaFc());
+					MainCont.getVeiculoMarcaFc().getVeiculoMarcaHandle()
 							.setVeiculoMarca(veiculoMarca);
-					MainCT.getFrameCadastroVeiculoMarca().getVeiculoMarcaHandle().atualizarGui();
-					MainCT.getFrameCadastroVeiculoMarca().setFocusable(true);
-					MainCT.getFramePesquisaVeiculoMarca().setVisible(false);
+					MainCont.getVeiculoMarcaFc().getVeiculoMarcaHandle().atualizarGui();
+					MainCont.getVeiculoMarcaFc().setFocusable(true);
+					MainCont.getVeiculoMarcaFp().setVisible(false);
 				}
 			}
 		}

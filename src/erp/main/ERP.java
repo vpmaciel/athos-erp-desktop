@@ -23,13 +23,13 @@ public class ERP {
 
 			@Override
 			public void run() {
-				MainFC mainFC = new MainFC();
+				MainFc mainFc = new MainFc();
 				UsuarioUtil.criarUsuario();
-				mainFC.setLocationRelativeTo(null);
-				mainFC.setState(Frame.NORMAL);
-				mainFC.setVisible(true);
-				mainFC.setResizable(false);
-				mainFC.toFront();
+				mainFc.setLocationRelativeTo(null);
+				mainFc.setState(Frame.NORMAL);
+				mainFc.setVisible(true);
+				mainFc.setResizable(false);
+				mainFc.toFront();
 			}
 		});
 	}

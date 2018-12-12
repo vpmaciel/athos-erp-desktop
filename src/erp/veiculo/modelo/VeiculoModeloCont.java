@@ -10,7 +10,7 @@ import java.util.List;
 import javax.swing.JOptionPane;
 
 import arquitetura.gui.Msg;
-import erp.main.MainCT;
+import erp.main.MainCont;
 
 final class VeiculoModeloCont {
 
@@ -34,7 +34,7 @@ final class VeiculoModeloCont {
 			}
 			try {
 				VeiculoModeloFac.deletarRegistro(veiculoModelo);
-				getFrameCadastroVeiculoModelo().limparGUI();
+				getVeiculoModeloFc().limparGUI();
 				veiculoModelo = new VeiculoModelo();
 				Msg.sucessoExcluiRegistro();
 			} catch (Exception e) {
@@ -48,7 +48,7 @@ final class VeiculoModeloCont {
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
 			try {
-				getFrameCadastroVeiculoModelo().setVisible(false);
+				getVeiculoModeloFc().setVisible(false);
 			} catch (Exception e) {
 				System.out.println(e);
 			}
@@ -59,12 +59,12 @@ final class VeiculoModeloCont {
 
 		@Override
 		public void windowActivated(WindowEvent e) {
-			getFrameCadastroVeiculoModelo().reiniciarGUI();
+			getVeiculoModeloFc().reiniciarGUI();
 		}
 
 		@Override
 		public void windowClosing(WindowEvent e) {
-			getFrameCadastroVeiculoModelo().setVisible(false);
+			getVeiculoModeloFc().setVisible(false);
 		}
 
 		@Override
@@ -78,7 +78,7 @@ final class VeiculoModeloCont {
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
 			try {
-				MainCT.mostrarFrame(MainCT.getFrameMain());
+				MainCont.mostrarFrame(MainCont.getFrameMain());
 			} catch (Exception e) {
 				System.out.println(e);
 			}
@@ -128,8 +128,8 @@ final class VeiculoModeloCont {
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
 			veiculoModelo = new VeiculoModelo();
-			getFrameCadastroVeiculoModelo().limparGUI();
-			getPanelCadastroVeiculoModelo().getTextFieldModelo().requestFocus();
+			getVeiculoModeloFc().limparGUI();
+			getVeiculoModeloPc().getTextFieldModelo().requestFocus();
 		}
 	}
 
@@ -139,9 +139,9 @@ final class VeiculoModeloCont {
 		public void actionPerformed(ActionEvent actionEvent) {
 			veiculoModelo = new VeiculoModelo();
 			atualizarObjeto();
-			MainCT.getFramePesquisaVeiculoModelo().getPanelPesquisaVeiculoModelo()
+			MainCont.getVeiculoModeloFp().getVeiculoModeloPp()
 					.pesquisarRegistroVeiculoModelo(veiculoModelo);
-			MainCT.mostrarFrame(getFramePesquisaVeiculoModelo());
+			MainCont.mostrarFrame(getVeiculoModeloFp());
 		}
 	}
 
@@ -169,9 +169,9 @@ final class VeiculoModeloCont {
 				if (mensagem != JOptionPane.YES_OPTION) {
 					return;
 				}
-				String placa = getPanelCadastroVeiculoModelo().getTextFieldModelo().getText();
+				String placa = getVeiculoModeloPc().getTextFieldModelo().getText();
 				if (placa == null || placa.length() == 0) {
-					getPanelCadastroVeiculoModelo().getTextFieldModelo().requestFocus();
+					getVeiculoModeloPc().getTextFieldModelo().requestFocus();
 					Msg.avisoCampoObrigatorio("Data");
 					return;
 				}
@@ -179,8 +179,8 @@ final class VeiculoModeloCont {
 					atualizarObjeto();
 					VeiculoModeloFac.salvarRegistro(veiculoModelo);
 					veiculoModelo = new VeiculoModelo();
-					getFrameCadastroVeiculoModelo().limparGUI();
-					getPanelCadastroVeiculoModelo().getTextFieldModelo().requestFocus();
+					getVeiculoModeloFc().limparGUI();
+					getVeiculoModeloPc().getTextFieldModelo().requestFocus();
 					Msg.sucessoSalvarRegistro();
 				}
 			} catch (Exception e) {
@@ -195,11 +195,11 @@ final class VeiculoModeloCont {
 		if (veiculoModelo == null) {
 			return;
 		}
-		getPanelCadastroVeiculoModelo().getTextFieldModelo().setText(veiculoModelo.getModelo());
+		getVeiculoModeloPc().getTextFieldModelo().setText(veiculoModelo.getModelo());
 	}
 
 	public void atualizarObjeto() {
-		veiculoModelo.setModelo(getPanelCadastroVeiculoModelo().getTextFieldModelo().getText());
+		veiculoModelo.setModelo(getVeiculoModeloPc().getTextFieldModelo().getText());
 	}
 
 	public VeiculoModelo getVeiculoModelo() {
@@ -210,19 +210,19 @@ final class VeiculoModeloCont {
 		this.veiculoModelo = veiculoModelo;
 	}
 
-	public VeiculoModeloFc getFrameCadastroVeiculoModelo() {
-		return MainCT.getFrameCadastroVeiculoModelo();
+	public VeiculoModeloFc getVeiculoModeloFc() {
+		return MainCont.getVeiculoModeloFc();
 	}
 
-	public VeiculoModeloPc getPanelCadastroVeiculoModelo() {
-		return MainCT.getFrameCadastroVeiculoModelo().getPanelCadastroVeiculoModelo();
+	public VeiculoModeloPc getVeiculoModeloPc() {
+		return MainCont.getVeiculoModeloFc().getVeiculoModeloPc();
 	}
 
-	public VeiculoModeloFp getFramePesquisaVeiculoModelo() {
-		return MainCT.getFramePesquisaVeiculoModelo();
+	public VeiculoModeloFp getVeiculoModeloFp() {
+		return MainCont.getVeiculoModeloFp();
 	}
 
-	public VeiculoModeloPp getPanelPesquisaVeiculoModelo() {
-		return MainCT.getFramePesquisaVeiculoModelo().getPanelPesquisaVeiculoModelo();
+	public VeiculoModeloPp getVeiculoModeloPp() {
+		return MainCont.getVeiculoModeloFp().getVeiculoModeloPp();
 	}
 }

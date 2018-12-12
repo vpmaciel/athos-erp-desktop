@@ -12,14 +12,14 @@ import javax.swing.SpringLayout;
 import arquitetura.gui.FocusTabListener;
 import arquitetura.gui.GUI;
 import arquitetura.gui.ConfiguracaoGUI;
-import arquitetura.gui.TamanhoLowerCase;
-import arquitetura.gui.TamanhoUpperCase;
+import arquitetura.gui.EntradaMinuscula;
+import arquitetura.gui.EntradaMaiuscula;
 import arquitetura.registro.ToolBar;
 import arquitetura.util.SpringUtilities;
 import erp.centrocusto.CentroCusto;
-import erp.centrocusto.CentroCustoFAC;
-import erp.centrocusto.CentroCustoCPT;
-import erp.main.MainCT;
+import erp.centrocusto.CentroCustoFac;
+import erp.centrocusto.CentroCustoComp;
+import erp.main.MainCont;
 import erp.veiculo.marca.VeiculoMarca;
 import erp.veiculo.marca.VeiculoMarcaComp;
 import erp.veiculo.marca.VeiculoMarcaFac;
@@ -556,7 +556,7 @@ public final class VeiculoPc extends JPanel implements GUI {
 		add(labelPlaca);
 
 		textFieldPlaca = new JTextField();
-		textFieldPlaca.setDocument(new TamanhoUpperCase(8));
+		textFieldPlaca.setDocument(new EntradaMaiuscula(8));
 		add(textFieldPlaca);
 
 		labelVeiculoMarca = new JLabel("MARCA DO VEÍCULO");
@@ -593,21 +593,21 @@ public final class VeiculoPc extends JPanel implements GUI {
 		add(labelChassi);
 
 		textFieldChassi = new JTextField();
-		textFieldChassi.setDocument(new TamanhoUpperCase(20));
+		textFieldChassi.setDocument(new EntradaMaiuscula(20));
 		add(textFieldChassi);
 
 		labelNumeroMotor = new JLabel("NÚMERO DO MOTOR");
 		add(labelNumeroMotor);
 
 		textFieldNumeroMotor = new JTextField();
-		textFieldNumeroMotor.setDocument(new TamanhoUpperCase(15));
+		textFieldNumeroMotor.setDocument(new EntradaMaiuscula(15));
 		add(textFieldNumeroMotor);
 
 		labelRenavam = new JLabel("RENAVAM");
 		add(labelRenavam);
 
 		textFieldRenavam = new JTextField();
-		textFieldRenavam.setDocument(new TamanhoUpperCase(15));
+		textFieldRenavam.setDocument(new EntradaMaiuscula(15));
 		add(textFieldRenavam);
 
 		labelChassiRemarcado = new JLabel("CHASSI REMARCADO");
@@ -623,56 +623,56 @@ public final class VeiculoPc extends JPanel implements GUI {
 		add(labelValorCompra);
 
 		textFieldValorCompra = new JTextField();
-		textFieldValorCompra.setDocument(new TamanhoUpperCase(10));
+		textFieldValorCompra.setDocument(new EntradaMaiuscula(10));
 		add(textFieldValorCompra);
 
 		labelValorVenda = new JLabel("VALOR DE VENDA");
 		add(labelValorVenda);
 
 		textFieldValorVenda = new JTextField();
-		textFieldValorVenda.setDocument(new TamanhoUpperCase(10));
+		textFieldValorVenda.setDocument(new EntradaMaiuscula(10));
 		add(textFieldValorVenda);
 
 		labelDesconto = new JLabel("DESCONTO");
 		add(labelDesconto);
 
 		textFieldDesconto = new JTextField();
-		textFieldDesconto.setDocument(new TamanhoUpperCase(10));
+		textFieldDesconto.setDocument(new EntradaMaiuscula(10));
 		add(textFieldDesconto);
 
 		labelLucro = new JLabel("LUCRO");
 		add(labelLucro);
 
 		textFieldLucro = new JTextField();
-		textFieldLucro.setDocument(new TamanhoUpperCase(10));
+		textFieldLucro.setDocument(new EntradaMaiuscula(10));
 		add(textFieldLucro);
 
 		labelPrejuizo = new JLabel("PREJUÍZO");
 		add(labelPrejuizo);
 
 		textFieldPrejuizo = new JTextField();
-		textFieldPrejuizo.setDocument(new TamanhoUpperCase(10));
+		textFieldPrejuizo.setDocument(new EntradaMaiuscula(10));
 		add(textFieldPrejuizo);
 
 		labelDepreciacao = new JLabel("DEPRECIAÇÃO");
 		add(labelDepreciacao);
 
 		textFieldDepreciacao = new JTextField();
-		textFieldDepreciacao.setDocument(new TamanhoUpperCase(10));
+		textFieldDepreciacao.setDocument(new EntradaMaiuscula(10));
 		add(textFieldDepreciacao);
 
 		labelDataCompra = new JLabel("DATA DA COMPRA");
 		add(labelDataCompra);
 
 		textFieldDataCompra = new JTextField();
-		textFieldDataCompra.setDocument(new TamanhoUpperCase(10));
+		textFieldDataCompra.setDocument(new EntradaMaiuscula(10));
 		add(textFieldDataCompra);
 
 		labelDataVenda = new JLabel("DATA DA VENDA");
 		add(labelDataVenda);
 
 		textFieldDataVenda = new JTextField();
-		textFieldDataVenda.setDocument(new TamanhoLowerCase(10));
+		textFieldDataVenda.setDocument(new EntradaMinuscula(10));
 		add(textFieldDataVenda);
 
 		labelMesReferenciaCadastro = new JLabel("MÊS DE REFERÊNCIA DO CADASTRO");
@@ -698,7 +698,7 @@ public final class VeiculoPc extends JPanel implements GUI {
 		add(labelAnoReferenciaCadastro);
 
 		textFieldAnoReferenciaCadastro = new JTextField();
-		textFieldAnoReferenciaCadastro.setDocument(new TamanhoUpperCase(10));
+		textFieldAnoReferenciaCadastro.setDocument(new EntradaMaiuscula(10));
 		add(textFieldAnoReferenciaCadastro);
 
 		labelMesReferenciaCompra = new JLabel("MÊS DE REFERÊNCIA DA COMPRA");
@@ -724,7 +724,7 @@ public final class VeiculoPc extends JPanel implements GUI {
 		add(labelAnoReferenciaCompra);
 
 		textFieldAnoReferenciaCompra = new JTextField();
-		textFieldAnoReferenciaCompra.setDocument(new TamanhoUpperCase(10));
+		textFieldAnoReferenciaCompra.setDocument(new EntradaMaiuscula(10));
 		add(textFieldAnoReferenciaCompra);
 
 		labelMesReferenciaVenda = new JLabel("MÊS DE REFERÊNCIA DA VENDA");
@@ -751,14 +751,14 @@ public final class VeiculoPc extends JPanel implements GUI {
 		add(labelAnoReferenciaVenda);
 
 		textFieldAnoReferenciaVenda = new JTextField();
-		textFieldAnoReferenciaVenda.setDocument(new TamanhoUpperCase(10));
+		textFieldAnoReferenciaVenda.setDocument(new EntradaMaiuscula(10));
 		add(textFieldAnoReferenciaVenda);
 
 		labelMunicipioEmplacamento = new JLabel("MUNICÍPIO DE EMPLACAMENTO");
 		add(labelMunicipioEmplacamento);
 
 		textFieldMunicipioEmplacamento = new JTextField();
-		textFieldMunicipioEmplacamento.setDocument(new TamanhoUpperCase(50));
+		textFieldMunicipioEmplacamento.setDocument(new EntradaMaiuscula(50));
 		add(textFieldMunicipioEmplacamento);
 
 		labelEstadoEmplacamento = new JLabel("ESTADO DE EMPLACAMENTO");
@@ -799,126 +799,126 @@ public final class VeiculoPc extends JPanel implements GUI {
 		add(labelProprietarioNome);
 
 		textFieldProprietarioNome = new JTextField();
-		textFieldProprietarioNome.setDocument(new TamanhoUpperCase(50));
+		textFieldProprietarioNome.setDocument(new EntradaMaiuscula(50));
 		add(textFieldProprietarioNome);
 
 		labelProprietarioRGNumero = new JLabel("IDENTIDADE NÚMERO (PROPRIETÁRIO)");
 		add(labelProprietarioRGNumero);
 
 		textFieldProprietarioRGNumero = new JTextField();
-		textFieldProprietarioRGNumero.setDocument(new TamanhoUpperCase(15));
+		textFieldProprietarioRGNumero.setDocument(new EntradaMaiuscula(15));
 		add(textFieldProprietarioRGNumero);
 
 		labelProprietarioRGOrgaoEmisssor = new JLabel("IDENTIDADE ÓRGÃO EMISSOR (PROPRIETÁRIO)");
 		add(labelProprietarioRGOrgaoEmisssor);
 
 		textFieldProprietarioRGOrgaoEmisssor = new JTextField();
-		textFieldProprietarioRGOrgaoEmisssor.setDocument(new TamanhoUpperCase(20));
+		textFieldProprietarioRGOrgaoEmisssor.setDocument(new EntradaMaiuscula(20));
 		add(textFieldProprietarioRGOrgaoEmisssor);
 
 		labelProprietarioCPF = new JLabel("CPF (PROPRIETÁRIO)");
 		add(labelProprietarioCPF);
 
 		textFieldProprietarioCPF = new JTextField();
-		textFieldProprietarioCPF.setDocument(new TamanhoUpperCase(14));
+		textFieldProprietarioCPF.setDocument(new EntradaMaiuscula(14));
 		add(textFieldProprietarioCPF);
 
 		labelProprietarioCNPJ = new JLabel("CNPJ (PROPRIETÁRIO)");
 		add(labelProprietarioCNPJ);
 
 		textFieldProprietarioCNPJ = new JTextField();
-		textFieldProprietarioCNPJ.setDocument(new TamanhoUpperCase(19));
+		textFieldProprietarioCNPJ.setDocument(new EntradaMaiuscula(19));
 		add(textFieldProprietarioCNPJ);
 
 		labelProprietarioFone1 = new JLabel("TELEFONE (PROPRIETÁRIO)");
 		add(labelProprietarioFone1);
 
 		textFieldProprietarioFone1 = new JTextField();
-		textFieldProprietarioFone1.setDocument(new TamanhoUpperCase(20));
+		textFieldProprietarioFone1.setDocument(new EntradaMaiuscula(20));
 		add(textFieldProprietarioFone1);
 
 		labelProprietarioFone2 = new JLabel("TELEFONE (PROPRIETÁRIO)");
 		add(labelProprietarioFone2);
 
 		textFieldProprietarioFone2 = new JTextField();
-		textFieldProprietarioFone2.setDocument(new TamanhoUpperCase(20));
+		textFieldProprietarioFone2.setDocument(new EntradaMaiuscula(20));
 		add(textFieldProprietarioFone2);
 
 		labelProprietarioFax = new JLabel("FAX (PROPRIETÁRIO)");
 		add(labelProprietarioFax);
 
 		textFieldProprietarioFax = new JTextField();
-		textFieldProprietarioFax.setDocument(new TamanhoUpperCase(20));
+		textFieldProprietarioFax.setDocument(new EntradaMaiuscula(20));
 		add(textFieldProprietarioFax);
 
 		labelProprietarioEmail = new JLabel("EMAIL (PROPRIETÁRIO)");
 		add(labelProprietarioEmail);
 
 		textFieldProprietarioEmail = new JTextField();
-		textFieldProprietarioEmail.setDocument(new TamanhoUpperCase(50));
+		textFieldProprietarioEmail.setDocument(new EntradaMaiuscula(50));
 		add(textFieldProprietarioEmail);
 
 		labelPais = new JLabel("PAÍS (ENDEREÇO DO PROPRIETÁRIO)");
 		add(labelPais);
 
 		textFieldPais = new JTextField();
-		textFieldPais.setDocument(new TamanhoUpperCase(50));
+		textFieldPais.setDocument(new EntradaMaiuscula(50));
 		add(textFieldPais);
 
 		labelEstado = new JLabel("ESTADO (ENDEREÇO DO PROPRIETÁRIO)");
 		add(labelEstado);
 
 		textFieldEstado = new JTextField();
-		textFieldEstado.setDocument(new TamanhoUpperCase(50));
+		textFieldEstado.setDocument(new EntradaMaiuscula(50));
 		add(textFieldEstado);
 
 		labelCidade = new JLabel("CIDADE (ENDEREÇO DO PROPRIETÁRIO)");
 		add(labelCidade);
 
 		textFieldCidade = new JTextField();
-		textFieldCidade.setDocument(new TamanhoUpperCase(50));
+		textFieldCidade.setDocument(new EntradaMaiuscula(50));
 		add(textFieldCidade);
 
 		labelBairro = new JLabel("BAIRRO (ENDEREÇO DO PROPRIETÁRIO)");
 		add(labelBairro);
 
 		textFieldBairro = new JTextField();
-		textFieldBairro.setDocument(new TamanhoUpperCase(50));
+		textFieldBairro.setDocument(new EntradaMaiuscula(50));
 		add(textFieldBairro);
 
 		labelLogradouro = new JLabel("LOGRADOURO (ENDEREÇO DO PROPRIETÁRIO)");
 		add(labelLogradouro);
 
 		textFieldLogradouro = new JTextField();
-		textFieldLogradouro.setDocument(new TamanhoUpperCase(50));
+		textFieldLogradouro.setDocument(new EntradaMaiuscula(50));
 		add(textFieldLogradouro);
 
 		labelComplemento = new JLabel("COMPLEMENTO (ENDEREÇO DO PROPRIETÁRIO)");
 		add(labelComplemento);
 
 		textFieldComplemento = new JTextField();
-		textFieldComplemento.setDocument(new TamanhoUpperCase(20));
+		textFieldComplemento.setDocument(new EntradaMaiuscula(20));
 		add(textFieldComplemento);
 
 		labelCep = new JLabel("CEP (ENDEREÇO DO PROPRIETÁRIO)");
 		add(labelCep);
 
 		textFieldCep = new JTextField();
-		textFieldCep.setDocument(new TamanhoUpperCase(10));
+		textFieldCep.setDocument(new EntradaMaiuscula(10));
 		add(textFieldCep);
 
 		labelAnoFabricacao = new JLabel("ANO DE FABRICAÇÃO (VEÍCULO)");
 		add(labelAnoFabricacao);
 
 		textFieldAnoFabricacao = new JTextField();
-		textFieldAnoFabricacao.setDocument(new TamanhoUpperCase(4));
+		textFieldAnoFabricacao.setDocument(new EntradaMaiuscula(4));
 		add(textFieldAnoFabricacao);
 
 		labelAnoModelo = new JLabel("ANO MODELO (VEÍCULO)");
 		add(labelAnoModelo);
 
 		textFieldAnoModelo = new JTextField();
-		textFieldAnoModelo.setDocument(new TamanhoUpperCase(4));
+		textFieldAnoModelo.setDocument(new EntradaMaiuscula(4));
 		add(textFieldAnoModelo);
 
 		labelCor = new JLabel("COR (VEÍCULO)");
@@ -966,7 +966,7 @@ public final class VeiculoPc extends JPanel implements GUI {
 		add(labelCapacidaPassageiros);
 
 		textFieldCapacidadePassageiros = new JTextField();
-		textFieldCapacidadePassageiros.setDocument(new TamanhoUpperCase(3));
+		textFieldCapacidadePassageiros.setDocument(new EntradaMaiuscula(3));
 		add(textFieldCapacidadePassageiros);
 
 		labelCombustivel = new JLabel("COMBUSTÍVEL");
@@ -1076,7 +1076,7 @@ public final class VeiculoPc extends JPanel implements GUI {
 		add(labelValvulas);
 
 		textFieldValvulas = new JTextField();
-		textFieldValvulas.setDocument(new TamanhoUpperCase(10));
+		textFieldValvulas.setDocument(new EntradaMaiuscula(10));
 		add(textFieldValvulas);
 
 		labelRebaixado = new JLabel("REBAIXADO");
@@ -1092,15 +1092,15 @@ public final class VeiculoPc extends JPanel implements GUI {
 		add(labelQuilometragem);
 
 		textFieldQuilometragem = new JTextField();
-		textFieldQuilometragem.setDocument(new TamanhoUpperCase(10));
+		textFieldQuilometragem.setDocument(new EntradaMaiuscula(10));
 		add(textFieldQuilometragem);
 
 		labelCentroCusto = new JLabel("CENTRO DE CUSTO");
 		add(labelCentroCusto);
 
 		boxCentroCusto = new JComboBox<CentroCusto>();
-		List<CentroCusto> centroCustos = (List<CentroCusto>) CentroCustoFAC.getRegistro();
-		Collections.sort(centroCustos, new CentroCustoCPT().new Nome());
+		List<CentroCusto> centroCustos = (List<CentroCusto>) CentroCustoFac.getRegistro();
+		Collections.sort(centroCustos, new CentroCustoComp().new Nome());
 		for (CentroCusto c : centroCustos) {
 			boxCentroCusto.addItem(c);
 		}
@@ -1162,7 +1162,7 @@ public final class VeiculoPc extends JPanel implements GUI {
 		add(labelMarchas);
 
 		textFieldMarchas = new JTextField();
-		textFieldMarchas.setDocument(new TamanhoUpperCase(10));
+		textFieldMarchas.setDocument(new EntradaMaiuscula(10));
 		add(textFieldMarchas);
 
 		labelEspecie = new JLabel("ESPÉCIE");
@@ -1183,21 +1183,21 @@ public final class VeiculoPc extends JPanel implements GUI {
 		add(labelPotencia);
 
 		textFieldPotencia = new JTextField();
-		textFieldPotencia.setDocument(new TamanhoUpperCase(10));
+		textFieldPotencia.setDocument(new EntradaMaiuscula(10));
 		add(textFieldPotencia);
 
 		labelCilindros = new JLabel("N.CILINDROS");
 		add(labelCilindros);
 
 		textFieldCilindros = new JTextField();
-		textFieldCilindros.setDocument(new TamanhoUpperCase(2));
+		textFieldCilindros.setDocument(new EntradaMaiuscula(2));
 		add(textFieldCilindros);
 
 		labelCilindrada = new JLabel("CILINDRADA:");
 		add(labelCilindrada);
 
 		textFieldCilindrada = new JTextField();
-		textFieldCilindrada.setDocument(new TamanhoUpperCase(4));
+		textFieldCilindrada.setDocument(new EntradaMaiuscula(4));
 		add(textFieldCilindrada);
 
 		labelCategoria = new JLabel("CATEGORIA");
@@ -1381,21 +1381,21 @@ public final class VeiculoPc extends JPanel implements GUI {
 		add(labelCapCarga);
 
 		textFieldCapCarga = new JTextField();
-		textFieldCapCarga.setDocument(new TamanhoUpperCase(10));
+		textFieldCapCarga.setDocument(new EntradaMaiuscula(10));
 		add(textFieldCapCarga);
 
 		labelCmtTon = new JLabel("CMT-TON");
 		add(labelCmtTon);
 
 		textFieldCmtTon = new JTextField();
-		textFieldCmtTon.setDocument(new TamanhoUpperCase(10));
+		textFieldCmtTon.setDocument(new EntradaMaiuscula(10));
 		add(textFieldCmtTon);
 
 		labelEixos = new JLabel("N.EIXOS:");
 		add(labelEixos);
 
 		textFieldEixos = new JTextField();
-		textFieldEixos.setDocument(new TamanhoUpperCase(2));
+		textFieldEixos.setDocument(new EntradaMaiuscula(2));
 		add(textFieldEixos);
 
 		labelRestricoes = new JLabel("MODALIDADE DE RESTRIÇÕES");
@@ -1421,63 +1421,63 @@ public final class VeiculoPc extends JPanel implements GUI {
 		add(labelProprietarioAnteriorNome);
 
 		textFieldProprietarioAnteriorNome = new JTextField();
-		textFieldProprietarioAnteriorNome.setDocument(new TamanhoUpperCase(50));
+		textFieldProprietarioAnteriorNome.setDocument(new EntradaMaiuscula(50));
 		add(textFieldProprietarioAnteriorNome);
 
 		labelProprietarioAnteriorCPF = new JLabel("CPF (PROPRIETÁRIO ANTERIOR)");
 		add(labelProprietarioAnteriorCPF);
 
 		textFieldProprietarioAnteriorCPF = new JTextField();
-		textFieldProprietarioAnteriorCPF.setDocument(new TamanhoUpperCase(14));
+		textFieldProprietarioAnteriorCPF.setDocument(new EntradaMaiuscula(14));
 		add(textFieldProprietarioAnteriorCPF);
 
 		labelProprietarioAnteriorCNPJ = new JLabel("CNPJ (PROPRIETÁRIO ANTERIOR)");
 		add(labelProprietarioAnteriorCNPJ);
 
 		textFieldProprietarioAnteriorCNPJ = new JTextField();
-		textFieldProprietarioAnteriorCNPJ.setDocument(new TamanhoUpperCase(19));
+		textFieldProprietarioAnteriorCNPJ.setDocument(new EntradaMaiuscula(19));
 		add(textFieldProprietarioAnteriorCNPJ);
 
 		labelProprietarioAnteriorRGNumero = new JLabel("RG NÚMERO (PROPRIETÁRIO ANTERIOR)");
 		add(labelProprietarioAnteriorRGNumero);
 
 		textFieldProprietarioAnteriorRGNumero = new JTextField();
-		textFieldProprietarioAnteriorRGNumero.setDocument(new TamanhoUpperCase(15));
+		textFieldProprietarioAnteriorRGNumero.setDocument(new EntradaMaiuscula(15));
 		add(textFieldProprietarioAnteriorRGNumero);
 
 		labelProprietarioAnteriorRGOrgaoEmissor = new JLabel("RG ORGÃO EMISSOR (PROPRIETÁRIO ANTERIOR)");
 		add(labelProprietarioAnteriorRGOrgaoEmissor);
 
 		textFieldProprietarioAnteriorRGOrgaoEmissor = new JTextField();
-		textFieldProprietarioAnteriorRGOrgaoEmissor.setDocument(new TamanhoUpperCase(20));
+		textFieldProprietarioAnteriorRGOrgaoEmissor.setDocument(new EntradaMaiuscula(20));
 		add(textFieldProprietarioAnteriorRGOrgaoEmissor);
 
 		labelProprietarioAnteriorFone1 = new JLabel("TELEFONE (PROPRIETÁRIO ANTERIOR)");
 		add(labelProprietarioAnteriorFone1);
 
 		textFieldProprietarioAnteriorFone1 = new JTextField();
-		textFieldProprietarioAnteriorFone1.setDocument(new TamanhoUpperCase(20));
+		textFieldProprietarioAnteriorFone1.setDocument(new EntradaMaiuscula(20));
 		add(textFieldProprietarioAnteriorFone1);
 
 		labelProprietarioAnteriorFone2 = new JLabel("TELEFONE (PROPRIETÁRIO ANTERIOR)");
 		add(labelProprietarioAnteriorFone2);
 
 		textFieldProprietarioAnteriorFone2 = new JTextField();
-		textFieldProprietarioAnteriorFone2.setDocument(new TamanhoUpperCase(20));
+		textFieldProprietarioAnteriorFone2.setDocument(new EntradaMaiuscula(20));
 		add(textFieldProprietarioAnteriorFone2);
 
 		labelProprietarioAnteriorFax = new JLabel("FAX (PROPRIETÁRIO ANTERIOR)");
 		add(labelProprietarioAnteriorFax);
 
 		textFieldProprietarioAnteriorFax = new JTextField();
-		textFieldProprietarioAnteriorFax.setDocument(new TamanhoUpperCase(20));
+		textFieldProprietarioAnteriorFax.setDocument(new EntradaMaiuscula(20));
 		add(textFieldProprietarioAnteriorFax);
 
 		labelProprietarioAnteriorEmail = new JLabel("EMAIL (PROPRIETÁRIO ANTERIOR)");
 		add(labelProprietarioAnteriorEmail);
 
 		textFieldProprietarioAnteriorEmail = new JTextField();
-		textFieldProprietarioAnteriorEmail.setDocument(new TamanhoUpperCase(50));
+		textFieldProprietarioAnteriorEmail.setDocument(new EntradaMaiuscula(50));
 		add(textFieldProprietarioAnteriorEmail);
 		
 		// Lay out the panel.
@@ -1515,8 +1515,8 @@ public final class VeiculoPc extends JPanel implements GUI {
 	@Override
 	public void reiniciarGUI() {
 		CentroCusto centroCusto = null;
-		List<CentroCusto> centroCustos = (List<CentroCusto>) CentroCustoFAC.getRegistro();
-		Collections.sort(centroCustos, new CentroCustoCPT().new Nome());
+		List<CentroCusto> centroCustos = (List<CentroCusto>) CentroCustoFac.getRegistro();
+		Collections.sort(centroCustos, new CentroCustoComp().new Nome());
 		this.boxCentroCusto.removeAllItems();
 		
 		for (CentroCusto b : centroCustos) {
@@ -1541,15 +1541,15 @@ public final class VeiculoPc extends JPanel implements GUI {
 			this.boxVeiculoModelo.addItem(v);
 		}
 		
-		if (!MainCT.getFrameCadastroVeiculo().isShowing()
-				&& MainCT.getFrameCadastroVeiculo().getVeiculoGerenteEventos().getVeiculo() != null) {
-			centroCusto = MainCT.getFrameCadastroVeiculo().getVeiculoGerenteEventos().getVeiculo().getCentroCusto();
+		if (!MainCont.getVeiculoFc().isShowing()
+				&& MainCont.getVeiculoFc().getVeiculoGerenteEventos().getVeiculo() != null) {
+			centroCusto = MainCont.getVeiculoFc().getVeiculoGerenteEventos().getVeiculo().getCentroCusto();
 			boxCentroCusto.setSelectedItem(centroCusto);
 			
-			veiculoMarca = MainCT.getFrameCadastroVeiculo().getVeiculoGerenteEventos().getVeiculo().getMarca();
+			veiculoMarca = MainCont.getVeiculoFc().getVeiculoGerenteEventos().getVeiculo().getMarca();
 			boxCentroCusto.setSelectedItem(veiculoMarca);
 			
-			veiculoModelo = MainCT.getFrameCadastroVeiculo().getVeiculoGerenteEventos().getVeiculo().getModelo();
+			veiculoModelo = MainCont.getVeiculoFc().getVeiculoGerenteEventos().getVeiculo().getModelo();
 			boxCentroCusto.setSelectedItem(veiculoModelo);
 		}
 	}
