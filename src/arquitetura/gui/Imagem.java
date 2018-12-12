@@ -69,7 +69,7 @@ public class Imagem {
 
 	public static Image getLogoTipoImage() {
 
-		caminhoImagem = recursos.getResource("arquitetura/gui/phoenix.png");
+		caminhoImagem = recursos.getResource("arquitetura/gui/logo.png");
 		iconeTitulo = Toolkit.getDefaultToolkit().getImage(caminhoImagem);
 		return iconeTitulo;
 	}
