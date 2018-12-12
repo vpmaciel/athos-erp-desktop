@@ -102,16 +102,16 @@ public final class UsuarioFc extends JFrame implements Gui {
 	public void iniciarControlador() {
 		usuarioCont = new UsuarioCont();
 		addWindowListener(usuarioCont.new Frame());
-		usuarioPc.getTB().getExcluirBTN().addActionListener(usuarioCont.new Exclui());
-		usuarioPc.getTB().getNovoBTN().addActionListener(usuarioCont.new Novo());
-		usuarioPc.getTB().getPesquisarBTN().addActionListener(usuarioCont.new Pesquisa());
-		usuarioPc.getTB().getImprimirBTN().addActionListener(usuarioCont.new Imprime());
-		usuarioPc.getTB().getRelatorioBTN().addActionListener(usuarioCont.new Relatorio());
-		usuarioPc.getTB().getSalvarBTN().addActionListener(usuarioCont.new Salva());
-		usuarioPc.getTB().getFecharBTN().addActionListener(usuarioCont.new FechaJanela());
-		usuarioPc.getTB().getSairBTN().addActionListener(usuarioCont.new SaidaSistema());
-		usuarioPc.getTB().getAjudaBTN().addActionListener(usuarioCont.new Ajuda());
-		usuarioPc.getTB().getHomeBTN().addActionListener(usuarioCont.new Home());
+		usuarioPc.getTB().getExcluirBtn().addActionListener(usuarioCont.new Exclui());
+		usuarioPc.getTB().getNovoBtn().addActionListener(usuarioCont.new Novo());
+		usuarioPc.getTB().getPesquisarBtn().addActionListener(usuarioCont.new Pesquisa());
+		usuarioPc.getTB().getImprimirBtn().addActionListener(usuarioCont.new Imprime());
+		usuarioPc.getTB().getRelatorioBtn().addActionListener(usuarioCont.new Relatorio());
+		usuarioPc.getTB().getSalvarBtn().addActionListener(usuarioCont.new Salva());
+		usuarioPc.getTB().getFecharBtn().addActionListener(usuarioCont.new FechaJanela());
+		usuarioPc.getTB().getSairBtn().addActionListener(usuarioCont.new SaidaSistema());
+		usuarioPc.getTB().getAjudaBtn().addActionListener(usuarioCont.new Ajuda());
+		usuarioPc.getTB().getHomeBtn().addActionListener(usuarioCont.new Home());
 	}
 
 	@Override

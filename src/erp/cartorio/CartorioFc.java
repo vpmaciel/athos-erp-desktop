@@ -94,16 +94,16 @@ public final class CartorioFc extends JFrame implements Gui {
 	public void iniciarControlador() {
 		cartorioCont = new CartorioCont();
 		addWindowListener(cartorioCont.new Frame());
-		cartorioPc.getTB().getExcluirBTN().addActionListener(cartorioCont.new Exclui());
-		cartorioPc.getTB().getNovoBTN().addActionListener(cartorioCont.new Novo());
-		cartorioPc.getTB().getPesquisarBTN().addActionListener(cartorioCont.new Pesquisa());
-		cartorioPc.getTB().getImprimirBTN().addActionListener(cartorioCont.new Imprime());
-		cartorioPc.getTB().getRelatorioBTN().addActionListener(cartorioCont.new Relatorio());
-		cartorioPc.getTB().getSalvarBTN().addActionListener(cartorioCont.new Salva());
-		cartorioPc.getTB().getFecharBTN().addActionListener(cartorioCont.new FechaJanela());
-		cartorioPc.getTB().getSairBTN().addActionListener(cartorioCont.new SaidaSistema());
-		cartorioPc.getTB().getAjudaBTN().addActionListener(cartorioCont.new Ajuda());
-		cartorioPc.getTB().getHomeBTN().addActionListener(cartorioCont.new Home());
+		cartorioPc.getTB().getExcluirBtn().addActionListener(cartorioCont.new Exclui());
+		cartorioPc.getTB().getNovoBtn().addActionListener(cartorioCont.new Novo());
+		cartorioPc.getTB().getPesquisarBtn().addActionListener(cartorioCont.new Pesquisa());
+		cartorioPc.getTB().getImprimirBtn().addActionListener(cartorioCont.new Imprime());
+		cartorioPc.getTB().getRelatorioBtn().addActionListener(cartorioCont.new Relatorio());
+		cartorioPc.getTB().getSalvarBtn().addActionListener(cartorioCont.new Salva());
+		cartorioPc.getTB().getFecharBtn().addActionListener(cartorioCont.new FechaJanela());
+		cartorioPc.getTB().getSairBtn().addActionListener(cartorioCont.new SaidaSistema());
+		cartorioPc.getTB().getAjudaBtn().addActionListener(cartorioCont.new Ajuda());
+		cartorioPc.getTB().getHomeBtn().addActionListener(cartorioCont.new Home());
 
 	}
 

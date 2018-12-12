@@ -96,16 +96,16 @@ public final class ContatoFc extends JFrame implements Gui {
 		contatoCont = new ContatoCont();
 		addWindowListener(contatoCont.new Frame());
 		contatoPc.getLabelEmpresa().addMouseListener(contatoCont.new MostraEmpresaFC());
-		contatoPc.getToolBar().getExcluirBTN().addActionListener(contatoCont.new Exclui());
-		contatoPc.getToolBar().getNovoBTN().addActionListener(contatoCont.new Novo());
-		contatoPc.getToolBar().getPesquisarBTN().addActionListener(contatoCont.new Pesquisa());
-		contatoPc.getToolBar().getImprimirBTN().addActionListener(contatoCont.new Imprime());
-		contatoPc.getToolBar().getRelatorioBTN().addActionListener(contatoCont.new Relatorio());
-		contatoPc.getToolBar().getSalvarBTN().addActionListener(contatoCont.new Salva());
-		contatoPc.getToolBar().getFecharBTN().addActionListener(contatoCont.new FechaJanela());
-		contatoPc.getToolBar().getSairBTN().addActionListener(contatoCont.new SaidaSistema());
-		contatoPc.getToolBar().getAjudaBTN().addActionListener(contatoCont.new Ajuda());
-		contatoPc.getToolBar().getHomeBTN().addActionListener(contatoCont.new Home());
+		contatoPc.getToolBar().getExcluirBtn().addActionListener(contatoCont.new Exclui());
+		contatoPc.getToolBar().getNovoBtn().addActionListener(contatoCont.new Novo());
+		contatoPc.getToolBar().getPesquisarBtn().addActionListener(contatoCont.new Pesquisa());
+		contatoPc.getToolBar().getImprimirBtn().addActionListener(contatoCont.new Imprime());
+		contatoPc.getToolBar().getRelatorioBtn().addActionListener(contatoCont.new Relatorio());
+		contatoPc.getToolBar().getSalvarBtn().addActionListener(contatoCont.new Salva());
+		contatoPc.getToolBar().getFecharBtn().addActionListener(contatoCont.new FechaJanela());
+		contatoPc.getToolBar().getSairBtn().addActionListener(contatoCont.new SaidaSistema());
+		contatoPc.getToolBar().getAjudaBtn().addActionListener(contatoCont.new Ajuda());
+		contatoPc.getToolBar().getHomeBtn().addActionListener(contatoCont.new Home());
 
 	}
 

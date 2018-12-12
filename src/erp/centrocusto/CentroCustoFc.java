@@ -99,16 +99,16 @@ public final class CentroCustoFc extends JFrame implements Gui {
 	public void iniciarControlador() {
 		centroCustoCont = new CentroCustoCont();
 		addWindowListener(centroCustoCont.new Frame());
-		centroCustoPc.getTB().getExcluirBTN().addActionListener(centroCustoCont.new Exclui());
-		centroCustoPc.getTB().getNovoBTN().addActionListener(centroCustoCont.new Novo());
-		centroCustoPc.getTB().getPesquisarBTN().addActionListener(centroCustoCont.new Pesquisa());
-		centroCustoPc.getTB().getImprimirBTN().addActionListener(centroCustoCont.new Imprime());
-		centroCustoPc.getTB().getRelatorioBTN().addActionListener(centroCustoCont.new Relatorio());
-		centroCustoPc.getTB().getSalvarBTN().addActionListener(centroCustoCont.new Salva());
-		centroCustoPc.getTB().getFecharBTN().addActionListener(centroCustoCont.new FechaJanela());
-		centroCustoPc.getTB().getSairBTN().addActionListener(centroCustoCont.new SaidaSistema());
-		centroCustoPc.getTB().getAjudaBTN().addActionListener(centroCustoCont.new Ajuda());
-		centroCustoPc.getTB().getHomeBTN().addActionListener(centroCustoCont.new Home());
+		centroCustoPc.getTB().getExcluirBtn().addActionListener(centroCustoCont.new Exclui());
+		centroCustoPc.getTB().getNovoBtn().addActionListener(centroCustoCont.new Novo());
+		centroCustoPc.getTB().getPesquisarBtn().addActionListener(centroCustoCont.new Pesquisa());
+		centroCustoPc.getTB().getImprimirBtn().addActionListener(centroCustoCont.new Imprime());
+		centroCustoPc.getTB().getRelatorioBtn().addActionListener(centroCustoCont.new Relatorio());
+		centroCustoPc.getTB().getSalvarBtn().addActionListener(centroCustoCont.new Salva());
+		centroCustoPc.getTB().getFecharBtn().addActionListener(centroCustoCont.new FechaJanela());
+		centroCustoPc.getTB().getSairBtn().addActionListener(centroCustoCont.new SaidaSistema());
+		centroCustoPc.getTB().getAjudaBtn().addActionListener(centroCustoCont.new Ajuda());
+		centroCustoPc.getTB().getHomeBtn().addActionListener(centroCustoCont.new Home());
 	}
 
 	@Override

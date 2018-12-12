@@ -94,16 +94,16 @@ public final class EventoFc extends JFrame implements Gui {
 	public void iniciarControlador() {
 		eventoCont = new EventoCont();
 		addWindowListener(eventoCont.new Frame());
-		eventoPc.getToolBar().getExcluirBTN().addActionListener(eventoCont.new Exclui());
-		eventoPc.getToolBar().getNovoBTN().addActionListener(eventoCont.new Novo());
-		eventoPc.getToolBar().getPesquisarBTN().addActionListener(eventoCont.new Pesquisa());
-		eventoPc.getToolBar().getImprimirBTN().addActionListener(eventoCont.new Imprime());
-		eventoPc.getToolBar().getRelatorioBTN().addActionListener(eventoCont.new Relatorio());
-		eventoPc.getToolBar().getSalvarBTN().addActionListener(eventoCont.new Salva());
-		eventoPc.getToolBar().getFecharBTN().addActionListener(eventoCont.new FechaJanela());
-		eventoPc.getToolBar().getSairBTN().addActionListener(eventoCont.new SaidaSistema());
-		eventoPc.getToolBar().getAjudaBTN().addActionListener(eventoCont.new Ajuda());
-		eventoPc.getToolBar().getHomeBTN().addActionListener(eventoCont.new Home());
+		eventoPc.getToolBar().getExcluirBtn().addActionListener(eventoCont.new Exclui());
+		eventoPc.getToolBar().getNovoBtn().addActionListener(eventoCont.new Novo());
+		eventoPc.getToolBar().getPesquisarBtn().addActionListener(eventoCont.new Pesquisa());
+		eventoPc.getToolBar().getImprimirBtn().addActionListener(eventoCont.new Imprime());
+		eventoPc.getToolBar().getRelatorioBtn().addActionListener(eventoCont.new Relatorio());
+		eventoPc.getToolBar().getSalvarBtn().addActionListener(eventoCont.new Salva());
+		eventoPc.getToolBar().getFecharBtn().addActionListener(eventoCont.new FechaJanela());
+		eventoPc.getToolBar().getSairBtn().addActionListener(eventoCont.new SaidaSistema());
+		eventoPc.getToolBar().getAjudaBtn().addActionListener(eventoCont.new Ajuda());
+		eventoPc.getToolBar().getHomeBtn().addActionListener(eventoCont.new Home());
 
 	}
 

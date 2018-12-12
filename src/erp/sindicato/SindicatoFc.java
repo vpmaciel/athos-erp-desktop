@@ -93,16 +93,16 @@ public final class SindicatoFc extends JFrame implements Gui {
 	public void iniciarControlador() {
 		sindicatoCont = new SindicatoCont();
 		addWindowListener(sindicatoCont.new Frame());
-		sindicatoPc.getTB().getExcluirBTN().addActionListener(sindicatoCont.new Exclui());
-		sindicatoPc.getTB().getNovoBTN().addActionListener(sindicatoCont.new Novo());
-		sindicatoPc.getTB().getPesquisarBTN().addActionListener(sindicatoCont.new Pesquisa());
-		sindicatoPc.getTB().getImprimirBTN().addActionListener(sindicatoCont.new Imprime());
-		sindicatoPc.getTB().getRelatorioBTN().addActionListener(sindicatoCont.new Relatorio());
-		sindicatoPc.getTB().getSalvarBTN().addActionListener(sindicatoCont.new Salva());
-		sindicatoPc.getTB().getFecharBTN().addActionListener(sindicatoCont.new FechaJanela());
-		sindicatoPc.getTB().getSairBTN().addActionListener(sindicatoCont.new SaidaSistema());
-		sindicatoPc.getTB().getAjudaBTN().addActionListener(sindicatoCont.new Ajuda());
-		sindicatoPc.getTB().getHomeBTN().addActionListener(sindicatoCont.new Home());
+		sindicatoPc.getTB().getExcluirBtn().addActionListener(sindicatoCont.new Exclui());
+		sindicatoPc.getTB().getNovoBtn().addActionListener(sindicatoCont.new Novo());
+		sindicatoPc.getTB().getPesquisarBtn().addActionListener(sindicatoCont.new Pesquisa());
+		sindicatoPc.getTB().getImprimirBtn().addActionListener(sindicatoCont.new Imprime());
+		sindicatoPc.getTB().getRelatorioBtn().addActionListener(sindicatoCont.new Relatorio());
+		sindicatoPc.getTB().getSalvarBtn().addActionListener(sindicatoCont.new Salva());
+		sindicatoPc.getTB().getFecharBtn().addActionListener(sindicatoCont.new FechaJanela());
+		sindicatoPc.getTB().getSairBtn().addActionListener(sindicatoCont.new SaidaSistema());
+		sindicatoPc.getTB().getAjudaBtn().addActionListener(sindicatoCont.new Ajuda());
+		sindicatoPc.getTB().getHomeBtn().addActionListener(sindicatoCont.new Home());
 	}
 
 	@Override

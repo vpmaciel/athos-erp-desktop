@@ -93,16 +93,16 @@ public final class ImovelFc extends JFrame implements Gui {
 	public void iniciarControlador() {
 		imovelCont = new ImovelCont();
 		addWindowListener(imovelCont.new Frame());
-		imovelPc.getTB().getExcluirBTN().addActionListener(imovelCont.new Exclui());
-		imovelPc.getTB().getNovoBTN().addActionListener(imovelCont.new Novo());
-		imovelPc.getTB().getPesquisarBTN().addActionListener(imovelCont.new Pesquisa());
-		imovelPc.getTB().getImprimirBTN().addActionListener(imovelCont.new Imprime());
-		imovelPc.getTB().getRelatorioBTN().addActionListener(imovelCont.new Relatorio());
-		imovelPc.getTB().getSalvarBTN().addActionListener(imovelCont.new Salva());
-		imovelPc.getTB().getFecharBTN().addActionListener(imovelCont.new FechaJanela());
-		imovelPc.getTB().getSairBTN().addActionListener(imovelCont.new SaidaSistema());
-		imovelPc.getTB().getAjudaBTN().addActionListener(imovelCont.new Ajuda());
-		imovelPc.getTB().getHomeBTN().addActionListener(imovelCont.new Home());
+		imovelPc.getTB().getExcluirBtn().addActionListener(imovelCont.new Exclui());
+		imovelPc.getTB().getNovoBtn().addActionListener(imovelCont.new Novo());
+		imovelPc.getTB().getPesquisarBtn().addActionListener(imovelCont.new Pesquisa());
+		imovelPc.getTB().getImprimirBtn().addActionListener(imovelCont.new Imprime());
+		imovelPc.getTB().getRelatorioBtn().addActionListener(imovelCont.new Relatorio());
+		imovelPc.getTB().getSalvarBtn().addActionListener(imovelCont.new Salva());
+		imovelPc.getTB().getFecharBtn().addActionListener(imovelCont.new FechaJanela());
+		imovelPc.getTB().getSairBtn().addActionListener(imovelCont.new SaidaSistema());
+		imovelPc.getTB().getAjudaBtn().addActionListener(imovelCont.new Ajuda());
+		imovelPc.getTB().getHomeBtn().addActionListener(imovelCont.new Home());
 	}
 
 	@Override

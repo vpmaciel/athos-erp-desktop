@@ -95,16 +95,16 @@ public final class BancoFc extends JFrame implements Gui {
 	public void iniciarControlador() {
 		bancoCont = new BancoCont();
 		addWindowListener(bancoCont.new Frame());
-		bancoPc.getTB().getExcluirBTN().addActionListener(bancoCont.new Exclui());
-		bancoPc.getTB().getNovoBTN().addActionListener(bancoCont.new Novo());
-		bancoPc.getTB().getPesquisarBTN().addActionListener(bancoCont.new Pesquisa());
-		bancoPc.getTB().getImprimirBTN().addActionListener(bancoCont.new Imprime());
-		bancoPc.getTB().getRelatorioBTN().addActionListener(bancoCont.new Relatorio());
-		bancoPc.getTB().getSalvarBTN().addActionListener(bancoCont.new Salva());
-		bancoPc.getTB().getFecharBTN().addActionListener(bancoCont.new FechaJanela());
-		bancoPc.getTB().getSairBTN().addActionListener(bancoCont.new SaidaSistema());
-		bancoPc.getTB().getAjudaBTN().addActionListener(bancoCont.new Ajuda());
-		bancoPc.getTB().getHomeBTN().addActionListener(bancoCont.new Home());
+		bancoPc.getTB().getExcluirBtn().addActionListener(bancoCont.new Exclui());
+		bancoPc.getTB().getNovoBtn().addActionListener(bancoCont.new Novo());
+		bancoPc.getTB().getPesquisarBtn().addActionListener(bancoCont.new Pesquisa());
+		bancoPc.getTB().getImprimirBtn().addActionListener(bancoCont.new Imprime());
+		bancoPc.getTB().getRelatorioBtn().addActionListener(bancoCont.new Relatorio());
+		bancoPc.getTB().getSalvarBtn().addActionListener(bancoCont.new Salva());
+		bancoPc.getTB().getFecharBtn().addActionListener(bancoCont.new FechaJanela());
+		bancoPc.getTB().getSairBtn().addActionListener(bancoCont.new SaidaSistema());
+		bancoPc.getTB().getAjudaBtn().addActionListener(bancoCont.new Ajuda());
+		bancoPc.getTB().getHomeBtn().addActionListener(bancoCont.new Home());
 	}
 
 	@Override

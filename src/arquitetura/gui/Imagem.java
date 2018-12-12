@@ -32,7 +32,7 @@ public class Imagem {
 		return imageIcon;
 	}
 
-	public static ImageIcon getExcluiRegistro() {
+	public static ImageIcon getExclui() {
 		imageIcon = new ImageIcon(recursos.getResource("toolbarButtonGraphics/general/Delete24.gif"));
 		return imageIcon;
 	}
@@ -47,23 +47,13 @@ public class Imagem {
 		return imageIcon;
 	}
 
-	public static ImageIcon getImprimir() {
+	public static ImageIcon getImprime() {
 		imageIcon = new ImageIcon(recursos.getResource("toolbarButtonGraphics/general/Print24.gif"));
 		return imageIcon;
 	}
 
-	public static ImageIcon getImprimiRegistro() {
-		imageIcon = new ImageIcon(recursos.getResource("toolbarButtonGraphics/general/Print24.gif"));
-		return imageIcon;
-	}
-
-	public static ImageIcon getImprimiRelatorio() {
+	public static ImageIcon getRelatorio() {
 		imageIcon = new ImageIcon(recursos.getResource("toolbarButtonGraphics/development/J2EEServer24.gif"));
-		return imageIcon;
-	}
-
-	public static ImageIcon getInserir() {
-		imageIcon = new ImageIcon(recursos.getResource("toolbarButtonGraphics/general/Add24.gif"));
 		return imageIcon;
 	}
 
@@ -75,16 +65,16 @@ public class Imagem {
 	}
 
 	public static ImageIcon getLogoTipoImageIcon() {
-		imageIcon = new ImageIcon(recursos.getResource("arquitetura/gui/phoenix.png"));
+		imageIcon = new ImageIcon(recursos.getResource("arquitetura/gui/logo.png"));
 		return imageIcon;
 	}
 
-	public static ImageIcon getNovoFrame() {
+	public static ImageIcon getNovo() {
 		imageIcon = new ImageIcon(recursos.getResource("toolbarButtonGraphics/general/New24.gif"));
 		return imageIcon;
 	}
 
-	public static ImageIcon getpesquisarRegistro() {
+	public static ImageIcon getpesquisar() {
 		imageIcon = new ImageIcon(recursos.getResource("toolbarButtonGraphics/general/Find24.gif"));
 		return imageIcon;
 	}
@@ -101,16 +91,6 @@ public class Imagem {
 
 	public static ImageIcon getSobre() {
 		imageIcon = new ImageIcon(recursos.getResource("toolbarButtonGraphics/general/About24.gif"));
-		return imageIcon;
-	}
-
-	public static ImageIcon getSplash() {
-		imageIcon = new ImageIcon(recursos.getResource("erp/imagens/splash.png"));
-		return imageIcon;
-	}
-
-	public static ImageIcon getUltimo() {
-		imageIcon = new ImageIcon(recursos.getResource("toolbarButtonGraphics/media/StepForward24.gif"));
 		return imageIcon;
 	}
 

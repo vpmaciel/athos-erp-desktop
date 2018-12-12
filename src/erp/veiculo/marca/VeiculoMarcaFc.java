@@ -94,25 +94,25 @@ public final class VeiculoMarcaFc extends JFrame implements Gui {
 	public void iniciarControlador() {
 		veiculoMarcaCont = new VeiculoMarcaCont();
 		addWindowListener(veiculoMarcaCont.new Frame());
-		veiculoMarcaPc.getToolBar().getExcluirBTN()
+		veiculoMarcaPc.getToolBar().getExcluirBtn()
 				.addActionListener(veiculoMarcaCont.new ExcluiRegistro());
-		veiculoMarcaPc.getToolBar().getNovoBTN()
+		veiculoMarcaPc.getToolBar().getNovoBtn()
 				.addActionListener(veiculoMarcaCont.new NovoFrame());
-		veiculoMarcaPc.getToolBar().getPesquisarBTN()
+		veiculoMarcaPc.getToolBar().getPesquisarBtn()
 				.addActionListener(veiculoMarcaCont.new PesquisaRegistro());
-		veiculoMarcaPc.getToolBar().getImprimirBTN()
+		veiculoMarcaPc.getToolBar().getImprimirBtn()
 				.addActionListener(veiculoMarcaCont.new ImprimiUnicoRegistro());
-		veiculoMarcaPc.getToolBar().getRelatorioBTN()
+		veiculoMarcaPc.getToolBar().getRelatorioBtn()
 				.addActionListener(veiculoMarcaCont.new ImprimiTodosRegistros());
-		veiculoMarcaPc.getToolBar().getSalvarBTN()
+		veiculoMarcaPc.getToolBar().getSalvarBtn()
 				.addActionListener(veiculoMarcaCont.new Salva());
-		veiculoMarcaPc.getToolBar().getFecharBTN()
+		veiculoMarcaPc.getToolBar().getFecharBtn()
 				.addActionListener(veiculoMarcaCont.new FechaJanela());
-		veiculoMarcaPc.getToolBar().getSairBTN()
+		veiculoMarcaPc.getToolBar().getSairBtn()
 				.addActionListener(veiculoMarcaCont.new SaidaSistema());
-		veiculoMarcaPc.getToolBar().getAjudaBTN()
+		veiculoMarcaPc.getToolBar().getAjudaBtn()
 				.addActionListener(veiculoMarcaCont.new Ajuda());
-		veiculoMarcaPc.getToolBar().getHomeBTN().addActionListener(veiculoMarcaCont.new Home());
+		veiculoMarcaPc.getToolBar().getHomeBtn().addActionListener(veiculoMarcaCont.new Home());
 	}
 
 	@Override

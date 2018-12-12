@@ -95,16 +95,16 @@ public final class RecadoFc extends JFrame implements Gui {
 	public void iniciarControlador() {
 		recadoCont = new RecadoCont();
 		addWindowListener(recadoCont.new Frame());
-		pcRecado.getToolBar().getExcluirBTN().addActionListener(recadoCont.new Exclui());
-		pcRecado.getToolBar().getNovoBTN().addActionListener(recadoCont.new Novo());
-		pcRecado.getToolBar().getPesquisarBTN().addActionListener(recadoCont.new Pesquisa());
-		pcRecado.getToolBar().getImprimirBTN().addActionListener(recadoCont.new Imprime());
-		pcRecado.getToolBar().getRelatorioBTN().addActionListener(recadoCont.new Relatorio());
-		pcRecado.getToolBar().getSalvarBTN().addActionListener(recadoCont.new Salva());
-		pcRecado.getToolBar().getFecharBTN().addActionListener(recadoCont.new FechaJanela());
-		pcRecado.getToolBar().getSairBTN().addActionListener(recadoCont.new SaidaSistema());
-		pcRecado.getToolBar().getAjudaBTN().addActionListener(recadoCont.new Ajuda());
-		pcRecado.getToolBar().getHomeBTN().addActionListener(recadoCont.new Home());
+		pcRecado.getToolBar().getExcluirBtn().addActionListener(recadoCont.new Exclui());
+		pcRecado.getToolBar().getNovoBtn().addActionListener(recadoCont.new Novo());
+		pcRecado.getToolBar().getPesquisarBtn().addActionListener(recadoCont.new Pesquisa());
+		pcRecado.getToolBar().getImprimirBtn().addActionListener(recadoCont.new Imprime());
+		pcRecado.getToolBar().getRelatorioBtn().addActionListener(recadoCont.new Relatorio());
+		pcRecado.getToolBar().getSalvarBtn().addActionListener(recadoCont.new Salva());
+		pcRecado.getToolBar().getFecharBtn().addActionListener(recadoCont.new FechaJanela());
+		pcRecado.getToolBar().getSairBtn().addActionListener(recadoCont.new SaidaSistema());
+		pcRecado.getToolBar().getAjudaBtn().addActionListener(recadoCont.new Ajuda());
+		pcRecado.getToolBar().getHomeBtn().addActionListener(recadoCont.new Home());
 
 	}
 

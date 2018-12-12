@@ -93,16 +93,16 @@ public final class FuncionarioFc extends JFrame implements Gui {
 		funcionarioCont = new FuncionarioCont();
 		funcionarioPc.getLabelCentroCusto().addMouseListener(funcionarioCont.new MostraFrame());
 		addWindowListener(funcionarioCont.new Frame());
-		funcionarioPc.getTB().getExcluirBTN().addActionListener(funcionarioCont.new Exclui());
-		funcionarioPc.getTB().getNovoBTN().addActionListener(funcionarioCont.new Novo());
-		funcionarioPc.getTB().getPesquisarBTN().addActionListener(funcionarioCont.new Pesquisa());
-		funcionarioPc.getTB().getImprimirBTN().addActionListener(funcionarioCont.new Imprime());
-		funcionarioPc.getTB().getRelatorioBTN().addActionListener(funcionarioCont.new Relatorio());
-		funcionarioPc.getTB().getSalvarBTN().addActionListener(funcionarioCont.new Salva());
-		funcionarioPc.getTB().getFecharBTN().addActionListener(funcionarioCont.new FechaJanela());
-		funcionarioPc.getTB().getSairBTN().addActionListener(funcionarioCont.new SaidaSistema());
-		funcionarioPc.getTB().getAjudaBTN().addActionListener(funcionarioCont.new Ajuda());
-		funcionarioPc.getTB().getHomeBTN().addActionListener(funcionarioCont.new Home());
+		funcionarioPc.getTB().getExcluirBtn().addActionListener(funcionarioCont.new Exclui());
+		funcionarioPc.getTB().getNovoBtn().addActionListener(funcionarioCont.new Novo());
+		funcionarioPc.getTB().getPesquisarBtn().addActionListener(funcionarioCont.new Pesquisa());
+		funcionarioPc.getTB().getImprimirBtn().addActionListener(funcionarioCont.new Imprime());
+		funcionarioPc.getTB().getRelatorioBtn().addActionListener(funcionarioCont.new Relatorio());
+		funcionarioPc.getTB().getSalvarBtn().addActionListener(funcionarioCont.new Salva());
+		funcionarioPc.getTB().getFecharBtn().addActionListener(funcionarioCont.new FechaJanela());
+		funcionarioPc.getTB().getSairBtn().addActionListener(funcionarioCont.new SaidaSistema());
+		funcionarioPc.getTB().getAjudaBtn().addActionListener(funcionarioCont.new Ajuda());
+		funcionarioPc.getTB().getHomeBtn().addActionListener(funcionarioCont.new Home());
 
 	}
 

@@ -13,18 +13,17 @@ public class ToolBar {
 	JToolBar toolBar = new JToolBar();
 
 	JButton buttonHome = new JButton(Imagem.getHome());
-	JButton buttonNovoFrame = new JButton(Imagem.getNovoFrame());
-	JButton buttonExcluiRegistro = new JButton(Imagem.getExcluiRegistro());
+	JButton buttonNovo = new JButton(Imagem.getNovo());
+	JButton buttonExclui = new JButton(Imagem.getExclui());
 	JButton buttonSalvar = new JButton(Imagem.getSalva());
-	JButton buttonImprimiUnicoRegistro = new JButton(Imagem.getImprimiRegistro());
-	JButton buttonPesquisaRegistro = new JButton(Imagem.getpesquisarRegistro());
-	JButton buttonImprimiTodosRegistros = new JButton(Imagem.getImprimiRelatorio());
+	JButton buttonImprime = new JButton(Imagem.getImprime());
+	JButton buttonPesquisa = new JButton(Imagem.getpesquisar());
+	JButton buttonRelatorio = new JButton(Imagem.getRelatorio());
 	JButton buttonAjuda = new JButton(Imagem.getAjudar());
 	JButton buttonFechar = new JButton(Imagem.getFechar());
 	JButton buttonSair = new JButton(Imagem.getSair());
 
 	public ToolBar() {
-
 		toolBar.setPreferredSize(new Dimension(700, 40));
 		toolBar.setMinimumSize(new Dimension(700, 40));
 		toolBar.setSize(new Dimension(700, 40));
@@ -36,23 +35,23 @@ public class ToolBar {
 		buttonHome.setToolTipText("Home");
 		toolBar.add(buttonHome);
 
-		buttonNovoFrame.setToolTipText("Novo");
-		toolBar.add(buttonNovoFrame);
+		buttonNovo.setToolTipText("Novo");
+		toolBar.add(buttonNovo);
 
-		buttonExcluiRegistro.setToolTipText("Excluir");
-		toolBar.add(buttonExcluiRegistro);
+		buttonExclui.setToolTipText("Excluir");
+		toolBar.add(buttonExclui);
 
 		buttonSalvar.setToolTipText("Salvar");
 		toolBar.add(buttonSalvar);
 
-		buttonPesquisaRegistro.setToolTipText("Pesquisar");
-		toolBar.add(buttonPesquisaRegistro);
+		buttonPesquisa.setToolTipText("Pesquisar");
+		toolBar.add(buttonPesquisa);
 
-		buttonImprimiUnicoRegistro.setToolTipText("Imprimir");
-		toolBar.add(buttonImprimiUnicoRegistro);
+		buttonImprime.setToolTipText("Imprimir");
+		toolBar.add(buttonImprime);
 
-		buttonImprimiTodosRegistros.setToolTipText("Relatório");
-		toolBar.add(buttonImprimiTodosRegistros);
+		buttonRelatorio.setToolTipText("Relatório");
+		toolBar.add(buttonRelatorio);
 
 		buttonAjuda.setToolTipText("Ajuda");
 		toolBar.add(buttonAjuda);
@@ -64,43 +63,43 @@ public class ToolBar {
 		toolBar.add(buttonSair);
 	}
 
-	public JButton getAjudaBTN() {
+	public JButton getAjudaBtn() {
 		return this.buttonAjuda;
 	}
 
-	public JButton getExcluirBTN() {
-		return buttonExcluiRegistro;
+	public JButton getExcluirBtn() {
+		return buttonExclui;
 	}
 
-	public JButton getFecharBTN() {
+	public JButton getFecharBtn() {
 		return buttonFechar;
 	}
 
-	public JButton getHomeBTN() {
+	public JButton getHomeBtn() {
 		return buttonHome;
 	}
 
-	public JButton getRelatorioBTN() {
-		return this.buttonImprimiTodosRegistros;
+	public JButton getRelatorioBtn() {
+		return this.buttonRelatorio;
 	}
 
-	public JButton getImprimirBTN() {
-		return this.buttonImprimiUnicoRegistro;
+	public JButton getImprimirBtn() {
+		return this.buttonImprime;
 	}
 
-	public JButton getNovoBTN() {
-		return this.buttonNovoFrame;
+	public JButton getNovoBtn() {
+		return this.buttonNovo;
 	}
 
-	public JButton getPesquisarBTN() {
-		return this.buttonPesquisaRegistro;
+	public JButton getPesquisarBtn() {
+		return this.buttonPesquisa;
 	}
 
-	public JButton getSairBTN() {
+	public JButton getSairBtn() {
 		return buttonSair;
 	}
 
-	public JButton getSalvarBTN() {
+	public JButton getSalvarBtn() {
 		return this.buttonSalvar;
 	}
 

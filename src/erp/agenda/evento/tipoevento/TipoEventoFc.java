@@ -94,16 +94,16 @@ public final class TipoEventoFc extends JFrame implements Gui {
 	public void iniciarControlador() {
 		tipoEventoCont = new TipoEventoCont();
 		addWindowListener(tipoEventoCont.new Frame());
-		tipoEventoPc.getToolBar().getExcluirBTN().addActionListener(tipoEventoCont.new Exclui());
-		tipoEventoPc.getToolBar().getNovoBTN().addActionListener(tipoEventoCont.new Novo());
-		tipoEventoPc.getToolBar().getPesquisarBTN().addActionListener(tipoEventoCont.new Pesquisa());
-		tipoEventoPc.getToolBar().getImprimirBTN().addActionListener(tipoEventoCont.new Imprime());
-		tipoEventoPc.getToolBar().getRelatorioBTN().addActionListener(tipoEventoCont.new Relatorio());
-		tipoEventoPc.getToolBar().getSalvarBTN().addActionListener(tipoEventoCont.new Salva());
-		tipoEventoPc.getToolBar().getFecharBTN().addActionListener(tipoEventoCont.new FechaJanela());
-		tipoEventoPc.getToolBar().getSairBTN().addActionListener(tipoEventoCont.new SaidaSistema());
-		tipoEventoPc.getToolBar().getAjudaBTN().addActionListener(tipoEventoCont.new Ajuda());
-		tipoEventoPc.getToolBar().getHomeBTN().addActionListener(tipoEventoCont.new Home());
+		tipoEventoPc.getToolBar().getExcluirBtn().addActionListener(tipoEventoCont.new Exclui());
+		tipoEventoPc.getToolBar().getNovoBtn().addActionListener(tipoEventoCont.new Novo());
+		tipoEventoPc.getToolBar().getPesquisarBtn().addActionListener(tipoEventoCont.new Pesquisa());
+		tipoEventoPc.getToolBar().getImprimirBtn().addActionListener(tipoEventoCont.new Imprime());
+		tipoEventoPc.getToolBar().getRelatorioBtn().addActionListener(tipoEventoCont.new Relatorio());
+		tipoEventoPc.getToolBar().getSalvarBtn().addActionListener(tipoEventoCont.new Salva());
+		tipoEventoPc.getToolBar().getFecharBtn().addActionListener(tipoEventoCont.new FechaJanela());
+		tipoEventoPc.getToolBar().getSairBtn().addActionListener(tipoEventoCont.new SaidaSistema());
+		tipoEventoPc.getToolBar().getAjudaBtn().addActionListener(tipoEventoCont.new Ajuda());
+		tipoEventoPc.getToolBar().getHomeBtn().addActionListener(tipoEventoCont.new Home());
 
 	}
 

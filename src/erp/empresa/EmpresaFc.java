@@ -93,16 +93,16 @@ public final class EmpresaFc extends JFrame implements Gui {
 	public void iniciarControlador() {
 		empresaCont = new EmpresaCont();
 		addWindowListener(empresaCont.new Frame());
-		empresaPc.getTB().getExcluirBTN().addActionListener(empresaCont.new Exclui());
-		empresaPc.getTB().getNovoBTN().addActionListener(empresaCont.new NovoFrame());
-		empresaPc.getTB().getPesquisarBTN().addActionListener(empresaCont.new Pesquisa());
-		empresaPc.getTB().getImprimirBTN().addActionListener(empresaCont.new Imprime());
-		empresaPc.getTB().getRelatorioBTN().addActionListener(empresaCont.new Relatorio());
-		empresaPc.getTB().getSalvarBTN().addActionListener(empresaCont.new Salva());
-		empresaPc.getTB().getFecharBTN().addActionListener(empresaCont.new FechaJanela());
-		empresaPc.getTB().getSairBTN().addActionListener(empresaCont.new SaidaSistema());
-		empresaPc.getTB().getAjudaBTN().addActionListener(empresaCont.new Ajuda());
-		empresaPc.getTB().getHomeBTN().addActionListener(empresaCont.new Home());
+		empresaPc.getTB().getExcluirBtn().addActionListener(empresaCont.new Exclui());
+		empresaPc.getTB().getNovoBtn().addActionListener(empresaCont.new NovoFrame());
+		empresaPc.getTB().getPesquisarBtn().addActionListener(empresaCont.new Pesquisa());
+		empresaPc.getTB().getImprimirBtn().addActionListener(empresaCont.new Imprime());
+		empresaPc.getTB().getRelatorioBtn().addActionListener(empresaCont.new Relatorio());
+		empresaPc.getTB().getSalvarBtn().addActionListener(empresaCont.new Salva());
+		empresaPc.getTB().getFecharBtn().addActionListener(empresaCont.new FechaJanela());
+		empresaPc.getTB().getSairBtn().addActionListener(empresaCont.new SaidaSistema());
+		empresaPc.getTB().getAjudaBtn().addActionListener(empresaCont.new Ajuda());
+		empresaPc.getTB().getHomeBtn().addActionListener(empresaCont.new Home());
 	}
 
 	@Override

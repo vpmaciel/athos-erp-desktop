@@ -94,16 +94,16 @@ public final class ContadorFc extends JFrame implements Gui {
 	public void iniciarControlador() {
 		contadorCont = new ContadorCont();
 		addWindowListener(contadorCont.new Frame());
-		contadorPc.getTB().getExcluirBTN().addActionListener(contadorCont.new Exclui());
-		contadorPc.getTB().getNovoBTN().addActionListener(contadorCont.new Novo());
-		contadorPc.getTB().getPesquisarBTN().addActionListener(contadorCont.new Pesquisa());
-		contadorPc.getTB().getImprimirBTN().addActionListener(contadorCont.new Imprime());
-		contadorPc.getTB().getRelatorioBTN().addActionListener(contadorCont.new Relatorio());
-		contadorPc.getTB().getSalvarBTN().addActionListener(contadorCont.new Salva());
-		contadorPc.getTB().getFecharBTN().addActionListener(contadorCont.new FechaJanela());
-		contadorPc.getTB().getSairBTN().addActionListener(contadorCont.new SaidaSistema());
-		contadorPc.getTB().getAjudaBTN().addActionListener(contadorCont.new Ajuda());
-		contadorPc.getTB().getHomeBTN().addActionListener(contadorCont.new Home());
+		contadorPc.getTB().getExcluirBtn().addActionListener(contadorCont.new Exclui());
+		contadorPc.getTB().getNovoBtn().addActionListener(contadorCont.new Novo());
+		contadorPc.getTB().getPesquisarBtn().addActionListener(contadorCont.new Pesquisa());
+		contadorPc.getTB().getImprimirBtn().addActionListener(contadorCont.new Imprime());
+		contadorPc.getTB().getRelatorioBtn().addActionListener(contadorCont.new Relatorio());
+		contadorPc.getTB().getSalvarBtn().addActionListener(contadorCont.new Salva());
+		contadorPc.getTB().getFecharBtn().addActionListener(contadorCont.new FechaJanela());
+		contadorPc.getTB().getSairBtn().addActionListener(contadorCont.new SaidaSistema());
+		contadorPc.getTB().getAjudaBtn().addActionListener(contadorCont.new Ajuda());
+		contadorPc.getTB().getHomeBtn().addActionListener(contadorCont.new Home());
 	}
 
 	@Override

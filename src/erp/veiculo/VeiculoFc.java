@@ -94,16 +94,16 @@ public final class VeiculoFc extends JFrame implements Gui {
 	public void iniciarControlador() {
 		veiculoCont = new VeiculoCont();
 		addWindowListener(veiculoCont.new Frame());
-		veiculoPc.getToolBar().getExcluirBTN().addActionListener(veiculoCont.new Exclui());
-		veiculoPc.getToolBar().getNovoBTN().addActionListener(veiculoCont.new Novo());
-		veiculoPc.getToolBar().getPesquisarBTN().addActionListener(veiculoCont.new Pesquisa());
-		veiculoPc.getToolBar().getImprimirBTN().addActionListener(veiculoCont.new Imprime());
-		veiculoPc.getToolBar().getRelatorioBTN().addActionListener(veiculoCont.new Relatorio());
-		veiculoPc.getToolBar().getSalvarBTN().addActionListener(veiculoCont.new Salva());
-		veiculoPc.getToolBar().getFecharBTN().addActionListener(veiculoCont.new FechaJanela());
-		veiculoPc.getToolBar().getSairBTN().addActionListener(veiculoCont.new SaidaSistema());
-		veiculoPc.getToolBar().getAjudaBTN().addActionListener(veiculoCont.new Ajuda());
-		veiculoPc.getToolBar().getHomeBTN().addActionListener(veiculoCont.new Home());
+		veiculoPc.getToolBar().getExcluirBtn().addActionListener(veiculoCont.new Exclui());
+		veiculoPc.getToolBar().getNovoBtn().addActionListener(veiculoCont.new Novo());
+		veiculoPc.getToolBar().getPesquisarBtn().addActionListener(veiculoCont.new Pesquisa());
+		veiculoPc.getToolBar().getImprimirBtn().addActionListener(veiculoCont.new Imprime());
+		veiculoPc.getToolBar().getRelatorioBtn().addActionListener(veiculoCont.new Relatorio());
+		veiculoPc.getToolBar().getSalvarBtn().addActionListener(veiculoCont.new Salva());
+		veiculoPc.getToolBar().getFecharBtn().addActionListener(veiculoCont.new FechaJanela());
+		veiculoPc.getToolBar().getSairBtn().addActionListener(veiculoCont.new SaidaSistema());
+		veiculoPc.getToolBar().getAjudaBtn().addActionListener(veiculoCont.new Ajuda());
+		veiculoPc.getToolBar().getHomeBtn().addActionListener(veiculoCont.new Home());
 	}
 
 	@Override

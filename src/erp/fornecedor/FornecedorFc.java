@@ -94,16 +94,16 @@ public final class FornecedorFc extends JFrame implements Gui {
 	public void iniciarControlador() {
 		fornecedorCont = new FornecedorCont();
 		addWindowListener(fornecedorCont.new Frame());
-		fornecedorPc.getTB().getExcluirBTN().addActionListener(fornecedorCont.new Exclui());
-		fornecedorPc.getTB().getNovoBTN().addActionListener(fornecedorCont.new Novo());
-		fornecedorPc.getTB().getPesquisarBTN().addActionListener(fornecedorCont.new Pesquisa());
-		fornecedorPc.getTB().getImprimirBTN().addActionListener(fornecedorCont.new Imprime());
-		fornecedorPc.getTB().getRelatorioBTN().addActionListener(fornecedorCont.new Relatorio());
-		fornecedorPc.getTB().getSalvarBTN().addActionListener(fornecedorCont.new Salva());
-		fornecedorPc.getTB().getFecharBTN().addActionListener(fornecedorCont.new FechaJanela());
-		fornecedorPc.getTB().getSairBTN().addActionListener(fornecedorCont.new SaidaSistema());
-		fornecedorPc.getTB().getAjudaBTN().addActionListener(fornecedorCont.new Ajuda());
-		fornecedorPc.getTB().getHomeBTN().addActionListener(fornecedorCont.new Home());
+		fornecedorPc.getTB().getExcluirBtn().addActionListener(fornecedorCont.new Exclui());
+		fornecedorPc.getTB().getNovoBtn().addActionListener(fornecedorCont.new Novo());
+		fornecedorPc.getTB().getPesquisarBtn().addActionListener(fornecedorCont.new Pesquisa());
+		fornecedorPc.getTB().getImprimirBtn().addActionListener(fornecedorCont.new Imprime());
+		fornecedorPc.getTB().getRelatorioBtn().addActionListener(fornecedorCont.new Relatorio());
+		fornecedorPc.getTB().getSalvarBtn().addActionListener(fornecedorCont.new Salva());
+		fornecedorPc.getTB().getFecharBtn().addActionListener(fornecedorCont.new FechaJanela());
+		fornecedorPc.getTB().getSairBtn().addActionListener(fornecedorCont.new SaidaSistema());
+		fornecedorPc.getTB().getAjudaBtn().addActionListener(fornecedorCont.new Ajuda());
+		fornecedorPc.getTB().getHomeBtn().addActionListener(fornecedorCont.new Home());
 	}
 
 	@Override
