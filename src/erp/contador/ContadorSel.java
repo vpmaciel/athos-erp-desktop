@@ -7,11 +7,11 @@ import javax.swing.table.TableModel;
 
 import erp.main.MainCont;
 
-final class ContadorSl implements ListSelectionListener {
+final class ContadorSel implements ListSelectionListener {
 
 	JTable table;
 
-	ContadorSl(JTable table) {
+	ContadorSel(JTable table) {
 		this.table = table;
 	}
 

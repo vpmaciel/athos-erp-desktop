@@ -60,8 +60,8 @@ public final class TipoEventoPp extends JPanel {
 		return agenciaTableModel;
 	}
 
-	public void iniciarHandle() {
-		TipoEventoSl listener = new TipoEventoSl(table);
+	public void iniciarControlador() {
+		TipoEventoSel listener = new TipoEventoSel(table);
 		table.getSelectionModel().addListSelectionListener(listener);
 	}
 

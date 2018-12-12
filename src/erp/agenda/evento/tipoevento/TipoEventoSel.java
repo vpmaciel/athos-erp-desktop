@@ -7,11 +7,11 @@ import javax.swing.table.TableModel;
 
 import erp.main.MainCont;
 
-class TipoEventoSl implements ListSelectionListener {
+class TipoEventoSel implements ListSelectionListener {
 
 	JTable table;
 
-	TipoEventoSl(JTable table) {
+	TipoEventoSel(JTable table) {
 		this.table = table;
 	}
 
@@ -28,12 +28,12 @@ class TipoEventoSl implements ListSelectionListener {
 					TipoEvento tipoEvento = TipoEventoFac.getRegistro(agendaPesquisaRegistro);
 					TipoEventoTm tipoEventoTm = (TipoEventoTm) table.getModel();
 					tipoEventoTm.getTipoEvento(table.getSelectedRow());
-					MainCont.mostrarFrame(MainCont.getAgendaTipoEventoPc());
-					MainCont.getAgendaTipoEventoPc().getTipoEventoGerenteEventos()
+					MainCont.mostrarFrame(MainCont.getAgendaTipoEventoFc());
+					MainCont.getAgendaTipoEventoFc().getTipoEventoGerenteEventos()
 							.setAgenda(tipoEvento);
-					MainCont.getAgendaTipoEventoPc().getTipoEventoGerenteEventos().atualizarGui();
-					MainCont.getAgendaTipoEventoPc().setFocusable(true);
-					MainCont.getAgendaTipoEventoPp().setVisible(false);
+					MainCont.getAgendaTipoEventoFc().getTipoEventoGerenteEventos().atualizarGui();
+					MainCont.getAgendaTipoEventoFc().setFocusable(true);
+					MainCont.getAgendaTipoEventoFp().setVisible(false);
 				}
 			}
 		}

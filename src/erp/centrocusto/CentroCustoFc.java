@@ -23,11 +23,10 @@ public final class CentroCustoFc extends JFrame implements Gui {
 	private CentroCustoPc centroCustoPc;
 
 	public CentroCustoFc() {
-		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		iniciarLayout();
-		iniciarGUI();
+		iniciarGui();
 		iniciarFocoControlador();
-		iniciarGUIControlador();
+		iniciarGuiControlador();
 		iniciarControlador();
 	}
 
@@ -43,7 +42,7 @@ public final class CentroCustoFc extends JFrame implements Gui {
 	}
 
 	@Override
-	public ConfiguracaoGui getGUIConfiguracao() {
+	public ConfiguracaoGui getConfiguracaoGui() {
 		return configuracaoGui;
 	}
 
@@ -62,8 +61,7 @@ public final class CentroCustoFc extends JFrame implements Gui {
 	}
 
 	@Override
-	public void iniciarGUI() {
-		setTitle("CENTRO DE CUSTO");
+	public void iniciarGui() {
 		setIconImage(Imagem.getLogoTipoImage());
 		centroCustoPc = new CentroCustoPc();
 		centroCustoPc.setOpaque(true); // content panes must be opaque
@@ -91,12 +89,13 @@ public final class CentroCustoFc extends JFrame implements Gui {
 	}
 
 	@Override
-	public void iniciarGUIControlador() {
+	public void iniciarGuiControlador() {
 		configuracaoGui = new ConfiguracaoGui(this);
 	}
 
 	@Override
 	public void iniciarControlador() {
+		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		centroCustoCont = new CentroCustoCont();
 		addWindowListener(centroCustoCont.new Frame());
 		centroCustoPc.getTB().getExcluirBtn().addActionListener(centroCustoCont.new Exclui());
@@ -125,12 +124,12 @@ public final class CentroCustoFc extends JFrame implements Gui {
 	}
 
 	@Override
-	public void limparGUI() {
-		centroCustoPc.limparGUI();
+	public void limparGui() {
+		centroCustoPc.limparGui();
 	}
 
 	@Override
-	public void reiniciarGUI() {
+	public void reiniciarGui() {
 	}
 
 	public boolean validarCamposCadastro() {

@@ -23,11 +23,10 @@ public final class SindicatoFc extends JFrame implements Gui {
 	private SindicatoPc sindicatoPc;
 
 	public SindicatoFc() {
-		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		iniciarLayout();
-		iniciarGUI();
+		iniciarGui();
 		iniciarFocoControlador();
-		iniciarGUIControlador();
+		iniciarGuiControlador();
 		iniciarControlador();
 	}
 
@@ -37,7 +36,7 @@ public final class SindicatoFc extends JFrame implements Gui {
 	}
 
 	@Override
-	public ConfiguracaoGui getGUIConfiguracao() {
+	public ConfiguracaoGui getConfiguracaoGui() {
 		return configuracaoGui;
 	}
 
@@ -56,8 +55,7 @@ public final class SindicatoFc extends JFrame implements Gui {
 	}
 
 	@Override
-	public void iniciarGUI() {
-		setTitle("SINDICATO");
+	public void iniciarGui() {
 		setIconImage(Imagem.getLogoTipoImage());
 		sindicatoPc = new SindicatoPc();
 		sindicatoPc.setOpaque(true); // content panes must be opaque
@@ -85,12 +83,13 @@ public final class SindicatoFc extends JFrame implements Gui {
 	}
 
 	@Override
-	public void iniciarGUIControlador() {
+	public void iniciarGuiControlador() {
 		configuracaoGui = new ConfiguracaoGui(this);
 	}
 
 	@Override
 	public void iniciarControlador() {
+		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		sindicatoCont = new SindicatoCont();
 		addWindowListener(sindicatoCont.new Frame());
 		sindicatoPc.getTB().getExcluirBtn().addActionListener(sindicatoCont.new Exclui());
@@ -119,12 +118,12 @@ public final class SindicatoFc extends JFrame implements Gui {
 	}
 
 	@Override
-	public void limparGUI() {
+	public void limparGui() {
 		configuracaoGui.limparGui();
 	}
 
 	@Override
-	public void reiniciarGUI() {
+	public void reiniciarGui() {
 
 	}
 }

@@ -57,7 +57,7 @@ public final class Msg {
 	}
 
 	public static final void avisoFecharSistema() {
-		JOptionPane.showMessageDialog(MainCont.getFrameLogin().getPanelLogin(), "O sistema será fechado !",
+		JOptionPane.showMessageDialog(MainCont.getLoginFc().getLoginPc(), "O sistema será fechado !",
 				"Erro", JOptionPane.ERROR_MESSAGE);
 	}
 

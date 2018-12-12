@@ -16,7 +16,7 @@ import erp.empresa.Empresa;
 import erp.main.MainCont;
 
 final class ContatoCont {
-
+	
 	public class Ajuda implements ActionListener {
 
 		@Override
@@ -60,7 +60,7 @@ final class ContatoCont {
 
 		@Override
 		public void windowActivated(WindowEvent e) {
-			getContatoFc().reiniciarGUI();
+			getContatoFc().reiniciarGui();
 		}
 
 		@Override
@@ -79,7 +79,7 @@ final class ContatoCont {
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
 			try {
-				MainCont.mostrarFrame(MainCont.getFrameMain());
+				MainCont.mostrarFrame(MainCont.getMainFc());
 			} catch (Exception e) {
 				System.out.println(e);
 			}
@@ -132,7 +132,7 @@ final class ContatoCont {
 			if (event.getButton() == MouseEvent.BUTTON1) {
 				MainCont.mostrarFrame(MainCont.getEmpresaFc());
 			} else {
-				MainCont.getEmpresaFc().reiniciarGUI();
+				MainCont.getEmpresaFc().reiniciarGui();
 			}
 		}
 	}
@@ -142,7 +142,7 @@ final class ContatoCont {
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
 			contato = new Contato();
-			getContatoFc().limparGUI();
+			getContatoFc().limparGui();
 			getContatoPc().getNomeGUI().requestFocus();
 		}
 	}
@@ -192,7 +192,7 @@ final class ContatoCont {
 					atualizarObjeto();
 					ContatoFac.salvarRegistro(contato);
 					contato = new Contato();
-					MainCont.getAgendaContatoFc().limparGUI();
+					MainCont.getAgendaContatoFc().limparGui();
 					getContatoPc().getNomeGUI().requestFocus();
 					Msg.sucessoSalvarRegistro();
 				}

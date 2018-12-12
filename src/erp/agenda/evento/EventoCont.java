@@ -35,7 +35,7 @@ final class EventoCont {
 			}
 			try {
 				EventoFac.deletarRegistro(evento);
-				getEventoFc().limparGUI();
+				getEventoFc().limparGui();
 				evento = new Evento();
 				Msg.sucessoExcluiRegistro();
 			} catch (Exception e) {
@@ -60,7 +60,7 @@ final class EventoCont {
 
 		@Override
 		public void windowActivated(WindowEvent e) {
-			getEventoFc().reiniciarGUI();
+			getEventoFc().reiniciarGui();
 			atualizarGui();
 		}
 
@@ -79,7 +79,7 @@ final class EventoCont {
 
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
-			MainCont.mostrarFrame(MainCont.getFrameMain());
+			MainCont.mostrarFrame(MainCont.getMainFc());
 		}
 	}
 
@@ -127,8 +127,8 @@ final class EventoCont {
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
 			evento = new Evento();
-			getEventoFc().limparGUI();
-			getEventoFc().getEventoPc().reiniciarGUI();
+			getEventoFc().limparGui();
+			getEventoFc().getEventoPc().reiniciarGui();
 			getEventoPc().getTipoEventoGUI().requestFocus();
 		}
 	}
@@ -179,8 +179,8 @@ final class EventoCont {
 					atualizarObjeto();
 					EventoFac.salvarRegistro(evento);
 					evento = new Evento();
-					getEventoFc().limparGUI();
-					getEventoFc().getEventoPc().reiniciarGUI();
+					getEventoFc().limparGui();
+					getEventoFc().getEventoPc().reiniciarGui();
 					getEventoPc().getTipoEventoGUI().requestFocus();
 					Msg.sucessoSalvarRegistro();
 				}

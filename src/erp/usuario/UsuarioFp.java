@@ -15,9 +15,8 @@ public final class UsuarioFp extends JFrame implements Gui {
 	private UsuarioPp UsuarioPp;
 
 	public UsuarioFp() {
-		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		iniciarLayout();
-		iniciarGUI();
+		iniciarGui();
 		iniciarControlador();
 	}
 
@@ -27,7 +26,7 @@ public final class UsuarioFp extends JFrame implements Gui {
 	}
 
 	@Override
-	public ConfiguracaoGui getGUIConfiguracao() {
+	public ConfiguracaoGui getConfiguracaoGui() {
 		return null;
 	}
 
@@ -41,21 +40,21 @@ public final class UsuarioFp extends JFrame implements Gui {
 	}
 
 	@Override
-	public void iniciarGUI() {
-		setTitle("USUÁRIO");
+	public void iniciarGui() {
 		setIconImage(Imagem.getLogoTipoImage());
 		UsuarioPp = new UsuarioPp();
 		setContentPane(UsuarioPp);
 	}
 
 	@Override
-	public void iniciarGUIControlador() {
+	public void iniciarGuiControlador() {
 
 	}
 
 	@Override
 	public void iniciarControlador() {
-		UsuarioPp.iniciarHandle();
+		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
+		UsuarioPp.iniciarControlador();
 	}
 
 	@Override
@@ -73,12 +72,12 @@ public final class UsuarioFp extends JFrame implements Gui {
 	}
 
 	@Override
-	public void limparGUI() {
+	public void limparGui() {
 
 	}
 
 	@Override
-	public void reiniciarGUI() {
+	public void reiniciarGui() {
 
 	}
 }

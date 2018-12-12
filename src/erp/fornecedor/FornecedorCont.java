@@ -36,7 +36,7 @@ final class FornecedorCont {
 			}
 			try {
 				FornecedorFac.deletarRegistro(fornecedor);
-				getFornecedorFc().limparGUI();
+				getFornecedorFc().limparGui();
 				fornecedor = new Fornecedor();
 				Msg.sucessoExcluiRegistro();
 			} catch (Exception e) {
@@ -61,7 +61,7 @@ final class FornecedorCont {
 
 		@Override
 		public void windowActivated(WindowEvent e) {
-			getFornecedorFc().reiniciarGUI();
+			getFornecedorFc().reiniciarGui();
 		}
 
 		@Override
@@ -80,7 +80,7 @@ final class FornecedorCont {
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
 			try {
-				MainCont.mostrarFrame(MainCont.getFrameMain());
+				MainCont.mostrarFrame(MainCont.getMainFc());
 			} catch (Exception e) {
 				System.out.println(e);
 			}
@@ -132,7 +132,7 @@ final class FornecedorCont {
 			if (event.getButton() == MouseEvent.BUTTON1) {
 				MainCont.mostrarFrame(getFornecedorFc());
 			} else {
-				getFornecedorFc().reiniciarGUI();
+				getFornecedorFc().reiniciarGui();
 			}
 		}
 	}
@@ -142,7 +142,7 @@ final class FornecedorCont {
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
 			fornecedor = new Fornecedor();
-			getFornecedorFc().limparGUI();
+			getFornecedorFc().limparGui();
 			getFornecedorPc().getNomeFantasiaGUI().requestFocus();
 		}
 	}
@@ -192,7 +192,7 @@ final class FornecedorCont {
 					atualizarObjeto();
 					FornecedorFac.salvarRegistro(fornecedor);
 					fornecedor = new Fornecedor();
-					getFornecedorFc().limparGUI();
+					getFornecedorFc().limparGui();
 					getFornecedorPc().getNomeFantasiaGUI().requestFocus();
 					Msg.sucessoSalvarRegistro();
 				}

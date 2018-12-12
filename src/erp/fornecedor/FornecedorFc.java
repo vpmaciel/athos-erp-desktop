@@ -23,11 +23,10 @@ public final class FornecedorFc extends JFrame implements Gui {
 	private FornecedorPc fornecedorPc;
 
 	public FornecedorFc() {
-		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		iniciarLayout();
-		iniciarGUI();
+		iniciarGui();
 		iniciarFocoControlador();
-		iniciarGUIControlador();
+		iniciarGuiControlador();
 		iniciarControlador();
 	}
 
@@ -41,7 +40,7 @@ public final class FornecedorFc extends JFrame implements Gui {
 	}
 
 	@Override
-	public ConfiguracaoGui getGUIConfiguracao() {
+	public ConfiguracaoGui getConfiguracaoGui() {
 		return configuracaoGui;
 	}
 
@@ -56,8 +55,7 @@ public final class FornecedorFc extends JFrame implements Gui {
 	}
 
 	@Override
-	public void iniciarGUI() {
-		setTitle("FORNECEDOR");
+	public void iniciarGui() {
 		setIconImage(Imagem.getLogoTipoImage());
 		fornecedorPc = new FornecedorPc();
 		fornecedorPc.setOpaque(true); // content panes must be opaque
@@ -86,12 +84,13 @@ public final class FornecedorFc extends JFrame implements Gui {
 	}
 
 	@Override
-	public void iniciarGUIControlador() {
+	public void iniciarGuiControlador() {
 		configuracaoGui = new ConfiguracaoGui(this);
 	}
 
 	@Override
 	public void iniciarControlador() {
+		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		fornecedorCont = new FornecedorCont();
 		addWindowListener(fornecedorCont.new Frame());
 		fornecedorPc.getTB().getExcluirBtn().addActionListener(fornecedorCont.new Exclui());
@@ -120,12 +119,12 @@ public final class FornecedorFc extends JFrame implements Gui {
 	}
 
 	@Override
-	public void limparGUI() {
+	public void limparGui() {
 		configuracaoGui.limparGui();
 	}
 
 	@Override
-	public void reiniciarGUI() {
+	public void reiniciarGui() {
 
 	}
 }

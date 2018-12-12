@@ -7,11 +7,11 @@ import javax.swing.table.TableModel;
 
 import erp.main.MainCont;
 
-final class VeiculoMarcaSl implements ListSelectionListener {
+final class VeiculoMarcaSel implements ListSelectionListener {
 
 	JTable table;
 
-	VeiculoMarcaSl(JTable table) {
+	VeiculoMarcaSel(JTable table) {
 		this.table = table;
 	}
 

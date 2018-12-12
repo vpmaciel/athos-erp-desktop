@@ -4,13 +4,13 @@ public interface Gui {
 
 	void atualizarTable();
 
-	ConfiguracaoGui getGUIConfiguracao();
+	ConfiguracaoGui getConfiguracaoGui();
 
 	void iniciarFocoControlador();
 
-	void iniciarGUI();
+	void iniciarGui();
 
-	void iniciarGUIControlador();
+	void iniciarGuiControlador();
 
 	void iniciarControlador();
 
@@ -18,7 +18,7 @@ public interface Gui {
 
 	void iniciarTabela();
 
-	void limparGUI();
+	void limparGui();
 
-	void reiniciarGUI();
+	void reiniciarGui();
 }

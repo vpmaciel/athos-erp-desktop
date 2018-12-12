@@ -7,11 +7,11 @@ import javax.swing.table.TableModel;
 
 import erp.main.MainCont;
 
-final class CartorioSl implements ListSelectionListener {
+final class CartorioSel implements ListSelectionListener {
 
 	JTable table;
 
-	CartorioSl(JTable table) {
+	CartorioSel(JTable table) {
 		this.table = table;
 	}
 

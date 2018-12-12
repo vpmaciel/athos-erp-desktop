@@ -23,11 +23,10 @@ public final class ImovelFc extends JFrame implements Gui {
 	private ImovelPc imovelPc;
 
 	public ImovelFc() {
-		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		iniciarLayout();
-		iniciarGUI();
+		iniciarGui();
 		iniciarFocoControlador();
-		iniciarGUIControlador();
+		iniciarGuiControlador();
 		iniciarControlador();
 	}
 
@@ -37,7 +36,7 @@ public final class ImovelFc extends JFrame implements Gui {
 	}
 
 	@Override
-	public ConfiguracaoGui getGUIConfiguracao() {
+	public ConfiguracaoGui getConfiguracaoGui() {
 		return configuracaoGui;
 	}
 
@@ -56,8 +55,7 @@ public final class ImovelFc extends JFrame implements Gui {
 	}
 
 	@Override
-	public void iniciarGUI() {
-		setTitle("Imóveis");
+	public void iniciarGui() {
 		setIconImage(Imagem.getLogoTipoImage());
 		imovelPc = new ImovelPc();
 		imovelPc.setOpaque(true); // content panes must be opaque
@@ -85,12 +83,13 @@ public final class ImovelFc extends JFrame implements Gui {
 	}
 
 	@Override
-	public void iniciarGUIControlador() {
+	public void iniciarGuiControlador() {
 		configuracaoGui = new ConfiguracaoGui(this);
 	}
 
 	@Override
 	public void iniciarControlador() {
+		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		imovelCont = new ImovelCont();
 		addWindowListener(imovelCont.new Frame());
 		imovelPc.getTB().getExcluirBtn().addActionListener(imovelCont.new Exclui());
@@ -119,12 +118,12 @@ public final class ImovelFc extends JFrame implements Gui {
 	}
 
 	@Override
-	public void limparGUI() {
+	public void limparGui() {
 		configuracaoGui.limparGui();
 	}
 
 	@Override
-	public void reiniciarGUI() {
+	public void reiniciarGui() {
 
 	}
 }

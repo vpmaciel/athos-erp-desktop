@@ -14,9 +14,8 @@ public final class VeiculoModeloFp extends JFrame implements Gui {
 	private VeiculoModeloPp VeiculoModeloPp;
 
 	public VeiculoModeloFp() {
-		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		iniciarLayout();
-		iniciarGUI();
+		iniciarGui();
 		iniciarControlador();
 	}
 
@@ -26,7 +25,7 @@ public final class VeiculoModeloFp extends JFrame implements Gui {
 	}
 
 	@Override
-	public ConfiguracaoGui getGUIConfiguracao() {
+	public ConfiguracaoGui getConfiguracaoGui() {
 		return null;
 	}
 
@@ -40,21 +39,21 @@ public final class VeiculoModeloFp extends JFrame implements Gui {
 	}
 
 	@Override
-	public void iniciarGUI() {
-		setTitle("VEÍCULO - MODELO");
+	public void iniciarGui() {
 		setIconImage(arquitetura.gui.Imagem.getLogoTipoImage());
 		VeiculoModeloPp = new VeiculoModeloPp();
 		setContentPane(VeiculoModeloPp);
 	}
 
 	@Override
-	public void iniciarGUIControlador() {
+	public void iniciarGuiControlador() {
 
 	}
 
 	@Override
 	public void iniciarControlador() {
-		VeiculoModeloPp.iniciarHandle();
+		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
+		VeiculoModeloPp.iniciarControlador();
 	}
 
 	@Override
@@ -72,12 +71,12 @@ public final class VeiculoModeloFp extends JFrame implements Gui {
 	}
 
 	@Override
-	public void limparGUI() {
+	public void limparGui() {
 
 	}
 
 	@Override
-	public void reiniciarGUI() {
+	public void reiniciarGui() {
 
 	}
 }

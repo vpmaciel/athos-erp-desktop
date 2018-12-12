@@ -60,8 +60,8 @@ public final class RecadoPp extends JPanel {
 		return recadoTm;
 	}
 
-	public void iniciarHandle() {
-		RecadoSl listener = new RecadoSl(table);
+	public void iniciarControlador() {
+		RecadoSel listener = new RecadoSel(table);
 		table.getSelectionModel().addListSelectionListener(listener);
 	}
 

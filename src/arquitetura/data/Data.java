@@ -15,9 +15,18 @@ public class Data {
 	public static String getDateTime() {
 		Locale locale = new Locale("pt", "BR");
 		Calendar calendar = new GregorianCalendar();
-		DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss.SSSS", locale);
+		DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy | HH:mm:ss.SSSS", locale);
 		String data = "DATA E HORA DE EMISSÃO: ";
-		data += getDia(calendar.get(Calendar.DAY_OF_WEEK)) + " ";
+		data += getDia(calendar.get(Calendar.DAY_OF_WEEK)) + " | ";
+		data += dateFormat.format(calendar.getTime());
+		return data;
+	}
+	
+	public static String getData() {
+		Locale locale = new Locale("pt", "BR");
+		Calendar calendar = new GregorianCalendar();
+		DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy | HH:mm:ss", locale);
+		String data = getDia(calendar.get(Calendar.DAY_OF_WEEK)) + " | ";
 		data += dateFormat.format(calendar.getTime());
 		return data;
 	}
@@ -31,19 +40,19 @@ public class Data {
 			nome = "DOMINGO";
 			break;
 		case Calendar.MONDAY:
-			nome = "SEGUNDA";
+			nome = "SEGUNDA-FEIRA";
 			break;
 		case Calendar.TUESDAY:
-			nome = "TERÇA";
+			nome = "TERÇA-FEIRA";
 			break;
 		case Calendar.WEDNESDAY:
-			nome = "QUARTA";
+			nome = "QUARTA-FEIRA";
 			break;
 		case Calendar.THURSDAY:
-			nome = "QUINTA";
+			nome = "QUINTA-FEIRA";
 			break;
 		case Calendar.FRIDAY:
-			nome = "SEXTA";
+			nome = "SEXTA-FEIRA";
 			break;
 		case Calendar.SATURDAY:
 			nome = "SÁBADO";

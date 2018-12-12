@@ -10,9 +10,9 @@ import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 import javax.swing.WindowConstants;
 
+import arquitetura.gui.ConfiguracaoGui;
 import arquitetura.gui.FocoEvento;
 import arquitetura.gui.Gui;
-import arquitetura.gui.ConfiguracaoGui;
 import arquitetura.gui.Imagem;
 
 @SuppressWarnings("serial")
@@ -23,11 +23,10 @@ public final class EventoFc extends JFrame implements Gui {
 	private EventoPc eventoPc;
 
 	public EventoFc() {
-		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		iniciarLayout();
-		iniciarGUI();
+		iniciarGui();
 		iniciarFocoControlador();
-		iniciarGUIControlador();
+		iniciarGuiControlador();
 		iniciarControlador();
 	}
 
@@ -41,7 +40,7 @@ public final class EventoFc extends JFrame implements Gui {
 	}
 
 	@Override
-	public ConfiguracaoGui getGUIConfiguracao() {
+	public ConfiguracaoGui getConfiguracaoGui() {
 		return configuracaoGui;
 	}
 
@@ -56,8 +55,8 @@ public final class EventoFc extends JFrame implements Gui {
 	}
 
 	@Override
-	public void iniciarGUI() {
-		setTitle("EVENTO");
+	public void iniciarGui() {
+		
 		setIconImage(Imagem.getLogoTipoImage());
 
 		eventoPc = new EventoPc();
@@ -86,12 +85,13 @@ public final class EventoFc extends JFrame implements Gui {
 	}
 
 	@Override
-	public void iniciarGUIControlador() {
+	public void iniciarGuiControlador() {
 		configuracaoGui = new ConfiguracaoGui(this);
 	}
 
 	@Override
 	public void iniciarControlador() {
+		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		eventoCont = new EventoCont();
 		addWindowListener(eventoCont.new Frame());
 		eventoPc.getToolBar().getExcluirBtn().addActionListener(eventoCont.new Exclui());
@@ -121,12 +121,12 @@ public final class EventoFc extends JFrame implements Gui {
 	}
 
 	@Override
-	public void limparGUI() {
+	public void limparGui() {
 		configuracaoGui.limparGui();
 	}
 
 	@Override
-	public void reiniciarGUI() {
-		eventoPc.reiniciarGUI();
+	public void reiniciarGui() {
+		eventoPc.reiniciarGui();
 	}
 }

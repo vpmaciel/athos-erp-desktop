@@ -60,8 +60,8 @@ public final class VeiculoModeloPp extends JPanel {
 		return veiculoModeloTm;
 	}
 
-	public void iniciarHandle() {
-		VeiculoModeloSl listener = new VeiculoModeloSl(table);
+	public void iniciarControlador() {
+		VeiculoModeloSel listener = new VeiculoModeloSel(table);
 		table.getSelectionModel().addListSelectionListener(listener);
 	}
 

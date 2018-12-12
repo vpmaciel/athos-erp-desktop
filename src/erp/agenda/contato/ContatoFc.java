@@ -10,9 +10,9 @@ import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 import javax.swing.WindowConstants;
 
+import arquitetura.gui.ConfiguracaoGui;
 import arquitetura.gui.FocoEvento;
 import arquitetura.gui.Gui;
-import arquitetura.gui.ConfiguracaoGui;
 import arquitetura.gui.Imagem;
 
 @SuppressWarnings("serial")
@@ -25,9 +25,9 @@ public final class ContatoFc extends JFrame implements Gui {
 	public ContatoFc() {
 		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		iniciarLayout();
-		iniciarGUI();
+		iniciarGui();
 		iniciarFocoControlador();
-		iniciarGUIControlador();
+		iniciarGuiControlador();
 		iniciarControlador();
 	}
 
@@ -37,7 +37,7 @@ public final class ContatoFc extends JFrame implements Gui {
 	}
 
 	@Override
-	public ConfiguracaoGui getGUIConfiguracao() {
+	public ConfiguracaoGui getConfiguracaoGui() {
 		return configuracaoGui;
 	}
 
@@ -56,7 +56,7 @@ public final class ContatoFc extends JFrame implements Gui {
 	}
 
 	@Override
-	public void iniciarGUI() {
+	public void iniciarGui() {
 		setTitle("CONTATO");
 		setIconImage(Imagem.getLogoTipoImage());
 
@@ -87,7 +87,7 @@ public final class ContatoFc extends JFrame implements Gui {
 	}
 
 	@Override
-	public void iniciarGUIControlador() {
+	public void iniciarGuiControlador() {
 		configuracaoGui = new ConfiguracaoGui(this);
 	}
 
@@ -123,12 +123,12 @@ public final class ContatoFc extends JFrame implements Gui {
 	}
 
 	@Override
-	public void limparGUI() {
+	public void limparGui() {
 		configuracaoGui.limparGui();
 	}
 
 	@Override
-	public void reiniciarGUI() {
-		contatoPc.reiniciarGUI();
+	public void reiniciarGui() {
+		contatoPc.reiniciarGui();
 	}
 }

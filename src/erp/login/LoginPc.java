@@ -28,9 +28,9 @@ public final class LoginPc extends JPanel implements Gui {
 
 	public LoginPc() {
 		iniciarLayout();
-		iniciarGUI();
+		iniciarGui();
 		iniciarFocoControlador();
-		iniciarGUIControlador();
+		iniciarGuiControlador();
 		buttonEntrar.setPreferredSize(new Dimension(740, 25));
 		buttonEntrar.setMinimumSize(new Dimension(740, 25));
 		buttonEntrar.setSize(new Dimension(740, 25));
@@ -49,7 +49,7 @@ public final class LoginPc extends JPanel implements Gui {
 	}
 
 	@Override
-	public ConfiguracaoGui getGUIConfiguracao() {
+	public ConfiguracaoGui getConfiguracaoGui() {
 		return configuracaoGui;
 	}
 
@@ -68,7 +68,7 @@ public final class LoginPc extends JPanel implements Gui {
 	}
 
 	@Override
-	public void iniciarGUI() {
+	public void iniciarGui() {
 
 		labelNome = new JLabel("USUÁRIO");
 		add(labelNome);
@@ -100,7 +100,7 @@ public final class LoginPc extends JPanel implements Gui {
 	}
 
 	@Override
-	public void iniciarGUIControlador() {
+	public void iniciarGuiControlador() {
 		configuracaoGui = new ConfiguracaoGui(this);
 	}
 
@@ -120,12 +120,12 @@ public final class LoginPc extends JPanel implements Gui {
 	}
 
 	@Override
-	public void limparGUI() {
+	public void limparGui() {
 
 	}
 
 	@Override
-	public void reiniciarGUI() {
+	public void reiniciarGui() {
 
 	}
 

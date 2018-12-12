@@ -36,7 +36,7 @@ final class BancoCont {
 			}
 			try {
 				bancoFac.deletarRegistro(banco);
-				getBancoFc().limparGUI();
+				getBancoFc().limparGui();
 				banco = new Banco();
 				Msg.sucessoExcluiRegistro();
 			} catch (Exception e) {
@@ -57,7 +57,7 @@ final class BancoCont {
 
 		@Override
 		public void windowActivated(WindowEvent e) {
-			getBancoFc().reiniciarGUI();
+			getBancoFc().reiniciarGui();
 		}
 
 		@Override
@@ -122,7 +122,7 @@ final class BancoCont {
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
 			banco = new Banco();
-			getBancoFc().limparGUI();
+			getBancoFc().limparGui();
 			getBancoPc().getNomeGUI().requestFocus();
 		}
 	}
@@ -174,7 +174,7 @@ final class BancoCont {
 					atualizarObjeto();
 					bancoFac.salvarBanco(banco);
 					banco = new Banco();
-					getBancoFc().limparGUI();
+					getBancoFc().limparGui();
 					getBancoPc().getNomeGUI().requestFocus();
 					Msg.sucessoSalvarRegistro();
 				}

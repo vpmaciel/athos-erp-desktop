@@ -23,11 +23,10 @@ public final class RecadoFc extends JFrame implements Gui {
 	private RecadoPc pcRecado;
 
 	public RecadoFc() {
-		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		iniciarLayout();
-		iniciarGUI();
+		iniciarGui();
 		iniciarFocoControlador();
-		iniciarGUIControlador();
+		iniciarGuiControlador();
 		iniciarControlador();
 	}
 
@@ -37,7 +36,7 @@ public final class RecadoFc extends JFrame implements Gui {
 	}
 
 	@Override
-	public ConfiguracaoGui getGUIConfiguracao() {
+	public ConfiguracaoGui getConfiguracaoGui() {
 		return guiConfiguracao;
 	}
 
@@ -56,8 +55,7 @@ public final class RecadoFc extends JFrame implements Gui {
 	}
 
 	@Override
-	public void iniciarGUI() {
-		setTitle("RECADO");
+	public void iniciarGui() {
 		setIconImage(Imagem.getLogoTipoImage());
 
 		pcRecado = new RecadoPc();
@@ -87,12 +85,13 @@ public final class RecadoFc extends JFrame implements Gui {
 	}
 
 	@Override
-	public void iniciarGUIControlador() {
+	public void iniciarGuiControlador() {
 		guiConfiguracao = new ConfiguracaoGui(this);
 	}
 
 	@Override
 	public void iniciarControlador() {
+		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		recadoCont = new RecadoCont();
 		addWindowListener(recadoCont.new Frame());
 		pcRecado.getToolBar().getExcluirBtn().addActionListener(recadoCont.new Exclui());
@@ -122,12 +121,12 @@ public final class RecadoFc extends JFrame implements Gui {
 	}
 
 	@Override
-	public void limparGUI() {
+	public void limparGui() {
 		guiConfiguracao.limparGui();
 	}
 
 	@Override
-	public void reiniciarGUI() {
-		pcRecado.reiniciarGUI();
+	public void reiniciarGui() {
+		pcRecado.reiniciarGui();
 	}
 }

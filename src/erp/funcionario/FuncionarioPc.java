@@ -102,9 +102,9 @@ public final class FuncionarioPc extends JPanel implements Gui {
 
 	public FuncionarioPc() {
 		iniciarLayout();
-		iniciarGUI();
+		iniciarGui();
 		iniciarFocoControlador();
-		iniciarGUIControlador();
+		iniciarGuiControlador();
 	}
 
 	@Override
@@ -141,7 +141,7 @@ public final class FuncionarioPc extends JPanel implements Gui {
 	}
 
 	@Override
-	public ConfiguracaoGui getGUIConfiguracao() {
+	public ConfiguracaoGui getConfiguracaoGui() {
 		return configuracaoGui;
 	}
 
@@ -276,7 +276,7 @@ public final class FuncionarioPc extends JPanel implements Gui {
 	}
 
 	@Override
-	public void iniciarGUI() {
+	public void iniciarGui() {
 
 		final Cursor cursor = Cursor.getPredefinedCursor(Cursor.HAND_CURSOR);
 
@@ -581,7 +581,7 @@ public final class FuncionarioPc extends JPanel implements Gui {
 	}
 
 	@Override
-	public void iniciarGUIControlador() {
+	public void iniciarGuiControlador() {
 		configuracaoGui = new ConfiguracaoGui(this);
 	}
 
@@ -601,12 +601,12 @@ public final class FuncionarioPc extends JPanel implements Gui {
 	}
 
 	@Override
-	public void limparGUI() {
+	public void limparGui() {
 
 	}
 
 	@Override
-	public void reiniciarGUI() {
+	public void reiniciarGui() {
 		CentroCusto centroCusto = null;
 		List<CentroCusto> centroCustos = (List<CentroCusto>) CentroCustoFac.getRegistro();
 		Collections.sort(centroCustos, new CentroCustoComp().new Nome());

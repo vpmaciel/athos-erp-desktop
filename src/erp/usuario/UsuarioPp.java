@@ -60,8 +60,8 @@ public final class UsuarioPp extends JPanel {
 		return agenciaTableModel;
 	}
 
-	public void iniciarHandle() {
-		UsuarioSl listener = new UsuarioSl(table);
+	public void iniciarControlador() {
+		UsuarioSel listener = new UsuarioSel(table);
 		table.getSelectionModel().addListSelectionListener(listener);
 	}
 

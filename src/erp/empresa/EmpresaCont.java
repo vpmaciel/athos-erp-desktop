@@ -36,7 +36,7 @@ final class EmpresaCont {
 			}
 			try {
 				EmpresaFac.deletarRegistro(empresa);
-				getEmpresaFc().limparGUI();
+				getEmpresaFc().limparGui();
 				empresa = new Empresa();
 				Msg.sucessoExcluiRegistro();
 			} catch (Exception e) {
@@ -61,7 +61,7 @@ final class EmpresaCont {
 
 		@Override
 		public void windowActivated(WindowEvent e) {
-			getEmpresaFc().reiniciarGUI();
+			getEmpresaFc().reiniciarGui();
 		}
 
 		@Override
@@ -80,7 +80,7 @@ final class EmpresaCont {
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
 			try {
-				MainCont.mostrarFrame(MainCont.getFrameMain());
+				MainCont.mostrarFrame(MainCont.getMainFc());
 			} catch (Exception e) {
 				System.out.println(e);
 			}
@@ -132,7 +132,7 @@ final class EmpresaCont {
 			if (event.getButton() == MouseEvent.BUTTON1) {
 				MainCont.mostrarFrame(getEmpresaFc());
 			} else {
-				getEmpresaFc().reiniciarGUI();
+				getEmpresaFc().reiniciarGui();
 			}
 		}
 	}
@@ -142,7 +142,7 @@ final class EmpresaCont {
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
 			empresa = new Empresa();
-			getEmpresaFc().limparGUI();
+			getEmpresaFc().limparGui();
 			getEmpresaPc().getNomeFantasiaGUI().requestFocus();
 		}
 	}
@@ -192,7 +192,7 @@ final class EmpresaCont {
 					atualizarObjeto();
 					EmpresaFac.salvarRegistro(empresa);
 					empresa = new Empresa();
-					getEmpresaFc().limparGUI();
+					getEmpresaFc().limparGui();
 					getEmpresaPc().getNomeFantasiaGUI().requestFocus();
 					Msg.sucessoSalvarRegistro();
 				}

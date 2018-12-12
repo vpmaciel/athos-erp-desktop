@@ -36,7 +36,7 @@ final class ImovelCont {
 			}
 			try {
 				ImovelFac.deletarRegistro(imovel);
-				getImovelFc().limparGUI();
+				getImovelFc().limparGui();
 				imovel = new Imovel();
 				Msg.sucessoExcluiRegistro();
 			} catch (Exception e) {
@@ -61,7 +61,7 @@ final class ImovelCont {
 
 		@Override
 		public void windowActivated(WindowEvent e) {
-			getImovelFc().reiniciarGUI();
+			getImovelFc().reiniciarGui();
 		}
 
 		@Override
@@ -80,7 +80,7 @@ final class ImovelCont {
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
 			try {
-				MainCont.mostrarFrame(MainCont.getFrameMain());
+				MainCont.mostrarFrame(MainCont.getMainFc());
 			} catch (Exception e) {
 				System.out.println(e);
 			}
@@ -132,7 +132,7 @@ final class ImovelCont {
 			if (event.getButton() == MouseEvent.BUTTON1) {
 				MainCont.mostrarFrame(MainCont.getImovelFc());
 			} else {
-				getImovelFc().reiniciarGUI();
+				getImovelFc().reiniciarGui();
 			}
 		}
 	}
@@ -142,7 +142,7 @@ final class ImovelCont {
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
 			imovel = new Imovel();
-			getImovelFc().limparGUI();
+			getImovelFc().limparGui();
 			getImovelPc().getNomeProprietarioGUI().requestFocus();
 		}
 	}
@@ -192,7 +192,7 @@ final class ImovelCont {
 					ImovelCont.this.atualizarObjeto();
 					ImovelFac.salvarRegistro(imovel);
 					imovel = new Imovel();
-					getImovelFc().limparGUI();
+					getImovelFc().limparGui();
 					getImovelPc().getNomeProprietarioGUI().requestFocus();
 					Msg.sucessoSalvarRegistro();
 				}

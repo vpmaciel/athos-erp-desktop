@@ -60,8 +60,8 @@ public final class ImovelPp extends JPanel {
 		return imovelTm;
 	}
 
-	public void iniciarHandle() {
-		ImovelSl listener = new ImovelSl(table);
+	public void iniciarControlador() {
+		ImovelSel listener = new ImovelSel(table);
 		table.getSelectionModel().addListSelectionListener(listener);
 	}
 

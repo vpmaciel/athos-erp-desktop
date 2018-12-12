@@ -7,11 +7,11 @@ import javax.swing.table.TableModel;
 
 import erp.main.MainCont;
 
-final class CentroCustoSl implements ListSelectionListener {
+final class CentroCustoSel implements ListSelectionListener {
 
 	JTable table;
 
-	CentroCustoSl(JTable table) {
+	CentroCustoSel(JTable table) {
 		this.table = table;
 	}
 

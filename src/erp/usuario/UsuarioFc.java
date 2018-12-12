@@ -23,11 +23,10 @@ public final class UsuarioFc extends JFrame implements Gui {
 	private UsuarioPc usuarioPc;
 
 	public UsuarioFc() {
-		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		iniciarLayout();
-		iniciarGUI();
+		iniciarGui();
 		iniciarFocoControlador();
-		iniciarGUIControlador();
+		iniciarGuiControlador();
 		iniciarControlador();
 	}
 
@@ -41,7 +40,7 @@ public final class UsuarioFc extends JFrame implements Gui {
 	}
 
 	@Override
-	public ConfiguracaoGui getGUIConfiguracao() {
+	public ConfiguracaoGui getConfiguracaoGui() {
 		return configuracaoGui;
 	}
 
@@ -64,8 +63,7 @@ public final class UsuarioFc extends JFrame implements Gui {
 	}
 
 	@Override
-	public void iniciarGUI() {
-		setTitle("USUÁRIO");
+	public void iniciarGui() {
 		setIconImage(Imagem.getLogoTipoImage());
 		usuarioPc = new UsuarioPc();
 		usuarioPc.setOpaque(true); // content panes must be opaque
@@ -94,12 +92,13 @@ public final class UsuarioFc extends JFrame implements Gui {
 	}
 
 	@Override
-	public void iniciarGUIControlador() {
+	public void iniciarGuiControlador() {
 		configuracaoGui = new ConfiguracaoGui(this);
 	}
 
 	@Override
 	public void iniciarControlador() {
+		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		usuarioCont = new UsuarioCont();
 		addWindowListener(usuarioCont.new Frame());
 		usuarioPc.getTB().getExcluirBtn().addActionListener(usuarioCont.new Exclui());
@@ -129,12 +128,12 @@ public final class UsuarioFc extends JFrame implements Gui {
 	}
 
 	@Override
-	public void limparGUI() {
-		usuarioPc.limparGUI();
+	public void limparGui() {
+		usuarioPc.limparGui();
 	}
 
 	@Override
-	public void reiniciarGUI() {
+	public void reiniciarGui() {
 
 	}
 

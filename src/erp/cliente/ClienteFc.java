@@ -23,11 +23,10 @@ public final class ClienteFc extends JFrame implements Gui {
 	private ClientePc clientePc;
 
 	public ClienteFc() {
-		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		iniciarLayout();
-		iniciarGUI();
+		iniciarGui();
 		iniciarFocoControlador();
-		iniciarGUIControlador();
+		iniciarGuiControlador();
 		iniciarControlador();
 	}
 
@@ -41,7 +40,7 @@ public final class ClienteFc extends JFrame implements Gui {
 	}
 
 	@Override
-	public ConfiguracaoGui getGUIConfiguracao() {
+	public ConfiguracaoGui getConfiguracaoGui() {
 		return configuracaoGui;
 	}
 
@@ -56,8 +55,7 @@ public final class ClienteFc extends JFrame implements Gui {
 	}
 
 	@Override
-	public void iniciarGUI() {
-		setTitle("CLIENTE");
+	public void iniciarGui() {
 		setIconImage(Imagem.getLogoTipoImage());
 
 		clientePc = new ClientePc();
@@ -86,12 +84,13 @@ public final class ClienteFc extends JFrame implements Gui {
 	}
 
 	@Override
-	public void iniciarGUIControlador() {
+	public void iniciarGuiControlador() {
 		configuracaoGui = new ConfiguracaoGui(this);
 	}
 
 	@Override
 	public void iniciarControlador() {
+		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		clienteCont = new ClienteCont();
 		addWindowListener(clienteCont.new Frame());
 		clientePc.getLabelEmpresa().addMouseListener(clienteCont.new MostraFrame());
@@ -122,12 +121,12 @@ public final class ClienteFc extends JFrame implements Gui {
 	}
 
 	@Override
-	public void limparGUI() {
+	public void limparGui() {
 		configuracaoGui.limparGui();
 	}
 
 	@Override
-	public void reiniciarGUI() {
-		clientePc.reiniciarGUI();
+	public void reiniciarGui() {
+		clientePc.reiniciarGui();
 	}
 }

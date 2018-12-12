@@ -7,11 +7,11 @@ import javax.swing.table.TableModel;
 
 import erp.main.MainCont;
 
-final class SindicatoSl implements ListSelectionListener {
+final class SindicatoSel implements ListSelectionListener {
 
 	JTable table;
 
-	SindicatoSl(JTable table) {
+	SindicatoSel(JTable table) {
 		this.table = table;
 	}
 

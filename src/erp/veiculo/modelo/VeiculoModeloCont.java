@@ -13,7 +13,7 @@ import arquitetura.gui.Msg;
 import erp.main.MainCont;
 
 final class VeiculoModeloCont {
-
+	
 	public class Ajuda implements ActionListener {
 
 		@Override
@@ -34,7 +34,7 @@ final class VeiculoModeloCont {
 			}
 			try {
 				VeiculoModeloFac.deletarRegistro(veiculoModelo);
-				getVeiculoModeloFc().limparGUI();
+				getVeiculoModeloFc().limparGui();
 				veiculoModelo = new VeiculoModelo();
 				Msg.sucessoExcluiRegistro();
 			} catch (Exception e) {
@@ -59,7 +59,7 @@ final class VeiculoModeloCont {
 
 		@Override
 		public void windowActivated(WindowEvent e) {
-			getVeiculoModeloFc().reiniciarGUI();
+			getVeiculoModeloFc().reiniciarGui();
 		}
 
 		@Override
@@ -78,7 +78,7 @@ final class VeiculoModeloCont {
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
 			try {
-				MainCont.mostrarFrame(MainCont.getFrameMain());
+				MainCont.mostrarFrame(MainCont.getMainFc());
 			} catch (Exception e) {
 				System.out.println(e);
 			}
@@ -128,7 +128,7 @@ final class VeiculoModeloCont {
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
 			veiculoModelo = new VeiculoModelo();
-			getVeiculoModeloFc().limparGUI();
+			getVeiculoModeloFc().limparGui();
 			getVeiculoModeloPc().getTextFieldModelo().requestFocus();
 		}
 	}
@@ -179,7 +179,7 @@ final class VeiculoModeloCont {
 					atualizarObjeto();
 					VeiculoModeloFac.salvarRegistro(veiculoModelo);
 					veiculoModelo = new VeiculoModelo();
-					getVeiculoModeloFc().limparGUI();
+					getVeiculoModeloFc().limparGui();
 					getVeiculoModeloPc().getTextFieldModelo().requestFocus();
 					Msg.sucessoSalvarRegistro();
 				}

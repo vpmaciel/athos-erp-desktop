@@ -16,7 +16,7 @@ import arquitetura.gui.Msg;
 import erp.main.MainCont;
 
 final class UsuarioCont {
-
+	
 	public class Ajuda implements ActionListener {
 
 		@Override
@@ -37,7 +37,7 @@ final class UsuarioCont {
 			}
 			try {
 				UsuarioFac.deletarRegistro(usuario);
-				getUsuarioFc().limparGUI();
+				getUsuarioFc().limparGui();
 				usuario = new Usuario();
 				Msg.sucessoExcluiRegistro();
 			} catch (Exception e) {
@@ -62,7 +62,7 @@ final class UsuarioCont {
 
 		@Override
 		public void windowActivated(WindowEvent e) {
-			getUsuarioFc().reiniciarGUI();
+			getUsuarioFc().reiniciarGui();
 		}
 
 		@Override
@@ -81,7 +81,7 @@ final class UsuarioCont {
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
 			try {
-				MainCont.mostrarFrame(MainCont.getFrameMain());
+				MainCont.mostrarFrame(MainCont.getMainFc());
 			} catch (Exception e) {
 				System.out.println(e);
 			}
@@ -134,7 +134,7 @@ final class UsuarioCont {
 			if (event.getButton() == MouseEvent.BUTTON1) {
 				MainCont.mostrarFrame(MainCont.getUsuarioFc());
 			} else {
-				MainCont.getUsuarioFc().reiniciarGUI();
+				MainCont.getUsuarioFc().reiniciarGui();
 			}
 		}
 	}
@@ -144,7 +144,7 @@ final class UsuarioCont {
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
 			usuario = new Usuario();
-			getUsuarioFc().limparGUI();
+			getUsuarioFc().limparGui();
 			getUsuarioPc().getTextFieldNome().requestFocus();
 		}
 	}
@@ -196,7 +196,7 @@ final class UsuarioCont {
 					atualizarObjeto();
 					UsuarioFac.salvarRegistro(usuario);
 					usuario = new Usuario();
-					MainCont.getUsuarioFc().limparGUI();
+					MainCont.getUsuarioFc().limparGui();
 					getUsuarioPc().getTextFieldNome().requestFocus();
 					Msg.sucessoSalvarRegistro();
 				}

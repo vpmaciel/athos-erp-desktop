@@ -36,7 +36,7 @@ final class ContadorCont {
 			}
 			try {
 				ContadorFac.deletarRegistro(contador);
-				getContadorFc().limparGUI();
+				getContadorFc().limparGui();
 				contador = new Contador();
 				Msg.sucessoExcluiRegistro();
 			} catch (Exception e) {
@@ -61,7 +61,7 @@ final class ContadorCont {
 
 		@Override
 		public void windowActivated(WindowEvent e) {
-			getContadorFc().reiniciarGUI();
+			getContadorFc().reiniciarGui();
 		}
 
 		@Override
@@ -80,7 +80,7 @@ final class ContadorCont {
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
 			try {
-				MainCont.mostrarFrame(MainCont.getFrameMain());
+				MainCont.mostrarFrame(MainCont.getMainFc());
 			} catch (Exception e) {
 				System.out.println(e);
 			}
@@ -132,7 +132,7 @@ final class ContadorCont {
 			if (event.getButton() == MouseEvent.BUTTON1) {
 				MainCont.mostrarFrame(MainCont.getContadorFc());
 			} else {
-				MainCont.getContadorFc().reiniciarGUI();
+				MainCont.getContadorFc().reiniciarGui();
 			}
 		}
 	}
@@ -142,7 +142,7 @@ final class ContadorCont {
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
 			contador = new Contador();
-			getContadorFc().limparGUI();
+			getContadorFc().limparGui();
 			getContadorPc().getNomeGUI().requestFocus();
 		}
 	}
@@ -194,7 +194,7 @@ final class ContadorCont {
 					atualizarObjeto();
 					ContadorFac.salvarRegistro(contador);
 					contador = new Contador();
-					getContadorFc().limparGUI();
+					getContadorFc().limparGui();
 					getContadorPc().getNomeGUI().requestFocus();
 					Msg.sucessoSalvarRegistro();
 				}

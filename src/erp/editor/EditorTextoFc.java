@@ -40,9 +40,9 @@ import javax.swing.undo.UndoManager;
 import arquitetura.gui.Msg;
 
 @SuppressWarnings("serial")
-public class FrameEditorTexto extends JFrame {
+public class EditorTextoFc extends JFrame {
 
-	public FrameEditorTexto() {
+	public EditorTextoFc() {
 		super("ATHOS - EDITOR DE TEXTO");
 
 		initComponents();
@@ -478,7 +478,7 @@ public class FrameEditorTexto extends JFrame {
 		 */
 		public void MenuItemLocalizarActionListener() {
 
-			pesquisa = JOptionPane.showInputDialog(FrameEditorTexto.this, "Pesquisar:", "Localizar",
+			pesquisa = JOptionPane.showInputDialog(EditorTextoFc.this, "Pesquisar:", "Localizar",
 					JOptionPane.PLAIN_MESSAGE);
 
 			if (pesquisa != null) {
@@ -489,7 +489,7 @@ public class FrameEditorTexto extends JFrame {
 				selecionar = texto.getText().indexOf(pesquisa, posicaoInicial);
 
 				if (selecionar < 0) {
-					JOptionPane.showMessageDialog(FrameEditorTexto.this, "Texto nÃ£o encontrado");
+					JOptionPane.showMessageDialog(EditorTextoFc.this, "Texto nÃ£o encontrado");
 					posicaoInicial = 0;
 				} else {
 					texto.requestFocus();
@@ -513,7 +513,7 @@ public class FrameEditorTexto extends JFrame {
 				if (selecionar < 0) {
 
 					// informa ao usuÃ¡rio que todas as palavras foram encontradas.
-					JOptionPane.showMessageDialog(FrameEditorTexto.this, "NÃ£o existe \"" + pesquisa + "\" em frente!");
+					JOptionPane.showMessageDialog(EditorTextoFc.this, "NÃ£o existe \"" + pesquisa + "\" em frente!");
 					selecionar = -1;
 					posicaoInicial = 0;
 
@@ -556,7 +556,7 @@ public class FrameEditorTexto extends JFrame {
 
 			Object[] nomeFonte = GraphicsEnvironment.getLocalGraphicsEnvironment().getAvailableFontFamilyNames();
 
-			String fonteEscolhida = (String) JOptionPane.showInputDialog(FrameEditorTexto.this, "Escolha a fonte",
+			String fonteEscolhida = (String) JOptionPane.showInputDialog(EditorTextoFc.this, "Escolha a fonte",
 					"Fonte", JOptionPane.PLAIN_MESSAGE, null, nomeFonte, "");
 
 			if (fonteEscolhida == null)
@@ -573,7 +573,7 @@ public class FrameEditorTexto extends JFrame {
 		 */
 		public void MenuItemCorActionListener() {
 
-			color = JColorChooser.showDialog(FrameEditorTexto.this, "Alterar cor da fonte", color);
+			color = JColorChooser.showDialog(EditorTextoFc.this, "Alterar cor da fonte", color);
 
 			if (color != null)
 				ÃºltimaCor = color;
@@ -621,7 +621,7 @@ public class FrameEditorTexto extends JFrame {
 			});
 
 			// armazena a escolha do usuÃ¡rio.
-			int respostaDeAbrindoArquivo = abrindoArquivo.showOpenDialog(FrameEditorTexto.this);
+			int respostaDeAbrindoArquivo = abrindoArquivo.showOpenDialog(EditorTextoFc.this);
 
 			// se o usuÃ¡rio clicar para abrir o arquivo...
 			if (respostaDeAbrindoArquivo == JFileChooser.APPROVE_OPTION) {
@@ -648,7 +648,7 @@ public class FrameEditorTexto extends JFrame {
 
 			JFileChooser salvandoArquivo = new JFileChooser();
 
-			if (salvandoArquivo.showSaveDialog(FrameEditorTexto.this) != JFileChooser.APPROVE_OPTION)
+			if (salvandoArquivo.showSaveDialog(EditorTextoFc.this) != JFileChooser.APPROVE_OPTION)
 				return;
 
 			File arquivo = salvandoArquivo.getSelectedFile();

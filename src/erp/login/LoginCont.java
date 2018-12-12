@@ -16,30 +16,21 @@ import erp.usuario.UsuarioFac;
 
 public class LoginCont {
 
-	private LoginPc loginPc = MainCont.getFrameLogin().getPanelLogin();
-
-	public class ButtonCancelar implements ActionListener {
-
-		@Override
-		public void actionPerformed(final ActionEvent actionEvent) {
-			loginPc.limparGUI();
-		}
-	}
 
 	public class ButtonEntrar implements ActionListener {
 
 		@Override
 		public void actionPerformed(final ActionEvent actionEvent) {
-			loginPc.validarCamposCadastro();
+			MainCont.getLoginFc().getLoginPc().validarCamposCadastro();
 			usuario = new Usuario();
-			usuario.setNome(loginPc.getTextFieldNome().getText());
-			usuario.setSenha(new String(loginPc.getTextFieldSenha().getPassword()));
+			usuario.setNome(MainCont.getLoginFc().getLoginPc().getTextFieldNome().getText());
+			usuario.setSenha(new String(MainCont.getLoginFc().getLoginPc().getTextFieldSenha().getPassword()));
 
 			if (UsuarioFac.isRegistroValido(usuario)) {
 				List<Usuario> list = (List<Usuario>) UsuarioFac.pesquisarRegistro(usuario);
 
 				AOP.setUsuario(list.get(0));
-				MainCont.getFrameLogin().setVisible(false);
+				MainCont.getLoginFc().setVisible(false);
 
 			} else {
 				Msg.avisoUsuarioInvalido();
@@ -60,7 +51,7 @@ public class LoginCont {
 			final int key = evt.getKeyCode();
 			if (key == KeyEvent.VK_ENTER) {
 				evt.getComponent().requestFocus();
-				loginPc.validarCamposCadastro();
+				MainCont.getLoginFc().getLoginPc().validarCamposCadastro();
 			}
 		}
 	}
@@ -69,7 +60,7 @@ public class LoginCont {
 
 		@Override
 		public void windowClosing(WindowEvent e) {
-			MainCont.getFrameLogin().setVisible(false);
+			MainCont.getLoginFc().setVisible(false);
 		}
 	}
 

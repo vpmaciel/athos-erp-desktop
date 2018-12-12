@@ -23,11 +23,10 @@ public final class EmpresaFc extends JFrame implements Gui {
 	private EmpresaPc empresaPc;
 
 	public EmpresaFc() {
-		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		iniciarLayout();
-		iniciarGUI();
+		iniciarGui();
 		iniciarFocoControlador();
-		iniciarGUIControlador();
+		iniciarGuiControlador();
 		iniciarControlador();
 	}
 
@@ -41,7 +40,7 @@ public final class EmpresaFc extends JFrame implements Gui {
 	}
 
 	@Override
-	public ConfiguracaoGui getGUIConfiguracao() {
+	public ConfiguracaoGui getConfiguracaoGui() {
 		return configuracaoGui;
 	}
 
@@ -56,8 +55,7 @@ public final class EmpresaFc extends JFrame implements Gui {
 	}
 
 	@Override
-	public void iniciarGUI() {
-		setTitle("EMPRESA");
+	public void iniciarGui() {
 		setIconImage(Imagem.getLogoTipoImage());
 		empresaPc = new EmpresaPc();
 		empresaPc.setOpaque(true); // content panes must be opaque
@@ -85,12 +83,13 @@ public final class EmpresaFc extends JFrame implements Gui {
 	}
 
 	@Override
-	public void iniciarGUIControlador() {
+	public void iniciarGuiControlador() {
 		configuracaoGui = new ConfiguracaoGui(this);
 	}
 
 	@Override
 	public void iniciarControlador() {
+		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		empresaCont = new EmpresaCont();
 		addWindowListener(empresaCont.new Frame());
 		empresaPc.getTB().getExcluirBtn().addActionListener(empresaCont.new Exclui());
@@ -119,12 +118,12 @@ public final class EmpresaFc extends JFrame implements Gui {
 	}
 
 	@Override
-	public void limparGUI() {
+	public void limparGui() {
 		configuracaoGui.limparGui();
 	}
 
 	@Override
-	public void reiniciarGUI() {
+	public void reiniciarGui() {
 
 	}
 }

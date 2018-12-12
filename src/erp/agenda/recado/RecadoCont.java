@@ -57,7 +57,7 @@ final class RecadoCont {
 
 		@Override
 		public void windowActivated(WindowEvent e) {
-			getRecadoFc().reiniciarGUI();
+			getRecadoFc().reiniciarGui();
 		}
 
 		@Override
@@ -76,7 +76,7 @@ final class RecadoCont {
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
 			try {
-				MainCont.mostrarFrame(MainCont.getFrameMain());
+				MainCont.mostrarFrame(MainCont.getMainFc());
 			} catch (Exception e) {
 				System.out.println(e);
 			}
@@ -127,7 +127,7 @@ final class RecadoCont {
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
 			recado = new Recado();
-			getRecadoFc().limparGUI();
+			getRecadoFc().limparGui();
 			getRecadoPc().getDataGUI().requestFocus();
 		}
 	}
@@ -177,7 +177,7 @@ final class RecadoCont {
 					atualizarObjeto();
 					RecadoFac.salvarRegistro(recado);
 					recado = new Recado();
-					MainCont.getAgendaRecadoFc().limparGUI();
+					MainCont.getAgendaRecadoFc().limparGui();
 					getRecadoPc().getDataGUI().requestFocus();
 					Msg.sucessoSalvarRegistro();
 				}

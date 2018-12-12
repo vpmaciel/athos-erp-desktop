@@ -13,6 +13,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 import arquitetura.AOP;
+import arquitetura.data.Data;
 import arquitetura.gui.Msg;
 import erp.agenda.contato.ContatoFc;
 import erp.agenda.contato.ContatoFp;
@@ -24,7 +25,7 @@ import erp.agenda.recado.RecadoFc;
 import erp.agenda.recado.RecadoFp;
 import erp.banco.BancoFc;
 import erp.banco.BancoFp;
-import erp.calculadora.FrameCalculadora;
+import erp.calculadora.CalculadoraFc;
 import erp.cartorio.CartorioFc;
 import erp.cartorio.CartorioFp;
 import erp.centrocusto.CentroCustoFc;
@@ -33,7 +34,7 @@ import erp.cliente.ClienteFc;
 import erp.cliente.ClienteFp;
 import erp.contador.ContadorFc;
 import erp.contador.ContadorFp;
-import erp.editor.FrameEditorTexto;
+import erp.editor.EditorTextoFc;
 import erp.empresa.EmpresaFc;
 import erp.empresa.EmpresaFp;
 import erp.fornecedor.FornecedorFc;
@@ -55,6 +56,51 @@ import erp.veiculo.modelo.VeiculoModeloFc;
 import erp.veiculo.modelo.VeiculoModeloFp;
 
 public final class MainCont {
+
+	public class Relogio implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			MainCont.getAgendaContatoFc().setTitle(AOP.getNomeSistema() + " - CONTATO | " + Data.getData());
+			MainCont.getAgendaContatoFp().setTitle(AOP.getNomeSistema() + " - CONTATO | " + Data.getData());
+			MainCont.getAgendaEventoFc().setTitle(AOP.getNomeSistema() + " - EVENTO | " + Data.getData());
+			MainCont.getAgendaEventoFp().setTitle(AOP.getNomeSistema() + " - EVENTO | " + Data.getData());
+			MainCont.getAgendaTipoEventoFc().setTitle(AOP.getNomeSistema() + " - TIPO DE EVENTO | " + Data.getData());
+			MainCont.getAgendaTipoEventoFp().setTitle(AOP.getNomeSistema() + " - TIPO DE EVENTO | " + Data.getData());
+			MainCont.getAgendaRecadoFc().setTitle(AOP.getNomeSistema() + " - RECADO | " + Data.getData());
+			MainCont.getAgendaRecadoFp().setTitle(AOP.getNomeSistema() + " - RECADO | " + Data.getData());
+			MainCont.getBancoFc().setTitle(AOP.getNomeSistema() + " - BANCO | " + Data.getData());
+			MainCont.getBancoFp().setTitle(AOP.getNomeSistema() + " - BANCO | " + Data.getData());
+			MainCont.getCalculadoraFc().setTitle(AOP.getNomeSistema() + " - CALCULADORA | " + Data.getData());
+			MainCont.getCartorioFc().setTitle(AOP.getNomeSistema() + " - CARTÓRIO | " + Data.getData());
+			MainCont.getCartorioFp().setTitle(AOP.getNomeSistema() + " - CARTÓRIO | " + Data.getData());
+			MainCont.getCentroCustoFc().setTitle(AOP.getNomeSistema() + " - CENTRO DE CUSTO | " + Data.getData());
+			MainCont.getCentroCustoFp().setTitle(AOP.getNomeSistema() + " - CENTRO DE CUSTO | " + Data.getData());
+			MainCont.getClienteFc().setTitle(AOP.getNomeSistema() + " - CLIENTE | " + Data.getData());
+			MainCont.getClienteFp().setTitle(AOP.getNomeSistema() + " - CLIENTE | " + Data.getData());
+			MainCont.getContadorFc().setTitle(AOP.getNomeSistema() + " - CONTADOR | " + Data.getData());
+			MainCont.getContadorFp().setTitle(AOP.getNomeSistema() + " - CONTADOR | " + Data.getData());
+			MainCont.getEditorTextoFc().setTitle(AOP.getNomeSistema() + " - EDITOR DE TEXTO | " + Data.getData());
+			MainCont.getEmpresaFc().setTitle(AOP.getNomeSistema() + " - EMPRESA | " + Data.getData());
+			MainCont.getEmpresaFp().setTitle(AOP.getNomeSistema() + " - EMPRESA | " + Data.getData());
+			MainCont.getFornecedorFc().setTitle(AOP.getNomeSistema() + " - FORNECEDOR | " + Data.getData());
+			MainCont.getFornecedorFp().setTitle(AOP.getNomeSistema() + " - FORNECEDOR | " + Data.getData());
+			MainCont.getFuncionarioFc().setTitle(AOP.getNomeSistema() + " - FUNCIONÁRIO | " + Data.getData());
+			MainCont.getFuncionarioFp().setTitle(AOP.getNomeSistema() + " - FUNCIONÁRIO | " + Data.getData());
+			MainCont.getImovelFc().setTitle(AOP.getNomeSistema() + " - IMÓVEL | " + Data.getData());
+			MainCont.getImovelFp().setTitle(AOP.getNomeSistema() + " - IMÓVEL | " + Data.getData());
+			MainCont.getLoginFc().setTitle(AOP.getNomeSistema() + " - LOGIN | " + Data.getData());
+			MainCont.getMainFc().setTitle(AOP.getNomeSistema() + " - PRINCIPAL | " + Data.getData());
+			MainCont.getSindicatoFc().setTitle(AOP.getNomeSistema() + " - SINDICATO | " + Data.getData());
+			MainCont.getSindicatoFp().setTitle(AOP.getNomeSistema() + " - SINDICATO | " + Data.getData());
+			MainCont.getUsuarioFc().setTitle(AOP.getNomeSistema() + " - USUÁRIO | " + Data.getData());
+			MainCont.getUsuarioFp().setTitle(AOP.getNomeSistema() + " - USUÁRIO | " + Data.getData());
+			MainCont.getVeiculoFc().setTitle(AOP.getNomeSistema() + " - VEÍCULO | " + Data.getData());
+			MainCont.getVeiculoFp().setTitle(AOP.getNomeSistema() + " - VEÍCULO | " + Data.getData());
+			MainCont.getVeiculoMarcaFc().setTitle(AOP.getNomeSistema() + " - MARCA DE VEÍCULO | " + Data.getData());
+			MainCont.getVeiculoMarcaFp().setTitle(AOP.getNomeSistema() + " - MARCA DE VEÍCULO | " + Data.getData());
+			MainCont.getVeiculoModeloFc().setTitle(AOP.getNomeSistema() + " - MODELO DE VEÍCULO | " + Data.getData());
+			MainCont.getVeiculoModeloFp().setTitle(AOP.getNomeSistema() + " - MODELO DE VEÍCULO | " + Data.getData());
+		}
+	}
 
 	public class FrameGerenteEventos extends WindowAdapter {
 
@@ -202,10 +248,10 @@ public final class MainCont {
 				mostrarFrame(frameCadastroAgendaContato);
 			}
 			if (actionEvent.getSource() == mainFc.getMenuItemUtilitarioCalculadora()) {
-				mostrarFrame(frameCalculadora);
+				mostrarFrame(calculadoraFc);
 			}
 			if (actionEvent.getSource() == mainFc.getMenuItemUtilitarioEditorTexto()) {
-				mostrarFrame(frameEditorTexto);
+				mostrarFrame(editorTextoFc);
 			}
 		}
 	}
@@ -247,8 +293,8 @@ public final class MainCont {
 	private static VeiculoModeloFp veiculoModeloFp;
 	private static ImovelFc imovelFc;
 	private static ImovelFp imovelFp;
-	private static FrameCalculadora frameCalculadora;
-	private static FrameEditorTexto frameEditorTexto;
+	private static CalculadoraFc calculadoraFc;
+	private static EditorTextoFc editorTextoFc;
 	private static MainCont mainCont;
 	private static MainFc mainFc;
 	private static int totalPrincipalHandle;
@@ -257,12 +303,12 @@ public final class MainCont {
 		totalPrincipalHandle = 0;
 	}
 
-	public static FrameEditorTexto getFrameEditorTexto() {
-		return frameEditorTexto;
+	public static EditorTextoFc getEditorTextoFc() {
+		return editorTextoFc;
 	}
 
-	public static FrameCalculadora getFrameCalculadora() {
-		return frameCalculadora;
+	public static CalculadoraFc getCalculadoraFc() {
+		return calculadoraFc;
 	}
 
 	public static EventoFc getAgendaEventoFc() {
@@ -285,7 +331,7 @@ public final class MainCont {
 		return clienteFc;
 	}
 
-	public static TipoEventoFc getAgendaTipoEventoPc() {
+	public static TipoEventoFc getAgendaTipoEventoFc() {
 		return frameCadastroAgendaTipoEvento;
 	}
 
@@ -337,15 +383,15 @@ public final class MainCont {
 		return veiculoModeloFc;
 	}
 
-	public static LoginFc getFrameLogin() {
+	public static LoginFc getLoginFc() {
 		return loginFc;
 	}
 
-	public static MainFc getFrameMain() {
+	public static MainFc getMainFc() {
 		return mainFc;
 	}
 
-	public static TipoEventoFp getAgendaTipoEventoPp() {
+	public static TipoEventoFp getAgendaTipoEventoFp() {
 		return framePesquisaAgendaTipoEvento;
 	}
 
@@ -562,10 +608,10 @@ public final class MainCont {
 		veiculoModeloFp = new VeiculoModeloFp();
 		criarFrame(veiculoModeloFp);
 
-		frameCalculadora = new FrameCalculadora();
-		criarFrame(frameCalculadora);
+		calculadoraFc = new CalculadoraFc();
+		criarFrame(calculadoraFc);
 
-		frameEditorTexto = new FrameEditorTexto();
-		criarFrame(frameEditorTexto);
+		editorTextoFc = new EditorTextoFc();
+		criarFrame(editorTextoFc);
 	}
 }

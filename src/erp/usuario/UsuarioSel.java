@@ -9,11 +9,11 @@ import javax.swing.table.TableModel;
 
 import erp.main.MainCont;
 
-final class UsuarioSl implements ListSelectionListener {
+final class UsuarioSel implements ListSelectionListener {
 
 	JTable table;
 
-	UsuarioSl(JTable table) {
+	UsuarioSel(JTable table) {
 		this.table = table;
 	}
 

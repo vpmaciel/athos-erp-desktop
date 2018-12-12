@@ -36,7 +36,7 @@ final class VeiculoCont {
 			}
 			try {
 				VeiculoFac.deletarRegistro(veiculo);
-				getVeiculoFc().limparGUI();
+				getVeiculoFc().limparGui();
 				veiculo = new Veiculo();
 				Msg.sucessoExcluiRegistro();
 			} catch (Exception e) {
@@ -61,7 +61,7 @@ final class VeiculoCont {
 
 		@Override
 		public void windowActivated(WindowEvent e) {
-			getVeiculoFc().reiniciarGUI();
+			getVeiculoFc().reiniciarGui();
 		}
 
 		@Override
@@ -80,7 +80,7 @@ final class VeiculoCont {
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
 			try {
-				MainCont.mostrarFrame(MainCont.getFrameMain());
+				MainCont.mostrarFrame(MainCont.getMainFc());
 			} catch (Exception e) {
 				System.out.println(e);
 			}
@@ -130,7 +130,7 @@ final class VeiculoCont {
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
 			veiculo = new Veiculo();
-			getVeiculoFc().limparGUI();
+			getVeiculoFc().limparGui();
 			getVeiculoPc().getPlacaGUI().requestFocus();
 		}
 	}
@@ -181,7 +181,7 @@ final class VeiculoCont {
 					atualizarObjeto();
 					VeiculoFac.salvarRegistro(veiculo);
 					veiculo = new Veiculo();
-					MainCont.getVeiculoFc().limparGUI();
+					MainCont.getVeiculoFc().limparGui();
 					getVeiculoPc().getPlacaGUI().requestFocus();
 					Msg.sucessoSalvarRegistro();
 				}

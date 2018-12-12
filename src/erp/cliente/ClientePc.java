@@ -118,9 +118,9 @@ public final class ClientePc extends JPanel implements Gui {
 
 	public ClientePc() {
 		iniciarLayout();
-		iniciarGUI();
+		iniciarGui();
 		iniciarFocoControlador();
-		iniciarGUIControlador();
+		iniciarGuiControlador();
 	}
 
 	@Override
@@ -185,7 +185,7 @@ public final class ClientePc extends JPanel implements Gui {
 	}
 
 	@Override
-	public ConfiguracaoGui getGUIConfiguracao() {
+	public ConfiguracaoGui getConfiguracaoGui() {
 		return configuracaoGui;
 	}
 
@@ -332,7 +332,7 @@ public final class ClientePc extends JPanel implements Gui {
 	}
 
 	@Override
-	public void iniciarGUI() {
+	public void iniciarGui() {
 
 		final Cursor cursor = Cursor.getPredefinedCursor(Cursor.HAND_CURSOR);
 
@@ -778,7 +778,7 @@ public final class ClientePc extends JPanel implements Gui {
 	}
 
 	@Override
-	public void iniciarGUIControlador() {
+	public void iniciarGuiControlador() {
 		configuracaoGui = new ConfiguracaoGui(this);
 	}
 
@@ -798,12 +798,12 @@ public final class ClientePc extends JPanel implements Gui {
 	}
 
 	@Override
-	public void limparGUI() {
+	public void limparGui() {
 
 	}
 
 	@Override
-	public void reiniciarGUI() {
+	public void reiniciarGui() {
 		Empresa empresa = null;
 		List<Empresa> empresas = (List<Empresa>) EmpresaFac.getRegistro();
 		Collections.sort(empresas, new EmpresaComp().new NomeFantasia());

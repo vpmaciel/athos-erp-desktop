@@ -15,9 +15,8 @@ public final class CartorioFp extends JFrame implements Gui {
 	private CartorioPp CartorioPp;
 
 	public CartorioFp() {
-		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		iniciarLayout();
-		iniciarGUI();
+		iniciarGui();
 		iniciarControlador();
 	}
 
@@ -27,7 +26,7 @@ public final class CartorioFp extends JFrame implements Gui {
 	}
 
 	@Override
-	public ConfiguracaoGui getGUIConfiguracao() {
+	public ConfiguracaoGui getConfiguracaoGui() {
 		return null;
 	}
 
@@ -44,21 +43,21 @@ public final class CartorioFp extends JFrame implements Gui {
 	}
 
 	@Override
-	public void iniciarGUI() {
-		setTitle("CARTÓRIO");
+	public void iniciarGui() {
 		setIconImage(Imagem.getLogoTipoImage());
 		CartorioPp = new CartorioPp();
 		setContentPane(CartorioPp);
 	}
 
 	@Override
-	public void iniciarGUIControlador() {
+	public void iniciarGuiControlador() {
 
 	}
 
 	@Override
 	public void iniciarControlador() {
-		CartorioPp.iniciarHandle();
+		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
+		CartorioPp.iniciarControlador();
 	}
 
 	@Override
@@ -76,12 +75,12 @@ public final class CartorioFp extends JFrame implements Gui {
 	}
 
 	@Override
-	public void limparGUI() {
+	public void limparGui() {
 
 	}
 
 	@Override
-	public void reiniciarGUI() {
+	public void reiniciarGui() {
 
 	}
 }

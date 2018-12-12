@@ -27,9 +27,9 @@ public final class BancoPc extends JPanel implements Gui {
 
 	public BancoPc() {
 		iniciarLayout();
-		iniciarGUI();
+		iniciarGui();
 		iniciarFocoControlador();
-		iniciarGUIControlador();
+		iniciarGuiControlador();
 	}
 
 	@Override
@@ -41,7 +41,7 @@ public final class BancoPc extends JPanel implements Gui {
 	}
 
 	@Override
-	public ConfiguracaoGui getGUIConfiguracao() {
+	public ConfiguracaoGui getConfiguracaoGui() {
 		return configuracaoGui;
 	}
 
@@ -64,7 +64,7 @@ public final class BancoPc extends JPanel implements Gui {
 	}
 
 	@Override
-	public void iniciarGUI() {
+	public void iniciarGui() {
 		toolBar = new ToolBar();
 
 		add(toolBar.getToolBar());
@@ -87,7 +87,7 @@ public final class BancoPc extends JPanel implements Gui {
 	}
 
 	@Override
-	public void iniciarGUIControlador() {
+	public void iniciarGuiControlador() {
 		configuracaoGui = new ConfiguracaoGui(this);
 	}
 
@@ -105,12 +105,12 @@ public final class BancoPc extends JPanel implements Gui {
 	}
 
 	@Override
-	public void limparGUI() {
+	public void limparGui() {
 		configuracaoGui.limparGui();
 	}
 
 	@Override
-	public void reiniciarGUI() {
+	public void reiniciarGui() {
 	}
 
 	public boolean validarCamposCadastro() {

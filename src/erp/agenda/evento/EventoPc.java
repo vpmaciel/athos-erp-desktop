@@ -41,9 +41,9 @@ public final class EventoPc extends JPanel implements Gui {
 
 	public EventoPc() {
 		iniciarLayout();
-		iniciarGUI();
+		iniciarGui();
 		iniciarFocoControlador();
-		iniciarGUIControlador();
+		iniciarGuiControlador();
 	}
 
 	@Override
@@ -56,7 +56,7 @@ public final class EventoPc extends JPanel implements Gui {
 	}
 
 	@Override
-	public ConfiguracaoGui getGUIConfiguracao() {
+	public ConfiguracaoGui getConfiguracaoGui() {
 		return configuracaoGui;
 	}
 
@@ -92,7 +92,7 @@ public final class EventoPc extends JPanel implements Gui {
 	}
 
 	@Override
-	public void iniciarGUI() {
+	public void iniciarGui() {
 
 		final Cursor cursor = Cursor.getPredefinedCursor(Cursor.HAND_CURSOR);
 		
@@ -146,7 +146,7 @@ public final class EventoPc extends JPanel implements Gui {
 	}
 
 	@Override
-	public void iniciarGUIControlador() {
+	public void iniciarGuiControlador() {
 		configuracaoGui = new ConfiguracaoGui(this);
 	}
 
@@ -166,13 +166,13 @@ public final class EventoPc extends JPanel implements Gui {
 	}
 
 	@Override
-	public void limparGUI() {
+	public void limparGui() {
 		configuracaoGui.limparGui();
-		reiniciarGUI();
+		reiniciarGui();
 	}
 
 	@Override
-	public void reiniciarGUI() {
+	public void reiniciarGui() {
 		TipoEvento tipoEvento = null;
 		List<TipoEvento> tipoEventos = (List<TipoEvento>) TipoEventoFac.getRegistro();
 		Collections.sort(tipoEventos, new TipoEventoComp().new Nome());

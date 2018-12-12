@@ -14,9 +14,8 @@ public final class FuncionarioFp extends JFrame implements Gui {
 	private FuncionarioPp FuncionarioPp;
 
 	public FuncionarioFp() {
-		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		iniciarLayout();
-		iniciarGUI();
+		iniciarGui();
 		iniciarControlador();
 	}
 
@@ -26,7 +25,7 @@ public final class FuncionarioFp extends JFrame implements Gui {
 	}
 
 	@Override
-	public ConfiguracaoGui getGUIConfiguracao() {
+	public ConfiguracaoGui getConfiguracaoGui() {
 		return null;
 	}
 
@@ -40,21 +39,21 @@ public final class FuncionarioFp extends JFrame implements Gui {
 	}
 
 	@Override
-	public void iniciarGUI() {
-		setTitle("FUNCIONÁRIO");
+	public void iniciarGui() {
 		setIconImage(arquitetura.gui.Imagem.getLogoTipoImage());
 		FuncionarioPp = new FuncionarioPp();
 		setContentPane(FuncionarioPp);
 	}
 
 	@Override
-	public void iniciarGUIControlador() {
+	public void iniciarGuiControlador() {
 
 	}
 
 	@Override
 	public void iniciarControlador() {
-		FuncionarioPp.iniciarHandle();
+		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
+		FuncionarioPp.iniciarControlador();
 	}
 
 	@Override
@@ -72,12 +71,12 @@ public final class FuncionarioFp extends JFrame implements Gui {
 	}
 
 	@Override
-	public void limparGUI() {
+	public void limparGui() {
 
 	}
 
 	@Override
-	public void reiniciarGUI() {
+	public void reiniciarGui() {
 
 	}
 }

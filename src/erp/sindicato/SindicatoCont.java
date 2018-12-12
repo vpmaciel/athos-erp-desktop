@@ -15,7 +15,7 @@ import arquitetura.gui.Msg;
 import erp.main.MainCont;
 
 final class SindicatoCont {
-
+	
 	public class Ajuda implements ActionListener {
 
 		@Override
@@ -36,7 +36,7 @@ final class SindicatoCont {
 			}
 			try {
 				SindicatoFac.deletarRegistro(sindicato);
-				getSindicatoFc().limparGUI();
+				getSindicatoFc().limparGui();
 				sindicato = new Sindicato();
 				Msg.sucessoExcluiRegistro();
 			} catch (Exception e) {
@@ -61,7 +61,7 @@ final class SindicatoCont {
 
 		@Override
 		public void windowActivated(WindowEvent e) {
-			getSindicatoFc().reiniciarGUI();
+			getSindicatoFc().reiniciarGui();
 		}
 
 		@Override
@@ -80,7 +80,7 @@ final class SindicatoCont {
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
 			try {
-				MainCont.mostrarFrame(MainCont.getFrameMain());
+				MainCont.mostrarFrame(MainCont.getMainFc());
 			} catch (Exception e) {
 				System.out.println(e);
 			}
@@ -132,7 +132,7 @@ final class SindicatoCont {
 			if (event.getButton() == MouseEvent.BUTTON1) {
 				MainCont.mostrarFrame(MainCont.getSindicatoFc());
 			} else {
-				MainCont.getSindicatoFc().reiniciarGUI();
+				MainCont.getSindicatoFc().reiniciarGui();
 			}
 		}
 	}
@@ -142,7 +142,7 @@ final class SindicatoCont {
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
 			sindicato = new Sindicato();
-			getSindicatoFc().limparGUI();
+			getSindicatoFc().limparGui();
 			getSindicatoPc().getNomeFantasiaGUI().requestFocus();
 		}
 	}
@@ -192,7 +192,7 @@ final class SindicatoCont {
 					atualizarObjeto();
 					SindicatoFac.salvarRegistro(sindicato);
 					sindicato = new Sindicato();
-					getSindicatoFc().limparGUI();
+					getSindicatoFc().limparGui();
 					getSindicatoPc().getNomeFantasiaGUI().requestFocus();
 					Msg.sucessoSalvarRegistro();
 				}

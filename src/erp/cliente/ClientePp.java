@@ -60,8 +60,8 @@ public final class ClientePp extends JPanel {
 		return clienteTm;
 	}
 
-	public void iniciarHandle() {
-		ClienteSl listener = new ClienteSl(table);
+	public void iniciarControlador() {
+		ClienteSel listener = new ClienteSel(table);
 		table.getSelectionModel().addListSelectionListener(listener);
 	}
 

@@ -10,9 +10,9 @@ import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 import javax.swing.WindowConstants;
 
+import arquitetura.gui.ConfiguracaoGui;
 import arquitetura.gui.FocoEvento;
 import arquitetura.gui.Gui;
-import arquitetura.gui.ConfiguracaoGui;
 import arquitetura.gui.Imagem;
 
 @SuppressWarnings("serial")
@@ -23,11 +23,10 @@ public final class TipoEventoFc extends JFrame implements Gui {
 	private TipoEventoPc tipoEventoPc;
 
 	public TipoEventoFc() {
-		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		iniciarLayout();
-		iniciarGUI();
+		iniciarGui();
 		iniciarFocoControlador();
-		iniciarGUIControlador();
+		iniciarGuiControlador();
 		iniciarControlador();
 	}
 
@@ -41,7 +40,7 @@ public final class TipoEventoFc extends JFrame implements Gui {
 	}
 
 	@Override
-	public ConfiguracaoGui getGUIConfiguracao() {
+	public ConfiguracaoGui getConfiguracaoGui() {
 		return configuracaoGui;
 	}
 
@@ -56,8 +55,7 @@ public final class TipoEventoFc extends JFrame implements Gui {
 	}
 
 	@Override
-	public void iniciarGUI() {
-		setTitle("TIPO DE EVENTO");
+	public void iniciarGui() {
 		setIconImage(Imagem.getLogoTipoImage());
 
 		tipoEventoPc = new TipoEventoPc();
@@ -86,12 +84,13 @@ public final class TipoEventoFc extends JFrame implements Gui {
 	}
 
 	@Override
-	public void iniciarGUIControlador() {
+	public void iniciarGuiControlador() {
 		configuracaoGui = new ConfiguracaoGui(this);
 	}
 
 	@Override
 	public void iniciarControlador() {
+		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		tipoEventoCont = new TipoEventoCont();
 		addWindowListener(tipoEventoCont.new Frame());
 		tipoEventoPc.getToolBar().getExcluirBtn().addActionListener(tipoEventoCont.new Exclui());
@@ -121,12 +120,12 @@ public final class TipoEventoFc extends JFrame implements Gui {
 	}
 
 	@Override
-	public void limparGUI() {
+	public void limparGui() {
 		configuracaoGui.limparGui();
 	}
 
 	@Override
-	public void reiniciarGUI() {
-		tipoEventoPc.reiniciarGUI();
+	public void reiniciarGui() {
+		tipoEventoPc.reiniciarGui();
 	}
 }

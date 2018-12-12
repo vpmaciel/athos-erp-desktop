@@ -15,9 +15,8 @@ public final class ContadorFp extends JFrame implements Gui {
 	private ContadorPp ContadorPp;
 
 	public ContadorFp() {
-		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		iniciarLayout();
-		iniciarGUI();
+		iniciarGui();
 		iniciarControlador();
 	}
 
@@ -27,7 +26,7 @@ public final class ContadorFp extends JFrame implements Gui {
 	}
 
 	@Override
-	public ConfiguracaoGui getGUIConfiguracao() {
+	public ConfiguracaoGui getConfiguracaoGui() {
 		return null;
 	}
 
@@ -44,21 +43,21 @@ public final class ContadorFp extends JFrame implements Gui {
 	}
 
 	@Override
-	public void iniciarGUI() {
-		setTitle("CONTADOR");
+	public void iniciarGui() {
 		setIconImage(Imagem.getLogoTipoImage());
 		ContadorPp = new ContadorPp();
 		setContentPane(ContadorPp);
 	}
 
 	@Override
-	public void iniciarGUIControlador() {
+	public void iniciarGuiControlador() {
 
 	}
 
 	@Override
 	public void iniciarControlador() {
-		ContadorPp.iniciarHandle();
+		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
+		ContadorPp.iniciarControlador();
 	}
 
 	@Override
@@ -76,12 +75,12 @@ public final class ContadorFp extends JFrame implements Gui {
 	}
 
 	@Override
-	public void limparGUI() {
+	public void limparGui() {
 
 	}
 
 	@Override
-	public void reiniciarGUI() {
+	public void reiniciarGui() {
 
 	}
 }

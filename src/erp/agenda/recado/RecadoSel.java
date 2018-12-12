@@ -7,11 +7,11 @@ import javax.swing.table.TableModel;
 
 import erp.main.MainCont;
 
-final class RecadoSl implements ListSelectionListener {
+final class RecadoSel implements ListSelectionListener {
 
 	JTable table;
 
-	RecadoSl(JTable table) {
+	RecadoSel(JTable table) {
 		this.table = table;
 	}
 

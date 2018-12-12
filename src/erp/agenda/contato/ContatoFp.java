@@ -17,7 +17,7 @@ public final class ContatoFp extends JFrame implements Gui {
 	public ContatoFp() {
 		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		iniciarLayout();
-		iniciarGUI();
+		iniciarGui();
 		iniciarControlador();
 	}
 
@@ -27,7 +27,7 @@ public final class ContatoFp extends JFrame implements Gui {
 	}
 
 	@Override
-	public ConfiguracaoGui getGUIConfiguracao() {
+	public ConfiguracaoGui getConfiguracaoGui() {
 		return null;
 	}
 
@@ -41,7 +41,7 @@ public final class ContatoFp extends JFrame implements Gui {
 	}
 
 	@Override
-	public void iniciarGUI() {
+	public void iniciarGui() {
 		setTitle("CONTATO");
 		setIconImage(Imagem.getLogoTipoImage());
 		ContatoPp = new ContatoPp();
@@ -49,7 +49,7 @@ public final class ContatoFp extends JFrame implements Gui {
 	}
 
 	@Override
-	public void iniciarGUIControlador() {
+	public void iniciarGuiControlador() {
 
 	}
 
@@ -73,12 +73,12 @@ public final class ContatoFp extends JFrame implements Gui {
 	}
 
 	@Override
-	public void limparGUI() {
+	public void limparGui() {
 
 	}
 
 	@Override
-	public void reiniciarGUI() {
+	public void reiniciarGui() {
 
 	}
 }

@@ -60,8 +60,8 @@ public final class FuncionarioPp extends JPanel {
 		return agenciaTableModel;
 	}
 
-	public void iniciarHandle() {
-		FuncionarioSl listener = new FuncionarioSl(table);
+	public void iniciarControlador() {
+		FuncionarioSel listener = new FuncionarioSel(table);
 		table.getSelectionModel().addListSelectionListener(listener);
 	}
 

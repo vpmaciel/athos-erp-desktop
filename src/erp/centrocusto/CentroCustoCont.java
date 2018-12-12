@@ -35,7 +35,7 @@ final class CentroCustoCont {
 			}
 			try {
 				CentroCustoFac.deletarRegistro(centroCusto);
-				getCentroCustoFc().limparGUI();
+				getCentroCustoFc().limparGui();
 				centroCusto = new CentroCusto();
 				Msg.sucessoExcluiRegistro();
 			} catch (Exception e) {
@@ -56,7 +56,7 @@ final class CentroCustoCont {
 
 		@Override
 		public void windowActivated(WindowEvent e) {
-			getCentroCustoFc().reiniciarGUI();
+			getCentroCustoFc().reiniciarGui();
 		}
 
 		@Override
@@ -75,7 +75,7 @@ final class CentroCustoCont {
 
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
-			MainCont.mostrarFrame(MainCont.getFrameMain());
+			MainCont.mostrarFrame(MainCont.getMainFc());
 		}
 	}
 
@@ -118,7 +118,7 @@ final class CentroCustoCont {
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
 			centroCusto = new CentroCusto();
-			getCentroCustoFc().limparGUI();
+			getCentroCustoFc().limparGui();
 			getCentroCustoPc().getNomeGUI().requestFocus();
 		}
 	}
@@ -170,7 +170,7 @@ final class CentroCustoCont {
 					atualizarObjeto();
 					CentroCustoFac.salvarRegistro(centroCusto);
 					centroCusto = new CentroCusto();
-					getCentroCustoFc().limparGUI();
+					getCentroCustoFc().limparGui();
 					getCentroCustoPc().getNomeGUI().requestFocus();
 					Msg.sucessoSalvarRegistro();
 				}

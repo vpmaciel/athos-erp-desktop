@@ -60,8 +60,8 @@ public final class EmpresaPp extends JPanel {
 		return empresaTm;
 	}
 
-	public void iniciarHandle() {
-		EmpresaSl listener = new EmpresaSl(table);
+	public void iniciarControlador() {
+		EmpresaSel listener = new EmpresaSel(table);
 		table.getSelectionModel().addListSelectionListener(listener);
 	}
 

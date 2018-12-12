@@ -60,8 +60,8 @@ public final class ContadorPp extends JPanel {
 		return contadorTm;
 	}
 
-	public void iniciarHandle() {
-		ContadorSl listener = new ContadorSl(table);
+	public void iniciarControlador() {
+		ContadorSel listener = new ContadorSel(table);
 		table.getSelectionModel().addListSelectionListener(listener);
 	}
 

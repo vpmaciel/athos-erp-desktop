@@ -15,9 +15,8 @@ public final class EmpresaFp extends JFrame implements Gui {
 	private EmpresaPp EmpresaPp;
 
 	public EmpresaFp() {
-		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		iniciarLayout();
-		iniciarGUI();
+		iniciarGui();
 		iniciarControlador();
 	}
 
@@ -27,7 +26,7 @@ public final class EmpresaFp extends JFrame implements Gui {
 	}
 
 	@Override
-	public ConfiguracaoGui getGUIConfiguracao() {
+	public ConfiguracaoGui getConfiguracaoGui() {
 		return null;
 	}
 
@@ -41,21 +40,21 @@ public final class EmpresaFp extends JFrame implements Gui {
 	}
 
 	@Override
-	public void iniciarGUI() {
-		setTitle("EMPRESA");
+	public void iniciarGui() {
 		setIconImage(Imagem.getLogoTipoImage());
 		EmpresaPp = new EmpresaPp();
 		setContentPane(EmpresaPp);
 	}
 
 	@Override
-	public void iniciarGUIControlador() {
+	public void iniciarGuiControlador() {
 
 	}
 
 	@Override
 	public void iniciarControlador() {
-		EmpresaPp.iniciarHandle();
+		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
+		EmpresaPp.iniciarControlador();
 	}
 
 	@Override
@@ -73,12 +72,12 @@ public final class EmpresaFp extends JFrame implements Gui {
 	}
 
 	@Override
-	public void limparGUI() {
+	public void limparGui() {
 
 	}
 
 	@Override
-	public void reiniciarGUI() {
+	public void reiniciarGui() {
 
 	}
 }

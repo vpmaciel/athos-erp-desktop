@@ -7,11 +7,11 @@ import javax.swing.table.TableModel;
 
 import erp.main.MainCont;
 
-final class ImovelSl implements ListSelectionListener {
+final class ImovelSel implements ListSelectionListener {
 
 	JTable table;
 
-	ImovelSl(JTable table) {
+	ImovelSel(JTable table) {
 		this.table = table;
 	}
 

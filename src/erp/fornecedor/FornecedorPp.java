@@ -60,8 +60,8 @@ public final class FornecedorPp extends JPanel {
 		return fornecedorTm;
 	}
 
-	public void iniciarHandle() {
-		FornecedorSl listener = new FornecedorSl(table);
+	public void iniciarControlador() {
+		FornecedorSel listener = new FornecedorSel(table);
 		table.getSelectionModel().addListSelectionListener(listener);
 	}
 

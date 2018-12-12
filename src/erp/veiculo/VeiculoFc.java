@@ -23,11 +23,10 @@ public final class VeiculoFc extends JFrame implements Gui {
 	private VeiculoPc veiculoPc;
 
 	public VeiculoFc() {
-		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		iniciarLayout();
-		iniciarGUI();
+		iniciarGui();
 		iniciarFocoControlador();
-		iniciarGUIControlador();
+		iniciarGuiControlador();
 		iniciarControlador();
 	}
 
@@ -37,7 +36,7 @@ public final class VeiculoFc extends JFrame implements Gui {
 	}
 
 	@Override
-	public ConfiguracaoGui getGUIConfiguracao() {
+	public ConfiguracaoGui getConfiguracaoGui() {
 		return configuracaoGui;
 	}
 
@@ -56,8 +55,7 @@ public final class VeiculoFc extends JFrame implements Gui {
 	}
 
 	@Override
-	public void iniciarGUI() {
-		setTitle("VEÍCULO");
+	public void iniciarGui() {
 		setIconImage(Imagem.getLogoTipoImage());
 		veiculoPc = new VeiculoPc();
 		veiculoPc.setOpaque(true); // content panes must be opaque
@@ -86,12 +84,13 @@ public final class VeiculoFc extends JFrame implements Gui {
 	}
 
 	@Override
-	public void iniciarGUIControlador() {
+	public void iniciarGuiControlador() {
 		configuracaoGui = new ConfiguracaoGui(this);
 	}
 
 	@Override
 	public void iniciarControlador() {
+		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		veiculoCont = new VeiculoCont();
 		addWindowListener(veiculoCont.new Frame());
 		veiculoPc.getToolBar().getExcluirBtn().addActionListener(veiculoCont.new Exclui());
@@ -120,12 +119,12 @@ public final class VeiculoFc extends JFrame implements Gui {
 	}
 
 	@Override
-	public void limparGUI() {
+	public void limparGui() {
 		configuracaoGui.limparGui();
 	}
 
 	@Override
-	public void reiniciarGUI() {
+	public void reiniciarGui() {
 
 	}
 }

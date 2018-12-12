@@ -27,7 +27,7 @@ final class ClienteCont {
 			} else if (event.getSource() == getClientePc().getLabelBanco()) {
 				MainCont.mostrarFrame(MainCont.getBancoFc());
 			}
-			MainCont.getEmpresaFc().reiniciarGUI();
+			MainCont.getEmpresaFc().reiniciarGui();
 		}
 	}
 
@@ -52,7 +52,7 @@ final class ClienteCont {
 			}
 			try {
 				ClienteFac.deletarRegistro(cliente);
-				getClienteFc().limparGUI();
+				getClienteFc().limparGui();
 				cliente = new Cliente();
 				Msg.sucessoExcluiRegistro();
 			} catch (Exception e) {
@@ -73,7 +73,7 @@ final class ClienteCont {
 
 		@Override
 		public void windowActivated(WindowEvent e) {
-			getClienteFc().reiniciarGUI();
+			getClienteFc().reiniciarGui();
 		}
 
 		@Override
@@ -92,7 +92,7 @@ final class ClienteCont {
 
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
-			MainCont.mostrarFrame(MainCont.getFrameMain());
+			MainCont.mostrarFrame(MainCont.getMainFc());
 		}
 	}
 
@@ -136,7 +136,7 @@ final class ClienteCont {
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
 			cliente = new Cliente();
-			getClienteFc().limparGUI();
+			getClienteFc().limparGui();
 			getClientePc().getNomeGUI().requestFocus();
 		}
 	}
@@ -188,7 +188,7 @@ final class ClienteCont {
 					atualizarObjeto();
 					ClienteFac.salvar(cliente);
 					cliente = new Cliente();
-					getClienteFc().limparGUI();
+					getClienteFc().limparGui();
 					getClientePc().getNomeGUI().requestFocus();
 					Msg.sucessoSalvarRegistro();
 				}

@@ -7,12 +7,12 @@ import javax.swing.table.TableModel;
 
 import erp.main.MainCont;
 
-final class BancoSl implements ListSelectionListener {
+final class BancoSel implements ListSelectionListener {
 
 	JTable table;
 	private final BancoFac bancoFac = new BancoFac();
 
-	BancoSl(JTable table) {
+	BancoSel(JTable table) {
 		this.table = table;
 	}
 

@@ -32,31 +32,27 @@ public final class LoginFc extends JFrame implements Gui {
 	}
 
 	public LoginFc() {
-		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		iniciarLayout();
-		iniciarGUI();
+		iniciarGui();
 		iniciarFocoControlador();
-		iniciarGUIControlador();
+		iniciarGuiControlador();
 	}
 
 	@Override
 	public void atualizarTable() {
+	
 	}
 
 	@Override
-	public ConfiguracaoGui getGUIConfiguracao() {
+	public ConfiguracaoGui getConfiguracaoGui() {
 		return null;
 	}
 
-	public LoginCont getLoginHandle() {
+	public LoginCont getLoginCont() {
 		return loginCont;
 	}
 
-	public LoginPc getPanelInternalFrameLogin() {
-		return loginPc;
-	}
-
-	public LoginPc getPanelLogin() {
+	public LoginPc getLoginPc() {
 		return loginPc;
 	}
 
@@ -67,8 +63,7 @@ public final class LoginFc extends JFrame implements Gui {
 	}
 
 	@Override
-	public void iniciarGUI() {
-		setTitle("LOGIN");
+	public void iniciarGui() {
 		setIconImage(Imagem.getLogoTipoImage());
 		loginPc = new LoginPc();
 		loginPc.setOpaque(true); // content panes must be opaque
@@ -96,12 +91,13 @@ public final class LoginFc extends JFrame implements Gui {
 	}
 
 	@Override
-	public void iniciarGUIControlador() {
+	public void iniciarGuiControlador() {
 
 	}
 
 	@Override
 	public void iniciarControlador() {
+		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		loginCont = new LoginCont();
 		addWindowListener(loginCont.new Frame());
 		loginPc.getTextFieldSenha().addActionListener(loginCont.new ButtonEntrar());
@@ -124,11 +120,11 @@ public final class LoginFc extends JFrame implements Gui {
 	}
 
 	@Override
-	public void limparGUI() {
+	public void limparGui() {
 
 	}
 
 	@Override
-	public void reiniciarGUI() {
+	public void reiniciarGui() {
 	}
 }

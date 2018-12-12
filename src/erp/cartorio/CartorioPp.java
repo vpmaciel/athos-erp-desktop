@@ -60,8 +60,8 @@ public final class CartorioPp extends JPanel {
 		return cartorioTm;
 	}
 
-	public void iniciarHandle() {
-		CartorioSl listener = new CartorioSl(table);
+	public void iniciarControlador() {
+		CartorioSel listener = new CartorioSel(table);
 		table.getSelectionModel().addListSelectionListener(listener);
 	}
 

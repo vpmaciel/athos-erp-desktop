@@ -22,11 +22,10 @@ public final class FuncionarioFc extends JFrame implements Gui {
 	private FuncionarioPc funcionarioPc;
 
 	public FuncionarioFc() {
-		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		iniciarLayout();
-		iniciarGUI();
+		iniciarGui();
 		iniciarFocoControlador();
-		iniciarGUIControlador();
+		iniciarGuiControlador();
 		iniciarControlador();
 	}
 
@@ -40,7 +39,7 @@ public final class FuncionarioFc extends JFrame implements Gui {
 	}
 
 	@Override
-	public ConfiguracaoGui getGUIConfiguracao() {
+	public ConfiguracaoGui getConfiguracaoGui() {
 		return configuracaoGui;
 	}
 
@@ -55,8 +54,7 @@ public final class FuncionarioFc extends JFrame implements Gui {
 	}
 
 	@Override
-	public void iniciarGUI() {
-		setTitle("FUNCIONÁRIO");
+	public void iniciarGui() {
 		setIconImage(arquitetura.gui.Imagem.getLogoTipoImage());
 		funcionarioPc = new FuncionarioPc();
 		funcionarioPc.setOpaque(true); // content panes must be opaque
@@ -84,12 +82,13 @@ public final class FuncionarioFc extends JFrame implements Gui {
 	}
 
 	@Override
-	public void iniciarGUIControlador() {
+	public void iniciarGuiControlador() {
 		configuracaoGui = new ConfiguracaoGui(this);
 	}
 
 	@Override
 	public void iniciarControlador() {
+		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		funcionarioCont = new FuncionarioCont();
 		funcionarioPc.getLabelCentroCusto().addMouseListener(funcionarioCont.new MostraFrame());
 		addWindowListener(funcionarioCont.new Frame());
@@ -120,12 +119,12 @@ public final class FuncionarioFc extends JFrame implements Gui {
 	}
 
 	@Override
-	public void limparGUI() {
+	public void limparGui() {
 		configuracaoGui.limparGui();
 	}
 
 	@Override
-	public void reiniciarGUI() {
-		funcionarioPc.reiniciarGUI();
+	public void reiniciarGui() {
+		funcionarioPc.reiniciarGui();
 	}
 }

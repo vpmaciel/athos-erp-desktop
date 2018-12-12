@@ -193,9 +193,9 @@ public final class VeiculoPc extends JPanel implements Gui {
 
 	public VeiculoPc() {
 		iniciarLayout();
-		iniciarGUI();
+		iniciarGui();
 		iniciarFocoControlador();
-		iniciarGUIControlador();
+		iniciarGuiControlador();
 	}
 
 	@Override
@@ -364,7 +364,7 @@ public final class VeiculoPc extends JPanel implements Gui {
 	}
 
 	@Override
-	public ConfiguracaoGui getGUIConfiguracao() {
+	public ConfiguracaoGui getConfiguracaoGui() {
 		return configuracaoGui;
 	}
 
@@ -547,7 +547,7 @@ public final class VeiculoPc extends JPanel implements Gui {
 	}
 
 	@Override
-	public void iniciarGUI() {
+	public void iniciarGui() {
 		toolBar = new ToolBar();
 
 		this.add(toolBar.getToolBar());
@@ -1488,7 +1488,7 @@ public final class VeiculoPc extends JPanel implements Gui {
 	}
 
 	@Override
-	public void iniciarGUIControlador() {
+	public void iniciarGuiControlador() {
 		configuracaoGui = new ConfiguracaoGui(this);
 	}
 
@@ -1508,12 +1508,12 @@ public final class VeiculoPc extends JPanel implements Gui {
 	}
 
 	@Override
-	public void limparGUI() {
+	public void limparGui() {
 
 	}
 
 	@Override
-	public void reiniciarGUI() {
+	public void reiniciarGui() {
 		CentroCusto centroCusto = null;
 		List<CentroCusto> centroCustos = (List<CentroCusto>) CentroCustoFac.getRegistro();
 		Collections.sort(centroCustos, new CentroCustoComp().new Nome());

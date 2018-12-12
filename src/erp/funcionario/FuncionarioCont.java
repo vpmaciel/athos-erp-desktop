@@ -37,7 +37,7 @@ final class FuncionarioCont {
 			}
 			try {
 				FuncionarioFac.deletarRegistro(funcionario);
-				getFuncionarioFc().limparGUI();
+				getFuncionarioFc().limparGui();
 				funcionario = new Funcionario();
 				Msg.sucessoExcluiRegistro();
 			} catch (Exception e) {
@@ -62,7 +62,7 @@ final class FuncionarioCont {
 
 		@Override
 		public void windowActivated(WindowEvent e) {
-			getFuncionarioFc().reiniciarGUI();
+			getFuncionarioFc().reiniciarGui();
 		}
 
 		@Override
@@ -81,7 +81,7 @@ final class FuncionarioCont {
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
 			try {
-				MainCont.mostrarFrame(MainCont.getFrameMain());
+				MainCont.mostrarFrame(MainCont.getMainFc());
 			} catch (Exception e) {
 				System.out.println(e);
 			}
@@ -133,7 +133,7 @@ final class FuncionarioCont {
 			if (event.getSource() == getFuncionarioPc().getLabelCentroCusto()) {
 				MainCont.mostrarFrame(MainCont.getCentroCustoFc());
 			} else {
-				MainCont.getCentroCustoFc().reiniciarGUI();
+				MainCont.getCentroCustoFc().reiniciarGui();
 			}
 		}
 	}
@@ -143,7 +143,7 @@ final class FuncionarioCont {
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
 			funcionario = new Funcionario();
-			MainCont.getFuncionarioFc().limparGUI();
+			MainCont.getFuncionarioFc().limparGui();
 			getFuncionarioPc().getNomeGUI().requestFocus();
 		}
 	}
@@ -193,7 +193,7 @@ final class FuncionarioCont {
 					atualizarObjeto();
 					FuncionarioFac.salvarRegistro(funcionario);
 					funcionario = new Funcionario();
-					getFuncionarioFc().limparGUI();
+					getFuncionarioFc().limparGui();
 					getFuncionarioPc().getNomeGUI().requestFocus();
 					Msg.sucessoSalvarRegistro();
 				}

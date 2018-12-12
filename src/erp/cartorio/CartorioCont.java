@@ -35,7 +35,7 @@ final class CartorioCont {
 			}
 			try {
 				CartorioFac.deletarCartorio(cartorio);
-				getCartorioFc().limparGUI();
+				getCartorioFc().limparGui();
 				cartorio = new Cartorio();
 				Msg.sucessoExcluiRegistro();
 			} catch (Exception e) {
@@ -56,7 +56,7 @@ final class CartorioCont {
 
 		@Override
 		public void windowActivated(WindowEvent e) {
-			getCartorioFc().reiniciarGUI();
+			getCartorioFc().reiniciarGui();
 		}
 
 		@Override
@@ -75,7 +75,7 @@ final class CartorioCont {
 
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
-			MainCont.mostrarFrame(MainCont.getFrameMain());
+			MainCont.mostrarFrame(MainCont.getMainFc());
 		}
 	}
 
@@ -119,7 +119,7 @@ final class CartorioCont {
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
 			cartorio = new Cartorio();
-			getCartorioFc().limparGUI();
+			getCartorioFc().limparGui();
 			getCartorioPc().getNomeFantasiaGUI().requestFocus();
 		}
 	}
@@ -171,7 +171,7 @@ final class CartorioCont {
 					atualizarObjeto();
 					CartorioFac.salvarCartorio(cartorio);
 					cartorio = new Cartorio();
-					getCartorioFc().limparGUI();
+					getCartorioFc().limparGui();
 					getCartorioPc().getNomeFantasiaGUI().requestFocus();
 					Msg.sucessoSalvarRegistro();
 				}

@@ -60,8 +60,8 @@ public final class CentroCustoPp extends JPanel {
 		return centroCustoTm;
 	}
 
-	public void iniciarHandle() {
-		CentroCustoSl listener = new CentroCustoSl(table);
+	public void iniciarControlador() {
+		CentroCustoSel listener = new CentroCustoSel(table);
 		table.getSelectionModel().addListSelectionListener(listener);
 	}
 

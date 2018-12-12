@@ -61,8 +61,8 @@ public final class BancoPp extends JPanel {
 		return bancoTm;
 	}
 
-	public void iniciarHandle() {
-		BancoSl listener = new BancoSl(table);
+	public void iniciarControlador() {
+		BancoSel listener = new BancoSel(table);
 		table.getSelectionModel().addListSelectionListener(listener);
 	}
 

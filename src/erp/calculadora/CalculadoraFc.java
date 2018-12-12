@@ -27,7 +27,7 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
 @SuppressWarnings("serial")
-public class FrameCalculadora extends JFrame {
+public class CalculadoraFc extends JFrame {
 
 	private JMenuBar MenuBar = new JMenuBar();
 
@@ -67,7 +67,7 @@ public class FrameCalculadora extends JFrame {
 	private JButton senoButton = new JButton("Sin");
 	private JButton cossenoButton = new JButton("Cos");
 
-	public FrameCalculadora() {
+	public CalculadoraFc() {
 		super("ATHOS - CALCULADORA");
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		addWindowListener(janelaHandler);

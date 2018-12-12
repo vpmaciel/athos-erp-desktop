@@ -13,7 +13,7 @@ import arquitetura.gui.Msg;
 import erp.main.MainCont;
 
 final class TipoEventoCont {
-
+	
 	public class Ajuda implements ActionListener {
 
 		@Override
@@ -34,7 +34,7 @@ final class TipoEventoCont {
 			}
 			try {
 				TipoEventoFac.deletarRegistro(tipoEvento);
-				getTipoEventoFc().limparGUI();
+				getTipoEventoFc().limparGui();
 				tipoEvento = new TipoEvento();
 				Msg.sucessoExcluiRegistro();
 			} catch (Exception e) {
@@ -59,7 +59,7 @@ final class TipoEventoCont {
 
 		@Override
 		public void windowActivated(WindowEvent e) {
-			getTipoEventoFc().reiniciarGUI();
+			getTipoEventoFc().reiniciarGui();
 			atualizarGui();
 		}
 
@@ -79,7 +79,7 @@ final class TipoEventoCont {
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
 			try {
-				MainCont.mostrarFrame(MainCont.getFrameMain());
+				MainCont.mostrarFrame(MainCont.getMainFc());
 			} catch (Exception e) {
 				System.out.println(e);
 			}
@@ -130,7 +130,7 @@ final class TipoEventoCont {
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
 			tipoEvento = new TipoEvento();
-			MainCont.getAgendaTipoEventoPc().limparGUI();
+			MainCont.getAgendaTipoEventoFc().limparGui();
 			getTipoEventoPc().getNomeGUI().requestFocus();
 		}
 	}
@@ -142,7 +142,7 @@ final class TipoEventoCont {
 			tipoEvento = new TipoEvento();
 			atualizarObjeto();
 			getTipoEventoPp().pesquisarRegistroAgenda(tipoEvento);
-			MainCont.mostrarFrame(MainCont.getAgendaTipoEventoPp());
+			MainCont.mostrarFrame(MainCont.getAgendaTipoEventoFp());
 		}
 	}
 
@@ -180,7 +180,7 @@ final class TipoEventoCont {
 					atualizarObjeto();
 					TipoEventoFac.salvarRegistro(tipoEvento);
 					tipoEvento = new TipoEvento();
-					MainCont.getAgendaTipoEventoPc().limparGUI();
+					MainCont.getAgendaTipoEventoFc().limparGui();
 					getTipoEventoPc().getNomeGUI().requestFocus();
 					Msg.sucessoSalvarRegistro();
 				}
@@ -213,18 +213,18 @@ final class TipoEventoCont {
 	}
 
 	public TipoEventoFc getTipoEventoFc() {
-		return MainCont.getAgendaTipoEventoPc();
+		return MainCont.getAgendaTipoEventoFc();
 	}
 
 	public TipoEventoPc getTipoEventoPc() {
-		return MainCont.getAgendaTipoEventoPc().getTipoEventoPc();
+		return MainCont.getAgendaTipoEventoFc().getTipoEventoPc();
 	}
 
 	public TipoEventoFp getTipoEventoFp() {
-		return MainCont.getAgendaTipoEventoPp();
+		return MainCont.getAgendaTipoEventoFp();
 	}
 
 	public TipoEventoPp getTipoEventoPp() {
-		return MainCont.getAgendaTipoEventoPp().getTipoEventoPp();
+		return MainCont.getAgendaTipoEventoFp().getTipoEventoPp();
 	}
 }

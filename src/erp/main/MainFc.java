@@ -6,9 +6,9 @@ import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.Timer;
 import javax.swing.WindowConstants;
 
-import arquitetura.AOP;
 import arquitetura.gui.Imagem;
 
 @SuppressWarnings("serial")
@@ -21,7 +21,7 @@ public class MainFc extends JFrame {
 	}
 
 	public static MainFc getFrameMain() {
-		return MainCont.getFrameMain();
+		return MainCont.getMainFc();
 	}
 
 	public static void mostrarFrame(JFrame frame) {
@@ -87,7 +87,7 @@ public class MainFc extends JFrame {
 		iniciarGUI();
 		iniciarHandle();
 	}
-
+	
 	public JMenu getMenuAjuda() {
 		return menuAjuda;
 	}
@@ -290,7 +290,6 @@ public class MainFc extends JFrame {
 
 	private void iniciarGUI() {
 		setIconImage(Imagem.getLogoTipoImage());
-		setTitle(AOP.getNomeSistema());
 		setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
 		setMinimumSize(new Dimension(1200, 600));
 		setMaximumSize(new Dimension(1200, 600));
@@ -474,6 +473,10 @@ public class MainFc extends JFrame {
 
 	public void iniciarHandle() {
 		mainCont = MainCont.getInstance(this);
+		Timer timer = new Timer(1000, mainCont.new Relogio());
+		timer.setInitialDelay(0);
+		timer.setRepeats(true);
+		timer.start();
 		addWindowListener(mainCont.new FrameGerenteEventos());
 		menuItemArquivoLogin.addActionListener(mainCont.new MenuArquivoGerenteEventos());
 		menuItemArquivoLogoff.addActionListener(mainCont.new MenuArquivoGerenteEventos());

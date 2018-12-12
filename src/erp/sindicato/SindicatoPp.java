@@ -60,8 +60,8 @@ public final class SindicatoPp extends JPanel {
 		return agenciaTableModel;
 	}
 
-	public void iniciarHandle() {
-		SindicatoSl listener = new SindicatoSl(table);
+	public void iniciarControlador() {
+		SindicatoSel listener = new SindicatoSel(table);
 		table.getSelectionModel().addListSelectionListener(listener);
 	}
 
