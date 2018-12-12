@@ -10,16 +10,16 @@ import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 import javax.swing.WindowConstants;
 
-import arquitetura.gui.FocusTabListener;
-import arquitetura.gui.GUI;
-import arquitetura.gui.ConfiguracaoGUI;
+import arquitetura.gui.FocoEvento;
+import arquitetura.gui.Gui;
+import arquitetura.gui.ConfiguracaoGui;
 import arquitetura.gui.Imagem;
 
 @SuppressWarnings("serial")
-public final class VeiculoMarcaFc extends JFrame implements GUI {
+public final class VeiculoMarcaFc extends JFrame implements Gui {
 
 	private VeiculoMarcaCont veiculoMarcaCont;
-	private ConfiguracaoGUI configuracaoGUI;
+	private ConfiguracaoGui configuracaoGui;
 	private VeiculoMarcaPc veiculoMarcaPc;
 
 	public VeiculoMarcaFc() {
@@ -37,8 +37,8 @@ public final class VeiculoMarcaFc extends JFrame implements GUI {
 	}
 
 	@Override
-	public ConfiguracaoGUI getGUIConfiguracao() {
-		return configuracaoGUI;
+	public ConfiguracaoGui getGUIConfiguracao() {
+		return configuracaoGui;
 	}
 
 	public VeiculoMarcaPc getVeiculoMarcaPc() {
@@ -52,7 +52,7 @@ public final class VeiculoMarcaFc extends JFrame implements GUI {
 	@Override
 	public void iniciarFocoControlador() {
 		@SuppressWarnings("unused")
-		FocusTabListener focusTabListener = new FocusTabListener(this);
+		FocoEvento focoEvento = new FocoEvento(this);
 	}
 
 	@Override
@@ -87,7 +87,7 @@ public final class VeiculoMarcaFc extends JFrame implements GUI {
 
 	@Override
 	public void iniciarGUIControlador() {
-		configuracaoGUI = new ConfiguracaoGUI(this);
+		configuracaoGui = new ConfiguracaoGui(this);
 	}
 
 	@Override
@@ -130,7 +130,7 @@ public final class VeiculoMarcaFc extends JFrame implements GUI {
 
 	@Override
 	public void limparGUI() {
-		configuracaoGUI.limparGui();
+		configuracaoGui.limparGui();
 	}
 
 	@Override

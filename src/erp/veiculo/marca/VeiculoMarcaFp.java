@@ -5,11 +5,11 @@ import java.awt.Dimension;
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
 
-import arquitetura.gui.GUI;
-import arquitetura.gui.ConfiguracaoGUI;
+import arquitetura.gui.Gui;
+import arquitetura.gui.ConfiguracaoGui;
 
 @SuppressWarnings("serial")
-public final class VeiculoMarcaFp extends JFrame implements GUI {
+public final class VeiculoMarcaFp extends JFrame implements Gui {
 
 	private VeiculoMarcaPp VeiculoMarcaPp;
 
@@ -26,7 +26,7 @@ public final class VeiculoMarcaFp extends JFrame implements GUI {
 	}
 
 	@Override
-	public ConfiguracaoGUI getGUIConfiguracao() {
+	public ConfiguracaoGui getGUIConfiguracao() {
 		return null;
 	}
 

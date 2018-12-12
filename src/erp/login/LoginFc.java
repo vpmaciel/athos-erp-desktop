@@ -10,14 +10,14 @@ import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 import javax.swing.WindowConstants;
 
-import arquitetura.gui.FocusTabListener;
-import arquitetura.gui.GUI;
-import arquitetura.gui.ConfiguracaoGUI;
+import arquitetura.gui.FocoEvento;
+import arquitetura.gui.Gui;
+import arquitetura.gui.ConfiguracaoGui;
 import arquitetura.gui.Imagem;
 import erp.usuario.Usuario;
 
 @SuppressWarnings("serial")
-public final class LoginFc extends JFrame implements GUI {
+public final class LoginFc extends JFrame implements Gui {
 
 	private static Usuario usuario;
 	private LoginCont loginCont;
@@ -44,7 +44,7 @@ public final class LoginFc extends JFrame implements GUI {
 	}
 
 	@Override
-	public ConfiguracaoGUI getGUIConfiguracao() {
+	public ConfiguracaoGui getGUIConfiguracao() {
 		return null;
 	}
 
@@ -63,7 +63,7 @@ public final class LoginFc extends JFrame implements GUI {
 	@Override
 	public void iniciarFocoControlador() {
 		@SuppressWarnings("unused")
-		FocusTabListener focusTabListener = new FocusTabListener(this);
+		FocoEvento focoEvento = new FocoEvento(this);
 	}
 
 	@Override

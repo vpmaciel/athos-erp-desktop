@@ -5,18 +5,18 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 
-import arquitetura.gui.FocusTabListener;
-import arquitetura.gui.GUI;
-import arquitetura.gui.ConfiguracaoGUI;
+import arquitetura.gui.FocoEvento;
+import arquitetura.gui.Gui;
+import arquitetura.gui.ConfiguracaoGui;
 import arquitetura.gui.EntradaMaiuscula;
 import arquitetura.registro.ToolBar;
 import arquitetura.util.SpringUtilities;
 
 @SuppressWarnings("serial")
-public final class TipoEventoPc extends JPanel implements GUI {
+public final class TipoEventoPc extends JPanel implements Gui {
 
 	private ToolBar toolBar;
-	private ConfiguracaoGUI configuracaoGUI;
+	private ConfiguracaoGui configuracaoGui;
 	private JLabel labelNome;
 	private JTextField textFieldNome;
 
@@ -33,8 +33,8 @@ public final class TipoEventoPc extends JPanel implements GUI {
 	}
 
 	@Override
-	public ConfiguracaoGUI getGUIConfiguracao() {
-		return configuracaoGUI;
+	public ConfiguracaoGui getGUIConfiguracao() {
+		return configuracaoGui;
 	}
 
 	public JTextField getNomeGUI() {
@@ -48,7 +48,7 @@ public final class TipoEventoPc extends JPanel implements GUI {
 	@Override
 	public void iniciarFocoControlador() {
 		@SuppressWarnings("unused")
-		FocusTabListener focusTabListener = new FocusTabListener(this);
+		FocoEvento focoEvento = new FocoEvento(this);
 	}
 
 	@Override
@@ -74,7 +74,7 @@ public final class TipoEventoPc extends JPanel implements GUI {
 
 	@Override
 	public void iniciarGUIControlador() {
-		configuracaoGUI = new ConfiguracaoGUI(this);
+		configuracaoGui = new ConfiguracaoGui(this);
 	}
 
 	@Override

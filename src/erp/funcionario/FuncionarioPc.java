@@ -10,9 +10,9 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 
-import arquitetura.gui.FocusTabListener;
-import arquitetura.gui.GUI;
-import arquitetura.gui.ConfiguracaoGUI;
+import arquitetura.gui.FocoEvento;
+import arquitetura.gui.Gui;
+import arquitetura.gui.ConfiguracaoGui;
 import arquitetura.gui.EntradaMinuscula;
 import arquitetura.gui.EntradaMaiuscula;
 import arquitetura.registro.ToolBar;
@@ -23,9 +23,9 @@ import erp.centrocusto.CentroCustoComp;
 import erp.main.MainCont;
 
 @SuppressWarnings("serial")
-public final class FuncionarioPc extends JPanel implements GUI {
+public final class FuncionarioPc extends JPanel implements Gui {
 
-	private ConfiguracaoGUI configuracaoGUI;
+	private ConfiguracaoGui configuracaoGui;
 	private JComboBox<String> boxSexo;
 	private JTextField textFieldNome;
 	private JComboBox<String> boxEstadoCivil;
@@ -141,8 +141,8 @@ public final class FuncionarioPc extends JPanel implements GUI {
 	}
 
 	@Override
-	public ConfiguracaoGUI getGUIConfiguracao() {
-		return configuracaoGUI;
+	public ConfiguracaoGui getGUIConfiguracao() {
+		return configuracaoGui;
 	}
 
 	public JLabel getLabelCentroCusto() {
@@ -272,7 +272,7 @@ public final class FuncionarioPc extends JPanel implements GUI {
 	@Override
 	public void iniciarFocoControlador() {
 		@SuppressWarnings("unused")
-		FocusTabListener focusTabListener = new FocusTabListener(this);
+		FocoEvento focoEvento = new FocoEvento(this);
 	}
 
 	@Override
@@ -582,7 +582,7 @@ public final class FuncionarioPc extends JPanel implements GUI {
 
 	@Override
 	public void iniciarGUIControlador() {
-		configuracaoGUI = new ConfiguracaoGUI(this);
+		configuracaoGui = new ConfiguracaoGui(this);
 	}
 
 	@Override

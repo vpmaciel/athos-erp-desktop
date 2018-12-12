@@ -10,16 +10,16 @@ import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 import javax.swing.WindowConstants;
 
-import arquitetura.gui.FocusTabListener;
-import arquitetura.gui.GUI;
-import arquitetura.gui.ConfiguracaoGUI;
+import arquitetura.gui.FocoEvento;
+import arquitetura.gui.Gui;
+import arquitetura.gui.ConfiguracaoGui;
 import arquitetura.gui.Imagem;
 
 @SuppressWarnings("serial")
-public final class RecadoFc extends JFrame implements GUI {
+public final class RecadoFc extends JFrame implements Gui {
 
 	private RecadoCont recadoCont;
-	private ConfiguracaoGUI guiConfiguracao;
+	private ConfiguracaoGui guiConfiguracao;
 	private RecadoPc pcRecado;
 
 	public RecadoFc() {
@@ -37,7 +37,7 @@ public final class RecadoFc extends JFrame implements GUI {
 	}
 
 	@Override
-	public ConfiguracaoGUI getGUIConfiguracao() {
+	public ConfiguracaoGui getGUIConfiguracao() {
 		return guiConfiguracao;
 	}
 
@@ -52,7 +52,7 @@ public final class RecadoFc extends JFrame implements GUI {
 	@Override
 	public void iniciarFocoControlador() {
 		@SuppressWarnings("unused")
-		FocusTabListener focusTabListener = new FocusTabListener(this);
+		FocoEvento focoEvento = new FocoEvento(this);
 	}
 
 	@Override
@@ -88,7 +88,7 @@ public final class RecadoFc extends JFrame implements GUI {
 
 	@Override
 	public void iniciarGUIControlador() {
-		guiConfiguracao = new ConfiguracaoGUI(this);
+		guiConfiguracao = new ConfiguracaoGui(this);
 	}
 
 	@Override

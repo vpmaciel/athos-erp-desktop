@@ -10,16 +10,16 @@ import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 import javax.swing.WindowConstants;
 
-import arquitetura.gui.FocusTabListener;
-import arquitetura.gui.GUI;
-import arquitetura.gui.ConfiguracaoGUI;
+import arquitetura.gui.FocoEvento;
+import arquitetura.gui.Gui;
+import arquitetura.gui.ConfiguracaoGui;
 import arquitetura.gui.Imagem;
 
 @SuppressWarnings("serial")
-public final class UsuarioFc extends JFrame implements GUI {
+public final class UsuarioFc extends JFrame implements Gui {
 
 	private UsuarioCont usuarioCont;
-	private ConfiguracaoGUI configuracaoGUI;
+	private ConfiguracaoGui configuracaoGui;
 	private UsuarioPc usuarioPc;
 
 	public UsuarioFc() {
@@ -41,8 +41,8 @@ public final class UsuarioFc extends JFrame implements GUI {
 	}
 
 	@Override
-	public ConfiguracaoGUI getGUIConfiguracao() {
-		return configuracaoGUI;
+	public ConfiguracaoGui getGUIConfiguracao() {
+		return configuracaoGui;
 	}
 
 	public UsuarioPc getUsuarioPc() {
@@ -60,7 +60,7 @@ public final class UsuarioFc extends JFrame implements GUI {
 	@Override
 	public void iniciarFocoControlador() {
 		@SuppressWarnings("unused")
-		final FocusTabListener focusTabListener = new FocusTabListener(this);
+		final FocoEvento focoEvento = new FocoEvento(this);
 	}
 
 	@Override
@@ -95,7 +95,7 @@ public final class UsuarioFc extends JFrame implements GUI {
 
 	@Override
 	public void iniciarGUIControlador() {
-		configuracaoGUI = new ConfiguracaoGUI(this);
+		configuracaoGui = new ConfiguracaoGui(this);
 	}
 
 	@Override

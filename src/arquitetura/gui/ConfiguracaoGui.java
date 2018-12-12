@@ -15,12 +15,12 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 @SuppressWarnings("serial")
-public final class ConfiguracaoGUI extends Container {
+public final class ConfiguracaoGui extends Container {
 
 	private Component[] componentes;
 	private List<Component> todosComponentes;
 
-	public ConfiguracaoGUI(Container container) {
+	public ConfiguracaoGui(Container container) {
 		this.componentes = this.getComponents();
 		this.componentes = container.getComponents();
 		this.todosComponentes = this.getAllComponents(container);

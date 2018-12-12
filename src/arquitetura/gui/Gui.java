@@ -1,10 +1,10 @@
 package arquitetura.gui;
 
-public interface GUI {
+public interface Gui {
 
 	void atualizarTable();
 
-	ConfiguracaoGUI getGUIConfiguracao();
+	ConfiguracaoGui getGUIConfiguracao();
 
 	void iniciarFocoControlador();
 
