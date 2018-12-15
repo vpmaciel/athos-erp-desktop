@@ -100,13 +100,12 @@ public final class EventoPc extends JPanel implements Gui {
 
 		add(toolBar.getToolBar());
 
-		labelTipoEvento = new JLabel("TIPO DE EVENTO");
+		labelTipoEvento = new JLabel("EVENTO");
 		labelTipoEvento.setCursor(cursor);
 		add(labelTipoEvento);
 
 		boxTipoEvento = new JComboBox<TipoEvento>();
 		List<TipoEvento> tipoEventosList = (List<TipoEvento>) TipoEventoFac.getRegistro();
-		boxTipoEvento.addItem(null);
 		Collections.sort(tipoEventosList, new TipoEventoComp().new Nome());
 		for (TipoEvento tipoEvento : tipoEventosList) {
 			boxTipoEvento.addItem(tipoEvento);
@@ -158,7 +157,7 @@ public final class EventoPc extends JPanel implements Gui {
 
 	@Override
 	public void iniciarLayout() {
-		setBorder(BorderFactory.createTitledBorder("CADASTRO"));
+		setBorder(BorderFactory.createTitledBorder("EVENTO"));
 		setLayout(new SpringLayout());
 	}
 
@@ -177,21 +176,19 @@ public final class EventoPc extends JPanel implements Gui {
 	
 	public void reiniciarGui() {
 		TipoEvento tipoEvento = null;
-		List<TipoEvento> tipoEventosList = (List<TipoEvento>) TipoEventoFac.getRegistro();
-		Collections.sort(tipoEventosList, new TipoEventoComp().new Nome());
-		boxTipoEvento.removeAllItems();
-		boxTipoEvento.addItem(null);
+		List<TipoEvento> tipoEventoList = (List<TipoEvento>) TipoEventoFac.getRegistro();
+		Collections.sort(tipoEventoList, new TipoEventoComp().new Nome());
+		this.boxTipoEvento.removeAllItems();
 		
-		for (TipoEvento b : tipoEventosList) {
-			boxTipoEvento.addItem(b);
+		for (TipoEvento v : tipoEventoList) {
+			this.boxTipoEvento.addItem(v);
 		}
 		
 		if (!MainCont.getAgendaEventoFc().isShowing()
 				&& MainCont.getAgendaEventoFc().getEventoCont().getEvento() != null) {
+			
 			tipoEvento = MainCont.getAgendaEventoFc().getEventoCont().getEvento().getTipoEvento();
-			if (tipoEvento != null) {
-				boxTipoEvento.setSelectedItem(tipoEvento);
-			}
+			boxTipoEvento.setSelectedItem(tipoEvento);
 		}
 	}
 }

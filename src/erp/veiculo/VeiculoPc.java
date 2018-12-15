@@ -108,7 +108,6 @@ public final class VeiculoPc extends JPanel implements Gui {
 	private JLabel labelProprietarioEmail;
 	private JLabel labelProprietarioCPF;
 	private JTextField textFieldProprietarioEmail;
-	private JComboBox<VeiculoMarca> boxMarca;
 	private JTextField textFieldProprietarioNome;
 	private JTextField textFieldDataVenda;
 	private JTextField textFieldDataCompra;
@@ -157,7 +156,6 @@ public final class VeiculoPc extends JPanel implements Gui {
 	private JLabel labelPais;
 	private JTextField textFieldCmtTon;
 	private JTextField textFieldEixos;
-	private JComboBox<VeiculoModelo> boxModelo;
 	private JLabel labelCategoria;
 	private JLabel labelCmtTon;
 	private JLabel labelEixos;
@@ -437,14 +435,6 @@ public final class VeiculoPc extends JPanel implements Gui {
 		return textFieldLogradouro;
 	}
 
-	public JComboBox<VeiculoMarca> getMarcaGUI() {
-		return boxMarca;
-	}
-
-	public JComboBox<VeiculoModelo> getModeloGUI() {
-		return boxModelo;
-	}
-
 	public JTextField getMunicipioEmplacamentoGUI() {
 		return textFieldMunicipioEmplacamento;
 	}
@@ -585,7 +575,7 @@ public final class VeiculoPc extends JPanel implements Gui {
 		Collections.sort(veiculoModelos, new VeiculoModeloComp().new Modelo());
 		
 		for (VeiculoModelo v : veiculoModelos) {
-			this.boxVeiculoModelo.addItem(v);
+			boxVeiculoModelo.addItem(v);
 		}
 
 		add(boxVeiculoModelo);
@@ -1500,7 +1490,7 @@ public final class VeiculoPc extends JPanel implements Gui {
 
 	@Override
 	public void iniciarLayout() {
-		setBorder(BorderFactory.createTitledBorder("CADASTRO"));
+		setBorder(BorderFactory.createTitledBorder("VEÍCULO"));
 		setLayout(new SpringLayout());
 	}
 
@@ -1549,10 +1539,10 @@ public final class VeiculoPc extends JPanel implements Gui {
 			boxCentroCusto.setSelectedItem(centroCusto);
 			
 			veiculoMarca = MainCont.getVeiculoFc().getVeiculoGerenteEventos().getVeiculo().getMarca();
-			boxCentroCusto.setSelectedItem(veiculoMarca);
+			boxVeiculoMarca.setSelectedItem(veiculoMarca);
 			
 			veiculoModelo = MainCont.getVeiculoFc().getVeiculoGerenteEventos().getVeiculo().getModelo();
-			boxCentroCusto.setSelectedItem(veiculoModelo);
+			boxVeiculoModelo.setSelectedItem(veiculoModelo);
 		}
 	}
 }

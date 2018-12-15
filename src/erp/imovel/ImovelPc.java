@@ -379,7 +379,7 @@ public final class ImovelPc extends JPanel implements Gui {
 
 	@Override
 	public void iniciarLayout() {
-		setBorder(BorderFactory.createTitledBorder("CADASTRO"));
+		setBorder(BorderFactory.createTitledBorder("IMÓVEL"));
 		setLayout(new SpringLayout());
 	}
 

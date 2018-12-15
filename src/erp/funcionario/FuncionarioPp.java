@@ -24,7 +24,7 @@ public final class FuncionarioPp extends JPanel {
 	private final JTable table;
 
 	public FuncionarioPp() {
-		setBorder(BorderFactory.createTitledBorder("PESQUISA"));
+		setBorder(BorderFactory.createTitledBorder("FUNCIONÁRIO"));
 
 		funcionarioList = new LinkedList<>();
 		agenciaTableModel = new FuncionarioTm(funcionarioList);

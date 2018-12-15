@@ -24,7 +24,7 @@ public final class CartorioPp extends JPanel {
 	private final JTable table;
 
 	public CartorioPp() {
-		setBorder(BorderFactory.createTitledBorder("PESQUISA"));
+		setBorder(BorderFactory.createTitledBorder("CARTÓRIO"));
 
 		cartorioList = new LinkedList<>();
 		cartorioTm = new CartorioTm(cartorioList);

@@ -98,7 +98,7 @@ public final class BancoPc extends JPanel implements Gui {
 
 	@Override
 	public void iniciarLayout() {
-		setBorder(BorderFactory.createTitledBorder("CADASTRO"));
+		setBorder(BorderFactory.createTitledBorder("BANCO"));
 		setLayout(new SpringLayout());
 	}
 

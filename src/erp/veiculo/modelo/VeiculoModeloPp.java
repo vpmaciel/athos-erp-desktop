@@ -24,7 +24,7 @@ public final class VeiculoModeloPp extends JPanel {
 	private final JTable table;
 
 	public VeiculoModeloPp() {
-		setBorder(BorderFactory.createTitledBorder("PESQUISA"));
+		setBorder(BorderFactory.createTitledBorder("MODELO DE VEÍCULO"));
 
 		veiculoList = new LinkedList<>();
 		veiculoModeloTm = new VeiculoModeloTm(veiculoList);

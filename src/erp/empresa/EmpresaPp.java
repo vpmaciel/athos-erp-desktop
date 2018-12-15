@@ -24,7 +24,7 @@ public final class EmpresaPp extends JPanel {
 	private final JTable table;
 
 	public EmpresaPp() {
-		setBorder(BorderFactory.createTitledBorder("PESQUISA"));
+		setBorder(BorderFactory.createTitledBorder("EMPRESA"));
 
 		empresaList = new LinkedList<>();
 		empresaTm = new EmpresaTm(empresaList);

@@ -125,7 +125,7 @@ public final class RecadoPc extends JPanel implements Gui {
 
 	@Override
 	public void iniciarLayout() {
-		setBorder(BorderFactory.createTitledBorder("CADASTRO"));
+		setBorder(BorderFactory.createTitledBorder("RECADO"));
 		setLayout(new SpringLayout());
 	}
 

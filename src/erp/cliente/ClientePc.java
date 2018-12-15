@@ -790,7 +790,7 @@ public final class ClientePc extends JPanel implements Gui {
 
 	@Override
 	public void iniciarLayout() {
-		setBorder(BorderFactory.createTitledBorder("CADASTRO"));
+		setBorder(BorderFactory.createTitledBorder("CLIENTE"));
 		setLayout(new SpringLayout());
 	}
 

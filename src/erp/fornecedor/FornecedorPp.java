@@ -24,7 +24,7 @@ public final class FornecedorPp extends JPanel {
 	private final JTable table;
 
 	public FornecedorPp() {
-		setBorder(BorderFactory.createTitledBorder("PESQUISA"));
+		setBorder(BorderFactory.createTitledBorder("FORNECEDOR"));
 
 		fornecedorList = new LinkedList<>();
 		fornecedorTm = new FornecedorTm(fornecedorList);

@@ -1,5 +1,6 @@
 package erp.usuario;
 
+import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -93,6 +94,7 @@ public final class UsuarioPc extends JPanel implements Gui {
 
 	@Override
 	public void iniciarLayout() {
+		setBorder(BorderFactory.createTitledBorder("USUÁRIO"));
 		setLayout(new SpringLayout());
 	}
 

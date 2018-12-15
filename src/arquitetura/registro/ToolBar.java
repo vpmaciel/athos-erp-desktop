@@ -30,7 +30,7 @@ public class ToolBar {
 		toolBar.setMaximumSize(new Dimension(700, 40));
 		toolBar.setFloatable(false);
 		toolBar.setOpaque(false);
-		toolBar.setBorder(BorderFactory.createEmptyBorder());
+		toolBar.setBorder(BorderFactory.createEtchedBorder());
 
 		buttonHome.setToolTipText("Home");
 		toolBar.add(buttonHome);

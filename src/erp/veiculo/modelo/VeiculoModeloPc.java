@@ -85,7 +85,7 @@ public final class VeiculoModeloPc extends JPanel implements Gui {
 
 	@Override
 	public void iniciarLayout() {
-		setBorder(BorderFactory.createTitledBorder("CADASTRO"));
+		setBorder(BorderFactory.createTitledBorder("MODELO DE VEÍCULO"));
 		setLayout(new SpringLayout());
 	}
 

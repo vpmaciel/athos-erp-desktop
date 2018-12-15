@@ -7,12 +7,15 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 import erp.agenda.evento.Evento;
 
 @SuppressWarnings("serial")
 @PersistenceContext(unitName = "erp")
 @Entity
+@Table(uniqueConstraints = { @UniqueConstraint(columnNames = { "nome" }) })
 public class TipoEvento implements Serializable {
 	@Id
 	@GeneratedValue

@@ -309,7 +309,7 @@ public final class ContatoPc extends JPanel implements Gui {
 
 	@Override
 	public void iniciarLayout() {
-		setBorder(BorderFactory.createTitledBorder("CADASTRO"));
+		setBorder(BorderFactory.createTitledBorder("CONTATO"));
 		setLayout(new SpringLayout());
 	}
 

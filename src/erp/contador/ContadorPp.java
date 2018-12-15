@@ -24,7 +24,7 @@ public final class ContadorPp extends JPanel {
 	private final JTable table;
 
 	public ContadorPp() {
-		setBorder(BorderFactory.createTitledBorder("PESQUISA"));
+		setBorder(BorderFactory.createTitledBorder("CONTADOR"));
 
 		contadorList = new LinkedList<>();
 		contadorTm = new ContadorTm(contadorList);

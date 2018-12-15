@@ -125,11 +125,11 @@ final class ContatoCont {
 		}
 	}
 
-	public class MostraEmpresaFC extends MouseAdapter {
+	public class MostraFc extends MouseAdapter {
 
 		@Override
 		public void mouseClicked(MouseEvent event) {
-			if (event.getButton() == MouseEvent.BUTTON1) {
+			if (event.getSource() == getContatoPc().getLabelEmpresa()) {
 				MainCont.mostrarFrame(MainCont.getEmpresaFc());
 			} else {
 				MainCont.getEmpresaFc().reiniciarGui();

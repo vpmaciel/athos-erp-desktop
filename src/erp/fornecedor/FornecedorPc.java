@@ -375,7 +375,7 @@ public final class FornecedorPc extends JPanel implements Gui {
 
 	@Override
 	public void iniciarLayout() {
-		setBorder(BorderFactory.createTitledBorder("CADASTRO"));
+		setBorder(BorderFactory.createTitledBorder("FORNECEDOR"));
 		setLayout(new SpringLayout());
 	}
 

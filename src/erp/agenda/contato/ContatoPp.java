@@ -24,7 +24,7 @@ public final class ContatoPp extends JPanel {
 	private final JTable table;
 
 	public ContatoPp() {
-		setBorder(BorderFactory.createTitledBorder("PESQUISA"));
+		setBorder(BorderFactory.createTitledBorder("CONTATO"));
 		contatoList = new LinkedList<>();
 		contatoTm = new ContatoTm(contatoList);
 

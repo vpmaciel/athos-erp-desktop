@@ -25,8 +25,8 @@ public final class BancoPp extends JPanel {
 	private final BancoFac bancoFac = new BancoFac();
 
 	public BancoPp() {
-		setBorder(BorderFactory.createTitledBorder("PESQUISA"));
-
+		setBorder(BorderFactory.createTitledBorder("BANCO"));
+		
 		bancos = new LinkedList<>();
 		bancoTm = new BancoTm(bancos);
 

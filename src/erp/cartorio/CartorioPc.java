@@ -366,7 +366,7 @@ public final class CartorioPc extends JPanel implements Gui {
 
 	@Override
 	public void iniciarLayout() {
-		setBorder(BorderFactory.createTitledBorder("CADASTRO"));
+		setBorder(BorderFactory.createTitledBorder("CARTÓRIO"));
 		setLayout(new SpringLayout());
 	}
 

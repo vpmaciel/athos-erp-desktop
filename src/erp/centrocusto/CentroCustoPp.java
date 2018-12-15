@@ -24,7 +24,7 @@ public final class CentroCustoPp extends JPanel {
 	private final JTable table;
 
 	public CentroCustoPp() {
-		setBorder(BorderFactory.createTitledBorder("PESQUISA"));
+		setBorder(BorderFactory.createTitledBorder("CENTRO DE CUSTO"));
 
 		centroCustos = new LinkedList<>();
 		centroCustoTm = new CentroCustoTm(centroCustos);

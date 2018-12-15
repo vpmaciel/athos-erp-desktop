@@ -85,7 +85,7 @@ public final class TipoEventoPc extends JPanel implements Gui {
 
 	@Override
 	public void iniciarLayout() {
-		setBorder(BorderFactory.createTitledBorder("CADASTRO"));
+		setBorder(BorderFactory.createTitledBorder("TIPO DE EVENTO"));
 		setLayout(new SpringLayout());
 	}
 

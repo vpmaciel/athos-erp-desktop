@@ -24,7 +24,7 @@ public final class SindicatoPp extends JPanel {
 	private final JTable table;
 
 	public SindicatoPp() {
-		setBorder(BorderFactory.createTitledBorder("PESQUISA"));
+		setBorder(BorderFactory.createTitledBorder("SINDICATO"));
 
 		sindicatoList = new LinkedList<>();
 		agenciaTableModel = new SindicatoTm(sindicatoList);

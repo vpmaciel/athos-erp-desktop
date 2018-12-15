@@ -87,7 +87,7 @@ public final class CentroCustoPc extends JPanel implements Gui {
 
 	@Override
 	public void iniciarLayout() {
-		setBorder(BorderFactory.createTitledBorder("CADASTRO"));
+		setBorder(BorderFactory.createTitledBorder("CENTRO DE CUSTO"));
 		setLayout(new SpringLayout());
 	}
 

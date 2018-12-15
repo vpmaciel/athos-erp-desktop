@@ -593,7 +593,7 @@ public final class FuncionarioPc extends JPanel implements Gui {
 
 	@Override
 	public void iniciarLayout() {
-		setBorder(BorderFactory.createTitledBorder("CADASTRO"));
+		setBorder(BorderFactory.createTitledBorder("FUNCIONÁRIO"));
 		setLayout(new SpringLayout());
 	}
 

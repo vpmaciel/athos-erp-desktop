@@ -24,7 +24,7 @@ public final class ImovelPp extends JPanel {
 	private final JTable table;
 
 	public ImovelPp() {
-		setBorder(BorderFactory.createTitledBorder("PESQUISA"));
+		setBorder(BorderFactory.createTitledBorder("IMÓVEL"));
 
 		imovelList = new LinkedList<>();
 		imovelTm = new ImovelTm(imovelList);
@@ -34,7 +34,7 @@ public final class ImovelPp extends JPanel {
 		for (int c = 0; c < table.getColumnCount(); ++c) {
 			table.setDefaultRenderer(table.getColumnClass(c), Tabela.getDefaultTableCellRenderer());
 		}
-		Tabela.configurarLarguraColunasTabela(table, ImovelTm.WIDTH);
+		Tabela.configurarLarguraColunasTabela(table, ImovelTm.largura);
 		((DefaultTableCellRenderer) table.getTableHeader().getDefaultRenderer())
 				.setHorizontalAlignment(SwingConstants.RIGHT);
 		table.getColumnModel().getColumn(0).setMaxWidth(0);

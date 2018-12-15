@@ -24,7 +24,7 @@ public final class EventoPp extends JPanel {
 	private final JTable table;
 
 	public EventoPp() {
-		setBorder(BorderFactory.createTitledBorder("PESQUISA"));
+		setBorder(BorderFactory.createTitledBorder("EVENTO"));
 
 		eventoList = new LinkedList<>();
 		agenciaTableModel = new EventoTm(eventoList);

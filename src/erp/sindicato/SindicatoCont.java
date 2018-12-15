@@ -154,7 +154,7 @@ final class SindicatoCont {
 			sindicato = new Sindicato();
 			atualizarObjeto();
 			getSindicatoPp().pesquisarRegistroSindicato(sindicato);
-			MainCont.mostrarFrame(MainCont.getSindicatoFc());
+			MainCont.mostrarFrame(MainCont.getSindicatoFp());
 		}
 	}
 

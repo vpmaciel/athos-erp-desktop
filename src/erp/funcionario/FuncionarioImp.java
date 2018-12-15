@@ -69,7 +69,7 @@ final class FuncionarioImp implements FuncionarioDao {
 			predicates.add(criteriaBuilder.like(rootFuncionario.get("categoria"), "%" + funcionario.getCategoria() + "%"));
 		}
 		if (funcionario.getCentroCusto() != null && !funcionario.getCentroCusto().equals("")) {
-			predicates.add(criteriaBuilder.like(rootFuncionario.get("centroCusto"), "%" + funcionario.getCentroCusto() + "%"));
+			predicates.add(criteriaBuilder.equal(rootFuncionario.get("centroCusto"), funcionario.getCentroCusto()));
 		}
 		if (funcionario.getCep() != null && !funcionario.getCep().equals("")) {
 			predicates.add(criteriaBuilder.like(rootFuncionario.get("cep"), "%" + funcionario.getCep() + "%"));
@@ -93,7 +93,7 @@ final class FuncionarioImp implements FuncionarioDao {
 			predicates.add(criteriaBuilder.like(rootFuncionario.get("email"), "%" + funcionario.getEmail() + "%"));
 		}
 		if (funcionario.getEmpresa() != null && !funcionario.getEmpresa().equals("")) {
-			predicates.add(criteriaBuilder.like(rootFuncionario.get("empresa"), "%" + funcionario.getEmpresa() + "%"));
+			predicates.add(criteriaBuilder.equal(rootFuncionario.get("empresa"), funcionario.getEmpresa()));
 		}
 		if (funcionario.getEscolaridade() != null && !funcionario.getEscolaridade().equals("")) {
 			predicates.add(criteriaBuilder.like(rootFuncionario.get("escolaridade"), "%" + funcionario.getEscolaridade() + "%"));

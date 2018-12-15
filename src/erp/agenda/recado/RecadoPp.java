@@ -24,7 +24,7 @@ public final class RecadoPp extends JPanel {
 	private final JTable table;
 
 	public RecadoPp() {
-		setBorder(BorderFactory.createTitledBorder("PESQUISA"));
+		setBorder(BorderFactory.createTitledBorder("RECADO"));
 
 		recadoList = new LinkedList<>();
 		recadoTm = new RecadoTm(recadoList);

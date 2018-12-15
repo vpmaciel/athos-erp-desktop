@@ -23,7 +23,6 @@ public final class ContatoFc extends JFrame implements Gui {
 	private ContatoPc contatoPc;
 
 	public ContatoFc() {
-		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		iniciarLayout();
 		iniciarGui();
 		iniciarFocoControlador();
@@ -93,9 +92,10 @@ public final class ContatoFc extends JFrame implements Gui {
 
 	@Override
 	public void iniciarControlador() {
+		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		contatoCont = new ContatoCont();
 		addWindowListener(contatoCont.new Frame());
-		contatoPc.getLabelEmpresa().addMouseListener(contatoCont.new MostraEmpresaFC());
+		contatoPc.getLabelEmpresa().addMouseListener(contatoCont.new MostraFc());
 		contatoPc.getToolBar().getExcluirBtn().addActionListener(contatoCont.new Exclui());
 		contatoPc.getToolBar().getNovoBtn().addActionListener(contatoCont.new Novo());
 		contatoPc.getToolBar().getPesquisarBtn().addActionListener(contatoCont.new Pesquisa());

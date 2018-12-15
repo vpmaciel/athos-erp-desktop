@@ -374,7 +374,7 @@ public final class SindicatoPc extends JPanel implements Gui {
 
 	@Override
 	public void iniciarLayout() {
-		setBorder(BorderFactory.createTitledBorder("CADASTRO"));
+		setBorder(BorderFactory.createTitledBorder("SINDICATO"));
 		setLayout(new SpringLayout());
 	}
 

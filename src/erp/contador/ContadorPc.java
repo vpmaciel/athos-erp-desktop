@@ -168,7 +168,7 @@ public final class ContadorPc extends JPanel implements Gui {
 
 	@Override
 	public void iniciarLayout() {
-		setBorder(BorderFactory.createTitledBorder("CADASTRO"));
+		setBorder(BorderFactory.createTitledBorder("CONTADOR"));
 		setLayout(new SpringLayout());
 	}
 
