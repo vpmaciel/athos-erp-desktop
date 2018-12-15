@@ -35,7 +35,7 @@ public final class EventoFc extends JFrame implements Gui {
 
 	}
 
-	public EventoCont getEventoGerenteEventos() {
+	public EventoCont getEventoCont() {
 		return eventoCont;
 	}
 
@@ -94,6 +94,7 @@ public final class EventoFc extends JFrame implements Gui {
 		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		eventoCont = new EventoCont();
 		addWindowListener(eventoCont.new Frame());
+		eventoPc.getLabelTipoEvento().addMouseListener(eventoCont.new MostraFrame());
 		eventoPc.getToolBar().getExcluirBtn().addActionListener(eventoCont.new Exclui());
 		eventoPc.getToolBar().getNovoBtn().addActionListener(eventoCont.new Novo());
 		eventoPc.getToolBar().getPesquisarBtn().addActionListener(eventoCont.new Pesquisa());

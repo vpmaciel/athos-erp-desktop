@@ -59,10 +59,10 @@ public final class VeiculoMarcaFp extends JFrame implements Gui {
 	@Override
 	public void iniciarLayout() {
 		setLayout(null);
-		setPreferredSize(new Dimension(800, 420));
-		setMinimumSize(new Dimension(800, 420));
-		setSize(new Dimension(800, 420));
-		setMaximumSize(new Dimension(800, 420));
+		setPreferredSize(new Dimension(800, 600));
+		setMinimumSize(new Dimension(800, 600));
+		setSize(new Dimension(800, 600));
+		setMaximumSize(new Dimension(800, 600));
 	}
 
 	@Override

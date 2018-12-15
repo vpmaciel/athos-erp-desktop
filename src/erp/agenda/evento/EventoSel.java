@@ -29,8 +29,8 @@ final class EventoSel implements ListSelectionListener {
 					EventoTm eventoTm = (EventoTm) table.getModel();
 					eventoTm.getEvento(table.getSelectedRow());
 					MainCont.mostrarFrame(MainCont.getAgendaEventoFc());
-					MainCont.getAgendaEventoFc().getEventoGerenteEventos().setAgenda(evento);
-					MainCont.getAgendaEventoFc().getEventoGerenteEventos().atualizarGui();
+					MainCont.getAgendaEventoFc().getEventoCont().setEvento(evento);
+					MainCont.getAgendaEventoFc().getEventoCont().atualizarGui();
 					MainCont.getAgendaEventoFc().setFocusable(true);
 					MainCont.getAgendaEventoFp().setVisible(false);
 				}

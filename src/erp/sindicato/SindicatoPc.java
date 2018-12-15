@@ -1,5 +1,6 @@
 package erp.sindicato;
 
+import javax.swing.BorderFactory;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -373,6 +374,7 @@ public final class SindicatoPc extends JPanel implements Gui {
 
 	@Override
 	public void iniciarLayout() {
+		setBorder(BorderFactory.createTitledBorder("CADASTRO"));
 		setLayout(new SpringLayout());
 	}
 

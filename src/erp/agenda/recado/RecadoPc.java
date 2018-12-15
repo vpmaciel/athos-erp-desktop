@@ -1,5 +1,6 @@
 package erp.agenda.recado;
 
+import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
@@ -124,6 +125,7 @@ public final class RecadoPc extends JPanel implements Gui {
 
 	@Override
 	public void iniciarLayout() {
+		setBorder(BorderFactory.createTitledBorder("CADASTRO"));
 		setLayout(new SpringLayout());
 	}
 

@@ -4,6 +4,7 @@ import java.awt.Cursor;
 import java.util.Collections;
 import java.util.List;
 
+import javax.swing.BorderFactory;
 import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
@@ -30,7 +31,7 @@ public final class EventoPc extends JPanel implements Gui {
 	private ConfiguracaoGui configuracaoGui;
 	private JTextField textFieldDescricao;
 	private JLabel labelDescricao;
-	private JFormattedTextField	 textFieldHoraInicio;
+	private JFormattedTextField textFieldHoraInicio;
 	private JLabel labelHoraTermino;
 	private JFormattedTextField textFieldHoraTermino;
 	private JLabel labelHoraInicio;
@@ -67,12 +68,11 @@ public final class EventoPc extends JPanel implements Gui {
 	public JTextField getHoraInicioGUI() {
 		return textFieldHoraInicio;
 	}
-	
+
 	public JTextField getDataGUI() {
 		return textFieldData;
 	}
-	
-	
+
 	public JTextField getHoraTerminoGUI() {
 		return textFieldHoraTermino;
 	}
@@ -95,7 +95,7 @@ public final class EventoPc extends JPanel implements Gui {
 	public void iniciarGui() {
 
 		final Cursor cursor = Cursor.getPredefinedCursor(Cursor.HAND_CURSOR);
-		
+
 		toolBar = new ToolBar();
 
 		add(toolBar.getToolBar());
@@ -105,21 +105,22 @@ public final class EventoPc extends JPanel implements Gui {
 		add(labelTipoEvento);
 
 		boxTipoEvento = new JComboBox<TipoEvento>();
-		List<TipoEvento> tipoEventos = (List<TipoEvento>) TipoEventoFac.getRegistro();
-		Collections.sort(tipoEventos, new TipoEventoComp().new Nome());
-		for (TipoEvento tipoEvento : tipoEventos) {
+		List<TipoEvento> tipoEventosList = (List<TipoEvento>) TipoEventoFac.getRegistro();
+		boxTipoEvento.addItem(null);
+		Collections.sort(tipoEventosList, new TipoEventoComp().new Nome());
+		for (TipoEvento tipoEvento : tipoEventosList) {
 			boxTipoEvento.addItem(tipoEvento);
 		}
 		boxTipoEvento.setMaximumRowCount(5);
 		add(boxTipoEvento);
-		
+
 		labelDescricao = new JLabel("DESCRIÇÃO");
 		add(labelDescricao);
 
 		textFieldDescricao = new JTextField();
 		textFieldDescricao.setDocument(new EntradaMaiuscula(50));
 		add(textFieldDescricao);
-		
+
 		labelData = new JLabel("DATA");
 		add(labelData);
 
@@ -131,7 +132,7 @@ public final class EventoPc extends JPanel implements Gui {
 
 		textFieldHoraInicio = new JFormattedTextField(Mascara.getHora());
 		add(textFieldHoraInicio);
-		
+
 		labelHoraTermino = new JLabel("HORÁRIO DE TÉRMINO");
 		add(labelHoraTermino);
 
@@ -157,6 +158,7 @@ public final class EventoPc extends JPanel implements Gui {
 
 	@Override
 	public void iniciarLayout() {
+		setBorder(BorderFactory.createTitledBorder("CADASTRO"));
 		setLayout(new SpringLayout());
 	}
 
@@ -172,20 +174,24 @@ public final class EventoPc extends JPanel implements Gui {
 	}
 
 	@Override
+	
 	public void reiniciarGui() {
 		TipoEvento tipoEvento = null;
-		List<TipoEvento> tipoEventos = (List<TipoEvento>) TipoEventoFac.getRegistro();
-		Collections.sort(tipoEventos, new TipoEventoComp().new Nome());
+		List<TipoEvento> tipoEventosList = (List<TipoEvento>) TipoEventoFac.getRegistro();
+		Collections.sort(tipoEventosList, new TipoEventoComp().new Nome());
 		boxTipoEvento.removeAllItems();
-		for (TipoEvento b : tipoEventos) {
+		boxTipoEvento.addItem(null);
+		
+		for (TipoEvento b : tipoEventosList) {
 			boxTipoEvento.addItem(b);
 		}
-
+		
 		if (!MainCont.getAgendaEventoFc().isShowing()
-				&& MainCont.getAgendaEventoFc().getEventoGerenteEventos().getEvento() != null) {
-			tipoEvento = MainCont.getAgendaEventoFc().getEventoGerenteEventos().getEvento().getTipoEvento();
-			System.out.println(tipoEvento);
-			boxTipoEvento.setSelectedItem(tipoEvento);
+				&& MainCont.getAgendaEventoFc().getEventoCont().getEvento() != null) {
+			tipoEvento = MainCont.getAgendaEventoFc().getEventoCont().getEvento().getTipoEvento();
+			if (tipoEvento != null) {
+				boxTipoEvento.setSelectedItem(tipoEvento);
+			}
 		}
 	}
 }

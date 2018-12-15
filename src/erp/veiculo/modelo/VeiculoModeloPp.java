@@ -5,6 +5,7 @@ import java.awt.Rectangle;
 import java.util.LinkedList;
 import java.util.List;
 
+import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -23,6 +24,8 @@ public final class VeiculoModeloPp extends JPanel {
 	private final JTable table;
 
 	public VeiculoModeloPp() {
+		setBorder(BorderFactory.createTitledBorder("PESQUISA"));
+
 		veiculoList = new LinkedList<>();
 		veiculoModeloTm = new VeiculoModeloTm(veiculoList);
 

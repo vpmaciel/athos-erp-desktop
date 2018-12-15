@@ -6,6 +6,7 @@ import java.util.List;
 import javax.swing.table.AbstractTableModel;
 
 import arquitetura.util.TabelaModelo;
+import erp.agenda.evento.tipoevento.TipoEvento;
 
 @SuppressWarnings("serial")
 public class EventoTm extends AbstractTableModel {
@@ -24,9 +25,10 @@ public class EventoTm extends AbstractTableModel {
 	static {
 		tabelaModelo.adicionar("ID", 0, 100);
 		tabelaModelo.adicionar("DESCRIÇÃO", 1, 500);
-		tabelaModelo.adicionar("DATA", 2, 100);
-		tabelaModelo.adicionar("HORA INÍCIO", 3, 100);
-		tabelaModelo.adicionar("HORA TÉMINO", 4, 100);
+		tabelaModelo.adicionar("TIPO DE EVENTO", 2, 500);
+		tabelaModelo.adicionar("DATA", 3, 100);
+		tabelaModelo.adicionar("HORA INÍCIO", 4, 100);
+		tabelaModelo.adicionar("HORA TÉMINO", 5, 100);
 		
 		largura = new int[tabelaModelo.getTotalColunas()];
 		podeEditar = new boolean[tabelaModelo.getTotalColunas()];
@@ -57,6 +59,9 @@ public class EventoTm extends AbstractTableModel {
 		if (tabelaModelo.getNome(columnIndex).equals("ID")) {
 			return Long.class;
 		}
+		if (tabelaModelo.getNome(columnIndex).equals("TIPO DE EVENTO")) {
+			return TipoEvento.class;
+		}
 		return String.class;
 	}
 
@@ -84,6 +89,9 @@ public class EventoTm extends AbstractTableModel {
 		}
 		if (tabelaModelo.getNome(columnIndex).equals("DESCRIÇÃO")) {
 			return evento.getDescricao();
+		}
+		if (tabelaModelo.getNome(columnIndex).equals("TIPO DE EVENTO")) {
+			return evento.getTipoEvento();
 		}
 		if (tabelaModelo.getNome(columnIndex).equals("DATA")) {
 			return evento.getData();
@@ -115,6 +123,9 @@ public class EventoTm extends AbstractTableModel {
 		}
 		if (tabelaModelo.getNome(columnIndex).equals("DESCRIÇÃO")) {
 			evento.setDescricao(aValue.toString());
+		}
+		if (tabelaModelo.getNome(columnIndex).equals("TIPO DE EVENTO")) {
+			evento.setTipoEvento((TipoEvento)aValue);
 		}
 		if (tabelaModelo.getNome(columnIndex).equals("DATA")) {
 			evento.setData(aValue.toString());

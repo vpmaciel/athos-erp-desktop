@@ -1,5 +1,6 @@
 package erp.agenda.evento.tipoevento;
 
+import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -84,6 +85,7 @@ public final class TipoEventoPc extends JPanel implements Gui {
 
 	@Override
 	public void iniciarLayout() {
+		setBorder(BorderFactory.createTitledBorder("CADASTRO"));
 		setLayout(new SpringLayout());
 	}
 

@@ -4,6 +4,7 @@ import java.awt.Cursor;
 import java.util.Collections;
 import java.util.List;
 
+import javax.swing.BorderFactory;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -308,6 +309,7 @@ public final class ContatoPc extends JPanel implements Gui {
 
 	@Override
 	public void iniciarLayout() {
+		setBorder(BorderFactory.createTitledBorder("CADASTRO"));
 		setLayout(new SpringLayout());
 	}
 

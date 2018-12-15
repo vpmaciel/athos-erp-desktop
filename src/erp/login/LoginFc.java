@@ -36,6 +36,7 @@ public final class LoginFc extends JFrame implements Gui {
 		iniciarGui();
 		iniciarFocoControlador();
 		iniciarGuiControlador();
+		iniciarControlador();
 	}
 
 	@Override

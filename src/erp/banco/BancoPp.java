@@ -5,6 +5,7 @@ import java.awt.Rectangle;
 import java.util.LinkedList;
 import java.util.List;
 
+import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -24,6 +25,8 @@ public final class BancoPp extends JPanel {
 	private final BancoFac bancoFac = new BancoFac();
 
 	public BancoPp() {
+		setBorder(BorderFactory.createTitledBorder("PESQUISA"));
+
 		bancos = new LinkedList<>();
 		bancoTm = new BancoTm(bancos);
 

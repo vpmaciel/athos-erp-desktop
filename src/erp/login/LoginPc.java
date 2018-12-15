@@ -2,6 +2,7 @@ package erp.login;
 
 import java.awt.Dimension;
 
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -111,6 +112,7 @@ public final class LoginPc extends JPanel implements Gui {
 
 	@Override
 	public void iniciarLayout() {
+		setBorder(BorderFactory.createTitledBorder("LOGIN"));
 		setLayout(new SpringLayout());
 	}
 

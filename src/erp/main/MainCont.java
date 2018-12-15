@@ -466,6 +466,7 @@ public final class MainCont {
 	public static synchronized MainCont getInstance(MainFc mainFc) {
 		if (totalPrincipalHandle > 1) {
 			JOptionPane.showMessageDialog(null, "Foi instanciado mais de uma Objeto:" + ERP.class);
+			System.exit(0);
 		}
 		if (mainCont == null) {
 			++totalPrincipalHandle;
@@ -496,7 +497,6 @@ public final class MainCont {
 	private void criarFrames() {
 		loginFc = new LoginFc();
 		criarFrame(loginFc);
-		loginFc.iniciarControlador();
 
 		bancoFc = new BancoFc();
 		criarFrame(bancoFc);
@@ -506,14 +506,12 @@ public final class MainCont {
 
 		centroCustoFc = new CentroCustoFc();
 		criarFrame(centroCustoFc);
-		centroCustoFc.iniciarControlador();
 
 		centroCustoFp = new CentroCustoFp();
 		criarFrame(centroCustoFp);
 
 		clienteFc = new ClienteFc();
 		criarFrame(clienteFc);
-		clienteFc.iniciarControlador();
 
 		clienteFp = new ClienteFp();
 		criarFrame(clienteFp);

@@ -2,6 +2,8 @@ package erp.agenda.evento;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.LinkedList;
@@ -15,6 +17,16 @@ import erp.main.MainCont;
 
 final class EventoCont {
 
+	public class MostraFrame extends MouseAdapter {
+
+		@Override
+		public void mouseClicked(MouseEvent event) {
+			if (event.getSource() == getEventoPc().getLabelTipoEvento()) {
+				MainCont.mostrarFrame(MainCont.getAgendaTipoEventoFc());
+			}
+			//MainCont.getEmpresaFc().reiniciarGui();
+		}
+	}
 	public class Ajuda implements ActionListener {
 
 		@Override
@@ -61,7 +73,6 @@ final class EventoCont {
 		@Override
 		public void windowActivated(WindowEvent e) {
 			getEventoFc().reiniciarGui();
-			atualizarGui();
 		}
 
 		@Override
@@ -217,7 +228,7 @@ final class EventoCont {
 		return evento;
 	}
 
-	public void setAgenda(Evento evento) {
+	public void setEvento(Evento evento) {
 		this.evento = evento;
 	}
 
