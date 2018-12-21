@@ -28,7 +28,7 @@ public class EventoTm extends AbstractTableModel {
 		tabelaModelo.adicionar("TIPO DE EVENTO", 2, 500);
 		tabelaModelo.adicionar("DATA", 3, 100);
 		tabelaModelo.adicionar("HORA INÍCIO", 4, 100);
-		tabelaModelo.adicionar("HORA TÉMINO", 5, 100);
+		tabelaModelo.adicionar("HORA TÉRMINO", 5, 100);
 		
 		largura = new int[tabelaModelo.getTotalColunas()];
 		podeEditar = new boolean[tabelaModelo.getTotalColunas()];

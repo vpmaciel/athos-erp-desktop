@@ -39,7 +39,7 @@ final class RecadoImp implements RecadoDao {
 		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
 		EntityTransaction tx = em.getTransaction();
 		tx.begin();
-		Query query = em.createQuery("from erp.agenda.Recado C order by C.nome");
+		Query query = em.createQuery("from erp.agenda.Recado C order by C.data");
 		@SuppressWarnings("unchecked")
 		List<Recado> list = query.getResultList();
 		tx.commit();

@@ -39,7 +39,7 @@ final class EventoImp implements EventoDao {
 		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
 		EntityTransaction tx = em.getTransaction();
 		tx.begin();
-		Query query = em.createQuery("from erp.agenda.evento.Evento C order by C.data, C.horaInicio");
+		Query query = em.createQuery("from erp.agenda.evento.Evento C order by C.id");
 		@SuppressWarnings("unchecked")
 		List<Evento> list = query.getResultList();
 		tx.commit();

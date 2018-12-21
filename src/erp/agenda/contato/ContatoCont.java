@@ -90,21 +90,17 @@ final class ContatoCont {
 
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
+
 			List<Contato> contatos = new LinkedList<>();
 
-			if (contato.getId() == null) {
-				Msg.avisoImprimiRegistroNaoCadastrado();
-				return;
-			}
-
 			try {
-				if (contatos.add(ContatoFac.getRegistro(contato))) {
-					ContatoRel contatoRel = new ContatoRel(contatos);
-					contatoRel.retornarRelatorio(true);
-				}
+				contatos = new LinkedList<>(ContatoFac.pesquisarRegistro(new Contato()));
 			} catch (Exception e) {
 				System.out.println(e);
 			}
+
+			ContatoRel contatoRel = new ContatoRel(contatos);
+			contatoRel.retornarRelatorio(true);
 
 		}
 	}
@@ -115,16 +111,17 @@ final class ContatoCont {
 		public void actionPerformed(ActionEvent actionEvent) {
 			List<Contato> contatos = new LinkedList<>();
 
-			try {
-				contatos = new LinkedList<>(ContatoFac.pesquisarRegistro(contato));
-			} catch (Exception e) {
-				System.out.println(e);
+			if (contato.getId() == null) {
+				Msg.avisoImprimiRegistroNaoCadastrado();
+				return;
 			}
-			ContatoRel contatoRel = new ContatoRel(contatos);
-			contatoRel.retornarRelatorio(true);
+			if (contatos.add(ContatoFac.getRegistro(contato))) {
+				ContatoRel contatoRel = new ContatoRel(contatos);
+				contatoRel.retornarRelatorio(true);
+			}
+
 		}
 	}
-
 	public class MostraFc extends MouseAdapter {
 
 		@Override

@@ -6,27 +6,32 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.Locale;
 
+import arquitetura.AOP;
+
 public class Data {
+	
+	
 
 	public Data() {
 		
 	}
 
 	public static String getDateTime() {
-		Locale locale = new Locale("pt", "BR");
+		Locale locale = AOP.getLocale();
 		Calendar calendar = new GregorianCalendar();
-		DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy | HH:mm:ss.SSSS", locale);
+		
 		String data = "DATA E HORA DE EMISSÃO: ";
-		data += getDia(calendar.get(Calendar.DAY_OF_WEEK)) + " | ";
+		data += getDia(calendar.get(Calendar.DAY_OF_WEEK));
+		DateFormat dateFormat = new SimpleDateFormat(" [ dd/MM/yyyy ] [ HH:mm:ss.SSSS ]", locale);
 		data += dateFormat.format(calendar.getTime());
 		return data;
 	}
 	
 	public static String getData() {
-		Locale locale = new Locale("pt", "BR");
+		Locale locale = AOP.getLocale();
 		Calendar calendar = new GregorianCalendar();
-		DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy | HH:mm:ss", locale);
-		String data = getDia(calendar.get(Calendar.DAY_OF_WEEK)) + " | ";
+		String data = getDia(calendar.get(Calendar.DAY_OF_WEEK));
+		DateFormat dateFormat = new SimpleDateFormat(" [ dd/MM/yyyy ] [ HH:mm:ss ]", locale);
 		data += dateFormat.format(calendar.getTime());
 		return data;
 	}
@@ -37,25 +42,25 @@ public class Data {
 		switch (dia) {
 
 		case Calendar.SUNDAY:
-			nome = "DOMINGO";
+			nome = "[ DOMINGO ]";
 			break;
 		case Calendar.MONDAY:
-			nome = "SEGUNDA-FEIRA";
+			nome = "[ SEGUNDA-FEIRA ]";
 			break;
 		case Calendar.TUESDAY:
-			nome = "TERÇA-FEIRA";
+			nome = "[ TERÇA-FEIRA ]";
 			break;
 		case Calendar.WEDNESDAY:
-			nome = "QUARTA-FEIRA";
+			nome = "[ QUARTA-FEIRA ]";
 			break;
 		case Calendar.THURSDAY:
-			nome = "QUINTA-FEIRA";
+			nome = "[ QUINTA-FEIRA ]";
 			break;
 		case Calendar.FRIDAY:
-			nome = "SEXTA-FEIRA";
+			nome = "[ SEXTA-FEIRA ]";
 			break;
 		case Calendar.SATURDAY:
-			nome = "SÁBADO";
+			nome = "[ SÁBADO ]";
 			break;
 		}
 		return nome;

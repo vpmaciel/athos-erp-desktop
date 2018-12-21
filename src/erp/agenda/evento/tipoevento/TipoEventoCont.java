@@ -26,16 +26,16 @@ final class TipoEventoCont {
 
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
-			if (tipoEvento == null || tipoEvento.getId() == null) {
+			if (TipoEvento == null || TipoEvento.getId() == null) {
 				return;
 			}
 			if (Msg.confirmarExcluiRegistro() != JOptionPane.YES_OPTION) {
 				return;
 			}
 			try {
-				TipoEventoFac.deletarRegistro(tipoEvento);
+				TipoEventoFac.deletarRegistro(TipoEvento);
 				getTipoEventoFc().limparGui();
-				tipoEvento = new TipoEvento();
+				TipoEvento = new TipoEvento();
 				Msg.sucessoExcluiRegistro();
 			} catch (Exception e) {
 				Msg.erroExcluiRegistro();
@@ -70,7 +70,7 @@ final class TipoEventoCont {
 
 		@Override
 		public void windowOpened(WindowEvent e) {
-			tipoEvento = new TipoEvento();
+			TipoEvento = new TipoEvento();
 		}
 	}
 
@@ -90,21 +90,17 @@ final class TipoEventoCont {
 
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
-			List<TipoEvento> tipoEventos = new LinkedList<>();
 
-			if (tipoEvento.getId() == null) {
-				Msg.avisoImprimiRegistroNaoCadastrado();
-				return;
-			}
+			List<TipoEvento> TipoEventos = new LinkedList<>();
 
 			try {
-				if (tipoEventos.add(TipoEventoFac.getRegistro(tipoEvento))) {
-					TipoEventoRel tipoEventoRel = new TipoEventoRel(tipoEventos);
-					tipoEventoRel.retornarRelatorio(true);
-				}
+				TipoEventos = new LinkedList<>(TipoEventoFac.pesquisarRegistro(new TipoEvento()));
 			} catch (Exception e) {
 				System.out.println(e);
 			}
+
+			TipoEventoRel TipoEventoRel = new TipoEventoRel(TipoEventos);
+			TipoEventoRel.retornarRelatorio(true);
 
 		}
 	}
@@ -113,15 +109,17 @@ final class TipoEventoCont {
 
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
-			List<TipoEvento> tipoEventos = new LinkedList<>();
+			List<TipoEvento> TipoEventos = new LinkedList<>();
 
-			try {
-				tipoEventos = new LinkedList<>(TipoEventoFac.pesquisarRegistro(tipoEvento));
-			} catch (Exception e) {
-				System.out.println(e);
+			if (TipoEvento.getId() == null) {
+				Msg.avisoImprimiRegistroNaoCadastrado();
+				return;
 			}
-			TipoEventoRel tipoEventoRel = new TipoEventoRel(tipoEventos);
-			tipoEventoRel.retornarRelatorio(true);
+			if (TipoEventos.add(TipoEventoFac.getRegistro(TipoEvento))) {
+				TipoEventoRel TipoEventoRel = new TipoEventoRel(TipoEventos);
+				TipoEventoRel.retornarRelatorio(true);
+			}
+
 		}
 	}
 
@@ -129,7 +127,7 @@ final class TipoEventoCont {
 
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
-			tipoEvento = new TipoEvento();
+			TipoEvento = new TipoEvento();
 			MainCont.getAgendaTipoEventoFc().limparGui();
 			getTipoEventoPc().getNomeGUI().requestFocus();
 		}
@@ -139,9 +137,9 @@ final class TipoEventoCont {
 
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
-			tipoEvento = new TipoEvento();
+			TipoEvento = new TipoEvento();
 			atualizarObjeto();
-			getTipoEventoPp().pesquisarRegistroAgenda(tipoEvento);
+			getTipoEventoPp().pesquisarRegistroAgenda(TipoEvento);
 			MainCont.mostrarFrame(MainCont.getAgendaTipoEventoFp());
 		}
 	}
@@ -178,8 +176,8 @@ final class TipoEventoCont {
 				}
 				if (mensagem == JOptionPane.YES_OPTION) {
 					atualizarObjeto();
-					TipoEventoFac.salvarRegistro(tipoEvento);
-					tipoEvento = new TipoEvento();
+					TipoEventoFac.salvarRegistro(TipoEvento);
+					TipoEvento = new TipoEvento();
 					MainCont.getAgendaTipoEventoFc().limparGui();
 					getTipoEventoPc().getNomeGUI().requestFocus();
 					Msg.sucessoSalvarRegistro();
@@ -191,25 +189,25 @@ final class TipoEventoCont {
 		}
 	}
 
-	private TipoEvento tipoEvento;
+	private TipoEvento TipoEvento;
 
 	public void atualizarGui() {
-		if (tipoEvento == null) {
+		if (TipoEvento == null) {
 			return;
 		}
-		getTipoEventoPc().getNomeGUI().setText(tipoEvento.getNome());
+		getTipoEventoPc().getNomeGUI().setText(TipoEvento.getNome());
 	}
 
 	public void atualizarObjeto() {
-		tipoEvento.setNome(getTipoEventoPc().getNomeGUI().getText());
+		TipoEvento.setNome(getTipoEventoPc().getNomeGUI().getText());
 	}
 
 	public TipoEvento getEvento() {
-		return tipoEvento;
+		return TipoEvento;
 	}
 
-	public void setAgenda(TipoEvento tipoEvento) {
-		this.tipoEvento = tipoEvento;
+	public void setTipoEvento(TipoEvento TipoEvento) {
+		this.TipoEvento = TipoEvento;
 	}
 
 	public TipoEventoFc getTipoEventoFc() {

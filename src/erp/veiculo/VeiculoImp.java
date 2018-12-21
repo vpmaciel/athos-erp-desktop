@@ -146,10 +146,10 @@ final class VeiculoImp implements VeiculoDao {
 		if (veiculo.getLogradouro() != null && !veiculo.getLogradouro().equals("")) {
 			predicates.add(criteriaBuilder.like(rootVeiculo.get("logradouro"), "%" + veiculo.getLogradouro() + "%"));
 		}
-		if (veiculo.getMarca() != null && !veiculo.getMarca().equals("")) {
+		if (veiculo.getMarca() != null) {
 			predicates.add(criteriaBuilder.like(rootVeiculo.get("marca"), "%" + veiculo.getMarca() + "%"));
 		}
-		if (veiculo.getModelo() != null && !veiculo.getModelo().equals("")) {
+		if (veiculo.getModelo() != null) {
 			predicates.add(criteriaBuilder.like(rootVeiculo.get("modelo"), "%" + veiculo.getModelo() + "%"));
 		}
 		if (veiculo.getMunicipioEmplacamento() != null && !veiculo.getMunicipioEmplacamento().equals("")) {

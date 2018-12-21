@@ -87,21 +87,17 @@ final class RecadoCont {
 
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
+
 			List<Recado> recados = new LinkedList<>();
 
-			if (recado.getId() == null) {
-				Msg.avisoImprimiRegistroNaoCadastrado();
-				return;
-			}
-
 			try {
-				if (recados.add(RecadoFac.getRegistro(recado))) {
-					RecadoRel recadoRel = new RecadoRel(recados);
-					recadoRel.retornarRelatorio(true);
-				}
+				recados = new LinkedList<>(RecadoFac.pesquisarRegistro(new Recado()));
 			} catch (Exception e) {
 				System.out.println(e);
 			}
+
+			RecadoRel recadoRel = new RecadoRel(recados);
+			recadoRel.retornarRelatorio(true);
 
 		}
 	}
@@ -112,13 +108,15 @@ final class RecadoCont {
 		public void actionPerformed(ActionEvent actionEvent) {
 			List<Recado> recados = new LinkedList<>();
 
-			try {
-				recados = new LinkedList<>(RecadoFac.pesquisarRegistro(recado));
-			} catch (Exception e) {
-				System.out.println(e);
+			if (recado.getId() == null) {
+				Msg.avisoImprimiRegistroNaoCadastrado();
+				return;
 			}
-			RecadoRel recadoRel = new RecadoRel(recados);
-			recadoRel.retornarRelatorio(true);
+			if (recados.add(RecadoFac.getRegistro(recado))) {
+				RecadoRel recadoRel = new RecadoRel(recados);
+				recadoRel.retornarRelatorio(true);
+			}
+
 		}
 	}
 

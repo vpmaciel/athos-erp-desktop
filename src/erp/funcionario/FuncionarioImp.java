@@ -68,7 +68,7 @@ final class FuncionarioImp implements FuncionarioDao {
 		if (funcionario.getCategoria() != null && !funcionario.getCategoria().equals("")) {
 			predicates.add(criteriaBuilder.like(rootFuncionario.get("categoria"), "%" + funcionario.getCategoria() + "%"));
 		}
-		if (funcionario.getCentroCusto() != null && !funcionario.getCentroCusto().equals("")) {
+		if (funcionario.getCentroCusto() != null) {
 			predicates.add(criteriaBuilder.equal(rootFuncionario.get("centroCusto"), funcionario.getCentroCusto()));
 		}
 		if (funcionario.getCep() != null && !funcionario.getCep().equals("")) {

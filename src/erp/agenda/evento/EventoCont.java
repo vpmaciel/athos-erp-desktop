@@ -98,21 +98,17 @@ final class EventoCont {
 
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
+
 			List<Evento> eventos = new LinkedList<>();
 
-			if (evento.getId() == null) {
-				Msg.avisoImprimiRegistroNaoCadastrado();
-				return;
-			}
-
 			try {
-				if (eventos.add(EventoFac.getRegistro(evento))) {
-					EventoRel eventoRelatorio = new EventoRel(eventos);
-					eventoRelatorio.retornarRelatorio(true);
-				}
+				eventos = new LinkedList<>(EventoFac.pesquisarRegistro(new Evento()));
 			} catch (Exception e) {
 				System.out.println(e);
 			}
+
+			EventoRel eventoRel = new EventoRel(eventos);
+			eventoRel.retornarRelatorio(true);
 
 		}
 	}
@@ -123,16 +119,17 @@ final class EventoCont {
 		public void actionPerformed(ActionEvent actionEvent) {
 			List<Evento> eventos = new LinkedList<>();
 
-			try {
-				eventos = new LinkedList<>(EventoFac.pesquisarRegistro(evento));
-			} catch (Exception e) {
-				System.out.println(e);
+			if (evento.getId() == null) {
+				Msg.avisoImprimiRegistroNaoCadastrado();
+				return;
 			}
-			EventoRel eventoRelatorio = new EventoRel(eventos);
-			eventoRelatorio.retornarRelatorio(true);
+			if (eventos.add(EventoFac.getRegistro(evento))) {
+				EventoRel eventoRel = new EventoRel(eventos);
+				eventoRel.retornarRelatorio(true);
+			}
+
 		}
 	}
-
 	public class Novo implements ActionListener {
 
 		@Override
