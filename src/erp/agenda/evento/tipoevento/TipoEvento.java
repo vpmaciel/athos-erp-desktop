@@ -10,8 +10,6 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
-import erp.agenda.evento.Evento;
-
 @SuppressWarnings("serial")
 @PersistenceContext(unitName = "erp")
 @Entity
@@ -42,16 +40,5 @@ public class TipoEvento implements Serializable {
 	@Override
 	public String toString() {
 		return this.nome;
-	}
-	
-	@Override
-	public boolean equals(Object object) {
-		if (!(object instanceof Evento)) {
-			return false;
-		}
-		if (((TipoEvento) object).getId() == this.id) {
-			return true;
-		}
-		return false;
 	}
 }

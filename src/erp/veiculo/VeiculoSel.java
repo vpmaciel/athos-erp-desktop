@@ -29,8 +29,8 @@ public final class VeiculoSel implements ListSelectionListener {
 					VeiculoTm veiculoTm = (VeiculoTm) table.getModel();
 					veiculoTm.getVeiculo(table.getSelectedRow());
 					MainCont.mostrarFrame(MainCont.getVeiculoFc());
-					MainCont.getVeiculoFc().getVeiculoGerenteEventos().setVeiculo(veiculo);
-					MainCont.getVeiculoFc().getVeiculoGerenteEventos().atualizarGui();
+					MainCont.getVeiculoFc().getVeiculoCont().setVeiculo(veiculo);
+					MainCont.getVeiculoFc().getVeiculoCont().atualizarGui();
 					MainCont.getVeiculoFc().setFocusable(true);
 					MainCont.getVeiculoFp().setVisible(false);
 				}

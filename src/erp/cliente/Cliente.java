@@ -300,11 +300,11 @@ public class Cliente implements Serializable {
 	}
 
 	public void setAnoReferenciaCadastro(String anoReferenciaCadastro) {
-		this.anoReferenciaCadastro = anoReferenciaCadastro.replaceAll("\\s+", " ").trim();
+		this.anoReferenciaCadastro = anoReferenciaCadastro;
 	}
 
 	public void setBairro(String bairro) {
-		this.bairro = bairro.replaceAll("\\s+", " ").trim();
+		this.bairro = bairro;
 	}
 
 	public void setBanco(Banco banco) {
@@ -312,51 +312,51 @@ public class Cliente implements Serializable {
 	}
 
 	public void setCargo(String cargo) {
-		this.cargo = cargo.replaceAll("\\s+", " ").trim();
+		this.cargo = cargo;
 	}
 
 	public void setCep(String cep) {
-		this.cep = cep.replaceAll("\\s+", " ").trim();
+		this.cep = cep;
 	}
 
 	public void setCidade(String cidade) {
-		this.cidade = cidade.replaceAll("\\s+", " ").trim();
+		this.cidade = cidade;
 	}
 
 	public void setClasseEconomica(String classeEconomica) {
-		this.classeEconomica = classeEconomica.replaceAll("\\s+", " ").trim();
+		this.classeEconomica = classeEconomica;
 	}
 
 	public void setCnpj(String cnpj) {
-		this.cnpj = cnpj.replaceAll("\\s+", " ").trim();
+		this.cnpj = cnpj;
 	}
 
 	public void setComplemento(String complemento) {
-		this.complemento = complemento.replaceAll("\\s+", " ").trim();
+		this.complemento = complemento;
 	}
 
 	public void setCor(String cor) {
-		this.cor = cor.replaceAll("\\s+", " ").trim();
+		this.cor = cor;
 	}
 
 	public void setCpf(String cpfNumero) {
-		this.cpfNumero = cpfNumero.replaceAll("\\s+", " ").trim();
+		this.cpfNumero = cpfNumero;
 	}
 
 	public void setDataCadastro(String dataCadastro) {
-		this.dataCadastro = dataCadastro.replaceAll("\\s+", " ").trim();
+		this.dataCadastro = dataCadastro;
 	}
 
 	public void setDataNascimento(String dataNascimento) {
-		this.dataNascimento = dataNascimento.replaceAll("\\s+", " ").trim();
+		this.dataNascimento = dataNascimento;
 	}
 
 	public void setDeficiencia(String deficiencia) {
-		this.deficiencia = deficiencia.replaceAll("\\s+", " ").trim();
+		this.deficiencia = deficiencia;
 	}
 
 	public void setEmail(String email) {
-		this.email = email.replaceAll("\\s+", " ").trim();
+		this.email = email;
 	}
 
 	public void setEmpresa(Empresa empresa) {
@@ -364,39 +364,39 @@ public class Cliente implements Serializable {
 	}
 
 	public void setEscolaridade(String escolaridade) {
-		this.escolaridade = escolaridade.replaceAll("\\s+", " ").trim();
+		this.escolaridade = escolaridade;
 	}
 
 	public void setEstado(String estado) {
-		this.estado = estado.replaceAll("\\s+", " ").trim();
+		this.estado = estado;
 	}
 
 	public void setEstadoCivil(String estadoCivil) {
-		this.estadoCivil = estadoCivil.replaceAll("\\s+", " ").trim();
+		this.estadoCivil = estadoCivil;
 	}
 
 	public void setFax(String fax) {
-		this.fax = fax.replaceAll("\\s+", " ").trim();
+		this.fax = fax;
 	}
 
 	public void setFone1(String fone1) {
-		this.fone1 = fone1.replaceAll("\\s+", " ").trim();
+		this.fone1 = fone1;
 	}
 
 	public void setFone2(String fone2) {
-		this.fone2 = fone2.replaceAll("\\s+", " ").trim();
+		this.fone2 = fone2;
 	}
 
 	public void setFoneReferencia1(String foneReferencia1) {
-		this.foneReferencia1 = foneReferencia1.replaceAll("\\s+", " ").trim();
+		this.foneReferencia1 = foneReferencia1;
 	}
 
 	public void setFoneReferencia2(String foneReferencia2) {
-		this.foneReferencia2 = foneReferencia2.replaceAll("\\s+", " ").trim();
+		this.foneReferencia2 = foneReferencia2;
 	}
 
 	public void setFoneReferencia3(String foneReferencia3) {
-		this.foneReferencia3 = foneReferencia3.replaceAll("\\s+", " ").trim();
+		this.foneReferencia3 = foneReferencia3;
 	}
 
 	public void setId(Long id) {
@@ -404,79 +404,79 @@ public class Cliente implements Serializable {
 	}
 
 	public void setIdade(String idade) {
-		this.idade = idade.replaceAll("\\s+", " ").trim();
+		this.idade = idade;
 	}
 
 	public void setLogradouro(String logradouro) {
-		this.logradouro = logradouro.replaceAll("\\s+", " ").trim();
+		this.logradouro = logradouro;
 	}
 
 	public void setMesReferenciaCadastro(String mesReferenciaCadastro) {
-		this.mesReferenciaCadastro = mesReferenciaCadastro.replaceAll("\\s+", " ").trim();
+		this.mesReferenciaCadastro = mesReferenciaCadastro;
 	}
 
 	public void setNacionalidade(String nacionalidade) {
-		this.nacionalidade = nacionalidade.replaceAll("\\s+", " ").trim();
+		this.nacionalidade = nacionalidade;
 	}
 
 	public void setNome(String nome) {
-		this.nome = nome.replaceAll("\\s+", " ").trim();
+		this.nome = nome;
 	}
 
 	public void setNomeReferencia1(String nomeReferencia1) {
-		this.nomeReferencia1 = nomeReferencia1.replaceAll("\\s+", " ").trim();
+		this.nomeReferencia1 = nomeReferencia1;
 	}
 
 	public void setNomeReferencia2(String nomeReferencia2) {
-		this.nomeReferencia2 = nomeReferencia2.replaceAll("\\s+", " ").trim();
+		this.nomeReferencia2 = nomeReferencia2;
 	}
 
 	public void setNomeReferencia3(String nomeReferencia3) {
-		this.nomeReferencia3 = nomeReferencia3.replaceAll("\\s+", " ").trim();
+		this.nomeReferencia3 = nomeReferencia3;
 	}
 
 	public void setNumeroAgenciaBancaria(String numeroAgenciaBancaria) {
-		this.numeroAgenciaBancaria = numeroAgenciaBancaria.replaceAll("\\s+", " ").trim();
+		this.numeroAgenciaBancaria = numeroAgenciaBancaria;
 	}
 
 	public void setNumeroContaBancaria(String numeroContaBancaria) {
-		this.numeroContaBancaria = numeroContaBancaria.replaceAll("\\s+", " ").trim();
+		this.numeroContaBancaria = numeroContaBancaria;
 	}
 
 	public void setPais(String pais) {
-		this.pais = pais.replaceAll("\\s+", " ").trim();
+		this.pais = pais;
 	}
 
 	public void setRelacionamentoReferencia1(String relacionamentoReferencia1) {
-		this.relacionamentoReferencia1 = relacionamentoReferencia1.replaceAll("\\s+", " ").trim();
+		this.relacionamentoReferencia1 = relacionamentoReferencia1;
 	}
 
 	public void setRelacionamentoReferencia2(String relacionamentoReferencia2) {
-		this.relacionamentoReferencia2 = relacionamentoReferencia2.replaceAll("\\s+", " ").trim();
+		this.relacionamentoReferencia2 = relacionamentoReferencia2;
 	}
 
 	public void setRelacionamentoReferencia3(String relacionamentoReferencia3) {
-		this.relacionamentoReferencia3 = relacionamentoReferencia3.replaceAll("\\s+", " ").trim();
+		this.relacionamentoReferencia3 = relacionamentoReferencia3;
 	}
 
 	public void setRgNumero(String rgNumero) {
-		this.rgNumero = rgNumero.replaceAll("\\s+", " ").trim();
+		this.rgNumero = rgNumero;
 	}
 
 	public void setRgOrgaoEmissor(String rgOrgaoEmissor) {
-		this.rgOrgaoEmissor = rgOrgaoEmissor.replaceAll("\\s+", " ").trim();
+		this.rgOrgaoEmissor = rgOrgaoEmissor;
 	}
 
 	public void setSalario(String salario) {
-		this.salario = salario.replaceAll("\\s+", " ").trim();
+		this.salario = salario;
 	}
 
 	public void setSexo(String sexo) {
-		this.sexo = sexo.replaceAll("\\s+", " ").trim();
+		this.sexo = sexo;
 	}
 
 	public void setStatus(String status) {
-		this.status = status.replaceAll("\\s+", " ").trim();
+		this.status = status;
 	}
 
 	@Override

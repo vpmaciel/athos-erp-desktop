@@ -15,6 +15,7 @@ import arquitetura.gui.FocoEvento;
 import arquitetura.gui.Gui;
 import arquitetura.gui.Imagem;
 
+
 @SuppressWarnings("serial")
 public final class EventoFc extends JFrame implements Gui {
 
@@ -56,9 +57,7 @@ public final class EventoFc extends JFrame implements Gui {
 
 	@Override
 	public void iniciarGui() {
-		
 		setIconImage(Imagem.getLogoTipoImage());
-
 		eventoPc = new EventoPc();
 		eventoPc.setOpaque(true); // content panes must be opaque
 
@@ -82,6 +81,7 @@ public final class EventoFc extends JFrame implements Gui {
 		add(scrollPane);
 		setContentPane(scrollPane);
 		pack();
+
 	}
 
 	@Override
@@ -94,7 +94,7 @@ public final class EventoFc extends JFrame implements Gui {
 		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		eventoCont = new EventoCont();
 		addWindowListener(eventoCont.new Frame());
-		eventoPc.getLabelTipoEvento().addMouseListener(eventoCont.new MostraFrame());
+		//eventoPc.getLabelTipoEvento().addMouseListener(eventoCont.new MostraFrame());
 		eventoPc.getToolBar().getExcluirBtn().addActionListener(eventoCont.new Exclui());
 		eventoPc.getToolBar().getNovoBtn().addActionListener(eventoCont.new Novo());
 		eventoPc.getToolBar().getPesquisarBtn().addActionListener(eventoCont.new Pesquisa());
@@ -128,6 +128,6 @@ public final class EventoFc extends JFrame implements Gui {
 
 	@Override
 	public void reiniciarGui() {
-		eventoPc.reiniciarGui();
+
 	}
 }

@@ -236,16 +236,16 @@ public final class MainCont {
 				return;
 			}
 			if (actionEvent.getSource() == mainFc.getMenuItemUtilitarioAgendaEvento()) {
-				mostrarFrame(frameCadastroAgendaEvento);
+				mostrarFrame(eventoFc);
 			}
 			if (actionEvent.getSource() == mainFc.getMenuItemUtilitarioAgendaTipoEvento()) {
-				mostrarFrame(frameCadastroAgendaTipoEvento);
+				mostrarFrame(tipoEventoFc);
 			}
 			if (actionEvent.getSource() == mainFc.getMenuItemUtilitarioAgendaRecado()) {
-				mostrarFrame(frameCadastroAgendaRecado);
+				mostrarFrame(recadoFc);
 			}
 			if (actionEvent.getSource() == mainFc.getMenuItemUtilitarioAgendaContato()) {
-				mostrarFrame(frameCadastroAgendaContato);
+				mostrarFrame(contatoFc);
 			}
 			if (actionEvent.getSource() == mainFc.getMenuItemUtilitarioCalculadora()) {
 				mostrarFrame(calculadoraFc);
@@ -261,14 +261,14 @@ public final class MainCont {
 	private static BancoFp bancoFp;
 	private static CentroCustoFc centroCustoFc;
 	private static CentroCustoFp centroCustoFp;
-	private static EventoFc frameCadastroAgendaEvento;
-	private static EventoFp framePesquisaAgendaEvento;
-	private static TipoEventoFc frameCadastroAgendaTipoEvento;
-	private static TipoEventoFp framePesquisaAgendaTipoEvento;
-	private static ContatoFc frameCadastroAgendaContato;
-	private static ContatoFp framePesquisaAgendaContato;
-	private static RecadoFc frameCadastroAgendaRecado;
-	private static RecadoFp framePesquisaAgendaRecado;
+	private static EventoFc eventoFc;
+	private static EventoFp eventoFp;
+	private static TipoEventoFc tipoEventoFc;
+	private static TipoEventoFp tipoEventoFp;
+	private static ContatoFc contatoFc;
+	private static ContatoFp contatoFp;
+	private static RecadoFc recadoFc;
+	private static RecadoFp recadoFp;
 	private static CartorioFc cartorioFc;
 	private static CartorioFp cartorioFp;
 	private static ContadorFc contadorFc;
@@ -312,7 +312,7 @@ public final class MainCont {
 	}
 
 	public static EventoFc getAgendaEventoFc() {
-		return frameCadastroAgendaEvento;
+		return eventoFc;
 	}
 
 	public static BancoFc getBancoFc() {
@@ -332,11 +332,11 @@ public final class MainCont {
 	}
 
 	public static TipoEventoFc getAgendaTipoEventoFc() {
-		return frameCadastroAgendaTipoEvento;
+		return tipoEventoFc;
 	}
 
 	public static ContatoFc getAgendaContatoFc() {
-		return frameCadastroAgendaContato;
+		return contatoFc;
 	}
 
 	public static ContadorFc getContadorFc() {
@@ -360,7 +360,7 @@ public final class MainCont {
 	}
 
 	public static RecadoFc getAgendaRecadoFc() {
-		return frameCadastroAgendaRecado;
+		return recadoFc;
 	}
 
 	public static SindicatoFc getSindicatoFc() {
@@ -392,15 +392,15 @@ public final class MainCont {
 	}
 
 	public static TipoEventoFp getAgendaTipoEventoFp() {
-		return framePesquisaAgendaTipoEvento;
+		return tipoEventoFp;
 	}
 
 	public static EventoFp getAgendaEventoFp() {
-		return framePesquisaAgendaEvento;
+		return eventoFp;
 	}
 
 	public static ContatoFp getAgendaContatoFp() {
-		return framePesquisaAgendaContato;
+		return contatoFp;
 	}
 
 	public static BancoFp getBancoFp() {
@@ -440,7 +440,7 @@ public final class MainCont {
 	}
 
 	public static RecadoFp getAgendaRecadoFp() {
-		return framePesquisaAgendaRecado;
+		return recadoFp;
 	}
 
 	public static SindicatoFp getSindicatoFp() {
@@ -570,29 +570,29 @@ public final class MainCont {
 		imovelFp = new ImovelFp();
 		criarFrame(imovelFp);
 
-		frameCadastroAgendaContato = new ContatoFc();
-		criarFrame(frameCadastroAgendaContato);
+		contatoFc = new ContatoFc();
+		criarFrame(contatoFc);
 
-		framePesquisaAgendaContato = new ContatoFp();
-		criarFrame(framePesquisaAgendaContato);
+		contatoFp = new ContatoFp();
+		criarFrame(contatoFp);
 
-		frameCadastroAgendaEvento = new EventoFc();
-		criarFrame(frameCadastroAgendaEvento);
+		eventoFc = new EventoFc();
+		criarFrame(eventoFc);
 
-		framePesquisaAgendaEvento = new EventoFp();
-		criarFrame(framePesquisaAgendaEvento);
+		eventoFp = new EventoFp();
+		criarFrame(eventoFp);
 
-		frameCadastroAgendaTipoEvento = new TipoEventoFc();
-		criarFrame(frameCadastroAgendaTipoEvento);
+		tipoEventoFc = new TipoEventoFc();
+		criarFrame(tipoEventoFc);
 
-		framePesquisaAgendaTipoEvento = new TipoEventoFp();
-		criarFrame(framePesquisaAgendaTipoEvento);
+		tipoEventoFp = new TipoEventoFp();
+		criarFrame(tipoEventoFp);
 
-		frameCadastroAgendaRecado = new RecadoFc();
-		criarFrame(frameCadastroAgendaRecado);
+		recadoFc = new RecadoFc();
+		criarFrame(recadoFc);
 
-		framePesquisaAgendaRecado = new RecadoFp();
-		criarFrame(framePesquisaAgendaRecado);
+		recadoFp = new RecadoFp();
+		criarFrame(recadoFp);
 
 		veiculoMarcaFc = new VeiculoMarcaFc();
 		criarFrame(veiculoMarcaFc);

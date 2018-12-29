@@ -559,8 +559,8 @@ public final class VeiculoPc extends JPanel implements Gui {
 		List<VeiculoMarca> veiculoMarcas = (List<VeiculoMarca>) VeiculoMarcaFac.getRegistro();
 		Collections.sort(veiculoMarcas, new VeiculoMarcaComp().new Marca());
 		
-		for (VeiculoMarca v : veiculoMarcas) {
-			boxVeiculoMarca.addItem(v);
+		for (VeiculoMarca veiculoMarca : veiculoMarcas) {
+			boxVeiculoMarca.addItem(veiculoMarca);
 		}
 		
 		add(boxVeiculoMarca);
@@ -1534,15 +1534,16 @@ public final class VeiculoPc extends JPanel implements Gui {
 		}
 		
 		if (!MainCont.getVeiculoFc().isShowing()
-				&& MainCont.getVeiculoFc().getVeiculoGerenteEventos().getVeiculo() != null) {
-			centroCusto = MainCont.getVeiculoFc().getVeiculoGerenteEventos().getVeiculo().getCentroCusto();
+				&& MainCont.getVeiculoFc().getVeiculoCont().getVeiculo() != null) {
+			centroCusto = MainCont.getVeiculoFc().getVeiculoCont().getVeiculo().getCentroCusto();
 			boxCentroCusto.setSelectedItem(centroCusto);
 			
-			veiculoMarca = MainCont.getVeiculoFc().getVeiculoGerenteEventos().getVeiculo().getMarca();
+			veiculoMarca = MainCont.getVeiculoFc().getVeiculoCont().getVeiculo().getMarca();
 			boxVeiculoMarca.setSelectedItem(veiculoMarca);
 			
-			veiculoModelo = MainCont.getVeiculoFc().getVeiculoGerenteEventos().getVeiculo().getModelo();
+			veiculoModelo = MainCont.getVeiculoFc().getVeiculoCont().getVeiculo().getModelo();
 			boxVeiculoModelo.setSelectedItem(veiculoModelo);
 		}
+		System.out.println("REINICIANDO GUI");
 	}
 }

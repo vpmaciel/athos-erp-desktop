@@ -19,5 +19,4 @@ public class TipoEventoComp {
 			return ((TipoEvento) o1).getNome().compareToIgnoreCase(((TipoEvento) o2).getNome());
 		}
 	}
-
 }

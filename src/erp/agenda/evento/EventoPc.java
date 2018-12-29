@@ -21,8 +21,9 @@ import arquitetura.util.SpringUtilities;
 import arquitetura.validacao.Mascara;
 import erp.agenda.evento.tipoevento.TipoEvento;
 import erp.agenda.evento.tipoevento.TipoEventoFac;
-import erp.agenda.evento.tipoevento.TipoEventoComp;
 import erp.main.MainCont;
+import erp.agenda.evento.tipoevento.TipoEventoComp;
+
 
 @SuppressWarnings("serial")
 public final class EventoPc extends JPanel implements Gui {
@@ -44,7 +45,7 @@ public final class EventoPc extends JPanel implements Gui {
 		iniciarLayout();
 		iniciarGui();
 		iniciarFocoControlador();
-		iniciarGuiControlador();
+		iniciarGuiControlador();	
 	}
 
 	@Override
@@ -52,7 +53,7 @@ public final class EventoPc extends JPanel implements Gui {
 
 	}
 
-	public JComboBox<TipoEvento> getTipoEventoGUI() {
+	public JComboBox<TipoEvento> getTipoEventoGui() {
 		return boxTipoEvento;
 	}
 
@@ -65,19 +66,19 @@ public final class EventoPc extends JPanel implements Gui {
 		return labelTipoEvento;
 	}
 
-	public JTextField getHoraInicioGUI() {
+	public JFormattedTextField getHoraInicioGui() {
 		return textFieldHoraInicio;
 	}
 
-	public JTextField getDataGUI() {
+	public JTextField getDataGui() {
 		return textFieldData;
 	}
 
-	public JTextField getHoraTerminoGUI() {
+	public JFormattedTextField getHoraTerminoGui() {
 		return textFieldHoraTermino;
 	}
 
-	public JTextField getDescricaoGUI() {
+	public JTextField getDescricaoGui() {
 		return textFieldDescricao;
 	}
 
@@ -105,12 +106,15 @@ public final class EventoPc extends JPanel implements Gui {
 		add(labelTipoEvento);
 
 		boxTipoEvento = new JComboBox<TipoEvento>();
+		boxTipoEvento.setMaximumRowCount(5);
+		
 		List<TipoEvento> tipoEventosList = (List<TipoEvento>) TipoEventoFac.getRegistro();
 		Collections.sort(tipoEventosList, new TipoEventoComp().new Nome());
-		for (TipoEvento tipoEvento : tipoEventosList) {
-			boxTipoEvento.addItem(tipoEvento);
+		
+		for (TipoEvento t : tipoEventosList) {
+			boxTipoEvento.addItem(t);
 		}
-		boxTipoEvento.setMaximumRowCount(5);
+		
 		add(boxTipoEvento);
 
 		labelDescricao = new JLabel("DESCRIÇÃO");
@@ -169,12 +173,13 @@ public final class EventoPc extends JPanel implements Gui {
 	@Override
 	public void limparGui() {
 		configuracaoGui.limparGui();
-		reiniciarGui();
+		//reiniciarGui();
 	}
 
 	@Override
 	
 	public void reiniciarGui() {
+		
 		TipoEvento tipoEvento = null;
 		List<TipoEvento> tipoEventoList = (List<TipoEvento>) TipoEventoFac.getRegistro();
 		Collections.sort(tipoEventoList, new TipoEventoComp().new Nome());

@@ -35,7 +35,7 @@ public final class TipoEventoFc extends JFrame implements Gui {
 
 	}
 
-	public TipoEventoCont getTipoEventoGerenteEventos() {
+	public TipoEventoCont getTipoEventoCont() {
 		return tipoEventoCont;
 	}
 

@@ -83,15 +83,4 @@ public class Evento implements Serializable {
 	public String toString() {
 		return this.descricao;
 	}
-
-	@Override
-	public boolean equals(Object object) {
-		if (!(object instanceof Evento)) {
-			return false;
-		}
-		if (((Evento) object).getId() == this.id) {
-			return true;
-		}
-		return false;
-	}
 }
