@@ -25,6 +25,7 @@ final class EventoSel implements ListSelectionListener {
 				eventoPesquisaRegistro.setId((Long) tm.getValueAt(selRows[0], EventoTm.ID));
 
 				if (table.getSelectedRow() != -1) {
+					MainCont.getAgendaEventoFc().reiniciarGui();
 					Evento evento = EventoFac.getRegistro(eventoPesquisaRegistro);
 					EventoTm eventoTm = (EventoTm) table.getModel();
 					eventoTm.getEvento(table.getSelectedRow());

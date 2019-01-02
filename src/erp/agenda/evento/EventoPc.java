@@ -113,7 +113,7 @@ public final class EventoPc extends JPanel implements Gui {
 		
 		for (TipoEvento t : tipoEventosList) {
 			boxTipoEvento.addItem(t);
-		}
+		}	
 		
 		add(boxTipoEvento);
 

@@ -128,6 +128,6 @@ public final class EventoFc extends JFrame implements Gui {
 
 	@Override
 	public void reiniciarGui() {
-
+		eventoPc.reiniciarGui();
 	}
 }

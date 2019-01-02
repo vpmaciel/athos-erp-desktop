@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -11,6 +12,8 @@ import javax.swing.JOptionPane;
 
 import arquitetura.gui.Msg;
 import erp.agenda.evento.tipoevento.TipoEvento;
+import erp.agenda.evento.tipoevento.TipoEventoComp;
+import erp.agenda.evento.tipoevento.TipoEventoFac;
 import erp.main.MainCont;
 
 final class EventoCont {
@@ -128,6 +131,17 @@ final class EventoCont {
 
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
+			
+			List<TipoEvento> tipoEventoList = (List<TipoEvento>) TipoEventoFac.getRegistro();
+			Collections.sort(tipoEventoList, new TipoEventoComp().new Nome());
+
+			getEventoPc().getTipoEventoGui().removeAllItems();			
+			getEventoPc().getTipoEventoGui().addItem(new TipoEvento());
+			
+			for (TipoEvento v : tipoEventoList) {
+				getEventoPc().getTipoEventoGui().addItem(v);
+			}
+
 			evento = new Evento();
 			getEventoFc().limparGui();
 			getEventoPc().getDescricaoGui().requestFocus();
