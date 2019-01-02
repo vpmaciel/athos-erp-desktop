@@ -1,6 +1,7 @@
 package erp.agenda.contato;
 
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.KeyboardFocusManager;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
@@ -111,7 +112,7 @@ public final class ContatoFc extends JFrame implements Gui {
 
 	@Override
 	public void iniciarLayout() {
-		setLayout(null);
+		setLayout(new FlowLayout(FlowLayout.CENTER));
 		setPreferredSize(new Dimension(800, 600));
 		setMinimumSize(new Dimension(800, 600));
 		setSize(new Dimension(800, 600));

@@ -1,6 +1,7 @@
 package arquitetura.registro;
 
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -31,6 +32,8 @@ public class ToolBar {
 		toolBar.setFloatable(false);
 		toolBar.setOpaque(false);
 		toolBar.setBorder(BorderFactory.createEtchedBorder());
+		
+		toolBar.setLayout(new FlowLayout(FlowLayout.CENTER));
 
 		buttonHome.setToolTipText("Home");
 		toolBar.add(buttonHome);
