@@ -76,6 +76,8 @@ public final class FuncionarioFc extends JFrame implements Gui {
 						}
 					}
 				});
+		scrollPane.setVerticalScrollBarPolicy(
+				   JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 
 		add(scrollPane);
 		setContentPane(scrollPane);

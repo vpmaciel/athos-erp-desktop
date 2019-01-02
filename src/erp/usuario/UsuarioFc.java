@@ -85,6 +85,8 @@ public final class UsuarioFc extends JFrame implements Gui {
 						}
 					}
 				});
+		scrollPane.setVerticalScrollBarPolicy(
+				   JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 
 		add(scrollPane);
 		setContentPane(scrollPane);

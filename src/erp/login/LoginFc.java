@@ -86,6 +86,8 @@ public final class LoginFc extends JFrame implements Gui {
 						}
 					}
 				});
+		scrollPane.setVerticalScrollBarPolicy(
+				   JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 
 		add(scrollPane);
 		setContentPane(scrollPane);

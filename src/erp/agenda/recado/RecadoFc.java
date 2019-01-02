@@ -79,6 +79,8 @@ public final class RecadoFc extends JFrame implements Gui {
 						}
 					}
 				});
+		scrollPane.setVerticalScrollBarPolicy(
+				   JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 
 		add(scrollPane);
 		setContentPane(scrollPane);
