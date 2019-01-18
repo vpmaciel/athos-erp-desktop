@@ -10,8 +10,8 @@ import java.util.List;
 import javax.swing.JOptionPane;
 
 import arquitetura.gui.Msg;
-import erp.main.MainFc;
 import erp.main.MainCont;
+import erp.main.MainFc;
 
 final class BancoCont {
 
@@ -68,7 +68,7 @@ final class BancoCont {
 		@Override
 		public void windowOpened(WindowEvent e) {
 			banco = new Banco();
-			getBancoPc().getNomeGUI().requestFocus();
+			getBancoPc().getNomeGui().requestFocus();
 		}
 	}
 
@@ -123,7 +123,7 @@ final class BancoCont {
 		public void actionPerformed(ActionEvent actionEvent) {
 			banco = new Banco();
 			getBancoFc().limparGui();
-			getBancoPc().getNomeGUI().requestFocus();
+			getBancoPc().getNomeGui().requestFocus();
 		}
 	}
 
@@ -163,10 +163,14 @@ final class BancoCont {
 				if (mensagem != JOptionPane.YES_OPTION) {
 					return;
 				}
+				
+				if(!getBancoPc().validarCamposCadastro()) {
+					return;
+				}
 
-				if ((getBancoPc().getNomeGUI().getText()) == null
-						|| getBancoPc().getNomeGUI().getText().length() == 0) {
-					getBancoPc().getNomeGUI().requestFocus();
+				if ((getBancoPc().getNomeGui().getText()) == null
+						|| getBancoPc().getNomeGui().getText().length() == 0) {
+					getBancoPc().getNomeGui().requestFocus();
 					Msg.avisoCampoObrigatorio("NOME");
 					return;
 				}
@@ -175,12 +179,12 @@ final class BancoCont {
 					bancoFac.salvarBanco(banco);
 					banco = new Banco();
 					getBancoFc().limparGui();
-					getBancoPc().getNomeGUI().requestFocus();
+					getBancoPc().getNomeGui().requestFocus();
 					Msg.sucessoSalvarRegistro();
 				}
 			} catch (Exception e) {
 				Msg.erroInserirRegistro();
-				Msg.avisoCampoDuplicado("NOME", getBancoPc().getNomeGUI().getText());
+				Msg.avisoCampoDuplicado("NOME", getBancoPc().getNomeGui().getText());
 			}
 		}
 	}
@@ -196,13 +200,13 @@ final class BancoCont {
 		if (banco == null) {
 			return;
 		}
-		getBancoPc().getNomeGUI().setText(banco.getNome());
-		getBancoPc().getCodigoGUI().setText(banco.getCodigo());
+		getBancoPc().getNomeGui().setText(banco.getNome());
+		getBancoPc().getCodigoGui().setText(banco.getCodigo());
 	}
 
 	public void atualizarObjeto() {
-		banco.setCodigo(getBancoPc().getCodigoGUI().getText());
-		banco.setNome(getBancoPc().getNomeGUI().getText());
+		banco.setCodigo(getBancoPc().getCodigoGui().getText());
+		banco.setNome(getBancoPc().getNomeGui().getText());
 	}
 
 	public Banco getBanco() {

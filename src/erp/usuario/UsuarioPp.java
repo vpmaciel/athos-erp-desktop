@@ -25,7 +25,7 @@ public final class UsuarioPp extends JPanel {
 
 	public UsuarioPp() {
 		setBorder(BorderFactory.createTitledBorder("USUÁRIO"));
-		
+
 		usuarioList = new LinkedList<>();
 		agenciaTableModel = new UsuarioTm(usuarioList);
 

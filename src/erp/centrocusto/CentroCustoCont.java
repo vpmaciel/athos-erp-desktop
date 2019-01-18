@@ -67,7 +67,7 @@ final class CentroCustoCont {
 		@Override
 		public void windowOpened(WindowEvent e) {
 			centroCusto = new CentroCusto();
-			getCentroCustoPc().getNomeGUI().requestFocus();
+			getCentroCustoPc().getNomeGui().requestFocus();
 		}
 	}
 
@@ -119,7 +119,7 @@ final class CentroCustoCont {
 		public void actionPerformed(ActionEvent actionEvent) {
 			centroCusto = new CentroCusto();
 			getCentroCustoFc().limparGui();
-			getCentroCustoPc().getNomeGUI().requestFocus();
+			getCentroCustoPc().getNomeGui().requestFocus();
 		}
 	}
 
@@ -160,9 +160,9 @@ final class CentroCustoCont {
 					return;
 				}
 
-				if ((getCentroCustoPc().getNomeGUI().getText()) == null
-						|| getCentroCustoPc().getNomeGUI().getText().length() == 0) {
-					getCentroCustoPc().getNomeGUI().requestFocus();
+				if ((getCentroCustoPc().getNomeGui().getText()) == null
+						|| getCentroCustoPc().getNomeGui().getText().length() == 0) {
+					getCentroCustoPc().getNomeGui().requestFocus();
 					Msg.avisoCampoObrigatorio("NOME");
 					return;
 				}
@@ -171,7 +171,7 @@ final class CentroCustoCont {
 					CentroCustoFac.salvarRegistro(centroCusto);
 					centroCusto = new CentroCusto();
 					getCentroCustoFc().limparGui();
-					getCentroCustoPc().getNomeGUI().requestFocus();
+					getCentroCustoPc().getNomeGui().requestFocus();
 					Msg.sucessoSalvarRegistro();
 				}
 			} catch (Exception e) {
@@ -190,11 +190,11 @@ final class CentroCustoCont {
 		if (centroCusto == null) {
 			return;
 		}
-		getCentroCustoPc().getNomeGUI().setText(centroCusto.getNome());
+		getCentroCustoPc().getNomeGui().setText(centroCusto.getNome());
 	}
 
 	public void atualizarObjeto() {
-		centroCusto.setNome(getCentroCustoPc().getNomeGUI().getText());
+		centroCusto.setNome(getCentroCustoPc().getNomeGui().getText());
 	}
 
 	public CentroCusto getCentroCusto() {

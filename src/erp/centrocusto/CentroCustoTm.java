@@ -24,7 +24,7 @@ public class CentroCustoTm extends AbstractTableModel {
 	static {
 		tabelaModelo.adicionar("ID", 0, 100);
 		tabelaModelo.adicionar("NOME", 1, 500);
-		
+
 		largura = new int[tabelaModelo.getTotalColunas()];
 		podeEditar = new boolean[tabelaModelo.getTotalColunas()];
 		for (int i = 0; i < tabelaModelo.getTotalColunas(); i++) {

@@ -26,7 +26,7 @@ public class ContatoTm extends AbstractTableModel {
 		tabelaModelo.adicionar("NOME", 1, 500);
 		tabelaModelo.adicionar("CPF", 2, 500);
 		tabelaModelo.adicionar("CNPJ", 3, 500);
-		
+
 		largura = new int[tabelaModelo.getTotalColunas()];
 		podeEditar = new boolean[tabelaModelo.getTotalColunas()];
 		for (int i = 0; i < tabelaModelo.getTotalColunas(); i++) {

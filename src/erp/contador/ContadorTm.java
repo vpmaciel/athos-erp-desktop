@@ -27,8 +27,7 @@ public class ContadorTm extends AbstractTableModel {
 		tabelaModelo.adicionar("CPF", 2, 100);
 		tabelaModelo.adicionar("NOME", 3, 500);
 		tabelaModelo.adicionar("CRC", 4, 100);
-	
-		
+
 		largura = new int[tabelaModelo.getTotalColunas()];
 		podeEditar = new boolean[tabelaModelo.getTotalColunas()];
 		for (int i = 0; i < tabelaModelo.getTotalColunas(); i++) {
@@ -95,7 +94,7 @@ public class ContadorTm extends AbstractTableModel {
 		if (tabelaModelo.getNome(columnIndex).equals("CRC")) {
 			return contador.getCrc();
 		}
-		
+
 		return contador;
 	}
 

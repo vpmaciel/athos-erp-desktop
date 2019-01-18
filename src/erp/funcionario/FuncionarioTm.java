@@ -25,7 +25,7 @@ public class FuncionarioTm extends AbstractTableModel {
 		tabelaModelo.adicionar("ID", 0, 100);
 		tabelaModelo.adicionar("CPF", 1, 100);
 		tabelaModelo.adicionar("NOME", 2, 500);
-		
+
 		largura = new int[tabelaModelo.getTotalColunas()];
 		podeEditar = new boolean[tabelaModelo.getTotalColunas()];
 		for (int i = 0; i < tabelaModelo.getTotalColunas(); i++) {
@@ -86,7 +86,7 @@ public class FuncionarioTm extends AbstractTableModel {
 		if (tabelaModelo.getNome(columnIndex).equals("CPF")) {
 			return funcionario.getCpf();
 		}
-		
+
 		return funcionario;
 	}
 
@@ -112,7 +112,7 @@ public class FuncionarioTm extends AbstractTableModel {
 		if (tabelaModelo.getNome(columnIndex).equals("CPF")) {
 			funcionario.setCpf(aValue.toString());
 		}
-		
+
 		fireTableDataChanged();
 	}
 }

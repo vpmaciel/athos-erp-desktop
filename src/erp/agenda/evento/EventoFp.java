@@ -6,8 +6,8 @@ import java.awt.FlowLayout;
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
 
-import arquitetura.gui.Gui;
 import arquitetura.gui.ConfiguracaoGui;
+import arquitetura.gui.Gui;
 import arquitetura.gui.Imagem;
 
 @SuppressWarnings("serial")
@@ -49,7 +49,7 @@ public final class EventoFp extends JFrame implements Gui {
 
 	@Override
 	public void iniciarGuiControlador() {
-		
+
 	}
 
 	@Override

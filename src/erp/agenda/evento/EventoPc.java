@@ -12,18 +12,17 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 
-import arquitetura.gui.FocoEvento;
-import arquitetura.gui.Gui;
 import arquitetura.gui.ConfiguracaoGui;
 import arquitetura.gui.EntradaMaiuscula;
+import arquitetura.gui.FocoEvento;
+import arquitetura.gui.Gui;
 import arquitetura.registro.ToolBar;
 import arquitetura.util.SpringUtilities;
 import arquitetura.validacao.Mascara;
 import erp.agenda.evento.tipoevento.TipoEvento;
+import erp.agenda.evento.tipoevento.TipoEventoComp;
 import erp.agenda.evento.tipoevento.TipoEventoFac;
 import erp.main.MainCont;
-import erp.agenda.evento.tipoevento.TipoEventoComp;
-
 
 @SuppressWarnings("serial")
 public final class EventoPc extends JPanel implements Gui {
@@ -45,7 +44,7 @@ public final class EventoPc extends JPanel implements Gui {
 		iniciarLayout();
 		iniciarGui();
 		iniciarFocoControlador();
-		iniciarGuiControlador();	
+		iniciarGuiControlador();
 	}
 
 	@Override
@@ -107,14 +106,14 @@ public final class EventoPc extends JPanel implements Gui {
 
 		boxTipoEvento = new JComboBox<TipoEvento>();
 		boxTipoEvento.setMaximumRowCount(5);
-		
+
 		List<TipoEvento> tipoEventosList = (List<TipoEvento>) TipoEventoFac.getRegistro();
 		Collections.sort(tipoEventosList, new TipoEventoComp().new Nome());
-		
+
 		for (TipoEvento t : tipoEventosList) {
 			boxTipoEvento.addItem(t);
-		}	
-		
+		}
+
 		add(boxTipoEvento);
 
 		labelDescricao = new JLabel("DESCRIÇÃO");
@@ -173,25 +172,24 @@ public final class EventoPc extends JPanel implements Gui {
 	@Override
 	public void limparGui() {
 		configuracaoGui.limparGui();
-		//reiniciarGui();
+		// reiniciarGui();
 	}
 
 	@Override
-	
+
 	public void reiniciarGui() {
-		
 		TipoEvento tipoEvento = null;
 		List<TipoEvento> tipoEventoList = (List<TipoEvento>) TipoEventoFac.getRegistro();
 		Collections.sort(tipoEventoList, new TipoEventoComp().new Nome());
-		this.boxTipoEvento.removeAllItems();
-		
-		for (TipoEvento v : tipoEventoList) {
-			this.boxTipoEvento.addItem(v);
+		boxTipoEvento.removeAllItems();
+
+		for (TipoEvento t : tipoEventoList) {
+			this.boxTipoEvento.addItem(t);
 		}
-		
+
 		if (!MainCont.getAgendaEventoFc().isShowing()
 				&& MainCont.getAgendaEventoFc().getEventoCont().getEvento() != null) {
-			
+
 			tipoEvento = MainCont.getAgendaEventoFc().getEventoCont().getEvento().getTipoEvento();
 			boxTipoEvento.setSelectedItem(tipoEvento);
 		}

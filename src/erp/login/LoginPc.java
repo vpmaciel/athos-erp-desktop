@@ -10,10 +10,10 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 
-import arquitetura.gui.FocoEvento;
-import arquitetura.gui.Gui;
 import arquitetura.gui.ConfiguracaoGui;
 import arquitetura.gui.EntradaMaiuscula;
+import arquitetura.gui.FocoEvento;
+import arquitetura.gui.Gui;
 import arquitetura.util.SpringUtilities;
 
 @SuppressWarnings("serial")
@@ -32,10 +32,10 @@ public final class LoginPc extends JPanel implements Gui {
 		iniciarGui();
 		iniciarFocoControlador();
 		iniciarGuiControlador();
-		buttonEntrar.setPreferredSize(new Dimension(740, 25));
-		buttonEntrar.setMinimumSize(new Dimension(740, 25));
-		buttonEntrar.setSize(new Dimension(740, 25));
-		buttonEntrar.setMaximumSize(new Dimension(740, 25));
+		buttonEntrar.setPreferredSize(new Dimension(740, 30));
+		buttonEntrar.setMinimumSize(new Dimension(740, 30));
+		buttonEntrar.setSize(new Dimension(740, 30));
+		buttonEntrar.setMaximumSize(new Dimension(740, 30));
 	}
 
 	public void atualizarLabel() {

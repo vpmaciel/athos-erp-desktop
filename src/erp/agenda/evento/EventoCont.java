@@ -131,13 +131,13 @@ final class EventoCont {
 
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
-			
+
 			List<TipoEvento> tipoEventoList = (List<TipoEvento>) TipoEventoFac.getRegistro();
 			Collections.sort(tipoEventoList, new TipoEventoComp().new Nome());
 
-			getEventoPc().getTipoEventoGui().removeAllItems();			
+			getEventoPc().getTipoEventoGui().removeAllItems();
 			getEventoPc().getTipoEventoGui().addItem(new TipoEvento());
-			
+
 			for (TipoEvento v : tipoEventoList) {
 				getEventoPc().getTipoEventoGui().addItem(v);
 			}

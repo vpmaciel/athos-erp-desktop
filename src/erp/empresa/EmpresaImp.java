@@ -66,7 +66,8 @@ final class EmpresaImp implements EmpresaDao {
 			predicates.add(criteriaBuilder.like(rootEmpresa.get("bairro"), "%" + empresa.getBairro() + "%"));
 		}
 		if (empresa.getCapitalSocial() != null && !empresa.getCapitalSocial().equals("")) {
-			predicates.add(criteriaBuilder.like(rootEmpresa.get("capitalSocial"), "%" + empresa.getCapitalSocial() + "%"));
+			predicates.add(
+					criteriaBuilder.like(rootEmpresa.get("capitalSocial"), "%" + empresa.getCapitalSocial() + "%"));
 		}
 		if (empresa.getCep() != null && !empresa.getCep().equals("")) {
 			predicates.add(criteriaBuilder.like(rootEmpresa.get("cep"), "%" + empresa.getCep() + "%"));
@@ -81,7 +82,8 @@ final class EmpresaImp implements EmpresaDao {
 			predicates.add(criteriaBuilder.like(rootEmpresa.get("complemento"), "%" + empresa.getComplemento() + "%"));
 		}
 		if (empresa.getDataFundacao() != null && !empresa.getDataFundacao().equals("")) {
-			predicates.add(criteriaBuilder.like(rootEmpresa.get("dataFundacao"), "%" + empresa.getDataFundacao() + "%"));
+			predicates
+					.add(criteriaBuilder.like(rootEmpresa.get("dataFundacao"), "%" + empresa.getDataFundacao() + "%"));
 		}
 		if (empresa.getEmail() != null && !empresa.getEmail().equals("")) {
 			predicates.add(criteriaBuilder.like(rootEmpresa.get("email"), "%" + empresa.getEmail() + "%"));
@@ -90,7 +92,8 @@ final class EmpresaImp implements EmpresaDao {
 			predicates.add(criteriaBuilder.like(rootEmpresa.get("estado"), "%" + empresa.getEstado() + "%"));
 		}
 		if (empresa.getFaturamentoMensal() != null && !empresa.getFaturamentoMensal().equals("")) {
-			predicates.add(criteriaBuilder.like(rootEmpresa.get("faturamentoMensal"), "%" + empresa.getFaturamentoMensal() + "%"));
+			predicates.add(criteriaBuilder.like(rootEmpresa.get("faturamentoMensal"),
+					"%" + empresa.getFaturamentoMensal() + "%"));
 		}
 		if (empresa.getFax() != null && !empresa.getFax().equals("")) {
 			predicates.add(criteriaBuilder.like(rootEmpresa.get("fax"), "%" + empresa.getFax() + "%"));
@@ -102,25 +105,30 @@ final class EmpresaImp implements EmpresaDao {
 			predicates.add(criteriaBuilder.like(rootEmpresa.get("fone2"), "%" + empresa.getFone2() + "%"));
 		}
 		if (empresa.getInscricaoEstadual() != null && !empresa.getInscricaoEstadual().equals("")) {
-			predicates.add(criteriaBuilder.like(rootEmpresa.get("inscricaoEstadual"), "%" + empresa.getInscricaoEstadual() + "%"));
+			predicates.add(criteriaBuilder.like(rootEmpresa.get("inscricaoEstadual"),
+					"%" + empresa.getInscricaoEstadual() + "%"));
 		}
 		if (empresa.getInscricaoMunicipal() != null && !empresa.getInscricaoMunicipal().equals("")) {
-			predicates.add(criteriaBuilder.like(rootEmpresa.get("inscricaoMunicipal"), "%" + empresa.getInscricaoMunicipal() + "%"));
+			predicates.add(criteriaBuilder.like(rootEmpresa.get("inscricaoMunicipal"),
+					"%" + empresa.getInscricaoMunicipal() + "%"));
 		}
 		if (empresa.getLogradouro() != null && !empresa.getLogradouro().equals("")) {
 			predicates.add(criteriaBuilder.like(rootEmpresa.get("logradouro"), "%" + empresa.getLogradouro() + "%"));
 		}
 		if (empresa.getNomeFantasia() != null && !empresa.getNomeFantasia().equals("")) {
-			predicates.add(criteriaBuilder.like(rootEmpresa.get("nomeFantasia"), "%" + empresa.getNomeFantasia() + "%"));
+			predicates
+					.add(criteriaBuilder.like(rootEmpresa.get("nomeFantasia"), "%" + empresa.getNomeFantasia() + "%"));
 		}
 		if (empresa.getNumeroFuncionarios() != null && !empresa.getNumeroFuncionarios().equals("")) {
-			predicates.add(criteriaBuilder.like(rootEmpresa.get("numeroFuncionarios"), "%" + empresa.getNumeroFuncionarios() + "%"));
+			predicates.add(criteriaBuilder.like(rootEmpresa.get("numeroFuncionarios"),
+					"%" + empresa.getNumeroFuncionarios() + "%"));
 		}
 		if (empresa.getPais() != null && !empresa.getPais().equals("")) {
 			predicates.add(criteriaBuilder.like(rootEmpresa.get("pais"), "%" + empresa.getPais() + "%"));
 		}
 		if (empresa.getRamoAtividade() != null && !empresa.getRamoAtividade().equals("")) {
-			predicates.add(criteriaBuilder.like(rootEmpresa.get("ramoAtividade"), "%" + empresa.getRamoAtividade() + "%"));
+			predicates.add(
+					criteriaBuilder.like(rootEmpresa.get("ramoAtividade"), "%" + empresa.getRamoAtividade() + "%"));
 		}
 		if (empresa.getRazaoSocial() != null && !empresa.getRazaoSocial().equals("")) {
 			predicates.add(criteriaBuilder.like(rootEmpresa.get("razaoSocial"), "%" + empresa.getRazaoSocial() + "%"));
@@ -128,7 +136,7 @@ final class EmpresaImp implements EmpresaDao {
 		if (empresa.getTipoEmpresa() != null && !empresa.getTipoEmpresa().equals("")) {
 			predicates.add(criteriaBuilder.like(rootEmpresa.get("tipoEmpresa"), "%" + empresa.getTipoEmpresa() + "%"));
 		}
-		
+
 		criteriaQuery.select(rootEmpresa).where(predicates.toArray(new Predicate[] {}));
 
 		List<Empresa> list = entityManager.createQuery(criteriaQuery).getResultList();

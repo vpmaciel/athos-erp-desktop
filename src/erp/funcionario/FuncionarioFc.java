@@ -9,11 +9,12 @@ import java.beans.PropertyChangeListener;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JScrollPane;
+import javax.swing.ScrollPaneConstants;
 import javax.swing.WindowConstants;
 
+import arquitetura.gui.ConfiguracaoGui;
 import arquitetura.gui.FocoEvento;
 import arquitetura.gui.Gui;
-import arquitetura.gui.ConfiguracaoGui;
 
 @SuppressWarnings("serial")
 public final class FuncionarioFc extends JFrame implements Gui {
@@ -76,8 +77,7 @@ public final class FuncionarioFc extends JFrame implements Gui {
 						}
 					}
 				});
-		scrollPane.setVerticalScrollBarPolicy(
-				   JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+		scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 
 		add(scrollPane);
 		setContentPane(scrollPane);

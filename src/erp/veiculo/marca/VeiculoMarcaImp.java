@@ -65,7 +65,7 @@ final class VeiculoMarcaImp implements VeiculoMarcaDao {
 		if (veiculoMarca.getMarca() != null && !veiculoMarca.getMarca().equals("")) {
 			predicates.add(criteriaBuilder.like(rootVeiculoMarca.get("marca"), "%" + veiculoMarca.getMarca() + "%"));
 		}
-		
+
 		criteriaQuery.select(rootVeiculoMarca).where(predicates.toArray(new Predicate[] {}));
 
 		List<VeiculoMarca> list = entityManager.createQuery(criteriaQuery).getResultList();

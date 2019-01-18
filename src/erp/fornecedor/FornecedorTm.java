@@ -25,7 +25,7 @@ public class FornecedorTm extends AbstractTableModel {
 		tabelaModelo.adicionar("ID", 0, 100);
 		tabelaModelo.adicionar("CNPJ", 1, 100);
 		tabelaModelo.adicionar("NOME", 2, 500);
-		
+
 		largura = new int[tabelaModelo.getTotalColunas()];
 		podeEditar = new boolean[tabelaModelo.getTotalColunas()];
 		for (int i = 0; i < tabelaModelo.getTotalColunas(); i++) {
@@ -86,7 +86,7 @@ public class FornecedorTm extends AbstractTableModel {
 		if (tabelaModelo.getNome(columnIndex).equals("CNPJ")) {
 			return fornecedor.getCnpj();
 		}
-		
+
 		return fornecedor;
 	}
 
@@ -112,7 +112,7 @@ public class FornecedorTm extends AbstractTableModel {
 		if (tabelaModelo.getNome(columnIndex).equals("CNPJ")) {
 			fornecedor.setCnpj(aValue.toString());
 		}
-		
+
 		fireTableDataChanged();
 	}
 }

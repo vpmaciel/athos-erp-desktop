@@ -6,21 +6,23 @@ import java.util.List;
 
 import javax.swing.BorderFactory;
 import javax.swing.JComboBox;
+import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 
+import arquitetura.gui.ConfiguracaoGui;
+import arquitetura.gui.EntradaMaiuscula;
+import arquitetura.gui.EntradaMinuscula;
 import arquitetura.gui.FocoEvento;
 import arquitetura.gui.Gui;
-import arquitetura.gui.ConfiguracaoGui;
-import arquitetura.gui.EntradaMinuscula;
-import arquitetura.gui.EntradaMaiuscula;
 import arquitetura.registro.ToolBar;
 import arquitetura.util.SpringUtilities;
+import arquitetura.validacao.Mascara;
 import erp.empresa.Empresa;
-import erp.empresa.EmpresaFac;
 import erp.empresa.EmpresaComp;
+import erp.empresa.EmpresaFac;
 import erp.main.MainCont;
 
 @SuppressWarnings("serial")
@@ -30,23 +32,22 @@ public final class ContatoPc extends JPanel implements Gui {
 	private ConfiguracaoGui configuracaoGui;
 	private JComboBox<String> boxSexo;
 	private JTextField textFieldNome;
-	private JTextField textFieldDataC;
 	private JLabel labelSexo;
 	private JLabel labelNome;
-	private JTextField textFieldCPF;
-	private JTextField textFieldCNPJ;
+	private JFormattedTextField textFieldCPF;
+	private JFormattedTextField textFieldCNPJ;
 	private JLabel labelCPF;
 	private JLabel labelCNPJ;
 	private JTextField textFieldEmail;
-	private JTextField textFieldFax;
-	private JTextField textFieldFone1;
-	private JTextField textFieldFone2;
+	private JFormattedTextField textFieldFax;
+	private JFormattedTextField textFieldFone1;
+	private JFormattedTextField textFieldFone2;
 	private JLabel labelFone2;
 	private JLabel labelEmail;
 	private JLabel labelFax;
 	private JLabel labelFone1;
 	private JTextField textFieldBairro;
-	private JTextField textFieldCep;
+	private JFormattedTextField textFieldCep;
 	private JTextField textFieldCidade;
 	private JTextField textFieldEstado;
 	private JTextField textFieldLogradouro;
@@ -74,7 +75,7 @@ public final class ContatoPc extends JPanel implements Gui {
 
 	}
 
-	public JComboBox<Empresa> getEmpresaGUI() {
+	public JComboBox<Empresa> getEmpresaGui() {
 		return boxEmpresa;
 	}
 
@@ -87,67 +88,63 @@ public final class ContatoPc extends JPanel implements Gui {
 		return labelEmpresa;
 	}
 
-	public JTextField getBairroGUI() {
+	public JTextField getBairroGui() {
 		return textFieldBairro;
 	}
 
-	public JTextField getCepGUI() {
+	public JFormattedTextField getCepGui() {
 		return textFieldCep;
 	}
 
-	public JTextField getCidadeGUI() {
+	public JTextField getCidadeGui() {
 		return textFieldCidade;
 	}
 
-	public JTextField getCnpjGUI() {
+	public JFormattedTextField getCnpjGui() {
 		return textFieldCNPJ;
 	}
 
-	public JTextField getComplementoGUI() {
+	public JTextField getComplementoGui() {
 		return textFieldComplemento;
 	}
 
-	public JTextField getCpfGUI() {
+	public JFormattedTextField getCpfGui() {
 		return textFieldCPF;
 	}
 
-	public JTextField getTextFieldDataC() {
-		return textFieldDataC;
-	}
-
-	public JTextField getEmailGUI() {
+	public JTextField getEmailGui() {
 		return textFieldEmail;
 	}
 
-	public JTextField getEstadoGUI() {
+	public JTextField getEstadoGui() {
 		return textFieldEstado;
 	}
 
-	public JTextField getFaxGUI() {
+	public JFormattedTextField getFaxGui() {
 		return textFieldFax;
 	}
 
-	public JTextField getFone1GUI() {
+	public JFormattedTextField getFone1Gui() {
 		return textFieldFone1;
 	}
 
-	public JTextField getFone2GUI() {
+	public JFormattedTextField getFone2Gui() {
 		return textFieldFone2;
 	}
 
-	public JTextField getLogradouroGUI() {
+	public JTextField getLogradouroGui() {
 		return textFieldLogradouro;
 	}
 
-	public JTextField getNomeGUI() {
+	public JTextField getNomeGui() {
 		return textFieldNome;
 	}
 
-	public JTextField getPaisGUI() {
+	public JTextField getPaisGui() {
 		return textFieldPais;
 	}
 
-	public JComboBox<String> getSexoGUI() {
+	public JComboBox<String> getSexoGui() {
 		return boxSexo;
 	}
 
@@ -189,22 +186,19 @@ public final class ContatoPc extends JPanel implements Gui {
 		labelFone1 = new JLabel("TELEFONE");
 		add(labelFone1);
 
-		textFieldFone1 = new JTextField();
-		textFieldFone1.setDocument(new EntradaMaiuscula(20));
+		textFieldFone1 = new JFormattedTextField(Mascara.getFone());
 		add(textFieldFone1);
 
 		labelFone2 = new JLabel("TELEFONE");
 		add(labelFone2);
 
-		textFieldFone2 = new JTextField();
-		textFieldFone2.setDocument(new EntradaMaiuscula(20));
+		textFieldFone2 = new JFormattedTextField(Mascara.getFone());
 		add(textFieldFone2);
 
 		labelFax = new JLabel("FAX");
 		add(labelFax);
 
-		textFieldFax = new JTextField();
-		textFieldFax.setDocument(new EntradaMaiuscula(20));
+		textFieldFax = new JFormattedTextField(Mascara.getFax());
 		add(textFieldFax);
 
 		labelEmail = new JLabel("E-MAIL");
@@ -259,7 +253,7 @@ public final class ContatoPc extends JPanel implements Gui {
 		labelCep = new JLabel("CEP");
 		add(labelCep);
 
-		textFieldCep = new JTextField();
+		textFieldCep = new JFormattedTextField(Mascara.getCep());
 		textFieldCep.setDocument(new EntradaMaiuscula(9));
 		add(textFieldCep);
 
@@ -279,14 +273,14 @@ public final class ContatoPc extends JPanel implements Gui {
 		labelCPF = new JLabel("CPF");
 		add(labelCPF);
 
-		textFieldCPF = new JTextField();
+		textFieldCPF = new JFormattedTextField(Mascara.getCpf());
 		textFieldCPF.setDocument(new EntradaMaiuscula(14));
 		add(textFieldCPF);
 
 		labelCNPJ = new JLabel("CNPJ");
 		add(labelCNPJ);
 
-		textFieldCNPJ = new JTextField();
+		textFieldCNPJ = new JFormattedTextField(Mascara.getCnpj());
 		textFieldCNPJ.setDocument(new EntradaMaiuscula(19));
 		add(textFieldCNPJ);
 
@@ -329,8 +323,8 @@ public final class ContatoPc extends JPanel implements Gui {
 		List<Empresa> empresas = (List<Empresa>) EmpresaFac.getRegistro();
 		Collections.sort(empresas, new EmpresaComp().new NomeFantasia());
 		boxEmpresa.removeAllItems();
-		for (Empresa b : empresas) {
-			boxEmpresa.addItem(b);
+		for (Empresa e : empresas) {
+			boxEmpresa.addItem(e);
 		}
 		if (!MainCont.getAgendaContatoFc().isShowing()
 				&& MainCont.getAgendaContatoFc().getContatoHandle().getContato() != null) {

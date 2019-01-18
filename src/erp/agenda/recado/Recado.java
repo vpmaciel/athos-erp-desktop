@@ -23,7 +23,7 @@ public class Recado implements Serializable {
 	private String destinatario;
 	@Column(length = 500)
 	private String recado;
-	
+
 	public Long getId() {
 		return id;
 	}

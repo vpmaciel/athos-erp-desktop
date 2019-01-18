@@ -9,11 +9,12 @@ import java.beans.PropertyChangeListener;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JScrollPane;
+import javax.swing.ScrollPaneConstants;
 import javax.swing.WindowConstants;
 
+import arquitetura.gui.ConfiguracaoGui;
 import arquitetura.gui.FocoEvento;
 import arquitetura.gui.Gui;
-import arquitetura.gui.ConfiguracaoGui;
 import arquitetura.gui.Imagem;
 
 @SuppressWarnings("serial")
@@ -77,8 +78,7 @@ public final class VeiculoMarcaFc extends JFrame implements Gui {
 						}
 					}
 				});
-		scrollPane.setVerticalScrollBarPolicy(
-				   JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+		scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 
 		add(scrollPane);
 		setContentPane(scrollPane);
@@ -96,24 +96,15 @@ public final class VeiculoMarcaFc extends JFrame implements Gui {
 		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		veiculoMarcaCont = new VeiculoMarcaCont();
 		addWindowListener(veiculoMarcaCont.new Frame());
-		veiculoMarcaPc.getToolBar().getExcluirBtn()
-				.addActionListener(veiculoMarcaCont.new ExcluiRegistro());
-		veiculoMarcaPc.getToolBar().getNovoBtn()
-				.addActionListener(veiculoMarcaCont.new NovoFrame());
-		veiculoMarcaPc.getToolBar().getPesquisarBtn()
-				.addActionListener(veiculoMarcaCont.new PesquisaRegistro());
-		veiculoMarcaPc.getToolBar().getImprimirBtn()
-				.addActionListener(veiculoMarcaCont.new ImprimiUnicoRegistro());
-		veiculoMarcaPc.getToolBar().getRelatorioBtn()
-				.addActionListener(veiculoMarcaCont.new ImprimiTodosRegistros());
-		veiculoMarcaPc.getToolBar().getSalvarBtn()
-				.addActionListener(veiculoMarcaCont.new Salva());
-		veiculoMarcaPc.getToolBar().getFecharBtn()
-				.addActionListener(veiculoMarcaCont.new FechaJanela());
-		veiculoMarcaPc.getToolBar().getSairBtn()
-				.addActionListener(veiculoMarcaCont.new SaidaSistema());
-		veiculoMarcaPc.getToolBar().getAjudaBtn()
-				.addActionListener(veiculoMarcaCont.new Ajuda());
+		veiculoMarcaPc.getToolBar().getExcluirBtn().addActionListener(veiculoMarcaCont.new ExcluiRegistro());
+		veiculoMarcaPc.getToolBar().getNovoBtn().addActionListener(veiculoMarcaCont.new NovoFrame());
+		veiculoMarcaPc.getToolBar().getPesquisarBtn().addActionListener(veiculoMarcaCont.new PesquisaRegistro());
+		veiculoMarcaPc.getToolBar().getImprimirBtn().addActionListener(veiculoMarcaCont.new ImprimiUnicoRegistro());
+		veiculoMarcaPc.getToolBar().getRelatorioBtn().addActionListener(veiculoMarcaCont.new ImprimiTodosRegistros());
+		veiculoMarcaPc.getToolBar().getSalvarBtn().addActionListener(veiculoMarcaCont.new Salva());
+		veiculoMarcaPc.getToolBar().getFecharBtn().addActionListener(veiculoMarcaCont.new FechaJanela());
+		veiculoMarcaPc.getToolBar().getSairBtn().addActionListener(veiculoMarcaCont.new SaidaSistema());
+		veiculoMarcaPc.getToolBar().getAjudaBtn().addActionListener(veiculoMarcaCont.new Ajuda());
 		veiculoMarcaPc.getToolBar().getHomeBtn().addActionListener(veiculoMarcaCont.new Home());
 	}
 

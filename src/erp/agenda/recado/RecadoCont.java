@@ -126,7 +126,7 @@ final class RecadoCont {
 		public void actionPerformed(ActionEvent actionEvent) {
 			recado = new Recado();
 			getRecadoFc().limparGui();
-			getRecadoPc().getDataGUI().requestFocus();
+			getRecadoPc().getDataGui().requestFocus();
 		}
 	}
 
@@ -165,9 +165,9 @@ final class RecadoCont {
 				if (mensagem != JOptionPane.YES_OPTION) {
 					return;
 				}
-				String data = getRecadoPc().getDataGUI().getText();
+				String data = getRecadoPc().getDataGui().getText();
 				if (data == null || data.length() == 0) {
-					getRecadoPc().getDataGUI().requestFocus();
+					getRecadoPc().getDataGui().requestFocus();
 					Msg.avisoCampoObrigatorio("Data");
 					return;
 				}
@@ -176,7 +176,7 @@ final class RecadoCont {
 					RecadoFac.salvarRegistro(recado);
 					recado = new Recado();
 					MainCont.getAgendaRecadoFc().limparGui();
-					getRecadoPc().getDataGUI().requestFocus();
+					getRecadoPc().getDataGui().requestFocus();
 					Msg.sucessoSalvarRegistro();
 				}
 			} catch (Exception e) {
@@ -192,17 +192,17 @@ final class RecadoCont {
 		if (recado == null) {
 			return;
 		}
-		getRecadoPc().getRemetenteGUI().setText(recado.getRemetente());
-		getRecadoPc().getDataGUI().setText(recado.getData());
-		getRecadoPc().getRecadoGUI().setText(recado.getRecado());
-		getRecadoPc().getDestinatarioGUI().setText(recado.getDestinatario());
+		getRecadoPc().getRemetenteGui().setText(recado.getRemetente());
+		getRecadoPc().getDataGui().setText(recado.getData());
+		getRecadoPc().getRecadoGui().setText(recado.getRecado());
+		getRecadoPc().getDestinatarioGui().setText(recado.getDestinatario());
 	}
 
 	public void atualizarObjeto() {
-		recado.setRemetente(getRecadoPc().getRemetenteGUI().getText());
-		recado.setData(getRecadoPc().getDataGUI().getText());
-		recado.setRecado(getRecadoPc().getRecadoGUI().getText());
-		recado.setDestinatario(getRecadoPc().getDestinatarioGUI().getText());
+		recado.setRemetente(getRecadoPc().getRemetenteGui().getText());
+		recado.setData(getRecadoPc().getDataGui().getText());
+		recado.setRecado(getRecadoPc().getRecadoGui().getText());
+		recado.setDestinatario(getRecadoPc().getDestinatarioGui().getText());
 	}
 
 	public Recado getRecado() {

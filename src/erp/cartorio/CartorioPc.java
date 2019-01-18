@@ -1,18 +1,20 @@
 package erp.cartorio;
 
 import javax.swing.BorderFactory;
+import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 
+import arquitetura.gui.ConfiguracaoGui;
+import arquitetura.gui.EntradaMaiuscula;
+import arquitetura.gui.EntradaMinuscula;
 import arquitetura.gui.FocoEvento;
 import arquitetura.gui.Gui;
-import arquitetura.gui.ConfiguracaoGui;
-import arquitetura.gui.EntradaMinuscula;
-import arquitetura.gui.EntradaMaiuscula;
 import arquitetura.registro.ToolBar;
 import arquitetura.util.SpringUtilities;
+import arquitetura.validacao.Mascara;
 
 @SuppressWarnings("serial")
 public final class CartorioPc extends JPanel implements Gui {
@@ -24,7 +26,7 @@ public final class CartorioPc extends JPanel implements Gui {
 	private JTextField textFieldDistrito;
 	private JTextField textFieldTitular;
 	private JTextField textFieldSubstituto;
-	private JTextField textFieldCNPJ;
+	private JFormattedTextField textFieldCNPJ;
 	private JTextField textFieldMunicipio;
 	private JLabel labelComarca;
 	private JLabel labelNomeFantasia;
@@ -34,9 +36,9 @@ public final class CartorioPc extends JPanel implements Gui {
 	private JLabel labelSubstituto;
 	private JLabel labelCNPJ;
 	private JLabel labelMunicipio;
-	private JTextField textFieldFax;
-	private JTextField textFieldFone1;
-	private JTextField textFieldFone2;
+	private JFormattedTextField textFieldFax;
+	private JFormattedTextField textFieldFone1;
+	private JFormattedTextField textFieldFone2;
 	private JTextField textFieldSite;
 	private JTextField textFieldEmail;
 	private JLabel labelFax;
@@ -45,7 +47,7 @@ public final class CartorioPc extends JPanel implements Gui {
 	private JLabel labelSite;
 	private JLabel labelEmail;
 	private JTextField textFieldBairro;
-	private JTextField textFieldCep;
+	private JFormattedTextField textFieldCep;
 	private JTextField textFieldCidade;
 	private JTextField textFieldEstado;
 	private JTextField textFieldLogradouro;
@@ -156,83 +158,83 @@ public final class CartorioPc extends JPanel implements Gui {
 		return labelTitular;
 	}
 
-	public JTextField getBairroGUI() {
+	public JTextField getBairroGui() {
 		return textFieldBairro;
 	}
 
-	public JTextField getCepGUI() {
+	public JFormattedTextField getCepGui() {
 		return textFieldCep;
 	}
 
-	public JTextField getCidadeGUI() {
+	public JTextField getCidadeGui() {
 		return textFieldCidade;
 	}
 
-	public JTextField getCnpjGUI() {
+	public JFormattedTextField getCnpjGui() {
 		return textFieldCNPJ;
 	}
 
-	public JTextField getComarcaGUI() {
+	public JTextField getComarcaGui() {
 		return textFieldComarca;
 	}
 
-	public JTextField getComplementoGUI() {
+	public JTextField getComplementoGui() {
 		return textFieldComplemento;
 	}
 
-	public JTextField getDistritoGUI() {
+	public JTextField getDistritoGui() {
 		return textFieldDistrito;
 	}
 
-	public JTextField getEmailGUI() {
+	public JTextField getEmailGui() {
 		return textFieldEmail;
 	}
 
-	public JTextField getEstadoGUI() {
+	public JTextField getEstadoGui() {
 		return textFieldEstado;
 	}
 
-	public JTextField getFaxGUI() {
+	public JFormattedTextField getFaxGui() {
 		return textFieldFax;
 	}
 
-	public JTextField getFone1GUI() {
+	public JFormattedTextField getFone1Gui() {
 		return textFieldFone1;
 	}
 
-	public JTextField getFone2GUI() {
+	public JFormattedTextField getFone2Gui() {
 		return textFieldFone2;
 	}
 
-	public JTextField getLogradouroGUI() {
+	public JTextField getLogradouroGui() {
 		return textFieldLogradouro;
 	}
 
-	public JTextField getMunicipioGUI() {
+	public JTextField getMunicipioGui() {
 		return textFieldMunicipio;
 	}
 
-	public JTextField getNomeFantasiaGUI() {
+	public JTextField getNomeFantasiaGui() {
 		return textFieldNomeFantasia;
 	}
 
-	public JTextField getPaisGUI() {
+	public JTextField getPaisGui() {
 		return textFieldPais;
 	}
 
-	public JTextField getRazaoSocialGUI() {
+	public JTextField getRazaoSocialGui() {
 		return textFieldRazaoSocial;
 	}
 
-	public JTextField getSiteGUI() {
+	public JTextField getSiteGui() {
 		return textFieldSite;
 	}
 
-	public JTextField getSubstitutoGUI() {
+	public JTextField getSubstitutoGui() {
 		return textFieldSubstituto;
 	}
 
-	public JTextField getTitularGUI() {
+	public JTextField getTitularGui() {
 		return textFieldTitular;
 	}
 
@@ -288,23 +290,19 @@ public final class CartorioPc extends JPanel implements Gui {
 		add(textFieldSubstituto);
 		labelCNPJ = new JLabel("CNPJ");
 		add(labelCNPJ);
-		textFieldCNPJ = new JTextField();
-		textFieldCNPJ.setDocument(new EntradaMaiuscula(19));
+		textFieldCNPJ = new JFormattedTextField(Mascara.getCnpj());
 		add(textFieldCNPJ);
 		labelFone1 = new JLabel("TELEFONE");
 		add(labelFone1);
-		textFieldFone1 = new JTextField();
-		textFieldFone1.setDocument(new EntradaMaiuscula(20));
+		textFieldFone1 = new JFormattedTextField(Mascara.getFone());
 		add(textFieldFone1);
 		labelFone2 = new JLabel("TELEFONE");
 		add(labelFone2);
-		textFieldFone2 = new JTextField();
-		textFieldFone2.setDocument(new EntradaMaiuscula(20));
+		textFieldFone2 = new JFormattedTextField(Mascara.getFone());
 		add(textFieldFone2);
 		labelFax = new JLabel("FAX");
 		add(labelFax);
-		textFieldFax = new JTextField();
-		textFieldFax.setDocument(new EntradaMaiuscula(20));
+		textFieldFax = new JFormattedTextField(Mascara.getFax());
 		add(textFieldFax);
 		labelEmail = new JLabel("E-MAIL");
 		add(labelEmail);
@@ -348,8 +346,7 @@ public final class CartorioPc extends JPanel implements Gui {
 		add(textFieldComplemento);
 		labelCep = new JLabel("CEP");
 		add(labelCep);
-		textFieldCep = new JTextField(10);
-		textFieldCep.setDocument(new EntradaMaiuscula(10));
+		textFieldCep = new JFormattedTextField(Mascara.getCep());
 		add(textFieldCep);
 		SpringUtilities.makeCompactGrid(this, 41, 1, 5, 5, 5, 5);
 		setOpaque(true);

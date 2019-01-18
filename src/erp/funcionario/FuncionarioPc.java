@@ -6,21 +6,23 @@ import java.util.List;
 
 import javax.swing.BorderFactory;
 import javax.swing.JComboBox;
+import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 
+import arquitetura.gui.ConfiguracaoGui;
+import arquitetura.gui.EntradaMaiuscula;
+import arquitetura.gui.EntradaMinuscula;
 import arquitetura.gui.FocoEvento;
 import arquitetura.gui.Gui;
-import arquitetura.gui.ConfiguracaoGui;
-import arquitetura.gui.EntradaMinuscula;
-import arquitetura.gui.EntradaMaiuscula;
 import arquitetura.registro.ToolBar;
 import arquitetura.util.SpringUtilities;
+import arquitetura.validacao.Mascara;
 import erp.centrocusto.CentroCusto;
-import erp.centrocusto.CentroCustoFac;
 import erp.centrocusto.CentroCustoComp;
+import erp.centrocusto.CentroCustoFac;
 import erp.main.MainCont;
 
 @SuppressWarnings("serial")
@@ -49,11 +51,11 @@ public final class FuncionarioPc extends JPanel implements Gui {
 	private JLabel labelMatricula;
 	private JTextField textFieldCTPS;
 	private JTextField textFieldCNHCategoria;
-	private JTextField textFieldCPF;
+	private JFormattedTextField textFieldCPF;
 	private JTextField textFieldRGNumero;
 	private JTextField textFieldRGOrgaoEmisssor;
-	private JTextField textFieldPIS;
-	private JTextField textFieldCNPJ;
+	private JFormattedTextField textFieldPIS;
+	private JFormattedTextField textFieldCNPJ;
 	private JLabel labelCTPS;
 	private JLabel labelCNHCategoria;
 	private JLabel labelCPF;
@@ -62,15 +64,15 @@ public final class FuncionarioPc extends JPanel implements Gui {
 	private JLabel labelPIS;
 	private JLabel labelCNPJ;
 	private JTextField textFieldEmail;
-	private JTextField textFieldFax;
-	private JTextField textFieldFone1;
-	private JTextField textFieldFone2;
+	private JFormattedTextField textFieldFax;
+	private JFormattedTextField textFieldFone1;
+	private JFormattedTextField textFieldFone2;
 	private JLabel labelFone2;
 	private JLabel labelEmail;
 	private JLabel labelFax;
 	private JLabel labelFone1;
 	private JTextField textFieldBairro;
-	private JTextField textFieldCep;
+	private JFormattedTextField textFieldCep;
 	private JTextField textFieldCidade;
 	private JTextField textFieldEstado;
 	private JTextField textFieldLogradouro;
@@ -113,31 +115,31 @@ public final class FuncionarioPc extends JPanel implements Gui {
 
 	}
 
-	public JComboBox<CentroCusto> getCentroCustoGUI() {
+	public JComboBox<CentroCusto> getCentroCustoGui() {
 		return boxCentroCusto;
 	}
 
-	public JComboBox<String> getCorGUI() {
+	public JComboBox<String> getCorGui() {
 		return boxCor;
 	}
 
-	public JComboBox<String> getDeficienciaGUI() {
+	public JComboBox<String> getDeficienciaGui() {
 		return boxDeficiencia;
 	}
 
-	public JComboBox<String> getEscolaridadeGUI() {
+	public JComboBox<String> getEscolaridadeGui() {
 		return boxEscolaridade;
 	}
 
-	public JComboBox<String> getEstadoCivilGUI() {
+	public JComboBox<String> getEstadoCivilGui() {
 		return boxEstadoCivil;
 	}
 
-	public JComboBox<String> getNacionalidadeGUI() {
+	public JComboBox<String> getNacionalidadeGui() {
 		return boxNacionalidade;
 	}
 
-	public JComboBox<String> getSexoGUI() {
+	public JComboBox<String> getSexoGui() {
 		return boxSexo;
 	}
 
@@ -150,119 +152,119 @@ public final class FuncionarioPc extends JPanel implements Gui {
 		return labelCentroCusto;
 	}
 
-	public JTextField getBairroGUI() {
+	public JTextField getBairroGui() {
 		return textFieldBairro;
 	}
 
-	public JTextField getCargoGUI() {
+	public JTextField getCargoGui() {
 		return textFieldCargo;
 	}
 
-	public JTextField getCategoriaGUI() {
+	public JTextField getCategoriaGui() {
 		return textFieldCategoria;
 	}
 
-	public JTextField getCepGUI() {
+	public JFormattedTextField getCepGui() {
 		return textFieldCep;
 	}
 
-	public JTextField getCidadeGUI() {
+	public JTextField getCidadeGui() {
 		return textFieldCidade;
 	}
 
-	public JTextField getCNHCategoriaGUI() {
+	public JTextField getCNHCategoriaGui() {
 		return textFieldCNHCategoria;
 	}
 
-	public JTextField getCnpjGUI() {
+	public JFormattedTextField getCnpjGui() {
 		return textFieldCNPJ;
 	}
 
-	public JTextField getComplementoGUI() {
+	public JTextField getComplementoGui() {
 		return textFieldComplemento;
 	}
 
-	public JTextField getConjugeGUI() {
+	public JTextField getConjugeGui() {
 		return textFieldConjuge;
 	}
 
-	public JTextField getCpfGUI() {
+	public JFormattedTextField getCpfGui() {
 		return textFieldCPF;
 	}
 
-	public JTextField getCtpsGUI() {
+	public JTextField getCtpsGui() {
 		return textFieldCTPS;
 	}
 
-	public JTextField getDepartamentoGUI() {
+	public JTextField getDepartamentoGui() {
 		return textFieldDepartamento;
 	}
 
-	public JTextField getEmailGUI() {
+	public JTextField getEmailGui() {
 		return textFieldEmail;
 	}
 
-	public JTextField getEmpresaGUI() {
+	public JTextField getEmpresaGui() {
 		return textFieldEmpresa;
 	}
 
-	public JTextField getEstadoGUI() {
+	public JTextField getEstadoGui() {
 		return textFieldEstado;
 	}
 
-	public JTextField getFaxGUI() {
+	public JFormattedTextField getFaxGui() {
 		return textFieldFax;
 	}
 
-	public JTextField getFilhosGUI() {
+	public JTextField getFilhosGui() {
 		return textFieldFilhos;
 	}
 
-	public JTextField getFone1GUI() {
+	public JFormattedTextField getFone1Gui() {
 		return textFieldFone1;
 	}
 
-	public JTextField getFone2GUI() {
+	public JFormattedTextField getFone2Gui() {
 		return textFieldFone2;
 	}
 
-	public JTextField getGerenteGUI() {
+	public JTextField getGerenteGui() {
 		return textFieldGerente;
 	}
 
-	public JTextField getLogradouroGUI() {
+	public JTextField getLogradouroGui() {
 		return textFieldLogradouro;
 	}
 
-	public JTextField getMatriculaGUI() {
+	public JTextField getMatriculaGui() {
 		return textFieldMatricula;
 	}
 
-	public JTextField getNomeGUI() {
+	public JTextField getNomeGui() {
 		return textFieldNome;
 	}
 
-	public JTextField getPaisGUI() {
+	public JTextField getPaisGui() {
 		return textFieldPais;
 	}
 
-	public JTextField getPisGUI() {
+	public JFormattedTextField getPisGui() {
 		return textFieldPIS;
 	}
 
-	public JTextField getRGNumeroGUI() {
+	public JTextField getRGNumeroGui() {
 		return textFieldRGNumero;
 	}
 
-	public JTextField getRGOrgaoEmisssorGUI() {
+	public JTextField getRGOrgaoEmisssorGui() {
 		return textFieldRGOrgaoEmisssor;
 	}
 
-	public JTextField getSalarioGUI() {
+	public JTextField getSalarioGui() {
 		return textFieldSalario;
 	}
 
-	public JTextField getTurnoGUI() {
+	public JTextField getTurnoGui() {
 		return textFieldTurno;
 	}
 
@@ -390,21 +392,21 @@ public final class FuncionarioPc extends JPanel implements Gui {
 		labelFone1 = new JLabel("TELEFONE");
 		add(labelFone1);
 
-		textFieldFone1 = new JTextField();
+		textFieldFone1 = new JFormattedTextField(Mascara.getFone());
 		textFieldFone1.setDocument(new EntradaMaiuscula(20));
 		add(textFieldFone1);
 
 		labelFone2 = new JLabel("TELEFONE");
 		add(labelFone2);
 
-		textFieldFone2 = new JTextField();
+		textFieldFone2 = new JFormattedTextField(Mascara.getFone());
 		textFieldFone2.setDocument(new EntradaMaiuscula(20));
 		add(textFieldFone2);
 
 		labelFax = new JLabel("FAX");
 		add(labelFax);
 
-		textFieldFax = new JTextField();
+		textFieldFax = new JFormattedTextField(Mascara.getFax());
 		textFieldFax.setDocument(new EntradaMaiuscula(20));
 		add(textFieldFax);
 
@@ -460,8 +462,7 @@ public final class FuncionarioPc extends JPanel implements Gui {
 		labelCep = new JLabel("CEP");
 		add(labelCep);
 
-		textFieldCep = new JTextField();
-		textFieldCep.setDocument(new EntradaMaiuscula(10));
+		textFieldCep = new JFormattedTextField(Mascara.getCep());
 		add(textFieldCep);
 
 		labelCargo = new JLabel("CARGO");
@@ -535,7 +536,7 @@ public final class FuncionarioPc extends JPanel implements Gui {
 		labelCPF = new JLabel("CPF");
 		add(labelCPF);
 
-		textFieldCPF = new JTextField();
+		textFieldCPF = new JFormattedTextField(Mascara.getCpf());
 		textFieldCPF.setDocument(new EntradaMaiuscula(14));
 		add(textFieldCPF);
 
@@ -549,8 +550,7 @@ public final class FuncionarioPc extends JPanel implements Gui {
 		labelPIS = new JLabel("PIS");
 		add(labelPIS);
 
-		textFieldPIS = new JTextField();
-		textFieldPIS.setDocument(new EntradaMaiuscula(20));
+		textFieldPIS = new JFormattedTextField(Mascara.getPis());
 		add(textFieldPIS);
 
 		labelRGNumero = new JLabel("IDENTIDADE NÚMERO");
@@ -570,8 +570,7 @@ public final class FuncionarioPc extends JPanel implements Gui {
 		labelCNPJ = new JLabel("CNPJ");
 		add(labelCNPJ);
 
-		textFieldCNPJ = new JTextField();
-		textFieldCNPJ.setDocument(new EntradaMaiuscula(19));
+		textFieldCNPJ = new JFormattedTextField(Mascara.getCnpj());
 		add(textFieldCNPJ);
 
 		// Lay out the panel.
@@ -618,8 +617,7 @@ public final class FuncionarioPc extends JPanel implements Gui {
 		}
 		if (!MainCont.getFuncionarioFc().isShowing()
 				&& MainCont.getFuncionarioFc().getFuncionarioHandle().getFuncionario() != null) {
-			centroCusto = MainCont.getFuncionarioFc().getFuncionarioHandle().getFuncionario()
-					.getCentroCusto();
+			centroCusto = MainCont.getFuncionarioFc().getFuncionarioHandle().getFuncionario().getCentroCusto();
 			boxCentroCusto.setSelectedItem(centroCusto);
 		}
 	}

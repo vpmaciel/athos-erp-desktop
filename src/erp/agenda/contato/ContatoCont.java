@@ -6,6 +6,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -13,10 +14,12 @@ import javax.swing.JOptionPane;
 
 import arquitetura.gui.Msg;
 import erp.empresa.Empresa;
+import erp.empresa.EmpresaComp;
+import erp.empresa.EmpresaFac;
 import erp.main.MainCont;
 
 final class ContatoCont {
-	
+
 	public class Ajuda implements ActionListener {
 
 		@Override
@@ -122,6 +125,7 @@ final class ContatoCont {
 
 		}
 	}
+
 	public class MostraFc extends MouseAdapter {
 
 		@Override
@@ -138,9 +142,19 @@ final class ContatoCont {
 
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
+			List<Empresa> empresaList = (List<Empresa>) EmpresaFac.getRegistro();
+			Collections.sort(empresaList, new EmpresaComp().new NomeFantasia());
+
+			getContatoPc().getEmpresaGui().removeAllItems();
+			getContatoPc().getEmpresaGui().addItem(new Empresa());
+
+			for (Empresa e : empresaList) {
+				getContatoPc().getEmpresaGui().addItem(e);
+			}
+
 			contato = new Contato();
 			getContatoFc().limparGui();
-			getContatoPc().getNomeGUI().requestFocus();
+			getContatoPc().getNomeGui().requestFocus();
 		}
 	}
 
@@ -179,9 +193,9 @@ final class ContatoCont {
 				if (mensagem != JOptionPane.YES_OPTION) {
 					return;
 				}
-				String nome = getContatoPc().getNomeGUI().getText();
+				String nome = getContatoPc().getNomeGui().getText();
 				if (nome == null || nome.length() == 0) {
-					getContatoPc().getNomeGUI().requestFocus();
+					getContatoPc().getNomeGui().requestFocus();
 					Msg.avisoCampoObrigatorio("Data");
 					return;
 				}
@@ -190,7 +204,7 @@ final class ContatoCont {
 					ContatoFac.salvarRegistro(contato);
 					contato = new Contato();
 					MainCont.getAgendaContatoFc().limparGui();
-					getContatoPc().getNomeGUI().requestFocus();
+					getContatoPc().getNomeGui().requestFocus();
 					Msg.sucessoSalvarRegistro();
 				}
 			} catch (Exception e) {
@@ -206,41 +220,41 @@ final class ContatoCont {
 		if (contato == null) {
 			return;
 		}
-		getContatoPc().getNomeGUI().setText(contato.getNome());
-		getContatoPc().getSexoGUI().setSelectedItem(contato.getSexo());
-		getContatoPc().getEmailGUI().setText(contato.getEmail());
-		getContatoPc().getFaxGUI().setText(contato.getFax());
-		getContatoPc().getFone1GUI().setText(contato.getFone1());
-		getContatoPc().getFone2GUI().setText(contato.getFone2());
-		getContatoPc().getEmpresaGUI().setSelectedItem(contato.getEmpresa());
-		getContatoPc().getBairroGUI().setText(contato.getBairro());
-		getContatoPc().getCepGUI().setText(contato.getCep());
-		getContatoPc().getCidadeGUI().setText(contato.getCidade());
-		getContatoPc().getComplementoGUI().setText(contato.getComplemento());
-		getContatoPc().getEstadoGUI().setText(contato.getEstado());
-		getContatoPc().getLogradouroGUI().setText(contato.getLogradouro());
-		getContatoPc().getPaisGUI().setText(contato.getPais());
-		getContatoPc().getCnpjGUI().setText(contato.getCnpj());
-		getContatoPc().getCpfGUI().setText(contato.getCpf());
+		getContatoPc().getNomeGui().setText(contato.getNome());
+		getContatoPc().getSexoGui().setSelectedItem(contato.getSexo());
+		getContatoPc().getEmailGui().setText(contato.getEmail());
+		getContatoPc().getFaxGui().setText(contato.getFax());
+		getContatoPc().getFone1Gui().setText(contato.getFone1());
+		getContatoPc().getFone2Gui().setText(contato.getFone2());
+		getContatoPc().getEmpresaGui().setSelectedItem(contato.getEmpresa());
+		getContatoPc().getBairroGui().setText(contato.getBairro());
+		getContatoPc().getCepGui().setText(contato.getCep());
+		getContatoPc().getCidadeGui().setText(contato.getCidade());
+		getContatoPc().getComplementoGui().setText(contato.getComplemento());
+		getContatoPc().getEstadoGui().setText(contato.getEstado());
+		getContatoPc().getLogradouroGui().setText(contato.getLogradouro());
+		getContatoPc().getPaisGui().setText(contato.getPais());
+		getContatoPc().getCnpjGui().setText(contato.getCnpj());
+		getContatoPc().getCpfGui().setText(contato.getCpf());
 	}
 
 	public void atualizarObjeto() {
-		contato.setNome(getContatoPc().getNomeGUI().getText());
-		contato.setSexo((String) getContatoPc().getSexoGUI().getSelectedItem());
-		contato.setEmail(getContatoPc().getEmailGUI().getText());
-		contato.setFax(getContatoPc().getFaxGUI().getText());
-		contato.setFone1(getContatoPc().getFone1GUI().getText());
-		contato.setFone2(getContatoPc().getFone2GUI().getText());
-		contato.setEmpresa((Empresa) getContatoPc().getEmpresaGUI().getSelectedItem());
-		contato.setBairro(getContatoPc().getBairroGUI().getText());
-		contato.setCep(getContatoPc().getCepGUI().getText());
-		contato.setCidade(getContatoPc().getCidadeGUI().getText());
-		contato.setComplemento(getContatoPc().getComplementoGUI().getText());
-		contato.setEstado(getContatoPc().getEstadoGUI().getText());
-		contato.setLogradouro(getContatoPc().getLogradouroGUI().getText());
-		contato.setPais(getContatoPc().getPaisGUI().getText());
-		contato.setCnpj(getContatoPc().getCnpjGUI().getText());
-		contato.setCpfNumero(getContatoPc().getCpfGUI().getText());
+		contato.setNome(getContatoPc().getNomeGui().getText());
+		contato.setSexo((String) getContatoPc().getSexoGui().getSelectedItem());
+		contato.setEmail(getContatoPc().getEmailGui().getText());
+		contato.setFax(getContatoPc().getFaxGui().getText());
+		contato.setFone1(getContatoPc().getFone1Gui().getText());
+		contato.setFone2(getContatoPc().getFone2Gui().getText());
+		contato.setEmpresa((Empresa) getContatoPc().getEmpresaGui().getSelectedItem());
+		contato.setBairro(getContatoPc().getBairroGui().getText());
+		contato.setCep(getContatoPc().getCepGui().getText());
+		contato.setCidade(getContatoPc().getCidadeGui().getText());
+		contato.setComplemento(getContatoPc().getComplementoGui().getText());
+		contato.setEstado(getContatoPc().getEstadoGui().getText());
+		contato.setLogradouro(getContatoPc().getLogradouroGui().getText());
+		contato.setPais(getContatoPc().getPaisGui().getText());
+		contato.setCnpj(getContatoPc().getCnpjGui().getText());
+		contato.setCpfNumero(getContatoPc().getCpfGui().getText());
 	}
 
 	public Contato getContato() {

@@ -8,7 +8,7 @@ public class AOP {
 
 	private static AOP instancia;
 	private static Usuario usuario;
-	
+
 	static {
 		Locale.setDefault(new Locale("pt", "BR"));
 	}
@@ -20,7 +20,7 @@ public class AOP {
 	public static Usuario getUsuario() {
 		return AOP.usuario;
 	}
-	
+
 	public static Locale getLocale() {
 		return new Locale("pt", "BR");
 	}
@@ -32,4 +32,4 @@ public class AOP {
 	public static String getNomeSistema() {
 		return "ATHOS";
 	}
-}	
+}

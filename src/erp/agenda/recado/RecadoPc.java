@@ -1,18 +1,20 @@
 package erp.agenda.recado;
 
 import javax.swing.BorderFactory;
+import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 
-import arquitetura.gui.FocoEvento;
-import arquitetura.gui.Gui;
 import arquitetura.gui.ConfiguracaoGui;
 import arquitetura.gui.EntradaMaiuscula;
+import arquitetura.gui.FocoEvento;
+import arquitetura.gui.Gui;
 import arquitetura.registro.ToolBar;
 import arquitetura.util.SpringUtilities;
+import arquitetura.validacao.Mascara;
 
 @SuppressWarnings("serial")
 public final class RecadoPc extends JPanel implements Gui {
@@ -24,7 +26,7 @@ public final class RecadoPc extends JPanel implements Gui {
 	private JLabel labelDestinatario;
 	private JLabel labelRecado;
 	private JTextField textFieldRemetente;
-	private JTextField textFieldData;
+	private JFormattedTextField textFieldData;
 	private JLabel labelRemetente;
 	private JLabel labelData;
 
@@ -45,19 +47,19 @@ public final class RecadoPc extends JPanel implements Gui {
 		return configuracaoGui;
 	}
 
-	public JTextArea getRecadoGUI() {
+	public JTextArea getRecadoGui() {
 		return textAreaRecado;
 	}
 
-	public JTextField getDestinatarioGUI() {
+	public JTextField getDestinatarioGui() {
 		return textFieldDestinatario;
 	}
 
-	public JTextField getRemetenteGUI() {
+	public JTextField getRemetenteGui() {
 		return textFieldRemetente;
 	}
 
-	public JTextField getDataGUI() {
+	public JFormattedTextField getDataGui() {
 		return textFieldData;
 	}
 
@@ -73,15 +75,14 @@ public final class RecadoPc extends JPanel implements Gui {
 
 	@Override
 	public void iniciarGui() {
-		
+
 		toolBar = new ToolBar();
 		add(toolBar.getToolBar());
 
 		labelData = new JLabel("DATA");
 		add(labelData);
 
-		textFieldData = new JTextField();
-		textFieldData.setDocument(new EntradaMaiuscula(10));
+		textFieldData = new JFormattedTextField(Mascara.getData());
 		add(textFieldData);
 
 		labelRemetente = new JLabel("REMETENTE");
@@ -100,7 +101,7 @@ public final class RecadoPc extends JPanel implements Gui {
 
 		labelRecado = new JLabel("RECADO");
 		add(labelRecado);
-	
+
 		textAreaRecado = new JTextArea();
 		textAreaRecado.setLineWrap(true);
 		textAreaRecado.setDocument(new EntradaMaiuscula(500));

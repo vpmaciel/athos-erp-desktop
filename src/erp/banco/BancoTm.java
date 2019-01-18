@@ -25,7 +25,7 @@ public class BancoTm extends AbstractTableModel {
 		tabelaModelo.adicionar("ID", 0, 100);
 		tabelaModelo.adicionar("NOME", 1, 500);
 		tabelaModelo.adicionar("CÓDIGO", 2, 100);
-		
+
 		largura = new int[tabelaModelo.getTotalColunas()];
 		podeEditar = new boolean[tabelaModelo.getTotalColunas()];
 		for (int i = 0; i < tabelaModelo.getTotalColunas(); i++) {
@@ -110,7 +110,7 @@ public class BancoTm extends AbstractTableModel {
 			banco.setNome(aValue.toString());
 		}
 		if (tabelaModelo.getNome(columnIndex).equals("CÓDIGO")) {
-		 banco.setCodigo(aValue.toString());
+			banco.setCodigo(aValue.toString());
 		}
 
 		fireTableDataChanged();

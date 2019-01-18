@@ -29,8 +29,7 @@ final class VeiculoMarcaSel implements ListSelectionListener {
 					VeiculoMarcaTm veiculoMarcaTm = (VeiculoMarcaTm) table.getModel();
 					veiculoMarcaTm.getVeiculoMarca(table.getSelectedRow());
 					MainCont.mostrarFrame(MainCont.getVeiculoMarcaFc());
-					MainCont.getVeiculoMarcaFc().getVeiculoMarcaHandle()
-							.setVeiculoMarca(veiculoMarca);
+					MainCont.getVeiculoMarcaFc().getVeiculoMarcaHandle().setVeiculoMarca(veiculoMarca);
 					MainCont.getVeiculoMarcaFc().getVeiculoMarcaHandle().atualizarGui();
 					MainCont.getVeiculoMarcaFc().setFocusable(true);
 					MainCont.getVeiculoMarcaFp().setVisible(false);

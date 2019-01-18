@@ -13,7 +13,7 @@ import arquitetura.gui.Msg;
 import erp.main.MainCont;
 
 final class TipoEventoCont {
-	
+
 	public class Ajuda implements ActionListener {
 
 		@Override
@@ -129,7 +129,7 @@ final class TipoEventoCont {
 		public void actionPerformed(ActionEvent actionEvent) {
 			TipoEvento = new TipoEvento();
 			MainCont.getAgendaTipoEventoFc().limparGui();
-			getTipoEventoPc().getNomeGUI().requestFocus();
+			getTipoEventoPc().getNomeGui().requestFocus();
 		}
 	}
 
@@ -168,9 +168,9 @@ final class TipoEventoCont {
 				if (mensagem != JOptionPane.YES_OPTION) {
 					return;
 				}
-				String nome = getTipoEventoPc().getNomeGUI().getText();
+				String nome = getTipoEventoPc().getNomeGui().getText();
 				if (nome == null || nome.length() == 0) {
-					getTipoEventoPc().getNomeGUI().requestFocus();
+					getTipoEventoPc().getNomeGui().requestFocus();
 					Msg.avisoCampoObrigatorio("Data");
 					return;
 				}
@@ -179,7 +179,7 @@ final class TipoEventoCont {
 					TipoEventoFac.salvarRegistro(TipoEvento);
 					TipoEvento = new TipoEvento();
 					MainCont.getAgendaTipoEventoFc().limparGui();
-					getTipoEventoPc().getNomeGUI().requestFocus();
+					getTipoEventoPc().getNomeGui().requestFocus();
 					Msg.sucessoSalvarRegistro();
 				}
 			} catch (Exception e) {
@@ -195,11 +195,11 @@ final class TipoEventoCont {
 		if (TipoEvento == null) {
 			return;
 		}
-		getTipoEventoPc().getNomeGUI().setText(TipoEvento.getNome());
+		getTipoEventoPc().getNomeGui().setText(TipoEvento.getNome());
 	}
 
 	public void atualizarObjeto() {
-		TipoEvento.setNome(getTipoEventoPc().getNomeGUI().getText());
+		TipoEvento.setNome(getTipoEventoPc().getNomeGui().getText());
 	}
 
 	public TipoEvento getEvento() {

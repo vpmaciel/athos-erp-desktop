@@ -58,6 +58,7 @@ import erp.veiculo.modelo.VeiculoModeloFp;
 public final class MainCont {
 
 	public class Relogio implements ActionListener {
+		@Override
 		public void actionPerformed(ActionEvent e) {
 			MainCont.getAgendaContatoFc().setTitle(AOP.getNomeSistema() + " : CONTATO " + Data.getData());
 			MainCont.getAgendaContatoFp().setTitle(AOP.getNomeSistema() + " : CONTATO " + Data.getData());

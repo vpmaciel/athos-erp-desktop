@@ -2,18 +2,20 @@ package erp.imovel;
 
 import javax.swing.BorderFactory;
 import javax.swing.JComboBox;
+import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 
+import arquitetura.gui.ConfiguracaoGui;
+import arquitetura.gui.EntradaMaiuscula;
+import arquitetura.gui.EntradaMinuscula;
 import arquitetura.gui.FocoEvento;
 import arquitetura.gui.Gui;
-import arquitetura.gui.ConfiguracaoGui;
-import arquitetura.gui.EntradaMinuscula;
-import arquitetura.gui.EntradaMaiuscula;
 import arquitetura.registro.ToolBar;
 import arquitetura.util.SpringUtilities;
+import arquitetura.validacao.Mascara;
 
 @SuppressWarnings("serial")
 public final class ImovelPc extends JPanel implements Gui {
@@ -28,24 +30,24 @@ public final class ImovelPc extends JPanel implements Gui {
 	private JLabel labelNomeProprietario;
 	private JLabel labelQuarto;
 	private JLabel labelCozinha;
-	private JTextField textFieldCPF;
+	private JFormattedTextField textFieldCPF;
 	private JComboBox<String> boxGaragem;
 	private JComboBox<String> boxPiscina;
-	private JTextField textFieldCNPJ;
+	private JFormattedTextField textFieldCNPJ;
 	private JLabel labelCPF;
 	private JLabel labelGaragem;
 	private JLabel labelPiscina;
 	private JLabel labelCNPJ;
 	private JTextField textFieldEmail;
-	private JTextField textFieldFax;
-	private JTextField textFieldFone1;
-	private JTextField textFieldFone2;
+	private JFormattedTextField textFieldFax;
+	private JFormattedTextField textFieldFone1;
+	private JFormattedTextField textFieldFone2;
 	private JLabel labelFone2;
 	private JLabel labelEmail;
 	private JLabel labelFax;
 	private JLabel labelFone1;
 	private JTextField textFieldBairro;
-	private JTextField textFieldCep;
+	private JFormattedTextField textFieldCep;
 	private JTextField textFieldCidade;
 	private JTextField textFieldEstado;
 	private JTextField textFieldLogradouro;
@@ -80,15 +82,15 @@ public final class ImovelPc extends JPanel implements Gui {
 
 	}
 
-	public JComboBox<String> getGaragemGUI() {
+	public JComboBox<String> getGaragemGui() {
 		return boxGaragem;
 	}
 
-	public JComboBox<String> getPiscinaGUI() {
+	public JComboBox<String> getPiscinaGui() {
 		return boxPiscina;
 	}
 
-	public JComboBox<String> getTerracoGUI() {
+	public JComboBox<String> getTerracoGui() {
 		return boxTerraco;
 	}
 
@@ -97,83 +99,83 @@ public final class ImovelPc extends JPanel implements Gui {
 		return configuracaoGui;
 	}
 
-	public JTextField getBairroGUI() {
+	public JTextField getBairroGui() {
 		return textFieldBairro;
 	}
 
-	public JTextField getBanheiroGUI() {
+	public JTextField getBanheiroGui() {
 		return textFieldBanheiro;
 	}
 
-	public JTextField getCepGUI() {
+	public JTextField getCepGui() {
 		return textFieldCep;
 	}
 
-	public JTextField getCidadeGUI() {
+	public JTextField getCidadeGui() {
 		return textFieldCidade;
 	}
 
-	public JTextField getCnpjGUI() {
+	public JTextField getCnpjGui() {
 		return textFieldCNPJ;
 	}
 
-	public JTextField getComplementoGUI() {
+	public JTextField getComplementoGui() {
 		return textFieldComplemento;
 	}
 
-	public JTextField getCozinhaGUI() {
+	public JTextField getCozinhaGui() {
 		return textFieldCozinha;
 	}
 
-	public JTextField getCpfGUI() {
+	public JTextField getCpfGui() {
 		return textFieldCPF;
 	}
 
-	public JTextField getEmailGUI() {
+	public JTextField getEmailGui() {
 		return textFieldEmail;
 	}
 
-	public JTextField getEstadoGUI() {
+	public JTextField getEstadoGui() {
 		return textFieldEstado;
 	}
 
-	public JTextField getFaxGUI() {
+	public JFormattedTextField getFaxGui() {
 		return textFieldFax;
 	}
 
-	public JTextField getFone1GUI() {
+	public JFormattedTextField getFone1Gui() {
 		return textFieldFone1;
 	}
 
-	public JTextField getFone2GUI() {
+	public JFormattedTextField getFone2Gui() {
 		return textFieldFone2;
 	}
 
-	public JTextField getLogradouroGUI() {
+	public JTextField getLogradouroGui() {
 		return textFieldLogradouro;
 	}
 
-	public JTextField getNomeProprietarioGUI() {
+	public JTextField getNomeProprietarioGui() {
 		return textFieldNomeProprietario;
 	}
 
-	public JTextField getPaisGUI() {
+	public JTextField getPaisGui() {
 		return textFieldPais;
 	}
 
-	public JTextField getQuartoGUI() {
+	public JTextField getQuartoGui() {
 		return textFieldQuarto;
 	}
 
-	public JTextField getSalaGUI() {
+	public JTextField getSalaGui() {
 		return textFieldSala;
 	}
 
-	public JTextField getSuiteGUI() {
+	public JTextField getSuiteGui() {
 		return textFieldSuite;
 	}
 
-	public JTextField getVarandaGUI() {
+	public JTextField getVarandaGui() {
 		return textFieldVaranda;
 	}
 
@@ -272,22 +274,19 @@ public final class ImovelPc extends JPanel implements Gui {
 		labelFone1 = new JLabel("TELEFONE");
 		add(labelFone1);
 
-		textFieldFone1 = new JTextField();
-		textFieldFone1.setDocument(new EntradaMaiuscula(20));
+		textFieldFone1 = new JFormattedTextField(Mascara.getFone());
 		add(textFieldFone1);
 
 		labelFone2 = new JLabel("TELEFONE");
 		add(labelFone2);
 
-		textFieldFone2 = new JTextField();
-		textFieldFone2.setDocument(new EntradaMaiuscula(20));
+		textFieldFone2 = new JFormattedTextField(Mascara.getFone());
 		add(textFieldFone2);
 
 		labelFax = new JLabel("FAX");
 		add(labelFax);
 
-		textFieldFax = new JTextField();
-		textFieldFax.setDocument(new EntradaMaiuscula(20));
+		textFieldFax = new JFormattedTextField(Mascara.getFax());
 		add(textFieldFax);
 
 		labelEmail = new JLabel("E-MAIL");
@@ -300,15 +299,13 @@ public final class ImovelPc extends JPanel implements Gui {
 		labelCPF = new JLabel("CPF");
 		add(labelCPF);
 
-		textFieldCPF = new JTextField();
-		textFieldCPF.setDocument(new EntradaMaiuscula(14));
+		textFieldCPF = new JFormattedTextField(Mascara.getCpf());
 		add(textFieldCPF);
 
 		labelCNPJ = new JLabel("CNPJ");
 		add(labelCNPJ);
 
-		textFieldCNPJ = new JTextField();
-		textFieldCNPJ.setDocument(new EntradaMaiuscula(19));
+		textFieldCNPJ = new JFormattedTextField(Mascara.getCnpj());
 		add(textFieldCNPJ);
 
 		labelPais = new JLabel("PAÍS");
@@ -356,7 +353,7 @@ public final class ImovelPc extends JPanel implements Gui {
 		labelCep = new JLabel("CEP");
 		add(labelCep);
 
-		textFieldCep = new JTextField();
+		textFieldCep = new JFormattedTextField(Mascara.getCep());
 		textFieldCep.setDocument(new EntradaMaiuscula(10));
 		add(textFieldCep);
 

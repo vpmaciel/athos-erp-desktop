@@ -9,13 +9,13 @@ import java.beans.PropertyChangeListener;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JScrollPane;
+import javax.swing.ScrollPaneConstants;
 import javax.swing.WindowConstants;
 
 import arquitetura.gui.ConfiguracaoGui;
 import arquitetura.gui.FocoEvento;
 import arquitetura.gui.Gui;
 import arquitetura.gui.Imagem;
-
 
 @SuppressWarnings("serial")
 public final class EventoFc extends JFrame implements Gui {
@@ -78,8 +78,7 @@ public final class EventoFc extends JFrame implements Gui {
 						}
 					}
 				});
-		scrollPane.setVerticalScrollBarPolicy(
-				   JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+		scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 
 		add(scrollPane);
 		setContentPane(scrollPane);
@@ -97,7 +96,7 @@ public final class EventoFc extends JFrame implements Gui {
 		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		eventoCont = new EventoCont();
 		addWindowListener(eventoCont.new Frame());
-		//eventoPc.getLabelTipoEvento().addMouseListener(eventoCont.new MostraFrame());
+		// eventoPc.getLabelTipoEvento().addMouseListener(eventoCont.new MostraFrame());
 		eventoPc.getToolBar().getExcluirBtn().addActionListener(eventoCont.new Exclui());
 		eventoPc.getToolBar().getNovoBtn().addActionListener(eventoCont.new Novo());
 		eventoPc.getToolBar().getPesquisarBtn().addActionListener(eventoCont.new Pesquisa());

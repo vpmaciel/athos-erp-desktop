@@ -30,7 +30,7 @@ public class ClienteTm extends AbstractTableModel {
 		tabelaModelo.adicionar("NOME", 3, 500);
 		tabelaModelo.adicionar("EMPRESA", 4, 500);
 		tabelaModelo.adicionar("BANCO", 5, 500);
-		
+
 		largura = new int[tabelaModelo.getTotalColunas()];
 		podeEditar = new boolean[tabelaModelo.getTotalColunas()];
 		for (int i = 0; i < tabelaModelo.getTotalColunas(); i++) {
@@ -138,7 +138,7 @@ public class ClienteTm extends AbstractTableModel {
 			cliente.setEmpresa((Empresa) aValue);
 		}
 		if (tabelaModelo.getNome(columnIndex).equals("BANCO")) {
-			cliente.setBanco((Banco)aValue);
+			cliente.setBanco((Banco) aValue);
 		}
 
 		fireTableDataChanged();

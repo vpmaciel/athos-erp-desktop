@@ -180,7 +180,7 @@ public class Sindicato implements Serializable {
 	public void setComplemento(String complemento) {
 		this.complemento = complemento;
 	}
-	
+
 	public void setDataFundacao(String dataFundacao) {
 		this.dataFundacao = dataFundacao;
 	}

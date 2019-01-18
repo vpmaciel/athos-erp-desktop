@@ -84,7 +84,7 @@ final class ClienteCont {
 		@Override
 		public void windowOpened(WindowEvent e) {
 			cliente = new Cliente();
-			getClientePc().getNomeGUI().requestFocus();
+			getClientePc().getNomeGui().requestFocus();
 		}
 	}
 
@@ -137,7 +137,7 @@ final class ClienteCont {
 		public void actionPerformed(ActionEvent actionEvent) {
 			cliente = new Cliente();
 			getClienteFc().limparGui();
-			getClientePc().getNomeGUI().requestFocus();
+			getClientePc().getNomeGui().requestFocus();
 		}
 	}
 
@@ -178,9 +178,9 @@ final class ClienteCont {
 					return;
 				}
 
-				if ((getClientePc().getNomeGUI().getText()) == null
-						|| getClientePc().getNomeGUI().getText().length() == 0) {
-					getClientePc().getNomeGUI().requestFocus();
+				if ((getClientePc().getNomeGui().getText()) == null
+						|| getClientePc().getNomeGui().getText().length() == 0) {
+					getClientePc().getNomeGui().requestFocus();
 					Msg.avisoCampoObrigatorio("NOME");
 					return;
 				}
@@ -189,7 +189,7 @@ final class ClienteCont {
 					ClienteFac.salvar(cliente);
 					cliente = new Cliente();
 					getClienteFc().limparGui();
-					getClientePc().getNomeGUI().requestFocus();
+					getClientePc().getNomeGui().requestFocus();
 					Msg.sucessoSalvarRegistro();
 				}
 			} catch (Exception e) {
@@ -204,94 +204,94 @@ final class ClienteCont {
 		if (cliente == null) {
 			return;
 		}
-		getClientePc().getNomeGUI().setText(cliente.getNome());
-		getClientePc().getDataCadastroGUI().setText(cliente.getDataCadastro());
-		getClientePc().getSexoGUI().setSelectedItem(cliente.getSexo());
-		getClientePc().getEstadoCivilGUI().setSelectedItem(cliente.getEstadoCivil());
-		getClientePc().getEmailGUI().setText(cliente.getEmail());
-		getClientePc().getFaxGUI().setText(cliente.getFax());
-		getClientePc().getFone1GUI().setText(cliente.getFone1());
-		getClientePc().getFone2GUI().setText(cliente.getFone2());
-		getClientePc().getCargoGUI().setText(cliente.getCargo());
-		getClientePc().getSalarioGUI().setText(cliente.getSalario());
-		getClientePc().getBairroGUI().setText(cliente.getBairro());
-		getClientePc().getCepGUI().setText(cliente.getCep());
-		getClientePc().getCidadeGUI().setText(cliente.getCidade());
-		getClientePc().getComplementoGUI().setText(cliente.getComplemento());
-		getClientePc().getEstadoGUI().setText(cliente.getEstado());
-		getClientePc().getLogradouroGUI().setText(cliente.getLogradouro());
-		getClientePc().getPaisGUI().setText(cliente.getPais());
-		getClientePc().getCnpjGUI().setText(cliente.getCnpj());
-		getClientePc().getCpfGUI().setText(cliente.getCpf());
-		getClientePc().getRGNumeroGUI().setText(cliente.getRgNumero());
-		getClientePc().getRGOrgaoEmisssorGUI().setText(cliente.getRgOrgaoEmissor());
-		getClientePc().getDataNascimentoGUI().setText(cliente.getDataNascimento());
-		getClientePc().getIdadeGUI().setText(cliente.getIdade());
-		getClientePc().getEmpresaGUI().setSelectedItem(cliente.getEmpresa());
-		getClientePc().getStatusGUI().setSelectedItem(cliente.getStatus());
-		getClientePc().getDeficienciaGUI().setSelectedItem(cliente.getDeficiencia());
-		getClientePc().getEscolaridadeGUI().setSelectedItem(cliente.getEscolaridade());
-		getClientePc().getNacionalidadeGUI().setSelectedItem(cliente.getNacionalidade());
-		getClientePc().getCorGUI().setSelectedItem(cliente.getCor());
-		getClientePc().getBancoGUI().setSelectedItem(cliente.getBanco());
-		getClientePc().getNumeroAgenciaBancariaGUI().setText(cliente.getNumeroAgenciaBancaria());
-		getClientePc().getNumeroContaBancariaGUI().setText(cliente.getNumeroContaBancaria());
-		getClientePc().getClasseEconomicaGUI().setSelectedItem(cliente.getClasseEconomica());
-		getClientePc().getReferencia1GUI().setText(cliente.getNomeReferencia1());
-		getClientePc().getNomeReferencia2GUI().setText(cliente.getNomeReferencia2());
-		getClientePc().getNomeReferencia3GUI().setText(cliente.getNomeReferencia3());
-		getClientePc().getRelRef1GUI().setSelectedItem(cliente.getRelacionamentoReferencia1());
-		getClientePc().getRelRef2GUI().setSelectedItem(cliente.getRelacionamentoReferencia2());
-		getClientePc().getRelRef3GUI().setSelectedItem(cliente.getRelacionamentoReferencia3());
-		getClientePc().getFoneReferencia1GUI().setText(cliente.getFoneReferencia1());
-		getClientePc().getFoneReferencia2GUI().setText(cliente.getFoneReferencia2());
-		getClientePc().getFoneReferencia3GUI().setText(cliente.getFoneReferencia3());
+		getClientePc().getNomeGui().setText(cliente.getNome());
+		getClientePc().getDataCadastroGui().setText(cliente.getDataCadastro());
+		getClientePc().getSexoGui().setSelectedItem(cliente.getSexo());
+		getClientePc().getEstadoCivilGui().setSelectedItem(cliente.getEstadoCivil());
+		getClientePc().getEmailGui().setText(cliente.getEmail());
+		getClientePc().getFaxGui().setText(cliente.getFax());
+		getClientePc().getFone1Gui().setText(cliente.getFone1());
+		getClientePc().getFone2Gui().setText(cliente.getFone2());
+		getClientePc().getCargoGui().setText(cliente.getCargo());
+		getClientePc().getSalarioGui().setText(cliente.getSalario());
+		getClientePc().getBairroGui().setText(cliente.getBairro());
+		getClientePc().getCepGui().setText(cliente.getCep());
+		getClientePc().getCidadeGui().setText(cliente.getCidade());
+		getClientePc().getComplementoGui().setText(cliente.getComplemento());
+		getClientePc().getEstadoGui().setText(cliente.getEstado());
+		getClientePc().getLogradouroGui().setText(cliente.getLogradouro());
+		getClientePc().getPaisGui().setText(cliente.getPais());
+		getClientePc().getCnpjGui().setText(cliente.getCnpj());
+		getClientePc().getCpfGui().setText(cliente.getCpf());
+		getClientePc().getRGNumeroGui().setText(cliente.getRgNumero());
+		getClientePc().getRGOrgaoEmisssorGui().setText(cliente.getRgOrgaoEmissor());
+		getClientePc().getDataNascimentoGui().setText(cliente.getDataNascimento());
+		getClientePc().getIdadeGui().setText(cliente.getIdade());
+		getClientePc().getEmpresaGui().setSelectedItem(cliente.getEmpresa());
+		getClientePc().getStatusGui().setSelectedItem(cliente.getStatus());
+		getClientePc().getDeficienciaGui().setSelectedItem(cliente.getDeficiencia());
+		getClientePc().getEscolaridadeGui().setSelectedItem(cliente.getEscolaridade());
+		getClientePc().getNacionalidadeGui().setSelectedItem(cliente.getNacionalidade());
+		getClientePc().getCorGui().setSelectedItem(cliente.getCor());
+		getClientePc().getBancoGui().setSelectedItem(cliente.getBanco());
+		getClientePc().getNumeroAgenciaBancariaGui().setText(cliente.getNumeroAgenciaBancaria());
+		getClientePc().getNumeroContaBancariaGui().setText(cliente.getNumeroContaBancaria());
+		getClientePc().getClasseEconomicaGui().setSelectedItem(cliente.getClasseEconomica());
+		getClientePc().getReferencia1Gui().setText(cliente.getNomeReferencia1());
+		getClientePc().getNomeReferencia2Gui().setText(cliente.getNomeReferencia2());
+		getClientePc().getNomeReferencia3Gui().setText(cliente.getNomeReferencia3());
+		getClientePc().getRelRef1Gui().setSelectedItem(cliente.getRelacionamentoReferencia1());
+		getClientePc().getRelRef2Gui().setSelectedItem(cliente.getRelacionamentoReferencia2());
+		getClientePc().getRelRef3Gui().setSelectedItem(cliente.getRelacionamentoReferencia3());
+		getClientePc().getFoneReferencia1Gui().setText(cliente.getFoneReferencia1());
+		getClientePc().getFoneReferencia2Gui().setText(cliente.getFoneReferencia2());
+		getClientePc().getFoneReferencia3Gui().setText(cliente.getFoneReferencia3());
 	}
 
 	public void atualizarObjeto() {
-		cliente.setNome(getClientePc().getNomeGUI().getText());
-		cliente.setDataCadastro(getClientePc().getDataCadastroGUI().getText());
-		cliente.setSexo((String) getClientePc().getSexoGUI().getSelectedItem());
-		cliente.setEstadoCivil((String) getClientePc().getEstadoCivilGUI().getSelectedItem());
-		cliente.setEmail(getClientePc().getEmailGUI().getText());
-		cliente.setFax(getClientePc().getFaxGUI().getText());
-		cliente.setFone1(getClientePc().getFone1GUI().getText());
-		cliente.setFone2(getClientePc().getFone2GUI().getText());
-		cliente.setCargo(getClientePc().getCargoGUI().getText());
-		cliente.setClasseEconomica((String) getClientePc().getClasseEconomicaGUI().getSelectedItem());
-		cliente.setEmpresa((Empresa) getClientePc().getEmpresaGUI().getSelectedItem());
-		cliente.setSalario(getClientePc().getSalarioGUI().getText());
-		cliente.setBairro(getClientePc().getBairroGUI().getText());
-		cliente.setCep(getClientePc().getCepGUI().getText());
-		cliente.setCidade(getClientePc().getCidadeGUI().getText());
-		cliente.setComplemento(getClientePc().getComplementoGUI().getText());
-		cliente.setEstado(getClientePc().getEstadoGUI().getText());
-		cliente.setLogradouro(getClientePc().getLogradouroGUI().getText());
-		cliente.setPais(getClientePc().getPaisGUI().getText());
-		cliente.setCnpj(getClientePc().getCnpjGUI().getText());
-		cliente.setCpf(getClientePc().getCpfGUI().getText());
-		cliente.setRgNumero(getClientePc().getRGNumeroGUI().getText());
-		cliente.setRgOrgaoEmissor(getClientePc().getRGOrgaoEmisssorGUI().getText());
-		cliente.setDataNascimento(getClientePc().getDataNascimentoGUI().getText());
-		cliente.setIdade(getClientePc().getIdadeGUI().getText());
-		cliente.setStatus((String) getClientePc().getStatusGUI().getSelectedItem());
-		cliente.setDeficiencia((String) getClientePc().getDeficienciaGUI().getSelectedItem());
-		cliente.setEscolaridade((String) getClientePc().getEscolaridadeGUI().getSelectedItem());
-		cliente.setNacionalidade((String) getClientePc().getNacionalidadeGUI().getSelectedItem());
-		cliente.setCor((String) getClientePc().getCorGUI().getSelectedItem());
-		cliente.setBanco((Banco) getClientePc().getBancoGUI().getSelectedItem());
-		cliente.setNumeroAgenciaBancaria(getClientePc().getNumeroAgenciaBancariaGUI().getText());
-		cliente.setNumeroContaBancaria(getClientePc().getNumeroContaBancariaGUI().getText());
-		cliente.setClasseEconomica((String) getClientePc().getClasseEconomicaGUI().getSelectedItem());
-		cliente.setNomeReferencia1(getClientePc().getReferencia1GUI().getText());
-		cliente.setNomeReferencia2(getClientePc().getNomeReferencia2GUI().getText());
-		cliente.setNomeReferencia3(getClientePc().getNomeReferencia3GUI().getText());
-		cliente.setRelacionamentoReferencia1((String) getClientePc().getRelRef1GUI().getSelectedItem());
-		cliente.setRelacionamentoReferencia2((String) getClientePc().getRelRef2GUI().getSelectedItem());
-		cliente.setRelacionamentoReferencia3((String) getClientePc().getRelRef3GUI().getSelectedItem());
-		cliente.setFoneReferencia1(getClientePc().getFoneReferencia1GUI().getText());
-		cliente.setFoneReferencia2(getClientePc().getFoneReferencia2GUI().getText());
-		cliente.setFoneReferencia3(getClientePc().getFoneReferencia3GUI().getText());
+		cliente.setNome(getClientePc().getNomeGui().getText());
+		cliente.setDataCadastro(getClientePc().getDataCadastroGui().getText());
+		cliente.setSexo((String) getClientePc().getSexoGui().getSelectedItem());
+		cliente.setEstadoCivil((String) getClientePc().getEstadoCivilGui().getSelectedItem());
+		cliente.setEmail(getClientePc().getEmailGui().getText());
+		cliente.setFax(getClientePc().getFaxGui().getText());
+		cliente.setFone1(getClientePc().getFone1Gui().getText());
+		cliente.setFone2(getClientePc().getFone2Gui().getText());
+		cliente.setCargo(getClientePc().getCargoGui().getText());
+		cliente.setClasseEconomica((String) getClientePc().getClasseEconomicaGui().getSelectedItem());
+		cliente.setEmpresa((Empresa) getClientePc().getEmpresaGui().getSelectedItem());
+		cliente.setSalario(getClientePc().getSalarioGui().getText());
+		cliente.setBairro(getClientePc().getBairroGui().getText());
+		cliente.setCep(getClientePc().getCepGui().getText());
+		cliente.setCidade(getClientePc().getCidadeGui().getText());
+		cliente.setComplemento(getClientePc().getComplementoGui().getText());
+		cliente.setEstado(getClientePc().getEstadoGui().getText());
+		cliente.setLogradouro(getClientePc().getLogradouroGui().getText());
+		cliente.setPais(getClientePc().getPaisGui().getText());
+		cliente.setCnpj(getClientePc().getCnpjGui().getText());
+		cliente.setCpf(getClientePc().getCpfGui().getText());
+		cliente.setRgNumero(getClientePc().getRGNumeroGui().getText());
+		cliente.setRgOrgaoEmissor(getClientePc().getRGOrgaoEmisssorGui().getText());
+		cliente.setDataNascimento(getClientePc().getDataNascimentoGui().getText());
+		cliente.setIdade(getClientePc().getIdadeGui().getText());
+		cliente.setStatus((String) getClientePc().getStatusGui().getSelectedItem());
+		cliente.setDeficiencia((String) getClientePc().getDeficienciaGui().getSelectedItem());
+		cliente.setEscolaridade((String) getClientePc().getEscolaridadeGui().getSelectedItem());
+		cliente.setNacionalidade((String) getClientePc().getNacionalidadeGui().getSelectedItem());
+		cliente.setCor((String) getClientePc().getCorGui().getSelectedItem());
+		cliente.setBanco((Banco) getClientePc().getBancoGui().getSelectedItem());
+		cliente.setNumeroAgenciaBancaria(getClientePc().getNumeroAgenciaBancariaGui().getText());
+		cliente.setNumeroContaBancaria(getClientePc().getNumeroContaBancariaGui().getText());
+		cliente.setClasseEconomica((String) getClientePc().getClasseEconomicaGui().getSelectedItem());
+		cliente.setNomeReferencia1(getClientePc().getReferencia1Gui().getText());
+		cliente.setNomeReferencia2(getClientePc().getNomeReferencia2Gui().getText());
+		cliente.setNomeReferencia3(getClientePc().getNomeReferencia3Gui().getText());
+		cliente.setRelacionamentoReferencia1((String) getClientePc().getRelRef1Gui().getSelectedItem());
+		cliente.setRelacionamentoReferencia2((String) getClientePc().getRelRef2Gui().getSelectedItem());
+		cliente.setRelacionamentoReferencia3((String) getClientePc().getRelRef3Gui().getSelectedItem());
+		cliente.setFoneReferencia1(getClientePc().getFoneReferencia1Gui().getText());
+		cliente.setFoneReferencia2(getClientePc().getFoneReferencia2Gui().getText());
+		cliente.setFoneReferencia3(getClientePc().getFoneReferencia3Gui().getText());
 	}
 
 	public Cliente getCliente() {

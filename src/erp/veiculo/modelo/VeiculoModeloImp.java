@@ -63,9 +63,10 @@ final class VeiculoModeloImp implements VeiculoModeloDao {
 			predicates.add(criteriaBuilder.equal(rootVeiculoModelo.get("id"), veiculoModelo.getId()));
 		}
 		if (veiculoModelo.getModelo() != null && !veiculoModelo.getModelo().equals("")) {
-			predicates.add(criteriaBuilder.like(rootVeiculoModelo.get("modelo"), "%" + veiculoModelo.getModelo() + "%"));
+			predicates
+					.add(criteriaBuilder.like(rootVeiculoModelo.get("modelo"), "%" + veiculoModelo.getModelo() + "%"));
 		}
-		
+
 		criteriaQuery.select(rootVeiculoModelo).where(predicates.toArray(new Predicate[] {}));
 
 		List<VeiculoModelo> list = entityManager.createQuery(criteriaQuery).getResultList();

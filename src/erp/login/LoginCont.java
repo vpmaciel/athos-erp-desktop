@@ -16,7 +16,6 @@ import erp.usuario.UsuarioFac;
 
 public class LoginCont {
 
-
 	public class ButtonEntrar implements ActionListener {
 
 		@Override

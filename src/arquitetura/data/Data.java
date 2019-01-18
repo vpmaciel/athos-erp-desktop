@@ -9,24 +9,22 @@ import java.util.Locale;
 import arquitetura.AOP;
 
 public class Data {
-	
-	
 
 	public Data() {
-		
+
 	}
 
 	public static String getDateTime() {
 		Locale locale = AOP.getLocale();
 		Calendar calendar = new GregorianCalendar();
-		
+
 		String data = "DATA E HORA DE EMISSÃO: ";
 		data += getDia(calendar.get(Calendar.DAY_OF_WEEK));
 		DateFormat dateFormat = new SimpleDateFormat("- [ dd/MM/yyyy ] - [ HH:mm:ss.SSSS ]", locale);
 		data += dateFormat.format(calendar.getTime());
 		return data;
 	}
-	
+
 	public static String getData() {
 		Locale locale = AOP.getLocale();
 		Calendar calendar = new GregorianCalendar();

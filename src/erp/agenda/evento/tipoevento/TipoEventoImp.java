@@ -14,7 +14,6 @@ import javax.persistence.criteria.Root;
 
 import arquitetura.JPA;
 
-
 final class TipoEventoImp implements TipoEventoDao {
 
 	@Override

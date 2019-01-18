@@ -23,7 +23,7 @@ public class TabelaModelo {
 		}
 		return -1;
 	}
-	
+
 	public int getLargura(int numeroColuna) {
 		for (TabelaMatriz tabelaMatriz : matrizList) {
 			if (tabelaMatriz.numeroColuna == numeroColuna) {
@@ -32,7 +32,7 @@ public class TabelaModelo {
 		}
 		return 0;
 	}
-	
+
 	public String getNome(int numeroColuna) {
 		for (TabelaMatriz tabelaMatriz : matrizList) {
 			if (tabelaMatriz.numeroColuna == numeroColuna) {

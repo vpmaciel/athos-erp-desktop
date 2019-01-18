@@ -84,10 +84,10 @@ public class MainFc extends JFrame {
 	private JMenuItem menuItemEstatisticaGrafico;
 
 	public MainFc() {
-		iniciarGUI();
+		iniciarGui();
 		iniciarHandle();
 	}
-	
+
 	public JMenu getMenuAjuda() {
 		return menuAjuda;
 	}
@@ -288,7 +288,7 @@ public class MainFc extends JFrame {
 		return menuItemEstatisticaGrafico;
 	}
 
-	private void iniciarGUI() {
+	private void iniciarGui() {
 		setIconImage(Imagem.getLogoTipoImage());
 		setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
 		setMinimumSize(new Dimension(1200, 600));

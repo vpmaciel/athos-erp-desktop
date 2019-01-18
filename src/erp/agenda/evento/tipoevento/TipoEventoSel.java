@@ -29,8 +29,7 @@ class TipoEventoSel implements ListSelectionListener {
 					TipoEventoTm tipoEventoTm = (TipoEventoTm) table.getModel();
 					tipoEventoTm.getTipoEvento(table.getSelectedRow());
 					MainCont.mostrarFrame(MainCont.getAgendaTipoEventoFc());
-					MainCont.getAgendaTipoEventoFc().getTipoEventoCont()
-							.setTipoEvento(tipoEvento);
+					MainCont.getAgendaTipoEventoFc().getTipoEventoCont().setTipoEvento(tipoEvento);
 					MainCont.getAgendaTipoEventoFc().getTipoEventoCont().atualizarGui();
 					MainCont.getAgendaTipoEventoFc().setFocusable(true);
 					MainCont.getAgendaTipoEventoFp().setVisible(false);

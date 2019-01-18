@@ -108,7 +108,8 @@ final class ImovelImp implements ImovelDao {
 			predicates.add(criteriaBuilder.like(rootImovel.get("logradouro"), "%" + imovel.getLogradouro() + "%"));
 		}
 		if (imovel.getNomeProprietario() != null && !imovel.getNomeProprietario().equals("")) {
-			predicates.add(criteriaBuilder.like(rootImovel.get("nomeProprietario"), "%" + imovel.getNomeProprietario() + "%"));
+			predicates.add(
+					criteriaBuilder.like(rootImovel.get("nomeProprietario"), "%" + imovel.getNomeProprietario() + "%"));
 		}
 		if (imovel.getPais() != null && !imovel.getPais().equals("")) {
 			predicates.add(criteriaBuilder.like(rootImovel.get("pais"), "%" + imovel.getPais() + "%"));
@@ -131,7 +132,7 @@ final class ImovelImp implements ImovelDao {
 		if (imovel.getVaranda() != null && !imovel.getVaranda().equals("")) {
 			predicates.add(criteriaBuilder.like(rootImovel.get("varanda"), "%" + imovel.getVaranda() + "%"));
 		}
-		
+
 		criteriaQuery.select(rootImovel).where(predicates.toArray(new Predicate[] {}));
 
 		List<Imovel> list = entityManager.createQuery(criteriaQuery).getResultList();

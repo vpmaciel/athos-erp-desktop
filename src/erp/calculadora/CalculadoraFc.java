@@ -25,6 +25,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
+import javax.swing.WindowConstants;
 
 @SuppressWarnings("serial")
 public class CalculadoraFc extends JFrame {
@@ -69,7 +70,7 @@ public class CalculadoraFc extends JFrame {
 
 	public CalculadoraFc() {
 		super("ATHOS - CALCULADORA");
-		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+		setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
 		addWindowListener(janelaHandler);
 		setSize(new Dimension(800, 600));
 		setPreferredSize(new Dimension(800, 600));
@@ -238,6 +239,7 @@ public class CalculadoraFc extends JFrame {
 		char operacao = 'n';
 		int achou, zerar;
 
+		@Override
 		public void actionPerformed(ActionEvent event) {
 
 			if (event.getSource() == copiar) {

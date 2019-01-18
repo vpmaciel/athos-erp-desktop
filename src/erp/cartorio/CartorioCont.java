@@ -67,7 +67,7 @@ final class CartorioCont {
 		@Override
 		public void windowOpened(WindowEvent e) {
 			cartorio = new Cartorio();
-			getCartorioPc().getNomeFantasiaGUI().requestFocus();
+			getCartorioPc().getNomeFantasiaGui().requestFocus();
 		}
 	}
 
@@ -120,7 +120,7 @@ final class CartorioCont {
 		public void actionPerformed(ActionEvent actionEvent) {
 			cartorio = new Cartorio();
 			getCartorioFc().limparGui();
-			getCartorioPc().getNomeFantasiaGUI().requestFocus();
+			getCartorioPc().getNomeFantasiaGui().requestFocus();
 		}
 	}
 
@@ -161,9 +161,9 @@ final class CartorioCont {
 					return;
 				}
 
-				if ((getCartorioPc().getNomeFantasiaGUI().getText()) == null
-						|| getCartorioPc().getNomeFantasiaGUI().getText().length() == 0) {
-					getCartorioPc().getNomeFantasiaGUI().requestFocus();
+				if ((getCartorioPc().getNomeFantasiaGui().getText()) == null
+						|| getCartorioPc().getNomeFantasiaGui().getText().length() == 0) {
+					getCartorioPc().getNomeFantasiaGui().requestFocus();
 					Msg.avisoCampoObrigatorio("NOME FANTASIA");
 					return;
 				}
@@ -172,7 +172,7 @@ final class CartorioCont {
 					CartorioFac.salvarCartorio(cartorio);
 					cartorio = new Cartorio();
 					getCartorioFc().limparGui();
-					getCartorioPc().getNomeFantasiaGUI().requestFocus();
+					getCartorioPc().getNomeFantasiaGui().requestFocus();
 					Msg.sucessoSalvarRegistro();
 				}
 			} catch (Exception e) {
@@ -191,49 +191,49 @@ final class CartorioCont {
 		if (cartorio == null) {
 			return;
 		}
-		getCartorioPc().getCnpjGUI().setText(cartorio.getCnpj());
-		getCartorioPc().getComarcaGUI().setText(cartorio.getComarca());
-		getCartorioPc().getDistritoGUI().setText(cartorio.getDistrito());
-		getCartorioPc().getMunicipioGUI().setText(cartorio.getMunicipio());
-		getCartorioPc().getNomeFantasiaGUI().setText(cartorio.getNomeFantasia());
-		getCartorioPc().getRazaoSocialGUI().setText(cartorio.getRazaoSocial());
-		getCartorioPc().getSubstitutoGUI().setText(cartorio.getSubstituto());
-		getCartorioPc().getTitularGUI().setText(cartorio.getTitular());
-		getCartorioPc().getEmailGUI().setText(cartorio.getEmail());
-		getCartorioPc().getFaxGUI().setText(cartorio.getFax());
-		getCartorioPc().getFone1GUI().setText(cartorio.getFone1());
-		getCartorioPc().getFone2GUI().setText(cartorio.getFone2());
-		getCartorioPc().getSiteGUI().setText(cartorio.getSite());
-		getCartorioPc().getBairroGUI().setText(cartorio.getBairro());
-		getCartorioPc().getCepGUI().setText(cartorio.getCep());
-		getCartorioPc().getCidadeGUI().setText(cartorio.getCidade());
-		getCartorioPc().getComplementoGUI().setText(cartorio.getComplemento());
-		getCartorioPc().getEstadoGUI().setText(cartorio.getEstado());
-		getCartorioPc().getLogradouroGUI().setText(cartorio.getLogradouro());
-		getCartorioPc().getPaisGUI().setText(cartorio.getPais());
+		getCartorioPc().getCnpjGui().setText(cartorio.getCnpj());
+		getCartorioPc().getComarcaGui().setText(cartorio.getComarca());
+		getCartorioPc().getDistritoGui().setText(cartorio.getDistrito());
+		getCartorioPc().getMunicipioGui().setText(cartorio.getMunicipio());
+		getCartorioPc().getNomeFantasiaGui().setText(cartorio.getNomeFantasia());
+		getCartorioPc().getRazaoSocialGui().setText(cartorio.getRazaoSocial());
+		getCartorioPc().getSubstitutoGui().setText(cartorio.getSubstituto());
+		getCartorioPc().getTitularGui().setText(cartorio.getTitular());
+		getCartorioPc().getEmailGui().setText(cartorio.getEmail());
+		getCartorioPc().getFaxGui().setText(cartorio.getFax());
+		getCartorioPc().getFone1Gui().setText(cartorio.getFone1());
+		getCartorioPc().getFone2Gui().setText(cartorio.getFone2());
+		getCartorioPc().getSiteGui().setText(cartorio.getSite());
+		getCartorioPc().getBairroGui().setText(cartorio.getBairro());
+		getCartorioPc().getCepGui().setText(cartorio.getCep());
+		getCartorioPc().getCidadeGui().setText(cartorio.getCidade());
+		getCartorioPc().getComplementoGui().setText(cartorio.getComplemento());
+		getCartorioPc().getEstadoGui().setText(cartorio.getEstado());
+		getCartorioPc().getLogradouroGui().setText(cartorio.getLogradouro());
+		getCartorioPc().getPaisGui().setText(cartorio.getPais());
 	}
 
 	public void atualizarObjeto() {
-		cartorio.setCnpj(getCartorioPc().getCnpjGUI().getText());
-		cartorio.setComarca(getCartorioPc().getComarcaGUI().getText());
-		cartorio.setDistrito(getCartorioPc().getDistritoGUI().getText());
-		cartorio.setMunicipio(getCartorioPc().getMunicipioGUI().getText());
-		cartorio.setNomeFantasia(getCartorioPc().getNomeFantasiaGUI().getText());
-		cartorio.setRazaoSocial(getCartorioPc().getRazaoSocialGUI().getText());
-		cartorio.setSubstituto(getCartorioPc().getSubstitutoGUI().getText());
-		cartorio.setTitular(getCartorioPc().getTitularGUI().getText());
-		cartorio.setEmail(getCartorioPc().getEmailGUI().getText());
-		cartorio.setFax(getCartorioPc().getFaxGUI().getText());
-		cartorio.setFone1(getCartorioPc().getFone1GUI().getText());
-		cartorio.setFone2(getCartorioPc().getFone2GUI().getText());
-		cartorio.setSite(getCartorioPc().getSiteGUI().getText());
-		cartorio.setBairro(getCartorioPc().getBairroGUI().getText());
-		cartorio.setCep(getCartorioPc().getCepGUI().getText());
-		cartorio.setCidade(getCartorioPc().getCidadeGUI().getText());
-		cartorio.setComplemento(getCartorioPc().getComplementoGUI().getText());
-		cartorio.setEstado(getCartorioPc().getEstadoGUI().getText());
-		cartorio.setLogradouro(getCartorioPc().getLogradouroGUI().getText());
-		cartorio.setPais(getCartorioPc().getPaisGUI().getText());
+		cartorio.setCnpj(getCartorioPc().getCnpjGui().getText());
+		cartorio.setComarca(getCartorioPc().getComarcaGui().getText());
+		cartorio.setDistrito(getCartorioPc().getDistritoGui().getText());
+		cartorio.setMunicipio(getCartorioPc().getMunicipioGui().getText());
+		cartorio.setNomeFantasia(getCartorioPc().getNomeFantasiaGui().getText());
+		cartorio.setRazaoSocial(getCartorioPc().getRazaoSocialGui().getText());
+		cartorio.setSubstituto(getCartorioPc().getSubstitutoGui().getText());
+		cartorio.setTitular(getCartorioPc().getTitularGui().getText());
+		cartorio.setEmail(getCartorioPc().getEmailGui().getText());
+		cartorio.setFax(getCartorioPc().getFaxGui().getText());
+		cartorio.setFone1(getCartorioPc().getFone1Gui().getText());
+		cartorio.setFone2(getCartorioPc().getFone2Gui().getText());
+		cartorio.setSite(getCartorioPc().getSiteGui().getText());
+		cartorio.setBairro(getCartorioPc().getBairroGui().getText());
+		cartorio.setCep(getCartorioPc().getCepGui().getText());
+		cartorio.setCidade(getCartorioPc().getCidadeGui().getText());
+		cartorio.setComplemento(getCartorioPc().getComplementoGui().getText());
+		cartorio.setEstado(getCartorioPc().getEstadoGui().getText());
+		cartorio.setLogradouro(getCartorioPc().getLogradouroGui().getText());
+		cartorio.setPais(getCartorioPc().getPaisGui().getText());
 	}
 
 	public Cartorio getCartorio() {

@@ -6,10 +6,10 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 
-import arquitetura.gui.FocoEvento;
-import arquitetura.gui.Gui;
 import arquitetura.gui.ConfiguracaoGui;
 import arquitetura.gui.EntradaMaiuscula;
+import arquitetura.gui.FocoEvento;
+import arquitetura.gui.Gui;
 import arquitetura.registro.ToolBar;
 import arquitetura.util.SpringUtilities;
 
@@ -38,7 +38,7 @@ public final class TipoEventoPc extends JPanel implements Gui {
 		return configuracaoGui;
 	}
 
-	public JTextField getNomeGUI() {
+	public JTextField getNomeGui() {
 		return textFieldNome;
 	}
 
@@ -101,6 +101,6 @@ public final class TipoEventoPc extends JPanel implements Gui {
 
 	@Override
 	public void reiniciarGui() {
-	
+
 	}
 }

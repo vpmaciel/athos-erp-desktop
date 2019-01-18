@@ -66,7 +66,8 @@ final class FuncionarioImp implements FuncionarioDao {
 			predicates.add(criteriaBuilder.like(rootFuncionario.get("bairro"), "%" + funcionario.getBairro() + "%"));
 		}
 		if (funcionario.getCategoria() != null && !funcionario.getCategoria().equals("")) {
-			predicates.add(criteriaBuilder.like(rootFuncionario.get("categoria"), "%" + funcionario.getCategoria() + "%"));
+			predicates.add(
+					criteriaBuilder.like(rootFuncionario.get("categoria"), "%" + funcionario.getCategoria() + "%"));
 		}
 		if (funcionario.getCentroCusto() != null) {
 			predicates.add(criteriaBuilder.equal(rootFuncionario.get("centroCusto"), funcionario.getCentroCusto()));
@@ -78,13 +79,15 @@ final class FuncionarioImp implements FuncionarioDao {
 			predicates.add(criteriaBuilder.like(rootFuncionario.get("cidade"), "%" + funcionario.getCidade() + "%"));
 		}
 		if (funcionario.getCnhCategoria() != null && !funcionario.getCnhCategoria().equals("")) {
-			predicates.add(criteriaBuilder.like(rootFuncionario.get("cnhCategoria"), "%" + funcionario.getCnhCategoria() + "%"));
+			predicates.add(criteriaBuilder.like(rootFuncionario.get("cnhCategoria"),
+					"%" + funcionario.getCnhCategoria() + "%"));
 		}
 		if (funcionario.getCnpj() != null && !funcionario.getCnpj().equals("")) {
 			predicates.add(criteriaBuilder.like(rootFuncionario.get("cnpj"), "%" + funcionario.getCnpj() + "%"));
 		}
 		if (funcionario.getComplemento() != null && !funcionario.getComplemento().equals("")) {
-			predicates.add(criteriaBuilder.like(rootFuncionario.get("complemento"), "%" + funcionario.getComplemento() + "%"));
+			predicates.add(
+					criteriaBuilder.like(rootFuncionario.get("complemento"), "%" + funcionario.getComplemento() + "%"));
 		}
 		if (funcionario.getConjuge() != null && !funcionario.getConjuge().equals("")) {
 			predicates.add(criteriaBuilder.like(rootFuncionario.get("conjuge"), "%" + funcionario.getConjuge() + "%"));
@@ -96,13 +99,15 @@ final class FuncionarioImp implements FuncionarioDao {
 			predicates.add(criteriaBuilder.equal(rootFuncionario.get("empresa"), funcionario.getEmpresa()));
 		}
 		if (funcionario.getEscolaridade() != null && !funcionario.getEscolaridade().equals("")) {
-			predicates.add(criteriaBuilder.like(rootFuncionario.get("escolaridade"), "%" + funcionario.getEscolaridade() + "%"));
+			predicates.add(criteriaBuilder.like(rootFuncionario.get("escolaridade"),
+					"%" + funcionario.getEscolaridade() + "%"));
 		}
 		if (funcionario.getEstado() != null && !funcionario.getEstado().equals("")) {
 			predicates.add(criteriaBuilder.like(rootFuncionario.get("estado"), "%" + funcionario.getEstado() + "%"));
 		}
 		if (funcionario.getEstadoCivil() != null && !funcionario.getEstadoCivil().equals("")) {
-			predicates.add(criteriaBuilder.like(rootFuncionario.get("estadoCivil"), "%" + funcionario.getEstadoCivil() + "%"));
+			predicates.add(
+					criteriaBuilder.like(rootFuncionario.get("estadoCivil"), "%" + funcionario.getEstadoCivil() + "%"));
 		}
 		if (funcionario.getFax() != null && !funcionario.getFax().equals("")) {
 			predicates.add(criteriaBuilder.like(rootFuncionario.get("fax"), "%" + funcionario.getFax() + "%"));
@@ -120,10 +125,12 @@ final class FuncionarioImp implements FuncionarioDao {
 			predicates.add(criteriaBuilder.like(rootFuncionario.get("gerente"), "%" + funcionario.getGerente() + "%"));
 		}
 		if (funcionario.getLogradouro() != null && !funcionario.getLogradouro().equals("")) {
-			predicates.add(criteriaBuilder.like(rootFuncionario.get("logradouro"), "%" + funcionario.getLogradouro() + "%"));
+			predicates.add(
+					criteriaBuilder.like(rootFuncionario.get("logradouro"), "%" + funcionario.getLogradouro() + "%"));
 		}
 		if (funcionario.getMatricula() != null && !funcionario.getMatricula().equals("")) {
-			predicates.add(criteriaBuilder.like(rootFuncionario.get("matricula"), "%" + funcionario.getMatricula() + "%"));
+			predicates.add(
+					criteriaBuilder.like(rootFuncionario.get("matricula"), "%" + funcionario.getMatricula() + "%"));
 		}
 		if (funcionario.getNome() != null && !funcionario.getNome().equals("")) {
 			predicates.add(criteriaBuilder.like(rootFuncionario.get("nome"), "%" + funcionario.getNome() + "%"));
@@ -132,13 +139,16 @@ final class FuncionarioImp implements FuncionarioDao {
 			predicates.add(criteriaBuilder.like(rootFuncionario.get("pais"), "%" + funcionario.getPais() + "%"));
 		}
 		if (funcionario.getPisNumero() != null && !funcionario.getPisNumero().equals("")) {
-			predicates.add(criteriaBuilder.like(rootFuncionario.get("pisNumero"), "%" + funcionario.getPisNumero() + "%"));
+			predicates.add(
+					criteriaBuilder.like(rootFuncionario.get("pisNumero"), "%" + funcionario.getPisNumero() + "%"));
 		}
 		if (funcionario.getRgNumero() != null && !funcionario.getRgNumero().equals("")) {
-			predicates.add(criteriaBuilder.like(rootFuncionario.get("rgNumero"), "%" + funcionario.getRgNumero() + "%"));
+			predicates
+					.add(criteriaBuilder.like(rootFuncionario.get("rgNumero"), "%" + funcionario.getRgNumero() + "%"));
 		}
 		if (funcionario.getRgOrgaoEmissor() != null && !funcionario.getRgOrgaoEmissor().equals("")) {
-			predicates.add(criteriaBuilder.like(rootFuncionario.get("rgOrgaoEmissor"), "%" + funcionario.getRgOrgaoEmissor() + "%"));
+			predicates.add(criteriaBuilder.like(rootFuncionario.get("rgOrgaoEmissor"),
+					"%" + funcionario.getRgOrgaoEmissor() + "%"));
 		}
 		if (funcionario.getSalario() != null && !funcionario.getSalario().equals("")) {
 			predicates.add(criteriaBuilder.like(rootFuncionario.get("salario"), "%" + funcionario.getSalario() + "%"));
@@ -149,7 +159,7 @@ final class FuncionarioImp implements FuncionarioDao {
 		if (funcionario.getTurno() != null && !funcionario.getTurno().equals("")) {
 			predicates.add(criteriaBuilder.like(rootFuncionario.get("turno"), "%" + funcionario.getTurno() + "%"));
 		}
-		
+
 		criteriaQuery.select(rootFuncionario).where(predicates.toArray(new Predicate[] {}));
 
 		List<Funcionario> list = entityManager.createQuery(criteriaQuery).getResultList();

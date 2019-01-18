@@ -22,8 +22,7 @@ public final class RegExp {
 	public static final Pattern MOEDA_KEY_LISTENER = Pattern.compile("(-|(-)?\\d+|(-)?\\d+[,.]?|(-)?\\d+[,.]\\d{1,2})");
 	public static final Pattern MOEDA_NAO_NEGATIVO = Pattern.compile("\\d+[,.]?\\d{2}");
 	public static final Pattern MOEDA_NAO_NEGATIVO_KEY_LISTENER = Pattern.compile("\\d+|\\d+[,.]?|\\d+[,.]\\d{1,2}");
-	public static final Pattern NOME = Pattern.compile(
-			"^(?:[\\p{Lu}&&[\\p{IsLatin}]])(?:(?:')?(?:[\\p{Ll}&&[\\p{IsLatin}]]))+(?:\\-(?:[\\p{Lu}&&[\\p{IsLatin}]])(?:(?:')?(?:[\\p{Ll}&&[\\p{IsLatin}]]))+)*(?: (?:(?:e|y|de(?:(?: la| las| lo| los))?|do|dos|da|das|del|van|von|bin|le) )?(?:(?:(?:d'|D'|O'|Mc|Mac|al\\-))?(?:[\\p{Lu}&&[\\p{IsLatin}]])(?:(?:')?(?:[\\p{Ll}&&[\\p{IsLatin}]]))+|(?:[\\p{Lu}&&[\\p{IsLatin}]])(?:(?:')?(?:[\\p{Ll}&&[\\p{IsLatin}]]))+(?:\\-(?:[\\p{Lu}&&[\\p{IsLatin}]])(?:(?:')?(?:[\\p{Ll}&&[\\p{IsLatin}]]))+)*))+(?: (?:Jr\\.|II|III|IV))?${1,50}");
+	public static final Pattern NOME = Pattern.compile("\\S{1,500}");
 	public static final Pattern NUMERO_AGENCIA_BANCARIA = Pattern.compile("(\\d+[ -]?)+");
 	public static final Pattern NUMERO_BANCO = Pattern.compile("\\w(\\w*[ -]?)+");
 	public static final Pattern SITE = Pattern.compile("\\w+(\\w+[.]\\w+)+");

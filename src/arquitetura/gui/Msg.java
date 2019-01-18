@@ -3,8 +3,8 @@ package arquitetura.gui;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
-import erp.main.MainFc;
 import erp.main.MainCont;
+import erp.main.MainFc;
 import erp.main.SobrePc;
 
 public final class Msg {
@@ -57,8 +57,8 @@ public final class Msg {
 	}
 
 	public static final void avisoFecharSistema() {
-		JOptionPane.showMessageDialog(MainCont.getLoginFc().getLoginPc(), "O sistema será fechado !",
-				"Erro", JOptionPane.ERROR_MESSAGE);
+		JOptionPane.showMessageDialog(MainCont.getLoginFc().getLoginPc(), "O sistema será fechado !", "Erro",
+				JOptionPane.ERROR_MESSAGE);
 	}
 
 	public static final void avisoImprimiRegistroNaoCadastrado() {

@@ -13,7 +13,7 @@ import arquitetura.gui.Msg;
 import erp.main.MainCont;
 
 final class VeiculoModeloCont {
-	
+
 	public class Ajuda implements ActionListener {
 
 		@Override
@@ -139,8 +139,7 @@ final class VeiculoModeloCont {
 		public void actionPerformed(ActionEvent actionEvent) {
 			veiculoModelo = new VeiculoModelo();
 			atualizarObjeto();
-			MainCont.getVeiculoModeloFp().getVeiculoModeloPp()
-					.pesquisarRegistroVeiculoModelo(veiculoModelo);
+			MainCont.getVeiculoModeloFp().getVeiculoModeloPp().pesquisarRegistroVeiculoModelo(veiculoModelo);
 			MainCont.mostrarFrame(getVeiculoModeloFp());
 		}
 	}

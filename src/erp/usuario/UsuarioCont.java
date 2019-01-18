@@ -16,7 +16,7 @@ import arquitetura.gui.Msg;
 import erp.main.MainCont;
 
 final class UsuarioCont {
-	
+
 	public class Ajuda implements ActionListener {
 
 		@Override
@@ -211,7 +211,7 @@ final class UsuarioCont {
 	UsuarioCont() {
 	}
 
-	public void atualizarGUI() {
+	public void atualizarGui() {
 		if (usuario == null) {
 			return;
 		}

@@ -29,7 +29,7 @@ public class EventoTm extends AbstractTableModel {
 		tabelaModelo.adicionar("DATA", 3, 100);
 		tabelaModelo.adicionar("HORA INÍCIO", 4, 100);
 		tabelaModelo.adicionar("HORA TÉRMINO", 5, 100);
-		
+
 		largura = new int[tabelaModelo.getTotalColunas()];
 		podeEditar = new boolean[tabelaModelo.getTotalColunas()];
 		for (int i = 0; i < tabelaModelo.getTotalColunas(); i++) {
@@ -125,7 +125,7 @@ public class EventoTm extends AbstractTableModel {
 			evento.setDescricao(aValue.toString());
 		}
 		if (tabelaModelo.getNome(columnIndex).equals("TIPO DE EVENTO")) {
-			evento.setTipoEvento((TipoEvento)aValue);
+			evento.setTipoEvento((TipoEvento) aValue);
 		}
 		if (tabelaModelo.getNome(columnIndex).equals("DATA")) {
 			evento.setData(aValue.toString());

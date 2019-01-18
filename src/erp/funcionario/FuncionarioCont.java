@@ -144,7 +144,7 @@ final class FuncionarioCont {
 		public void actionPerformed(ActionEvent actionEvent) {
 			funcionario = new Funcionario();
 			MainCont.getFuncionarioFc().limparGui();
-			getFuncionarioPc().getNomeGUI().requestFocus();
+			getFuncionarioPc().getNomeGui().requestFocus();
 		}
 	}
 
@@ -183,9 +183,9 @@ final class FuncionarioCont {
 				if (mensagem != JOptionPane.YES_OPTION) {
 					return;
 				}
-				String nome = getFuncionarioPc().getNomeGUI().getText();
+				String nome = getFuncionarioPc().getNomeGui().getText();
 				if (nome == null || nome.length() == 0) {
-					getFuncionarioPc().getNomeGUI().requestFocus();
+					getFuncionarioPc().getNomeGui().requestFocus();
 					Msg.avisoCampoObrigatorio("Data");
 					return;
 				}
@@ -194,7 +194,7 @@ final class FuncionarioCont {
 					FuncionarioFac.salvarRegistro(funcionario);
 					funcionario = new Funcionario();
 					getFuncionarioFc().limparGui();
-					getFuncionarioPc().getNomeGUI().requestFocus();
+					getFuncionarioPc().getNomeGui().requestFocus();
 					Msg.sucessoSalvarRegistro();
 				}
 			} catch (Exception e) {
@@ -209,84 +209,84 @@ final class FuncionarioCont {
 		if (funcionario == null) {
 			return;
 		}
-		getFuncionarioPc().getNomeGUI().setText(funcionario.getNome());
-		getFuncionarioPc().getConjugeGUI().setText(funcionario.getConjuge());
-		getFuncionarioPc().getFilhosGUI().setText(funcionario.getFilhos());
-		getFuncionarioPc().getMatriculaGUI().setText(funcionario.getMatricula());
-		getFuncionarioPc().getSexoGUI().setSelectedItem(funcionario.getSexo());
-		getFuncionarioPc().getCorGUI().setSelectedItem(funcionario.getCor());
-		getFuncionarioPc().getDeficienciaGUI().setSelectedItem(funcionario.getDeficiencia());
-		getFuncionarioPc().getEscolaridadeGUI().setSelectedItem(funcionario.getEscolaridade());
-		getFuncionarioPc().getNacionalidadeGUI().setSelectedItem(funcionario.getNacionalidade());
-		getFuncionarioPc().getNomeGUI().setText(funcionario.getNome());
-		getFuncionarioPc().getEstadoCivilGUI().setSelectedItem(funcionario.getEstadoCivil());
-		getFuncionarioPc().getEmailGUI().setText(funcionario.getEmail());
-		getFuncionarioPc().getFaxGUI().setText(funcionario.getFax());
-		getFuncionarioPc().getFone1GUI().setText(funcionario.getFone1());
-		getFuncionarioPc().getFone2GUI().setText(funcionario.getFone2());
-		getFuncionarioPc().getCargoGUI().setText(funcionario.getCargo());
-		getFuncionarioPc().getCategoriaGUI().setText(funcionario.getCategoria());
-		getFuncionarioPc().getCentroCustoGUI().setSelectedItem(funcionario.getCentroCusto());
-		getFuncionarioPc().getDepartamentoGUI().setText(funcionario.getDepartamento());
-		getFuncionarioPc().getEmpresaGUI().setText(funcionario.getEmpresa());
-		getFuncionarioPc().getGerenteGUI().setText(funcionario.getGerente());
-		getFuncionarioPc().getSalarioGUI().setText(funcionario.getSalario());
-		getFuncionarioPc().getTurnoGUI().setText(funcionario.getTurno());
-		getFuncionarioPc().getBairroGUI().setText(funcionario.getBairro());
-		getFuncionarioPc().getCepGUI().setText(funcionario.getCep());
-		getFuncionarioPc().getCidadeGUI().setText(funcionario.getCidade());
-		getFuncionarioPc().getComplementoGUI().setText(funcionario.getComplemento());
-		getFuncionarioPc().getEstadoGUI().setText(funcionario.getEstado());
-		getFuncionarioPc().getLogradouroGUI().setText(funcionario.getLogradouro());
-		getFuncionarioPc().getPaisGUI().setText(funcionario.getPais());
-		getFuncionarioPc().getCNHCategoriaGUI().setText(funcionario.getCnhCategoria());
-		getFuncionarioPc().getCnpjGUI().setText(funcionario.getCnpj());
-		getFuncionarioPc().getCpfGUI().setText(funcionario.getCpf());
-		getFuncionarioPc().getCtpsGUI().setText(funcionario.getCtpsNumero());
-		getFuncionarioPc().getPisGUI().setText(funcionario.getPisNumero());
-		getFuncionarioPc().getRGNumeroGUI().setText(funcionario.getRgNumero());
-		getFuncionarioPc().getRGOrgaoEmisssorGUI().setText(funcionario.getRgOrgaoEmissor());
+		getFuncionarioPc().getNomeGui().setText(funcionario.getNome());
+		getFuncionarioPc().getConjugeGui().setText(funcionario.getConjuge());
+		getFuncionarioPc().getFilhosGui().setText(funcionario.getFilhos());
+		getFuncionarioPc().getMatriculaGui().setText(funcionario.getMatricula());
+		getFuncionarioPc().getSexoGui().setSelectedItem(funcionario.getSexo());
+		getFuncionarioPc().getCorGui().setSelectedItem(funcionario.getCor());
+		getFuncionarioPc().getDeficienciaGui().setSelectedItem(funcionario.getDeficiencia());
+		getFuncionarioPc().getEscolaridadeGui().setSelectedItem(funcionario.getEscolaridade());
+		getFuncionarioPc().getNacionalidadeGui().setSelectedItem(funcionario.getNacionalidade());
+		getFuncionarioPc().getNomeGui().setText(funcionario.getNome());
+		getFuncionarioPc().getEstadoCivilGui().setSelectedItem(funcionario.getEstadoCivil());
+		getFuncionarioPc().getEmailGui().setText(funcionario.getEmail());
+		getFuncionarioPc().getFaxGui().setText(funcionario.getFax());
+		getFuncionarioPc().getFone1Gui().setText(funcionario.getFone1());
+		getFuncionarioPc().getFone2Gui().setText(funcionario.getFone2());
+		getFuncionarioPc().getCargoGui().setText(funcionario.getCargo());
+		getFuncionarioPc().getCategoriaGui().setText(funcionario.getCategoria());
+		getFuncionarioPc().getCentroCustoGui().setSelectedItem(funcionario.getCentroCusto());
+		getFuncionarioPc().getDepartamentoGui().setText(funcionario.getDepartamento());
+		getFuncionarioPc().getEmpresaGui().setText(funcionario.getEmpresa());
+		getFuncionarioPc().getGerenteGui().setText(funcionario.getGerente());
+		getFuncionarioPc().getSalarioGui().setText(funcionario.getSalario());
+		getFuncionarioPc().getTurnoGui().setText(funcionario.getTurno());
+		getFuncionarioPc().getBairroGui().setText(funcionario.getBairro());
+		getFuncionarioPc().getCepGui().setText(funcionario.getCep());
+		getFuncionarioPc().getCidadeGui().setText(funcionario.getCidade());
+		getFuncionarioPc().getComplementoGui().setText(funcionario.getComplemento());
+		getFuncionarioPc().getEstadoGui().setText(funcionario.getEstado());
+		getFuncionarioPc().getLogradouroGui().setText(funcionario.getLogradouro());
+		getFuncionarioPc().getPaisGui().setText(funcionario.getPais());
+		getFuncionarioPc().getCNHCategoriaGui().setText(funcionario.getCnhCategoria());
+		getFuncionarioPc().getCnpjGui().setText(funcionario.getCnpj());
+		getFuncionarioPc().getCpfGui().setText(funcionario.getCpf());
+		getFuncionarioPc().getCtpsGui().setText(funcionario.getCtpsNumero());
+		getFuncionarioPc().getPisGui().setText(funcionario.getPisNumero());
+		getFuncionarioPc().getRGNumeroGui().setText(funcionario.getRgNumero());
+		getFuncionarioPc().getRGOrgaoEmisssorGui().setText(funcionario.getRgOrgaoEmissor());
 
 	}
 
 	public void atualizarObjeto() {
-		funcionario.setNome(getFuncionarioPc().getNomeGUI().getText());
-		funcionario.setConjuge(getFuncionarioPc().getConjugeGUI().getText());
-		funcionario.setFilhos(getFuncionarioPc().getFilhosGUI().getText());
-		funcionario.setMatricula(getFuncionarioPc().getMatriculaGUI().getText());
-		funcionario.setSexo((String) getFuncionarioPc().getSexoGUI().getSelectedItem());
-		funcionario.setNome(getFuncionarioPc().getNomeGUI().getText());
-		funcionario.setEstadoCivil((String) getFuncionarioPc().getEstadoCivilGUI().getSelectedItem());
-		funcionario.setCor((String) getFuncionarioPc().getCorGUI().getSelectedItem());
-		funcionario.setDeficiencia((String) getFuncionarioPc().getDeficienciaGUI().getSelectedItem());
-		funcionario.setEscolaridade((String) getFuncionarioPc().getEscolaridadeGUI().getSelectedItem());
-		funcionario.setNacionalidade((String) getFuncionarioPc().getNacionalidadeGUI().getSelectedItem());
-		funcionario.setEmail(getFuncionarioPc().getEmailGUI().getText());
-		funcionario.setFax(getFuncionarioPc().getFaxGUI().getText());
-		funcionario.setFone1(getFuncionarioPc().getFone1GUI().getText());
-		funcionario.setFone2(getFuncionarioPc().getFone2GUI().getText());
-		funcionario.setCargo(getFuncionarioPc().getCargoGUI().getText());
-		funcionario.setCategoria(getFuncionarioPc().getCategoriaGUI().getText());
-		funcionario.setCentroDeCusto((CentroCusto) getFuncionarioPc().getCentroCustoGUI().getSelectedItem());
-		funcionario.setDepartamento(getFuncionarioPc().getDepartamentoGUI().getText());
-		funcionario.setEmpresa(getFuncionarioPc().getEmpresaGUI().getText());
-		funcionario.setGerente(getFuncionarioPc().getGerenteGUI().getText());
-		funcionario.setSalario(getFuncionarioPc().getSalarioGUI().getText());
-		funcionario.setTurno(getFuncionarioPc().getTurnoGUI().getText());
-		funcionario.setBairro(getFuncionarioPc().getBairroGUI().getText());
-		funcionario.setCep(getFuncionarioPc().getCepGUI().getText());
-		funcionario.setCidade(getFuncionarioPc().getCidadeGUI().getText());
-		funcionario.setComplemento(getFuncionarioPc().getComplementoGUI().getText());
-		funcionario.setEstado(getFuncionarioPc().getEstadoGUI().getText());
-		funcionario.setLogradouro(getFuncionarioPc().getLogradouroGUI().getText());
-		funcionario.setPais(getFuncionarioPc().getPaisGUI().getText());
-		funcionario.setCnhCategoria(getFuncionarioPc().getCNHCategoriaGUI().getText());
-		funcionario.setCnpj(getFuncionarioPc().getCnpjGUI().getText());
-		funcionario.setCpf(getFuncionarioPc().getCpfGUI().getText());
-		funcionario.setCtpsNumero(getFuncionarioPc().getCtpsGUI().getText());
-		funcionario.setPisNumero(getFuncionarioPc().getPisGUI().getText());
-		funcionario.setRgNumero(getFuncionarioPc().getRGNumeroGUI().getText());
-		funcionario.setRgOrgaoEmissor(getFuncionarioPc().getRGOrgaoEmisssorGUI().getText());
+		funcionario.setNome(getFuncionarioPc().getNomeGui().getText());
+		funcionario.setConjuge(getFuncionarioPc().getConjugeGui().getText());
+		funcionario.setFilhos(getFuncionarioPc().getFilhosGui().getText());
+		funcionario.setMatricula(getFuncionarioPc().getMatriculaGui().getText());
+		funcionario.setSexo((String) getFuncionarioPc().getSexoGui().getSelectedItem());
+		funcionario.setNome(getFuncionarioPc().getNomeGui().getText());
+		funcionario.setEstadoCivil((String) getFuncionarioPc().getEstadoCivilGui().getSelectedItem());
+		funcionario.setCor((String) getFuncionarioPc().getCorGui().getSelectedItem());
+		funcionario.setDeficiencia((String) getFuncionarioPc().getDeficienciaGui().getSelectedItem());
+		funcionario.setEscolaridade((String) getFuncionarioPc().getEscolaridadeGui().getSelectedItem());
+		funcionario.setNacionalidade((String) getFuncionarioPc().getNacionalidadeGui().getSelectedItem());
+		funcionario.setEmail(getFuncionarioPc().getEmailGui().getText());
+		funcionario.setFax(getFuncionarioPc().getFaxGui().getText());
+		funcionario.setFone1(getFuncionarioPc().getFone1Gui().getText());
+		funcionario.setFone2(getFuncionarioPc().getFone2Gui().getText());
+		funcionario.setCargo(getFuncionarioPc().getCargoGui().getText());
+		funcionario.setCategoria(getFuncionarioPc().getCategoriaGui().getText());
+		funcionario.setCentroDeCusto((CentroCusto) getFuncionarioPc().getCentroCustoGui().getSelectedItem());
+		funcionario.setDepartamento(getFuncionarioPc().getDepartamentoGui().getText());
+		funcionario.setEmpresa(getFuncionarioPc().getEmpresaGui().getText());
+		funcionario.setGerente(getFuncionarioPc().getGerenteGui().getText());
+		funcionario.setSalario(getFuncionarioPc().getSalarioGui().getText());
+		funcionario.setTurno(getFuncionarioPc().getTurnoGui().getText());
+		funcionario.setBairro(getFuncionarioPc().getBairroGui().getText());
+		funcionario.setCep(getFuncionarioPc().getCepGui().getText());
+		funcionario.setCidade(getFuncionarioPc().getCidadeGui().getText());
+		funcionario.setComplemento(getFuncionarioPc().getComplementoGui().getText());
+		funcionario.setEstado(getFuncionarioPc().getEstadoGui().getText());
+		funcionario.setLogradouro(getFuncionarioPc().getLogradouroGui().getText());
+		funcionario.setPais(getFuncionarioPc().getPaisGui().getText());
+		funcionario.setCnhCategoria(getFuncionarioPc().getCNHCategoriaGui().getText());
+		funcionario.setCnpj(getFuncionarioPc().getCnpjGui().getText());
+		funcionario.setCpf(getFuncionarioPc().getCpfGui().getText());
+		funcionario.setCtpsNumero(getFuncionarioPc().getCtpsGui().getText());
+		funcionario.setPisNumero(getFuncionarioPc().getPisGui().getText());
+		funcionario.setRgNumero(getFuncionarioPc().getRGNumeroGui().getText());
+		funcionario.setRgOrgaoEmissor(getFuncionarioPc().getRGOrgaoEmisssorGui().getText());
 	}
 
 	public Funcionario getFuncionario() {

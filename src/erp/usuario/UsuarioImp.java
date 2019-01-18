@@ -73,7 +73,7 @@ final class UsuarioImp implements UsuarioDao {
 		List<Usuario> list = entityManager.createQuery(criteriaQuery).getResultList();
 		tx.commit();
 		entityManager.close();
-		
+
 		return list.size() > 0;
 	}
 
@@ -103,7 +103,7 @@ final class UsuarioImp implements UsuarioDao {
 		List<Usuario> list = entityManager.createQuery(criteriaQuery).getResultList();
 		tx.commit();
 		entityManager.close();
-		
+
 		return list;
 	}
 

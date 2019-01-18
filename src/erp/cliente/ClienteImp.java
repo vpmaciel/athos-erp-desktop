@@ -147,31 +147,38 @@ final class ClienteImp implements ClienteDao {
 		}
 
 		if (cliente.getNumeroContaBancaria() != null && !cliente.getNumeroContaBancaria().equals("")) {
-			predicates.add(criteriaBuilder.like(rootCliente.get("numeroContaBancaria"), "%" + cliente.getNumeroContaBancaria() + "%"));
+			predicates.add(criteriaBuilder.like(rootCliente.get("numeroContaBancaria"),
+					"%" + cliente.getNumeroContaBancaria() + "%"));
 		}
 
 		if (cliente.getNomeReferencia1() != null && !cliente.getNomeReferencia1().equals("")) {
-			predicates.add(criteriaBuilder.like(rootCliente.get("nomeReferencia1"), "%" + cliente.getNomeReferencia1() + "%"));
+			predicates.add(
+					criteriaBuilder.like(rootCliente.get("nomeReferencia1"), "%" + cliente.getNomeReferencia1() + "%"));
 		}
 
 		if (cliente.getNomeReferencia2() != null && !cliente.getNomeReferencia2().equals("")) {
-			predicates.add(criteriaBuilder.like(rootCliente.get("nomeReferencia2"), "%" + cliente.getNomeReferencia2() + "%"));
+			predicates.add(
+					criteriaBuilder.like(rootCliente.get("nomeReferencia2"), "%" + cliente.getNomeReferencia2() + "%"));
 		}
 
 		if (cliente.getNomeReferencia3() != null && !cliente.getNomeReferencia3().equals("")) {
-			predicates.add(criteriaBuilder.like(rootCliente.get("nomeReferencia3"), "%" + cliente.getNomeReferencia3() + "%"));
+			predicates.add(
+					criteriaBuilder.like(rootCliente.get("nomeReferencia3"), "%" + cliente.getNomeReferencia3() + "%"));
 		}
 
 		if (cliente.getFoneReferencia1() != null && !cliente.getFoneReferencia1().equals("")) {
-			predicates.add(criteriaBuilder.like(rootCliente.get("foneReferencia1"), "%" + cliente.getFoneReferencia1() + "%"));
+			predicates.add(
+					criteriaBuilder.like(rootCliente.get("foneReferencia1"), "%" + cliente.getFoneReferencia1() + "%"));
 		}
 
 		if (cliente.getFoneReferencia2() != null && !cliente.getFoneReferencia2().equals("")) {
-			predicates.add(criteriaBuilder.like(rootCliente.get("foneReferencia2"), "%" + cliente.getFoneReferencia2() + "%"));
+			predicates.add(
+					criteriaBuilder.like(rootCliente.get("foneReferencia2"), "%" + cliente.getFoneReferencia2() + "%"));
 		}
 
 		if (cliente.getFoneReferencia3() != null && !cliente.getFoneReferencia3().equals("")) {
-			predicates.add(criteriaBuilder.like(rootCliente.get("foneReferencia3"), "%" + cliente.getFoneReferencia3() + "%"));
+			predicates.add(
+					criteriaBuilder.like(rootCliente.get("foneReferencia3"), "%" + cliente.getFoneReferencia3() + "%"));
 		}
 
 		if (cliente.getRelacionamentoReferencia1() != null && !cliente.getRelacionamentoReferencia1().equals("")) {

@@ -1,24 +1,26 @@
 package erp.contador;
 
 import javax.swing.BorderFactory;
+import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 
+import arquitetura.gui.ConfiguracaoGui;
+import arquitetura.gui.EntradaMaiuscula;
+import arquitetura.gui.EntradaMinuscula;
 import arquitetura.gui.FocoEvento;
 import arquitetura.gui.Gui;
-import arquitetura.gui.ConfiguracaoGui;
-import arquitetura.gui.EntradaMinuscula;
-import arquitetura.gui.EntradaMaiuscula;
 import arquitetura.registro.ToolBar;
 import arquitetura.util.SpringUtilities;
+import arquitetura.validacao.Mascara;
 
 @SuppressWarnings("serial")
 public final class ContadorPc extends JPanel implements Gui {
 
-	private JTextField textFieldCnpj;
-	private JTextField textFieldCpf;
+	private JFormattedTextField textFieldCnpj;
+	private JFormattedTextField textFieldCpf;
 	private JTextField textFieldCrc;
 	private JTextField textFieldNome;
 	private ConfiguracaoGui configuracaoGui;
@@ -27,9 +29,9 @@ public final class ContadorPc extends JPanel implements Gui {
 	private JLabel labelCrc;
 	private JLabel labelNome;
 	private JTextField textFieldEmail;
-	private JTextField textFieldFax;
-	private JTextField textFieldFone1;
-	private JTextField textFieldFone2;
+	private JFormattedTextField textFieldFax;
+	private JFormattedTextField textFieldFone1;
+	private JFormattedTextField textFieldFone2;
 	private JTextField textFieldSite;
 	private JLabel labelFone2;
 	private JLabel labelEmail;
@@ -55,39 +57,39 @@ public final class ContadorPc extends JPanel implements Gui {
 		return configuracaoGui;
 	}
 
-	public JTextField getCnpjGUI() {
+	public JFormattedTextField getCnpjGui() {
 		return textFieldCnpj;
 	}
 
-	public JTextField getCpfGUI() {
+	public JFormattedTextField getCpfGui() {
 		return textFieldCpf;
 	}
 
-	public JTextField getCrcGUI() {
+	public JTextField getCrcGui() {
 		return textFieldCrc;
 	}
 
-	public JTextField getEmailGUI() {
+	public JTextField getEmailGui() {
 		return textFieldEmail;
 	}
 
-	public JTextField getFaxGUI() {
+	public JFormattedTextField getFaxGui() {
 		return textFieldFax;
 	}
 
-	public JTextField getFone1GUI() {
+	public JFormattedTextField getFone1Gui() {
 		return textFieldFone1;
 	}
 
-	public JTextField getFone2GUI() {
+	public JFormattedTextField getFone2Gui() {
 		return textFieldFone2;
 	}
 
-	public JTextField getNomeGUI() {
+	public JTextField getNomeGui() {
 		return textFieldNome;
 	}
 
-	public JTextField getSiteGUI() {
+	public JTextField getSiteGui() {
 		return textFieldSite;
 	}
 
@@ -119,28 +121,23 @@ public final class ContadorPc extends JPanel implements Gui {
 		labelCpf = new JLabel("CPF");
 		labelCpf.setBounds(10, 90, 70, 35);
 		add(labelCpf);
-		textFieldCpf = new JTextField();
-		textFieldCpf.setDocument(new EntradaMaiuscula(14));
+		textFieldCpf = new JFormattedTextField(Mascara.getCpf());
 		add(textFieldCpf);
 		labelCnpj = new JLabel("CNPJ");
 		add(labelCnpj);
-		textFieldCnpj = new JTextField();
-		textFieldCnpj.setDocument(new EntradaMaiuscula(19));
+		textFieldCnpj = new JFormattedTextField(Mascara.getCnpj());
 		add(textFieldCnpj);
 		labelFone1 = new JLabel("TELEFONE");
 		add(labelFone1);
-		textFieldFone1 = new JTextField();
-		textFieldFone1.setDocument(new EntradaMaiuscula(20));
+		textFieldFone1 = new JFormattedTextField(Mascara.getFone());
 		add(textFieldFone1);
 		labelFone2 = new JLabel("TELEFONE");
 		add(labelFone2);
-		textFieldFone2 = new JTextField();
-		textFieldFone2.setDocument(new EntradaMaiuscula(20));
+		textFieldFone2 = new JFormattedTextField(Mascara.getFone());
 		add(textFieldFone2);
 		labelFax = new JLabel("FAX");
 		add(labelFax);
-		textFieldFax = new JTextField();
-		textFieldFax.setDocument(new EntradaMaiuscula(20));
+		textFieldFax = new JFormattedTextField(Mascara.getFax());
 		add(textFieldFax);
 		labelEmail = new JLabel("E-MAIL");
 		add(labelEmail);

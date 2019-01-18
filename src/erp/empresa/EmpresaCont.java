@@ -143,7 +143,7 @@ final class EmpresaCont {
 		public void actionPerformed(ActionEvent actionEvent) {
 			empresa = new Empresa();
 			getEmpresaFc().limparGui();
-			getEmpresaPc().getNomeFantasiaGUI().requestFocus();
+			getEmpresaPc().getNomeFantasiaGui().requestFocus();
 		}
 	}
 
@@ -182,9 +182,9 @@ final class EmpresaCont {
 				if (mensagem != JOptionPane.YES_OPTION) {
 					return;
 				}
-				String nomeFantasia = getEmpresaPc().getNomeFantasiaGUI().getText();
+				String nomeFantasia = getEmpresaPc().getNomeFantasiaGui().getText();
 				if (nomeFantasia == null || nomeFantasia.length() == 0) {
-					getEmpresaPc().getNomeFantasiaGUI().requestFocus();
+					getEmpresaPc().getNomeFantasiaGui().requestFocus();
 					Msg.avisoCampoObrigatorio("NomeFantasia");
 					return;
 				}
@@ -193,7 +193,7 @@ final class EmpresaCont {
 					EmpresaFac.salvarRegistro(empresa);
 					empresa = new Empresa();
 					getEmpresaFc().limparGui();
-					getEmpresaPc().getNomeFantasiaGUI().requestFocus();
+					getEmpresaPc().getNomeFantasiaGui().requestFocus();
 					Msg.sucessoSalvarRegistro();
 				}
 			} catch (Exception e) {
@@ -208,55 +208,55 @@ final class EmpresaCont {
 		if (empresa == null) {
 			return;
 		}
-		getEmpresaPc().getNomeFantasiaGUI().setText(empresa.getNomeFantasia());
-		getEmpresaPc().getNumeroFuncionariosGUI().setText(empresa.getNumeroFuncionarios());
-		getEmpresaPc().getRamoAtividadeGUI().setText(empresa.getRamoAtividade());
-		getEmpresaPc().getNomeFantasiaGUI().setText(empresa.getNomeFantasia());
-		getEmpresaPc().getRazaoSocialGUI().setText(empresa.getRazaoSocial());
-		getEmpresaPc().getEmailGUI().setText(empresa.getEmail());
-		getEmpresaPc().getFaxGUI().setText(empresa.getFax());
-		getEmpresaPc().getFone1GUI().setText(empresa.getFone1());
-		getEmpresaPc().getFone2GUI().setText(empresa.getFone2());
-		getEmpresaPc().getInscricaoEstadualGUI().setText(empresa.getInscricaoEstadual());
-		getEmpresaPc().getInscricaoMunicipalGUI().setText(empresa.getInscricaoMunicipal());
-		getEmpresaPc().getCapitalSocialGUI().setText(empresa.getCapitalSocial());
-		getEmpresaPc().getDataFundacaoGUI().setText(empresa.getDataFundacao());
-		getEmpresaPc().getBairroGUI().setText(empresa.getBairro());
-		getEmpresaPc().getCepGUI().setText(empresa.getCep());
-		getEmpresaPc().getCidadeGUI().setText(empresa.getCidade());
-		getEmpresaPc().getComplementoGUI().setText(empresa.getComplemento());
-		getEmpresaPc().getEstadoGUI().setText(empresa.getEstado());
-		getEmpresaPc().getLogradouroGUI().setText(empresa.getLogradouro());
-		getEmpresaPc().getPaisGUI().setText(empresa.getPais());
-		getEmpresaPc().getCnpjGUI().setText(empresa.getCnpj());
-		getEmpresaPc().getEmpresaGUI().setSelectedItem(empresa.getTipoEmpresa());
-		getEmpresaPc().getFaturamentoMensalGUI().setText(empresa.getFaturamentoMensal());
+		getEmpresaPc().getNomeFantasiaGui().setText(empresa.getNomeFantasia());
+		getEmpresaPc().getNumeroFuncionariosGui().setText(empresa.getNumeroFuncionarios());
+		getEmpresaPc().getRamoAtividadeGui().setText(empresa.getRamoAtividade());
+		getEmpresaPc().getNomeFantasiaGui().setText(empresa.getNomeFantasia());
+		getEmpresaPc().getRazaoSocialGui().setText(empresa.getRazaoSocial());
+		getEmpresaPc().getEmailGui().setText(empresa.getEmail());
+		getEmpresaPc().getFaxGui().setText(empresa.getFax());
+		getEmpresaPc().getFone1Gui().setText(empresa.getFone1());
+		getEmpresaPc().getFone2Gui().setText(empresa.getFone2());
+		getEmpresaPc().getInscricaoEstadualGui().setText(empresa.getInscricaoEstadual());
+		getEmpresaPc().getInscricaoMunicipalGui().setText(empresa.getInscricaoMunicipal());
+		getEmpresaPc().getCapitalSocialGui().setText(empresa.getCapitalSocial());
+		getEmpresaPc().getDataFundacaoGui().setText(empresa.getDataFundacao());
+		getEmpresaPc().getBairroGui().setText(empresa.getBairro());
+		getEmpresaPc().getCepGui().setText(empresa.getCep());
+		getEmpresaPc().getCidadeGui().setText(empresa.getCidade());
+		getEmpresaPc().getComplementoGui().setText(empresa.getComplemento());
+		getEmpresaPc().getEstadoGui().setText(empresa.getEstado());
+		getEmpresaPc().getLogradouroGui().setText(empresa.getLogradouro());
+		getEmpresaPc().getPaisGui().setText(empresa.getPais());
+		getEmpresaPc().getCnpjGui().setText(empresa.getCnpj());
+		getEmpresaPc().getEmpresaGui().setSelectedItem(empresa.getTipoEmpresa());
+		getEmpresaPc().getFaturamentoMensalGui().setText(empresa.getFaturamentoMensal());
 	}
 
 	public void atualizarObjeto() {
-		empresa.setNomeFantasia(getEmpresaPc().getNomeFantasiaGUI().getText());
-		empresa.setNumeroFuncionarios(getEmpresaPc().getNumeroFuncionariosGUI().getText());
-		empresa.setRamoAtividade(getEmpresaPc().getRamoAtividadeGUI().getText());
-		empresa.setNomeFantasia(getEmpresaPc().getNomeFantasiaGUI().getText());
-		empresa.setRazaoSocial(getEmpresaPc().getRazaoSocialGUI().getText());
-		empresa.setEmail(getEmpresaPc().getEmailGUI().getText());
-		empresa.setFax(getEmpresaPc().getFaxGUI().getText());
-		empresa.setFone1(getEmpresaPc().getFone1GUI().getText());
-		empresa.setFone2(getEmpresaPc().getFone2GUI().getText());
-		empresa.setInscricaoEstadual(getEmpresaPc().getInscricaoEstadualGUI().getText());
-		empresa.setInscricaoMunicipal(getEmpresaPc().getInscricaoMunicipalGUI().getText());
-		empresa.setCapitalSocial(getEmpresaPc().getCapitalSocialGUI().getText());
-		empresa.setDataFundacao(getEmpresaPc().getDataFundacaoGUI().getText());
-		empresa.setBairro(getEmpresaPc().getBairroGUI().getText());
-		empresa.setCep(getEmpresaPc().getCepGUI().getText());
-		empresa.setCidade(getEmpresaPc().getCidadeGUI().getText());
-		empresa.setComplemento(getEmpresaPc().getComplementoGUI().getText());
-		empresa.setEstado(getEmpresaPc().getEstadoGUI().getText());
-		empresa.setLogradouro(getEmpresaPc().getLogradouroGUI().getText());
-		empresa.setPais(getEmpresaPc().getPaisGUI().getText());
-		empresa.setCnpj(getEmpresaPc().getCnpjGUI().getText());
-		empresa.setTipoEmpresa((String) getEmpresaPc().getEmpresaGUI().getSelectedItem());
-		empresa.setFaturamentoMensal(getEmpresaPc().getFaturamentoMensalGUI().getText());
+		empresa.setNomeFantasia(getEmpresaPc().getNomeFantasiaGui().getText());
+		empresa.setNumeroFuncionarios(getEmpresaPc().getNumeroFuncionariosGui().getText());
+		empresa.setRamoAtividade(getEmpresaPc().getRamoAtividadeGui().getText());
+		empresa.setNomeFantasia(getEmpresaPc().getNomeFantasiaGui().getText());
+		empresa.setRazaoSocial(getEmpresaPc().getRazaoSocialGui().getText());
+		empresa.setEmail(getEmpresaPc().getEmailGui().getText());
+		empresa.setFax(getEmpresaPc().getFaxGui().getText());
+		empresa.setFone1(getEmpresaPc().getFone1Gui().getText());
+		empresa.setFone2(getEmpresaPc().getFone2Gui().getText());
+		empresa.setInscricaoEstadual(getEmpresaPc().getInscricaoEstadualGui().getText());
+		empresa.setInscricaoMunicipal(getEmpresaPc().getInscricaoMunicipalGui().getText());
+		empresa.setCapitalSocial(getEmpresaPc().getCapitalSocialGui().getText());
+		empresa.setDataFundacao(getEmpresaPc().getDataFundacaoGui().getText());
+		empresa.setBairro(getEmpresaPc().getBairroGui().getText());
+		empresa.setCep(getEmpresaPc().getCepGui().getText());
+		empresa.setCidade(getEmpresaPc().getCidadeGui().getText());
+		empresa.setComplemento(getEmpresaPc().getComplementoGui().getText());
+		empresa.setEstado(getEmpresaPc().getEstadoGui().getText());
+		empresa.setLogradouro(getEmpresaPc().getLogradouroGui().getText());
+		empresa.setPais(getEmpresaPc().getPaisGui().getText());
+		empresa.setCnpj(getEmpresaPc().getCnpjGui().getText());
+		empresa.setTipoEmpresa((String) getEmpresaPc().getEmpresaGui().getSelectedItem());
+		empresa.setFaturamentoMensal(getEmpresaPc().getFaturamentoMensalGui().getText());
 	}
 
 	public Empresa getEmpresa() {

@@ -77,7 +77,7 @@ final class EventoImp implements EventoDao {
 		if (evento.getTipoEvento() != null && evento.getTipoEvento().getId() != null) {
 			predicates.add(criteriaBuilder.equal(rootEvento.get("tipoEvento"), evento.getTipoEvento()));
 		}
-		
+
 		criteriaQuery.select(rootEvento).where(predicates.toArray(new Predicate[] {}));
 
 		List<Evento> list = entityManager.createQuery(criteriaQuery).getResultList();

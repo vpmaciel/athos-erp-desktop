@@ -30,7 +30,9 @@ import javax.swing.JPopupMenu;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.KeyStroke;
+import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
+import javax.swing.WindowConstants;
 import javax.swing.event.UndoableEditEvent;
 import javax.swing.event.UndoableEditListener;
 import javax.swing.text.Document;
@@ -49,12 +51,12 @@ public class EditorTextoFc extends JFrame {
 	}
 
 	/**
-	 * Aqui Ã© definido as propriedades do Jframe, bem como adicionado os
-	 * componentes grÃ¡ficos a esta janela.
+	 * Aqui são definido as propriedades do Jframe, bem como adicionado os
+	 * componentes gráficos a esta janela.
 	 */
 	private void initComponents() {
 
-		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+		setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
 
 		setSize(new Dimension(800, 600));
 		setPreferredSize(new Dimension(800, 600));
@@ -64,16 +66,16 @@ public class EditorTextoFc extends JFrame {
 		// criacao de uma barra de menu visualizada no topo da aplicacao.
 		menuBar = new JMenuBar();
 
-		fontePadrÃ£o = new Font("Lucida Console", Font.PLAIN, 14);
+		fontePadrao = new Font("Lucida Console", Font.PLAIN, 14);
 
-		// criacao de uma Ã¡rea de insercao de texto.
+		// criacao de uma área de insercao de texto.
 		texto = new JTextArea();
-		texto.setFont(fontePadrÃ£o);
+		texto.setFont(fontePadrao);
 		texto.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseReleased(MouseEvent event) {
 				if (event.isPopupTrigger())
-					botÃ£oEsquerdo.show(event.getComponent(), event.getX(), event.getY());
+					botãoEsquerdo.show(event.getComponent(), event.getX(), event.getY());
 			}
 		});
 		// adicao de barra de rolagem ao JTextArea.
@@ -153,7 +155,7 @@ public class EditorTextoFc extends JFrame {
 
 		/*
 		 * Dentro do menu Editar encontrasse: Desfazer (Ctrl Z), Recortar (Ctrl X),
-		 * Copiar (Ctrl C), Colar (Ctrl V), Localizar (Ctrl F), Localizar prÃ³xima (F3)
+		 * Copiar (Ctrl C), Colar (Ctrl V), Localizar (Ctrl F), Localizar próxima (F3)
 		 * e Selecionar tudo (Ctrl T).
 		 */
 		menuEditar = new JMenu();
@@ -231,7 +233,7 @@ public class EditorTextoFc extends JFrame {
 
 		// propriedades do componente menuItemLocalizarProxima.
 		menuItemLocalizarProxima = new JMenuItem();
-		menuItemLocalizarProxima.setText("Localizar prÃ³xima");
+		menuItemLocalizarProxima.setText("Localizar próxima");
 		menuItemLocalizarProxima.setAccelerator(KeyStroke.getKeyStroke("F3"));
 		menuItemLocalizarProxima.addActionListener(new ActionListener() {
 			@Override
@@ -258,7 +260,7 @@ public class EditorTextoFc extends JFrame {
 		/****************************** MENU FORMATAR *************************/
 
 		/*
-		 * Dentro do menu Formatar encontrasse: Quebra automÃ¡tica de linha (Ctrl L),
+		 * Dentro do menu Formatar encontrasse: Quebra automática de linha (Ctrl L),
 		 * Fonte (Ctrl R) e Cor da fonte (Ctrl D).
 		 */
 		menuFormatar = new JMenu();
@@ -266,7 +268,7 @@ public class EditorTextoFc extends JFrame {
 
 		// propriedades do componente menuItemQuebraAtomaticaDeLinha.
 		menuItemQuebraAtomaticaDeLinha = new JCheckBoxMenuItem();
-		menuItemQuebraAtomaticaDeLinha.setText("Quebra automÃ¡tica de linha");
+		menuItemQuebraAtomaticaDeLinha.setText("Quebra automática de linha");
 		menuItemQuebraAtomaticaDeLinha.setAccelerator(KeyStroke.getKeyStroke("ctrl L"));
 		menuItemQuebraAtomaticaDeLinha.addActionListener(new ActionListener() {
 			@Override
@@ -328,7 +330,7 @@ public class EditorTextoFc extends JFrame {
 		setJMenuBar(menuBar);
 
 		/****************************** BOTÃƒO ESQUERDO DO MOUSE ***************/
-		botÃ£oEsquerdo = new JPopupMenu();
+		botãoEsquerdo = new JPopupMenu();
 
 		popupMenuItemDesfazer = new JMenuItem();
 		popupMenuItemDesfazer.setText("Desfazer");
@@ -340,13 +342,13 @@ public class EditorTextoFc extends JFrame {
 						undo.undo();
 					}
 				} catch (CannotUndoException Erro) {
-					// possÃ­veis erros sÃ£o tratados aqui.
+					// possíveis erros são tratados aqui.
 				}
 			}
 		});
-		botÃ£oEsquerdo.add(popupMenuItemDesfazer);
+		botãoEsquerdo.add(popupMenuItemDesfazer);
 
-		botÃ£oEsquerdo.addSeparator();
+		botãoEsquerdo.addSeparator();
 
 		popupMenuItemRecortar = new JMenuItem();
 		popupMenuItemRecortar.setText("Recortar");
@@ -356,7 +358,7 @@ public class EditorTextoFc extends JFrame {
 				eventosBlocoDeNotas.MenuItemRecortarActionListener();
 			}
 		});
-		botÃ£oEsquerdo.add(popupMenuItemRecortar);
+		botãoEsquerdo.add(popupMenuItemRecortar);
 
 		popupMenuItemCopiar = new JMenuItem();
 		popupMenuItemCopiar.setText("Copiar");
@@ -366,7 +368,7 @@ public class EditorTextoFc extends JFrame {
 				eventosBlocoDeNotas.MenuItemRecortarActionListener();
 			}
 		});
-		botÃ£oEsquerdo.add(popupMenuItemCopiar);
+		botãoEsquerdo.add(popupMenuItemCopiar);
 
 		popupMenuItemColar = new JMenuItem();
 		popupMenuItemColar.setText("Colar");
@@ -376,9 +378,9 @@ public class EditorTextoFc extends JFrame {
 				eventosBlocoDeNotas.MenuItemColarActionListener();
 			}
 		});
-		botÃ£oEsquerdo.add(popupMenuItemColar);
+		botãoEsquerdo.add(popupMenuItemColar);
 
-		botÃ£oEsquerdo.addSeparator();
+		botãoEsquerdo.addSeparator();
 
 		popupMenuItemSelecionarTudo = new JMenuItem();
 		popupMenuItemSelecionarTudo.setText("Selecionar tudo");
@@ -388,11 +390,11 @@ public class EditorTextoFc extends JFrame {
 				eventosBlocoDeNotas.MenuItemSelecionarTudoActionListener();
 			}
 		});
-		botÃ£oEsquerdo.add(popupMenuItemSelecionarTudo);
+		botãoEsquerdo.add(popupMenuItemSelecionarTudo);
 
 		/****************************** BARRA DE STATUS ***********************/
 		barraDeStatus = new JLabel();
-		barraDeStatus.setHorizontalAlignment(JLabel.RIGHT);
+		barraDeStatus.setHorizontalAlignment(SwingConstants.RIGHT);
 		barraDeStatus.setText("Lucida Console // Font.PLAIN // 14  ");
 		add(barraDeStatus, BorderLayout.SOUTH);
 
@@ -414,7 +416,7 @@ public class EditorTextoFc extends JFrame {
 		int selecionar;
 		String pesquisa;
 		Color color = Color.BLACK;
-		Color ÃºltimaCor = Color.BLACK;
+		Color ultimaCor = Color.BLACK;
 
 		/**
 		 * Apaga todo texto existente no documento.
@@ -425,7 +427,7 @@ public class EditorTextoFc extends JFrame {
 		}
 
 		/**
-		 * Abre um documento jÃ¡ existente.
+		 * Abre um documento já existente.
 		 */
 		public void MenuItemAbrirActionListener() {
 
@@ -433,35 +435,35 @@ public class EditorTextoFc extends JFrame {
 		}
 
 		/**
-		 * Salva o arquivo texto em um diretÃ³rio.
+		 * Salva o arquivo texto em um diretório.
 		 */
 		public void MenuItemSalvarComoActionListener() {
 			SalvarArquivo();
 		}
 
 		/**
-		 * MÃ©todo responsÃ¡vel por fechar o aplicativo.
+		 * MÃ©todo responsável por fechar o aplicativo.
 		 */
 		public void MenuItemSairActionListener() {
 			FecharWindowListener();
 		}
 
 		/**
-		 * Apaga o texto selecionado e transfere para a Ã¡rea de transferÃªncia.
+		 * Apaga o texto selecionado e transfere para a área de transferéncia.
 		 */
 		public void MenuItemRecortarActionListener() {
 			texto.cut();
 		}
 
 		/**
-		 * Tranfere para a Ã¡rea de tranferÃªncia o texto selecionado.
+		 * Tranfere para a área de tranferéncia o texto selecionado.
 		 */
 		public void MenuItemCopiarActionListener() {
 			texto.copy();
 		}
 
 		/**
-		 * Insere o texto no documento que esta na Ã¡rea de transferÃªncia.
+		 * Insere o texto no documento que esta na área de transferéncia.
 		 */
 		public void MenuItemColarActionListener() {
 
@@ -470,10 +472,10 @@ public class EditorTextoFc extends JFrame {
 
 		/**
 		 * Busca uma determinada palavra no documento; Quando o MenuItemLocalizar for
-		 * acionado, uma caixa de diÃ¡logo serÃ¡ aberta e no campo de texto a palavra o
-		 * qual desejasse buscar no documento deverÃ¡ ser armazenada na variÃ¡vel, no
-		 * formato String, pesquisa; Caso a variÃ¡vel pesquisa tenha um valor nÃ£o nulo,
-		 * a palavra solicitada deverÃ¡ ser buscada no JTextArea, sendo estÃ¡, quando
+		 * acionado, uma caixa de diálogo será aberta e no campo de texto a palavra o
+		 * qual desejasse buscar no documento deverá ser armazenada na variável, no
+		 * formato String, pesquisa; Caso a variável pesquisa tenha um valor não nulo,
+		 * a palavra solicitada deverá ser buscada no JTextArea, sendo está, quando
 		 * encontrada, selecionada no texto.
 		 */
 		public void MenuItemLocalizarActionListener() {
@@ -489,7 +491,7 @@ public class EditorTextoFc extends JFrame {
 				selecionar = texto.getText().indexOf(pesquisa, posicaoInicial);
 
 				if (selecionar < 0) {
-					JOptionPane.showMessageDialog(EditorTextoFc.this, "Texto nÃ£o encontrado");
+					JOptionPane.showMessageDialog(EditorTextoFc.this, "Texto não encontrado");
 					posicaoInicial = 0;
 				} else {
 					texto.requestFocus();
@@ -499,7 +501,7 @@ public class EditorTextoFc extends JFrame {
 		}
 
 		/**
-		 * Localiza a ocorrÃªncia de uma palavra.
+		 * Localiza a ocorréncia de uma palavra.
 		 */
 		public void MenuItemLocalizarProximaActionListener() {
 
@@ -512,8 +514,8 @@ public class EditorTextoFc extends JFrame {
 
 				if (selecionar < 0) {
 
-					// informa ao usuÃ¡rio que todas as palavras foram encontradas.
-					JOptionPane.showMessageDialog(EditorTextoFc.this, "NÃ£o existe \"" + pesquisa + "\" em frente!");
+					// informa ao usuário que todas as palavras foram encontradas.
+					JOptionPane.showMessageDialog(EditorTextoFc.this, "Não existe \"" + pesquisa + "\" em frente!");
 					selecionar = -1;
 					posicaoInicial = 0;
 
@@ -536,7 +538,7 @@ public class EditorTextoFc extends JFrame {
 		/**
 		 * Estando ativado o menuItemQuebraAtomaticaDeLinha, o texto passa para a linha
 		 * posterior quando este alcanÃ§a a margem direita do documento; Estando
-		 * desabilitado, o texto segue normalmente na mesma linha atÃ© o usuÃ¡rio
+		 * desabilitado, o texto segue normalmente na mesma linha atÃ© o usuário
 		 * apertar a tecla ENTER.
 		 */
 		public void MenuItemQuebraAtomaticaDeLinhaActionListener() {
@@ -548,16 +550,16 @@ public class EditorTextoFc extends JFrame {
 		}
 
 		/**
-		 * Object obtÃªm todas as fontes do sistema, sendo estas fontes exibidas em um
-		 * JOptionPane; Quando o usuÃ¡rio efetivar sua escolha toda a fonte do texto
-		 * serÃ¡ mudada.
+		 * Object obtém todas as fontes do sistema, sendo estas fontes exibidas em um
+		 * JOptionPane; Quando o usuário efetivar sua escolha toda a fonte do texto
+		 * será mudada.
 		 */
 		public void MenuItemFonteActionListener() {
 
 			Object[] nomeFonte = GraphicsEnvironment.getLocalGraphicsEnvironment().getAvailableFontFamilyNames();
 
-			String fonteEscolhida = (String) JOptionPane.showInputDialog(EditorTextoFc.this, "Escolha a fonte",
-					"Fonte", JOptionPane.PLAIN_MESSAGE, null, nomeFonte, "");
+			String fonteEscolhida = (String) JOptionPane.showInputDialog(EditorTextoFc.this, "Escolha a fonte", "Fonte",
+					JOptionPane.PLAIN_MESSAGE, null, nomeFonte, "");
 
 			if (fonteEscolhida == null)
 				texto.setFont(new Font("Lucida Console", Font.PLAIN, 14));
@@ -568,7 +570,7 @@ public class EditorTextoFc extends JFrame {
 		}
 
 		/**
-		 * Abrindo uma caixa de diÃ¡logo que permite ao usuÃ¡rio selecionar uma
+		 * Abrindo uma caixa de diálogo que permite ao usuário selecionar uma
 		 * determinada cor de forma interativa.
 		 */
 		public void MenuItemCorActionListener() {
@@ -576,13 +578,13 @@ public class EditorTextoFc extends JFrame {
 			color = JColorChooser.showDialog(EditorTextoFc.this, "Alterar cor da fonte", color);
 
 			if (color != null)
-				ÃºltimaCor = color;
+				ultimaCor = color;
 
-			texto.setForeground(ÃºltimaCor);
+			texto.setForeground(ultimaCor);
 		}
 
 		/**
-		 * Estando abilitado, serÃ¡ exibido informaÃ§Ãµes sobre a fonte e seu estilo e
+		 * Estando abilitado, será exibido informações sobre a fonte e seu estilo e
 		 * tamanho, no canto inferior da Janela.
 		 */
 		public void MenuItemBarraDeStatusActionListener() {
@@ -594,8 +596,8 @@ public class EditorTextoFc extends JFrame {
 		}
 
 		/**
-		 * Permite ao usuÃ¡rio selecionar algum arquivo do computador para que este ser
-		 * â€œabertoâ€� pelo Editor de Texto.
+		 * Permite ao usuário selecionar algum arquivo do computador para que este ser
+		 * aberto pelo Editor de Texto.
 		 */
 		public void AbrirArquivo() {
 
@@ -606,7 +608,7 @@ public class EditorTextoFc extends JFrame {
 
 			SwingUtilities.updateComponentTreeUI(abrindoArquivo);
 
-			// definindo filtro de ExtensÃ£o para abrir somente arquivo *.txt
+			// definindo filtro de Extensão para abrir somente arquivo *.txt
 			abrindoArquivo.setFileFilter(new javax.swing.filechooser.FileFilter() {
 
 				@Override
@@ -620,10 +622,10 @@ public class EditorTextoFc extends JFrame {
 				}
 			});
 
-			// armazena a escolha do usuÃ¡rio.
+			// armazena a escolha do usuário.
 			int respostaDeAbrindoArquivo = abrindoArquivo.showOpenDialog(EditorTextoFc.this);
 
-			// se o usuÃ¡rio clicar para abrir o arquivo...
+			// se o usuário clicar para abrir o arquivo...
 			if (respostaDeAbrindoArquivo == JFileChooser.APPROVE_OPTION) {
 
 				File Arquivo = abrindoArquivo.getSelectedFile();
@@ -639,7 +641,7 @@ public class EditorTextoFc extends JFrame {
 
 					bufferedReader.close();
 				} catch (IOException ex) {
-					// possÃ­veis erros sÃ£o tratatos aqui.
+					// possíveis erros são tratatos aqui.
 				}
 			}
 		}
@@ -660,7 +662,7 @@ public class EditorTextoFc extends JFrame {
 				writer = new FileWriter(arquivo);
 				writer.write(texto.getText());
 			} catch (IOException Ex) {
-				// possÃ­veis erros aqui.
+				// possíveis erros aqui.
 			}
 
 			finally {
@@ -674,8 +676,8 @@ public class EditorTextoFc extends JFrame {
 		}
 
 		/**
-		 * Permite que o usuÃ¡rio determine se deseja que o documento seja salvo ou
-		 * nÃ£o, quando clicado no botÃ£o fechar do aplicativo.
+		 * Permite que o usuário determine se deseja que o documento seja salvo ou
+		 * não, quando clicado no botão fechar do aplicativo.
 		 */
 		public void FecharWindowListener() {
 
@@ -687,7 +689,7 @@ public class EditorTextoFc extends JFrame {
 		}
 	}
 
-	// Componentes grÃ¡ficos utilizados no JFrame.
+	// Componentes gráficos utilizados no JFrame.
 	private JMenuBar menuBar;
 
 	private JMenu menuArquivo;
@@ -717,14 +719,14 @@ public class EditorTextoFc extends JFrame {
 
 	private JCheckBoxMenuItem menuItemBarraDeStatus;
 
-	private JPopupMenu botÃ£oEsquerdo;
+	private JPopupMenu botãoEsquerdo;
 
 	private JMenuItem popupMenuItemDesfazer;
 	private JMenuItem popupMenuItemRecortar;
 	private JMenuItem popupMenuItemCopiar;
 	private JMenuItem popupMenuItemColar;
 	private JMenuItem popupMenuItemSelecionarTudo;
-	private Font fontePadrÃ£o;
+	private Font fontePadrao;
 	private JLabel barraDeStatus;
 	private JTextArea texto;
 }

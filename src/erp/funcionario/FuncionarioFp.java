@@ -6,8 +6,8 @@ import java.awt.FlowLayout;
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
 
-import arquitetura.gui.Gui;
 import arquitetura.gui.ConfiguracaoGui;
+import arquitetura.gui.Gui;
 
 @SuppressWarnings("serial")
 public final class FuncionarioFp extends JFrame implements Gui {

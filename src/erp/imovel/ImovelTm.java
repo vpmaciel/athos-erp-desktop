@@ -26,7 +26,7 @@ public class ImovelTm extends AbstractTableModel {
 		tabelaModelo.adicionar("NOME PROPRIETÁRIO", 1, 500);
 		tabelaModelo.adicionar("CIDADE", 2, 500);
 		tabelaModelo.adicionar("BAIRRO", 3, 500);
-		
+
 		largura = new int[tabelaModelo.getTotalColunas()];
 		podeEditar = new boolean[tabelaModelo.getTotalColunas()];
 		for (int i = 0; i < tabelaModelo.getTotalColunas(); i++) {
@@ -90,7 +90,7 @@ public class ImovelTm extends AbstractTableModel {
 		if (tabelaModelo.getNome(columnIndex).equals("CIDADE")) {
 			return imovel.getCidade();
 		}
-		
+
 		return imovel;
 	}
 
@@ -119,7 +119,7 @@ public class ImovelTm extends AbstractTableModel {
 		if (tabelaModelo.getNome(columnIndex).equals("CIDADE")) {
 			imovel.setCidade(aValue.toString());
 		}
-		
+
 		fireTableDataChanged();
 	}
 }
