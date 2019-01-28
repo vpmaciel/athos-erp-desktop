@@ -13,6 +13,7 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
 import arquitetura.JPA;
+import arquitetura.validacao.Mascara;
 
 final class ContadorImp implements ContadorDao {
 
@@ -62,10 +63,10 @@ final class ContadorImp implements ContadorDao {
 		if (contador.getId() != null) {
 			predicates.add(criteriaBuilder.equal(rootContador.get("id"), contador.getId()));
 		}
-		if (contador.getCnpj() != null && !contador.getCnpj().equals("")) {
+		if (contador.getCnpj() != null && !contador.getCnpj().equals(Mascara.getCnpj().getPlaceholder()) && !contador.getCnpj().equals(Mascara.getCnpjVazio())) {
 			predicates.add(criteriaBuilder.like(rootContador.get("cnpj"), "%" + contador.getCnpj() + "%"));
 		}
-		if (contador.getCpf() != null && !contador.getCpf().equals("")) {
+		if (contador.getCpf() != null && !contador.getCpf().equals(Mascara.getCpf().getPlaceholder()) && !contador.getCpf().equals(Mascara.getCpfVazio())) {
 			predicates.add(criteriaBuilder.like(rootContador.get("cpf"), "%" + contador.getCpf() + "%"));
 		}
 		if (contador.getCrc() != null && !contador.getCrc().equals("")) {
@@ -74,13 +75,13 @@ final class ContadorImp implements ContadorDao {
 		if (contador.getEmail() != null && !contador.getEmail().equals("")) {
 			predicates.add(criteriaBuilder.like(rootContador.get("email"), "%" + contador.getEmail() + "%"));
 		}
-		if (contador.getFax() != null && !contador.getFax().equals("")) {
+		if (contador.getFax() != null && !contador.getFax().equals(Mascara.getFax().getPlaceholder()) && !contador.getFax().equals(Mascara.getFaxVazio())) {
 			predicates.add(criteriaBuilder.like(rootContador.get("fax"), "%" + contador.getFax() + "%"));
 		}
-		if (contador.getFone1() != null && !contador.getFone1().equals("")) {
+		if (contador.getFone1() != null && !contador.getFone1().equals(Mascara.getFone().getPlaceholder()) && !contador.getFone1().equals(Mascara.getFoneVazio())) {
 			predicates.add(criteriaBuilder.like(rootContador.get("fone1"), "%" + contador.getFone1() + "%"));
 		}
-		if (contador.getFone2() != null && !contador.getFone2().equals("")) {
+		if (contador.getFone2() != null  && !contador.getFone2().equals(Mascara.getFone().getPlaceholder()) && !contador.getFone2().equals(Mascara.getFoneVazio())) {
 			predicates.add(criteriaBuilder.like(rootContador.get("fone2"), "%" + contador.getFone2() + "%"));
 		}
 		if (contador.getNome() != null && !contador.getNome().equals("")) {

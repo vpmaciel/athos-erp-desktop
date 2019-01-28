@@ -117,6 +117,10 @@ public final class Mascara {
 		mascara.setPlaceholder("00/00/0000");
 		return mascara;
 	}
+	
+	public static final String getDataVazio() {
+		return "  /  /    ";
+	}
 
 	public static final MaskFormatter getHora() {
 		MaskFormatter mascara = null;
@@ -127,6 +131,10 @@ public final class Mascara {
 		}
 		mascara.setPlaceholder("##:##");
 		return mascara;
+	}
+	
+	public static final String getHoraVazio() {
+		return "  :  ";
 	}
 
 	public static final MaskFormatter getFax() {
@@ -139,7 +147,11 @@ public final class Mascara {
 		mascara.setPlaceholder("(00) 0000-0000");
 		return mascara;
 	}
-	
+
+	public static final String getFaxVazio() {
+		return "(  )     -    ";
+	}
+
 	public static final MaskFormatter getFone() {
 		MaskFormatter mascara = null;
 		try {
@@ -151,6 +163,9 @@ public final class Mascara {
 		return mascara;
 	}
 	
+	public static final String getFoneVazio() {
+		return "(  )  -    -    ";
+	}
 
 	public static final MaskFormatter getPis() {
 		MaskFormatter mascara = null;

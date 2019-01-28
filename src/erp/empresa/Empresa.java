@@ -14,7 +14,7 @@ import javax.persistence.UniqueConstraint;
 @SuppressWarnings("serial")
 @PersistenceContext(unitName = "erp")
 @Entity
-@Table(uniqueConstraints = { @UniqueConstraint(columnNames = { "nomeFantasia", "cnpj" }) })
+@Table(uniqueConstraints = { @UniqueConstraint(columnNames = { "cnpj" }) })
 public class Empresa implements Serializable {
 
 	@Id
@@ -40,7 +40,7 @@ public class Empresa implements Serializable {
 	private String fone1;
 	@Column(length = 20)
 	private String fone2;
-	@Column(length = 50, nullable = false)
+	@Column(length = 50)
 	private String nomeFantasia;
 	@Column(length = 6)
 	private String tipoEmpresa;

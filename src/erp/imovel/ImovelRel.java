@@ -33,7 +33,7 @@ public class ImovelRel {
 				document.add(new Paragraph("GARAGEM: " + imovel.getGaragem()));
 				document.add(new Paragraph("PISCINA: " + imovel.getPiscina()));
 				document.add(new Paragraph("CNPJ: " + imovel.getCnpj()));
-				document.add(new Paragraph("CPF: " + imovel.getCpfNumero()));
+				document.add(new Paragraph("CPF: " + imovel.getCpf()));
 				document.add(new Paragraph("COZINHA: " + imovel.getCozinha()));
 				document.add(new Paragraph("BANHEIRO: " + imovel.getBanheiro()));
 				document.add(new Paragraph("TERRAÇO: " + imovel.getTerracao()));

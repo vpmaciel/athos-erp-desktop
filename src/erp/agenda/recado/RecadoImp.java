@@ -13,6 +13,7 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
 import arquitetura.JPA;
+import arquitetura.validacao.Mascara;
 
 final class RecadoImp implements RecadoDao {
 
@@ -62,7 +63,7 @@ final class RecadoImp implements RecadoDao {
 		if (recado.getId() != null) {
 			predicates.add(criteriaBuilder.equal(rootRecado.get("id"), recado.getId()));
 		}
-		if (recado.getData() != null && recado.getData() != "") {
+		if (recado.getData() != null && !recado.getData().equals(Mascara.getData().getPlaceholder()) && !recado.getData().equals(Mascara.getDataVazio())) {
 			predicates.add(criteriaBuilder.like(rootRecado.get("data"), "%" + recado.getData() + "%"));
 		}
 		if (recado.getDestinatario() != null && recado.getDestinatario() != "") {

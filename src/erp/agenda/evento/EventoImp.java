@@ -13,6 +13,7 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
 import arquitetura.JPA;
+import arquitetura.validacao.Mascara;
 
 final class EventoImp implements EventoDao {
 
@@ -62,16 +63,16 @@ final class EventoImp implements EventoDao {
 		if (evento.getId() != null) {
 			predicates.add(criteriaBuilder.equal(rootEvento.get("id"), evento.getId()));
 		}
-		if (evento.getData() != null && !evento.getData().equals("__/__/____")) {
+		if (evento.getData() != null && !evento.getData().equals(Mascara.getData().getPlaceholder()) && !evento.getData().equals(Mascara.getDataVazio())) {
 			predicates.add(criteriaBuilder.like(rootEvento.get("data"), "%" + evento.getData() + "%"));
 		}
 		if (evento.getDescricao() != null && !evento.getDescricao().equals("")) {
 			predicates.add(criteriaBuilder.like(rootEvento.get("descricao"), "%" + evento.getDescricao() + "%"));
 		}
-		if (evento.getHoraInicio() != null && !evento.getHoraInicio().equals("__:__")) {
+		if (evento.getHoraInicio() != null && !evento.getHoraInicio().equals(Mascara.getHora().getPlaceholder()) && !evento.getHoraInicio().equals(Mascara.getHoraVazio())) {
 			predicates.add(criteriaBuilder.like(rootEvento.get("horaInicio"), "%" + evento.getHoraInicio() + "%"));
 		}
-		if (evento.getHoraTermino() != null && !evento.getHoraTermino().equals("__:__")) {
+		if (evento.getHoraTermino() != null && !evento.getHoraTermino().equals(Mascara.getHora().getPlaceholder()) && !evento.getHoraTermino().equals(Mascara.getHoraVazio())) {
 			predicates.add(criteriaBuilder.like(rootEvento.get("horaTermino"), "%" + evento.getHoraTermino() + "%"));
 		}
 		if (evento.getTipoEvento() != null && evento.getTipoEvento().getId() != null) {

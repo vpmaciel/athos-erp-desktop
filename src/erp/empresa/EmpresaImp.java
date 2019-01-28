@@ -13,6 +13,7 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
 import arquitetura.JPA;
+import arquitetura.validacao.Mascara;
 
 final class EmpresaImp implements EmpresaDao {
 
@@ -69,19 +70,19 @@ final class EmpresaImp implements EmpresaDao {
 			predicates.add(
 					criteriaBuilder.like(rootEmpresa.get("capitalSocial"), "%" + empresa.getCapitalSocial() + "%"));
 		}
-		if (empresa.getCep() != null && !empresa.getCep().equals("")) {
+		if (empresa.getCep() != null && !empresa.getCep().equals(Mascara.getCep().getPlaceholder()) && !empresa.getCep().equals(Mascara.getCepVazio())) {
 			predicates.add(criteriaBuilder.like(rootEmpresa.get("cep"), "%" + empresa.getCep() + "%"));
 		}
 		if (empresa.getCidade() != null && !empresa.getCidade().equals("")) {
 			predicates.add(criteriaBuilder.like(rootEmpresa.get("cidade"), "%" + empresa.getCidade() + "%"));
 		}
-		if (empresa.getCnpj() != null && !empresa.getCnpj().equals("")) {
+		if (empresa.getCnpj() != null && !empresa.getCnpj().equals(Mascara.getCnpj().getPlaceholder()) && !empresa.getCnpj().equals(Mascara.getCnpjVazio())) {
 			predicates.add(criteriaBuilder.like(rootEmpresa.get("cnpj"), "%" + empresa.getCnpj() + "%"));
 		}
 		if (empresa.getComplemento() != null && !empresa.getComplemento().equals("")) {
 			predicates.add(criteriaBuilder.like(rootEmpresa.get("complemento"), "%" + empresa.getComplemento() + "%"));
 		}
-		if (empresa.getDataFundacao() != null && !empresa.getDataFundacao().equals("")) {
+		if (empresa.getDataFundacao() != null && !empresa.getDataFundacao().equals(Mascara.getData().getPlaceholder()) && !empresa.getDataFundacao().equals(Mascara.getDataVazio())) {
 			predicates
 					.add(criteriaBuilder.like(rootEmpresa.get("dataFundacao"), "%" + empresa.getDataFundacao() + "%"));
 		}
@@ -95,13 +96,13 @@ final class EmpresaImp implements EmpresaDao {
 			predicates.add(criteriaBuilder.like(rootEmpresa.get("faturamentoMensal"),
 					"%" + empresa.getFaturamentoMensal() + "%"));
 		}
-		if (empresa.getFax() != null && !empresa.getFax().equals("")) {
+		if (empresa.getFax() != null && !empresa.getFax().equals(Mascara.getFax().getPlaceholder()) && !empresa.getFax().equals(Mascara.getFaxVazio())) {
 			predicates.add(criteriaBuilder.like(rootEmpresa.get("fax"), "%" + empresa.getFax() + "%"));
 		}
-		if (empresa.getFone1() != null && !empresa.getFone1().equals("")) {
+		if (empresa.getFone1() != null && !empresa.getFone1().equals(Mascara.getFone().getPlaceholder()) && !empresa.getFone1().equals(Mascara.getFoneVazio())) {
 			predicates.add(criteriaBuilder.like(rootEmpresa.get("fone1"), "%" + empresa.getFone1() + "%"));
 		}
-		if (empresa.getFone2() != null && !empresa.getFone2().equals("")) {
+		if (empresa.getFone2() != null && !empresa.getFone2().equals(Mascara.getFone().getPlaceholder()) && !empresa.getFone2().equals(Mascara.getFoneVazio())) {
 			predicates.add(criteriaBuilder.like(rootEmpresa.get("fone2"), "%" + empresa.getFone2() + "%"));
 		}
 		if (empresa.getInscricaoEstadual() != null && !empresa.getInscricaoEstadual().equals("")) {

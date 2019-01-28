@@ -231,15 +231,15 @@ final class VeiculoCont {
 		getVeiculoPc().getPaisGui().setText(veiculo.getPais());
 		getVeiculoPc().getPlacaGui().setText(veiculo.getPlaca());
 		getVeiculoPc().getPotenciaGui().setText(veiculo.getPotencia());
-		getVeiculoPc().getProprietarioAnteriorCnpjGui().setText(veiculo.getProprietarioAnteriorCNPJ());
-		getVeiculoPc().getProprietarioAnteriorCpfGui().setText(veiculo.getProprietarioAnteriorCPF());
+		getVeiculoPc().getProprietarioAnteriorCnpjGui().setText(veiculo.getProprietarioAnteriorCnpj());
+		getVeiculoPc().getProprietarioAnteriorCpfGui().setText(veiculo.getProprietarioAnteriorCpf());
 		getVeiculoPc().getProprietarioAnteriorEmailGui().setText(veiculo.getProprietarioAnteriorEmail());
 		getVeiculoPc().getTextFieldProprietarioAnteriorFaxGui().setText(veiculo.getProprietarioAnteriorFax());
 		getVeiculoPc().getProprietarioAnteriorNomeGui().setText(veiculo.getProprietarioAnteriorNome());
 		getVeiculoPc().getProprietarioAnteriorFone1Gui().setText(veiculo.getProprietarioAnteriorFone1());
 		getVeiculoPc().getProprietarioAnteriorFone2Gui().setText(veiculo.getProprietarioAnteriorFone2());
 		getVeiculoPc().getProprietarioCnpjGui().setText(veiculo.getProprietarioCNPJ());
-		getVeiculoPc().getProprietarioCpfGui().setText(veiculo.getProprietarioCPF());
+		getVeiculoPc().getProprietarioCpfGui().setText(veiculo.getProprietarioCpf());
 		getVeiculoPc().getProprietarioEmailGui().setText(veiculo.getProprietarioEmail());
 		getVeiculoPc().getProprietarioFaxGui().setText(veiculo.getProprietarioFax());
 		getVeiculoPc().getProprietarioFone1Gui().setText(veiculo.getProprietarioFone1());

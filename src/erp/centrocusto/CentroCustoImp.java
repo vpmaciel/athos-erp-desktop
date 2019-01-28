@@ -64,7 +64,7 @@ final class CentroCustoImp implements CentroCustoDao {
 			predicates.add(criteriaBuilder.equal(rootCentroCusto.get("id"), centroCusto.getId()));
 		}
 
-		if (centroCusto.getNome() != null && centroCusto.getNome() != "") {
+		if (centroCusto.getNome() != null && !centroCusto.getNome().equals("")) {
 			predicates.add(criteriaBuilder.like(rootCentroCusto.get("nome"), "%" + centroCusto.getNome() + "%"));
 		}
 

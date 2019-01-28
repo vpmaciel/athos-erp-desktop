@@ -228,7 +228,7 @@ final class ImovelCont {
 		getImovelPc().getLogradouroGui().setText(imovel.getLogradouro());
 		getImovelPc().getPaisGui().setText(imovel.getPais());
 		getImovelPc().getCnpjGui().setText(imovel.getCnpj());
-		getImovelPc().getCpfGui().setText(imovel.getCpfNumero());
+		getImovelPc().getCpfGui().setText(imovel.getCpf());
 		getImovelPc().getGaragemGui().setSelectedItem(imovel.getGaragem());
 		getImovelPc().getPiscinaGui().setSelectedItem(imovel.getPiscina());
 	}

@@ -59,8 +59,8 @@ public class VeiculoRel {
 				document.add(new Paragraph("PAÍS: " + veiculo.getPais()));
 				document.add(new Paragraph("PLACA: " + veiculo.getPlaca()));
 				document.add(new Paragraph("POTÊNCIA: " + veiculo.getPotencia()));
-				document.add(new Paragraph("CNPJ (PROPRIETÁRIO ANTERIOR): " + veiculo.getProprietarioAnteriorCNPJ()));
-				document.add(new Paragraph("CPF (PROPRIETÁRIO ANTERIOR): " + veiculo.getProprietarioAnteriorCPF()));
+				document.add(new Paragraph("CNPJ (PROPRIETÁRIO ANTERIOR): " + veiculo.getProprietarioAnteriorCnpj()));
+				document.add(new Paragraph("CPF (PROPRIETÁRIO ANTERIOR): " + veiculo.getProprietarioAnteriorCpf()));
 				document.add(
 						new Paragraph("E-MAIL (PROPRIETÁRIO ANTERIOR): " + veiculo.getProprietarioAnteriorEmail()));
 				document.add(new Paragraph("FAX (PROPRIETÁRIO ANTERIOR): " + veiculo.getProprietarioAnteriorFax()));
@@ -70,7 +70,7 @@ public class VeiculoRel {
 						new Paragraph("TELEFONE (PROPRIETÁRIO ANTERIOR): " + veiculo.getProprietarioAnteriorFone2()));
 				document.add(new Paragraph("NOME (PROPRIETÁRIO ANTERIOR): " + veiculo.getProprietarioAnteriorNome()));
 				document.add(new Paragraph("CNPJ: " + veiculo.getProprietarioCNPJ()));
-				document.add(new Paragraph("CPF: " + veiculo.getProprietarioCPF()));
+				document.add(new Paragraph("CPF: " + veiculo.getProprietarioCpf()));
 				document.add(new Paragraph("E-MAIL: " + veiculo.getProprietarioEmail()));
 				document.add(new Paragraph("FAX: " + veiculo.getProprietarioFax()));
 				document.add(new Paragraph("TELEFONE: " + veiculo.getProprietarioFone1()));

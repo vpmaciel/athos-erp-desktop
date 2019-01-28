@@ -13,6 +13,7 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
 import arquitetura.JPA;
+import arquitetura.validacao.Mascara;
 
 final class CartorioImp implements CartorioDao {
 
@@ -85,16 +86,16 @@ final class CartorioImp implements CartorioDao {
 		if (cartorio.getSubstituto() != null && !cartorio.getSubstituto().equals("")) {
 			predicates.add(criteriaBuilder.like(rootCartorio.get("substituto"), "%" + cartorio.getSubstituto() + "%"));
 		}
-		if (cartorio.getCnpj() != null && !cartorio.getCnpj().equals("")) {
+		if (cartorio.getCnpj() != null && !cartorio.getCnpj().equals(Mascara.getCnpj().getPlaceholder()) && !cartorio.getCnpj().equals(Mascara.getCnpjVazio())) {
 			predicates.add(criteriaBuilder.like(rootCartorio.get("cnpj"), "%" + cartorio.getCnpj() + "%"));
 		}
-		if (cartorio.getFone1() != null && !cartorio.getFone1().equals("")) {
+		if (cartorio.getFone1() != null && !cartorio.getFone1().equals(Mascara.getFone().getPlaceholder()) && !cartorio.getFone1().equals(Mascara.getFoneVazio())) {
 			predicates.add(criteriaBuilder.like(rootCartorio.get("fone1"), "%" + cartorio.getFone1() + "%"));
 		}
-		if (cartorio.getFone2() != null && !cartorio.getFone2().equals("")) {
+		if (cartorio.getFone2() != null && !cartorio.getFone2().equals(Mascara.getFone().getPlaceholder()) && !cartorio.getFone2().equals(Mascara.getFoneVazio())) {
 			predicates.add(criteriaBuilder.like(rootCartorio.get("fone2"), "%" + cartorio.getFone2() + "%"));
 		}
-		if (cartorio.getFax() != null && !cartorio.getFax().equals("")) {
+		if (cartorio.getFax() != null && !cartorio.getFax().equals(Mascara.getFax().getPlaceholder()) && !cartorio.getFax().equals(Mascara.getFaxVazio())) {
 			predicates.add(criteriaBuilder.like(rootCartorio.get("fax"), "%" + cartorio.getFax() + "%"));
 		}
 		if (cartorio.getEmail() != null && !cartorio.getEmail().equals("")) {
@@ -122,7 +123,7 @@ final class CartorioImp implements CartorioDao {
 			predicates
 					.add(criteriaBuilder.like(rootCartorio.get("complemento"), "%" + cartorio.getComplemento() + "%"));
 		}
-		if (cartorio.getCep() != null && !cartorio.getCep().equals("")) {
+		if (cartorio.getCep() != null && !cartorio.getCep().equals(Mascara.getCep().getPlaceholder()) && !cartorio.getCep().equals(Mascara.getCepVazio())) {
 			predicates.add(criteriaBuilder.like(rootCartorio.get("cep"), "%" + cartorio.getCep() + "%"));
 		}
 

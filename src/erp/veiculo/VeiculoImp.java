@@ -13,6 +13,7 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
 import arquitetura.JPA;
+import arquitetura.validacao.Mascara;
 
 final class VeiculoImp implements VeiculoDao {
 
@@ -89,7 +90,7 @@ final class VeiculoImp implements VeiculoDao {
 		if (veiculo.getCategoria() != null && !veiculo.getCategoria().equals("")) {
 			predicates.add(criteriaBuilder.like(rootVeiculo.get("categoria"), "%" + veiculo.getCategoria() + "%"));
 		}
-		if (veiculo.getCep() != null && !veiculo.getCep().equals("")) {
+		if (veiculo.getCep() != null && !veiculo.getCep().equals(Mascara.getCep().getPlaceholder()) && !veiculo.getCep().equals(Mascara.getCepVazio())) {
 			predicates.add(criteriaBuilder.like(rootVeiculo.get("cep"), "%" + veiculo.getCep() + "%"));
 		}
 		if (veiculo.getChassi() != null && !veiculo.getChassi().equals("")) {
@@ -120,10 +121,10 @@ final class VeiculoImp implements VeiculoDao {
 		if (veiculo.getCor() != null && !veiculo.getCor().equals("")) {
 			predicates.add(criteriaBuilder.like(rootVeiculo.get("cor"), "%" + veiculo.getCor() + "%"));
 		}
-		if (veiculo.getDataCompra() != null && !veiculo.getDataCompra().equals("")) {
+		if (veiculo.getDataCompra() != null && !veiculo.getDataCompra().equals(Mascara.getData().getPlaceholder()) && !veiculo.getDataCompra().equals(Mascara.getDataVazio())) {
 			predicates.add(criteriaBuilder.like(rootVeiculo.get("dataCompra"), "%" + veiculo.getDataCompra() + "%"));
 		}
-		if (veiculo.getDataVenda() != null && !veiculo.getDataVenda().equals("")) {
+		if (veiculo.getDataVenda() != null && !veiculo.getDataVenda().equals(Mascara.getData().getPlaceholder()) && !veiculo.getDataVenda().equals(Mascara.getDataVazio())) {
 			predicates.add(criteriaBuilder.like(rootVeiculo.get("dataVenda"), "%" + veiculo.getDataVenda() + "%"));
 		}
 		if (veiculo.getEixos() != null && !veiculo.getEixos().equals("")) {
@@ -164,23 +165,23 @@ final class VeiculoImp implements VeiculoDao {
 		if (veiculo.getPotencia() != null && !veiculo.getPotencia().equals("")) {
 			predicates.add(criteriaBuilder.like(rootVeiculo.get("potencia"), "%" + veiculo.getPotencia() + "%"));
 		}
-		if (veiculo.getProprietarioAnteriorCNPJ() != null && !veiculo.getProprietarioAnteriorCNPJ().equals("")) {
-			predicates.add(criteriaBuilder.like(rootVeiculo.get("proprietarioAnteriorCNPJ"),
-					"%" + veiculo.getProprietarioAnteriorCNPJ() + "%"));
+		if (veiculo.getProprietarioAnteriorCnpj() != null && !veiculo.getProprietarioAnteriorCnpj().equals(Mascara.getCnpj().getPlaceholder()) && !veiculo.getProprietarioAnteriorCnpj().equals(Mascara.getCnpjVazio())) {
+			predicates.add(criteriaBuilder.like(rootVeiculo.get("proprietarioAnteriorCnpj"),
+					"%" + veiculo.getProprietarioAnteriorCnpj() + "%"));
 		}
-		if (veiculo.getProprietarioAnteriorCPF() != null && !veiculo.getProprietarioAnteriorCPF().equals("")) {
-			predicates.add(criteriaBuilder.like(rootVeiculo.get("proprietarioAnteriorCPF"),
-					"%" + veiculo.getProprietarioAnteriorCPF() + "%"));
+		if (veiculo.getProprietarioAnteriorCpf() != null && !veiculo.getProprietarioAnteriorCpf().equals(Mascara.getCpf().getPlaceholder()) && !veiculo.getProprietarioAnteriorCpf().equals(Mascara.getCpfVazio())) {
+			predicates.add(criteriaBuilder.like(rootVeiculo.get("proprietarioAnteriorCpf"),
+					"%" + veiculo.getProprietarioAnteriorCpf() + "%"));
 		}
 		if (veiculo.getProprietarioAnteriorEmail() != null && !veiculo.getProprietarioAnteriorEmail().equals("")) {
 			predicates.add(criteriaBuilder.like(rootVeiculo.get("proprietarioAnteriorEmail"),
 					"%" + veiculo.getProprietarioAnteriorEmail() + "%"));
 		}
-		if (veiculo.getProprietarioAnteriorFax() != null && !veiculo.getProprietarioAnteriorFax().equals("")) {
+		if (veiculo.getProprietarioAnteriorFax() != null && !veiculo.getProprietarioAnteriorFax().equals(Mascara.getFax().getPlaceholder()) && !veiculo.getProprietarioAnteriorFax().equals(Mascara.getFaxVazio())) {
 			predicates.add(criteriaBuilder.like(rootVeiculo.get("proprietarioAnteriorFax"),
 					"%" + veiculo.getProprietarioAnteriorFax() + "%"));
 		}
-		if (veiculo.getProprietarioAnteriorFone1() != null && !veiculo.getProprietarioAnteriorFone1().equals("")) {
+		if (veiculo.getProprietarioAnteriorFone1() != null && !veiculo.getProprietarioAnteriorFone1().equals(Mascara.getFone().getPlaceholder()) && !veiculo.getProprietarioAnteriorFone1().equals(Mascara.getFoneVazio())) {
 			predicates.add(criteriaBuilder.like(rootVeiculo.get("proprietarioAnteriorFone1"),
 					"%" + veiculo.getProprietarioAnteriorFone1() + "%"));
 		}
@@ -194,11 +195,11 @@ final class VeiculoImp implements VeiculoDao {
 			predicates.add(criteriaBuilder.like(rootVeiculo.get("proprietarioAnteriorRGOrgaoEmisssor"),
 					"%" + veiculo.getProprietarioAnteriorRGOrgaoEmisssor() + "%"));
 		}
-		if (veiculo.getProprietarioFone1() != null && !veiculo.getProprietarioFone1().equals("")) {
+		if (veiculo.getProprietarioFone1() != null && !veiculo.getProprietarioFone1().equals(Mascara.getFone().getPlaceholder()) && !veiculo.getProprietarioFone1().equals(Mascara.getFoneVazio())) {
 			predicates.add(criteriaBuilder.like(rootVeiculo.get("proprietarioFone1"),
 					"%" + veiculo.getProprietarioFone1() + "%"));
 		}
-		if (veiculo.getProprietarioFone2() != null && !veiculo.getProprietarioFone2().equals("")) {
+		if (veiculo.getProprietarioFone2() != null && !veiculo.getProprietarioFone2().equals(Mascara.getFone().getPlaceholder()) && !veiculo.getProprietarioFone2().equals(Mascara.getFoneVazio())) {
 			predicates.add(criteriaBuilder.like(rootVeiculo.get("proprietarioFone2"),
 					"%" + veiculo.getProprietarioFone2() + "%"));
 		}
@@ -210,9 +211,9 @@ final class VeiculoImp implements VeiculoDao {
 			predicates.add(criteriaBuilder.like(rootVeiculo.get("proprietarioNome"),
 					"%" + veiculo.getProprietarioNome() + "%"));
 		}
-		if (veiculo.getProprietarioCPF() != null && !veiculo.getProprietarioCPF().equals("")) {
+		if (veiculo.getProprietarioCpf() != null && !veiculo.getProprietarioCpf().equals(Mascara.getCnpj().getPlaceholder()) && !veiculo.getProprietarioCpf().equals(Mascara.getCnpjVazio())) {
 			predicates.add(
-					criteriaBuilder.like(rootVeiculo.get("proprietarioCPF"), "%" + veiculo.getProprietarioCPF() + "%"));
+					criteriaBuilder.like(rootVeiculo.get("proprietarioCpf"), "%" + veiculo.getProprietarioCpf() + "%"));
 		}
 		if (veiculo.getProprietarioRGNumero() != null && !veiculo.getProprietarioRGNumero().equals("")) {
 			predicates.add(criteriaBuilder.like(rootVeiculo.get("proprietarioRGNumero"),

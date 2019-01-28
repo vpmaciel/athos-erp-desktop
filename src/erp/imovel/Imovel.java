@@ -92,7 +92,7 @@ public class Imovel implements Serializable {
 		return this.cozinha;
 	}
 
-	public String getCpfNumero() {
+	public String getCpf() {
 		return this.cpfNumero;
 	}
 

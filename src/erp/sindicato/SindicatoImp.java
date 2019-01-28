@@ -13,6 +13,7 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
 import arquitetura.JPA;
+import arquitetura.validacao.Mascara;
 
 final class SindicatoImp implements SindicatoDao {
 
@@ -69,20 +70,20 @@ final class SindicatoImp implements SindicatoDao {
 			predicates.add(
 					criteriaBuilder.like(rootSindicato.get("capitalSocial"), "%" + sindicato.getCapitalSocial() + "%"));
 		}
-		if (sindicato.getCep() != null && !sindicato.getCep().equals("")) {
+		if (sindicato.getCep() != null && !sindicato.getCep().equals(Mascara.getCep().getPlaceholder()) && !sindicato.getCep().equals(Mascara.getCepVazio())) {
 			predicates.add(criteriaBuilder.like(rootSindicato.get("cep"), "%" + sindicato.getCep() + "%"));
 		}
 		if (sindicato.getCidade() != null && !sindicato.getCidade().equals("")) {
 			predicates.add(criteriaBuilder.like(rootSindicato.get("cidade"), "%" + sindicato.getCidade() + "%"));
 		}
-		if (sindicato.getCnpj() != null && !sindicato.getCnpj().equals("")) {
+		if (sindicato.getCnpj() != null && !sindicato.getCnpj().equals(Mascara.getCnpj().getPlaceholder()) && !sindicato.getCnpj().equals(Mascara.getCnpjVazio())) {
 			predicates.add(criteriaBuilder.like(rootSindicato.get("cnpj"), "%" + sindicato.getCnpj() + "%"));
 		}
 		if (sindicato.getComplemento() != null && !sindicato.getComplemento().equals("")) {
 			predicates.add(
 					criteriaBuilder.like(rootSindicato.get("complemento"), "%" + sindicato.getComplemento() + "%"));
 		}
-		if (sindicato.getDataFundacao() != null && !sindicato.getDataFundacao().equals("")) {
+		if (sindicato.getDataFundacao() != null && !sindicato.getDataFundacao().equals(Mascara.getData().getPlaceholder()) && !sindicato.getDataFundacao().equals(Mascara.getDataVazio())) {
 			predicates.add(
 					criteriaBuilder.like(rootSindicato.get("dataFundacao"), "%" + sindicato.getDataFundacao() + "%"));
 		}
@@ -96,13 +97,13 @@ final class SindicatoImp implements SindicatoDao {
 			predicates.add(criteriaBuilder.like(rootSindicato.get("faturamentoMensal"),
 					"%" + sindicato.getFaturamentoMensal() + "%"));
 		}
-		if (sindicato.getFax() != null && !sindicato.getFax().equals("")) {
+		if (sindicato.getFax() != null && !sindicato.getFax().equals(Mascara.getFax().getPlaceholder()) && !sindicato.getFax().equals(Mascara.getFaxVazio())) {
 			predicates.add(criteriaBuilder.like(rootSindicato.get("fax"), "%" + sindicato.getFax() + "%"));
 		}
-		if (sindicato.getFone1() != null && !sindicato.getFone1().equals("")) {
+		if (sindicato.getFone1() != null && !sindicato.getFone1().equals(Mascara.getFone().getPlaceholder()) && !sindicato.getFone1().equals(Mascara.getFoneVazio())) {
 			predicates.add(criteriaBuilder.like(rootSindicato.get("fone1"), "%" + sindicato.getFone1() + "%"));
 		}
-		if (sindicato.getFone2() != null && !sindicato.getFone2().equals("")) {
+		if (sindicato.getFone2() != null && !sindicato.getFone2().equals(Mascara.getFone().getPlaceholder()) && !sindicato.getFone2().equals(Mascara.getFoneVazio())) {
 			predicates.add(criteriaBuilder.like(rootSindicato.get("fone2"), "%" + sindicato.getFone2() + "%"));
 		}
 		if (sindicato.getInscricaoEstadual() != null && !sindicato.getInscricaoEstadual().equals("")) {

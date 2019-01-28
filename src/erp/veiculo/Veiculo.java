@@ -95,11 +95,11 @@ public class Veiculo implements Serializable {
 	@Column(length = 10)
 	private String dataCompra;
 	@Column(length = 19)
-	private String proprietarioAnteriorCNPJ;
+	private String proprietarioAnteriorCnpj;
 	@Column(length = 50)
 	private String proprietarioAnteriorNome;
 	@Column(length = 14)
-	private String proprietarioAnteriorCPF;
+	private String proprietarioAnteriorCpf;
 	@Column(length = 15)
 	private String proprietarioAnteriorRGNumero;
 	@Column(length = 20)
@@ -111,9 +111,9 @@ public class Veiculo implements Serializable {
 	@Column(length = 20)
 	private String proprietarioAnteriorFax;
 	@Column(length = 19)
-	private String proprietarioCNPJ;
+	private String proprietarioCnpj;
 	@Column(length = 14)
-	private String proprietarioCPF;
+	private String proprietarioCpf;
 	@Column(length = 20)
 	private String proprietarioFax;
 	@Column(length = 50)
@@ -341,12 +341,12 @@ public class Veiculo implements Serializable {
 		return prejuizo;
 	}
 
-	public String getProprietarioAnteriorCNPJ() {
-		return proprietarioAnteriorCNPJ;
+	public String getProprietarioAnteriorCnpj() {
+		return proprietarioAnteriorCnpj;
 	}
 
-	public String getProprietarioAnteriorCPF() {
-		return proprietarioAnteriorCPF;
+	public String getProprietarioAnteriorCpf() {
+		return proprietarioAnteriorCpf;
 	}
 
 	public String getProprietarioAnteriorEmail() {
@@ -378,11 +378,11 @@ public class Veiculo implements Serializable {
 	}
 
 	public String getProprietarioCNPJ() {
-		return proprietarioCNPJ;
+		return proprietarioCnpj;
 	}
 
-	public String getProprietarioCPF() {
-		return proprietarioCPF;
+	public String getProprietarioCpf() {
+		return proprietarioCpf;
 	}
 
 	public String getProprietarioEmail() {
@@ -606,11 +606,11 @@ public class Veiculo implements Serializable {
 	}
 
 	public void setProprietarioAnteriorCnpj(String proprietarioAnteriorCNPJ) {
-		this.proprietarioAnteriorCNPJ = proprietarioAnteriorCNPJ;
+		this.proprietarioAnteriorCnpj = proprietarioAnteriorCNPJ;
 	}
 
 	public void setProprietarioAnteriorCpf(String proprietarioAnteriorCPF) {
-		this.proprietarioAnteriorCPF = proprietarioAnteriorCPF;
+		this.proprietarioAnteriorCpf = proprietarioAnteriorCPF;
 	}
 
 	public void setProprietarioAnteriorEmail(String proprietarioAnteriorEmail) {
@@ -642,11 +642,11 @@ public class Veiculo implements Serializable {
 	}
 
 	public void setProprietarioCnpj(String proprietarioCNPJ) {
-		this.proprietarioCNPJ = proprietarioCNPJ;
+		this.proprietarioCnpj = proprietarioCNPJ;
 	}
 
 	public void setProprietarioCpf(String proprietarioCPF) {
-		this.proprietarioCPF = proprietarioCPF;
+		this.proprietarioCpf = proprietarioCPF;
 	}
 
 	public void setProprietarioEmail(String proprietarioEmail) {
