@@ -57,7 +57,7 @@ public class MainFc extends JFrame {
 	private JMenuItem menuItemCadastroProdutoProduto;
 	private JMenuItem menuItemCadastroProdutoMarca;
 	private JMenuItem menuItemCadastroProdutoCategoria;
-	private JMenuItem menuItemCadastroProdutoImposto;
+	private JMenuItem menuItemCadastroServico;
 	private JMenuItem menuItemFinanceiroCaixa;
 	private JMenuItem menuItemFinanceiroContasPagar;
 	private JMenuItem menuItemFinanceiroContasReceber;
@@ -186,6 +186,10 @@ public class MainFc extends JFrame {
 
 	public JMenuItem getMenuItemCadastroSindicato() {
 		return menuItemCadastroSindicato;
+	}
+	
+	public JMenuItem getMenuItemCadastroServico() {
+		return menuItemCadastroServico;
 	}
 
 	public JMenu getMenuItemCadastroVeiculo() {
@@ -358,9 +362,9 @@ public class MainFc extends JFrame {
 		menuItemCadastroProdutoCategoria = new JMenuItem("Categorias");
 		menuCadastroProduto.add(menuItemCadastroProdutoCategoria);
 
-		menuItemCadastroProdutoImposto = new JMenuItem("Impostos");
-		menuCadastroProduto.add(menuItemCadastroProdutoImposto);
-
+		menuItemCadastroServico = new JMenuItem("Serviços");
+		menuCadastro.add(menuItemCadastroServico);
+		
 		menuItemCadastroSindicato = new JMenuItem("Sindicatos");
 		menuCadastro.add(menuItemCadastroSindicato);
 
@@ -490,6 +494,7 @@ public class MainFc extends JFrame {
 		menuItemCadastroCliente.addActionListener(mainCont.new MenuCadastroGerenteEventos());
 		menuItemCadastroEmpresa.addActionListener(mainCont.new MenuCadastroGerenteEventos());
 		menuItemCadastroSindicato.addActionListener(mainCont.new MenuCadastroGerenteEventos());
+		menuItemCadastroServico.addActionListener(mainCont.new MenuCadastroGerenteEventos());
 		menuItemCadastroFornecedor.addActionListener(mainCont.new MenuCadastroGerenteEventos());
 		menuItemCadastroVeiculoVeiculo.addActionListener(mainCont.new MenuCadastroGerenteEventos());
 		menuItemCadastroVeiculoModelo.addActionListener(mainCont.new MenuCadastroGerenteEventos());
