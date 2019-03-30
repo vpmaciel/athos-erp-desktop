@@ -49,6 +49,17 @@ public class MainFc extends JFrame {
 	private JMenuItem menuItemCadastroBanco;
 	private JMenuItem menuItemCadastroCartorio;
 	private JMenuItem menuItemCadastroContador;
+	private JMenu menuCadastroCurriculo;
+	private JMenuItem menuItemCadastroCurriculoCaracteristica;
+	private JMenuItem menuItemCadastroCurriculoCertificado;
+	private JMenuItem menuItemCadastroCurriculoCurso;
+	private JMenuItem menuItemCadastroCurriculoExperienciaProfissional;
+	private JMenuItem menuItemCadastroCurriculoHabilidade;
+	private JMenuItem menuItemCadastroCurriculoIdioma;
+	private JMenuItem menuItemCadastroCurriculoObjetivoProfissional;
+	private JMenuItem menuItemCadastroCurriculoTestePersonalidade;
+	private JMenuItem menuItemCadastroCurriculoTesteDisc;
+
 	private JMenuItem menuItemCadastroDocumento;
 	private JMenuItem menuItemCadastroCliente;
 	private JMenuItem menuItemCadastroFornecedor;
@@ -187,7 +198,7 @@ public class MainFc extends JFrame {
 	public JMenuItem getMenuItemCadastroSindicato() {
 		return menuItemCadastroSindicato;
 	}
-	
+
 	public JMenuItem getMenuItemCadastroServico() {
 		return menuItemCadastroServico;
 	}
@@ -291,6 +302,42 @@ public class MainFc extends JFrame {
 	public JMenuItem getMenuItemEstatisticaGrafico() {
 		return menuItemEstatisticaGrafico;
 	}
+	
+	public JMenuItem getMenuItemCadastroCurriculoCaracteristica() {
+		return menuItemCadastroCurriculoCaracteristica;
+	}
+
+	public JMenuItem getMenuItemCadastroCurriculoCertificado() {
+		return menuItemCadastroCurriculoCertificado;
+	}
+
+	public JMenuItem getMenuItemCadastroCurriculoCurso() {
+		return menuItemCadastroCurriculoCurso;
+	}
+
+	public JMenuItem getMenuItemCadastroCurriculoExperienciaProfissional() {
+		return menuItemCadastroCurriculoExperienciaProfissional;
+	}
+
+	public JMenuItem getMenuItemCadastroCurriculoHabilidade() {
+		return menuItemCadastroCurriculoHabilidade;
+	}
+
+	public JMenuItem getMenuItemCadastroCurriculoIdioma() {
+		return menuItemCadastroCurriculoIdioma;
+	}
+
+	public JMenuItem getMenuItemCadastroCurriculoObjetivoProfissional() {
+		return menuItemCadastroCurriculoObjetivoProfissional;
+	}
+
+	public JMenuItem getMenuItemCadastroCurriculoTestePersonalidade() {
+		return menuItemCadastroCurriculoTestePersonalidade;
+	}
+
+	public JMenuItem getMenuItemCadastroCurriculoTesteDisc() {
+		return menuItemCadastroCurriculoTesteDisc;
+	}
 
 	private void iniciarGui() {
 		setIconImage(Imagem.getLogoTipoImage());
@@ -335,6 +382,36 @@ public class MainFc extends JFrame {
 		menuItemCadastroCliente = new JMenuItem("Clientes");
 		menuCadastro.add(menuItemCadastroCliente);
 
+		menuCadastroCurriculo = new JMenu("Currículo");
+		menuCadastro.add(menuCadastroCurriculo);
+
+		menuItemCadastroCurriculoCaracteristica = new JMenuItem("Características");
+		menuCadastroCurriculo.add(menuItemCadastroCurriculoCaracteristica);
+
+		menuItemCadastroCurriculoCertificado = new JMenuItem("Certificados");
+		menuCadastroCurriculo.add(menuItemCadastroCurriculoCertificado);
+
+		menuItemCadastroCurriculoCurso = new JMenuItem("Cursos");
+		menuCadastroCurriculo.add(menuItemCadastroCurriculoCurso);
+
+		menuItemCadastroCurriculoExperienciaProfissional = new JMenuItem("Experiência Profissional");
+		menuCadastroCurriculo.add(menuItemCadastroCurriculoExperienciaProfissional);
+
+		menuItemCadastroCurriculoHabilidade = new JMenuItem("Habilidades");
+		menuCadastroCurriculo.add(menuItemCadastroCurriculoHabilidade);
+
+		menuItemCadastroCurriculoIdioma = new JMenuItem("Idiomas");
+		menuCadastroCurriculo.add(menuItemCadastroCurriculoIdioma);
+
+		menuItemCadastroCurriculoObjetivoProfissional = new JMenuItem("Objetivo Profissional");
+		menuCadastroCurriculo.add(menuItemCadastroCurriculoObjetivoProfissional);
+
+		menuItemCadastroCurriculoTestePersonalidade = new JMenuItem("Teste de Personalidade");
+		menuCadastroCurriculo.add(menuItemCadastroCurriculoTestePersonalidade);
+
+		menuItemCadastroCurriculoTesteDisc = new JMenuItem("Teste D.I.S.C");
+		menuCadastroCurriculo.add(menuItemCadastroCurriculoTesteDisc);
+
 		menuItemCadastroDocumento = new JMenuItem("Documentos");
 		menuCadastro.add(menuItemCadastroDocumento);
 
@@ -364,7 +441,7 @@ public class MainFc extends JFrame {
 
 		menuItemCadastroServico = new JMenuItem("Serviços");
 		menuCadastro.add(menuItemCadastroServico);
-		
+
 		menuItemCadastroSindicato = new JMenuItem("Sindicatos");
 		menuCadastro.add(menuItemCadastroSindicato);
 
@@ -492,6 +569,15 @@ public class MainFc extends JFrame {
 		menuItemCadastroContador.addActionListener(mainCont.new MenuCadastroGerenteEventos());
 		menuItemCadastroFuncionario.addActionListener(mainCont.new MenuCadastroGerenteEventos());
 		menuItemCadastroCliente.addActionListener(mainCont.new MenuCadastroGerenteEventos());
+		menuItemCadastroCurriculoCaracteristica.addActionListener(mainCont.new MenuCadastroGerenteEventos());
+		menuItemCadastroCurriculoCertificado.addActionListener(mainCont.new MenuCadastroGerenteEventos());
+		menuItemCadastroCurriculoCurso.addActionListener(mainCont.new MenuCadastroGerenteEventos());
+		menuItemCadastroCurriculoExperienciaProfissional.addActionListener(mainCont.new MenuCadastroGerenteEventos());
+		menuItemCadastroCurriculoHabilidade.addActionListener(mainCont.new MenuCadastroGerenteEventos());
+		menuItemCadastroCurriculoIdioma.addActionListener(mainCont.new MenuCadastroGerenteEventos());
+		menuItemCadastroCurriculoObjetivoProfissional.addActionListener(mainCont.new MenuCadastroGerenteEventos());
+		menuItemCadastroCurriculoTestePersonalidade.addActionListener(mainCont.new MenuCadastroGerenteEventos());
+		menuItemCadastroCurriculoTesteDisc.addActionListener(mainCont.new MenuCadastroGerenteEventos());
 		menuItemCadastroEmpresa.addActionListener(mainCont.new MenuCadastroGerenteEventos());
 		menuItemCadastroSindicato.addActionListener(mainCont.new MenuCadastroGerenteEventos());
 		menuItemCadastroServico.addActionListener(mainCont.new MenuCadastroGerenteEventos());

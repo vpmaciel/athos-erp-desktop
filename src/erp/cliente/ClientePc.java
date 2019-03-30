@@ -795,7 +795,7 @@ public final class ClientePc extends JPanel implements Gui {
 
 	@Override
 	public void limparGui() {
-
+		configuracaoGui.limparGui();
 	}
 
 	@Override

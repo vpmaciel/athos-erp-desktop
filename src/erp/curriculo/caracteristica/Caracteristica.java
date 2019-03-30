@@ -6,6 +6,8 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.PersistenceContext;
@@ -17,6 +19,8 @@ import erp.funcionario.Funcionario;
 @Entity
 public class Caracteristica implements Serializable {
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
 	@ManyToOne(cascade = { CascadeType.ALL }, fetch = FetchType.EAGER, optional = true)
 	private Funcionario funcionario;
 	@Column(length = 3)
@@ -32,7 +36,7 @@ public class Caracteristica implements Serializable {
 	@Column(length = 3)
 	private String despretensioso;
 	@Column(length = 3)
-	private String bem_humorado;
+	private String bemHumorado;
 	@Column(length = 3)
 	private String incerto;
 	@Column(length = 3)
@@ -243,6 +247,14 @@ public class Caracteristica implements Serializable {
 	private String cortes;
 	@Column(length = 3)
 	private String serio;
+	
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
 
 	public Funcionario getFuncionario() {
 		return funcionario;
@@ -300,12 +312,12 @@ public class Caracteristica implements Serializable {
 		this.despretensioso = despretensioso;
 	}
 
-	public String getBem_humorado() {
-		return bem_humorado;
+	public String getBemHumorado() {
+		return bemHumorado;
 	}
 
-	public void setBem_humorado(String bem_humorado) {
-		this.bem_humorado = bem_humorado;
+	public void setBemHumorado(String bemHumorado) {
+		this.bemHumorado = bemHumorado;
 	}
 
 	public String getIncerto() {
@@ -996,7 +1008,7 @@ public class Caracteristica implements Serializable {
 		this.fechado = fechado;
 	}
 
-	public String getAutoconfiante() {
+	public String getAutoConfiante() {
 		return autoconfiante;
 	}
 

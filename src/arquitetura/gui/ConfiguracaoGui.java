@@ -17,12 +17,9 @@ import javax.swing.JTextField;
 @SuppressWarnings("serial")
 public final class ConfiguracaoGui extends Container {
 
-	private Component[] componentes;
 	private List<Component> todosComponentes;
 
 	public ConfiguracaoGui(Container container) {
-		this.componentes = this.getComponents();
-		this.componentes = container.getComponents();
 		this.todosComponentes = this.getAllComponents(container);
 
 		for (Component comp : this.todosComponentes) {
@@ -133,46 +130,47 @@ public final class ConfiguracaoGui extends Container {
 	}
 
 	public void habilitarCadastroGui() {
-		for (int i = 0; i < this.componentes.length; ++i) {
-			if (this.componentes[i] instanceof JTextField) {
-				JTextField textField = (JTextField) this.componentes[i];
+
+		for (Component comp : this.todosComponentes) {
+			if (comp instanceof JTextField) {
+				JTextField textField = (JTextField) comp;
 				textField.setEnabled(true);
 				textField.setEditable(true);
 				continue;
 			}
-			if (this.componentes[i] instanceof JComboBox) {
-				JComboBox<?> comboBox = (JComboBox<?>) this.componentes[i];
+			if (comp instanceof JComboBox) {
+				JComboBox<?> comboBox = (JComboBox<?>) comp;
 				comboBox.setEnabled(true);
 				continue;
 			}
-			if (this.componentes[i] instanceof JFormattedTextField) {
-				JFormattedTextField formattedTextField = (JFormattedTextField) this.componentes[i];
+			if (comp instanceof JFormattedTextField) {
+				JFormattedTextField formattedTextField = (JFormattedTextField) comp;
 				formattedTextField.setEnabled(true);
 				formattedTextField.setEditable(true);
 				continue;
 			}
-			if (this.componentes[i] instanceof JTextArea) {
-				JTextArea textArea = (JTextArea) this.componentes[i];
+			if (comp instanceof JTextArea) {
+				JTextArea textArea = (JTextArea) comp;
 				textArea.setEnabled(true);
 				textArea.setEditable(true);
 				continue;
 			}
-			if (this.componentes[i] instanceof JPasswordField) {
-				JPasswordField passwordField = (JPasswordField) this.componentes[i];
+			if (comp instanceof JPasswordField) {
+				JPasswordField passwordField = (JPasswordField) comp;
 				passwordField.setEnabled(true);
 				passwordField.setEditable(true);
 				continue;
 			}
-			if (!(this.componentes[i] instanceof JScrollPane)) {
+			if (!(comp instanceof JScrollPane)) {
 				continue;
 			}
-			JScrollPane scrollPane = (JScrollPane) this.componentes[i];
-			Component[] c = scrollPane.getViewport().getComponents();
-			for (int t = 0; t < c.length; ++t) {
-				if (!(c[t] instanceof JTextArea)) {
+			JScrollPane scrollPane = (JScrollPane) comp;
+			Component[] componentes = scrollPane.getViewport().getComponents();
+			for (int contador2 = 0; contador2 < componentes.length; ++contador2) {
+				if (!(componentes[contador2] instanceof JTextArea)) {
 					continue;
 				}
-				JTextArea textArea = (JTextArea) c[t];
+				JTextArea textArea = (JTextArea) componentes[contador2];
 				textArea.setEnabled(true);
 				textArea.setEditable(true);
 			}
@@ -180,7 +178,7 @@ public final class ConfiguracaoGui extends Container {
 	}
 
 	public void habilitarPesquisaRegistroGui(Container container) {
-		for (Component component : this.getAllComponents(container)) {
+		for (Component component : this.todosComponentes) {
 			if (component instanceof JTextField) {
 				JTextField textField = (JTextField) component;
 				textField.setEnabled(true);
@@ -216,6 +214,12 @@ public final class ConfiguracaoGui extends Container {
 
 	public void limparGui() {
 		for (Component comp : this.todosComponentes) {
+			if (comp instanceof JComboBox<?>) {
+				JComboBox<?> comboBox = (JComboBox<?>) comp;
+				comboBox.setSelectedItem("");
+				comboBox.setSelectedItem(null);
+				continue;
+			}
 			if (comp instanceof JTextField) {
 				JTextField textField = (JTextField) comp;
 				textField.setText("");
@@ -233,12 +237,12 @@ public final class ConfiguracaoGui extends Container {
 			}
 			if (comp instanceof JScrollPane) {
 				JScrollPane scrollPane = (JScrollPane) comp;
-				Component[] c = scrollPane.getViewport().getComponents();
-				for (int t = 0; t < c.length; ++t) {
-					if (!(c[t] instanceof JTextArea)) {
+				Component[] componentes = scrollPane.getViewport().getComponents();
+				for (int contador = 0; contador < componentes.length; ++contador) {
+					if (!(componentes[contador] instanceof JTextArea)) {
 						continue;
 					}
-					JTextArea textArea = (JTextArea) c[t];
+					JTextArea textArea = (JTextArea) componentes[contador];
 					textArea.setText("");
 				}
 			}

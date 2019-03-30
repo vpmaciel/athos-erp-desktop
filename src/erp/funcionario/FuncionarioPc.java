@@ -620,5 +620,6 @@ public final class FuncionarioPc extends JPanel implements Gui {
 			centroCusto = MainCont.getFuncionarioFc().getFuncionarioHandle().getFuncionario().getCentroCusto();
 			boxCentroCusto.setSelectedItem(centroCusto);
 		}
+
 	}
 }

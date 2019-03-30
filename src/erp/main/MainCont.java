@@ -34,6 +34,8 @@ import erp.cliente.ClienteFc;
 import erp.cliente.ClienteFp;
 import erp.contador.ContadorFc;
 import erp.contador.ContadorFp;
+import erp.curriculo.caracteristica.CaracteristicaFc;
+import erp.curriculo.caracteristica.CaracteristicaFp;
 import erp.editor.EditorTextoFc;
 import erp.empresa.EmpresaFc;
 import erp.empresa.EmpresaFp;
@@ -60,46 +62,46 @@ public final class MainCont {
 	public class Relogio implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			MainCont.getAgendaContatoFc().setTitle(AOP.getNomeSistema() + " : CONTATO " + Data.getData());
-			MainCont.getAgendaContatoFp().setTitle(AOP.getNomeSistema() + " : CONTATO " + Data.getData());
-			MainCont.getAgendaEventoFc().setTitle(AOP.getNomeSistema() + " : EVENTO " + Data.getData());
-			MainCont.getAgendaEventoFp().setTitle(AOP.getNomeSistema() + " : EVENTO " + Data.getData());
-			MainCont.getAgendaTipoEventoFc().setTitle(AOP.getNomeSistema() + " : TIPO DE EVENTO " + Data.getData());
-			MainCont.getAgendaTipoEventoFp().setTitle(AOP.getNomeSistema() + " : TIPO DE EVENTO " + Data.getData());
-			MainCont.getAgendaRecadoFc().setTitle(AOP.getNomeSistema() + " : RECADO " + Data.getData());
-			MainCont.getAgendaRecadoFp().setTitle(AOP.getNomeSistema() + " : RECADO " + Data.getData());
-			MainCont.getBancoFc().setTitle(AOP.getNomeSistema() + " : BANCO " + Data.getData());
-			MainCont.getBancoFp().setTitle(AOP.getNomeSistema() + " : BANCO " + Data.getData());
-			MainCont.getCalculadoraFc().setTitle(AOP.getNomeSistema() + " : CALCULADORA " + Data.getData());
-			MainCont.getCartorioFc().setTitle(AOP.getNomeSistema() + " : CARTÓRIO " + Data.getData());
-			MainCont.getCartorioFp().setTitle(AOP.getNomeSistema() + " : CARTÓRIO " + Data.getData());
-			MainCont.getCentroCustoFc().setTitle(AOP.getNomeSistema() + " : CENTRO DE CUSTO " + Data.getData());
-			MainCont.getCentroCustoFp().setTitle(AOP.getNomeSistema() + " : CENTRO DE CUSTO " + Data.getData());
-			MainCont.getClienteFc().setTitle(AOP.getNomeSistema() + " : CLIENTE " + Data.getData());
-			MainCont.getClienteFp().setTitle(AOP.getNomeSistema() + " : CLIENTE " + Data.getData());
-			MainCont.getContadorFc().setTitle(AOP.getNomeSistema() + " : CONTADOR " + Data.getData());
-			MainCont.getContadorFp().setTitle(AOP.getNomeSistema() + " : CONTADOR " + Data.getData());
-			MainCont.getEditorTextoFc().setTitle(AOP.getNomeSistema() + " : EDITOR DE TEXTO " + Data.getData());
-			MainCont.getEmpresaFc().setTitle(AOP.getNomeSistema() + " : EMPRESA " + Data.getData());
-			MainCont.getEmpresaFp().setTitle(AOP.getNomeSistema() + " : EMPRESA " + Data.getData());
-			MainCont.getFornecedorFc().setTitle(AOP.getNomeSistema() + " : FORNECEDOR " + Data.getData());
-			MainCont.getFornecedorFp().setTitle(AOP.getNomeSistema() + " : FORNECEDOR " + Data.getData());
-			MainCont.getFuncionarioFc().setTitle(AOP.getNomeSistema() + " : FUNCIONÁRIO " + Data.getData());
-			MainCont.getFuncionarioFp().setTitle(AOP.getNomeSistema() + " : FUNCIONÁRIO " + Data.getData());
-			MainCont.getImovelFc().setTitle(AOP.getNomeSistema() + " : IMÓVEL " + Data.getData());
-			MainCont.getImovelFp().setTitle(AOP.getNomeSistema() + " : IMÓVEL " + Data.getData());
-			MainCont.getLoginFc().setTitle(AOP.getNomeSistema() + " : LOGIN " + Data.getData());
-			MainCont.getMainFc().setTitle(AOP.getNomeSistema() + " : PRINCIPAL " + Data.getData());
-			MainCont.getSindicatoFc().setTitle(AOP.getNomeSistema() + " : SINDICATO " + Data.getData());
-			MainCont.getSindicatoFp().setTitle(AOP.getNomeSistema() + " : SINDICATO " + Data.getData());
-			MainCont.getUsuarioFc().setTitle(AOP.getNomeSistema() + " : USUÁRIO " + Data.getData());
-			MainCont.getUsuarioFp().setTitle(AOP.getNomeSistema() + " : USUÁRIO " + Data.getData());
-			MainCont.getVeiculoFc().setTitle(AOP.getNomeSistema() + " : VEÍCULO " + Data.getData());
-			MainCont.getVeiculoFp().setTitle(AOP.getNomeSistema() + " : VEÍCULO " + Data.getData());
-			MainCont.getVeiculoMarcaFc().setTitle(AOP.getNomeSistema() + " : MARCA DE VEÍCULO " + Data.getData());
-			MainCont.getVeiculoMarcaFp().setTitle(AOP.getNomeSistema() + " : MARCA DE VEÍCULO " + Data.getData());
-			MainCont.getVeiculoModeloFc().setTitle(AOP.getNomeSistema() + " : MODELO DE VEÍCULO " + Data.getData());
-			MainCont.getVeiculoModeloFp().setTitle(AOP.getNomeSistema() + " : MODELO DE VEÍCULO " + Data.getData());
+			MainCont.getAgendaContatoFc().setTitle(AOP.getNomeSistema() + " - CONTATO " + Data.getData());
+			MainCont.getAgendaContatoFp().setTitle(AOP.getNomeSistema() + " - CONTATO " + Data.getData());
+			MainCont.getAgendaEventoFc().setTitle(AOP.getNomeSistema() + " - EVENTO " + Data.getData());
+			MainCont.getAgendaEventoFp().setTitle(AOP.getNomeSistema() + " - EVENTO " + Data.getData());
+			MainCont.getAgendaTipoEventoFc().setTitle(AOP.getNomeSistema() + " - TIPO DE EVENTO " + Data.getData());
+			MainCont.getAgendaTipoEventoFp().setTitle(AOP.getNomeSistema() + " - TIPO DE EVENTO " + Data.getData());
+			MainCont.getAgendaRecadoFc().setTitle(AOP.getNomeSistema() + " - RECADO " + Data.getData());
+			MainCont.getAgendaRecadoFp().setTitle(AOP.getNomeSistema() + " - RECADO " + Data.getData());
+			MainCont.getBancoFc().setTitle(AOP.getNomeSistema() + " - BANCO " + Data.getData());
+			MainCont.getBancoFp().setTitle(AOP.getNomeSistema() + " - BANCO " + Data.getData());
+			MainCont.getCalculadoraFc().setTitle(AOP.getNomeSistema() + " - CALCULADORA " + Data.getData());
+			MainCont.getCartorioFc().setTitle(AOP.getNomeSistema() + " - CARTÓRIO " + Data.getData());
+			MainCont.getCartorioFp().setTitle(AOP.getNomeSistema() + " - CARTÓRIO " + Data.getData());
+			MainCont.getCentroCustoFc().setTitle(AOP.getNomeSistema() + " - CENTRO DE CUSTO " + Data.getData());
+			MainCont.getCentroCustoFp().setTitle(AOP.getNomeSistema() + " - CENTRO DE CUSTO " + Data.getData());
+			MainCont.getClienteFc().setTitle(AOP.getNomeSistema() + " - CLIENTE " + Data.getData());
+			MainCont.getClienteFp().setTitle(AOP.getNomeSistema() + " - CLIENTE " + Data.getData());
+			MainCont.getContadorFc().setTitle(AOP.getNomeSistema() + " - CONTADOR " + Data.getData());
+			MainCont.getContadorFp().setTitle(AOP.getNomeSistema() + " - CONTADOR " + Data.getData());
+			MainCont.getEditorTextoFc().setTitle(AOP.getNomeSistema() + " - EDITOR DE TEXTO " + Data.getData());
+			MainCont.getEmpresaFc().setTitle(AOP.getNomeSistema() + " - EMPRESA " + Data.getData());
+			MainCont.getEmpresaFp().setTitle(AOP.getNomeSistema() + " - EMPRESA " + Data.getData());
+			MainCont.getFornecedorFc().setTitle(AOP.getNomeSistema() + " - FORNECEDOR " + Data.getData());
+			MainCont.getFornecedorFp().setTitle(AOP.getNomeSistema() + " - FORNECEDOR " + Data.getData());
+			MainCont.getFuncionarioFc().setTitle(AOP.getNomeSistema() + " - FUNCIONÁRIO " + Data.getData());
+			MainCont.getFuncionarioFp().setTitle(AOP.getNomeSistema() + " - FUNCIONÁRIO " + Data.getData());
+			MainCont.getImovelFc().setTitle(AOP.getNomeSistema() + " - IMÓVEL " + Data.getData());
+			MainCont.getImovelFp().setTitle(AOP.getNomeSistema() + " - IMÓVEL " + Data.getData());
+			MainCont.getLoginFc().setTitle(AOP.getNomeSistema() + " - LOGIN " + Data.getData());
+			MainCont.getMainFc().setTitle(AOP.getNomeSistema() + " - PRINCIPAL " + Data.getData());
+			MainCont.getSindicatoFc().setTitle(AOP.getNomeSistema() + " - SINDICATO " + Data.getData());
+			MainCont.getSindicatoFp().setTitle(AOP.getNomeSistema() + " - SINDICATO " + Data.getData());
+			MainCont.getUsuarioFc().setTitle(AOP.getNomeSistema() + " - USUÁRIO " + Data.getData());
+			MainCont.getUsuarioFp().setTitle(AOP.getNomeSistema() + " - USUÁRIO " + Data.getData());
+			MainCont.getVeiculoFc().setTitle(AOP.getNomeSistema() + " - VEÍCULO " + Data.getData());
+			MainCont.getVeiculoFp().setTitle(AOP.getNomeSistema() + " - VEÍCULO " + Data.getData());
+			MainCont.getVeiculoMarcaFc().setTitle(AOP.getNomeSistema() + " - MARCA DE VEÍCULO " + Data.getData());
+			MainCont.getVeiculoMarcaFp().setTitle(AOP.getNomeSistema() + " - MARCA DE VEÍCULO " + Data.getData());
+			MainCont.getVeiculoModeloFc().setTitle(AOP.getNomeSistema() + " - MODELO DE VEÍCULO " + Data.getData());
+			MainCont.getVeiculoModeloFp().setTitle(AOP.getNomeSistema() + " - MODELO DE VEÍCULO " + Data.getData());
 		}
 	}
 
@@ -198,7 +200,32 @@ public final class MainCont {
 				mostrarFrame(veiculoMarcaFc);
 			} else if (actionEvent.getSource() == mainFc.getMenuItemCadastroImovel()) {
 				mostrarFrame(imovelFc);
+			} else if (actionEvent.getSource() == mainFc.getMenuItemCadastroCurriculoCaracteristica()) {
+				mostrarFrame(curriculoCaracteristicaFc);
+			}/* else if (actionEvent.getSource() == mainFc.getMenuItemCadastroImovel()) {
+				mostrarFrame(curriculoCertificadoFc);
+			} else if (actionEvent.getSource() == mainFc.getMenuItemCadastroImovel()) {
+				mostrarFrame(curriculoCursoFc);
+			} else if (actionEvent.getSource() == mainFc.getMenuItemCadastroImovel()) {
+				mostrarFrame(curriculoExperienciaProfissionalFc);
+			} else if (actionEvent.getSource() == mainFc.getMenuItemCadastroImovel()) {
+				mostrarFrame(curriculoHabilidadeFc);
+			} else if (actionEvent.getSource() == mainFc.getMenuItemCadastroImovel()) {
+				mostrarFrame(curriculoIdiomaFc);
+			} else if (actionEvent.getSource() == mainFc.getMenuItemCadastroImovel()) {
+				mostrarFrame(curriculoObjetivoProfissionalFc);
+			} else if (actionEvent.getSource() == mainFc.getMenuItemCadastroImovel()) {
+				mostrarFrame(curriculoHabilidade);
+			} else if (actionEvent.getSource() == mainFc.getMenuItemCadastroImovel()) {
+				mostrarFrame(curriculoIdiomaFc);
+			} else if (actionEvent.getSource() == mainFc.getMenuItemCadastroImovel()) {
+				mostrarFrame(curriculoObjetivoProfissionalFc);
+			} else if (actionEvent.getSource() == mainFc.getMenuItemCadastroImovel()) {
+				mostrarFrame(curriculoTestePersonalidadeFc);
+			} else if (actionEvent.getSource() == mainFc.getMenuItemCadastroImovel()) {
+				mostrarFrame(curriculoTesteDiscFc);
 			}
+			*/
 		}
 	}
 
@@ -274,6 +301,26 @@ public final class MainCont {
 	private static CartorioFp cartorioFp;
 	private static ContadorFc contadorFc;
 	private static ContadorFp contadorFp;
+	private static CaracteristicaFc curriculoCaracteristicaFc;
+	private static CaracteristicaFp curriculoCaracteristicaFp;
+	/*
+	private static CertificadoFc curriculoCertificadoFc;
+	private static CertificadoFp curriculoCertificadoFp;
+	private static CursoFc curriculoCursoFc;
+	private static CursoFp curriculoCursoFp;
+	private static ExperienciaProfissionalFc curriculoExperienciaProfissionalFc;
+	private static ExperienciaProfissionalFp curriculoExperienciaProfissionalFp;
+	private static HabilidadeFc curriculoHabilidadeFc;
+	private static HabilidadeFp curriculoHabilidadeFp;
+	private static IdiomaFc curriculoIdiomaFc;
+	private static IdiomaFp curriculoIdiomaFp;
+	private static ObjetivoProfissionalFc curriculoObjetivoProfissionalFc;
+	private static ObjetivoProfissionalFp curriculoObjetivoProfissionalFp;
+	private static TestePersonalidadeFc curriculoTestePersonalidadeFc;
+	private static TestePersonalidadeFp curriculoTestePersonalidadeFp;
+	private static TesteDiscFc curriculoTesteDiscFc;
+	private static TesteDiscFp curriculoTesteDiscFp;
+	*/
 	private static FuncionarioFc funcionarioFc;
 	private static FuncionarioFp funcionarioFp;
 	private static UsuarioFc usuarioFc;
@@ -464,6 +511,14 @@ public final class MainCont {
 		return veiculoModeloFp;
 	}
 
+	public static CaracteristicaFc getCurriculoCaracteristicaFc() {
+		return curriculoCaracteristicaFc;
+	}
+
+	public static CaracteristicaFp getCurriculoCaracteristicaFp() {
+		return curriculoCaracteristicaFp;
+	}
+
 	public static synchronized MainCont getInstance(MainFc mainFc) {
 		if (totalPrincipalHandle > 1) {
 			JOptionPane.showMessageDialog(null, "Foi instanciado mais de uma Objeto:" + ERP.class);
@@ -606,6 +661,12 @@ public final class MainCont {
 
 		veiculoModeloFp = new VeiculoModeloFp();
 		criarFrame(veiculoModeloFp);
+
+		curriculoCaracteristicaFc = new CaracteristicaFc();
+		criarFrame(curriculoCaracteristicaFc);
+
+		curriculoCaracteristicaFp = new CaracteristicaFp();
+		criarFrame(curriculoCaracteristicaFp);
 
 		calculadoraFc = new CalculadoraFc();
 		criarFrame(calculadoraFc);
