@@ -59,11 +59,11 @@ final class TipoEventoImp implements TipoEventoDao {
 
 		List<Predicate> predicates = new ArrayList<Predicate>();
 
-		if (tipoEvento.getId() != null) {
+		if (naoEstaVazio(tipoEvento.getId())) {
 			predicates.add(criteriaBuilder.equal(rootTipoEvento.get("id"), tipoEvento.getId()));
 		}
 
-		if (tipoEvento.getNome() != null && tipoEvento.getNome() != "") {
+		if (naoEstaVazio(tipoEvento.getNome())) {
 			predicates.add(criteriaBuilder.like(rootTipoEvento.get("nome"), "%" + tipoEvento.getNome() + "%"));
 		}
 
@@ -83,5 +83,15 @@ final class TipoEventoImp implements TipoEventoDao {
 		em.merge(tipoEvento);
 		tx.commit();
 		em.close();
+	}
+	
+	private boolean naoEstaVazio(Object objeto) {
+		if (objeto == null) {
+			return false;
+		}
+		if (objeto.toString().equals("")) {
+			return false;
+		}
+		return true;
 	}
 }

@@ -60,37 +60,37 @@ final class ImovelImp implements ImovelDao {
 
 		List<Predicate> predicates = new ArrayList<Predicate>();
 
-		if (imovel.getId() != null) {
+		if (naoEstaVazio(imovel.getId())) {
 			predicates.add(criteriaBuilder.equal(rootImovel.get("id"), imovel.getId()));
 		}
-		if (imovel.getBairro() != null && !imovel.getBairro().equals("")) {
+		if (naoEstaVazio(imovel.getBairro())) {
 			predicates.add(criteriaBuilder.like(rootImovel.get("bairro"), "%" + imovel.getBairro() + "%"));
 		}
-		if (imovel.getBanheiro() != null && !imovel.getBanheiro().equals("")) {
+		if (naoEstaVazio(imovel.getBanheiro())) {
 			predicates.add(criteriaBuilder.like(rootImovel.get("banheiro"), "%" + imovel.getBanheiro() + "%"));
 		}
 		if (imovel.getCep() != null && !imovel.getCep().equals(Mascara.getCep().getPlaceholder()) && !imovel.getCep().equals(Mascara.getCepVazio())) {
 			predicates.add(criteriaBuilder.like(rootImovel.get("cep"), "%" + imovel.getCep() + "%"));
 		}
-		if (imovel.getCidade() != null && !imovel.getCidade().equals("")) {
+		if (naoEstaVazio(imovel.getCidade())) {
 			predicates.add(criteriaBuilder.like(rootImovel.get("cidade"), "%" + imovel.getCidade() + "%"));
 		}
 		if (imovel.getCnpj() != null && !imovel.getCnpj().equals(Mascara.getCnpj().getPlaceholder()) && !imovel.getCnpj().equals(Mascara.getCnpjVazio())) {
 			predicates.add(criteriaBuilder.like(rootImovel.get("cnpj"), "%" + imovel.getCnpj() + "%"));
 		}
-		if (imovel.getComplemento() != null && !imovel.getComplemento().equals("")) {
+		if (naoEstaVazio(imovel.getComplemento())) {
 			predicates.add(criteriaBuilder.like(rootImovel.get("complemento"), "%" + imovel.getComplemento() + "%"));
 		}
-		if (imovel.getCozinha() != null && !imovel.getCozinha().equals("")) {
+		if (naoEstaVazio(imovel.getCozinha())) {
 			predicates.add(criteriaBuilder.like(rootImovel.get("cozinha"), "%" + imovel.getCozinha() + "%"));
 		}
 		if (imovel.getCpf() != null && !imovel.getCpf().equals(Mascara.getCpf().getPlaceholder()) && !imovel.getCpf().equals(Mascara.getCpfVazio())) {
 			predicates.add(criteriaBuilder.like(rootImovel.get("cpfNumero"), "%" + imovel.getCpf() + "%"));
 		}
-		if (imovel.getEmail() != null && !imovel.getEmail().equals("")) {
+		if (naoEstaVazio(imovel.getEmail())) {
 			predicates.add(criteriaBuilder.like(rootImovel.get("email"), "%" + imovel.getEmail() + "%"));
 		}
-		if (imovel.getEstado() != null && !imovel.getEstado().equals("")) {
+		if (naoEstaVazio(imovel.getEstado())) {
 			predicates.add(criteriaBuilder.like(rootImovel.get("estado"), "%" + imovel.getEstado() + "%"));
 		}
 		if (imovel.getFax() != null && !imovel.getFax().equals(Mascara.getFax().getPlaceholder()) && !imovel.getFax().equals(Mascara.getFaxVazio())) {
@@ -102,35 +102,35 @@ final class ImovelImp implements ImovelDao {
 		if (imovel.getFone2() != null && !imovel.getFone2().equals(Mascara.getFone().getPlaceholder()) && !imovel.getFone2().equals(Mascara.getFoneVazio())) {
 			predicates.add(criteriaBuilder.like(rootImovel.get("fone2"), "%" + imovel.getFone2() + "%"));
 		}
-		if (imovel.getGaragem() != null && !imovel.getGaragem().equals("")) {
+		if (naoEstaVazio(imovel.getGaragem())) {
 			predicates.add(criteriaBuilder.like(rootImovel.get("garagem"), "%" + imovel.getGaragem() + "%"));
 		}
-		if (imovel.getLogradouro() != null && !imovel.getLogradouro().equals("")) {
+		if (naoEstaVazio(imovel.getLogradouro())) {
 			predicates.add(criteriaBuilder.like(rootImovel.get("logradouro"), "%" + imovel.getLogradouro() + "%"));
 		}
-		if (imovel.getNomeProprietario() != null && !imovel.getNomeProprietario().equals("")) {
+		if (naoEstaVazio(imovel.getNomeProprietario())) {
 			predicates.add(
 					criteriaBuilder.like(rootImovel.get("nomeProprietario"), "%" + imovel.getNomeProprietario() + "%"));
 		}
-		if (imovel.getPais() != null && !imovel.getPais().equals("")) {
+		if (naoEstaVazio(imovel.getPais())) {
 			predicates.add(criteriaBuilder.like(rootImovel.get("pais"), "%" + imovel.getPais() + "%"));
 		}
-		if (imovel.getPiscina() != null && !imovel.getPiscina().equals("")) {
+		if (naoEstaVazio(imovel.getPiscina())) {
 			predicates.add(criteriaBuilder.like(rootImovel.get("piscina"), "%" + imovel.getPiscina() + "%"));
 		}
-		if (imovel.getQuarto() != null && !imovel.getQuarto().equals("")) {
+		if (naoEstaVazio(imovel.getQuarto())) {
 			predicates.add(criteriaBuilder.like(rootImovel.get("quarto"), "%" + imovel.getQuarto() + "%"));
 		}
-		if (imovel.getSala() != null && !imovel.getSala().equals("")) {
+		if (naoEstaVazio(imovel.getSala())) {
 			predicates.add(criteriaBuilder.like(rootImovel.get("sala"), "%" + imovel.getSala() + "%"));
 		}
-		if (imovel.getSuite() != null && !imovel.getSuite().equals("")) {
+		if (naoEstaVazio(imovel.getSuite())) {
 			predicates.add(criteriaBuilder.like(rootImovel.get("suite"), "%" + imovel.getSuite() + "%"));
 		}
-		if (imovel.getTerracao() != null && !imovel.getTerracao().equals("")) {
+		if (naoEstaVazio(imovel.getTerracao())) {
 			predicates.add(criteriaBuilder.like(rootImovel.get("terracao"), "%" + imovel.getTerracao() + "%"));
 		}
-		if (imovel.getVaranda() != null && !imovel.getVaranda().equals("")) {
+		if (naoEstaVazio(imovel.getVaranda())) {
 			predicates.add(criteriaBuilder.like(rootImovel.get("varanda"), "%" + imovel.getVaranda() + "%"));
 		}
 
@@ -150,5 +150,15 @@ final class ImovelImp implements ImovelDao {
 		em.merge(imovel);
 		tx.commit();
 		em.close();
+	}
+	
+	private boolean naoEstaVazio(Object objeto) {
+		if (objeto == null) {
+			return false;
+		}
+		if (objeto.toString().equals("")) {
+			return false;
+		}
+		return true;
 	}
 }

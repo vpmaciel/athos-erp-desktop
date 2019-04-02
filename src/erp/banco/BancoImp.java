@@ -60,13 +60,13 @@ final class BancoImp implements BancoDao {
 
 		List<Predicate> predicates = new ArrayList<Predicate>();
 
-		if (banco.getId() != null) {
+		if (naoEstaVazio(banco.getId())) {
 			predicates.add(criteriaBuilder.equal(rootBanco.get("id"), banco.getId()));
 		}
-		if (banco.getNome() != null && banco.getNome() != "") {
+		if (naoEstaVazio(banco.getNome())) {
 			predicates.add(criteriaBuilder.like(rootBanco.get("nome"), "%" + banco.getNome() + "%"));
 		}
-		if (banco.getCodigo() != null && banco.getCodigo() != "") {
+		if (naoEstaVazio(banco.getCodigo())) {
 			predicates.add(criteriaBuilder.like(rootBanco.get("codigo"), "%" + banco.getCodigo() + "%"));
 		}
 
@@ -86,5 +86,15 @@ final class BancoImp implements BancoDao {
 		em.merge(banco);
 		tx.commit();
 		em.close();
+	}
+	
+	private boolean naoEstaVazio(Object objeto) {
+		if (objeto == null) {
+			return false;
+		}
+		if (objeto.toString().equals("")) {
+			return false;
+		}
+		return true;
 	}
 }

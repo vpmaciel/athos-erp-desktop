@@ -60,30 +60,30 @@ final class CartorioImp implements CartorioDao {
 
 		List<Predicate> predicates = new ArrayList<Predicate>();
 
-		if (cartorio.getId() != null) {
+		if (naoEstaVazio(cartorio.getId())) {
 			predicates.add(criteriaBuilder.equal(rootCartorio.get("id"), cartorio.getId()));
 		}
-		if (cartorio.getNomeFantasia() != null && !cartorio.getNomeFantasia().equals("")) {
+		if (naoEstaVazio(cartorio.getNomeFantasia())) {
 			predicates.add(
 					criteriaBuilder.like(rootCartorio.get("nomeFantasia"), "%" + cartorio.getNomeFantasia() + "%"));
 		}
-		if (cartorio.getRazaoSocial() != null && !cartorio.getRazaoSocial().equals("")) {
+		if (naoEstaVazio(cartorio.getRazaoSocial())) {
 			predicates
 					.add(criteriaBuilder.like(rootCartorio.get("razaoSocial"), "%" + cartorio.getRazaoSocial() + "%"));
 		}
-		if (cartorio.getComarca() != null && !cartorio.getComarca().equals("")) {
+		if (naoEstaVazio(cartorio.getComarca())) {
 			predicates.add(criteriaBuilder.like(rootCartorio.get("comarca"), "%" + cartorio.getComarca() + "%"));
 		}
-		if (cartorio.getMunicipio() != null && !cartorio.getMunicipio().equals("")) {
+		if (naoEstaVazio(cartorio.getMunicipio())) {
 			predicates.add(criteriaBuilder.like(rootCartorio.get("municipio"), "%" + cartorio.getMunicipio() + "%"));
 		}
-		if (cartorio.getDistrito() != null && !cartorio.getDistrito().equals("")) {
+		if (naoEstaVazio(cartorio.getDistrito())) {
 			predicates.add(criteriaBuilder.like(rootCartorio.get("distrito"), "%" + cartorio.getDistrito() + "%"));
 		}
-		if (cartorio.getTitular() != null && !cartorio.getTitular().equals("")) {
+		if (naoEstaVazio(cartorio.getTitular())) {
 			predicates.add(criteriaBuilder.like(rootCartorio.get("titular"), "%" + cartorio.getTitular() + "%"));
 		}
-		if (cartorio.getSubstituto() != null && !cartorio.getSubstituto().equals("")) {
+		if (naoEstaVazio(cartorio.getSubstituto())) {
 			predicates.add(criteriaBuilder.like(rootCartorio.get("substituto"), "%" + cartorio.getSubstituto() + "%"));
 		}
 		if (cartorio.getCnpj() != null && !cartorio.getCnpj().equals(Mascara.getCnpj().getPlaceholder()) && !cartorio.getCnpj().equals(Mascara.getCnpjVazio())) {
@@ -98,28 +98,28 @@ final class CartorioImp implements CartorioDao {
 		if (cartorio.getFax() != null && !cartorio.getFax().equals(Mascara.getFax().getPlaceholder()) && !cartorio.getFax().equals(Mascara.getFaxVazio())) {
 			predicates.add(criteriaBuilder.like(rootCartorio.get("fax"), "%" + cartorio.getFax() + "%"));
 		}
-		if (cartorio.getEmail() != null && !cartorio.getEmail().equals("")) {
+		if (naoEstaVazio(cartorio.getEmail())) {
 			predicates.add(criteriaBuilder.like(rootCartorio.get("email"), "%" + cartorio.getEmail() + "%"));
 		}
-		if (cartorio.getSite() != null && !cartorio.getSite().equals("")) {
+		if (naoEstaVazio(cartorio.getSite())) {
 			predicates.add(criteriaBuilder.like(rootCartorio.get("site"), "%" + cartorio.getSite() + "%"));
 		}
-		if (cartorio.getPais() != null && !cartorio.getPais().equals("")) {
+		if (naoEstaVazio(cartorio.getPais())) {
 			predicates.add(criteriaBuilder.like(rootCartorio.get("pais"), "%" + cartorio.getPais() + "%"));
 		}
-		if (cartorio.getEstado() != null && !cartorio.getEstado().equals("")) {
+		if (naoEstaVazio(cartorio.getEstado())) {
 			predicates.add(criteriaBuilder.like(rootCartorio.get("estado"), "%" + cartorio.getEstado() + "%"));
 		}
-		if (cartorio.getCidade() != null && !cartorio.getCidade().equals("")) {
+		if (naoEstaVazio(cartorio.getCidade())) {
 			predicates.add(criteriaBuilder.like(rootCartorio.get("cidade"), "%" + cartorio.getCidade() + "%"));
 		}
-		if (cartorio.getBairro() != null && !cartorio.getBairro().equals("")) {
+		if (naoEstaVazio(cartorio.getBairro())) {
 			predicates.add(criteriaBuilder.like(rootCartorio.get("bairro"), "%" + cartorio.getBairro() + "%"));
 		}
-		if (cartorio.getLogradouro() != null && !cartorio.getLogradouro().equals("")) {
+		if (naoEstaVazio(cartorio.getLogradouro())) {
 			predicates.add(criteriaBuilder.like(rootCartorio.get("logradouro"), "%" + cartorio.getLogradouro() + "%"));
 		}
-		if (cartorio.getComplemento() != null && !cartorio.getComplemento().equals("")) {
+		if (naoEstaVazio(cartorio.getComplemento())) {
 			predicates
 					.add(criteriaBuilder.like(rootCartorio.get("complemento"), "%" + cartorio.getComplemento() + "%"));
 		}
@@ -144,5 +144,15 @@ final class CartorioImp implements CartorioDao {
 		em.merge(cartorio);
 		tx.commit();
 		em.close();
+	}
+	
+	private boolean naoEstaVazio(Object objeto) {
+		if (objeto == null) {
+			return false;
+		}
+		if (objeto.toString().equals("")) {
+			return false;
+		}
+		return true;
 	}
 }

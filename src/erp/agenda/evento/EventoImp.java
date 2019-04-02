@@ -60,13 +60,13 @@ final class EventoImp implements EventoDao {
 
 		List<Predicate> predicates = new ArrayList<Predicate>();
 
-		if (evento.getId() != null) {
+		if (naoEstaVazio(evento.getId())) {
 			predicates.add(criteriaBuilder.equal(rootEvento.get("id"), evento.getId()));
 		}
 		if (evento.getData() != null && !evento.getData().equals(Mascara.getData().getPlaceholder()) && !evento.getData().equals(Mascara.getDataVazio())) {
 			predicates.add(criteriaBuilder.like(rootEvento.get("data"), "%" + evento.getData() + "%"));
 		}
-		if (evento.getDescricao() != null && !evento.getDescricao().equals("")) {
+		if (naoEstaVazio(evento.getDescricao())) {
 			predicates.add(criteriaBuilder.like(rootEvento.get("descricao"), "%" + evento.getDescricao() + "%"));
 		}
 		if (evento.getHoraInicio() != null && !evento.getHoraInicio().equals(Mascara.getHora().getPlaceholder()) && !evento.getHoraInicio().equals(Mascara.getHoraVazio())) {
@@ -95,5 +95,15 @@ final class EventoImp implements EventoDao {
 		em.merge(evento);
 		tx.commit();
 		em.close();
+	}
+	
+	private boolean naoEstaVazio(Object objeto) {
+		if (objeto == null) {
+			return false;
+		}
+		if (objeto.toString().equals("")) {
+			return false;
+		}
+		return true;
 	}
 }

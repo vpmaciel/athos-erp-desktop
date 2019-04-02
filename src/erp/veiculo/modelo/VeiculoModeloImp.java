@@ -59,10 +59,10 @@ final class VeiculoModeloImp implements VeiculoModeloDao {
 
 		List<Predicate> predicates = new ArrayList<Predicate>();
 
-		if (veiculoModelo.getId() != null) {
+		if (naoEstaVazio(veiculoModelo.getId())) {
 			predicates.add(criteriaBuilder.equal(rootVeiculoModelo.get("id"), veiculoModelo.getId()));
 		}
-		if (veiculoModelo.getModelo() != null && !veiculoModelo.getModelo().equals("")) {
+		if (naoEstaVazio(veiculoModelo.getModelo())) {
 			predicates
 					.add(criteriaBuilder.like(rootVeiculoModelo.get("modelo"), "%" + veiculoModelo.getModelo() + "%"));
 		}
@@ -83,5 +83,15 @@ final class VeiculoModeloImp implements VeiculoModeloDao {
 		em.merge(veiculoModelo);
 		tx.commit();
 		em.close();
+	}
+
+	private boolean naoEstaVazio(Object objeto) {
+		if (objeto == null) {
+			return false;
+		}
+		if (objeto.toString().equals("")) {
+			return false;
+		}
+		return true;
 	}
 }

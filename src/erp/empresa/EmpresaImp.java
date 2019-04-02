@@ -60,39 +60,39 @@ final class EmpresaImp implements EmpresaDao {
 
 		List<Predicate> predicates = new ArrayList<Predicate>();
 
-		if (empresa.getId() != null) {
+		if (naoEstaVazio(empresa.getId())) {
 			predicates.add(criteriaBuilder.equal(rootEmpresa.get("id"), empresa.getId()));
 		}
-		if (empresa.getBairro() != null && !empresa.getBairro().equals("")) {
+		if (naoEstaVazio(empresa.getBairro())) {
 			predicates.add(criteriaBuilder.like(rootEmpresa.get("bairro"), "%" + empresa.getBairro() + "%"));
 		}
-		if (empresa.getCapitalSocial() != null && !empresa.getCapitalSocial().equals("")) {
+		if (naoEstaVazio(empresa.getCapitalSocial())) {
 			predicates.add(
 					criteriaBuilder.like(rootEmpresa.get("capitalSocial"), "%" + empresa.getCapitalSocial() + "%"));
 		}
 		if (empresa.getCep() != null && !empresa.getCep().equals(Mascara.getCep().getPlaceholder()) && !empresa.getCep().equals(Mascara.getCepVazio())) {
 			predicates.add(criteriaBuilder.like(rootEmpresa.get("cep"), "%" + empresa.getCep() + "%"));
 		}
-		if (empresa.getCidade() != null && !empresa.getCidade().equals("")) {
+		if (naoEstaVazio(empresa.getCidade())) {
 			predicates.add(criteriaBuilder.like(rootEmpresa.get("cidade"), "%" + empresa.getCidade() + "%"));
 		}
 		if (empresa.getCnpj() != null && !empresa.getCnpj().equals(Mascara.getCnpj().getPlaceholder()) && !empresa.getCnpj().equals(Mascara.getCnpjVazio())) {
 			predicates.add(criteriaBuilder.like(rootEmpresa.get("cnpj"), "%" + empresa.getCnpj() + "%"));
 		}
-		if (empresa.getComplemento() != null && !empresa.getComplemento().equals("")) {
+		if (naoEstaVazio(empresa.getComplemento())) {
 			predicates.add(criteriaBuilder.like(rootEmpresa.get("complemento"), "%" + empresa.getComplemento() + "%"));
 		}
 		if (empresa.getDataFundacao() != null && !empresa.getDataFundacao().equals(Mascara.getData().getPlaceholder()) && !empresa.getDataFundacao().equals(Mascara.getDataVazio())) {
 			predicates
 					.add(criteriaBuilder.like(rootEmpresa.get("dataFundacao"), "%" + empresa.getDataFundacao() + "%"));
 		}
-		if (empresa.getEmail() != null && !empresa.getEmail().equals("")) {
+		if (naoEstaVazio(empresa.getEmail())) {
 			predicates.add(criteriaBuilder.like(rootEmpresa.get("email"), "%" + empresa.getEmail() + "%"));
 		}
-		if (empresa.getEstado() != null && !empresa.getEstado().equals("")) {
+		if (naoEstaVazio(empresa.getEstado())) {
 			predicates.add(criteriaBuilder.like(rootEmpresa.get("estado"), "%" + empresa.getEstado() + "%"));
 		}
-		if (empresa.getFaturamentoMensal() != null && !empresa.getFaturamentoMensal().equals("")) {
+		if (naoEstaVazio(empresa.getFaturamentoMensal())) {
 			predicates.add(criteriaBuilder.like(rootEmpresa.get("faturamentoMensal"),
 					"%" + empresa.getFaturamentoMensal() + "%"));
 		}
@@ -105,36 +105,36 @@ final class EmpresaImp implements EmpresaDao {
 		if (empresa.getFone2() != null && !empresa.getFone2().equals(Mascara.getFone().getPlaceholder()) && !empresa.getFone2().equals(Mascara.getFoneVazio())) {
 			predicates.add(criteriaBuilder.like(rootEmpresa.get("fone2"), "%" + empresa.getFone2() + "%"));
 		}
-		if (empresa.getInscricaoEstadual() != null && !empresa.getInscricaoEstadual().equals("")) {
+		if (naoEstaVazio(empresa.getInscricaoEstadual())) {
 			predicates.add(criteriaBuilder.like(rootEmpresa.get("inscricaoEstadual"),
 					"%" + empresa.getInscricaoEstadual() + "%"));
 		}
-		if (empresa.getInscricaoMunicipal() != null && !empresa.getInscricaoMunicipal().equals("")) {
+		if (naoEstaVazio(empresa.getInscricaoMunicipal())) {
 			predicates.add(criteriaBuilder.like(rootEmpresa.get("inscricaoMunicipal"),
 					"%" + empresa.getInscricaoMunicipal() + "%"));
 		}
-		if (empresa.getLogradouro() != null && !empresa.getLogradouro().equals("")) {
+		if (naoEstaVazio(empresa.getLogradouro())) {
 			predicates.add(criteriaBuilder.like(rootEmpresa.get("logradouro"), "%" + empresa.getLogradouro() + "%"));
 		}
-		if (empresa.getNomeFantasia() != null && !empresa.getNomeFantasia().equals("")) {
+		if (naoEstaVazio(empresa.getNomeFantasia())) {
 			predicates
 					.add(criteriaBuilder.like(rootEmpresa.get("nomeFantasia"), "%" + empresa.getNomeFantasia() + "%"));
 		}
-		if (empresa.getNumeroFuncionarios() != null && !empresa.getNumeroFuncionarios().equals("")) {
+		if (naoEstaVazio(empresa.getNumeroFuncionarios())) {
 			predicates.add(criteriaBuilder.like(rootEmpresa.get("numeroFuncionarios"),
 					"%" + empresa.getNumeroFuncionarios() + "%"));
 		}
-		if (empresa.getPais() != null && !empresa.getPais().equals("")) {
+		if (naoEstaVazio(empresa.getPais())) {
 			predicates.add(criteriaBuilder.like(rootEmpresa.get("pais"), "%" + empresa.getPais() + "%"));
 		}
-		if (empresa.getRamoAtividade() != null && !empresa.getRamoAtividade().equals("")) {
+		if (naoEstaVazio(empresa.getRamoAtividade())) {
 			predicates.add(
 					criteriaBuilder.like(rootEmpresa.get("ramoAtividade"), "%" + empresa.getRamoAtividade() + "%"));
 		}
-		if (empresa.getRazaoSocial() != null && !empresa.getRazaoSocial().equals("")) {
+		if (naoEstaVazio(empresa.getRazaoSocial())) {
 			predicates.add(criteriaBuilder.like(rootEmpresa.get("razaoSocial"), "%" + empresa.getRazaoSocial() + "%"));
 		}
-		if (empresa.getTipoEmpresa() != null && !empresa.getTipoEmpresa().equals("")) {
+		if (naoEstaVazio(empresa.getTipoEmpresa())) {
 			predicates.add(criteriaBuilder.like(rootEmpresa.get("tipoEmpresa"), "%" + empresa.getTipoEmpresa() + "%"));
 		}
 
@@ -154,5 +154,15 @@ final class EmpresaImp implements EmpresaDao {
 		em.merge(empresa);
 		tx.commit();
 		em.close();
+	}
+	
+	private boolean naoEstaVazio(Object objeto) {
+		if (objeto == null) {
+			return false;
+		}
+		if (objeto.toString().equals("")) {
+			return false;
+		}
+		return true;
 	}
 }

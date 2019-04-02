@@ -21,7 +21,7 @@ final class CaracteristicaImp implements CaracteristicaDao {
 		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
 		EntityTransaction tx = em.getTransaction();
 		tx.begin();
-		em.remove(em.find(Caracteristica.class, caracteristica.getFuncionario()));
+		em.remove(em.find(Caracteristica.class, caracteristica.getId()));
 		tx.commit();
 		em.close();
 	}
@@ -31,7 +31,7 @@ final class CaracteristicaImp implements CaracteristicaDao {
 		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
 		EntityTransaction tx = em.getTransaction();
 		tx.begin();
-		return em.find(Caracteristica.class, caracteristica.getFuncionario());
+		return em.find(Caracteristica.class, caracteristica.getId());
 	}
 
 	@Override
@@ -59,45 +59,82 @@ final class CaracteristicaImp implements CaracteristicaDao {
 
 		List<Predicate> predicates = new ArrayList<Predicate>();
 
-		if (caracteristica.getFuncionario() != null) {
+		if (naoEstaVazio(caracteristica.getFuncionario())) {
 			predicates.add(criteriaBuilder.equal(rootCliente.get("funcionario"), caracteristica.getFuncionario()));
 		}
-		if (caracteristica.getAdequado() != null && !caracteristica.getAdequado().equals("")) {
+		if (naoEstaVazio(caracteristica.getAdequado())) {
 			predicates.add(criteriaBuilder.like(rootCliente.get("adequado"), "%" + caracteristica.getAdequado() + "%"));
 		}
-		if (caracteristica.getAgil() != null && !caracteristica.getAgil().equals("")) {
+		if (naoEstaVazio(caracteristica.getAgil())) {
 			predicates.add(criteriaBuilder.like(rootCliente.get("agil"), "%" + caracteristica.getAgil() + "%"));
 		}
-		if (caracteristica.getAgitado() != null && !caracteristica.getAgitado().equals("")) {
+		if (naoEstaVazio(caracteristica.getAgitado())) {
 			predicates.add(criteriaBuilder.like(rootCliente.get("agitado"), "%" + caracteristica.getAgitado() + "%"));
 		}
-		if (caracteristica.getAlegre() != null && !caracteristica.getAlegre().equals("")) {
+		if (naoEstaVazio(caracteristica.getAlegre())) {
 			predicates.add(criteriaBuilder.like(rootCliente.get("alegre"), "%" + caracteristica.getAlegre() + "%"));
 		}
-		if (caracteristica.getAmavel() != null && !caracteristica.getAmavel().equals("")) {
+		if (naoEstaVazio(caracteristica.getAmavel())) {
 			predicates.add(criteriaBuilder.like(rootCliente.get("amavel"), "%" + caracteristica.getAmavel() + "%"));
 		}
-		if (caracteristica.getAnalitico() != null && !caracteristica.getAnalitico().equals("")) {
+		if (naoEstaVazio(caracteristica.getAnalitico())) {
 			predicates
 					.add(criteriaBuilder.like(rootCliente.get("analitico"), "%" + caracteristica.getAnalitico() + "%"));
 		}
-		if (caracteristica.getAnimado() != null && !caracteristica.getAnimado().equals("")) {
+		if (naoEstaVazio(caracteristica.getAnimado())) {
 			predicates.add(criteriaBuilder.like(rootCliente.get("animado"), "%" + caracteristica.getAnimado() + "%"));
 		}
-		if (caracteristica.getAnsioso() != null && !caracteristica.getAnsioso().equals("")) {
+		if (naoEstaVazio(caracteristica.getAnsioso())) {
 			predicates.add(criteriaBuilder.like(rootCliente.get("ansioso"), "%" + caracteristica.getAnsioso() + "%"));
 		}
-		if (caracteristica.getApatico() != null && !caracteristica.getApatico().equals("")) {
+		if (naoEstaVazio(caracteristica.getApatico())) {
 			predicates.add(criteriaBuilder.like(rootCliente.get("apatico"), "%" + caracteristica.getApatico() + "%"));
 		}
-		if (caracteristica.getArticulado() != null && !caracteristica.getArticulado().equals("")) {
+		if (naoEstaVazio(caracteristica.getArticulado())) {
 			predicates.add(
 					criteriaBuilder.like(rootCliente.get("articulado"), "%" + caracteristica.getArticulado() + "%"));
 		}
-		if (caracteristica.getAssumeRiscosCalculados() != null
-				&& !caracteristica.getAssumeRiscosCalculados().equals("")) {
+		if (naoEstaVazio(caracteristica.getAssumeRiscosCalculados())) {
 			predicates.add(criteriaBuilder.like(rootCliente.get("assumeRiscosCalculados"),
 					"%" + caracteristica.getAssumeRiscosCalculados() + "%"));
+		}
+		if (naoEstaVazio(caracteristica.getAtencioso())) {
+			predicates
+					.add(criteriaBuilder.like(rootCliente.get("atencioso"), "%" + caracteristica.getAtencioso() + "%"));
+		}
+		if (naoEstaVazio(caracteristica.getAtivo())) {
+			predicates.add(criteriaBuilder.like(rootCliente.get("ativo"), "%" + caracteristica.getAtivo() + "%"));
+		}
+		if (naoEstaVazio(caracteristica.getAutoConfiante())) {
+			predicates.add(criteriaBuilder.like(rootCliente.get("autoConfiante"),
+					"%" + caracteristica.getAutoConfiante() + "%"));
+		}
+		if (naoEstaVazio(caracteristica.getAventureiro())) {
+			predicates.add(
+					criteriaBuilder.like(rootCliente.get("aventureiro"), "%" + caracteristica.getAventureiro() + "%"));
+		}
+		if (naoEstaVazio(caracteristica.getBemHumorado())) {
+			predicates.add(
+					criteriaBuilder.like(rootCliente.get("bemHumorado"), "%" + caracteristica.getBemHumorado() + "%"));
+		}
+		if (naoEstaVazio(caracteristica.getCalmo())) {
+			predicates.add(criteriaBuilder.like(rootCliente.get("calmo"), "%" + caracteristica.getCalmo() + "%"));
+		}
+		if (naoEstaVazio(caracteristica.getCarismatico())) {
+			predicates.add(
+					criteriaBuilder.like(rootCliente.get("carismatico"), "%" + caracteristica.getCarismatico() + "%"));
+		}
+		if (naoEstaVazio(caracteristica.getCauteloso())) {
+			predicates
+					.add(criteriaBuilder.like(rootCliente.get("cauteloso"), "%" + caracteristica.getCauteloso() + "%"));
+		}
+		if (naoEstaVazio(caracteristica.getCompetitivo())) {
+			predicates.add(
+					criteriaBuilder.like(rootCliente.get("competitivo"), "%" + caracteristica.getCompetitivo() + "%"));
+		}
+		if (naoEstaVazio(caracteristica.getCompreensivo())) {
+			predicates.add(criteriaBuilder.like(rootCliente.get("compreensivo"),
+					"%" + caracteristica.getCompreensivo() + "%"));
 		}
 
 		criteriaQuery.select(rootCliente).where(predicates.toArray(new Predicate[] {}));
@@ -116,5 +153,15 @@ final class CaracteristicaImp implements CaracteristicaDao {
 		em.merge(caracteristica);
 		tx.commit();
 		em.close();
+	}
+
+	private boolean naoEstaVazio(Object objeto) {
+		if (objeto == null) {
+			return false;
+		}
+		if (objeto.toString().equals("")) {
+			return false;
+		}
+		return true;
 	}
 }

@@ -60,11 +60,11 @@ final class CentroCustoImp implements CentroCustoDao {
 
 		List<Predicate> predicates = new ArrayList<Predicate>();
 
-		if (centroCusto.getId() != null) {
+		if (naoEstaVazio(centroCusto.getId())) {
 			predicates.add(criteriaBuilder.equal(rootCentroCusto.get("id"), centroCusto.getId()));
 		}
 
-		if (centroCusto.getNome() != null && !centroCusto.getNome().equals("")) {
+		if (naoEstaVazio(centroCusto.getNome())) {
 			predicates.add(criteriaBuilder.like(rootCentroCusto.get("nome"), "%" + centroCusto.getNome() + "%"));
 		}
 
@@ -84,5 +84,15 @@ final class CentroCustoImp implements CentroCustoDao {
 		em.merge(centroCusto);
 		tx.commit();
 		em.close();
+	}
+	
+	private boolean naoEstaVazio(Object objeto) {
+		if (objeto == null) {
+			return false;
+		}
+		if (objeto.toString().equals("")) {
+			return false;
+		}
+		return true;
 	}
 }

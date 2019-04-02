@@ -89,13 +89,13 @@ final class UsuarioImp implements UsuarioDao {
 
 		List<Predicate> predicates = new ArrayList<Predicate>();
 
-		if (usuario.getId() != null) {
+		if (naoEstaVazio(usuario.getId())) {
 			predicates.add(criteriaBuilder.equal(rootUsuario.get("id"), usuario.getId()));
 		}
-		if (usuario.getNome() != null && !usuario.getNome().equals("")) {
+		if (naoEstaVazio(usuario.getNome())) {
 			predicates.add(criteriaBuilder.equal(rootUsuario.get("nome"), usuario.getNome()));
 		}
-		if (usuario.getSenha() != null && !usuario.getSenha().equals("")) {
+		if (naoEstaVazio(usuario.getSenha())) {
 			predicates.add(criteriaBuilder.equal(rootUsuario.get("senha"), usuario.getSenha()));
 		}
 		criteriaQuery.select(rootUsuario).where(predicates.toArray(new Predicate[] {}));
@@ -115,5 +115,15 @@ final class UsuarioImp implements UsuarioDao {
 		em.merge(usuario);
 		tx.commit();
 		em.close();
+	}
+	
+	private boolean naoEstaVazio(Object objeto) {
+		if (objeto == null) {
+			return false;
+		}
+		if (objeto.toString().equals("")) {
+			return false;
+		}
+		return true;
 	}
 }

@@ -60,19 +60,19 @@ final class RecadoImp implements RecadoDao {
 
 		List<Predicate> predicates = new ArrayList<Predicate>();
 
-		if (recado.getId() != null) {
+		if (naoEstaVazio(recado.getId())) {
 			predicates.add(criteriaBuilder.equal(rootRecado.get("id"), recado.getId()));
 		}
 		if (recado.getData() != null && !recado.getData().equals(Mascara.getData().getPlaceholder()) && !recado.getData().equals(Mascara.getDataVazio())) {
 			predicates.add(criteriaBuilder.like(rootRecado.get("data"), "%" + recado.getData() + "%"));
 		}
-		if (recado.getDestinatario() != null && recado.getDestinatario() != "") {
+		if (naoEstaVazio(recado.getDestinatario())) {
 			predicates.add(criteriaBuilder.like(rootRecado.get("destinatario"), "%" + recado.getDestinatario() + "%"));
 		}
-		if (recado.getRecado() != null && recado.getRecado() != "") {
+		if (naoEstaVazio(recado.getRecado())) {
 			predicates.add(criteriaBuilder.like(rootRecado.get("recado"), "%" + recado.getRecado() + "%"));
 		}
-		if (recado.getRemetente() != null && recado.getRemetente() != "") {
+		if (naoEstaVazio(recado.getRemetente())) {
 			predicates.add(criteriaBuilder.like(rootRecado.get("remetente"), "%" + recado.getRemetente() + "%"));
 		}
 		criteriaQuery.select(rootRecado).where(predicates.toArray(new Predicate[] {}));
@@ -91,5 +91,15 @@ final class RecadoImp implements RecadoDao {
 		em.merge(recado);
 		tx.commit();
 		em.close();
+	}
+	
+	private boolean naoEstaVazio(Object objeto) {
+		if (objeto == null) {
+			return false;
+		}
+		if (objeto.toString().equals("")) {
+			return false;
+		}
+		return true;
 	}
 }

@@ -60,7 +60,7 @@ final class ContadorImp implements ContadorDao {
 
 		List<Predicate> predicates = new ArrayList<Predicate>();
 
-		if (contador.getId() != null) {
+		if (naoEstaVazio(contador.getId())) {
 			predicates.add(criteriaBuilder.equal(rootContador.get("id"), contador.getId()));
 		}
 		if (contador.getCnpj() != null && !contador.getCnpj().equals(Mascara.getCnpj().getPlaceholder()) && !contador.getCnpj().equals(Mascara.getCnpjVazio())) {
@@ -69,10 +69,10 @@ final class ContadorImp implements ContadorDao {
 		if (contador.getCpf() != null && !contador.getCpf().equals(Mascara.getCpf().getPlaceholder()) && !contador.getCpf().equals(Mascara.getCpfVazio())) {
 			predicates.add(criteriaBuilder.like(rootContador.get("cpf"), "%" + contador.getCpf() + "%"));
 		}
-		if (contador.getCrc() != null && !contador.getCrc().equals("")) {
+		if (naoEstaVazio(contador.getCrc())) {
 			predicates.add(criteriaBuilder.like(rootContador.get("crc"), "%" + contador.getCrc() + "%"));
 		}
-		if (contador.getEmail() != null && !contador.getEmail().equals("")) {
+		if (naoEstaVazio(contador.getEmail())) {
 			predicates.add(criteriaBuilder.like(rootContador.get("email"), "%" + contador.getEmail() + "%"));
 		}
 		if (contador.getFax() != null && !contador.getFax().equals(Mascara.getFax().getPlaceholder()) && !contador.getFax().equals(Mascara.getFaxVazio())) {
@@ -84,10 +84,10 @@ final class ContadorImp implements ContadorDao {
 		if (contador.getFone2() != null  && !contador.getFone2().equals(Mascara.getFone().getPlaceholder()) && !contador.getFone2().equals(Mascara.getFoneVazio())) {
 			predicates.add(criteriaBuilder.like(rootContador.get("fone2"), "%" + contador.getFone2() + "%"));
 		}
-		if (contador.getNome() != null && !contador.getNome().equals("")) {
+		if (naoEstaVazio(contador.getNome())) {
 			predicates.add(criteriaBuilder.like(rootContador.get("nome"), "%" + contador.getNome() + "%"));
 		}
-		if (contador.getSite() != null && !contador.getSite().equals("")) {
+		if (naoEstaVazio(contador.getSite())) {
 			predicates.add(criteriaBuilder.like(rootContador.get("site"), "%" + contador.getSite() + "%"));
 		}
 
@@ -107,5 +107,15 @@ final class ContadorImp implements ContadorDao {
 		em.merge(contador);
 		tx.commit();
 		em.close();
+	}
+	
+	private boolean naoEstaVazio(Object objeto) {
+		if (objeto == null) {
+			return false;
+		}
+		if (objeto.toString().equals("")) {
+			return false;
+		}
+		return true;
 	}
 }

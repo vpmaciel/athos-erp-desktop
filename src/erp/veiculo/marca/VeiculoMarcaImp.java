@@ -59,10 +59,10 @@ final class VeiculoMarcaImp implements VeiculoMarcaDao {
 
 		List<Predicate> predicates = new ArrayList<Predicate>();
 
-		if (veiculoMarca.getId() != null) {
+		if (naoEstaVazio(veiculoMarca.getId())) {
 			predicates.add(criteriaBuilder.equal(rootVeiculoMarca.get("id"), veiculoMarca.getId()));
 		}
-		if (veiculoMarca.getMarca() != null && !veiculoMarca.getMarca().equals("")) {
+		if (naoEstaVazio(veiculoMarca.getMarca())) {
 			predicates.add(criteriaBuilder.like(rootVeiculoMarca.get("marca"), "%" + veiculoMarca.getMarca() + "%"));
 		}
 
@@ -83,4 +83,15 @@ final class VeiculoMarcaImp implements VeiculoMarcaDao {
 		tx.commit();
 		em.close();
 	}
+
+	private boolean naoEstaVazio(Object objeto) {
+		if (objeto == null) {
+			return false;
+		}
+		if (objeto.toString().equals("")) {
+			return false;
+		}
+		return true;
+	}
+
 }

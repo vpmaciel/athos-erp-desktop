@@ -60,34 +60,34 @@ final class ContatoImp implements ContatoDao {
 
 		List<Predicate> predicates = new ArrayList<Predicate>();
 
-		if (contato.getId() != null) {
+		if (naoEstaVazio(contato.getId())) {
 			predicates.add(criteriaBuilder.equal(rootContato.get("id"), contato.getId()));
 		}
-		if (contato.getBairro() != null && !contato.getBairro().equals("")) {
+		if (naoEstaVazio(contato.getBairro())) {
 			predicates.add(criteriaBuilder.like(rootContato.get("bairro"), "%" + contato.getBairro() + "%"));
 		}
 		if (contato.getCep() != null && !contato.getCep().equals(Mascara.getCep().getPlaceholder()) && !contato.getCep().equals(Mascara.getCepVazio())) {
 			predicates.add(criteriaBuilder.like(rootContato.get("cep"), "%" + contato.getCep() + "%"));
 		}
-		if (contato.getCidade() != null && !contato.getCidade().equals("")) {
+		if (naoEstaVazio(contato.getCidade())) {
 			predicates.add(criteriaBuilder.like(rootContato.get("cidade"), "%" + contato.getCidade() + "%"));
 		}
 		if (contato.getCnpj() != null && !contato.getCnpj().equals(Mascara.getCnpj().getPlaceholder()) && !contato.getCnpj().equals(Mascara.getCnpjVazio())) {
 			predicates.add(criteriaBuilder.like(rootContato.get("cnpj"), "%" + contato.getCnpj() + "%"));
 		}
-		if (contato.getComplemento() != null && !contato.getComplemento().equals("")) {
+		if (naoEstaVazio(contato.getComplemento())) {
 			predicates.add(criteriaBuilder.like(rootContato.get("complemento"), "%" + contato.getComplemento() + "%"));
 		}
 		if (contato.getCpf() != null && !contato.getCpf().equals(Mascara.getCpf().getPlaceholder()) && !contato.getCpf().equals(Mascara.getCpfVazio())) {
 			predicates.add(criteriaBuilder.like(rootContato.get("cpfNumero"), "%" + contato.getCpf() + "%"));
 		}
-		if (contato.getEmail() != null && !contato.getEmail().equals("")) {
+		if (naoEstaVazio(contato.getEmail())) {
 			predicates.add(criteriaBuilder.like(rootContato.get("email"), "%" + contato.getEmail() + "%"));
 		}
 		if (contato.getEmpresa() != null && contato.getEmpresa().getId() != null) {
 			predicates.add(criteriaBuilder.equal(rootContato.get("empresa"), contato.getEmpresa()));
 		}
-		if (contato.getEstado() != null && !contato.getEstado().equals("")) {
+		if (naoEstaVazio(contato.getEstado())) {
 			predicates.add(criteriaBuilder.like(rootContato.get("estado"), "%" + contato.getEstado() + "%"));
 		}
 		if (contato.getFax() != null && !contato.getFax().equals(Mascara.getFax().getPlaceholder()) && !contato.getFax().equals(Mascara.getFaxVazio())) {
@@ -99,16 +99,16 @@ final class ContatoImp implements ContatoDao {
 		if (contato.getFone2() != null && !contato.getFone2().equals(Mascara.getFone().getPlaceholder()) && !contato.getFone1().equals(Mascara.getFoneVazio())) {
 			predicates.add(criteriaBuilder.like(rootContato.get("fone2"), "%" + contato.getFone2() + "%"));
 		}
-		if (contato.getLogradouro() != null && !contato.getLogradouro().equals("")) {
+		if (naoEstaVazio(contato.getLogradouro())) {
 			predicates.add(criteriaBuilder.like(rootContato.get("logradouro"), "%" + contato.getLogradouro() + "%"));
 		}
-		if (contato.getNome() != null && !contato.getNome().equals("")) {
+		if (naoEstaVazio(contato.getNome())) {
 			predicates.add(criteriaBuilder.like(rootContato.get("nome"), "%" + contato.getNome() + "%"));
 		}
-		if (contato.getPais() != null && !contato.getPais().equals("")) {
+		if (naoEstaVazio(contato.getPais())) {
 			predicates.add(criteriaBuilder.like(rootContato.get("pais"), "%" + contato.getPais() + "%"));
 		}
-		if (contato.getSexo() != null && !contato.getSexo().equals("")) {
+		if (naoEstaVazio(contato.getSexo())) {
 			predicates.add(criteriaBuilder.like(rootContato.get("sexo"), "%" + contato.getSexo() + "%"));
 		}
 
@@ -128,5 +128,15 @@ final class ContatoImp implements ContatoDao {
 		em.merge(contato);
 		tx.commit();
 		em.close();
+	}
+	
+	private boolean naoEstaVazio(Object objeto) {
+		if (objeto == null) {
+			return false;
+		}
+		if (objeto.toString().equals("")) {
+			return false;
+		}
+		return true;
 	}
 }
