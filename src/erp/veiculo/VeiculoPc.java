@@ -1412,7 +1412,8 @@ public final class VeiculoPc extends JPanel implements Gui {
 		labelProprietarioAnteriorCNPJ = new JLabel("CNPJ (PROPRIETÁRIO ANTERIOR)");
 		add(labelProprietarioAnteriorCNPJ);
 
-		textFieldProprietarioAnteriorCNPJ = new JFormattedTextField(Mascara.getCnpj());;
+		textFieldProprietarioAnteriorCNPJ = new JFormattedTextField(Mascara.getCnpj());
+		;
 		add(textFieldProprietarioAnteriorCNPJ);
 
 		labelProprietarioAnteriorRGNumero = new JLabel("RG NÚMERO (PROPRIETÁRIO ANTERIOR)");

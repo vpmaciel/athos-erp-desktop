@@ -116,7 +116,7 @@ final class UsuarioImp implements UsuarioDao {
 		tx.commit();
 		em.close();
 	}
-	
+
 	private boolean naoEstaVazio(Object objeto) {
 		if (objeto == null) {
 			return false;

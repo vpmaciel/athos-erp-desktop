@@ -36,7 +36,7 @@ public final class FuncionarioFc extends JFrame implements Gui {
 
 	}
 
-	public FuncionarioCont getFuncionarioHandle() {
+	public FuncionarioCont getFuncionarioCont() {
 		return funcionarioCont;
 	}
 

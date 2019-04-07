@@ -36,6 +36,8 @@ import erp.contador.ContadorFc;
 import erp.contador.ContadorFp;
 import erp.curriculo.caracteristica.CaracteristicaFc;
 import erp.curriculo.caracteristica.CaracteristicaFp;
+import erp.curriculo.certificado.CertificadoFc;
+import erp.curriculo.certificado.CertificadoFp;
 import erp.editor.EditorTextoFc;
 import erp.empresa.EmpresaFc;
 import erp.empresa.EmpresaFp;
@@ -102,6 +104,12 @@ public final class MainCont {
 			MainCont.getVeiculoMarcaFp().setTitle(AOP.getNomeSistema() + " - MARCA DE VEÍCULO " + Data.getData());
 			MainCont.getVeiculoModeloFc().setTitle(AOP.getNomeSistema() + " - MODELO DE VEÍCULO " + Data.getData());
 			MainCont.getVeiculoModeloFp().setTitle(AOP.getNomeSistema() + " - MODELO DE VEÍCULO " + Data.getData());
+			MainCont.getCurriculoCaracteristicaFc()
+					.setTitle(AOP.getNomeSistema() + " - CARACTERÍSTICA " + Data.getData());
+			MainCont.getCurriculoCaracteristicaFp()
+					.setTitle(AOP.getNomeSistema() + " - CARACTERÍSTICA " + Data.getData());
+			MainCont.getCurriculoCaracteristicaFc().setTitle(AOP.getNomeSistema() + " - CERTIFICADO " + Data.getData());
+			MainCont.getCurriculoCaracteristicaFp().setTitle(AOP.getNomeSistema() + " - CERTIFICADO " + Data.getData());
 		}
 	}
 
@@ -202,30 +210,28 @@ public final class MainCont {
 				mostrarFrame(imovelFc);
 			} else if (actionEvent.getSource() == mainFc.getMenuItemCadastroCurriculoCaracteristica()) {
 				mostrarFrame(curriculoCaracteristicaFc);
-			}/* else if (actionEvent.getSource() == mainFc.getMenuItemCadastroImovel()) {
+			} else if (actionEvent.getSource() == mainFc.getMenuItemCadastroCurriculoCertificado()) {
 				mostrarFrame(curriculoCertificadoFc);
-			} else if (actionEvent.getSource() == mainFc.getMenuItemCadastroImovel()) {
-				mostrarFrame(curriculoCursoFc);
-			} else if (actionEvent.getSource() == mainFc.getMenuItemCadastroImovel()) {
-				mostrarFrame(curriculoExperienciaProfissionalFc);
-			} else if (actionEvent.getSource() == mainFc.getMenuItemCadastroImovel()) {
-				mostrarFrame(curriculoHabilidadeFc);
-			} else if (actionEvent.getSource() == mainFc.getMenuItemCadastroImovel()) {
-				mostrarFrame(curriculoIdiomaFc);
-			} else if (actionEvent.getSource() == mainFc.getMenuItemCadastroImovel()) {
-				mostrarFrame(curriculoObjetivoProfissionalFc);
-			} else if (actionEvent.getSource() == mainFc.getMenuItemCadastroImovel()) {
-				mostrarFrame(curriculoHabilidade);
-			} else if (actionEvent.getSource() == mainFc.getMenuItemCadastroImovel()) {
-				mostrarFrame(curriculoIdiomaFc);
-			} else if (actionEvent.getSource() == mainFc.getMenuItemCadastroImovel()) {
-				mostrarFrame(curriculoObjetivoProfissionalFc);
-			} else if (actionEvent.getSource() == mainFc.getMenuItemCadastroImovel()) {
-				mostrarFrame(curriculoTestePersonalidadeFc);
-			} else if (actionEvent.getSource() == mainFc.getMenuItemCadastroImovel()) {
-				mostrarFrame(curriculoTesteDiscFc);
-			}
-			*/
+			} /*
+				 * else if (actionEvent.getSource() == mainFc.getMenuItemCadastroImovel()) {
+				 * mostrarFrame(curriculoCursoFc); } else if (actionEvent.getSource() ==
+				 * mainFc.getMenuItemCadastroImovel()) {
+				 * mostrarFrame(curriculoExperienciaProfissionalFc); } else if
+				 * (actionEvent.getSource() == mainFc.getMenuItemCadastroImovel()) {
+				 * mostrarFrame(curriculoHabilidadeFc); } else if (actionEvent.getSource() ==
+				 * mainFc.getMenuItemCadastroImovel()) { mostrarFrame(curriculoIdiomaFc); } else
+				 * if (actionEvent.getSource() == mainFc.getMenuItemCadastroImovel()) {
+				 * mostrarFrame(curriculoObjetivoProfissionalFc); } else if
+				 * (actionEvent.getSource() == mainFc.getMenuItemCadastroImovel()) {
+				 * mostrarFrame(curriculoHabilidade); } else if (actionEvent.getSource() ==
+				 * mainFc.getMenuItemCadastroImovel()) { mostrarFrame(curriculoIdiomaFc); } else
+				 * if (actionEvent.getSource() == mainFc.getMenuItemCadastroImovel()) {
+				 * mostrarFrame(curriculoObjetivoProfissionalFc); } else if
+				 * (actionEvent.getSource() == mainFc.getMenuItemCadastroImovel()) {
+				 * mostrarFrame(curriculoTestePersonalidadeFc); } else if
+				 * (actionEvent.getSource() == mainFc.getMenuItemCadastroImovel()) {
+				 * mostrarFrame(curriculoTesteDiscFc); }
+				 */
 		}
 	}
 
@@ -303,24 +309,22 @@ public final class MainCont {
 	private static ContadorFp contadorFp;
 	private static CaracteristicaFc curriculoCaracteristicaFc;
 	private static CaracteristicaFp curriculoCaracteristicaFp;
-	/*
 	private static CertificadoFc curriculoCertificadoFc;
 	private static CertificadoFp curriculoCertificadoFp;
-	private static CursoFc curriculoCursoFc;
-	private static CursoFp curriculoCursoFp;
-	private static ExperienciaProfissionalFc curriculoExperienciaProfissionalFc;
-	private static ExperienciaProfissionalFp curriculoExperienciaProfissionalFp;
-	private static HabilidadeFc curriculoHabilidadeFc;
-	private static HabilidadeFp curriculoHabilidadeFp;
-	private static IdiomaFc curriculoIdiomaFc;
-	private static IdiomaFp curriculoIdiomaFp;
-	private static ObjetivoProfissionalFc curriculoObjetivoProfissionalFc;
-	private static ObjetivoProfissionalFp curriculoObjetivoProfissionalFp;
-	private static TestePersonalidadeFc curriculoTestePersonalidadeFc;
-	private static TestePersonalidadeFp curriculoTestePersonalidadeFp;
-	private static TesteDiscFc curriculoTesteDiscFc;
-	private static TesteDiscFp curriculoTesteDiscFp;
-	*/
+	/*
+	 * private static CursoFc curriculoCursoFc; private static CursoFp
+	 * curriculoCursoFp; private static ExperienciaProfissionalFc
+	 * curriculoExperienciaProfissionalFc; private static ExperienciaProfissionalFp
+	 * curriculoExperienciaProfissionalFp; private static HabilidadeFc
+	 * curriculoHabilidadeFc; private static HabilidadeFp curriculoHabilidadeFp;
+	 * private static IdiomaFc curriculoIdiomaFc; private static IdiomaFp
+	 * curriculoIdiomaFp; private static ObjetivoProfissionalFc
+	 * curriculoObjetivoProfissionalFc; private static ObjetivoProfissionalFp
+	 * curriculoObjetivoProfissionalFp; private static TestePersonalidadeFc
+	 * curriculoTestePersonalidadeFc; private static TestePersonalidadeFp
+	 * curriculoTestePersonalidadeFp; private static TesteDiscFc
+	 * curriculoTesteDiscFc; private static TesteDiscFp curriculoTesteDiscFp;
+	 */
 	private static FuncionarioFc funcionarioFc;
 	private static FuncionarioFp funcionarioFp;
 	private static UsuarioFc usuarioFc;
@@ -345,10 +349,10 @@ public final class MainCont {
 	private static EditorTextoFc editorTextoFc;
 	private static MainCont mainCont;
 	private static MainFc mainFc;
-	private static int totalPrincipalHandle;
+	private static int totalPrincipalCont;
 
 	static {
-		totalPrincipalHandle = 0;
+		totalPrincipalCont = 0;
 	}
 
 	public static EditorTextoFc getEditorTextoFc() {
@@ -519,13 +523,21 @@ public final class MainCont {
 		return curriculoCaracteristicaFp;
 	}
 
+	public static CertificadoFc getCurriculoCertificadoFc() {
+		return curriculoCertificadoFc;
+	}
+
+	public static CertificadoFp getCurriculoCertificadoFp() {
+		return curriculoCertificadoFp;
+	}
+
 	public static synchronized MainCont getInstance(MainFc mainFc) {
-		if (totalPrincipalHandle > 1) {
+		if (totalPrincipalCont > 1) {
 			JOptionPane.showMessageDialog(null, "Foi instanciado mais de uma Objeto:" + ERP.class);
 			System.exit(0);
 		}
 		if (mainCont == null) {
-			++totalPrincipalHandle;
+			++totalPrincipalCont;
 			return new MainCont(mainFc);
 		}
 		return mainCont;
@@ -667,6 +679,12 @@ public final class MainCont {
 
 		curriculoCaracteristicaFp = new CaracteristicaFp();
 		criarFrame(curriculoCaracteristicaFp);
+
+		curriculoCertificadoFc = new CertificadoFc();
+		criarFrame(curriculoCertificadoFc);
+
+		curriculoCertificadoFp = new CertificadoFp();
+		criarFrame(curriculoCertificadoFp);
 
 		calculadoraFc = new CalculadoraFc();
 		criarFrame(calculadoraFc);

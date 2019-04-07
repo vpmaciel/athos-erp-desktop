@@ -29,8 +29,8 @@ final class EmpresaSel implements ListSelectionListener {
 					EmpresaTm empresaTm = (EmpresaTm) table.getModel();
 					empresaTm.getEmpresa(table.getSelectedRow());
 					MainCont.mostrarFrame(MainCont.getEmpresaFc());
-					MainCont.getEmpresaFc().getEmpresaHandle().setEmpresa(empresa);
-					MainCont.getEmpresaFc().getEmpresaHandle().atualizarGui();
+					MainCont.getEmpresaFc().getEmpresaCont().setEmpresa(empresa);
+					MainCont.getEmpresaFc().getEmpresaCont().atualizarGui();
 					MainCont.getEmpresaFc().setFocusable(true);
 					MainCont.getEmpresaFp().setVisible(false);
 				}

@@ -32,8 +32,8 @@ final class UsuarioSel implements ListSelectionListener {
 					usuarioTm.getUsuario(table.getSelectedRow());
 
 					MainCont.mostrarFrame(MainCont.getUsuarioFc());
-					MainCont.getUsuarioFc().getUsuarioHandle().setUsuario(usuario);
-					MainCont.getUsuarioFc().getUsuarioHandle().atualizarGui();
+					MainCont.getUsuarioFc().getUsuarioCont().setUsuario(usuario);
+					MainCont.getUsuarioFc().getUsuarioCont().atualizarGui();
 					MainCont.getUsuarioFc().setFocusable(true);
 					MainCont.getUsuarioFp().setVisible(false);
 				}

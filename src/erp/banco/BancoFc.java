@@ -1,7 +1,6 @@
 package erp.banco;
 
 import java.awt.Dimension;
-
 import java.awt.FlowLayout;
 import java.awt.KeyboardFocusManager;
 import java.beans.PropertyChangeEvent;
@@ -40,7 +39,7 @@ public final class BancoFc extends JFrame implements Gui {
 	public void desabilitarGui() {
 	}
 
-	public BancoCont getBancoHandle() {
+	public BancoCont getBancoCont() {
 		return bancoCont;
 	}
 

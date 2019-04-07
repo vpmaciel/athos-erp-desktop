@@ -42,7 +42,7 @@ public final class ImovelFc extends JFrame implements Gui {
 		return configuracaoGui;
 	}
 
-	public ImovelCont getImovelHandle() {
+	public ImovelCont getImovelCont() {
 		return imovelCont;
 	}
 

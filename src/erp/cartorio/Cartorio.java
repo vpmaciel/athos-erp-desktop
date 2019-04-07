@@ -18,7 +18,7 @@ import javax.persistence.UniqueConstraint;
 public class Cartorio implements Serializable {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	@Column(length = 50)
 	private String comarca;

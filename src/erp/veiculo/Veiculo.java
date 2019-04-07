@@ -5,7 +5,6 @@ import java.io.Serializable;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
@@ -26,9 +25,9 @@ public class Veiculo implements Serializable {
 	@Id
 	@GeneratedValue
 	private Long id;
-	@ManyToOne(cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
+	@ManyToOne(cascade = CascadeType.ALL)
 	private VeiculoMarca marca;
-	@ManyToOne(cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
+	@ManyToOne(cascade = CascadeType.ALL)
 	private VeiculoModelo modelo;
 	@Column(length = 9)
 	private String numeroMotor;
@@ -58,7 +57,7 @@ public class Veiculo implements Serializable {
 	private String rebaixado;
 	@Column(length = 7)
 	private String quilometragem;
-	@ManyToOne(cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
+	@ManyToOne(cascade = CascadeType.ALL)
 	private CentroCusto centroCusto;
 	@Column(length = 10)
 	private String lucro;

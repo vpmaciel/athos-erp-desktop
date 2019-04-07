@@ -20,9 +20,8 @@ import arquitetura.gui.Tabela;
 public final class BancoPp extends JPanel {
 
 	private final BancoTm bancoTm;
-	List<Banco> bancos = null;
+	private List<Banco> bancos = null;
 	private final JTable table;
-	private final BancoFac bancoFac = new BancoFac();
 
 	public BancoPp() {
 		setBorder(BorderFactory.createTitledBorder("BANCO"));
@@ -72,7 +71,7 @@ public final class BancoPp extends JPanel {
 	public long pesquisarRegistroBanco(Banco banco) {
 		bancos = new LinkedList<>();
 		try {
-			bancos = new LinkedList<>(bancoFac.pesquisarRegistro(banco));
+			bancos = new LinkedList<>(BancoFac.pesquisarRegistro(banco));
 		} catch (Exception e) {
 			System.out.println(e);
 		}

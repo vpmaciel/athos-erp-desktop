@@ -39,7 +39,7 @@ public final class CentroCustoFc extends JFrame implements Gui {
 	public void desabilitarGui() {
 	}
 
-	public CentroCustoCont getCentroCustoHandle() {
+	public CentroCustoCont getCentroCustoCont() {
 		return centroCustoCont;
 	}
 

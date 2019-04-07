@@ -327,8 +327,8 @@ public final class ContatoPc extends JPanel implements Gui {
 			boxEmpresa.addItem(e);
 		}
 		if (!MainCont.getAgendaContatoFc().isShowing()
-				&& MainCont.getAgendaContatoFc().getContatoHandle().getContato() != null) {
-			empresa = MainCont.getAgendaContatoFc().getContatoHandle().getContato().getEmpresa();
+				&& MainCont.getAgendaContatoFc().getContatoCont().getContato() != null) {
+			empresa = MainCont.getAgendaContatoFc().getContatoCont().getContato().getEmpresa();
 			boxEmpresa.setSelectedItem(empresa);
 		}
 

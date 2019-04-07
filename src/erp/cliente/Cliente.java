@@ -5,7 +5,6 @@ import java.io.Serializable;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -20,11 +19,11 @@ import erp.empresa.Empresa;
 @SuppressWarnings("serial")
 @PersistenceContext(unitName = "erp")
 @Entity
-@Table(uniqueConstraints = { @UniqueConstraint(columnNames = { "cpfNumero", "cnpj" }) })
+@Table(uniqueConstraints = { @UniqueConstraint(columnNames = { "cpf", "cnpj" }) })
 public class Cliente implements Serializable {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	@Column(length = 9)
 	private String mesReferenciaCadastro;
@@ -39,10 +38,10 @@ public class Cliente implements Serializable {
 	@Column(length = 50)
 	private String classeEconomica;
 	@Column(length = 14)
-	private String cpfNumero;
+	private String cpf;
 	@Column(length = 50)
 	private String email;
-	@ManyToOne(cascade = { CascadeType.ALL }, fetch = FetchType.EAGER, optional = true)
+	@ManyToOne(cascade = CascadeType.ALL)
 	private Empresa empresa;
 	@Column(length = 14)
 	private String estadoCivil;
@@ -88,7 +87,7 @@ public class Cliente implements Serializable {
 	private String dataNascimento;
 	@Column(length = 3)
 	private String idade;
-	@ManyToOne(cascade = { CascadeType.ALL }, fetch = FetchType.EAGER, optional = true)
+	@ManyToOne(cascade = CascadeType.ALL)
 	private Banco banco;
 	@Column(length = 20)
 	private String numeroAgenciaBancaria;
@@ -160,7 +159,7 @@ public class Cliente implements Serializable {
 	}
 
 	public String getCpf() {
-		return this.cpfNumero;
+		return this.cpf;
 	}
 
 	public String getDataCadastro() {
@@ -339,8 +338,8 @@ public class Cliente implements Serializable {
 		this.cor = cor;
 	}
 
-	public void setCpf(String cpfNumero) {
-		this.cpfNumero = cpfNumero;
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
 	}
 
 	public void setDataCadastro(String dataCadastro) {

@@ -60,70 +60,75 @@ final class CartorioImp implements CartorioDao {
 
 		List<Predicate> predicates = new ArrayList<Predicate>();
 
-		if (naoEstaVazio(cartorio.getId())) {
+		if (cartorio.getId() != null) {
 			predicates.add(criteriaBuilder.equal(rootCartorio.get("id"), cartorio.getId()));
 		}
-		if (naoEstaVazio(cartorio.getNomeFantasia())) {
+		if (cartorio.getNomeFantasia() != null && cartorio.getNomeFantasia().length() > 0) {
 			predicates.add(
 					criteriaBuilder.like(rootCartorio.get("nomeFantasia"), "%" + cartorio.getNomeFantasia() + "%"));
 		}
-		if (naoEstaVazio(cartorio.getRazaoSocial())) {
+		if (cartorio.getRazaoSocial() != null && cartorio.getRazaoSocial().length() > 0) {
 			predicates
 					.add(criteriaBuilder.like(rootCartorio.get("razaoSocial"), "%" + cartorio.getRazaoSocial() + "%"));
 		}
-		if (naoEstaVazio(cartorio.getComarca())) {
+		if (cartorio.getComarca() != null && cartorio.getComarca().length() > 0) {
 			predicates.add(criteriaBuilder.like(rootCartorio.get("comarca"), "%" + cartorio.getComarca() + "%"));
 		}
-		if (naoEstaVazio(cartorio.getMunicipio())) {
+		if (cartorio.getMunicipio() != null && cartorio.getMunicipio().length() > 0) {
 			predicates.add(criteriaBuilder.like(rootCartorio.get("municipio"), "%" + cartorio.getMunicipio() + "%"));
 		}
-		if (naoEstaVazio(cartorio.getDistrito())) {
+		if (cartorio.getDistrito() != null && cartorio.getDistrito().length() > 0) {
 			predicates.add(criteriaBuilder.like(rootCartorio.get("distrito"), "%" + cartorio.getDistrito() + "%"));
 		}
-		if (naoEstaVazio(cartorio.getTitular())) {
+		if (cartorio.getTitular() != null && cartorio.getTitular().length() > 0) {
 			predicates.add(criteriaBuilder.like(rootCartorio.get("titular"), "%" + cartorio.getTitular() + "%"));
 		}
-		if (naoEstaVazio(cartorio.getSubstituto())) {
+		if (cartorio.getSubstituto() != null && cartorio.getSubstituto().length() > 0) {
 			predicates.add(criteriaBuilder.like(rootCartorio.get("substituto"), "%" + cartorio.getSubstituto() + "%"));
 		}
-		if (cartorio.getCnpj() != null && !cartorio.getCnpj().equals(Mascara.getCnpj().getPlaceholder()) && !cartorio.getCnpj().equals(Mascara.getCnpjVazio())) {
+		if (cartorio.getCnpj() != null && !cartorio.getCnpj().equals(Mascara.getCnpj().getPlaceholder())
+				&& !cartorio.getCnpj().equals(Mascara.getCnpjVazio())) {
 			predicates.add(criteriaBuilder.like(rootCartorio.get("cnpj"), "%" + cartorio.getCnpj() + "%"));
 		}
-		if (cartorio.getFone1() != null && !cartorio.getFone1().equals(Mascara.getFone().getPlaceholder()) && !cartorio.getFone1().equals(Mascara.getFoneVazio())) {
+		if (cartorio.getFone1() != null && !cartorio.getFone1().equals(Mascara.getFone().getPlaceholder())
+				&& !cartorio.getFone1().equals(Mascara.getFoneVazio())) {
 			predicates.add(criteriaBuilder.like(rootCartorio.get("fone1"), "%" + cartorio.getFone1() + "%"));
 		}
-		if (cartorio.getFone2() != null && !cartorio.getFone2().equals(Mascara.getFone().getPlaceholder()) && !cartorio.getFone2().equals(Mascara.getFoneVazio())) {
+		if (cartorio.getFone2() != null && !cartorio.getFone2().equals(Mascara.getFone().getPlaceholder())
+				&& !cartorio.getFone2().equals(Mascara.getFoneVazio())) {
 			predicates.add(criteriaBuilder.like(rootCartorio.get("fone2"), "%" + cartorio.getFone2() + "%"));
 		}
-		if (cartorio.getFax() != null && !cartorio.getFax().equals(Mascara.getFax().getPlaceholder()) && !cartorio.getFax().equals(Mascara.getFaxVazio())) {
+		if (cartorio.getFax() != null && !cartorio.getFax().equals(Mascara.getFax().getPlaceholder())
+				&& !cartorio.getFax().equals(Mascara.getFaxVazio())) {
 			predicates.add(criteriaBuilder.like(rootCartorio.get("fax"), "%" + cartorio.getFax() + "%"));
 		}
-		if (naoEstaVazio(cartorio.getEmail())) {
+		if (cartorio.getEmail() != null && cartorio.getEmail().length() > 0) {
 			predicates.add(criteriaBuilder.like(rootCartorio.get("email"), "%" + cartorio.getEmail() + "%"));
 		}
-		if (naoEstaVazio(cartorio.getSite())) {
+		if (cartorio.getSite() != null && cartorio.getSite().length() > 0) {
 			predicates.add(criteriaBuilder.like(rootCartorio.get("site"), "%" + cartorio.getSite() + "%"));
 		}
-		if (naoEstaVazio(cartorio.getPais())) {
+		if (cartorio.getPais() != null && cartorio.getPais().length() > 0) {
 			predicates.add(criteriaBuilder.like(rootCartorio.get("pais"), "%" + cartorio.getPais() + "%"));
 		}
-		if (naoEstaVazio(cartorio.getEstado())) {
+		if (cartorio.getEstado() != null && cartorio.getEstado().length() > 0) {
 			predicates.add(criteriaBuilder.like(rootCartorio.get("estado"), "%" + cartorio.getEstado() + "%"));
 		}
-		if (naoEstaVazio(cartorio.getCidade())) {
+		if (cartorio.getCidade() != null && cartorio.getCidade().length() > 0) {
 			predicates.add(criteriaBuilder.like(rootCartorio.get("cidade"), "%" + cartorio.getCidade() + "%"));
 		}
-		if (naoEstaVazio(cartorio.getBairro())) {
+		if (cartorio.getBairro() != null && cartorio.getBairro().length() > 0) {
 			predicates.add(criteriaBuilder.like(rootCartorio.get("bairro"), "%" + cartorio.getBairro() + "%"));
 		}
-		if (naoEstaVazio(cartorio.getLogradouro())) {
+		if (cartorio.getLogradouro() != null && cartorio.getLogradouro().length() > 0) {
 			predicates.add(criteriaBuilder.like(rootCartorio.get("logradouro"), "%" + cartorio.getLogradouro() + "%"));
 		}
-		if (naoEstaVazio(cartorio.getComplemento())) {
+		if (cartorio.getComplemento() != null && cartorio.getComplemento().length() > 0) {
 			predicates
 					.add(criteriaBuilder.like(rootCartorio.get("complemento"), "%" + cartorio.getComplemento() + "%"));
 		}
-		if (cartorio.getCep() != null && !cartorio.getCep().equals(Mascara.getCep().getPlaceholder()) && !cartorio.getCep().equals(Mascara.getCepVazio())) {
+		if (cartorio.getCep() != null && !cartorio.getCep().equals(Mascara.getCep().getPlaceholder())
+				&& !cartorio.getCep().equals(Mascara.getCepVazio())) {
 			predicates.add(criteriaBuilder.like(rootCartorio.get("cep"), "%" + cartorio.getCep() + "%"));
 		}
 
@@ -144,15 +149,5 @@ final class CartorioImp implements CartorioDao {
 		em.merge(cartorio);
 		tx.commit();
 		em.close();
-	}
-	
-	private boolean naoEstaVazio(Object objeto) {
-		if (objeto == null) {
-			return false;
-		}
-		if (objeto.toString().equals("")) {
-			return false;
-		}
-		return true;
 	}
 }

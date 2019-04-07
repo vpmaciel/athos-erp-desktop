@@ -29,8 +29,8 @@ final class ClienteSel implements ListSelectionListener {
 					ClienteTm clienteTm = (ClienteTm) table.getModel();
 					clienteTm.getCliente(table.getSelectedRow());
 					MainCont.mostrarFrame(MainCont.getClienteFc());
-					MainCont.getClienteFc().getClienteHandle().setCliente(cliente);
-					MainCont.getClienteFc().getClienteHandle().atualizarGui();
+					MainCont.getClienteFc().getClienteCont().setCliente(cliente);
+					MainCont.getClienteFc().getClienteCont().atualizarGui();
 					MainCont.getClienteFc().setFocusable(true);
 					MainCont.getClienteFp().setVisible(false);
 				}

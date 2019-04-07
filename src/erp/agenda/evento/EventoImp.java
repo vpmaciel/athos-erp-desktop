@@ -63,16 +63,19 @@ final class EventoImp implements EventoDao {
 		if (naoEstaVazio(evento.getId())) {
 			predicates.add(criteriaBuilder.equal(rootEvento.get("id"), evento.getId()));
 		}
-		if (evento.getData() != null && !evento.getData().equals(Mascara.getData().getPlaceholder()) && !evento.getData().equals(Mascara.getDataVazio())) {
+		if (evento.getData() != null && !evento.getData().equals(Mascara.getData().getPlaceholder())
+				&& !evento.getData().equals(Mascara.getDataVazio())) {
 			predicates.add(criteriaBuilder.like(rootEvento.get("data"), "%" + evento.getData() + "%"));
 		}
 		if (naoEstaVazio(evento.getDescricao())) {
 			predicates.add(criteriaBuilder.like(rootEvento.get("descricao"), "%" + evento.getDescricao() + "%"));
 		}
-		if (evento.getHoraInicio() != null && !evento.getHoraInicio().equals(Mascara.getHora().getPlaceholder()) && !evento.getHoraInicio().equals(Mascara.getHoraVazio())) {
+		if (evento.getHoraInicio() != null && !evento.getHoraInicio().equals(Mascara.getHora().getPlaceholder())
+				&& !evento.getHoraInicio().equals(Mascara.getHoraVazio())) {
 			predicates.add(criteriaBuilder.like(rootEvento.get("horaInicio"), "%" + evento.getHoraInicio() + "%"));
 		}
-		if (evento.getHoraTermino() != null && !evento.getHoraTermino().equals(Mascara.getHora().getPlaceholder()) && !evento.getHoraTermino().equals(Mascara.getHoraVazio())) {
+		if (evento.getHoraTermino() != null && !evento.getHoraTermino().equals(Mascara.getHora().getPlaceholder())
+				&& !evento.getHoraTermino().equals(Mascara.getHoraVazio())) {
 			predicates.add(criteriaBuilder.like(rootEvento.get("horaTermino"), "%" + evento.getHoraTermino() + "%"));
 		}
 		if (evento.getTipoEvento() != null && evento.getTipoEvento().getId() != null) {
@@ -96,7 +99,7 @@ final class EventoImp implements EventoDao {
 		tx.commit();
 		em.close();
 	}
-	
+
 	private boolean naoEstaVazio(Object objeto) {
 		if (objeto == null) {
 			return false;

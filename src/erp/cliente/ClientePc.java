@@ -31,7 +31,6 @@ import erp.main.MainCont;
 @SuppressWarnings("serial")
 public final class ClientePc extends JPanel implements Gui {
 
-	private final BancoFac bancoFac = new BancoFac();
 	private ToolBar toolBar;
 	private ConfiguracaoGui configuracaoGui;
 	private JComboBox<String> boxEscolaridade;
@@ -595,7 +594,7 @@ public final class ClientePc extends JPanel implements Gui {
 		add(labelBanco);
 
 		boxBanco = new JComboBox<Banco>();
-		List<Banco> bancos = (List<Banco>) bancoFac.getRegistro();
+		List<Banco> bancos = (List<Banco>) BancoFac.getRegistro();
 		Collections.sort(bancos, new BancoComp().new Nome());
 		for (Banco b : bancos) {
 			boxBanco.addItem(b);
@@ -808,21 +807,21 @@ public final class ClientePc extends JPanel implements Gui {
 			boxEmpresa.addItem(b);
 		}
 		Banco banco = null;
-		List<Banco> bancos = (List<Banco>) bancoFac.getRegistro();
+		List<Banco> bancos = (List<Banco>) BancoFac.getRegistro();
 		Collections.sort(bancos, new BancoComp().new Nome());
 		boxBanco.removeAllItems();
 		for (Banco b : bancos) {
 			boxBanco.addItem(b);
 		}
-		if (!MainCont.getClienteFc().isShowing() && MainCont.getClienteFc().getClienteHandle().getCliente() != null) {
-			empresa = MainCont.getClienteFc().getClienteHandle().getCliente().getEmpresa();
+		if (!MainCont.getClienteFc().isShowing() && MainCont.getClienteFc().getClienteCont().getCliente() != null) {
+			empresa = MainCont.getClienteFc().getClienteCont().getCliente().getEmpresa();
 			if (empresa != null) {
 				boxEmpresa.setSelectedItem(empresa);
 			}
-			banco = MainCont.getClienteFc().getClienteHandle().getCliente().getBanco();
+			banco = MainCont.getClienteFc().getClienteCont().getCliente().getBanco();
 
 			if (banco != null) {
-				banco = MainCont.getClienteFc().getClienteHandle().getCliente().getBanco();
+				banco = MainCont.getClienteFc().getClienteCont().getCliente().getBanco();
 			}
 		}
 	}

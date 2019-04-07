@@ -29,8 +29,8 @@ final class SindicatoSel implements ListSelectionListener {
 					SindicatoTm sindicatoTm = (SindicatoTm) table.getModel();
 					sindicatoTm.getSindicato(table.getSelectedRow());
 					MainCont.mostrarFrame(MainCont.getSindicatoFc());
-					MainCont.getSindicatoFc().getSindicatoHandle().setSindicato(sindicato);
-					MainCont.getSindicatoFc().getSindicatoHandle().atualizarGui();
+					MainCont.getSindicatoFc().getSindicatoCont().setSindicato(sindicato);
+					MainCont.getSindicatoFc().getSindicatoCont().atualizarGui();
 					MainCont.getSindicatoFc().setFocusable(true);
 					MainCont.getSindicatoFp().setVisible(false);
 				}

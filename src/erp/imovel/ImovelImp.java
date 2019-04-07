@@ -69,13 +69,15 @@ final class ImovelImp implements ImovelDao {
 		if (naoEstaVazio(imovel.getBanheiro())) {
 			predicates.add(criteriaBuilder.like(rootImovel.get("banheiro"), "%" + imovel.getBanheiro() + "%"));
 		}
-		if (imovel.getCep() != null && !imovel.getCep().equals(Mascara.getCep().getPlaceholder()) && !imovel.getCep().equals(Mascara.getCepVazio())) {
+		if (imovel.getCep() != null && !imovel.getCep().equals(Mascara.getCep().getPlaceholder())
+				&& !imovel.getCep().equals(Mascara.getCepVazio())) {
 			predicates.add(criteriaBuilder.like(rootImovel.get("cep"), "%" + imovel.getCep() + "%"));
 		}
 		if (naoEstaVazio(imovel.getCidade())) {
 			predicates.add(criteriaBuilder.like(rootImovel.get("cidade"), "%" + imovel.getCidade() + "%"));
 		}
-		if (imovel.getCnpj() != null && !imovel.getCnpj().equals(Mascara.getCnpj().getPlaceholder()) && !imovel.getCnpj().equals(Mascara.getCnpjVazio())) {
+		if (imovel.getCnpj() != null && !imovel.getCnpj().equals(Mascara.getCnpj().getPlaceholder())
+				&& !imovel.getCnpj().equals(Mascara.getCnpjVazio())) {
 			predicates.add(criteriaBuilder.like(rootImovel.get("cnpj"), "%" + imovel.getCnpj() + "%"));
 		}
 		if (naoEstaVazio(imovel.getComplemento())) {
@@ -84,8 +86,9 @@ final class ImovelImp implements ImovelDao {
 		if (naoEstaVazio(imovel.getCozinha())) {
 			predicates.add(criteriaBuilder.like(rootImovel.get("cozinha"), "%" + imovel.getCozinha() + "%"));
 		}
-		if (imovel.getCpf() != null && !imovel.getCpf().equals(Mascara.getCpf().getPlaceholder()) && !imovel.getCpf().equals(Mascara.getCpfVazio())) {
-			predicates.add(criteriaBuilder.like(rootImovel.get("cpfNumero"), "%" + imovel.getCpf() + "%"));
+		if (imovel.getCpf() != null && !imovel.getCpf().equals(Mascara.getCpf().getPlaceholder())
+				&& !imovel.getCpf().equals(Mascara.getCpfVazio())) {
+			predicates.add(criteriaBuilder.like(rootImovel.get("cpf"), "%" + imovel.getCpf() + "%"));
 		}
 		if (naoEstaVazio(imovel.getEmail())) {
 			predicates.add(criteriaBuilder.like(rootImovel.get("email"), "%" + imovel.getEmail() + "%"));
@@ -93,13 +96,16 @@ final class ImovelImp implements ImovelDao {
 		if (naoEstaVazio(imovel.getEstado())) {
 			predicates.add(criteriaBuilder.like(rootImovel.get("estado"), "%" + imovel.getEstado() + "%"));
 		}
-		if (imovel.getFax() != null && !imovel.getFax().equals(Mascara.getFax().getPlaceholder()) && !imovel.getFax().equals(Mascara.getFaxVazio())) {
+		if (imovel.getFax() != null && !imovel.getFax().equals(Mascara.getFax().getPlaceholder())
+				&& !imovel.getFax().equals(Mascara.getFaxVazio())) {
 			predicates.add(criteriaBuilder.like(rootImovel.get("fax"), "%" + imovel.getFax() + "%"));
 		}
-		if (imovel.getFone1() != null && !imovel.getFone1().equals(Mascara.getFone().getPlaceholder()) && !imovel.getFone1().equals(Mascara.getFoneVazio())) {
+		if (imovel.getFone1() != null && !imovel.getFone1().equals(Mascara.getFone().getPlaceholder())
+				&& !imovel.getFone1().equals(Mascara.getFoneVazio())) {
 			predicates.add(criteriaBuilder.like(rootImovel.get("fone1"), "%" + imovel.getFone1() + "%"));
 		}
-		if (imovel.getFone2() != null && !imovel.getFone2().equals(Mascara.getFone().getPlaceholder()) && !imovel.getFone2().equals(Mascara.getFoneVazio())) {
+		if (imovel.getFone2() != null && !imovel.getFone2().equals(Mascara.getFone().getPlaceholder())
+				&& !imovel.getFone2().equals(Mascara.getFoneVazio())) {
 			predicates.add(criteriaBuilder.like(rootImovel.get("fone2"), "%" + imovel.getFone2() + "%"));
 		}
 		if (naoEstaVazio(imovel.getGaragem())) {
@@ -151,7 +157,7 @@ final class ImovelImp implements ImovelDao {
 		tx.commit();
 		em.close();
 	}
-	
+
 	private boolean naoEstaVazio(Object objeto) {
 		if (objeto == null) {
 			return false;

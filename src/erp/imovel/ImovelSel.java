@@ -29,8 +29,8 @@ final class ImovelSel implements ListSelectionListener {
 					ImovelTm imovelTm = (ImovelTm) table.getModel();
 					imovelTm.getImovel(table.getSelectedRow());
 					MainCont.mostrarFrame(MainCont.getImovelFc());
-					MainCont.getImovelFc().getImovelHandle().setImovel(imovel);
-					MainCont.getImovelFc().getImovelHandle().atualizarGui();
+					MainCont.getImovelFc().getImovelCont().setImovel(imovel);
+					MainCont.getImovelFc().getImovelCont().atualizarGui();
 					MainCont.getImovelFc().setFocusable(true);
 					MainCont.getImovelFp().setVisible(false);
 				}

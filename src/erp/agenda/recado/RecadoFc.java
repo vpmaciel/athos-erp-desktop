@@ -46,7 +46,7 @@ public final class RecadoFc extends JFrame implements Gui {
 		return pcRecado;
 	}
 
-	public RecadoCont getRecadoHandle() {
+	public RecadoCont getRecadoCont() {
 		return recadoCont;
 	}
 

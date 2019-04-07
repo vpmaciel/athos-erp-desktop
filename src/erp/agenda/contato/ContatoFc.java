@@ -46,7 +46,7 @@ public final class ContatoFc extends JFrame implements Gui {
 		return contatoPc;
 	}
 
-	public ContatoCont getContatoHandle() {
+	public ContatoCont getContatoCont() {
 		return contatoCont;
 	}
 

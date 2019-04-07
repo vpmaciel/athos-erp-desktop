@@ -5,10 +5,10 @@ import java.io.Serializable;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.PersistenceContext;
 
@@ -19,9 +19,10 @@ import erp.funcionario.Funcionario;
 @Entity
 public class Caracteristica implements Serializable {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	@ManyToOne(cascade = { CascadeType.ALL }, fetch = FetchType.EAGER, optional = true)
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "FUNC_ID", unique = true, nullable = false, insertable = true, updatable = true)
 	private Funcionario funcionario;
 	@Column(length = 3)
 	private String simpatico;
@@ -247,7 +248,7 @@ public class Caracteristica implements Serializable {
 	private String cortes;
 	@Column(length = 3)
 	private String serio;
-	
+
 	public Long getId() {
 		return id;
 	}

@@ -228,7 +228,7 @@ final class FornecedorCont {
 		getFornecedorPc().getLogradouroGui().setText(fornecedor.getLogradouro());
 		getFornecedorPc().getPaisGui().setText(fornecedor.getPais());
 		getFornecedorPc().getCnpjGui().setText(fornecedor.getCnpj());
-		getFornecedorPc().getCpfGui().setText(fornecedor.getCpfNumero());
+		getFornecedorPc().getCpfGui().setText(fornecedor.getCpf());
 		getFornecedorPc().getTipoEmpresaGui().setSelectedItem(fornecedor.getTipoEmpresa());
 		getFornecedorPc().getFaturamentoMensalGui().setText(fornecedor.getFaturamentoMensal());
 	}

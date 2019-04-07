@@ -37,7 +37,7 @@ public final class ClienteFc extends JFrame implements Gui {
 
 	}
 
-	public ClienteCont getClienteHandle() {
+	public ClienteCont getClienteCont() {
 		return clienteCont;
 	}
 

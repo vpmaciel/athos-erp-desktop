@@ -21,7 +21,7 @@ final class CaracteristicaCont {
 
 		@Override
 		public void mouseClicked(MouseEvent event) {
-			
+
 		}
 	}
 
@@ -171,8 +171,12 @@ final class CaracteristicaCont {
 				if (mensagem != JOptionPane.YES_OPTION) {
 					return;
 				}
+				if ((getCaracteristicaPc().getFuncionarioGui().getSelectedItem()) == null) {
+					getCaracteristicaPc().getFuncionarioGui().requestFocus();
+					Msg.avisoCampoObrigatorio("FUNCIONÁRIO");
+					return;
+				}
 
-				
 				if (mensagem == JOptionPane.YES_OPTION) {
 					atualizarObjeto();
 					CaracteristicaFac.salvar(caracteristica);
@@ -204,7 +208,8 @@ final class CaracteristicaCont {
 		getCaracteristicaPc().getAnsiosoGui().setSelectedItem(caracteristica.getAnsioso());
 		getCaracteristicaPc().getApaticoGui().setSelectedItem(caracteristica.getApatico());
 		getCaracteristicaPc().getArticuladoGui().setSelectedItem(caracteristica.getArticulado());
-		getCaracteristicaPc().getAssumeRiscosCalculadosGui().setSelectedItem(caracteristica.getAssumeRiscosCalculados());
+		getCaracteristicaPc().getAssumeRiscosCalculadosGui()
+				.setSelectedItem(caracteristica.getAssumeRiscosCalculados());
 		getCaracteristicaPc().getAtenciosoGui().setSelectedItem(caracteristica.getAtencioso());
 		getCaracteristicaPc().getAtivoGui().setSelectedItem(caracteristica.getAtivo());
 		getCaracteristicaPc().getAutoConfianteGui().setSelectedItem(caracteristica.getAutoConfiante());
@@ -223,7 +228,8 @@ final class CaracteristicaCont {
 		caracteristica.setAnsioso((String) getCaracteristicaPc().getAnsiosoGui().getSelectedItem());
 		caracteristica.setApatico((String) getCaracteristicaPc().getApaticoGui().getSelectedItem());
 		caracteristica.setArticulado((String) getCaracteristicaPc().getArticuladoGui().getSelectedItem());
-		caracteristica.setAssumeRiscosCalculados((String) getCaracteristicaPc().getAssumeRiscosCalculadosGui().getSelectedItem());
+		caracteristica.setAssumeRiscosCalculados(
+				(String) getCaracteristicaPc().getAssumeRiscosCalculadosGui().getSelectedItem());
 		caracteristica.setAtencioso((String) getCaracteristicaPc().getAtenciosoGui().getSelectedItem());
 		caracteristica.setAtivo((String) getCaracteristicaPc().getAtivoGui().getSelectedItem());
 		caracteristica.setAutoconfiante((String) getCaracteristicaPc().getAutoConfianteGui().getSelectedItem());
@@ -251,6 +257,6 @@ final class CaracteristicaCont {
 	}
 
 	public CaracteristicaPp getCaracteristicaPp() {
-		return MainCont.getCurriculoCaracteristicaFp().getCaracteristicaPp();
+		return MainCont.getCurriculoCaracteristicaFp().getCertificadoPp();
 	}
 }

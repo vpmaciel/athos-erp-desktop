@@ -63,7 +63,8 @@ final class RecadoImp implements RecadoDao {
 		if (naoEstaVazio(recado.getId())) {
 			predicates.add(criteriaBuilder.equal(rootRecado.get("id"), recado.getId()));
 		}
-		if (recado.getData() != null && !recado.getData().equals(Mascara.getData().getPlaceholder()) && !recado.getData().equals(Mascara.getDataVazio())) {
+		if (recado.getData() != null && !recado.getData().equals(Mascara.getData().getPlaceholder())
+				&& !recado.getData().equals(Mascara.getDataVazio())) {
 			predicates.add(criteriaBuilder.like(rootRecado.get("data"), "%" + recado.getData() + "%"));
 		}
 		if (naoEstaVazio(recado.getDestinatario())) {
@@ -92,7 +93,7 @@ final class RecadoImp implements RecadoDao {
 		tx.commit();
 		em.close();
 	}
-	
+
 	private boolean naoEstaVazio(Object objeto) {
 		if (objeto == null) {
 			return false;

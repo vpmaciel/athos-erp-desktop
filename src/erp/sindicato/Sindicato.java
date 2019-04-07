@@ -18,7 +18,7 @@ import javax.persistence.UniqueConstraint;
 public class Sindicato implements Serializable {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	@Column(length = 19)
 	private String cnpj;

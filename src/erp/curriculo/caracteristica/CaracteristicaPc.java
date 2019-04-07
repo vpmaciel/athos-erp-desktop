@@ -1797,8 +1797,8 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 			this.boxFuncionario.addItem(b);
 		}
 		if (!MainCont.getCurriculoCaracteristicaFc().isShowing()
-				&& MainCont.getCurriculoCaracteristicaFc().getCaracteristicaHandle().getCaracteristica() != null) {
-			funcionario = MainCont.getCurriculoCaracteristicaFc().getCaracteristicaHandle().getCaracteristica()
+				&& MainCont.getCurriculoCaracteristicaFc().getCaracteristicaCont().getCaracteristica() != null) {
+			funcionario = MainCont.getCurriculoCaracteristicaFc().getCaracteristicaCont().getCaracteristica()
 					.getFuncionario();
 			boxFuncionario.setSelectedItem(funcionario);
 		}

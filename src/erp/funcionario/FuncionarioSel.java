@@ -29,8 +29,8 @@ final class FuncionarioSel implements ListSelectionListener {
 					FuncionarioTm funcionarioTm = (FuncionarioTm) table.getModel();
 					funcionarioTm.getFuncionario(table.getSelectedRow());
 					MainCont.mostrarFrame(MainCont.getFuncionarioFc());
-					MainCont.getFuncionarioFc().getFuncionarioHandle().setFuncionario(funcionario);
-					MainCont.getFuncionarioFc().getFuncionarioHandle().atualizarGui();
+					MainCont.getFuncionarioFc().getFuncionarioCont().setFuncionario(funcionario);
+					MainCont.getFuncionarioFc().getFuncionarioCont().atualizarGui();
 					MainCont.getFuncionarioFc().setFocusable(true);
 					MainCont.getFuncionarioFp().setVisible(false);
 				}

@@ -12,6 +12,7 @@ import java.util.List;
 import javax.swing.JOptionPane;
 
 import arquitetura.gui.Msg;
+import arquitetura.validacao.Mascara;
 import erp.centrocusto.CentroCusto;
 import erp.main.MainCont;
 
@@ -73,6 +74,7 @@ final class FuncionarioCont {
 		@Override
 		public void windowOpened(WindowEvent e) {
 			funcionario = new Funcionario();
+			getFuncionarioPc().getNomeGui().requestFocus();
 		}
 	}
 
@@ -152,10 +154,14 @@ final class FuncionarioCont {
 
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
-			funcionario = new Funcionario();
-			FuncionarioCont.this.atualizarObjeto();
-			getFuncionarioPp().pesquisarRegistroFuncionario(funcionario);
-			MainCont.mostrarFrame(getFuncionarioFp());
+			atualizarObjeto();
+			long totalPesquisaRegistro = 0;
+			totalPesquisaRegistro = getFuncionarioPp().pesquisarRegistroFuncionario(funcionario);
+			Msg.avisoRegistroEncontrado(totalPesquisaRegistro);
+
+			if (totalPesquisaRegistro > 0) {
+				MainCont.mostrarFrame(getFuncionarioFp());
+			}
 		}
 	}
 
@@ -243,7 +249,7 @@ final class FuncionarioCont {
 		getFuncionarioPc().getCnpjGui().setText(funcionario.getCnpj());
 		getFuncionarioPc().getCpfGui().setText(funcionario.getCpf());
 		getFuncionarioPc().getCtpsGui().setText(funcionario.getCtpsNumero());
-		getFuncionarioPc().getPisGui().setText(funcionario.getPisNumero());
+		getFuncionarioPc().getPisGui().setText(funcionario.getPis());
 		getFuncionarioPc().getRGNumeroGui().setText(funcionario.getRgNumero());
 		getFuncionarioPc().getRGOrgaoEmisssorGui().setText(funcionario.getRgOrgaoEmissor());
 
@@ -284,9 +290,17 @@ final class FuncionarioCont {
 		funcionario.setCnpj(getFuncionarioPc().getCnpjGui().getText());
 		funcionario.setCpf(getFuncionarioPc().getCpfGui().getText());
 		funcionario.setCtpsNumero(getFuncionarioPc().getCtpsGui().getText());
-		funcionario.setPisNumero(getFuncionarioPc().getPisGui().getText());
+		funcionario.setPis(getFuncionarioPc().getPisGui().getText());
 		funcionario.setRgNumero(getFuncionarioPc().getRGNumeroGui().getText());
 		funcionario.setRgOrgaoEmissor(getFuncionarioPc().getRGOrgaoEmisssorGui().getText());
+
+		if (funcionario.getCnpj().equals(Mascara.getCnpjVazio())) {
+			funcionario.setCnpj(null);
+		}
+
+		if (funcionario.getCpf().equals(Mascara.getCpfVazio())) {
+			funcionario.setCpf(null);
+		}
 	}
 
 	public Funcionario getFuncionario() {

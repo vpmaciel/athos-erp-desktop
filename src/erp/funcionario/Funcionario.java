@@ -5,7 +5,6 @@ import java.io.Serializable;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -19,11 +18,11 @@ import erp.centrocusto.CentroCusto;
 @SuppressWarnings("serial")
 @PersistenceContext(unitName = "erp")
 @Entity
-@Table(uniqueConstraints = { @UniqueConstraint(columnNames = { "nome", "cpfNumero", "cnpj" }) })
+@Table(uniqueConstraints = { @UniqueConstraint(columnNames = { "cpf", "cnpj" }) })
 public class Funcionario implements Serializable {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	@Column(length = 22)
 	private String deficiencia;
@@ -41,12 +40,12 @@ public class Funcionario implements Serializable {
 	private String cargo;
 	@Column(length = 50)
 	private String categoria;
-	@ManyToOne(cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
+	@ManyToOne(cascade = CascadeType.ALL)
 	private CentroCusto centroCusto;
 	@Column(length = 3)
 	private String cnhCategoria;
 	@Column(length = 14)
-	private String cpfNumero;
+	private String cpf;
 	@Column(length = 19)
 	private String ctpsNumero;
 	@Column(length = 50)
@@ -72,7 +71,7 @@ public class Funcionario implements Serializable {
 	@Column(length = 50, nullable = false)
 	private String nome;
 	@Column(length = 20)
-	private String pisNumero;
+	private String pis;
 	@Column(length = 15)
 	private String rgNumero;
 	@Column(length = 20)
@@ -143,7 +142,7 @@ public class Funcionario implements Serializable {
 	}
 
 	public String getCpf() {
-		return this.cpfNumero;
+		return this.cpf;
 	}
 
 	public String getCtpsNumero() {
@@ -222,8 +221,8 @@ public class Funcionario implements Serializable {
 		return this.pais;
 	}
 
-	public String getPisNumero() {
-		return this.pisNumero;
+	public String getPis() {
+		return this.pis;
 	}
 
 	public String getRgNumero() {
@@ -290,8 +289,8 @@ public class Funcionario implements Serializable {
 		this.cor = cor;
 	}
 
-	public void setCpf(String cpfNumero) {
-		this.cpfNumero = cpfNumero;
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
 	}
 
 	public void setCtpsNumero(String ctpsNumero) {
@@ -370,8 +369,8 @@ public class Funcionario implements Serializable {
 		this.pais = pais;
 	}
 
-	public void setPisNumero(String pisNumero) {
-		this.pisNumero = pisNumero;
+	public void setPis(String pis) {
+		this.pis = pis;
 	}
 
 	public void setRgNumero(String rgNumero) {

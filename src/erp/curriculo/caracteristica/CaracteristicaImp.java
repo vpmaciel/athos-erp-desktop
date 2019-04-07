@@ -59,80 +59,84 @@ final class CaracteristicaImp implements CaracteristicaDao {
 
 		List<Predicate> predicates = new ArrayList<Predicate>();
 
-		if (naoEstaVazio(caracteristica.getFuncionario())) {
+		if (caracteristica.getId() != null) {
+			predicates.add(criteriaBuilder.equal(rootCliente.get("id"), caracteristica.getId()));
+		}
+		if (caracteristica.getFuncionario() != null && caracteristica.getFuncionario().getId() != null) {
 			predicates.add(criteriaBuilder.equal(rootCliente.get("funcionario"), caracteristica.getFuncionario()));
 		}
-		if (naoEstaVazio(caracteristica.getAdequado())) {
+		if (caracteristica.getAdequado() != null && caracteristica.getAdequado().length() > 0) {
 			predicates.add(criteriaBuilder.like(rootCliente.get("adequado"), "%" + caracteristica.getAdequado() + "%"));
 		}
-		if (naoEstaVazio(caracteristica.getAgil())) {
+		if (caracteristica.getAgil() != null && caracteristica.getAgil().length() > 0) {
 			predicates.add(criteriaBuilder.like(rootCliente.get("agil"), "%" + caracteristica.getAgil() + "%"));
 		}
-		if (naoEstaVazio(caracteristica.getAgitado())) {
+		if (caracteristica.getAgitado() != null && caracteristica.getAgitado().length() > 0) {
 			predicates.add(criteriaBuilder.like(rootCliente.get("agitado"), "%" + caracteristica.getAgitado() + "%"));
 		}
-		if (naoEstaVazio(caracteristica.getAlegre())) {
+		if (caracteristica.getAlegre() != null && caracteristica.getAlegre().length() > 0) {
 			predicates.add(criteriaBuilder.like(rootCliente.get("alegre"), "%" + caracteristica.getAlegre() + "%"));
 		}
-		if (naoEstaVazio(caracteristica.getAmavel())) {
+		if (caracteristica.getAmavel() != null && caracteristica.getAmavel().length() > 0) {
 			predicates.add(criteriaBuilder.like(rootCliente.get("amavel"), "%" + caracteristica.getAmavel() + "%"));
 		}
-		if (naoEstaVazio(caracteristica.getAnalitico())) {
+		if (caracteristica.getAnalitico() != null && caracteristica.getAnalitico().length() > 0) {
 			predicates
 					.add(criteriaBuilder.like(rootCliente.get("analitico"), "%" + caracteristica.getAnalitico() + "%"));
 		}
-		if (naoEstaVazio(caracteristica.getAnimado())) {
+		if (caracteristica.getAnimado() != null && caracteristica.getAnimado().length() > 0) {
 			predicates.add(criteriaBuilder.like(rootCliente.get("animado"), "%" + caracteristica.getAnimado() + "%"));
 		}
-		if (naoEstaVazio(caracteristica.getAnsioso())) {
+		if (caracteristica.getAnsioso() != null && caracteristica.getAnsioso().length() > 0) {
 			predicates.add(criteriaBuilder.like(rootCliente.get("ansioso"), "%" + caracteristica.getAnsioso() + "%"));
 		}
-		if (naoEstaVazio(caracteristica.getApatico())) {
+		if (caracteristica.getApatico() != null && caracteristica.getApatico().length() > 0) {
 			predicates.add(criteriaBuilder.like(rootCliente.get("apatico"), "%" + caracteristica.getApatico() + "%"));
 		}
-		if (naoEstaVazio(caracteristica.getArticulado())) {
+		if (caracteristica.getArticulado() != null && caracteristica.getArticulado().length() > 0) {
 			predicates.add(
 					criteriaBuilder.like(rootCliente.get("articulado"), "%" + caracteristica.getArticulado() + "%"));
 		}
-		if (naoEstaVazio(caracteristica.getAssumeRiscosCalculados())) {
+		if (caracteristica.getAssumeRiscosCalculados() != null
+				&& caracteristica.getAssumeRiscosCalculados().length() > 0) {
 			predicates.add(criteriaBuilder.like(rootCliente.get("assumeRiscosCalculados"),
 					"%" + caracteristica.getAssumeRiscosCalculados() + "%"));
 		}
-		if (naoEstaVazio(caracteristica.getAtencioso())) {
+		if (caracteristica.getAtencioso() != null && caracteristica.getAtencioso().length() > 0) {
 			predicates
 					.add(criteriaBuilder.like(rootCliente.get("atencioso"), "%" + caracteristica.getAtencioso() + "%"));
 		}
-		if (naoEstaVazio(caracteristica.getAtivo())) {
+		if (caracteristica.getAtivo() != null && caracteristica.getAtivo().length() > 0) {
 			predicates.add(criteriaBuilder.like(rootCliente.get("ativo"), "%" + caracteristica.getAtivo() + "%"));
 		}
-		if (naoEstaVazio(caracteristica.getAutoConfiante())) {
+		if (caracteristica.getAutoConfiante() != null && caracteristica.getAutoConfiante().length() > 0) {
 			predicates.add(criteriaBuilder.like(rootCliente.get("autoConfiante"),
 					"%" + caracteristica.getAutoConfiante() + "%"));
 		}
-		if (naoEstaVazio(caracteristica.getAventureiro())) {
+		if (caracteristica.getAventureiro() != null && caracteristica.getAventureiro().length() > 0) {
 			predicates.add(
 					criteriaBuilder.like(rootCliente.get("aventureiro"), "%" + caracteristica.getAventureiro() + "%"));
 		}
-		if (naoEstaVazio(caracteristica.getBemHumorado())) {
+		if (caracteristica.getBemHumorado() != null && caracteristica.getBemHumorado().length() > 0) {
 			predicates.add(
 					criteriaBuilder.like(rootCliente.get("bemHumorado"), "%" + caracteristica.getBemHumorado() + "%"));
 		}
-		if (naoEstaVazio(caracteristica.getCalmo())) {
+		if (caracteristica.getCalmo() != null && caracteristica.getCalmo().length() > 0) {
 			predicates.add(criteriaBuilder.like(rootCliente.get("calmo"), "%" + caracteristica.getCalmo() + "%"));
 		}
-		if (naoEstaVazio(caracteristica.getCarismatico())) {
+		if (caracteristica.getCarismatico() != null && caracteristica.getCarismatico().length() > 0) {
 			predicates.add(
 					criteriaBuilder.like(rootCliente.get("carismatico"), "%" + caracteristica.getCarismatico() + "%"));
 		}
-		if (naoEstaVazio(caracteristica.getCauteloso())) {
+		if (caracteristica.getCauteloso() != null && caracteristica.getCauteloso().length() > 0) {
 			predicates
 					.add(criteriaBuilder.like(rootCliente.get("cauteloso"), "%" + caracteristica.getCauteloso() + "%"));
 		}
-		if (naoEstaVazio(caracteristica.getCompetitivo())) {
+		if (caracteristica.getCompetitivo() != null && caracteristica.getCompetitivo().length() > 0) {
 			predicates.add(
 					criteriaBuilder.like(rootCliente.get("competitivo"), "%" + caracteristica.getCompetitivo() + "%"));
 		}
-		if (naoEstaVazio(caracteristica.getCompreensivo())) {
+		if (caracteristica.getCompreensivo() != null && caracteristica.getCompreensivo().length() > 0) {
 			predicates.add(criteriaBuilder.like(rootCliente.get("compreensivo"),
 					"%" + caracteristica.getCompreensivo() + "%"));
 		}
@@ -153,15 +157,5 @@ final class CaracteristicaImp implements CaracteristicaDao {
 		em.merge(caracteristica);
 		tx.commit();
 		em.close();
-	}
-
-	private boolean naoEstaVazio(Object objeto) {
-		if (objeto == null) {
-			return false;
-		}
-		if (objeto.toString().equals("")) {
-			return false;
-		}
-		return true;
 	}
 }

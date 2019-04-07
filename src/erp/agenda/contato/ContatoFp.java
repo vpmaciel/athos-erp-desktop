@@ -56,7 +56,7 @@ public final class ContatoFp extends JFrame implements Gui {
 
 	@Override
 	public void iniciarControlador() {
-		ContatoPp.iniciarHandle();
+		ContatoPp.iniciarCont();
 	}
 
 	@Override

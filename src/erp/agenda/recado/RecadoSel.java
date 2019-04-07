@@ -29,8 +29,8 @@ final class RecadoSel implements ListSelectionListener {
 					RecadoTm recadoTm = (RecadoTm) table.getModel();
 					recadoTm.getRecado(table.getSelectedRow());
 					MainCont.mostrarFrame(MainCont.getAgendaRecadoFc());
-					MainCont.getAgendaRecadoFc().getRecadoHandle().setRecado(recado);
-					MainCont.getAgendaRecadoFc().getRecadoHandle().atualizarGui();
+					MainCont.getAgendaRecadoFc().getRecadoCont().setRecado(recado);
+					MainCont.getAgendaRecadoFc().getRecadoCont().atualizarGui();
 					MainCont.getAgendaRecadoFc().setFocusable(true);
 					MainCont.getAgendaRecadoFp().setVisible(false);
 				}

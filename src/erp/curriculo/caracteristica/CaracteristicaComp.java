@@ -8,7 +8,8 @@ public class CaracteristicaComp {
 
 		@Override
 		public int compare(Object o1, Object o2) {
-			return ((Caracteristica) o1).getFuncionario().getId().compareTo(((Caracteristica) o2).getFuncionario().getId());
+			return ((Caracteristica) o1).getFuncionario().getId()
+					.compareTo(((Caracteristica) o2).getFuncionario().getId());
 		}
 	}
 

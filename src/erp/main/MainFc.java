@@ -96,7 +96,7 @@ public class MainFc extends JFrame {
 
 	public MainFc() {
 		iniciarGui();
-		iniciarHandle();
+		iniciarCont();
 	}
 
 	public JMenu getMenuAjuda() {
@@ -302,7 +302,7 @@ public class MainFc extends JFrame {
 	public JMenuItem getMenuItemEstatisticaGrafico() {
 		return menuItemEstatisticaGrafico;
 	}
-	
+
 	public JMenuItem getMenuItemCadastroCurriculoCaracteristica() {
 		return menuItemCadastroCurriculoCaracteristica;
 	}
@@ -552,7 +552,7 @@ public class MainFc extends JFrame {
 		setJMenuBar(menuBar);
 	}
 
-	public void iniciarHandle() {
+	public void iniciarCont() {
 		mainCont = MainCont.getInstance(this);
 		Timer timer = new Timer(1000, mainCont.new Relogio());
 		timer.setInitialDelay(0);

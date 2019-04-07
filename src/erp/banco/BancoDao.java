@@ -12,5 +12,7 @@ interface BancoDao {
 
 	public Collection<Banco> pesquisarRegistro(Banco banco);
 
+	public boolean consultarRegistro(Banco banco);
+
 	public void salvarRegistro(Banco banco);
 }

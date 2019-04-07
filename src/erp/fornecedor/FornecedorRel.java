@@ -33,7 +33,7 @@ public class FornecedorRel {
 				document.add(new Paragraph("TIPO DE EMPRESA: " + fornecedor.getTipoEmpresa()));
 				document.add(new Paragraph("FATURAMENTO MENSAL: " + fornecedor.getFaturamentoMensal()));
 				document.add(new Paragraph("CNPJ: " + fornecedor.getCnpj()));
-				document.add(new Paragraph("CPF: " + fornecedor.getCpfNumero()));
+				document.add(new Paragraph("CPF: " + fornecedor.getCpf()));
 				document.add(new Paragraph("NÚMERO DE FUNCIONÁRIOS: " + fornecedor.getNumeroFuncionarios()));
 				document.add(new Paragraph("INSCRIÇÃO ESTADUAL: " + fornecedor.getInscricaoEstadual()));
 				document.add(new Paragraph("DATA DE FUNDAÇÃO: " + fornecedor.getDataFundacao()));

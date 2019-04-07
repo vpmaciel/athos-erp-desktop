@@ -36,7 +36,7 @@ public class CalculadoraFc extends JFrame {
 	private JMenuItem copiar = new JMenuItem("Copiar");
 	private JMenuItem colar = new JMenuItem("Colar");
 	private JMenuItem recortar = new JMenuItem("Recortar");
-	private JanelaHandler janelaHandler = new JanelaHandler();
+	private JanelaContr janelaContr = new JanelaContr();
 	private GridLayout Layout = new GridLayout(6, 4, 4, 4);
 	private Font fonteVisor = new Font("Consolas", Font.PLAIN, 26);
 	private JPanel geralPanel = new JPanel();
@@ -71,7 +71,7 @@ public class CalculadoraFc extends JFrame {
 	public CalculadoraFc() {
 		super("ATHOS - CALCULADORA");
 		setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
-		addWindowListener(janelaHandler);
+		addWindowListener(janelaContr);
 		setSize(new Dimension(800, 600));
 		setPreferredSize(new Dimension(800, 600));
 
@@ -183,41 +183,41 @@ public class CalculadoraFc extends JFrame {
 		geralPanel.add(bPanel);
 		add(geralPanel);
 
-		ButtonHandler Handler = new ButtonHandler();
-		b1Button.addActionListener(Handler);
-		b2Button.addActionListener(Handler);
-		b3Button.addActionListener(Handler);
-		b4Button.addActionListener(Handler);
-		b5Button.addActionListener(Handler);
-		b6Button.addActionListener(Handler);
-		b7Button.addActionListener(Handler);
-		b8Button.addActionListener(Handler);
-		b9Button.addActionListener(Handler);
-		b0Button.addActionListener(Handler);
+		ButtonContr Contr = new ButtonContr();
+		b1Button.addActionListener(Contr);
+		b2Button.addActionListener(Contr);
+		b3Button.addActionListener(Contr);
+		b4Button.addActionListener(Contr);
+		b5Button.addActionListener(Contr);
+		b6Button.addActionListener(Contr);
+		b7Button.addActionListener(Contr);
+		b8Button.addActionListener(Contr);
+		b9Button.addActionListener(Contr);
+		b0Button.addActionListener(Contr);
 
-		cButton.addActionListener(Handler);
-		bButton.addActionListener(Handler);
-		adicionaButton.addActionListener(Handler);
-		subtraiButton.addActionListener(Handler);
-		multiplicaButton.addActionListener(Handler);
-		divideButton.addActionListener(Handler);
-		igualButton.addActionListener(Handler);
-		inversoButton.addActionListener(Handler);
-		quadradoButton.addActionListener(Handler);
-		pontoButton.addActionListener(Handler);
+		cButton.addActionListener(Contr);
+		bButton.addActionListener(Contr);
+		adicionaButton.addActionListener(Contr);
+		subtraiButton.addActionListener(Contr);
+		multiplicaButton.addActionListener(Contr);
+		divideButton.addActionListener(Contr);
+		igualButton.addActionListener(Contr);
+		inversoButton.addActionListener(Contr);
+		quadradoButton.addActionListener(Contr);
+		pontoButton.addActionListener(Contr);
 
-		logButton.addActionListener(Handler);
-		raizButton.addActionListener(Handler);
-		senoButton.addActionListener(Handler);
-		cossenoButton.addActionListener(Handler);
+		logButton.addActionListener(Contr);
+		raizButton.addActionListener(Contr);
+		senoButton.addActionListener(Contr);
+		cossenoButton.addActionListener(Contr);
 
-		copiar.addActionListener(Handler);
-		colar.addActionListener(Handler);
-		recortar.addActionListener(Handler);
+		copiar.addActionListener(Contr);
+		colar.addActionListener(Contr);
+		recortar.addActionListener(Contr);
 
 	}
 
-	private class JanelaHandler extends WindowAdapter {
+	private class JanelaContr extends WindowAdapter {
 
 		@Override
 		public void windowClosing(WindowEvent e) {
@@ -231,7 +231,7 @@ public class CalculadoraFc extends JFrame {
 		}
 	}
 
-	private class ButtonHandler implements ActionListener {
+	private class ButtonContr implements ActionListener {
 
 		String cadeiaStr = "0";
 		String copiarStr = "";

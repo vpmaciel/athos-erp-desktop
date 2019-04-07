@@ -4,25 +4,33 @@ import java.util.Collection;
 
 public final class BancoFac {
 
-	private final BancoDao bancoDao = new BancoImp();
+	private static final BancoDao bancoDao = new BancoImp();
 
-	public void deletarRegistro(Banco banco) {
+	public static void deletarRegistro(Banco banco) {
 		bancoDao.deletarRegistro(banco);
 	}
 
-	public Banco getRegistro(Banco banco) {
+	public static Banco getRegistro(Banco banco) {
 		return bancoDao.getRegistro(banco);
 	}
 
-	public Collection<Banco> getRegistro() {
+	public static Collection<Banco> getRegistro() {
 		return bancoDao.getRegistro();
 	}
 
-	public Collection<Banco> pesquisarRegistro(Banco banco) {
+	public static Collection<Banco> pesquisarRegistro(Banco banco) {
 		return bancoDao.pesquisarRegistro(banco);
 	}
+	
+	public static boolean consultarRegistro(Banco banco) {
+		return bancoDao.consultarRegistro(banco);
+	}
 
-	public void salvarBanco(Banco banco) {
+	public static void salvarBanco(Banco banco) {
 		bancoDao.salvarRegistro(banco);
+	}
+
+	private BancoFac() {
+
 	}
 }

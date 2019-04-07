@@ -70,20 +70,24 @@ final class FornecedorImp implements FornecedorDao {
 			predicates.add(criteriaBuilder.like(rootFornecedor.get("capitalSocial"),
 					"%" + fornecedor.getCapitalSocial() + "%"));
 		}
-		if (fornecedor.getCep() != null && !fornecedor.getCep().equals(Mascara.getCep().getPlaceholder()) && !fornecedor.getCep().equals(Mascara.getCepVazio())) {
+		if (fornecedor.getCep() != null && !fornecedor.getCep().equals(Mascara.getCep().getPlaceholder())
+				&& !fornecedor.getCep().equals(Mascara.getCepVazio())) {
 			predicates.add(criteriaBuilder.like(rootFornecedor.get("cep"), "%" + fornecedor.getCep() + "%"));
 		}
 		if (naoEstaVazio(fornecedor.getCidade())) {
 			predicates.add(criteriaBuilder.like(rootFornecedor.get("cidade"), "%" + fornecedor.getCidade() + "%"));
 		}
-		if (fornecedor.getCnpj() != null && !fornecedor.getCnpj().equals(Mascara.getCnpj().getPlaceholder()) && !fornecedor.getCnpj().equals(Mascara.getCnpjVazio())) {
+		if (fornecedor.getCnpj() != null && !fornecedor.getCnpj().equals(Mascara.getCnpj().getPlaceholder())
+				&& !fornecedor.getCnpj().equals(Mascara.getCnpjVazio())) {
 			predicates.add(criteriaBuilder.like(rootFornecedor.get("cnpj"), "%" + fornecedor.getCnpj() + "%"));
 		}
 		if (naoEstaVazio(fornecedor.getComplemento())) {
 			predicates.add(
 					criteriaBuilder.like(rootFornecedor.get("complemento"), "%" + fornecedor.getComplemento() + "%"));
 		}
-		if (fornecedor.getDataFundacao() != null && !fornecedor.getDataFundacao().equals(Mascara.getData().getPlaceholder()) && !fornecedor.getDataFundacao().equals(Mascara.getDataVazio())) {
+		if (fornecedor.getDataFundacao() != null
+				&& !fornecedor.getDataFundacao().equals(Mascara.getData().getPlaceholder())
+				&& !fornecedor.getDataFundacao().equals(Mascara.getDataVazio())) {
 			predicates.add(
 					criteriaBuilder.like(rootFornecedor.get("dataFundacao"), "%" + fornecedor.getDataFundacao() + "%"));
 		}
@@ -97,13 +101,16 @@ final class FornecedorImp implements FornecedorDao {
 			predicates.add(criteriaBuilder.like(rootFornecedor.get("faturamentoMensal"),
 					"%" + fornecedor.getFaturamentoMensal() + "%"));
 		}
-		if (fornecedor.getFax() != null && !fornecedor.getFax().equals(Mascara.getFax().getPlaceholder()) && !fornecedor.getFax().equals(Mascara.getFaxVazio())) {
+		if (fornecedor.getFax() != null && !fornecedor.getFax().equals(Mascara.getFax().getPlaceholder())
+				&& !fornecedor.getFax().equals(Mascara.getFaxVazio())) {
 			predicates.add(criteriaBuilder.like(rootFornecedor.get("fax"), "%" + fornecedor.getFax() + "%"));
 		}
-		if (fornecedor.getFone1() != null && !fornecedor.getFone1().equals(Mascara.getFone().getPlaceholder()) && !fornecedor.getFone1().equals(Mascara.getFoneVazio())) {
+		if (fornecedor.getFone1() != null && !fornecedor.getFone1().equals(Mascara.getFone().getPlaceholder())
+				&& !fornecedor.getFone1().equals(Mascara.getFoneVazio())) {
 			predicates.add(criteriaBuilder.like(rootFornecedor.get("fone1"), "%" + fornecedor.getFone1() + "%"));
 		}
-		if (fornecedor.getFone2() != null && !fornecedor.getFone2().equals(Mascara.getFone().getPlaceholder()) && !fornecedor.getFone2().equals(Mascara.getFoneVazio())) {
+		if (fornecedor.getFone2() != null && !fornecedor.getFone2().equals(Mascara.getFone().getPlaceholder())
+				&& !fornecedor.getFone2().equals(Mascara.getFoneVazio())) {
 			predicates.add(criteriaBuilder.like(rootFornecedor.get("fone2"), "%" + fornecedor.getFone2() + "%"));
 		}
 		if (naoEstaVazio(fornecedor.getInscricaoEstadual())) {
@@ -159,7 +166,7 @@ final class FornecedorImp implements FornecedorDao {
 		tx.commit();
 		em.close();
 	}
-	
+
 	private boolean naoEstaVazio(Object objeto) {
 		if (objeto == null) {
 			return false;

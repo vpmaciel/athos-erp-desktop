@@ -155,8 +155,8 @@ public class EditorTextoFc extends JFrame {
 
 		/*
 		 * Dentro do menu Editar encontrasse: Desfazer (Ctrl Z), Recortar (Ctrl X),
-		 * Copiar (Ctrl C), Colar (Ctrl V), Localizar (Ctrl F), Localizar próxima (F3)
-		 * e Selecionar tudo (Ctrl T).
+		 * Copiar (Ctrl C), Colar (Ctrl V), Localizar (Ctrl F), Localizar próxima (F3) e
+		 * Selecionar tudo (Ctrl T).
 		 */
 		menuEditar = new JMenu();
 		menuEditar.setText("Editar");
@@ -474,8 +474,8 @@ public class EditorTextoFc extends JFrame {
 		 * Busca uma determinada palavra no documento; Quando o MenuItemLocalizar for
 		 * acionado, uma caixa de diálogo será aberta e no campo de texto a palavra o
 		 * qual desejasse buscar no documento deverá ser armazenada na variável, no
-		 * formato String, pesquisa; Caso a variável pesquisa tenha um valor não nulo,
-		 * a palavra solicitada deverá ser buscada no JTextArea, sendo está, quando
+		 * formato String, pesquisa; Caso a variável pesquisa tenha um valor não nulo, a
+		 * palavra solicitada deverá ser buscada no JTextArea, sendo está, quando
 		 * encontrada, selecionada no texto.
 		 */
 		public void MenuItemLocalizarActionListener() {
@@ -538,8 +538,8 @@ public class EditorTextoFc extends JFrame {
 		/**
 		 * Estando ativado o menuItemQuebraAtomaticaDeLinha, o texto passa para a linha
 		 * posterior quando este alcanÃ§a a margem direita do documento; Estando
-		 * desabilitado, o texto segue normalmente na mesma linha atÃ© o usuário
-		 * apertar a tecla ENTER.
+		 * desabilitado, o texto segue normalmente na mesma linha atÃ© o usuário apertar
+		 * a tecla ENTER.
 		 */
 		public void MenuItemQuebraAtomaticaDeLinhaActionListener() {
 
@@ -551,8 +551,8 @@ public class EditorTextoFc extends JFrame {
 
 		/**
 		 * Object obtém todas as fontes do sistema, sendo estas fontes exibidas em um
-		 * JOptionPane; Quando o usuário efetivar sua escolha toda a fonte do texto
-		 * será mudada.
+		 * JOptionPane; Quando o usuário efetivar sua escolha toda a fonte do texto será
+		 * mudada.
 		 */
 		public void MenuItemFonteActionListener() {
 
@@ -676,8 +676,8 @@ public class EditorTextoFc extends JFrame {
 		}
 
 		/**
-		 * Permite que o usuário determine se deseja que o documento seja salvo ou
-		 * não, quando clicado no botão fechar do aplicativo.
+		 * Permite que o usuário determine se deseja que o documento seja salvo ou não,
+		 * quando clicado no botão fechar do aplicativo.
 		 */
 		public void FecharWindowListener() {
 

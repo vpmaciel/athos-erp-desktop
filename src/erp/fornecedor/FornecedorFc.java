@@ -37,7 +37,7 @@ public final class FornecedorFc extends JFrame implements Gui {
 
 	}
 
-	public FornecedorCont getFornecedorHandle() {
+	public FornecedorCont getFornecedorCont() {
 		return fornecedorCont;
 	}
 

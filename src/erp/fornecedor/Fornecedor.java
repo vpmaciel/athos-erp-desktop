@@ -14,12 +14,12 @@ import javax.persistence.UniqueConstraint;
 @SuppressWarnings("serial")
 @PersistenceContext(unitName = "erp")
 @Entity
-@Table(uniqueConstraints = { @UniqueConstraint(columnNames = { "nomeFantasia", "inscricaoMunicipal",
-		"inscricaoEstadual", "cpfNumero", "cnpj" }) })
+@Table(uniqueConstraints = {
+		@UniqueConstraint(columnNames = { "nomeFantasia", "inscricaoMunicipal", "inscricaoEstadual", "cpf", "cnpj" }) })
 public class Fornecedor implements Serializable {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	@Column(length = 19)
 	private String cnpj;
@@ -30,7 +30,7 @@ public class Fornecedor implements Serializable {
 	@Column(length = 50)
 	private String inscricaoMunicipal;
 	@Column(length = 14)
-	private String cpfNumero;
+	private String cpf;
 	@Column(length = 15)
 	private String email;
 	@Column(length = 10)
@@ -92,8 +92,8 @@ public class Fornecedor implements Serializable {
 		return this.complemento;
 	}
 
-	public String getCpfNumero() {
-		return this.cpfNumero;
+	public String getCpf() {
+		return this.cpf;
 	}
 
 	public String getDataFundacao() {
@@ -188,8 +188,8 @@ public class Fornecedor implements Serializable {
 		this.complemento = complemento;
 	}
 
-	public void setCpf(String cpfNumero) {
-		this.cpfNumero = cpfNumero;
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
 	}
 
 	public void setDataFundacao(String dataFundacao) {

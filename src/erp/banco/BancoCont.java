@@ -35,7 +35,7 @@ final class BancoCont {
 				return;
 			}
 			try {
-				bancoFac.deletarRegistro(banco);
+				BancoFac.deletarRegistro(banco);
 				getBancoFc().limparGui();
 				banco = new Banco();
 				Msg.sucessoExcluiRegistro();
@@ -88,7 +88,7 @@ final class BancoCont {
 			List<Banco> bancos = new LinkedList<>();
 
 			try {
-				bancos = new LinkedList<>(bancoFac.pesquisarRegistro(new Banco()));
+				bancos = new LinkedList<>(BancoFac.pesquisarRegistro(new Banco()));
 			} catch (Exception e) {
 				System.out.println(e);
 			}
@@ -109,7 +109,7 @@ final class BancoCont {
 				Msg.avisoImprimiRegistroNaoCadastrado();
 				return;
 			}
-			if (bancos.add(bancoFac.getRegistro(banco))) {
+			if (bancos.add(BancoFac.getRegistro(banco))) {
 				BancoRel bancoRel = new BancoRel(bancos);
 				bancoRel.retornarRelatorio(true);
 			}
@@ -160,11 +160,12 @@ final class BancoCont {
 			try {
 
 				int mensagem = Msg.confirmarSalvarRegistro();
+
 				if (mensagem != JOptionPane.YES_OPTION) {
 					return;
 				}
-				
-				if(!getBancoPc().validarCamposCadastro()) {
+
+				if (!getBancoPc().validarCamposCadastro()) {
 					return;
 				}
 
@@ -174,9 +175,28 @@ final class BancoCont {
 					Msg.avisoCampoObrigatorio("NOME");
 					return;
 				}
+
+				Banco bancoPesquisa = new Banco();
+				bancoPesquisa.setNome(getBancoPc().getNomeGui().getText());
+				
+
+				if (BancoFac.consultarRegistro(bancoPesquisa)) {
+					Msg.avisoCampoDuplicado("NOME", bancoPesquisa.getNome());
+					getBancoPc().getNomeGui().requestFocus();
+					return;
+				}
+				
+				bancoPesquisa = new Banco();
+				bancoPesquisa.setCodigo(getBancoPc().getCodigoGui().getText());
+				
+				if (BancoFac.consultarRegistro(bancoPesquisa)) {
+					Msg.avisoCampoDuplicado("CÓDIGO", bancoPesquisa.getCodigo());
+					getBancoPc().getNomeGui().requestFocus();
+					return;
+				}
 				if (mensagem == JOptionPane.YES_OPTION) {
 					atualizarObjeto();
-					bancoFac.salvarBanco(banco);
+					BancoFac.salvarBanco(banco);
 					banco = new Banco();
 					getBancoFc().limparGui();
 					getBancoPc().getNomeGui().requestFocus();
@@ -190,7 +210,6 @@ final class BancoCont {
 	}
 
 	private Banco banco;
-	private final BancoFac bancoFac = new BancoFac();
 
 	public BancoCont() {
 

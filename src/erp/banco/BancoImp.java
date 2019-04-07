@@ -60,13 +60,13 @@ final class BancoImp implements BancoDao {
 
 		List<Predicate> predicates = new ArrayList<Predicate>();
 
-		if (naoEstaVazio(banco.getId())) {
+		if (banco.getId() != null) {
 			predicates.add(criteriaBuilder.equal(rootBanco.get("id"), banco.getId()));
 		}
-		if (naoEstaVazio(banco.getNome())) {
+		if (banco.getNome() != null && banco.getNome().length() > 0) {
 			predicates.add(criteriaBuilder.like(rootBanco.get("nome"), "%" + banco.getNome() + "%"));
 		}
-		if (naoEstaVazio(banco.getCodigo())) {
+		if (banco.getCodigo() != null && banco.getCodigo().length() > 0) {
 			predicates.add(criteriaBuilder.like(rootBanco.get("codigo"), "%" + banco.getCodigo() + "%"));
 		}
 
@@ -79,6 +79,38 @@ final class BancoImp implements BancoDao {
 	}
 
 	@Override
+	public boolean consultarRegistro(Banco banco) {
+
+		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
+		EntityTransaction tx = entityManager.getTransaction();
+		tx.begin();
+
+		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+		CriteriaQuery<Banco> criteriaQuery = criteriaBuilder.createQuery(Banco.class);
+		Root<Banco> rootBanco = criteriaQuery.from(Banco.class);
+
+		List<Predicate> predicates = new ArrayList<Predicate>();
+
+		if (banco.getId() != null) {
+			predicates.add(criteriaBuilder.equal(rootBanco.get("id"), banco.getId()));
+		}
+		if (banco.getNome() != null && banco.getNome().length() > 0) {
+			predicates.add(criteriaBuilder.equal(rootBanco.get("nome"), banco.getNome()));
+		}
+		if (banco.getCodigo() != null && banco.getCodigo().length() > 0) {
+			predicates.add(criteriaBuilder.equal(rootBanco.get("codigo"), banco.getCodigo()));
+		}
+
+		criteriaQuery.select(rootBanco).where(predicates.toArray(new Predicate[] {}));
+
+		List<Banco> list = entityManager.createQuery(criteriaQuery).getResultList();
+		tx.commit();
+		entityManager.close();
+
+		return list.size() > 0;
+	}
+
+	@Override
 	public void salvarRegistro(Banco banco) {
 		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
 		EntityTransaction tx = em.getTransaction();
@@ -86,15 +118,5 @@ final class BancoImp implements BancoDao {
 		em.merge(banco);
 		tx.commit();
 		em.close();
-	}
-	
-	private boolean naoEstaVazio(Object objeto) {
-		if (objeto == null) {
-			return false;
-		}
-		if (objeto.toString().equals("")) {
-			return false;
-		}
-		return true;
 	}
 }

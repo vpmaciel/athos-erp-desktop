@@ -29,8 +29,8 @@ final class CaracteristicaSel implements ListSelectionListener {
 					CaracteristicaTm CaracteristicaTm = (CaracteristicaTm) table.getModel();
 					CaracteristicaTm.getCaracteristica(table.getSelectedRow());
 					MainCont.mostrarFrame(MainCont.getCurriculoCaracteristicaFc());
-					MainCont.getCurriculoCaracteristicaFc().getCaracteristicaHandle().setCaracteristica(Caracteristica);
-					MainCont.getCurriculoCaracteristicaFc().getCaracteristicaHandle().atualizarGui();
+					MainCont.getCurriculoCaracteristicaFc().getCaracteristicaCont().setCaracteristica(Caracteristica);
+					MainCont.getCurriculoCaracteristicaFc().getCaracteristicaCont().atualizarGui();
 					MainCont.getCurriculoCaracteristicaFc().setFocusable(true);
 					MainCont.getCurriculoCaracteristicaFp().setVisible(false);
 				}

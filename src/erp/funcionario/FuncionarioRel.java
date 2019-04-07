@@ -35,7 +35,7 @@ public class FuncionarioRel {
 				document.add(new Paragraph("RG ÓRGÃO EMISSSOR: " + funcionario.getRgOrgaoEmissor()));
 				document.add(new Paragraph("CNPJ: " + funcionario.getCnpj()));
 				document.add(new Paragraph("CPF: " + funcionario.getCpf()));
-				document.add(new Paragraph("PIS: " + funcionario.getPisNumero()));
+				document.add(new Paragraph("PIS: " + funcionario.getPis()));
 				document.add(new Paragraph("CTPS: " + funcionario.getCtpsNumero()));
 				document.add(new Paragraph("CNH: " + funcionario.getCnhCategoria()));
 				document.add(new Paragraph("ESCOLARIDADE: " + funcionario.getEscolaridade()));

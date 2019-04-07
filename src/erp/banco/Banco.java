@@ -14,11 +14,11 @@ import javax.persistence.UniqueConstraint;
 @SuppressWarnings("serial")
 @PersistenceContext(unitName = "erp")
 @Entity
-@Table(uniqueConstraints = { @UniqueConstraint(columnNames = { "nome" }) })
+@Table(uniqueConstraints = { @UniqueConstraint(columnNames = { "nome", "codigo" }) })
 public class Banco implements Serializable {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	@Column(length = 10)
 	private String codigo;

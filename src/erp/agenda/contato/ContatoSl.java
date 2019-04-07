@@ -29,8 +29,8 @@ final class ContatoSl implements ListSelectionListener {
 					ContatoTm contatoTm = (ContatoTm) table.getModel();
 					contatoTm.getContato(table.getSelectedRow());
 					MainCont.mostrarFrame(MainCont.getAgendaContatoFc());
-					MainCont.getAgendaContatoFc().getContatoHandle().setContato(contato);
-					MainCont.getAgendaContatoFc().getContatoHandle().atualizarGui();
+					MainCont.getAgendaContatoFc().getContatoCont().setContato(contato);
+					MainCont.getAgendaContatoFc().getContatoCont().atualizarGui();
 					MainCont.getAgendaContatoFc().setFocusable(true);
 					MainCont.getAgendaContatoFp().setVisible(false);
 				}

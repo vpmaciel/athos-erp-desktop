@@ -54,7 +54,7 @@ public final class UsuarioPc extends JPanel implements Gui {
 		return toolBar;
 	}
 
-	public UsuarioCont getUsuarioHandle() {
+	public UsuarioCont getUsuarioCont() {
 		return usuarioCont;
 	}
 

@@ -54,7 +54,7 @@ public final class UsuarioFc extends JFrame implements Gui {
 		return usuarioPc;
 	}
 
-	public UsuarioCont getUsuarioHandle() {
+	public UsuarioCont getUsuarioCont() {
 		return usuarioCont;
 	}
 

@@ -35,7 +35,7 @@ public final class CentroCustoPc extends JPanel implements Gui {
 	public void atualizarTable() {
 	}
 
-	public CentroCustoCont getCentroCustoHandle() {
+	public CentroCustoCont getCentroCustoCont() {
 		return centroCustoCont;
 	}
 

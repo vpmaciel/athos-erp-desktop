@@ -46,7 +46,7 @@ public final class SindicatoFc extends JFrame implements Gui {
 		return sindicatoPc;
 	}
 
-	public SindicatoCont getSindicatoHandle() {
+	public SindicatoCont getSindicatoCont() {
 		return sindicatoCont;
 	}
 

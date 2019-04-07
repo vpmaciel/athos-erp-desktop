@@ -29,8 +29,8 @@ final class FornecedorSel implements ListSelectionListener {
 					FornecedorTm fornecedorTm = (FornecedorTm) table.getModel();
 					fornecedorTm.getFornecedor(table.getSelectedRow());
 					MainCont.mostrarFrame(MainCont.getFornecedorFc());
-					MainCont.getFornecedorFc().getFornecedorHandle().setFornecedor(fornecedor);
-					MainCont.getFornecedorFc().getFornecedorHandle().atualizarGui();
+					MainCont.getFornecedorFc().getFornecedorCont().setFornecedor(fornecedor);
+					MainCont.getFornecedorFc().getFornecedorCont().atualizarGui();
 					MainCont.getFornecedorFc().setFocusable(true);
 					MainCont.getFornecedorFp().setVisible(false);
 				}

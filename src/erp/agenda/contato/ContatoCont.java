@@ -13,6 +13,7 @@ import java.util.List;
 import javax.swing.JOptionPane;
 
 import arquitetura.gui.Msg;
+import arquitetura.validacao.Mascara;
 import erp.empresa.Empresa;
 import erp.empresa.EmpresaComp;
 import erp.empresa.EmpresaFac;
@@ -196,7 +197,7 @@ final class ContatoCont {
 				String nome = getContatoPc().getNomeGui().getText();
 				if (nome == null || nome.length() == 0) {
 					getContatoPc().getNomeGui().requestFocus();
-					Msg.avisoCampoObrigatorio("Data");
+					Msg.avisoCampoObrigatorio("NOME");
 					return;
 				}
 				if (mensagem == JOptionPane.YES_OPTION) {
@@ -254,7 +255,15 @@ final class ContatoCont {
 		contato.setLogradouro(getContatoPc().getLogradouroGui().getText());
 		contato.setPais(getContatoPc().getPaisGui().getText());
 		contato.setCnpj(getContatoPc().getCnpjGui().getText());
-		contato.setCpfNumero(getContatoPc().getCpfGui().getText());
+		contato.setCpf(getContatoPc().getCpfGui().getText());
+
+		if (contato.getCnpj().equals(Mascara.getCnpjVazio())) {
+			contato.setCnpj(null);
+		}
+
+		if (contato.getCpf().equals(Mascara.getCpfVazio())) {
+			contato.setCpf(null);
+		}
 	}
 
 	public Contato getContato() {

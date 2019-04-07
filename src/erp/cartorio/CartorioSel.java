@@ -29,8 +29,8 @@ final class CartorioSel implements ListSelectionListener {
 					CartorioTm cartorioTm = (CartorioTm) table.getModel();
 					cartorioTm.getCartorio(table.getSelectedRow());
 					MainCont.mostrarFrame(MainCont.getCartorioFc());
-					MainCont.getCartorioFc().getCartorioHandle().setCartorio(cartorio);
-					MainCont.getCartorioFc().getCartorioHandle().atualizarGui();
+					MainCont.getCartorioFc().getCartorioCont().setCartorio(cartorio);
+					MainCont.getCartorioFc().getCartorioCont().atualizarGui();
 					MainCont.getCartorioFc().setFocusable(true);
 					MainCont.getCartorioFp().setVisible(false);
 				}

@@ -29,8 +29,8 @@ final class ContadorSel implements ListSelectionListener {
 					ContadorTm contadorTm = (ContadorTm) table.getModel();
 					contadorTm.getContador(table.getSelectedRow());
 					MainCont.mostrarFrame(MainCont.getContadorFc());
-					MainCont.getContadorFc().getContadorHandle().setContador(contador);
-					MainCont.getContadorFc().getContadorHandle().atualizarGui();
+					MainCont.getContadorFc().getContadorCont().setContador(contador);
+					MainCont.getContadorFc().getContadorCont().atualizarGui();
 					MainCont.getContadorFc().setFocusable(true);
 					MainCont.getContadorFp().setVisible(false);
 				}

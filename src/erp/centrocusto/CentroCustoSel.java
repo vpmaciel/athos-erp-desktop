@@ -29,8 +29,8 @@ final class CentroCustoSel implements ListSelectionListener {
 					CentroCustoTm centroCustoTm = (CentroCustoTm) table.getModel();
 					centroCustoTm.getCentroCusto(table.getSelectedRow());
 					MainCont.mostrarFrame(MainCont.getCentroCustoFc());
-					MainCont.getCentroCustoFc().getCentroCustoHandle().setCentroCusto(centroCusto);
-					MainCont.getCentroCustoFc().getCentroCustoHandle().atualizarGui();
+					MainCont.getCentroCustoFc().getCentroCustoCont().setCentroCusto(centroCusto);
+					MainCont.getCentroCustoFc().getCentroCustoCont().atualizarGui();
 					MainCont.getCentroCustoFc().setFocusable(true);
 					MainCont.getCentroCustoFp().setVisible(false);
 				}

@@ -62,7 +62,7 @@ public final class ContatoPp extends JPanel {
 		return contatoTm;
 	}
 
-	public void iniciarHandle() {
+	public void iniciarCont() {
 		ContatoSl listener = new ContatoSl(table);
 		table.getSelectionModel().addListSelectionListener(listener);
 	}

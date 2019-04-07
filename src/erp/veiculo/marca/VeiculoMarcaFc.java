@@ -46,7 +46,7 @@ public final class VeiculoMarcaFc extends JFrame implements Gui {
 		return veiculoMarcaPc;
 	}
 
-	public VeiculoMarcaCont getVeiculoMarcaHandle() {
+	public VeiculoMarcaCont getVeiculoMarcaCont() {
 		return veiculoMarcaCont;
 	}
 

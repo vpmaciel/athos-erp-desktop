@@ -47,7 +47,7 @@ public final class VeiculoModeloFc extends JFrame implements Gui {
 		return veiculoModeloPc;
 	}
 
-	public VeiculoModeloCont getVeiculoModeloHandle() {
+	public VeiculoModeloCont getVeiculoModeloCont() {
 		return veiculoModeloCont;
 	}
 

@@ -37,7 +37,7 @@ public final class EmpresaFc extends JFrame implements Gui {
 
 	}
 
-	public EmpresaCont getEmpresaHandle() {
+	public EmpresaCont getEmpresaCont() {
 		return empresaCont;
 	}
 

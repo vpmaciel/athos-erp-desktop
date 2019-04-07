@@ -37,7 +37,7 @@ public final class BancoPc extends JPanel implements Gui {
 	public void atualizarTable() {
 	}
 
-	public BancoCont getBancoHandle() {
+	public BancoCont getBancoCont() {
 		return bancoCont;
 	}
 

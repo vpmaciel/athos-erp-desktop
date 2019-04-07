@@ -30,7 +30,7 @@ public class CaracteristicaRel {
 				document.newPage();
 				document.add(new Paragraph("FUNCIONÁRIO: " + caracteristica.getFuncionario()));
 				document.add(new Paragraph("ADEQUADO: " + caracteristica.getAdequado()));
-				}
+			}
 		} catch (DocumentException | FileNotFoundException e) {
 			System.err.println(e.getMessage());
 		}

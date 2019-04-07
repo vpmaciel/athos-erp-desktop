@@ -31,7 +31,7 @@ public final class CaracteristicaFp extends JFrame implements Gui {
 		return null;
 	}
 
-	public CaracteristicaPp getCaracteristicaPp() {
+	public CaracteristicaPp getCertificadoPp() {
 		return caracteristicaPp;
 	}
 

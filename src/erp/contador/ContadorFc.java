@@ -37,7 +37,7 @@ public final class ContadorFc extends JFrame implements Gui {
 
 	}
 
-	public ContadorCont getContadorHandle() {
+	public ContadorCont getContadorCont() {
 		return contadorCont;
 	}
 

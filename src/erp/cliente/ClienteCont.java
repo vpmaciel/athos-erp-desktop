@@ -12,6 +12,7 @@ import java.util.List;
 import javax.swing.JOptionPane;
 
 import arquitetura.gui.Msg;
+import arquitetura.validacao.Mascara;
 import erp.banco.Banco;
 import erp.empresa.Empresa;
 import erp.main.MainCont;
@@ -292,6 +293,14 @@ final class ClienteCont {
 		cliente.setFoneReferencia1(getClientePc().getFoneReferencia1Gui().getText());
 		cliente.setFoneReferencia2(getClientePc().getFoneReferencia2Gui().getText());
 		cliente.setFoneReferencia3(getClientePc().getFoneReferencia3Gui().getText());
+
+		if (cliente.getCnpj().equals(Mascara.getCnpjVazio())) {
+			cliente.setCnpj(null);
+		}
+
+		if (cliente.getCpf().equals(Mascara.getCpfVazio())) {
+			cliente.setCpf(null);
+		}
 	}
 
 	public Cliente getCliente() {

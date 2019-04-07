@@ -5,17 +5,19 @@ import java.io.Serializable;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 import erp.empresa.Empresa;
 
 @SuppressWarnings("serial")
 @PersistenceContext(unitName = "erp")
 @Entity
+@Table(uniqueConstraints = { @UniqueConstraint(columnNames = { "cpf", "cnpj" }) })
 public class Contato implements Serializable {
 	@Id
 	@GeneratedValue
@@ -23,10 +25,10 @@ public class Contato implements Serializable {
 	@Column(length = 19)
 	private String cnpj;
 	@Column(length = 14)
-	private String cpfNumero;
+	private String cpf;
 	@Column(length = 50)
 	private String email;
-	@ManyToOne(cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
+	@ManyToOne(cascade = CascadeType.ALL)
 	private Empresa empresa;
 	@Column(length = 16)
 	private String fax;
@@ -74,7 +76,7 @@ public class Contato implements Serializable {
 	}
 
 	public String getCpf() {
-		return this.cpfNumero;
+		return this.cpf;
 	}
 
 	public String getEmail() {
@@ -141,8 +143,8 @@ public class Contato implements Serializable {
 		this.complemento = complemento;
 	}
 
-	public void setCpfNumero(String cpfNumero) {
-		this.cpfNumero = cpfNumero;
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
 	}
 
 	public void setEmail(String email) {

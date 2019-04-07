@@ -27,5 +27,6 @@ public final class FuncionarioFac {
 	}
 
 	private FuncionarioFac() {
+
 	}
 }

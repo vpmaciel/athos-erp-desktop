@@ -37,7 +37,7 @@ public final class CaracteristicaFc extends JFrame implements Gui {
 
 	}
 
-	public CaracteristicaCont getCaracteristicaHandle() {
+	public CaracteristicaCont getCaracteristicaCont() {
 		return caracteristicaCont;
 	}
 

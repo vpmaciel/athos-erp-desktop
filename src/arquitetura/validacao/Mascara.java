@@ -16,7 +16,7 @@ public final class Mascara {
 		mascara.setPlaceholder("0000");
 		return mascara;
 	}
-	
+
 	public static final MaskFormatter getCei() {
 		MaskFormatter mascara = null;
 		try {
@@ -38,7 +38,7 @@ public final class Mascara {
 		mascara.setPlaceholder("00000-000");
 		return mascara;
 	}
-	
+
 	public static final String getCepVazio() {
 		return "     -   ";
 	}
@@ -53,7 +53,7 @@ public final class Mascara {
 		mascara.setPlaceholder("00.000.000/0000-00");
 		return mascara;
 	}
-	
+
 	public static final String getCnpjVazio() {
 		return "  .   .   /    -  ";
 	}
@@ -68,7 +68,7 @@ public final class Mascara {
 		mascara.setPlaceholder("000.000.000-00");
 		return mascara;
 	}
-	
+
 	public static final String getCpfVazio() {
 		return "   .   .   -  ";
 	}
@@ -77,7 +77,7 @@ public final class Mascara {
 		MaskFormatter mascara = null;
 		try {
 			mascara = new MaskFormatter("UU-######/U");
-			
+
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
@@ -117,7 +117,7 @@ public final class Mascara {
 		mascara.setPlaceholder("00/00/0000");
 		return mascara;
 	}
-	
+
 	public static final String getDataVazio() {
 		return "  /  /    ";
 	}
@@ -132,7 +132,7 @@ public final class Mascara {
 		mascara.setPlaceholder("##:##");
 		return mascara;
 	}
-	
+
 	public static final String getHoraVazio() {
 		return "  :  ";
 	}
@@ -162,7 +162,7 @@ public final class Mascara {
 		mascara.setPlaceholder("(00) 0-0000-0000");
 		return mascara;
 	}
-	
+
 	public static final String getFoneVazio() {
 		return "(  )  -    -    ";
 	}
@@ -178,6 +178,10 @@ public final class Mascara {
 		return mascara;
 	}
 
+	public static final String getPisVazio() {
+		return "   .     .  - ";
+	}
+
 	public static final MaskFormatter getUf() {
 		MaskFormatter mascara = null;
 		try {
@@ -185,7 +189,7 @@ public final class Mascara {
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
-		mascara.setPlaceholder("AA");		
+		mascara.setPlaceholder("AA");
 		return mascara;
 	}
 }

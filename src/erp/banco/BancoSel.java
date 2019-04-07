@@ -10,7 +10,6 @@ import erp.main.MainCont;
 final class BancoSel implements ListSelectionListener {
 
 	JTable table;
-	private final BancoFac bancoFac = new BancoFac();
 
 	BancoSel(JTable table) {
 		this.table = table;
@@ -26,12 +25,12 @@ final class BancoSel implements ListSelectionListener {
 				bancoPesquisaRegistro.setId((Long) tm.getValueAt(selRows[0], BancoTm.ID));
 
 				if (table.getSelectedRow() != -1) {
-					Banco banco = bancoFac.getRegistro(bancoPesquisaRegistro);
+					Banco banco = BancoFac.getRegistro(bancoPesquisaRegistro);
 					BancoTm bancoTm = (BancoTm) table.getModel();
 					bancoTm.getBanco(table.getSelectedRow());
 					MainCont.mostrarFrame(MainCont.getBancoFc());
-					MainCont.getBancoFc().getBancoHandle().setBanco(banco);
-					MainCont.getBancoFc().getBancoHandle().atualizarGui();
+					MainCont.getBancoFc().getBancoCont().setBanco(banco);
+					MainCont.getBancoFc().getBancoCont().atualizarGui();
 					MainCont.getBancoFc().setFocusable(true);
 					MainCont.getBancoFp().setVisible(false);
 				}

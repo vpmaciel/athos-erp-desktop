@@ -37,7 +37,7 @@ public final class CartorioFc extends JFrame implements Gui {
 
 	}
 
-	public CartorioCont getCartorioHandle() {
+	public CartorioCont getCartorioCont() {
 		return cartorioCont;
 	}
 

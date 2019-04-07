@@ -15,7 +15,7 @@ import javax.persistence.PersistenceContext;
 public class Imovel implements Serializable {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	@Column(length = 19)
 	private String cnpj;
@@ -28,7 +28,7 @@ public class Imovel implements Serializable {
 	@Column(length = 2)
 	private String suite;
 	@Column(length = 14)
-	private String cpfNumero;
+	private String cpf;
 	@Column(length = 50)
 	private String email;
 	@Column(length = 2)
@@ -93,7 +93,7 @@ public class Imovel implements Serializable {
 	}
 
 	public String getCpf() {
-		return this.cpfNumero;
+		return this.cpf;
 	}
 
 	public String getEmail() {
@@ -188,8 +188,8 @@ public class Imovel implements Serializable {
 		this.cozinha = cozinha;
 	}
 
-	public void setCpfNumero(String cpfNumero) {
-		this.cpfNumero = cpfNumero;
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
 	}
 
 	public void setEmail(String email) {
