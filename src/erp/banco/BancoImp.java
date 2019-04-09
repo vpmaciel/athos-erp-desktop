@@ -90,15 +90,20 @@ final class BancoImp implements BancoDao {
 		Root<Banco> rootBanco = criteriaQuery.from(Banco.class);
 
 		List<Predicate> predicates = new ArrayList<Predicate>();
-
-		if (banco.getId() != null) {
-			predicates.add(criteriaBuilder.equal(rootBanco.get("id"), banco.getId()));
-		}
+		
+		boolean naoTemCriterio = true;
+		
 		if (banco.getNome() != null && banco.getNome().length() > 0) {
 			predicates.add(criteriaBuilder.equal(rootBanco.get("nome"), banco.getNome()));
+			naoTemCriterio = false;
 		}
 		if (banco.getCodigo() != null && banco.getCodigo().length() > 0) {
 			predicates.add(criteriaBuilder.equal(rootBanco.get("codigo"), banco.getCodigo()));
+			naoTemCriterio = false;
+		}
+		
+		if(naoTemCriterio) {
+			return false;
 		}
 
 		criteriaQuery.select(rootBanco).where(predicates.toArray(new Predicate[] {}));
@@ -106,7 +111,6 @@ final class BancoImp implements BancoDao {
 		List<Banco> list = entityManager.createQuery(criteriaQuery).getResultList();
 		tx.commit();
 		entityManager.close();
-
 		return list.size() > 0;
 	}
 

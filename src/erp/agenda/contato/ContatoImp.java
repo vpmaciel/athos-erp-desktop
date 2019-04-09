@@ -60,37 +60,37 @@ final class ContatoImp implements ContatoDao {
 
 		List<Predicate> predicates = new ArrayList<Predicate>();
 
-		if (naoEstaVazio(contato.getId())) {
+		if (contato.getId() != null) {
 			predicates.add(criteriaBuilder.equal(rootContato.get("id"), contato.getId()));
 		}
-		if (naoEstaVazio(contato.getBairro())) {
+		if (contato.getBairro() != null && contato.getBairro().length() > 0) {
 			predicates.add(criteriaBuilder.like(rootContato.get("bairro"), "%" + contato.getBairro() + "%"));
 		}
 		if (contato.getCep() != null && !contato.getCep().equals(Mascara.getCep().getPlaceholder())
 				&& !contato.getCep().equals(Mascara.getCepVazio())) {
 			predicates.add(criteriaBuilder.like(rootContato.get("cep"), "%" + contato.getCep() + "%"));
 		}
-		if (naoEstaVazio(contato.getCidade())) {
+		if (contato.getCidade() != null && contato.getCidade().length() > 0) {
 			predicates.add(criteriaBuilder.like(rootContato.get("cidade"), "%" + contato.getCidade() + "%"));
 		}
 		if (contato.getCnpj() != null && !contato.getCnpj().equals(Mascara.getCnpj().getPlaceholder())
 				&& !contato.getCnpj().equals(Mascara.getCnpjVazio())) {
 			predicates.add(criteriaBuilder.like(rootContato.get("cnpj"), "%" + contato.getCnpj() + "%"));
 		}
-		if (naoEstaVazio(contato.getComplemento())) {
+		if (contato.getComplemento() != null && contato.getComplemento().length() > 0) {
 			predicates.add(criteriaBuilder.like(rootContato.get("complemento"), "%" + contato.getComplemento() + "%"));
 		}
 		if (contato.getCpf() != null && !contato.getCpf().equals(Mascara.getCpf().getPlaceholder())
 				&& !contato.getCpf().equals(Mascara.getCpfVazio())) {
 			predicates.add(criteriaBuilder.like(rootContato.get("cpf"), "%" + contato.getCpf() + "%"));
 		}
-		if (naoEstaVazio(contato.getEmail())) {
+		if (contato.getEmail() != null && contato.getEmail().length() > 0) {
 			predicates.add(criteriaBuilder.like(rootContato.get("email"), "%" + contato.getEmail() + "%"));
 		}
 		if (contato.getEmpresa() != null && contato.getEmpresa().getId() != null) {
 			predicates.add(criteriaBuilder.equal(rootContato.get("empresa"), contato.getEmpresa()));
 		}
-		if (naoEstaVazio(contato.getEstado())) {
+		if (contato.getEstado() != null && contato.getEstado().length() > 0) {
 			predicates.add(criteriaBuilder.like(rootContato.get("estado"), "%" + contato.getEstado() + "%"));
 		}
 		if (contato.getFax() != null && !contato.getFax().equals(Mascara.getFax().getPlaceholder())
@@ -105,16 +105,16 @@ final class ContatoImp implements ContatoDao {
 				&& !contato.getFone1().equals(Mascara.getFoneVazio())) {
 			predicates.add(criteriaBuilder.like(rootContato.get("fone2"), "%" + contato.getFone2() + "%"));
 		}
-		if (naoEstaVazio(contato.getLogradouro())) {
+		if (contato.getLogradouro() != null && contato.getLogradouro().length() > 0) {
 			predicates.add(criteriaBuilder.like(rootContato.get("logradouro"), "%" + contato.getLogradouro() + "%"));
 		}
-		if (naoEstaVazio(contato.getNome())) {
+		if (contato.getNome() != null && contato.getNome().length() > 0) {
 			predicates.add(criteriaBuilder.like(rootContato.get("nome"), "%" + contato.getNome() + "%"));
 		}
-		if (naoEstaVazio(contato.getPais())) {
+		if (contato.getPais() != null && contato.getPais().length() > 0) {
 			predicates.add(criteriaBuilder.like(rootContato.get("pais"), "%" + contato.getPais() + "%"));
 		}
-		if (naoEstaVazio(contato.getSexo())) {
+		if (contato.getSexo() != null && contato.getSexo().length() > 0) {
 			predicates.add(criteriaBuilder.like(rootContato.get("sexo"), "%" + contato.getSexo() + "%"));
 		}
 
@@ -127,6 +127,43 @@ final class ContatoImp implements ContatoDao {
 	}
 
 	@Override
+	public boolean consultarRegistro(Contato contato) {
+		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
+		EntityTransaction tx = entityManager.getTransaction();
+		tx.begin();
+
+		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+		CriteriaQuery<Contato> criteriaQuery = criteriaBuilder.createQuery(Contato.class);
+		Root<Contato> rootContato = criteriaQuery.from(Contato.class);
+
+		List<Predicate> predicates = new ArrayList<Predicate>();
+
+		boolean naoTemCriterio = true;
+
+		if (contato.getCnpj() != null && !contato.getCnpj().equals(Mascara.getCnpj().getPlaceholder())
+				&& !contato.getCnpj().equals(Mascara.getCnpjVazio())) {
+			predicates.add(criteriaBuilder.equal(rootContato.get("cnpj"), contato.getCnpj()));
+			naoTemCriterio = false;
+		}
+		if (contato.getCpf() != null && !contato.getCpf().equals(Mascara.getCpf().getPlaceholder())
+				&& !contato.getCpf().equals(Mascara.getCpfVazio())) {
+			predicates.add(criteriaBuilder.equal(rootContato.get("cpf"), contato.getCpf()));
+			naoTemCriterio = false;
+		}
+		
+		if (naoTemCriterio) {
+			return false;
+		}
+
+		criteriaQuery.select(rootContato).where(predicates.toArray(new Predicate[] {}));
+
+		List<Contato> list = entityManager.createQuery(criteriaQuery).getResultList();
+		tx.commit();
+		entityManager.close();
+		return list.size() > 0;
+	}
+
+	@Override
 	public void salvarRegistro(Contato contato) {
 		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
 		EntityTransaction tx = em.getTransaction();
@@ -134,15 +171,5 @@ final class ContatoImp implements ContatoDao {
 		em.merge(contato);
 		tx.commit();
 		em.close();
-	}
-
-	private boolean naoEstaVazio(Object objeto) {
-		if (objeto == null) {
-			return false;
-		}
-		if (objeto.toString().equals("")) {
-			return false;
-		}
-		return true;
 	}
 }

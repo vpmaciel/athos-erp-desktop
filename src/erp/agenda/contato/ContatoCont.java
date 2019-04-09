@@ -200,6 +200,24 @@ final class ContatoCont {
 					Msg.avisoCampoObrigatorio("NOME");
 					return;
 				}
+				Contato contatoPesquisa = new Contato();
+				contatoPesquisa.setCpf(getContatoPc().getCpfGui().getText());
+				
+				if (ContatoFac.consultarRegistro(contatoPesquisa) && contato.getId() == null) {
+					Msg.avisoCampoDuplicado("CPF", contatoPesquisa.getCpf());
+					getContatoPc().getCpfGui().requestFocus();
+					return;
+				}
+				
+				contatoPesquisa = new Contato();
+				contatoPesquisa.setCnpj(getContatoPc().getCnpjGui().getText());
+				
+				if (ContatoFac.consultarRegistro(contatoPesquisa) && contato.getId() == null) {
+					Msg.avisoCampoDuplicado("CNPJ", contatoPesquisa.getCnpj());
+					getContatoPc().getCnpjGui().requestFocus();
+					return;
+				}
+			
 				if (mensagem == JOptionPane.YES_OPTION) {
 					atualizarObjeto();
 					ContatoFac.salvarRegistro(contato);

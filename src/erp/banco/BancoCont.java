@@ -179,8 +179,7 @@ final class BancoCont {
 				Banco bancoPesquisa = new Banco();
 				bancoPesquisa.setNome(getBancoPc().getNomeGui().getText());
 				
-
-				if (BancoFac.consultarRegistro(bancoPesquisa)) {
+				if (BancoFac.consultarRegistro(bancoPesquisa) && banco.getId() == null) {
 					Msg.avisoCampoDuplicado("NOME", bancoPesquisa.getNome());
 					getBancoPc().getNomeGui().requestFocus();
 					return;
@@ -189,11 +188,12 @@ final class BancoCont {
 				bancoPesquisa = new Banco();
 				bancoPesquisa.setCodigo(getBancoPc().getCodigoGui().getText());
 				
-				if (BancoFac.consultarRegistro(bancoPesquisa)) {
+				if (BancoFac.consultarRegistro(bancoPesquisa) && banco.getId() == null) {
 					Msg.avisoCampoDuplicado("CÓDIGO", bancoPesquisa.getCodigo());
-					getBancoPc().getNomeGui().requestFocus();
+					getBancoPc().getCodigoGui().requestFocus();
 					return;
 				}
+				
 				if (mensagem == JOptionPane.YES_OPTION) {
 					atualizarObjeto();
 					BancoFac.salvarBanco(banco);
@@ -226,6 +226,10 @@ final class BancoCont {
 	public void atualizarObjeto() {
 		banco.setCodigo(getBancoPc().getCodigoGui().getText());
 		banco.setNome(getBancoPc().getNomeGui().getText());
+		
+		if(getBancoPc().getNomeGui().getText().length() == 0) {
+			banco.setNome(null);
+		}
 	}
 
 	public Banco getBanco() {

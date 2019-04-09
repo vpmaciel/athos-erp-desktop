@@ -13,4 +13,6 @@ public interface ContatoDao {
 	public Collection<Contato> pesquisarRegistro(Contato contato);
 
 	public void salvarRegistro(Contato contato);
+
+	boolean consultarRegistro(Contato contato);
 }

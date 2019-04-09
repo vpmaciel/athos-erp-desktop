@@ -59,11 +59,11 @@ final class TipoEventoImp implements TipoEventoDao {
 
 		List<Predicate> predicates = new ArrayList<Predicate>();
 
-		if (naoEstaVazio(tipoEvento.getId())) {
+		if (tipoEvento.getId() != null) {
 			predicates.add(criteriaBuilder.equal(rootTipoEvento.get("id"), tipoEvento.getId()));
 		}
 
-		if (naoEstaVazio(tipoEvento.getNome())) {
+		if (tipoEvento.getNome() != null && tipoEvento.getNome().length() > 0) {
 			predicates.add(criteriaBuilder.like(rootTipoEvento.get("nome"), "%" + tipoEvento.getNome() + "%"));
 		}
 
@@ -76,6 +76,37 @@ final class TipoEventoImp implements TipoEventoDao {
 	}
 
 	@Override
+	public TipoEvento consultarRegistro(TipoEvento tipoEvento) {
+		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
+		EntityTransaction tx = entityManager.getTransaction();
+		tx.begin();
+
+		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+		CriteriaQuery<TipoEvento> criteriaQuery = criteriaBuilder.createQuery(TipoEvento.class);
+		Root<TipoEvento> rootTipoEvento = criteriaQuery.from(TipoEvento.class);
+
+		List<Predicate> predicates = new ArrayList<Predicate>();
+
+		boolean naoTemCriterio = true;
+
+		if (tipoEvento.getNome() != null && tipoEvento.getNome().length() > 0) {
+			predicates.add(criteriaBuilder.equal(rootTipoEvento.get("nome"), tipoEvento.getNome()));
+			naoTemCriterio = false;
+		}
+
+		if (naoTemCriterio) {
+			return new TipoEvento();
+		}
+
+		criteriaQuery.select(rootTipoEvento).where(predicates.toArray(new Predicate[] {}));
+
+		List<TipoEvento> list = entityManager.createQuery(criteriaQuery).getResultList();
+		tx.commit();
+		entityManager.close();
+		return list.size() > 0 ? list.get(0) : new TipoEvento();
+	}
+
+	@Override
 	public void salvarRegistro(TipoEvento tipoEvento) {
 		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
 		EntityTransaction tx = em.getTransaction();
@@ -83,15 +114,5 @@ final class TipoEventoImp implements TipoEventoDao {
 		em.merge(tipoEvento);
 		tx.commit();
 		em.close();
-	}
-
-	private boolean naoEstaVazio(Object objeto) {
-		if (objeto == null) {
-			return false;
-		}
-		if (objeto.toString().equals("")) {
-			return false;
-		}
-		return true;
 	}
 }

@@ -27,7 +27,6 @@ public class LoginCont {
 
 			if (UsuarioFac.isRegistroValido(usuario)) {
 				List<Usuario> list = (List<Usuario>) UsuarioFac.pesquisarRegistro(usuario);
-
 				AOP.setUsuario(list.get(0));
 				MainCont.getLoginFc().setVisible(false);
 

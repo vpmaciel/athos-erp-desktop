@@ -22,10 +22,15 @@ public final class TipoEventoFac {
 		return tipoEventoDao.pesquisarRegistro(tipoEvento);
 	}
 
+	public static TipoEvento consultarRegistro(TipoEvento tipoEvento) {
+		return tipoEventoDao.consultarRegistro(tipoEvento);
+	}
+	
 	public static void salvarRegistro(TipoEvento tipoEvento) {
 		tipoEventoDao.salvarRegistro(tipoEvento);
 	}
 
 	private TipoEventoFac() {
+	
 	}
 }

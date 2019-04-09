@@ -26,16 +26,16 @@ final class TipoEventoCont {
 
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
-			if (TipoEvento == null || TipoEvento.getId() == null) {
+			if (tipoEvento == null || tipoEvento.getId() == null) {
 				return;
 			}
 			if (Msg.confirmarExcluiRegistro() != JOptionPane.YES_OPTION) {
 				return;
 			}
 			try {
-				TipoEventoFac.deletarRegistro(TipoEvento);
+				TipoEventoFac.deletarRegistro(tipoEvento);
 				getTipoEventoFc().limparGui();
-				TipoEvento = new TipoEvento();
+				tipoEvento = new TipoEvento();
 				Msg.sucessoExcluiRegistro();
 			} catch (Exception e) {
 				Msg.erroExcluiRegistro();
@@ -70,7 +70,7 @@ final class TipoEventoCont {
 
 		@Override
 		public void windowOpened(WindowEvent e) {
-			TipoEvento = new TipoEvento();
+			tipoEvento = new TipoEvento();
 		}
 	}
 
@@ -111,11 +111,11 @@ final class TipoEventoCont {
 		public void actionPerformed(ActionEvent actionEvent) {
 			List<TipoEvento> TipoEventos = new LinkedList<>();
 
-			if (TipoEvento.getId() == null) {
+			if (tipoEvento.getId() == null) {
 				Msg.avisoImprimiRegistroNaoCadastrado();
 				return;
 			}
-			if (TipoEventos.add(TipoEventoFac.getRegistro(TipoEvento))) {
+			if (TipoEventos.add(TipoEventoFac.getRegistro(tipoEvento))) {
 				TipoEventoRel TipoEventoRel = new TipoEventoRel(TipoEventos);
 				TipoEventoRel.retornarRelatorio(true);
 			}
@@ -127,7 +127,7 @@ final class TipoEventoCont {
 
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
-			TipoEvento = new TipoEvento();
+			tipoEvento = new TipoEvento();
 			MainCont.getAgendaTipoEventoFc().limparGui();
 			getTipoEventoPc().getNomeGui().requestFocus();
 		}
@@ -137,9 +137,9 @@ final class TipoEventoCont {
 
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
-			TipoEvento = new TipoEvento();
+			tipoEvento = new TipoEvento();
 			atualizarObjeto();
-			getTipoEventoPp().pesquisarRegistroAgenda(TipoEvento);
+			getTipoEventoPp().pesquisarRegistroAgenda(tipoEvento);
 			MainCont.mostrarFrame(MainCont.getAgendaTipoEventoFp());
 		}
 	}
@@ -164,20 +164,62 @@ final class TipoEventoCont {
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
 			try {
+
 				int mensagem = Msg.confirmarSalvarRegistro();
+
 				if (mensagem != JOptionPane.YES_OPTION) {
 					return;
 				}
+
 				String nome = getTipoEventoPc().getNomeGui().getText();
+
 				if (nome == null || nome.length() == 0) {
 					getTipoEventoPc().getNomeGui().requestFocus();
-					Msg.avisoCampoObrigatorio("Data");
+					Msg.avisoCampoObrigatorio("NOME");
 					return;
 				}
+
+				TipoEvento tipoEventoPesquisa = new TipoEvento();
+				tipoEventoPesquisa.setNome(getTipoEventoPc().getNomeGui().getText());
+				TipoEvento tipoEventoPesquisaRetornado = TipoEventoFac.consultarRegistro(tipoEventoPesquisa);
+				System.out.println(tipoEvento.getNome());
+				System.out.println(tipoEventoPesquisa.getNome());
+				System.out.println(tipoEventoPesquisaRetornado.getNome());
+				System.out.println();
+
+				if (!(tipoEvento.getNome() != null && tipoEventoPesquisa.getNome() != null
+						&& tipoEventoPesquisaRetornado.getNome() != null)) {
+
+					if (tipoEvento.getNome() != null && tipoEventoPesquisaRetornado.getNome() != null) {
+						if (tipoEventoPesquisa.getNome().equals(tipoEventoPesquisaRetornado.getNome())) {
+							Msg.avisoCampoDuplicado("NOME", tipoEventoPesquisa.getNome());
+							getTipoEventoPc().getNomeGui().requestFocus();
+							return;
+						}
+					}
+
+					if (tipoEventoPesquisa.getNome() != null && tipoEventoPesquisaRetornado.getNome() != null) {
+						if (tipoEventoPesquisa.getNome().equals(tipoEventoPesquisaRetornado.getNome())) {
+							Msg.avisoCampoDuplicado("NOME", tipoEventoPesquisa.getNome());
+							getTipoEventoPc().getNomeGui().requestFocus();
+							return;
+						}
+					}
+				} else {
+					
+					if (tipoEventoPesquisa.getNome() != null && tipoEventoPesquisaRetornado.getNome() != null) {
+						if (tipoEventoPesquisa.getNome().equals(tipoEventoPesquisaRetornado.getNome())) {
+							Msg.avisoCampoDuplicado("NOME", tipoEventoPesquisa.getNome());
+							getTipoEventoPc().getNomeGui().requestFocus();
+							return;
+						}
+					}
+				}
+
 				if (mensagem == JOptionPane.YES_OPTION) {
 					atualizarObjeto();
-					TipoEventoFac.salvarRegistro(TipoEvento);
-					TipoEvento = new TipoEvento();
+					TipoEventoFac.salvarRegistro(tipoEvento);
+					tipoEvento = new TipoEvento();
 					MainCont.getAgendaTipoEventoFc().limparGui();
 					getTipoEventoPc().getNomeGui().requestFocus();
 					Msg.sucessoSalvarRegistro();
@@ -189,25 +231,29 @@ final class TipoEventoCont {
 		}
 	}
 
-	private TipoEvento TipoEvento;
+	private TipoEvento tipoEvento;
 
 	public void atualizarGui() {
-		if (TipoEvento == null) {
+		if (tipoEvento == null) {
 			return;
 		}
-		getTipoEventoPc().getNomeGui().setText(TipoEvento.getNome());
+		getTipoEventoPc().getNomeGui().setText(tipoEvento.getNome());
 	}
 
 	public void atualizarObjeto() {
-		TipoEvento.setNome(getTipoEventoPc().getNomeGui().getText());
+		tipoEvento.setNome(getTipoEventoPc().getNomeGui().getText());
+
+		if (getTipoEventoPc().getNomeGui().getText().length() == 0) {
+			tipoEvento.setNome(null);
+		}
 	}
 
 	public TipoEvento getEvento() {
-		return TipoEvento;
+		return tipoEvento;
 	}
 
 	public void setTipoEvento(TipoEvento TipoEvento) {
-		this.TipoEvento = TipoEvento;
+		this.tipoEvento = TipoEvento;
 	}
 
 	public TipoEventoFc getTipoEventoFc() {

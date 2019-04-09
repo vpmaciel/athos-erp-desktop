@@ -21,6 +21,12 @@ public class AOP {
 		return AOP.usuario;
 	}
 
+	public static String getUsuarioFormatado() {
+		if(AOP.usuario == null) {
+			return " - [ ]";
+		}
+		return " - [ " + AOP.usuario + " ]";
+	}
 	public static Locale getLocale() {
 		return new Locale("pt", "BR");
 	}

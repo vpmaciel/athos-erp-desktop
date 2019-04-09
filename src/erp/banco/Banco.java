@@ -20,7 +20,7 @@ public class Banco implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	@Column(length = 10)
+	@Column(length = 10, nullable = true)
 	private String codigo;
 	@Column(length = 50, nullable = false)
 	private String nome;

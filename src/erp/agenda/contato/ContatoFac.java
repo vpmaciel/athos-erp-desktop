@@ -21,6 +21,10 @@ public final class ContatoFac {
 	public static Collection<Contato> pesquisarRegistro(Contato contato) {
 		return contatoDao.pesquisarRegistro(contato);
 	}
+	
+	public static boolean consultarRegistro(Contato contato) {
+		return contatoDao.consultarRegistro(contato);
+	}
 
 	public static void salvarRegistro(Contato contato) {
 		contatoDao.salvarRegistro(contato);

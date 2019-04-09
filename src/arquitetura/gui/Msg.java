@@ -32,7 +32,7 @@ public final class Msg {
 
 	public static final void avisoCampoDuplicado(String campo, String valor) {
 		JOptionPane.showMessageDialog(null,
-				campo + " : " + valor + "\nVerifique se o campo acima já está cadastrado em outro registro !",
+				campo + " : " + valor + "\nJá está cadastrado em outro registro !",
 				"Informação", JOptionPane.INFORMATION_MESSAGE);
 	}
 
