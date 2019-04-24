@@ -6,24 +6,28 @@ public final class CartorioFac {
 
 	private static final CartorioDao cartorioDao = new CartorioImp();
 
-	public static void deletarCartorio(Cartorio cartorio) {
-		cartorioDao.deletarCartorio(cartorio);
+	public static void deletarRegistro(Cartorio cartorio) {
+		cartorioDao.deletarRegistro(cartorio);
 	}
 
-	public static Cartorio getCartorio(Cartorio cartorio) {
-		return cartorioDao.getCartorio(cartorio);
+	public static Cartorio getRegistro(Cartorio cartorio) {
+		return cartorioDao.getRegistro(cartorio);
 	}
 
-	public static Collection<Cartorio> getCartorioTodos() {
-		return cartorioDao.getCartorioTodos();
+	public static Collection<Cartorio> getRegistro() {
+		return cartorioDao.getRegistro();
 	}
 
-	public static Collection<Cartorio> pesquisarRegistroCartorio(Cartorio cartorio) {
-		return cartorioDao.pesquisarRegistroCartorio(cartorio);
+	public static Collection<Cartorio> pesquisarRegistro(Cartorio cartorio) {
+		return cartorioDao.pesquisarRegistro(cartorio);
 	}
 
-	public static void salvarCartorio(Cartorio cartorio) {
-		cartorioDao.salvarCartorio(cartorio);
+	public static Cartorio consultarRegistro(Cartorio cartorio) {
+		return cartorioDao.consultarRegistro(cartorio);
+	}
+
+	public static void salvarRegistro(Cartorio cartorio) {
+		cartorioDao.salvarRegistro(cartorio);
 	}
 
 	private CartorioFac() {

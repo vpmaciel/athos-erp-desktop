@@ -166,6 +166,32 @@ final class CentroCustoCont {
 					Msg.avisoCampoObrigatorio("NOME");
 					return;
 				}
+				
+				CentroCusto centroCustoPesquisa = new CentroCusto();
+				centroCustoPesquisa.setNome(getCentroCustoPc().getNomeGui().getText());
+				CentroCusto centroCustoPesquisaRetornado = CentroCustoFac.consultarRegistro(centroCustoPesquisa);
+
+				if (centroCusto.getId() == null && centroCustoPesquisa.getNome() != null
+						&& centroCustoPesquisaRetornado.getNome() != null) {
+					if (centroCustoPesquisa.getNome().equals(centroCustoPesquisaRetornado.getNome())) {
+						Msg.avisoCampoDuplicado("NOME", centroCustoPesquisa.getNome());
+						getCentroCustoPc().getNomeGui().requestFocus();
+						return;
+					}
+				}
+
+				if (centroCusto.getId() != null && centroCustoPesquisa.getNome() != null
+						&& centroCustoPesquisaRetornado.getNome() != null) {
+					if (!centroCusto.getNome().equals(centroCustoPesquisa.getNome())) {
+						if (centroCustoPesquisa.getNome().equals(centroCustoPesquisaRetornado.getNome())) {
+							Msg.avisoCampoDuplicado("NOME", centroCustoPesquisa.getNome());
+							getCentroCustoPc().getNomeGui().requestFocus();
+						}
+						return;
+					}
+				}
+
+				
 				if (mensagem == JOptionPane.YES_OPTION) {
 					atualizarObjeto();
 					CentroCustoFac.salvarRegistro(centroCusto);
@@ -195,6 +221,10 @@ final class CentroCustoCont {
 
 	public void atualizarObjeto() {
 		centroCusto.setNome(getCentroCustoPc().getNomeGui().getText());
+		
+		if (getCentroCustoPc().getNomeGui().getText().length() == 0) {
+			centroCusto.setNome(null);
+		}
 	}
 
 	public CentroCusto getCentroCusto() {

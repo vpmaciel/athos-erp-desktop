@@ -28,4 +28,8 @@ public final class SindicatoFac {
 
 	private SindicatoFac() {
 	}
+
+	public static Sindicato consultarRegistro(Sindicato sindicato) {
+		return sindicatoDao.consultarRegistro(sindicato);
+	}
 }

@@ -12,6 +12,7 @@ import java.util.List;
 import javax.swing.JOptionPane;
 
 import arquitetura.gui.Msg;
+import arquitetura.validacao.Mascara;
 import erp.main.MainCont;
 
 final class ContadorCont {
@@ -189,6 +190,79 @@ final class ContadorCont {
 					Msg.avisoCampoObrigatorio("Contador");
 					return;
 				}
+
+				Contador contadorPesquisa = new Contador();
+				contadorPesquisa.setCrc(getContadorPc().getCrcGui().getText());
+				Contador contadorPesquisaRetornado = ContadorFac.consultarRegistro(contadorPesquisa);
+
+				if (contador.getId() == null && contadorPesquisa.getCrc() != null
+						&& contadorPesquisaRetornado.getCrc() != null) {
+					if (contadorPesquisa.getCrc().equals(contadorPesquisaRetornado.getCrc())) {
+						Msg.avisoCampoDuplicado("CRC", contadorPesquisa.getCrc());
+						getContadorPc().getCrcGui().requestFocus();
+						return;
+					}
+				}
+
+				if (contador.getId() != null && contadorPesquisa.getCrc() != null
+						&& contadorPesquisaRetornado.getCrc() != null) {
+					if (!contador.getCrc().equals(contadorPesquisa.getCrc())) {
+						if (contadorPesquisa.getCrc().equals(contadorPesquisaRetornado.getCrc())) {
+							Msg.avisoCampoDuplicado("CRC", contadorPesquisa.getCrc());
+							getContadorPc().getCrcGui().requestFocus();
+						}
+						return;
+					}
+				}
+
+				contadorPesquisa = new Contador();
+				contadorPesquisa.setCpf(getContadorPc().getCpfGui().getText());
+				contadorPesquisaRetornado = ContadorFac.consultarRegistro(contadorPesquisa);
+
+				if (contador.getId() == null && contadorPesquisa.getCpf() != null
+						&& contadorPesquisaRetornado.getCpf() != null) {
+					if (contadorPesquisa.getCpf().equals(contadorPesquisaRetornado.getCpf())) {
+						Msg.avisoCampoDuplicado("CPF", contadorPesquisa.getCpf());
+						getContadorPc().getCpfGui().requestFocus();
+						return;
+					}
+				}
+
+				if (contador.getId() != null && contadorPesquisa.getCpf() != null
+						&& contadorPesquisaRetornado.getCpf() != null) {
+					if (!contador.getCpf().equals(contadorPesquisa.getCpf())) {
+						if (contadorPesquisa.getCpf().equals(contadorPesquisaRetornado.getCpf())) {
+							Msg.avisoCampoDuplicado("CPF", contadorPesquisa.getCpf());
+							getContadorPc().getCpfGui().requestFocus();
+						}
+						return;
+					}
+				}
+
+				contadorPesquisa = new Contador();
+				contadorPesquisa.setCnpj(getContadorPc().getCnpjGui().getText());
+				contadorPesquisaRetornado = ContadorFac.consultarRegistro(contadorPesquisa);
+
+				if (contador.getId() == null && contadorPesquisa.getCnpj() != null
+						&& contadorPesquisaRetornado.getCnpj() != null) {
+					if (contadorPesquisa.getCnpj().equals(contadorPesquisaRetornado.getCnpj())) {
+						Msg.avisoCampoDuplicado("CNPJ", contadorPesquisa.getCnpj());
+						getContadorPc().getCnpjGui().requestFocus();
+						return;
+					}
+				}
+
+				if (contador.getId() != null && contadorPesquisa.getCnpj() != null
+						&& contadorPesquisaRetornado.getCnpj() != null) {
+					if (!contador.getCnpj().equals(contadorPesquisa.getCnpj())) {
+						if (contadorPesquisa.getCnpj().equals(contadorPesquisaRetornado.getCnpj())) {
+							Msg.avisoCampoDuplicado("CNPJ", contadorPesquisa.getCnpj());
+							getContadorPc().getCnpjGui().requestFocus();
+						}
+						return;
+					}
+				}
+
 				if (mensagem == JOptionPane.YES_OPTION) {
 					atualizarObjeto();
 					ContadorFac.salvarRegistro(contador);
@@ -205,9 +279,6 @@ final class ContadorCont {
 	}
 
 	private Contador contador;
-
-	ContadorCont() {
-	}
 
 	public void atualizarGui() {
 		if (contador == null) {
@@ -234,6 +305,18 @@ final class ContadorCont {
 		contador.setFone1(getContadorPc().getFone1Gui().getText());
 		contador.setFone2(getContadorPc().getFone2Gui().getText());
 		contador.setSite(getContadorPc().getSiteGui().getText());
+		
+		if (contador.getCnpj().equals(Mascara.getCnpjVazio())) {
+			contador.setCnpj(null);
+		}
+
+		if (contador.getCpf().equals(Mascara.getCpfVazio())) {
+			contador.setCpf(null);
+		}
+		
+		if (getContadorPc().getCrcGui().getText().length() == 0) {
+			contador.setCrc(null);
+		}
 	}
 
 	public Contador getContador() {

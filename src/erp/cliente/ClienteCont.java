@@ -175,6 +175,7 @@ final class ClienteCont {
 			try {
 
 				int mensagem = Msg.confirmarSalvarRegistro();
+				
 				if (mensagem != JOptionPane.YES_OPTION) {
 					return;
 				}
@@ -185,9 +186,58 @@ final class ClienteCont {
 					Msg.avisoCampoObrigatorio("NOME");
 					return;
 				}
+				
+				Cliente clientePesquisa = new Cliente();
+				clientePesquisa.setCpf(getClientePc().getCpfGui().getText());
+				Cliente clientePesquisaRetornado = ClienteFac.consultarRegistro(clientePesquisa);
+
+				if (cliente.getId() == null && clientePesquisa.getCpf() != null
+						&& clientePesquisaRetornado.getCpf() != null) {
+					if (clientePesquisa.getCpf().equals(clientePesquisaRetornado.getCpf())) {
+						Msg.avisoCampoDuplicado("CPF", clientePesquisa.getCpf());
+						getClientePc().getCpfGui().requestFocus();
+						return;
+					}
+				}
+
+				if (cliente.getId() != null && clientePesquisa.getCpf() != null
+						&& clientePesquisaRetornado.getCpf() != null) {
+					if (!cliente.getCpf().equals(clientePesquisa.getCpf())) {
+						if (clientePesquisa.getCpf().equals(clientePesquisaRetornado.getCpf())) {
+							Msg.avisoCampoDuplicado("CPF", clientePesquisa.getCpf());
+							getClientePc().getCpfGui().requestFocus();
+						}
+						return;
+					}
+				}
+				
+				clientePesquisa = new Cliente();
+				clientePesquisa.setCnpj(getClientePc().getCnpjGui().getText());
+				clientePesquisaRetornado = ClienteFac.consultarRegistro(clientePesquisa);
+
+				if (cliente.getId() == null && clientePesquisa.getCnpj() != null
+						&& clientePesquisaRetornado.getCnpj() != null) {
+					if (clientePesquisa.getCnpj().equals(clientePesquisaRetornado.getCnpj())) {
+						Msg.avisoCampoDuplicado("CNPJ", clientePesquisa.getCnpj());
+						getClientePc().getCnpjGui().requestFocus();
+						return;
+					}
+				}
+
+				if (cliente.getId() != null && clientePesquisa.getCnpj() != null
+						&& clientePesquisaRetornado.getCnpj() != null) {
+					if (!cliente.getCnpj().equals(clientePesquisa.getCnpj())) {
+						if (clientePesquisa.getCnpj().equals(clientePesquisaRetornado.getCnpj())) {
+							Msg.avisoCampoDuplicado("CNPJ", clientePesquisa.getCnpj());
+							getClientePc().getCnpjGui().requestFocus();
+						}
+						return;
+					}
+				}
+				
 				if (mensagem == JOptionPane.YES_OPTION) {
 					atualizarObjeto();
-					ClienteFac.salvar(cliente);
+					ClienteFac.salvarRegistro(cliente);
 					cliente = new Cliente();
 					getClienteFc().limparGui();
 					getClientePc().getNomeGui().requestFocus();

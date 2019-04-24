@@ -89,13 +89,13 @@ final class UsuarioImp implements UsuarioDao {
 
 		List<Predicate> predicates = new ArrayList<Predicate>();
 
-		if (naoEstaVazio(usuario.getId())) {
+		if (usuario.getId() != null) {
 			predicates.add(criteriaBuilder.equal(rootUsuario.get("id"), usuario.getId()));
 		}
-		if (naoEstaVazio(usuario.getNome())) {
+		if (usuario.getNome() != null && usuario.getNome().length() > 0) {
 			predicates.add(criteriaBuilder.equal(rootUsuario.get("nome"), usuario.getNome()));
 		}
-		if (naoEstaVazio(usuario.getSenha())) {
+		if (usuario.getSenha() != null && usuario.getSenha().length() > 0) {
 			predicates.add(criteriaBuilder.equal(rootUsuario.get("senha"), usuario.getSenha()));
 		}
 		criteriaQuery.select(rootUsuario).where(predicates.toArray(new Predicate[] {}));
@@ -106,6 +106,38 @@ final class UsuarioImp implements UsuarioDao {
 
 		return list;
 	}
+	
+	@Override
+	public Usuario consultarRegistro(Usuario usuario) {
+		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
+		EntityTransaction tx = entityManager.getTransaction();
+		tx.begin();
+
+		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+		CriteriaQuery<Usuario> criteriaQuery = criteriaBuilder.createQuery(Usuario.class);
+		Root<Usuario> rootUsuario = criteriaQuery.from(Usuario.class);
+
+		List<Predicate> predicates = new ArrayList<Predicate>();
+
+		boolean naoTemCriterio = true;
+		
+		if (usuario.getNome() != null && usuario.getNome().length() > 0) {
+			predicates.add(criteriaBuilder.equal(rootUsuario.get("nome"), usuario.getNome()));
+			naoTemCriterio = false;
+		}
+		
+		if (naoTemCriterio) {
+			return new Usuario();
+		}
+		
+		criteriaQuery.select(rootUsuario).where(predicates.toArray(new Predicate[] {}));
+
+		List<Usuario> list = entityManager.createQuery(criteriaQuery).getResultList();
+		tx.commit();
+		entityManager.close();
+
+		return list.size() > 0 ? list.get(0) : new Usuario();
+	}
 
 	@Override
 	public void salvarRegistro(Usuario usuario) {
@@ -115,15 +147,5 @@ final class UsuarioImp implements UsuarioDao {
 		em.merge(usuario);
 		tx.commit();
 		em.close();
-	}
-
-	private boolean naoEstaVazio(Object objeto) {
-		if (objeto == null) {
-			return false;
-		}
-		if (objeto.toString().equals("")) {
-			return false;
-		}
-		return true;
 	}
 }

@@ -2,15 +2,15 @@ package erp.agenda.recado;
 
 import java.util.Collection;
 
-public interface RecadoDao {
+interface RecadoDao {
 
-	public void deletarRegistro(Recado recado);
+	void deletarRegistro(Recado recado);
 
-	public Recado getRegistro(Recado recado);
+	Recado getRegistro(Recado recado);
 
-	public Collection<Recado> getRegistro();
+	Collection<Recado> getRegistro();
 
-	public Collection<Recado> pesquisarRegistro(Recado recado);
+	Collection<Recado> pesquisarRegistro(Recado recado);
 
-	public void salvarRegistro(Recado recado);
+	void salvarRegistro(Recado recado);
 }

@@ -22,7 +22,7 @@ public final class BancoFac {
 		return bancoDao.pesquisarRegistro(banco);
 	}
 	
-	public static boolean consultarRegistro(Banco banco) {
+	public static Banco consultarRegistro(Banco banco) {
 		return bancoDao.consultarRegistro(banco);
 	}
 

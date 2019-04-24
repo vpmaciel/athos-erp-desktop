@@ -86,7 +86,7 @@ final class CertificadoImp implements CertificadoDao {
 	}
 
 	@Override
-	public void salvar(Certificado certificado) {
+	public void salvarRegistro(Certificado certificado) {
 		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
 		EntityTransaction tx = em.getTransaction();
 		tx.begin();

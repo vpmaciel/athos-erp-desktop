@@ -39,7 +39,7 @@ public final class VeiculoMarcaPc extends JPanel implements Gui {
 		return configuracaoGui;
 	}
 
-	public JTextField getTextFieldMarca() {
+	public JTextField getMarcaGui() {
 		return textFieldMarca;
 	}
 

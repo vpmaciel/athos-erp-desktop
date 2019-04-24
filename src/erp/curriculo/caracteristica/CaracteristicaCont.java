@@ -179,7 +179,7 @@ final class CaracteristicaCont {
 
 				if (mensagem == JOptionPane.YES_OPTION) {
 					atualizarObjeto();
-					CaracteristicaFac.salvar(caracteristica);
+					CaracteristicaFac.salvarRegistro(caracteristica);
 					caracteristica = new Caracteristica();
 					getCaracteristicaFc().limparGui();
 					getCaracteristicaPc().getAdequadoGui().requestFocus();

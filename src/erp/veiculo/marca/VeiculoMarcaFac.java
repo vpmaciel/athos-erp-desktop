@@ -22,6 +22,10 @@ public final class VeiculoMarcaFac {
 		return veiculoMarcaDao.pesquisarRegistro(veiculoMarca);
 	}
 
+	public static VeiculoMarca consultarRegistro(VeiculoMarca veiculoMarca) {
+		return veiculoMarcaDao.consultarRegistro(veiculoMarca);
+	}
+
 	public static void salvarRegistro(VeiculoMarca veiculoMarca) {
 		veiculoMarcaDao.salvarRegistro(veiculoMarca);
 	}

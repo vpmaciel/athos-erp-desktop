@@ -25,7 +25,7 @@ final class CartorioSel implements ListSelectionListener {
 				cartorioPesquisaRegistro.setId((Long) tm.getValueAt(selRows[0], CartorioTm.ID));
 
 				if (table.getSelectedRow() != -1) {
-					Cartorio cartorio = CartorioFac.getCartorio(cartorioPesquisaRegistro);
+					Cartorio cartorio = CartorioFac.getRegistro(cartorioPesquisaRegistro);
 					CartorioTm cartorioTm = (CartorioTm) table.getModel();
 					cartorioTm.getCartorio(table.getSelectedRow());
 					MainCont.mostrarFrame(MainCont.getCartorioFc());

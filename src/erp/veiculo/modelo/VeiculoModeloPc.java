@@ -39,7 +39,7 @@ public final class VeiculoModeloPc extends JPanel implements Gui {
 		return configuracaoGui;
 	}
 
-	public JTextField getTextFieldModelo() {
+	public JTextField getModeloGui() {
 		return textFieldModelo;
 	}
 

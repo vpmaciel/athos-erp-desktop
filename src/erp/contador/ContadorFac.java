@@ -22,6 +22,10 @@ public final class ContadorFac {
 		return contadorDao.pesquisarRegistro(contador);
 	}
 
+	public static Contador consultarRegistro(Contador contador) {
+		return contadorDao.consultarRegistro(contador);
+	}
+
 	public static void salvarRegistro(Contador contador) {
 		contadorDao.salvarRegistro(contador);
 	}

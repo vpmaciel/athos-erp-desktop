@@ -4,13 +4,15 @@ import java.util.Collection;
 
 public interface SindicatoDao {
 
-	public void deletarRegistro(Sindicato sindicato);
+	void deletarRegistro(Sindicato sindicato);
 
-	public Sindicato getRegistro(Sindicato sindicato);
+	Sindicato getRegistro(Sindicato sindicato);
 
-	public Collection<Sindicato> getRegistro();
+	Collection<Sindicato> getRegistro();
 
-	public Collection<Sindicato> pesquisarRegistro(Sindicato sindicato);
+	Collection<Sindicato> pesquisarRegistro(Sindicato sindicato);
+	
+	Sindicato consultarRegistro(Sindicato sindicato);
 
-	public void salvarRegistro(Sindicato sindicato);
+	void salvarRegistro(Sindicato sindicato);
 }

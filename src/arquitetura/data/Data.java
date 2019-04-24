@@ -22,6 +22,7 @@ public class Data {
 		data += getDia(calendar.get(Calendar.DAY_OF_WEEK));
 		DateFormat dateFormat = new SimpleDateFormat("- [ dd/MM/yyyy ] - [ HH:mm:ss.SSSS ]", locale);
 		data += dateFormat.format(calendar.getTime());
+		data += AOP.getUsuarioFormatado();
 		return data;
 	}
 

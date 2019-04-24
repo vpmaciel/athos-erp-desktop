@@ -4,15 +4,15 @@ import java.util.Collection;
 
 interface BancoDao {
 
-	public void deletarRegistro(Banco banco);
+	void deletarRegistro(Banco banco);
 
-	public Banco getRegistro(Banco banco);
+	Banco getRegistro(Banco banco);
 
-	public Collection<Banco> getRegistro();
+	Collection<Banco> getRegistro();
 
-	public Collection<Banco> pesquisarRegistro(Banco banco);
+	Collection<Banco> pesquisarRegistro(Banco banco);
 
-	public boolean consultarRegistro(Banco banco);
+	Banco consultarRegistro(Banco banco);
 
-	public void salvarRegistro(Banco banco);
+	void salvarRegistro(Banco banco);
 }

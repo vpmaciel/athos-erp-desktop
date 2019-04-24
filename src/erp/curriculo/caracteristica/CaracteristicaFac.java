@@ -22,8 +22,8 @@ public final class CaracteristicaFac {
 		return clienteDao.pesquisarRegistro(cliente);
 	}
 
-	public static void salvar(Caracteristica cliente) {
-		clienteDao.salvar(cliente);
+	public static void salvarRegistro(Caracteristica cliente) {
+		clienteDao.salvarRegistro(cliente);
 	}
 
 	private CaracteristicaFac() {

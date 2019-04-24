@@ -2,15 +2,17 @@ package erp.cartorio;
 
 import java.util.Collection;
 
-public interface CartorioDao {
+interface CartorioDao {
 
-	public void deletarCartorio(Cartorio cartorio);
+	void deletarRegistro(Cartorio cartorio);
 
-	public Cartorio getCartorio(Cartorio cartorio);
+	Cartorio getRegistro(Cartorio cartorio);
 
-	public Collection<Cartorio> getCartorioTodos();
+	Collection<Cartorio> getRegistro();
 
-	public Collection<Cartorio> pesquisarRegistroCartorio(Cartorio cartorio);
+	Collection<Cartorio> pesquisarRegistro(Cartorio cartorio);
 
-	public void salvarCartorio(Cartorio cartorio);
+	Cartorio consultarRegistro(Cartorio cartorio);
+	
+	void salvarRegistro(Cartorio cartorio);
 }

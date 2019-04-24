@@ -4,13 +4,15 @@ import java.util.Collection;
 
 public interface ContadorDao {
 
-	public void deletarRegistro(Contador contador);
+	void deletarRegistro(Contador contador);
 
-	public Contador getRegistro(Contador contador);
+	Contador getRegistro(Contador contador);
 
-	public Collection<Contador> getRegistro();
+	Collection<Contador> getRegistro();
 
-	public Collection<Contador> pesquisarRegistro(Contador contador);
+	Collection<Contador> pesquisarRegistro(Contador contador);
 
-	public void salvarRegistro(Contador contador);
+    void salvarRegistro(Contador contador);
+	
+	Contador consultarRegistro(Contador contador);
 }

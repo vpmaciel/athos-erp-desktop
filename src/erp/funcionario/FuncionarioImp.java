@@ -179,6 +179,45 @@ final class FuncionarioImp implements FuncionarioDao {
 	}
 
 	@Override
+	public Funcionario consultarRegistro(Funcionario funcionario) {
+		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
+		EntityTransaction tx = entityManager.getTransaction();
+		tx.begin();
+
+		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+		CriteriaQuery<Funcionario> criteriaQuery = criteriaBuilder.createQuery(Funcionario.class);
+		Root<Funcionario> rootFuncionario = criteriaQuery.from(Funcionario.class);
+
+		List<Predicate> predicates = new ArrayList<Predicate>();
+
+		boolean naoTemCriterio = true;
+
+		if (funcionario.getCnpj() != null && !funcionario.getCnpj().equals(Mascara.getCnpj().getPlaceholder())
+				&& !funcionario.getCnpj().equals(Mascara.getCnpjVazio())) {
+			predicates.add(criteriaBuilder.equal(rootFuncionario.get("cnpj"), funcionario.getCnpj()));
+			naoTemCriterio = false;
+		}
+
+		if (funcionario.getCpf() != null && !funcionario.getCpf().equals(Mascara.getCpf().getPlaceholder())
+				&& !funcionario.getCpf().equals(Mascara.getCpfVazio())) {
+			predicates.add(criteriaBuilder.equal(rootFuncionario.get("cpf"), funcionario.getCpf()));
+			naoTemCriterio = false;
+		}
+
+		if (naoTemCriterio) {
+			return new Funcionario();
+		}
+
+		criteriaQuery.select(rootFuncionario).where(predicates.toArray(new Predicate[] {}));
+
+		List<Funcionario> list = entityManager.createQuery(criteriaQuery).getResultList();
+		tx.commit();
+		entityManager.close();
+
+		return list.size() > 0 ? list.get(0) : new Funcionario();
+	}
+
+	@Override
 	public void salvarRegistro(Funcionario funcionario) {
 		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
 		EntityTransaction tx = em.getTransaction();

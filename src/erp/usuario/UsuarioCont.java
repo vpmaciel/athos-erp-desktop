@@ -145,7 +145,7 @@ final class UsuarioCont {
 		public void actionPerformed(ActionEvent actionEvent) {
 			usuario = new Usuario();
 			getUsuarioFc().limparGui();
-			getUsuarioPc().getTextFieldNome().requestFocus();
+			getUsuarioPc().getNomeGui().requestFocus();
 		}
 	}
 
@@ -186,18 +186,43 @@ final class UsuarioCont {
 					return;
 				}
 
-				if ((getUsuarioPc().getTextFieldNome().getText()) == null
-						|| getUsuarioPc().getTextFieldNome().getText().length() == 0) {
-					getUsuarioPc().getTextFieldNome().requestFocus();
+				if ((getUsuarioPc().getNomeGui().getText()) == null
+						|| getUsuarioPc().getNomeGui().getText().length() == 0) {
+					getUsuarioPc().getNomeGui().requestFocus();
 					Msg.avisoCampoObrigatorio("Data");
 					return;
 				}
+
+				Usuario usuarioPesquisa = new Usuario();
+				usuarioPesquisa.setNome(getUsuarioPc().getNomeGui().getText());
+				Usuario usuarioPesquisaRetornado = UsuarioFac.consultarRegistro(usuarioPesquisa);
+
+				if (usuario.getId() == null && usuarioPesquisa.getNome() != null
+						&& usuarioPesquisaRetornado.getNome() != null) {
+					if (usuarioPesquisa.getNome().equals(usuarioPesquisaRetornado.getNome())) {
+						Msg.avisoCampoDuplicado("NOME", usuarioPesquisa.getNome());
+						getUsuarioPc().getNomeGui().requestFocus();
+						return;
+					}
+				}
+
+				if (usuario.getId() != null && usuarioPesquisa.getNome() != null
+						&& usuarioPesquisaRetornado.getNome() != null) {
+					if (!usuario.getNome().equals(usuarioPesquisa.getNome())) {
+						if (usuarioPesquisa.getNome().equals(usuarioPesquisaRetornado.getNome())) {
+							Msg.avisoCampoDuplicado("NOME", usuarioPesquisa.getNome());
+							getUsuarioPc().getNomeGui().requestFocus();
+						}
+						return;
+					}
+				}
+
 				if (mensagem == JOptionPane.YES_OPTION) {
 					atualizarObjeto();
 					UsuarioFac.salvarRegistro(usuario);
 					usuario = new Usuario();
 					MainCont.getUsuarioFc().limparGui();
-					getUsuarioPc().getTextFieldNome().requestFocus();
+					getUsuarioPc().getNomeGui().requestFocus();
 					Msg.sucessoSalvarRegistro();
 				}
 			} catch (HeadlessException e) {
@@ -215,14 +240,14 @@ final class UsuarioCont {
 		if (usuario == null) {
 			return;
 		}
-		getUsuarioPc().getTextFieldNome().setText(usuario.getNome());
-		getUsuarioPc().getTextFieldSenha().setText(usuario.getSenha());
+		getUsuarioPc().getNomeGui().setText(usuario.getNome());
+		getUsuarioPc().getSenhaGui().setText(usuario.getSenha());
 	}
 
 	public void atualizarObjeto() {
 
-		usuario.setSenha(getUsuarioPc().getTextFieldSenha().getText());
-		usuario.setNome(getUsuarioPc().getTextFieldNome().getText());
+		usuario.setSenha(getUsuarioPc().getSenhaGui().getText());
+		usuario.setNome(getUsuarioPc().getNomeGui().getText());
 	}
 
 	public Usuario getUsuario() {

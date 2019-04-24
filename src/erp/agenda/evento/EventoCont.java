@@ -190,6 +190,7 @@ final class EventoCont {
 					Msg.avisoCampoObrigatorio("Data");
 					return;
 				}
+				
 				if (mensagem == JOptionPane.YES_OPTION) {
 					atualizarObjeto();
 					EventoFac.salvarRegistro(evento);

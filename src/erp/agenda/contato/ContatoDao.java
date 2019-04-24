@@ -4,15 +4,15 @@ import java.util.Collection;
 
 public interface ContatoDao {
 
-	public void deletarRegistro(Contato contato);
+	void deletarRegistro(Contato contato);
 
-	public Contato getRegistro(Contato contato);
+	Contato getRegistro(Contato contato);
 
-	public Collection<Contato> getRegistro();
+	Collection<Contato> getRegistro();
 
-	public Collection<Contato> pesquisarRegistro(Contato contato);
+	Collection<Contato> pesquisarRegistro(Contato contato);
 
-	public void salvarRegistro(Contato contato);
+	void salvarRegistro(Contato contato);
 
-	boolean consultarRegistro(Contato contato);
+	Contato consultarRegistro(Contato contato);
 }

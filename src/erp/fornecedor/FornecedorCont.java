@@ -12,6 +12,7 @@ import java.util.List;
 import javax.swing.JOptionPane;
 
 import arquitetura.gui.Msg;
+import arquitetura.validacao.Mascara;
 import erp.main.MainCont;
 
 final class FornecedorCont {
@@ -185,9 +186,58 @@ final class FornecedorCont {
 				String nome = getFornecedorPc().getNomeFantasiaGui().getText();
 				if (nome == null || nome.length() == 0) {
 					getFornecedorPc().getNomeFantasiaGui().requestFocus();
-					Msg.avisoCampoObrigatorio("NomeFantasia");
+					Msg.avisoCampoObrigatorio("NOME FANTASIA");
 					return;
 				}
+				
+				Fornecedor fornecedorPesquisa = new Fornecedor();
+				fornecedorPesquisa.setCpf(getFornecedorPc().getCpfGui().getText());
+				Fornecedor fornecedorPesquisaRetornado = FornecedorFac.consultarRegistro(fornecedorPesquisa);
+
+				if (fornecedor.getId() == null && fornecedorPesquisa.getCpf() != null
+						&& fornecedorPesquisaRetornado.getCpf() != null) {
+					if (fornecedorPesquisa.getCpf().equals(fornecedorPesquisaRetornado.getCpf())) {
+						Msg.avisoCampoDuplicado("CPF", fornecedorPesquisa.getCpf());
+						getFornecedorPc().getCpfGui().requestFocus();
+						return;
+					}
+				}
+
+				if (fornecedor.getId() != null && fornecedorPesquisa.getCpf() != null
+						&& fornecedorPesquisaRetornado.getCpf() != null) {
+					if (!fornecedor.getCpf().equals(fornecedorPesquisa.getCpf())) {
+						if (fornecedorPesquisa.getCpf().equals(fornecedorPesquisaRetornado.getCpf())) {
+							Msg.avisoCampoDuplicado("CPF", fornecedorPesquisa.getCpf());
+							getFornecedorPc().getCpfGui().requestFocus();
+						}
+						return;
+					}
+				}
+
+				fornecedorPesquisa = new Fornecedor();
+				fornecedorPesquisa.setCnpj(getFornecedorPc().getCnpjGui().getText());
+				fornecedorPesquisaRetornado = FornecedorFac.consultarRegistro(fornecedorPesquisa);
+
+				if (fornecedor.getId() == null && fornecedorPesquisa.getCnpj() != null
+						&& fornecedorPesquisaRetornado.getCnpj() != null) {
+					if (fornecedorPesquisa.getCnpj().equals(fornecedorPesquisaRetornado.getCnpj())) {
+						Msg.avisoCampoDuplicado("CNPJ", fornecedorPesquisa.getCnpj());
+						getFornecedorPc().getCnpjGui().requestFocus();
+						return;
+					}
+				}
+
+				if (fornecedor.getId() != null && fornecedorPesquisa.getCnpj() != null
+						&& fornecedorPesquisaRetornado.getCnpj() != null) {
+					if (!fornecedor.getCnpj().equals(fornecedorPesquisa.getCnpj())) {
+						if (fornecedorPesquisa.getCnpj().equals(fornecedorPesquisaRetornado.getCnpj())) {
+							Msg.avisoCampoDuplicado("CNPJ", fornecedorPesquisa.getCnpj());
+							getFornecedorPc().getCnpjGui().requestFocus();
+						}
+						return;
+					}
+				}
+				
 				if (mensagem == JOptionPane.YES_OPTION) {
 					atualizarObjeto();
 					FornecedorFac.salvarRegistro(fornecedor);
@@ -257,6 +307,14 @@ final class FornecedorCont {
 		fornecedor.setCpf(getFornecedorPc().getCpfGui().getText());
 		fornecedor.setTipoEmpresa((String) getFornecedorPc().getTipoEmpresaGui().getSelectedItem());
 		fornecedor.setFaturamentoMensal(getFornecedorPc().getFaturamentoMensalGui().getText());
+
+		if (getFornecedorPc().getCnpjGui().getText().equals(Mascara.getCnpjVazio())) {
+			fornecedor.setCnpj(null);
+		}
+
+		if (getFornecedorPc().getCpfGui().getText().equals(Mascara.getCpfVazio())) {
+			fornecedor.setCpf(null);
+		}
 	}
 
 	public Fornecedor getFornecedor() {

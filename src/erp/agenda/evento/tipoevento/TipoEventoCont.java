@@ -182,37 +182,24 @@ final class TipoEventoCont {
 				TipoEvento tipoEventoPesquisa = new TipoEvento();
 				tipoEventoPesquisa.setNome(getTipoEventoPc().getNomeGui().getText());
 				TipoEvento tipoEventoPesquisaRetornado = TipoEventoFac.consultarRegistro(tipoEventoPesquisa);
-				System.out.println(tipoEvento.getNome());
-				System.out.println(tipoEventoPesquisa.getNome());
-				System.out.println(tipoEventoPesquisaRetornado.getNome());
-				System.out.println();
 
-				if (!(tipoEvento.getNome() != null && tipoEventoPesquisa.getNome() != null
-						&& tipoEventoPesquisaRetornado.getNome() != null)) {
-
-					if (tipoEvento.getNome() != null && tipoEventoPesquisaRetornado.getNome() != null) {
-						if (tipoEventoPesquisa.getNome().equals(tipoEventoPesquisaRetornado.getNome())) {
-							Msg.avisoCampoDuplicado("NOME", tipoEventoPesquisa.getNome());
-							getTipoEventoPc().getNomeGui().requestFocus();
-							return;
-						}
+				if (tipoEvento.getId() == null && tipoEventoPesquisa.getNome() != null
+						&& tipoEventoPesquisaRetornado.getNome() != null) {
+					if (tipoEventoPesquisa.getNome().equals(tipoEventoPesquisaRetornado.getNome())) {
+						Msg.avisoCampoDuplicado("NOME", tipoEventoPesquisa.getNome());
+						getTipoEventoPc().getNomeGui().requestFocus();
+						return;
 					}
+				}
 
-					if (tipoEventoPesquisa.getNome() != null && tipoEventoPesquisaRetornado.getNome() != null) {
+				if (tipoEvento.getId() != null && tipoEventoPesquisa.getNome() != null
+						&& tipoEventoPesquisaRetornado.getNome() != null) {
+					if (!tipoEvento.getNome().equals(tipoEventoPesquisa.getNome())) {
 						if (tipoEventoPesquisa.getNome().equals(tipoEventoPesquisaRetornado.getNome())) {
 							Msg.avisoCampoDuplicado("NOME", tipoEventoPesquisa.getNome());
 							getTipoEventoPc().getNomeGui().requestFocus();
-							return;
 						}
-					}
-				} else {
-					
-					if (tipoEventoPesquisa.getNome() != null && tipoEventoPesquisaRetornado.getNome() != null) {
-						if (tipoEventoPesquisa.getNome().equals(tipoEventoPesquisaRetornado.getNome())) {
-							Msg.avisoCampoDuplicado("NOME", tipoEventoPesquisa.getNome());
-							getTipoEventoPc().getNomeGui().requestFocus();
-							return;
-						}
+						return;
 					}
 				}
 

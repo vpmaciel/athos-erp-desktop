@@ -26,6 +26,12 @@ public final class FornecedorFac {
 		fornecedorDao.salvarRegistro(fornecedor);
 	}
 
-	private FornecedorFac() {
+	public static Fornecedor consultarRegistro(Fornecedor fornecedor) {
+		return fornecedorDao.consultarRegistro(fornecedor);
 	}
+
+	private FornecedorFac() {
+
+	}
+
 }

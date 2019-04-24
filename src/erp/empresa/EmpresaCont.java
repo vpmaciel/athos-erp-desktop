@@ -12,6 +12,7 @@ import java.util.List;
 import javax.swing.JOptionPane;
 
 import arquitetura.gui.Msg;
+import arquitetura.validacao.Mascara;
 import erp.main.MainCont;
 
 final class EmpresaCont {
@@ -179,15 +180,44 @@ final class EmpresaCont {
 		public void actionPerformed(ActionEvent actionEvent) {
 			try {
 				int mensagem = Msg.confirmarSalvarRegistro();
+
 				if (mensagem != JOptionPane.YES_OPTION) {
 					return;
 				}
+
 				String nomeFantasia = getEmpresaPc().getNomeFantasiaGui().getText();
+
 				if (nomeFantasia == null || nomeFantasia.length() == 0) {
 					getEmpresaPc().getNomeFantasiaGui().requestFocus();
 					Msg.avisoCampoObrigatorio("NomeFantasia");
 					return;
 				}
+
+				Empresa empresaPesquisa = new Empresa();
+				empresaPesquisa.setCnpj(getEmpresaPc().getCnpjGui().getText());
+				Empresa empresaPesquisaRetornado = EmpresaFac.consultarRegistro(empresaPesquisa);
+
+				if (empresa.getId() == null && empresaPesquisa.getCnpj() != null
+						&& empresaPesquisaRetornado.getCnpj() != null) {
+
+					if (empresaPesquisa.getCnpj().equals(empresaPesquisaRetornado.getCnpj())) {
+						Msg.avisoCampoDuplicado("CNPJ", empresaPesquisa.getCnpj());
+						getEmpresaPc().getCnpjGui().requestFocus();
+						return;
+					}
+				}
+
+				if (empresa.getId() != null && empresaPesquisa.getCnpj() != null
+						&& empresaPesquisaRetornado.getCnpj() != null) {
+					if (!empresa.getCnpj().equals(empresaPesquisa.getCnpj())) {
+						if (empresaPesquisa.getCnpj().equals(empresaPesquisaRetornado.getCnpj())) {
+							Msg.avisoCampoDuplicado("CNPJ", empresaPesquisa.getCnpj());
+							getEmpresaPc().getCnpjGui().requestFocus();
+						}
+						return;
+					}
+				}
+
 				if (mensagem == JOptionPane.YES_OPTION) {
 					atualizarObjeto();
 					EmpresaFac.salvarRegistro(empresa);
@@ -257,6 +287,10 @@ final class EmpresaCont {
 		empresa.setCnpj(getEmpresaPc().getCnpjGui().getText());
 		empresa.setTipoEmpresa((String) getEmpresaPc().getEmpresaGui().getSelectedItem());
 		empresa.setFaturamentoMensal(getEmpresaPc().getFaturamentoMensalGui().getText());
+
+		if (getEmpresaPc().getCnpjGui().getText().equals(Mascara.getCnpjVazio())) {
+			empresa.setCnpj(null);
+		}
 	}
 
 	public Empresa getEmpresa() {

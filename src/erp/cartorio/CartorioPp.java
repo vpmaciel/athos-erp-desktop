@@ -71,7 +71,7 @@ public final class CartorioPp extends JPanel {
 	public int pesquisarRegistroCartorio(Cartorio cartorio) {
 		cartorioList = new LinkedList<>();
 		try {
-			cartorioList = new LinkedList<>(CartorioFac.pesquisarRegistroCartorio(cartorio));
+			cartorioList = new LinkedList<>(CartorioFac.pesquisarRegistro(cartorio));
 		} catch (Exception e) {
 			System.out.println(e);
 		}

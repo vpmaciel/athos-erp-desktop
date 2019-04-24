@@ -79,7 +79,7 @@ final class BancoImp implements BancoDao {
 	}
 
 	@Override
-	public boolean consultarRegistro(Banco banco) {
+	public Banco consultarRegistro(Banco banco) {
 
 		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
 		EntityTransaction tx = entityManager.getTransaction();
@@ -103,7 +103,7 @@ final class BancoImp implements BancoDao {
 		}
 		
 		if(naoTemCriterio) {
-			return false;
+			return new Banco();
 		}
 
 		criteriaQuery.select(rootBanco).where(predicates.toArray(new Predicate[] {}));
@@ -111,7 +111,7 @@ final class BancoImp implements BancoDao {
 		List<Banco> list = entityManager.createQuery(criteriaQuery).getResultList();
 		tx.commit();
 		entityManager.close();
-		return list.size() > 0;
+		return list.size() > 0 ? list.get(0) : new Banco();
 	}
 
 	@Override

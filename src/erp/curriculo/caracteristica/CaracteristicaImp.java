@@ -150,7 +150,7 @@ final class CaracteristicaImp implements CaracteristicaDao {
 	}
 
 	@Override
-	public void salvar(Caracteristica caracteristica) {
+	public void salvarRegistro(Caracteristica caracteristica) {
 		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
 		EntityTransaction tx = em.getTransaction();
 		tx.begin();

@@ -127,7 +127,7 @@ final class ContatoImp implements ContatoDao {
 	}
 
 	@Override
-	public boolean consultarRegistro(Contato contato) {
+	public Contato consultarRegistro(Contato contato) {
 		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
 		EntityTransaction tx = entityManager.getTransaction();
 		tx.begin();
@@ -140,6 +140,9 @@ final class ContatoImp implements ContatoDao {
 
 		boolean naoTemCriterio = true;
 
+		System.out.println(contato.getCnpj());
+		System.out.println(contato.getCpf());
+
 		if (contato.getCnpj() != null && !contato.getCnpj().equals(Mascara.getCnpj().getPlaceholder())
 				&& !contato.getCnpj().equals(Mascara.getCnpjVazio())) {
 			predicates.add(criteriaBuilder.equal(rootContato.get("cnpj"), contato.getCnpj()));
@@ -150,9 +153,9 @@ final class ContatoImp implements ContatoDao {
 			predicates.add(criteriaBuilder.equal(rootContato.get("cpf"), contato.getCpf()));
 			naoTemCriterio = false;
 		}
-		
+
 		if (naoTemCriterio) {
-			return false;
+			return new Contato();
 		}
 
 		criteriaQuery.select(rootContato).where(predicates.toArray(new Predicate[] {}));
@@ -160,7 +163,7 @@ final class ContatoImp implements ContatoDao {
 		List<Contato> list = entityManager.createQuery(criteriaQuery).getResultList();
 		tx.commit();
 		entityManager.close();
-		return list.size() > 0;
+		return list.size() > 0 ? list.get(0) : new Contato();
 	}
 
 	@Override

@@ -2,15 +2,17 @@ package erp.veiculo;
 
 import java.util.Collection;
 
-public interface VeiculoDao {
+interface VeiculoDao {
 
-	public void deletarRegistro(Veiculo veiculo);
+	void deletarRegistro(Veiculo veiculo);
 
-	public Veiculo getRegistro(Veiculo veiculo);
+	Veiculo getRegistro(Veiculo veiculo);
 
-	public Collection<Veiculo> getRegistro();
+	Collection<Veiculo> getRegistro();
 
-	public Collection<Veiculo> pesquisarRegistro(Veiculo veiculo);
+	Collection<Veiculo> pesquisarRegistro(Veiculo veiculo);
+	
+	Veiculo consultarRegistro(Veiculo veiculo);
 
-	public void salvarRegistro(Veiculo veiculo);
+	void salvarRegistro(Veiculo veiculo);
 }

@@ -34,10 +34,10 @@ public final class ContatoPc extends JPanel implements Gui {
 	private JTextField textFieldNome;
 	private JLabel labelSexo;
 	private JLabel labelNome;
-	private JFormattedTextField textFieldCPF;
-	private JFormattedTextField textFieldCNPJ;
-	private JLabel labelCPF;
-	private JLabel labelCNPJ;
+	private JFormattedTextField textFieldCpf;
+	private JFormattedTextField textFieldCnpj;
+	private JLabel labelCpf;
+	private JLabel labelCnpj;
 	private JTextField textFieldEmail;
 	private JFormattedTextField textFieldFax;
 	private JFormattedTextField textFieldFone1;
@@ -101,7 +101,7 @@ public final class ContatoPc extends JPanel implements Gui {
 	}
 
 	public JFormattedTextField getCnpjGui() {
-		return textFieldCNPJ;
+		return textFieldCnpj;
 	}
 
 	public JTextField getComplementoGui() {
@@ -109,7 +109,7 @@ public final class ContatoPc extends JPanel implements Gui {
 	}
 
 	public JFormattedTextField getCpfGui() {
-		return textFieldCPF;
+		return textFieldCpf;
 	}
 
 	public JTextField getEmailGui() {
@@ -270,19 +270,17 @@ public final class ContatoPc extends JPanel implements Gui {
 		boxEmpresa.setMaximumRowCount(5);
 		add(boxEmpresa);
 
-		labelCPF = new JLabel("CPF");
-		add(labelCPF);
+		labelCpf = new JLabel("CPF");
+		add(labelCpf);
 
-		textFieldCPF = new JFormattedTextField(Mascara.getCpf());
-		textFieldCPF.setDocument(new EntradaMaiuscula(14));
-		add(textFieldCPF);
+		textFieldCpf = new JFormattedTextField(Mascara.getCpf());
+		add(textFieldCpf);
 
-		labelCNPJ = new JLabel("CNPJ");
-		add(labelCNPJ);
+		labelCnpj = new JLabel("CNPJ");
+		add(labelCnpj);
 
-		textFieldCNPJ = new JFormattedTextField(Mascara.getCnpj());
-		textFieldCNPJ.setDocument(new EntradaMaiuscula(19));
-		add(textFieldCNPJ);
+		textFieldCnpj = new JFormattedTextField(Mascara.getCnpj());
+		add(textFieldCnpj);
 
 		// Lay out the panel.
 		SpringUtilities.makeCompactGrid(this, 33, 1, // rows, cols

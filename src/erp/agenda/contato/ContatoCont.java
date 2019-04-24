@@ -200,22 +200,53 @@ final class ContatoCont {
 					Msg.avisoCampoObrigatorio("NOME");
 					return;
 				}
-				Contato contatoPesquisa = new Contato();
-				contatoPesquisa.setCpf(getContatoPc().getCpfGui().getText());
 				
-				if (ContatoFac.consultarRegistro(contatoPesquisa) && contato.getId() == null) {
-					Msg.avisoCampoDuplicado("CPF", contatoPesquisa.getCpf());
-					getContatoPc().getCpfGui().requestFocus();
-					return;
+				Contato contatoPesquisa = new Contato();
+				contatoPesquisa.setCnpj(getContatoPc().getCnpjGui().getText());
+				Contato contatoPesquisaRetornado = ContatoFac.consultarRegistro(contatoPesquisa);
+
+				if (contato.getId() == null && contatoPesquisa.getCnpj() != null
+						&& contatoPesquisaRetornado.getCnpj() != null) {
+					if (contatoPesquisa.getCnpj().equals(contatoPesquisaRetornado.getCnpj())) {
+						Msg.avisoCampoDuplicado("CNPJ", contatoPesquisa.getCnpj());
+						getContatoPc().getCnpjGui().requestFocus();
+						return;
+					}
+				}
+
+				if (contato.getId() != null && contatoPesquisa.getCnpj() != null
+						&& contatoPesquisaRetornado.getCnpj() != null) {
+					if (!contato.getCnpj().equals(contatoPesquisa.getCnpj())) {
+						if (contatoPesquisa.getCnpj().equals(contatoPesquisaRetornado.getCnpj())) {
+							Msg.avisoCampoDuplicado("CNPJ", contatoPesquisa.getCnpj());
+							getContatoPc().getCnpjGui().requestFocus();
+						}
+						return;
+					}
 				}
 				
 				contatoPesquisa = new Contato();
-				contatoPesquisa.setCnpj(getContatoPc().getCnpjGui().getText());
-				
-				if (ContatoFac.consultarRegistro(contatoPesquisa) && contato.getId() == null) {
-					Msg.avisoCampoDuplicado("CNPJ", contatoPesquisa.getCnpj());
-					getContatoPc().getCnpjGui().requestFocus();
-					return;
+				contatoPesquisa.setCpf(getContatoPc().getCpfGui().getText());
+				contatoPesquisaRetornado = ContatoFac.consultarRegistro(contatoPesquisa);
+
+				if (contato.getId() == null && contatoPesquisa.getCpf() != null
+						&& contatoPesquisaRetornado.getCpf() != null) {
+					if (contatoPesquisa.getCpf().equals(contatoPesquisaRetornado.getCpf())) {
+						Msg.avisoCampoDuplicado("CPF", contatoPesquisa.getCpf());
+						getContatoPc().getCpfGui().requestFocus();
+						return;
+					}
+				}
+
+				if (contato.getId() != null && contatoPesquisa.getCpf() != null
+						&& contatoPesquisaRetornado.getCpf() != null) {
+					if (!contato.getCpf().equals(contatoPesquisa.getCpf())) {
+						if (contatoPesquisa.getCpf().equals(contatoPesquisaRetornado.getCpf())) {
+							Msg.avisoCampoDuplicado("CPF", contatoPesquisa.getCpf());
+							getContatoPc().getCpfGui().requestFocus();
+						}
+						return;
+					}
 				}
 			
 				if (mensagem == JOptionPane.YES_OPTION) {
@@ -275,11 +306,11 @@ final class ContatoCont {
 		contato.setCnpj(getContatoPc().getCnpjGui().getText());
 		contato.setCpf(getContatoPc().getCpfGui().getText());
 
-		if (contato.getCnpj().equals(Mascara.getCnpjVazio())) {
+		if (getContatoPc().getCnpjGui().getText().equals(Mascara.getCnpjVazio())) {
 			contato.setCnpj(null);
 		}
 
-		if (contato.getCpf().equals(Mascara.getCpfVazio())) {
+		if (getContatoPc().getCpfGui().getText().equals(Mascara.getCpfVazio())) {
 			contato.setCpf(null);
 		}
 	}

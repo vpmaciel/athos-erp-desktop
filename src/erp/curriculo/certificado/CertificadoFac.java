@@ -22,8 +22,8 @@ public final class CertificadoFac {
 		return clienteDao.pesquisarRegistro(cliente);
 	}
 
-	public static void salvar(Certificado cliente) {
-		clienteDao.salvar(cliente);
+	public static void salvarRegistro(Certificado cliente) {
+		clienteDao.salvarRegistro(cliente);
 	}
 
 	private CertificadoFac() {

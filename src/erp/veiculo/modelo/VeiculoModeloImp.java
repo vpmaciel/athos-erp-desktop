@@ -59,10 +59,10 @@ final class VeiculoModeloImp implements VeiculoModeloDao {
 
 		List<Predicate> predicates = new ArrayList<Predicate>();
 
-		if (naoEstaVazio(veiculoModelo.getId())) {
+		if (veiculoModelo.getId() != null) {
 			predicates.add(criteriaBuilder.equal(rootVeiculoModelo.get("id"), veiculoModelo.getId()));
 		}
-		if (naoEstaVazio(veiculoModelo.getModelo())) {
+		if (veiculoModelo.getModelo() != null && veiculoModelo.getModelo().length() > 0) {
 			predicates
 					.add(criteriaBuilder.like(rootVeiculoModelo.get("modelo"), "%" + veiculoModelo.getModelo() + "%"));
 		}
@@ -76,6 +76,37 @@ final class VeiculoModeloImp implements VeiculoModeloDao {
 	}
 
 	@Override
+	public VeiculoModelo consultarRegistro(VeiculoModelo veiculoModelo) {
+		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
+		EntityTransaction tx = entityManager.getTransaction();
+		tx.begin();
+
+		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+		CriteriaQuery<VeiculoModelo> criteriaQuery = criteriaBuilder.createQuery(VeiculoModelo.class);
+		Root<VeiculoModelo> rootVeiculoModelo = criteriaQuery.from(VeiculoModelo.class);
+
+		List<Predicate> predicates = new ArrayList<Predicate>();
+
+		boolean naoTemCriterio = true;
+
+		if (veiculoModelo.getModelo() != null && veiculoModelo.getModelo().length() > 0) {
+			predicates.add(criteriaBuilder.equal(rootVeiculoModelo.get("modelo"), veiculoModelo.getModelo()));
+			naoTemCriterio = false;
+		}
+
+		if (naoTemCriterio) {
+			return new VeiculoModelo();
+		}
+
+		criteriaQuery.select(rootVeiculoModelo).where(predicates.toArray(new Predicate[] {}));
+
+		List<VeiculoModelo> list = entityManager.createQuery(criteriaQuery).getResultList();
+		tx.commit();
+		entityManager.close();
+		return list.size() > 0 ? list.get(0) : new VeiculoModelo();
+	}
+
+	@Override
 	public void salvarRegistro(VeiculoModelo veiculoModelo) {
 		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
 		EntityTransaction tx = em.getTransaction();
@@ -83,15 +114,5 @@ final class VeiculoModeloImp implements VeiculoModeloDao {
 		em.merge(veiculoModelo);
 		tx.commit();
 		em.close();
-	}
-
-	private boolean naoEstaVazio(Object objeto) {
-		if (objeto == null) {
-			return false;
-		}
-		if (objeto.toString().equals("")) {
-			return false;
-		}
-		return true;
 	}
 }

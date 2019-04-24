@@ -42,11 +42,11 @@ public final class UsuarioPc extends JPanel implements Gui {
 		return configuracaoGui;
 	}
 
-	public JTextField getTextFieldNome() {
+	public JTextField getNomeGui() {
 		return textFieldNome;
 	}
 
-	public JTextField getTextFieldSenha() {
+	public JTextField getSenhaGui() {
 		return textFieldSenha;
 	}
 

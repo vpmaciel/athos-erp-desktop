@@ -12,5 +12,5 @@ public interface CaracteristicaDao {
 
 	public Collection<Caracteristica> pesquisarRegistro(Caracteristica cliente);
 
-	public void salvar(Caracteristica cliente);
+	public void salvarRegistro(Caracteristica cliente);
 }

@@ -180,7 +180,7 @@ final class CertificadoCont {
 
 				if (mensagem == JOptionPane.YES_OPTION) {
 					atualizarObjeto();
-					CertificadoFac.salvar(certificado);
+					CertificadoFac.salvarRegistro(certificado);
 					certificado = new Certificado();
 					getCertificadoFc().limparGui();
 					getCertificadoPc().getFuncionarioGui().requestFocus();

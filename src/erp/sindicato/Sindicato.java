@@ -14,7 +14,7 @@ import javax.persistence.UniqueConstraint;
 @SuppressWarnings("serial")
 @PersistenceContext(unitName = "erp")
 @Entity
-@Table(uniqueConstraints = { @UniqueConstraint(columnNames = { "inscricaoEstadual", "inscricaoMunicipal", "cnpj" }) })
+@Table(uniqueConstraints = { @UniqueConstraint(columnNames = { "cnpj" }) })
 public class Sindicato implements Serializable {
 
 	@Id

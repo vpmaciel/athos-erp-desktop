@@ -73,18 +73,6 @@ public final class Mascara {
 		return "   .   .   -  ";
 	}
 
-	public static final MaskFormatter getCrc() {
-		MaskFormatter mascara = null;
-		try {
-			mascara = new MaskFormatter("UU-######/U");
-
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
-		mascara.setPlaceholder("AA-000000/A");
-		return mascara;
-	}
-
 	public static final MaskFormatter getCtps() {
 		MaskFormatter mascara = null;
 		try {

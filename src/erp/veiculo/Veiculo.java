@@ -19,7 +19,7 @@ import erp.veiculo.modelo.VeiculoModelo;
 @SuppressWarnings("serial")
 @PersistenceContext(unitName = "erp")
 @Entity
-@Table(uniqueConstraints = { @UniqueConstraint(columnNames = { "placa", "renavam", "chassi", "numeroMotor" }) })
+@Table(uniqueConstraints = { @UniqueConstraint(columnNames = { "placa", "renavam", "chassi" }) })
 public class Veiculo implements Serializable {
 
 	@Id

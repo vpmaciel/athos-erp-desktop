@@ -178,22 +178,51 @@ final class BancoCont {
 
 				Banco bancoPesquisa = new Banco();
 				bancoPesquisa.setNome(getBancoPc().getNomeGui().getText());
-				
-				if (BancoFac.consultarRegistro(bancoPesquisa) && banco.getId() == null) {
-					Msg.avisoCampoDuplicado("NOME", bancoPesquisa.getNome());
-					getBancoPc().getNomeGui().requestFocus();
-					return;
+				Banco bancoPesquisaRetornado = BancoFac.consultarRegistro(bancoPesquisa);
+
+				if (banco.getId() == null && bancoPesquisa.getNome() != null
+						&& bancoPesquisaRetornado.getNome() != null) {
+					if (bancoPesquisa.getNome().equals(bancoPesquisaRetornado.getNome())) {
+						Msg.avisoCampoDuplicado("NOME", bancoPesquisa.getNome());
+						getBancoPc().getNomeGui().requestFocus();
+						return;
+					}
 				}
-				
+
+				if (banco.getId() != null && bancoPesquisa.getNome() != null
+						&& bancoPesquisaRetornado.getNome() != null) {
+					if (!banco.getNome().equals(bancoPesquisa.getNome())) {
+						if (bancoPesquisa.getNome().equals(bancoPesquisaRetornado.getNome())) {
+							Msg.avisoCampoDuplicado("NOME", bancoPesquisa.getNome());
+							getBancoPc().getNomeGui().requestFocus();
+						}
+						return;
+					}
+				}
+
 				bancoPesquisa = new Banco();
 				bancoPesquisa.setCodigo(getBancoPc().getCodigoGui().getText());
-				
-				if (BancoFac.consultarRegistro(bancoPesquisa) && banco.getId() == null) {
-					Msg.avisoCampoDuplicado("CÓDIGO", bancoPesquisa.getCodigo());
-					getBancoPc().getCodigoGui().requestFocus();
-					return;
+				bancoPesquisaRetornado = BancoFac.consultarRegistro(bancoPesquisa);
+
+				if (banco.getId() == null && bancoPesquisa.getCodigo() != null
+						&& bancoPesquisaRetornado.getCodigo() != null) {
+					if (bancoPesquisa.getCodigo().equals(bancoPesquisaRetornado.getCodigo())) {
+						Msg.avisoCampoDuplicado("CÓDIGO", bancoPesquisa.getCodigo());
+						getBancoPc().getCodigoGui().requestFocus();
+						return;
+					}
 				}
-				
+
+				if (banco.getId() != null && bancoPesquisa.getCodigo() != null
+						&& bancoPesquisaRetornado.getCodigo() != null) {
+					if (!banco.getCodigo().equals(bancoPesquisa.getCodigo())) {
+						if (bancoPesquisa.getCodigo().equals(bancoPesquisaRetornado.getCodigo())) {
+							Msg.avisoCampoDuplicado("CÓDIGO", bancoPesquisa.getCodigo());
+							getBancoPc().getCodigoGui().requestFocus();
+						}
+						return;
+					}
+				}
 				if (mensagem == JOptionPane.YES_OPTION) {
 					atualizarObjeto();
 					BancoFac.salvarBanco(banco);

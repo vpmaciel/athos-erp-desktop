@@ -22,10 +22,13 @@ public final class ClienteFac {
 		return clienteDao.pesquisarRegistro(cliente);
 	}
 
-	public static void salvar(Cliente cliente) {
-		clienteDao.salvar(cliente);
+	public static void salvarRegistro(Cliente cliente) {
+		clienteDao.salvarRegistro(cliente);
 	}
 
+	public static Cliente consultarRegistro(Cliente cliente) {
+		return clienteDao.consultarRegistro(cliente);
+	}
 	private ClienteFac() {
 	}
 }

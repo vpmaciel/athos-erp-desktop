@@ -2,15 +2,17 @@ package erp.cliente;
 
 import java.util.Collection;
 
-public interface ClienteDao {
+interface ClienteDao {
 
-	public void deletarRegistro(Cliente cliente);
+	void deletarRegistro(Cliente cliente);
 
-	public Cliente getRegistro(Cliente cliente);
+	Cliente getRegistro(Cliente cliente);
 
-	public Collection<Cliente> getRegistro();
+	Collection<Cliente> getRegistro();
 
-	public Collection<Cliente> pesquisarRegistro(Cliente cliente);
+	Collection<Cliente> pesquisarRegistro(Cliente cliente);
 
-	public void salvar(Cliente cliente);
+	void salvarRegistro(Cliente cliente);
+
+	Cliente consultarRegistro(Cliente cliente);
 }

@@ -12,5 +12,5 @@ public interface CertificadoDao {
 
 	public Collection<Certificado> pesquisarRegistro(Certificado cliente);
 
-	public void salvar(Certificado cliente);
+	public void salvarRegistro(Certificado cliente);
 }

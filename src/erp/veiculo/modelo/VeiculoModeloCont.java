@@ -11,6 +11,8 @@ import javax.swing.JOptionPane;
 
 import arquitetura.gui.Msg;
 import erp.main.MainCont;
+import erp.veiculo.modelo.VeiculoModelo;
+import erp.veiculo.modelo.VeiculoModeloFac;
 
 final class VeiculoModeloCont {
 
@@ -129,7 +131,7 @@ final class VeiculoModeloCont {
 		public void actionPerformed(ActionEvent actionEvent) {
 			veiculoModelo = new VeiculoModelo();
 			getVeiculoModeloFc().limparGui();
-			getVeiculoModeloPc().getTextFieldModelo().requestFocus();
+			getVeiculoModeloPc().getModeloGui().requestFocus();
 		}
 	}
 
@@ -168,18 +170,42 @@ final class VeiculoModeloCont {
 				if (mensagem != JOptionPane.YES_OPTION) {
 					return;
 				}
-				String placa = getVeiculoModeloPc().getTextFieldModelo().getText();
+				String placa = getVeiculoModeloPc().getModeloGui().getText();
 				if (placa == null || placa.length() == 0) {
-					getVeiculoModeloPc().getTextFieldModelo().requestFocus();
+					getVeiculoModeloPc().getModeloGui().requestFocus();
 					Msg.avisoCampoObrigatorio("Data");
 					return;
 				}
+				VeiculoModelo veiculoModeloPesquisa = new VeiculoModelo();
+				veiculoModeloPesquisa.setModelo(getVeiculoModeloPc().getModeloGui().getText());
+				VeiculoModelo veiculoModeloPesquisaRetornado = VeiculoModeloFac.consultarRegistro(veiculoModeloPesquisa);
+
+				if (veiculoModelo.getId() == null && veiculoModeloPesquisa.getModelo() != null
+						&& veiculoModeloPesquisaRetornado.getModelo() != null) {
+					if (veiculoModeloPesquisa.getModelo().equals(veiculoModeloPesquisaRetornado.getModelo())) {
+						Msg.avisoCampoDuplicado("NOME", veiculoModeloPesquisa.getModelo());
+						getVeiculoModeloPc().getModeloGui().requestFocus();
+						return;
+					}
+				}
+
+				if (veiculoModelo.getId() != null && veiculoModeloPesquisa.getModelo() != null
+						&& veiculoModeloPesquisaRetornado.getModelo() != null) {
+					if (!veiculoModelo.getModelo().equals(veiculoModeloPesquisa.getModelo())) {
+						if (veiculoModeloPesquisa.getModelo().equals(veiculoModeloPesquisaRetornado.getModelo())) {
+							Msg.avisoCampoDuplicado("NOME", veiculoModeloPesquisa.getModelo());
+							getVeiculoModeloPc().getModeloGui().requestFocus();
+						}
+						return;
+					}
+				}
+
 				if (mensagem == JOptionPane.YES_OPTION) {
 					atualizarObjeto();
 					VeiculoModeloFac.salvarRegistro(veiculoModelo);
 					veiculoModelo = new VeiculoModelo();
 					getVeiculoModeloFc().limparGui();
-					getVeiculoModeloPc().getTextFieldModelo().requestFocus();
+					getVeiculoModeloPc().getModeloGui().requestFocus();
 					Msg.sucessoSalvarRegistro();
 				}
 			} catch (Exception e) {
@@ -194,11 +220,15 @@ final class VeiculoModeloCont {
 		if (veiculoModelo == null) {
 			return;
 		}
-		getVeiculoModeloPc().getTextFieldModelo().setText(veiculoModelo.getModelo());
+		getVeiculoModeloPc().getModeloGui().setText(veiculoModelo.getModelo());
 	}
 
 	public void atualizarObjeto() {
-		veiculoModelo.setModelo(getVeiculoModeloPc().getTextFieldModelo().getText());
+		veiculoModelo.setModelo(getVeiculoModeloPc().getModeloGui().getText());
+		
+		if(getVeiculoModeloPc().getModeloGui().getText().length() == 0) {
+			veiculoModelo.setModelo(null);
+		}
 	}
 
 	public VeiculoModelo getVeiculoModelo() {

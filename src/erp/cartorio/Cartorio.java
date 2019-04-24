@@ -14,7 +14,7 @@ import javax.persistence.UniqueConstraint;
 @SuppressWarnings("serial")
 @PersistenceContext(unitName = "erp")
 @Entity
-@Table(uniqueConstraints = { @UniqueConstraint(columnNames = { "nomeFantasia", "cnpj" }) })
+@Table(uniqueConstraints = { @UniqueConstraint(columnNames = { "nomeFantasia", "razaoSocial", "cnpj" }) })
 public class Cartorio implements Serializable {
 
 	@Id

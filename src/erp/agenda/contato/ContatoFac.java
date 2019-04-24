@@ -22,7 +22,7 @@ public final class ContatoFac {
 		return contatoDao.pesquisarRegistro(contato);
 	}
 	
-	public static boolean consultarRegistro(Contato contato) {
+	public static Contato consultarRegistro(Contato contato) {
 		return contatoDao.consultarRegistro(contato);
 	}
 

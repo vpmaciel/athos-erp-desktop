@@ -14,6 +14,8 @@ import javax.swing.JOptionPane;
 import arquitetura.gui.Msg;
 import arquitetura.validacao.Mascara;
 import erp.centrocusto.CentroCusto;
+import erp.funcionario.Funcionario;
+import erp.funcionario.FuncionarioFac;
 import erp.main.MainCont;
 
 final class FuncionarioCont {
@@ -195,6 +197,55 @@ final class FuncionarioCont {
 					Msg.avisoCampoObrigatorio("Data");
 					return;
 				}
+
+				Funcionario funcionarioPesquisa = new Funcionario();
+				funcionarioPesquisa.setCpf(getFuncionarioPc().getCpfGui().getText());
+				Funcionario funcionarioPesquisaRetornado = FuncionarioFac.consultarRegistro(funcionarioPesquisa);
+
+				if (funcionario.getId() == null && funcionarioPesquisa.getCpf() != null
+						&& funcionarioPesquisaRetornado.getCpf() != null) {
+					if (funcionarioPesquisa.getCpf().equals(funcionarioPesquisaRetornado.getCpf())) {
+						Msg.avisoCampoDuplicado("CPF", funcionarioPesquisa.getCpf());
+						getFuncionarioPc().getCpfGui().requestFocus();
+						return;
+					}
+				}
+
+				if (funcionario.getId() != null && funcionarioPesquisa.getCpf() != null
+						&& funcionarioPesquisaRetornado.getCpf() != null) {
+					if (!funcionario.getCpf().equals(funcionarioPesquisa.getCpf())) {
+						if (funcionarioPesquisa.getCpf().equals(funcionarioPesquisaRetornado.getCpf())) {
+							Msg.avisoCampoDuplicado("CPF", funcionarioPesquisa.getCpf());
+							getFuncionarioPc().getCpfGui().requestFocus();
+						}
+						return;
+					}
+				}
+
+				funcionarioPesquisa = new Funcionario();
+				funcionarioPesquisa.setCnpj(getFuncionarioPc().getCnpjGui().getText());
+				funcionarioPesquisaRetornado = FuncionarioFac.consultarRegistro(funcionarioPesquisa);
+
+				if (funcionario.getId() == null && funcionarioPesquisa.getCnpj() != null
+						&& funcionarioPesquisaRetornado.getCnpj() != null) {
+					if (funcionarioPesquisa.getCnpj().equals(funcionarioPesquisaRetornado.getCnpj())) {
+						Msg.avisoCampoDuplicado("CNPJ", funcionarioPesquisa.getCnpj());
+						getFuncionarioPc().getCnpjGui().requestFocus();
+						return;
+					}
+				}
+
+				if (funcionario.getId() != null && funcionarioPesquisa.getCnpj() != null
+						&& funcionarioPesquisaRetornado.getCnpj() != null) {
+					if (!funcionario.getCnpj().equals(funcionarioPesquisa.getCnpj())) {
+						if (funcionarioPesquisa.getCnpj().equals(funcionarioPesquisaRetornado.getCnpj())) {
+							Msg.avisoCampoDuplicado("CNPJ", funcionarioPesquisa.getCnpj());
+							getFuncionarioPc().getCnpjGui().requestFocus();
+						}
+						return;
+					}
+				}
+
 				if (mensagem == JOptionPane.YES_OPTION) {
 					atualizarObjeto();
 					FuncionarioFac.salvarRegistro(funcionario);

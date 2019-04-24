@@ -26,6 +26,10 @@ public final class EmpresaFac {
 		empresaDao.salvarRegistro(empresa);
 	}
 
+	public static Empresa consultarRegistro(Empresa empresa) {
+		return empresaDao.consultarRegistro(empresa);
+	}
+	
 	private EmpresaFac() {
 	}
 }

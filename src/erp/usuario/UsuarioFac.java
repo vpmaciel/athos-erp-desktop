@@ -3,7 +3,7 @@ package erp.usuario;
 import java.util.Collection;
 
 public final class UsuarioFac {
-
+	
 	private static final UsuarioDao usuarioDao = new UsuarioImp();
 
 	public static void deletarRegistro(Usuario usuario) {
@@ -26,6 +26,10 @@ public final class UsuarioFac {
 		return usuarioDao.pesquisarRegistro(usuario);
 	}
 
+	public static Usuario consultarRegistro(Usuario usuario) {
+		return usuarioDao.consultarRegistro(usuario);
+	}
+	
 	public static void salvarRegistro(Usuario usuario) {
 		usuarioDao.salvarRegistro(usuario);
 	}

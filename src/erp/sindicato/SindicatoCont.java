@@ -12,6 +12,9 @@ import java.util.List;
 import javax.swing.JOptionPane;
 
 import arquitetura.gui.Msg;
+import arquitetura.validacao.Mascara;
+import erp.sindicato.Sindicato;
+import erp.sindicato.SindicatoFac;
 import erp.main.MainCont;
 
 final class SindicatoCont {
@@ -196,6 +199,30 @@ final class SindicatoCont {
 					getSindicatoPc().getNomeFantasiaGui().requestFocus();
 					Msg.sucessoSalvarRegistro();
 				}
+				Sindicato sindicatoPesquisa = new Sindicato();
+				sindicatoPesquisa.setCnpj(getSindicatoPc().getCnpjGui().getText());
+				Sindicato sindicatoPesquisaRetornado = SindicatoFac.consultarRegistro(sindicatoPesquisa);
+
+				if (sindicato.getId() == null && sindicatoPesquisa.getCnpj() != null
+						&& sindicatoPesquisaRetornado.getCnpj() != null) {
+					if (sindicatoPesquisa.getCnpj().equals(sindicatoPesquisaRetornado.getCnpj())) {
+						Msg.avisoCampoDuplicado("CNPJ", sindicatoPesquisa.getCnpj());
+						getSindicatoPc().getCnpjGui().requestFocus();
+						return;
+					}
+				}
+
+				if (sindicato.getId() != null && sindicatoPesquisa.getCnpj() != null
+						&& sindicatoPesquisaRetornado.getCnpj() != null) {
+					if (!sindicato.getCnpj().equals(sindicatoPesquisa.getCnpj())) {
+						if (sindicatoPesquisa.getCnpj().equals(sindicatoPesquisaRetornado.getCnpj())) {
+							Msg.avisoCampoDuplicado("CNPJ", sindicatoPesquisa.getCnpj());
+							getSindicatoPc().getCnpjGui().requestFocus();
+						}
+						return;
+					}
+				}
+
 			} catch (Exception e) {
 				Msg.erroInserirRegistro();
 			}
@@ -256,6 +283,10 @@ final class SindicatoCont {
 		sindicato.setCnpj(getSindicatoPc().getCnpjGui().getText());
 		sindicato.setTipoSindicato((String) getSindicatoPc().getTipoSindicatoGui().getSelectedItem());
 		sindicato.setFaturamentoMensal(getSindicatoPc().getFaturamentoMensalGui().getText());
+
+		if (getSindicatoPc().getCnpjGui().getText().equals(Mascara.getCnpjVazio())) {
+			sindicato.setCnpj(null);
+		}
 	}
 
 	public Sindicato getSindicato() {

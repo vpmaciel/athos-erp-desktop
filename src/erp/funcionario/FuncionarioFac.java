@@ -26,6 +26,10 @@ public final class FuncionarioFac {
 		funcionarioDao.salvarRegistro(funcionario);
 	}
 
+	public static Funcionario consultarRegistro(Funcionario funcionario) {
+		return funcionarioDao.consultarRegistro(funcionario);
+	}
+
 	private FuncionarioFac() {
 
 	}

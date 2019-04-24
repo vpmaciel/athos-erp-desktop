@@ -129,7 +129,7 @@ final class VeiculoMarcaCont {
 		public void actionPerformed(ActionEvent actionEvent) {
 			veiculoMarca = new VeiculoMarca();
 			getVeiculoMarcaFc().limparGui();
-			getVeiculoMarcaPc().getTextFieldMarca().requestFocus();
+			getVeiculoMarcaPc().getMarcaGui().requestFocus();
 		}
 	}
 
@@ -168,18 +168,42 @@ final class VeiculoMarcaCont {
 				if (mensagem != JOptionPane.YES_OPTION) {
 					return;
 				}
-				String placa = getVeiculoMarcaPc().getTextFieldMarca().getText();
+				String placa = getVeiculoMarcaPc().getMarcaGui().getText();
 				if (placa == null || placa.length() == 0) {
-					getVeiculoMarcaPc().getTextFieldMarca().requestFocus();
+					getVeiculoMarcaPc().getMarcaGui().requestFocus();
 					Msg.avisoCampoObrigatorio("Data");
 					return;
 				}
+				VeiculoMarca veiculoMarcaPesquisa = new VeiculoMarca();
+				veiculoMarcaPesquisa.setMarca(getVeiculoMarcaPc().getMarcaGui().getText());
+				VeiculoMarca veiculoMarcaPesquisaRetornado = VeiculoMarcaFac.consultarRegistro(veiculoMarcaPesquisa);
+
+				if (veiculoMarca.getId() == null && veiculoMarcaPesquisa.getMarca() != null
+						&& veiculoMarcaPesquisaRetornado.getMarca() != null) {
+					if (veiculoMarcaPesquisa.getMarca().equals(veiculoMarcaPesquisaRetornado.getMarca())) {
+						Msg.avisoCampoDuplicado("NOME", veiculoMarcaPesquisa.getMarca());
+						getVeiculoMarcaPc().getMarcaGui().requestFocus();
+						return;
+					}
+				}
+
+				if (veiculoMarca.getId() != null && veiculoMarcaPesquisa.getMarca() != null
+						&& veiculoMarcaPesquisaRetornado.getMarca() != null) {
+					if (!veiculoMarca.getMarca().equals(veiculoMarcaPesquisa.getMarca())) {
+						if (veiculoMarcaPesquisa.getMarca().equals(veiculoMarcaPesquisaRetornado.getMarca())) {
+							Msg.avisoCampoDuplicado("NOME", veiculoMarcaPesquisa.getMarca());
+							getVeiculoMarcaPc().getMarcaGui().requestFocus();
+						}
+						return;
+					}
+				}
+
 				if (mensagem == JOptionPane.YES_OPTION) {
 					atualizarObjeto();
 					VeiculoMarcaFac.salvarRegistro(veiculoMarca);
 					veiculoMarca = new VeiculoMarca();
 					getVeiculoMarcaFc().limparGui();
-					getVeiculoMarcaPc().getTextFieldMarca().requestFocus();
+					getVeiculoMarcaPc().getMarcaGui().requestFocus();
 					Msg.sucessoSalvarRegistro();
 				}
 			} catch (Exception e) {
@@ -194,11 +218,16 @@ final class VeiculoMarcaCont {
 		if (veiculoMarca == null) {
 			return;
 		}
-		getVeiculoMarcaPc().getTextFieldMarca().setText(veiculoMarca.getMarca());
+		getVeiculoMarcaPc().getMarcaGui().setText(veiculoMarca.getMarca());
 	}
 
 	public void atualizarObjeto() {
-		veiculoMarca.setMarca(getVeiculoMarcaPc().getTextFieldMarca().getText());
+		veiculoMarca.setMarca(getVeiculoMarcaPc().getMarcaGui().getText());
+		
+		if(getVeiculoMarcaPc().getMarcaGui().getText().length() == 0) {
+			veiculoMarca.setMarca(null);
+		}
+
 	}
 
 	public VeiculoMarca getVeiculoMarca() {

@@ -4,13 +4,15 @@ import java.util.Collection;
 
 public interface EmpresaDao {
 
-	public void deletarRegistro(Empresa empresa);
+	void deletarRegistro(Empresa empresa);
 
-	public Empresa getRegistro(Empresa empresa);
+	Empresa getRegistro(Empresa empresa);
 
-	public Collection<Empresa> getRegistro();
+	Collection<Empresa> getRegistro();
 
-	public Collection<Empresa> pesquisarRegistro(Empresa empresa);
+	Collection<Empresa> pesquisarRegistro(Empresa empresa);
 
-	public void salvarRegistro(Empresa empresa);
+	Empresa consultarRegistro(Empresa empresa);
+
+	void salvarRegistro(Empresa empresa);
 }

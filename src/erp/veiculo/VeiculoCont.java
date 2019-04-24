@@ -174,9 +174,82 @@ final class VeiculoCont {
 				String placa = getVeiculoPc().getPlacaGui().getText();
 				if (placa == null || placa.length() == 0) {
 					getVeiculoPc().getPlacaGui().requestFocus();
-					Msg.avisoCampoObrigatorio("Data");
+					Msg.avisoCampoObrigatorio("PLACA");
 					return;
 				}
+				
+				Veiculo veiculoPesquisa = new Veiculo();
+				veiculoPesquisa.setPlaca(getVeiculoPc().getPlacaGui().getText());
+				Veiculo veiculoPesquisaRetornado = VeiculoFac.consultarRegistro(veiculoPesquisa);
+
+				if (veiculo.getId() == null && veiculoPesquisa.getPlaca() != null
+						&& veiculoPesquisaRetornado.getPlaca() != null) {
+					if (veiculoPesquisa.getPlaca().equals(veiculoPesquisaRetornado.getPlaca())) {
+						Msg.avisoCampoDuplicado("PLACA", veiculoPesquisa.getPlaca());
+						getVeiculoPc().getPlacaGui().requestFocus();
+						return;
+					}
+				}
+
+				if (veiculo.getId() != null && veiculoPesquisa.getPlaca() != null
+						&& veiculoPesquisaRetornado.getPlaca() != null) {
+					if (!veiculo.getPlaca().equals(veiculoPesquisa.getPlaca())) {
+						if (veiculoPesquisa.getPlaca().equals(veiculoPesquisaRetornado.getPlaca())) {
+							Msg.avisoCampoDuplicado("PLACA", veiculoPesquisa.getPlaca());
+							getVeiculoPc().getPlacaGui().requestFocus();
+						}
+						return;
+					}
+				}
+
+				veiculoPesquisa = new Veiculo();
+				veiculoPesquisa.setChassi(getVeiculoPc().getChassiGui().getText());
+				veiculoPesquisaRetornado = VeiculoFac.consultarRegistro(veiculoPesquisa);
+
+				if (veiculo.getId() == null && veiculoPesquisa.getChassi() != null
+						&& veiculoPesquisaRetornado.getChassi() != null) {
+					if (veiculoPesquisa.getChassi().equals(veiculoPesquisaRetornado.getChassi())) {
+						Msg.avisoCampoDuplicado("CHASSI", veiculoPesquisa.getChassi());
+						getVeiculoPc().getChassiGui().requestFocus();
+						return;
+					}
+				}
+
+				if (veiculo.getId() != null && veiculoPesquisa.getChassi() != null
+						&& veiculoPesquisaRetornado.getChassi() != null) {
+					if (!veiculo.getChassi().equals(veiculoPesquisa.getChassi())) {
+						if (veiculoPesquisa.getChassi().equals(veiculoPesquisaRetornado.getChassi())) {
+							Msg.avisoCampoDuplicado("CHASSI", veiculoPesquisa.getChassi());
+							getVeiculoPc().getChassiGui().requestFocus();
+						}
+						return;
+					}
+				}
+
+				veiculoPesquisa = new Veiculo();
+				veiculoPesquisa.setRenavam(getVeiculoPc().getRenavamGui().getText());
+				veiculoPesquisaRetornado = VeiculoFac.consultarRegistro(veiculoPesquisa);
+
+				if (veiculo.getId() == null && veiculoPesquisa.getRenavam() != null
+						&& veiculoPesquisaRetornado.getRenavam() != null) {
+					if (veiculoPesquisa.getRenavam().equals(veiculoPesquisaRetornado.getRenavam())) {
+						Msg.avisoCampoDuplicado("RENAVAM", veiculoPesquisa.getRenavam());
+						getVeiculoPc().getRenavamGui().requestFocus();
+						return;
+					}
+				}
+
+				if (veiculo.getId() != null && veiculoPesquisa.getChassi() != null
+						&& veiculoPesquisaRetornado.getChassi() != null) {
+					if (!veiculo.getChassi().equals(veiculoPesquisa.getChassi())) {
+						if (veiculoPesquisa.getChassi().equals(veiculoPesquisaRetornado.getChassi())) {
+							Msg.avisoCampoDuplicado("RENAVAM", veiculoPesquisa.getChassi());
+							getVeiculoPc().getChassiGui().requestFocus();
+						}
+						return;
+					}
+				}
+
 				if (mensagem == JOptionPane.YES_OPTION) {
 					atualizarObjeto();
 					VeiculoFac.salvarRegistro(veiculo);
