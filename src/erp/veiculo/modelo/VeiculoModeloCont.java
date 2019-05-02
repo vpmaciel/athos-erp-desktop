@@ -11,6 +11,7 @@ import javax.swing.JOptionPane;
 
 import arquitetura.gui.Msg;
 import erp.main.MainCont;
+import erp.main.MainFc;
 import erp.veiculo.modelo.VeiculoModelo;
 import erp.veiculo.modelo.VeiculoModeloFac;
 
@@ -87,7 +88,26 @@ final class VeiculoModeloCont {
 		}
 	}
 
-	public class ImprimiTodosRegistros implements ActionListener {
+	public class Relatorio implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent actionEvent) {
+
+			List<VeiculoModelo> veiculoModelos = new LinkedList<>();
+
+			try {
+				veiculoModelos = new LinkedList<>(VeiculoModeloFac.pesquisarRegistro(new VeiculoModelo()));
+			} catch (Exception e) {
+				System.out.println(e);
+			}
+
+			VeiculoModeloRel veiculoModeloRel = new VeiculoModeloRel(veiculoModelos);
+			veiculoModeloRel.retornarRelatorio(true);
+
+		}
+	}
+
+	public class Imprime implements ActionListener {
 
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
@@ -97,31 +117,10 @@ final class VeiculoModeloCont {
 				Msg.avisoImprimiRegistroNaoCadastrado();
 				return;
 			}
-
-			try {
-				if (veiculoModelos.add(VeiculoModeloFac.getRegistro(veiculoModelo))) {
-					VeiculoModeloRel veiculoModeloRel = new VeiculoModeloRel(veiculoModelos);
-					veiculoModeloRel.retornarRelatorio(true);
-				}
-			} catch (Exception e) {
-				System.out.println(e);
+			if (veiculoModelos.add(VeiculoModeloFac.getRegistro(veiculoModelo))) {
+				VeiculoModeloRel veiculoModeloRel = new VeiculoModeloRel(veiculoModelos);
+				veiculoModeloRel.retornarRelatorio(true);
 			}
-		}
-	}
-
-	public class ImprimiUnicoRegistro implements ActionListener {
-
-		@Override
-		public void actionPerformed(ActionEvent actionEvent) {
-			List<VeiculoModelo> veiculoModelos = new LinkedList<>();
-
-			try {
-				veiculoModelos = new LinkedList<>(VeiculoModeloFac.pesquisarRegistro(veiculoModelo));
-			} catch (Exception e) {
-				System.out.println(e);
-			}
-			VeiculoModeloRel veiculoModeloRel = new VeiculoModeloRel(veiculoModelos);
-			veiculoModeloRel.retornarRelatorio(true);
 		}
 	}
 
@@ -131,7 +130,7 @@ final class VeiculoModeloCont {
 		public void actionPerformed(ActionEvent actionEvent) {
 			veiculoModelo = new VeiculoModelo();
 			getVeiculoModeloFc().limparGui();
-			getVeiculoModeloPc().getModeloGui().requestFocus();
+			getVeiculoModeloPc().getGuiModelo().requestFocus();
 		}
 	}
 
@@ -139,10 +138,14 @@ final class VeiculoModeloCont {
 
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
-			veiculoModelo = new VeiculoModelo();
 			atualizarObjeto();
-			MainCont.getVeiculoModeloFp().getVeiculoModeloPp().pesquisarRegistroVeiculoModelo(veiculoModelo);
-			MainCont.mostrarFrame(getVeiculoModeloFp());
+			long totalPesquisaRegistro = 0;
+			totalPesquisaRegistro = getVeiculoModeloPp().pesquisarRegistroVeiculoModelo(veiculoModelo);
+			Msg.avisoRegistroEncontrado(totalPesquisaRegistro);
+
+			if (totalPesquisaRegistro > 0) {
+				MainFc.mostrarFrame(getVeiculoModeloFp());
+			}
 		}
 	}
 
@@ -170,21 +173,21 @@ final class VeiculoModeloCont {
 				if (mensagem != JOptionPane.YES_OPTION) {
 					return;
 				}
-				String placa = getVeiculoModeloPc().getModeloGui().getText();
+				String placa = getVeiculoModeloPc().getGuiModelo().getText();
 				if (placa == null || placa.length() == 0) {
-					getVeiculoModeloPc().getModeloGui().requestFocus();
+					getVeiculoModeloPc().getGuiModelo().requestFocus();
 					Msg.avisoCampoObrigatorio("Data");
 					return;
 				}
 				VeiculoModelo veiculoModeloPesquisa = new VeiculoModelo();
-				veiculoModeloPesquisa.setModelo(getVeiculoModeloPc().getModeloGui().getText());
+				veiculoModeloPesquisa.setModelo(getVeiculoModeloPc().getGuiModelo().getText());
 				VeiculoModelo veiculoModeloPesquisaRetornado = VeiculoModeloFac.consultarRegistro(veiculoModeloPesquisa);
 
 				if (veiculoModelo.getId() == null && veiculoModeloPesquisa.getModelo() != null
 						&& veiculoModeloPesquisaRetornado.getModelo() != null) {
 					if (veiculoModeloPesquisa.getModelo().equals(veiculoModeloPesquisaRetornado.getModelo())) {
 						Msg.avisoCampoDuplicado("NOME", veiculoModeloPesquisa.getModelo());
-						getVeiculoModeloPc().getModeloGui().requestFocus();
+						getVeiculoModeloPc().getGuiModelo().requestFocus();
 						return;
 					}
 				}
@@ -194,7 +197,7 @@ final class VeiculoModeloCont {
 					if (!veiculoModelo.getModelo().equals(veiculoModeloPesquisa.getModelo())) {
 						if (veiculoModeloPesquisa.getModelo().equals(veiculoModeloPesquisaRetornado.getModelo())) {
 							Msg.avisoCampoDuplicado("NOME", veiculoModeloPesquisa.getModelo());
-							getVeiculoModeloPc().getModeloGui().requestFocus();
+							getVeiculoModeloPc().getGuiModelo().requestFocus();
 						}
 						return;
 					}
@@ -205,7 +208,7 @@ final class VeiculoModeloCont {
 					VeiculoModeloFac.salvarRegistro(veiculoModelo);
 					veiculoModelo = new VeiculoModelo();
 					getVeiculoModeloFc().limparGui();
-					getVeiculoModeloPc().getModeloGui().requestFocus();
+					getVeiculoModeloPc().getGuiModelo().requestFocus();
 					Msg.sucessoSalvarRegistro();
 				}
 			} catch (Exception e) {
@@ -220,13 +223,13 @@ final class VeiculoModeloCont {
 		if (veiculoModelo == null) {
 			return;
 		}
-		getVeiculoModeloPc().getModeloGui().setText(veiculoModelo.getModelo());
+		getVeiculoModeloPc().getGuiModelo().setText(veiculoModelo.getModelo());
 	}
 
 	public void atualizarObjeto() {
-		veiculoModelo.setModelo(getVeiculoModeloPc().getModeloGui().getText());
+		veiculoModelo.setModelo(getVeiculoModeloPc().getGuiModelo().getText());
 		
-		if(getVeiculoModeloPc().getModeloGui().getText().length() == 0) {
+		if(getVeiculoModeloPc().getGuiModelo().getText().length() == 0) {
 			veiculoModelo.setModelo(null);
 		}
 	}

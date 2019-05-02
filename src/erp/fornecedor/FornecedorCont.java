@@ -14,6 +14,7 @@ import javax.swing.JOptionPane;
 import arquitetura.gui.Msg;
 import arquitetura.validacao.Mascara;
 import erp.main.MainCont;
+import erp.main.MainFc;
 
 final class FornecedorCont {
 
@@ -92,21 +93,18 @@ final class FornecedorCont {
 
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
-			List<Fornecedor> fornecedores = new LinkedList<>();
 
-			if (fornecedor.getId() == null) {
-				Msg.avisoImprimiRegistroNaoCadastrado();
-				return;
-			}
+			List<Fornecedor> fornecedors = new LinkedList<>();
 
 			try {
-				if (fornecedores.add(FornecedorFac.getRegistro(fornecedor))) {
-					FornecedorRel fornecedorRel = new FornecedorRel(fornecedores);
-					fornecedorRel.retornarRelatorio(true);
-				}
+				fornecedors = new LinkedList<>(FornecedorFac.pesquisarRegistro(new Fornecedor()));
 			} catch (Exception e) {
 				System.out.println(e);
 			}
+
+			FornecedorRel fornecedorRel = new FornecedorRel(fornecedors);
+			fornecedorRel.retornarRelatorio(true);
+
 		}
 	}
 
@@ -114,17 +112,19 @@ final class FornecedorCont {
 
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
-			List<Fornecedor> fornecedores = new LinkedList<>();
+			List<Fornecedor> fornecedors = new LinkedList<>();
 
-			try {
-				fornecedores = new LinkedList<>(FornecedorFac.pesquisarRegistro(fornecedor));
-			} catch (Exception e) {
-				System.out.println(e);
+			if (fornecedor.getId() == null) {
+				Msg.avisoImprimiRegistroNaoCadastrado();
+				return;
 			}
-			FornecedorRel fornecedorRel = new FornecedorRel(fornecedores);
-			fornecedorRel.retornarRelatorio(true);
+			if (fornecedors.add(FornecedorFac.getRegistro(fornecedor))) {
+				FornecedorRel fornecedorRel = new FornecedorRel(fornecedors);
+				fornecedorRel.retornarRelatorio(true);
+			}
 		}
 	}
+
 
 	public class MostraFrameFornecedor extends MouseAdapter {
 
@@ -152,10 +152,14 @@ final class FornecedorCont {
 
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
-			fornecedor = new Fornecedor();
 			atualizarObjeto();
-			getFornecedorPp().pesquisarRegistroFornecedor(fornecedor);
-			MainCont.mostrarFrame(MainCont.getFornecedorFp());
+			long totalPesquisaRegistro = 0;
+			totalPesquisaRegistro = getFornecedorPp().pesquisarRegistroFornecedor(fornecedor);
+			Msg.avisoRegistroEncontrado(totalPesquisaRegistro);
+
+			if (totalPesquisaRegistro > 0) {
+				MainFc.mostrarFrame(getFornecedorFp());
+			}
 		}
 	}
 

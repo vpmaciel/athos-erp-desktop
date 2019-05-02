@@ -96,6 +96,7 @@ public final class CertificadoFc extends JFrame implements Gui {
 		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		certificadoCont = new CertificadoCont();
 		addWindowListener(certificadoCont.new Frame());
+		certificadoPc.getLabelFuncionario().addMouseListener(certificadoCont.new MostraFrame());
 		certificadoPc.getTB().getExcluirBtn().addActionListener(certificadoCont.new Exclui());
 		certificadoPc.getTB().getNovoBtn().addActionListener(certificadoCont.new Novo());
 		certificadoPc.getTB().getPesquisarBtn().addActionListener(certificadoCont.new Pesquisa());

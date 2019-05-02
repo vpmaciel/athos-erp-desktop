@@ -21,7 +21,9 @@ final class CertificadoCont {
 
 		@Override
 		public void mouseClicked(MouseEvent event) {
-
+			if (event.getSource() == getCertificadoPc().getLabelFuncionario()) {
+				MainCont.mostrarFrame(MainCont.getFuncionarioFc());
+			}
 		}
 	}
 
@@ -78,7 +80,7 @@ final class CertificadoCont {
 		@Override
 		public void windowOpened(WindowEvent e) {
 			certificado = new Certificado();
-			getCertificadoPc().getFuncionarioGui().requestFocus();
+			getCertificadoPc().getGuiFuncionario().requestFocus();
 		}
 	}
 
@@ -95,15 +97,17 @@ final class CertificadoCont {
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
 
-			List<Certificado> Certificados = new LinkedList<>();
+			List<Certificado> certificados = new LinkedList<>();
 
 			try {
-				Certificados = new LinkedList<>(CertificadoFac.pesquisarRegistro(new Certificado()));
+				certificados = new LinkedList<>(CertificadoFac.pesquisarRegistro(new Certificado()));
 			} catch (Exception e) {
 				System.out.println(e);
 			}
-			CertificadoRel CertificadoRel = new CertificadoRel(Certificados);
-			CertificadoRel.retornarRelatorio(true);
+
+			CertificadoRel certificadoRel = new CertificadoRel(certificados);
+			certificadoRel.retornarRelatorio(true);
+
 		}
 	}
 
@@ -111,17 +115,16 @@ final class CertificadoCont {
 
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
-			List<Certificado> Certificados = new LinkedList<>();
+			List<Certificado> certificados = new LinkedList<>();
 
-			if (certificado.getFuncionario() == null) {
+			if (certificado.getId() == null) {
 				Msg.avisoImprimiRegistroNaoCadastrado();
 				return;
 			}
-			if (Certificados.add(CertificadoFac.getRegistro(certificado))) {
-				CertificadoRel CertificadoRel = new CertificadoRel(Certificados);
-				CertificadoRel.retornarRelatorio(true);
+			if (certificados.add(CertificadoFac.getRegistro(certificado))) {
+				CertificadoRel certificadoRel = new CertificadoRel(certificados);
+				certificadoRel.retornarRelatorio(true);
 			}
-
 		}
 	}
 
@@ -131,7 +134,7 @@ final class CertificadoCont {
 		public void actionPerformed(ActionEvent actionEvent) {
 			certificado = new Certificado();
 			getCertificadoFc().limparGui();
-			getCertificadoPc().getFuncionarioGui().requestFocus();
+			getCertificadoPc().getGuiFuncionario().requestFocus();
 		}
 	}
 
@@ -172,8 +175,8 @@ final class CertificadoCont {
 				if (mensagem != JOptionPane.YES_OPTION) {
 					return;
 				}
-				if ((getCertificadoPc().getFuncionarioGui().getSelectedItem()) == null) {
-					getCertificadoPc().getFuncionarioGui().requestFocus();
+				if ((getCertificadoPc().getGuiFuncionario().getSelectedItem()) == null) {
+					getCertificadoPc().getGuiFuncionario().requestFocus();
 					Msg.avisoCampoObrigatorio("FUNCIONÁRIO");
 					return;
 				}
@@ -183,7 +186,7 @@ final class CertificadoCont {
 					CertificadoFac.salvarRegistro(certificado);
 					certificado = new Certificado();
 					getCertificadoFc().limparGui();
-					getCertificadoPc().getFuncionarioGui().requestFocus();
+					getCertificadoPc().getGuiFuncionario().requestFocus();
 					Msg.sucessoSalvarRegistro();
 				}
 			} catch (Exception e) {
@@ -198,25 +201,25 @@ final class CertificadoCont {
 		if (certificado == null) {
 			return;
 		}
-		getCertificadoPc().getFuncionarioGui().setSelectedItem(certificado.getFuncionario());
-		getCertificadoPc().getAnoConclusaoGui().setText(certificado.getAnoConclusao());
-		getCertificadoPc().getCursoGui().setText(certificado.getCurso());
-		getCertificadoPc().getInstituicaoGui().setText(certificado.getInstituicao());
-		getCertificadoPc().getCargaHorariaGui().setText(String.valueOf(certificado.getCargaHoraria()));
+		getCertificadoPc().getGuiFuncionario().setSelectedItem(certificado.getFuncionario());
+		getCertificadoPc().getGuiAnoConclusao().setText(certificado.getAnoConclusao());
+		getCertificadoPc().getGuiCurso().setText(certificado.getCurso());
+		getCertificadoPc().getGuiInstituicao().setText(certificado.getInstituicao());
+		getCertificadoPc().getGuiCargaHoraria().setText(String.valueOf(certificado.getCargaHoraria()));
 	}
 
 	public void atualizarObjeto() {
-		certificado.setFuncionario((Funcionario) getCertificadoPc().getFuncionarioGui().getSelectedItem());
-		certificado.setAnoConclusao(getCertificadoPc().getAnoConclusaoGui().getText());
-		if (!getCertificadoPc().getCargaHorariaGui().getText().equals("")) {
+		certificado.setFuncionario((Funcionario) getCertificadoPc().getGuiFuncionario().getSelectedItem());
+		certificado.setAnoConclusao(getCertificadoPc().getGuiAnoConclusao().getText());
+		if (!getCertificadoPc().getGuiCargaHoraria().getText().equals("")) {
 			try {
-				certificado.setCargaHoraria(Double.parseDouble(getCertificadoPc().getCargaHorariaGui().getText()));
+				certificado.setCargaHoraria(Double.parseDouble(getCertificadoPc().getGuiCargaHoraria().getText()));
 			} catch (NumberFormatException e) {
 				certificado.setCargaHoraria(0.0);
 			}
 		}
-		certificado.setCurso(getCertificadoPc().getCursoGui().getText());
-		certificado.setInstituicao(getCertificadoPc().getInstituicaoGui().getText());
+		certificado.setCurso(getCertificadoPc().getGuiCurso().getText());
+		certificado.setInstituicao(getCertificadoPc().getGuiInstituicao().getText());
 	}
 
 	public Certificado getCertificado() {

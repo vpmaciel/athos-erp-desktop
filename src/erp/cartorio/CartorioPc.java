@@ -158,83 +158,83 @@ public final class CartorioPc extends JPanel implements Gui {
 		return labelTitular;
 	}
 
-	public JTextField getBairroGui() {
+	public JTextField getGuiBairro() {
 		return textFieldBairro;
 	}
 
-	public JFormattedTextField getCepGui() {
+	public JFormattedTextField getGuiCep() {
 		return textFieldCep;
 	}
 
-	public JTextField getCidadeGui() {
+	public JTextField getGuiCidade() {
 		return textFieldCidade;
 	}
 
-	public JFormattedTextField getCnpjGui() {
+	public JFormattedTextField getGuiCnpj() {
 		return textFieldCNPJ;
 	}
 
-	public JTextField getComarcaGui() {
+	public JTextField getGuiComarca() {
 		return textFieldComarca;
 	}
 
-	public JTextField getComplementoGui() {
+	public JTextField getGuiComplemento() {
 		return textFieldComplemento;
 	}
 
-	public JTextField getDistritoGui() {
+	public JTextField getGuiDistrito() {
 		return textFieldDistrito;
 	}
 
-	public JTextField getEmailGui() {
+	public JTextField getGuiEmail() {
 		return textFieldEmail;
 	}
 
-	public JTextField getEstadoGui() {
+	public JTextField getGuiEstado() {
 		return textFieldEstado;
 	}
 
-	public JFormattedTextField getFaxGui() {
+	public JFormattedTextField getGuiFax() {
 		return textFieldFax;
 	}
 
-	public JFormattedTextField getFone1Gui() {
+	public JFormattedTextField getGuiFone1() {
 		return textFieldFone1;
 	}
 
-	public JFormattedTextField getFone2Gui() {
+	public JFormattedTextField getGuiFone2() {
 		return textFieldFone2;
 	}
 
-	public JTextField getLogradouroGui() {
+	public JTextField getGuiLogradouro() {
 		return textFieldLogradouro;
 	}
 
-	public JTextField getMunicipioGui() {
+	public JTextField getGuiMunicipio() {
 		return textFieldMunicipio;
 	}
 
-	public JTextField getNomeFantasiaGui() {
+	public JTextField getNomeGuiFantasia() {
 		return textFieldNomeFantasia;
 	}
 
-	public JTextField getPaisGui() {
+	public JTextField getGuiPais() {
 		return textFieldPais;
 	}
 
-	public JTextField getRazaoSocialGui() {
+	public JTextField getGuiRazaoSocial() {
 		return textFieldRazaoSocial;
 	}
 
-	public JTextField getSiteGui() {
+	public JTextField getGuiSite() {
 		return textFieldSite;
 	}
 
-	public JTextField getSubstitutoGui() {
+	public JTextField getGuiSubstituto() {
 		return textFieldSubstituto;
 	}
 
-	public JTextField getTitularGui() {
+	public JTextField getGuiTitular() {
 		return textFieldTitular;
 	}
 

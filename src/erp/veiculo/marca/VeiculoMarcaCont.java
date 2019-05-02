@@ -11,6 +11,7 @@ import javax.swing.JOptionPane;
 
 import arquitetura.gui.Msg;
 import erp.main.MainCont;
+import erp.main.MainFc;
 
 final class VeiculoMarcaCont {
 
@@ -85,7 +86,26 @@ final class VeiculoMarcaCont {
 		}
 	}
 
-	public class ImprimiTodosRegistros implements ActionListener {
+	public class Relatorio implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent actionEvent) {
+
+			List<VeiculoMarca> veiculoMarcas = new LinkedList<>();
+
+			try {
+				veiculoMarcas = new LinkedList<>(VeiculoMarcaFac.pesquisarRegistro(new VeiculoMarca()));
+			} catch (Exception e) {
+				System.out.println(e);
+			}
+
+			VeiculoMarcaRel veiculoMarcaRel = new VeiculoMarcaRel(veiculoMarcas);
+			veiculoMarcaRel.retornarRelatorio(true);
+
+		}
+	}
+
+	public class Imprime implements ActionListener {
 
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
@@ -95,31 +115,10 @@ final class VeiculoMarcaCont {
 				Msg.avisoImprimiRegistroNaoCadastrado();
 				return;
 			}
-
-			try {
-				if (veiculoMarcas.add(VeiculoMarcaFac.getRegistro(veiculoMarca))) {
-					VeiculoMarcaRel veiculoMarcaRel = new VeiculoMarcaRel(veiculoMarcas);
-					veiculoMarcaRel.retornarRelatorio(true);
-				}
-			} catch (Exception e) {
-				System.out.println(e);
+			if (veiculoMarcas.add(VeiculoMarcaFac.getRegistro(veiculoMarca))) {
+				VeiculoMarcaRel veiculoMarcaRel = new VeiculoMarcaRel(veiculoMarcas);
+				veiculoMarcaRel.retornarRelatorio(true);
 			}
-		}
-	}
-
-	public class ImprimiUnicoRegistro implements ActionListener {
-
-		@Override
-		public void actionPerformed(ActionEvent actionEvent) {
-			List<VeiculoMarca> veiculoMarcas = new LinkedList<>();
-
-			try {
-				veiculoMarcas = new LinkedList<>(VeiculoMarcaFac.pesquisarRegistro(veiculoMarca));
-			} catch (Exception e) {
-				System.out.println(e);
-			}
-			VeiculoMarcaRel veiculoMarcaRel = new VeiculoMarcaRel(veiculoMarcas);
-			veiculoMarcaRel.retornarRelatorio(true);
 		}
 	}
 
@@ -129,7 +128,7 @@ final class VeiculoMarcaCont {
 		public void actionPerformed(ActionEvent actionEvent) {
 			veiculoMarca = new VeiculoMarca();
 			getVeiculoMarcaFc().limparGui();
-			getVeiculoMarcaPc().getMarcaGui().requestFocus();
+			getVeiculoMarcaPc().getGuiMarca().requestFocus();
 		}
 	}
 
@@ -137,10 +136,14 @@ final class VeiculoMarcaCont {
 
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
-			veiculoMarca = new VeiculoMarca();
 			atualizarObjeto();
-			getVeiculoMarcaPp().pesquisarRegistroVeiculoMarca(veiculoMarca);
-			MainCont.mostrarFrame(getVeiculoMarcaFp());
+			long totalPesquisaRegistro = 0;
+			totalPesquisaRegistro = getVeiculoMarcaPp().pesquisarRegistroVeiculoMarca(veiculoMarca);
+			Msg.avisoRegistroEncontrado(totalPesquisaRegistro);
+
+			if (totalPesquisaRegistro > 0) {
+				MainFc.mostrarFrame(getVeiculoMarcaFp());
+			}
 		}
 	}
 
@@ -168,21 +171,21 @@ final class VeiculoMarcaCont {
 				if (mensagem != JOptionPane.YES_OPTION) {
 					return;
 				}
-				String placa = getVeiculoMarcaPc().getMarcaGui().getText();
+				String placa = getVeiculoMarcaPc().getGuiMarca().getText();
 				if (placa == null || placa.length() == 0) {
-					getVeiculoMarcaPc().getMarcaGui().requestFocus();
+					getVeiculoMarcaPc().getGuiMarca().requestFocus();
 					Msg.avisoCampoObrigatorio("Data");
 					return;
 				}
 				VeiculoMarca veiculoMarcaPesquisa = new VeiculoMarca();
-				veiculoMarcaPesquisa.setMarca(getVeiculoMarcaPc().getMarcaGui().getText());
+				veiculoMarcaPesquisa.setMarca(getVeiculoMarcaPc().getGuiMarca().getText());
 				VeiculoMarca veiculoMarcaPesquisaRetornado = VeiculoMarcaFac.consultarRegistro(veiculoMarcaPesquisa);
 
 				if (veiculoMarca.getId() == null && veiculoMarcaPesquisa.getMarca() != null
 						&& veiculoMarcaPesquisaRetornado.getMarca() != null) {
 					if (veiculoMarcaPesquisa.getMarca().equals(veiculoMarcaPesquisaRetornado.getMarca())) {
 						Msg.avisoCampoDuplicado("NOME", veiculoMarcaPesquisa.getMarca());
-						getVeiculoMarcaPc().getMarcaGui().requestFocus();
+						getVeiculoMarcaPc().getGuiMarca().requestFocus();
 						return;
 					}
 				}
@@ -192,7 +195,7 @@ final class VeiculoMarcaCont {
 					if (!veiculoMarca.getMarca().equals(veiculoMarcaPesquisa.getMarca())) {
 						if (veiculoMarcaPesquisa.getMarca().equals(veiculoMarcaPesquisaRetornado.getMarca())) {
 							Msg.avisoCampoDuplicado("NOME", veiculoMarcaPesquisa.getMarca());
-							getVeiculoMarcaPc().getMarcaGui().requestFocus();
+							getVeiculoMarcaPc().getGuiMarca().requestFocus();
 						}
 						return;
 					}
@@ -203,7 +206,7 @@ final class VeiculoMarcaCont {
 					VeiculoMarcaFac.salvarRegistro(veiculoMarca);
 					veiculoMarca = new VeiculoMarca();
 					getVeiculoMarcaFc().limparGui();
-					getVeiculoMarcaPc().getMarcaGui().requestFocus();
+					getVeiculoMarcaPc().getGuiMarca().requestFocus();
 					Msg.sucessoSalvarRegistro();
 				}
 			} catch (Exception e) {
@@ -218,13 +221,13 @@ final class VeiculoMarcaCont {
 		if (veiculoMarca == null) {
 			return;
 		}
-		getVeiculoMarcaPc().getMarcaGui().setText(veiculoMarca.getMarca());
+		getVeiculoMarcaPc().getGuiMarca().setText(veiculoMarca.getMarca());
 	}
 
 	public void atualizarObjeto() {
-		veiculoMarca.setMarca(getVeiculoMarcaPc().getMarcaGui().getText());
+		veiculoMarca.setMarca(getVeiculoMarcaPc().getGuiMarca().getText());
 		
-		if(getVeiculoMarcaPc().getMarcaGui().getText().length() == 0) {
+		if(getVeiculoMarcaPc().getGuiMarca().getText().length() == 0) {
 			veiculoMarca.setMarca(null);
 		}
 

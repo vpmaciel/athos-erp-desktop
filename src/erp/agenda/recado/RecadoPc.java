@@ -47,19 +47,19 @@ public final class RecadoPc extends JPanel implements Gui {
 		return configuracaoGui;
 	}
 
-	public JTextArea getRecadoGui() {
+	public JTextArea getGuiRecado() {
 		return textAreaRecado;
 	}
 
-	public JTextField getDestinatarioGui() {
+	public JTextField getGuiDestinatario() {
 		return textFieldDestinatario;
 	}
 
-	public JTextField getRemetenteGui() {
+	public JTextField getGuiRemetente() {
 		return textFieldRemetente;
 	}
 
-	public JFormattedTextField getDataGui() {
+	public JFormattedTextField getGuiData() {
 		return textFieldData;
 	}
 

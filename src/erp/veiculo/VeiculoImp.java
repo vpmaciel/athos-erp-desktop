@@ -249,11 +249,11 @@ final class VeiculoImp implements VeiculoDao {
 		if (veiculo.getTipo() != null && veiculo.getTipo().length() > 0) {
 			predicates.add(criteriaBuilder.like(rootVeiculo.get("tipo"), "%" + veiculo.getTipo() + "%"));
 		}
-		if (veiculo.getValorCompra() != null && veiculo.getValorCompra().length() > 0) {
-			predicates.add(criteriaBuilder.like(rootVeiculo.get("valorCompra"), "%" + veiculo.getValorCompra() + "%"));
+		if (veiculo.getValorCompra() > 0) {
+			predicates.add(criteriaBuilder.lessThanOrEqualTo(rootVeiculo.get("valorCompra"), veiculo.getValorCompra()));
 		}
-		if (veiculo.getValorVenda() != null && veiculo.getValorVenda().length() > 0) {
-			predicates.add(criteriaBuilder.like(rootVeiculo.get("valorVenda"), "%" + veiculo.getValorVenda() + "%"));
+		if (veiculo.getValorVenda()  > 0) {
+			predicates.add(criteriaBuilder.lessThanOrEqualTo(rootVeiculo.get("valorVenda"), veiculo.getValorVenda()));
 		}
 
 		criteriaQuery.select(rootVeiculo).where(predicates.toArray(new Predicate[] {}));

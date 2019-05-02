@@ -16,6 +16,7 @@ import arquitetura.validacao.Mascara;
 import erp.sindicato.Sindicato;
 import erp.sindicato.SindicatoFac;
 import erp.main.MainCont;
+import erp.main.MainFc;
 
 final class SindicatoCont {
 
@@ -94,21 +95,18 @@ final class SindicatoCont {
 
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
+
 			List<Sindicato> sindicatos = new LinkedList<>();
 
-			if (sindicato.getId() == null) {
-				Msg.avisoImprimiRegistroNaoCadastrado();
-				return;
-			}
-
 			try {
-				if (sindicatos.add(SindicatoFac.getRegistro(sindicato))) {
-					SindicatoRel sindicatoRel = new SindicatoRel(sindicatos);
-					sindicatoRel.retornarRelatorio(true);
-				}
+				sindicatos = new LinkedList<>(SindicatoFac.pesquisarRegistro(new Sindicato()));
 			} catch (Exception e) {
 				System.out.println(e);
 			}
+
+			SindicatoRel sindicatoRel = new SindicatoRel(sindicatos);
+			sindicatoRel.retornarRelatorio(true);
+
 		}
 	}
 
@@ -118,13 +116,14 @@ final class SindicatoCont {
 		public void actionPerformed(ActionEvent actionEvent) {
 			List<Sindicato> sindicatos = new LinkedList<>();
 
-			try {
-				sindicatos = new LinkedList<>(SindicatoFac.pesquisarRegistro(sindicato));
-			} catch (Exception e) {
-				System.out.println(e);
+			if (sindicato.getId() == null) {
+				Msg.avisoImprimiRegistroNaoCadastrado();
+				return;
 			}
-			SindicatoRel sindicatoRel = new SindicatoRel(sindicatos);
-			sindicatoRel.retornarRelatorio(true);
+			if (sindicatos.add(SindicatoFac.getRegistro(sindicato))) {
+				SindicatoRel sindicatoRel = new SindicatoRel(sindicatos);
+				sindicatoRel.retornarRelatorio(true);
+			}
 		}
 	}
 
@@ -154,10 +153,14 @@ final class SindicatoCont {
 
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
-			sindicato = new Sindicato();
 			atualizarObjeto();
-			getSindicatoPp().pesquisarRegistroSindicato(sindicato);
-			MainCont.mostrarFrame(MainCont.getSindicatoFp());
+			long totalPesquisaRegistro = 0;
+			totalPesquisaRegistro = getSindicatoPp().pesquisarRegistroSindicato(sindicato);
+			Msg.avisoRegistroEncontrado(totalPesquisaRegistro);
+
+			if (totalPesquisaRegistro > 0) {
+				MainFc.mostrarFrame(getSindicatoFp());
+			}
 		}
 	}
 

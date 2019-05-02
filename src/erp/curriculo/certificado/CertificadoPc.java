@@ -1,5 +1,6 @@
 package erp.curriculo.certificado;
 
+import java.awt.Cursor;
 import java.util.Collections;
 import java.util.List;
 
@@ -37,23 +38,28 @@ public final class CertificadoPc extends JPanel implements Gui {
 	private JLabel labelAnoConclusao;
 	private JTextField textFieldAnoConclusao;
 
-	public JComboBox<Funcionario> getFuncionarioGui() {
+	
+	public JLabel getLabelFuncionario() {
+		return labelFuncionario;
+	}
+	
+	public JComboBox<Funcionario> getGuiFuncionario() {
 		return boxFuncionario;
 	}
 
-	public JTextField getInstituicaoGui() {
+	public JTextField getGuiInstituicao() {
 		return textFieldInstituicao;
 	}
 
-	public JTextField getCursoGui() {
+	public JTextField getGuiCurso() {
 		return textFieldCurso;
 	}
 
-	public JTextField getCargaHorariaGui() {
+	public JTextField getGuiCargaHoraria() {
 		return textFieldCargaHoraria;
 	}
 
-	public JTextField getAnoConclusaoGui() {
+	public JTextField getGuiAnoConclusao() {
 		return textFieldAnoConclusao;
 	}
 
@@ -81,10 +87,14 @@ public final class CertificadoPc extends JPanel implements Gui {
 
 	@Override
 	public void iniciarGui() {
+
+		final Cursor cursor = Cursor.getPredefinedCursor(Cursor.HAND_CURSOR);
+
 		toolBar = new ToolBar();
 		add(toolBar.getToolBar());
 
 		labelFuncionario = new JLabel("FUNCIONÁRIO");
+		labelFuncionario.setCursor(cursor);
 		add(labelFuncionario);
 
 		boxFuncionario = new JComboBox<Funcionario>();
@@ -93,7 +103,6 @@ public final class CertificadoPc extends JPanel implements Gui {
 		for (Funcionario funcionario : funcionarios) {
 			boxFuncionario.addItem(funcionario);
 		}
-
 		add(boxFuncionario);
 
 		labelInstituicao = new JLabel("INSTITUIÇÃO");
@@ -143,7 +152,7 @@ public final class CertificadoPc extends JPanel implements Gui {
 
 	@Override
 	public void iniciarLayout() {
-		setBorder(BorderFactory.createTitledBorder("CARACTERÍSTICAS"));
+		setBorder(BorderFactory.createTitledBorder("CERTIFICADO"));
 		setLayout(new SpringLayout());
 	}
 
@@ -162,17 +171,16 @@ public final class CertificadoPc extends JPanel implements Gui {
 		Funcionario funcionario = null;
 		List<Funcionario> funcionarios = (List<Funcionario>) FuncionarioFac.getRegistro();
 		Collections.sort(funcionarios, new FuncionarioComp().new Nome());
-		this.boxFuncionario.removeAllItems();
+		boxFuncionario.removeAllItems();
 
 		for (Funcionario b : funcionarios) {
-			this.boxFuncionario.addItem(b);
+			boxFuncionario.addItem(b);
 		}
 		if (!MainCont.getCurriculoCertificadoFc().isShowing()
 				&& MainCont.getCurriculoCertificadoFc().getCertificadoCont().getCertificado() != null) {
 			funcionario = MainCont.getCurriculoCertificadoFc().getCertificadoCont().getCertificado().getFuncionario();
 			boxFuncionario.setSelectedItem(funcionario);
 		}
-
 	}
 
 	@Override

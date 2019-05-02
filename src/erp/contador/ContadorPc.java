@@ -57,39 +57,39 @@ public final class ContadorPc extends JPanel implements Gui {
 		return configuracaoGui;
 	}
 
-	public JFormattedTextField getCnpjGui() {
+	public JFormattedTextField getGuiCnpj() {
 		return textFieldCnpj;
 	}
 
-	public JFormattedTextField getCpfGui() {
+	public JFormattedTextField getGuiCpf() {
 		return textFieldCpf;
 	}
 
-	public JTextField getCrcGui() {
+	public JTextField getGuiCrc() {
 		return textFieldCrc;
 	}
 
-	public JTextField getEmailGui() {
+	public JTextField getGuiEmail() {
 		return textFieldEmail;
 	}
 
-	public JFormattedTextField getFaxGui() {
+	public JFormattedTextField getGuiFax() {
 		return textFieldFax;
 	}
 
-	public JFormattedTextField getFone1Gui() {
+	public JFormattedTextField getGuiFone1() {
 		return textFieldFone1;
 	}
 
-	public JFormattedTextField getFone2Gui() {
+	public JFormattedTextField getGuiFone2() {
 		return textFieldFone2;
 	}
 
-	public JTextField getNomeGui() {
+	public JTextField getGuiNome() {
 		return textFieldNome;
 	}
 
-	public JTextField getSiteGui() {
+	public JTextField getGuiSite() {
 		return textFieldSite;
 	}
 

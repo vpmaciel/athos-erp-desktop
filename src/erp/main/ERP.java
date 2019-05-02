@@ -2,21 +2,33 @@ package erp.main;
 
 import java.awt.EventQueue;
 import java.awt.Frame;
+import java.io.File;
 
-import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
+import arquitetura.gui.Msg;
 import erp.usuario.UsuarioUtil;
 
 public class ERP {
 
 	public static void main(String[] args) {
+		
+		try {
+			String separador = System.getProperty("file.separator");  
+			String caminhoArquivo = "C:" + separador + "athos" + separador + "mensagens_de_log";
+			File arquivo = new File(caminhoArquivo);
+			arquivo.mkdir();	
+		} catch (Exception e) {
+			Msg.erroCriarPasta();
+		}
+		
+		
 		try {
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 		} catch (ClassNotFoundException | IllegalAccessException | InstantiationException
 				| UnsupportedLookAndFeelException e) {
-			JOptionPane.showMessageDialog(null, e);
+			Msg.erroLookAndFeel();
 		}
 
 		EventQueue.invokeLater(new Runnable() {
@@ -25,8 +37,8 @@ public class ERP {
 			public void run() {
 				MainFc mainFc = new MainFc();
 				UsuarioUtil.criarUsuario();
-				mainFc.setLocationRelativeTo(null);
 				mainFc.setState(Frame.NORMAL);
+				mainFc.setLocationRelativeTo(null);
 				mainFc.setVisible(true);
 				mainFc.setResizable(false);
 				mainFc.toFront();

@@ -67,7 +67,7 @@ final class CentroCustoCont {
 		@Override
 		public void windowOpened(WindowEvent e) {
 			centroCusto = new CentroCusto();
-			getCentroCustoPc().getNomeGui().requestFocus();
+			getCentroCustoPc().getGuiNome().requestFocus();
 		}
 	}
 
@@ -91,8 +91,10 @@ final class CentroCustoCont {
 			} catch (Exception e) {
 				System.out.println(e);
 			}
+
 			CentroCustoRel centroCustoRel = new CentroCustoRel(centroCustos);
 			centroCustoRel.retornarRelatorio(true);
+
 		}
 	}
 
@@ -110,8 +112,10 @@ final class CentroCustoCont {
 				CentroCustoRel centroCustoRel = new CentroCustoRel(centroCustos);
 				centroCustoRel.retornarRelatorio(true);
 			}
+
 		}
 	}
+
 
 	public class Novo implements ActionListener {
 
@@ -119,7 +123,7 @@ final class CentroCustoCont {
 		public void actionPerformed(ActionEvent actionEvent) {
 			centroCusto = new CentroCusto();
 			getCentroCustoFc().limparGui();
-			getCentroCustoPc().getNomeGui().requestFocus();
+			getCentroCustoPc().getGuiNome().requestFocus();
 		}
 	}
 
@@ -160,22 +164,22 @@ final class CentroCustoCont {
 					return;
 				}
 
-				if ((getCentroCustoPc().getNomeGui().getText()) == null
-						|| getCentroCustoPc().getNomeGui().getText().length() == 0) {
-					getCentroCustoPc().getNomeGui().requestFocus();
+				if ((getCentroCustoPc().getGuiNome().getText()) == null
+						|| getCentroCustoPc().getGuiNome().getText().length() == 0) {
+					getCentroCustoPc().getGuiNome().requestFocus();
 					Msg.avisoCampoObrigatorio("NOME");
 					return;
 				}
 				
 				CentroCusto centroCustoPesquisa = new CentroCusto();
-				centroCustoPesquisa.setNome(getCentroCustoPc().getNomeGui().getText());
+				centroCustoPesquisa.setNome(getCentroCustoPc().getGuiNome().getText());
 				CentroCusto centroCustoPesquisaRetornado = CentroCustoFac.consultarRegistro(centroCustoPesquisa);
 
 				if (centroCusto.getId() == null && centroCustoPesquisa.getNome() != null
 						&& centroCustoPesquisaRetornado.getNome() != null) {
 					if (centroCustoPesquisa.getNome().equals(centroCustoPesquisaRetornado.getNome())) {
 						Msg.avisoCampoDuplicado("NOME", centroCustoPesquisa.getNome());
-						getCentroCustoPc().getNomeGui().requestFocus();
+						getCentroCustoPc().getGuiNome().requestFocus();
 						return;
 					}
 				}
@@ -185,7 +189,7 @@ final class CentroCustoCont {
 					if (!centroCusto.getNome().equals(centroCustoPesquisa.getNome())) {
 						if (centroCustoPesquisa.getNome().equals(centroCustoPesquisaRetornado.getNome())) {
 							Msg.avisoCampoDuplicado("NOME", centroCustoPesquisa.getNome());
-							getCentroCustoPc().getNomeGui().requestFocus();
+							getCentroCustoPc().getGuiNome().requestFocus();
 						}
 						return;
 					}
@@ -197,7 +201,7 @@ final class CentroCustoCont {
 					CentroCustoFac.salvarRegistro(centroCusto);
 					centroCusto = new CentroCusto();
 					getCentroCustoFc().limparGui();
-					getCentroCustoPc().getNomeGui().requestFocus();
+					getCentroCustoPc().getGuiNome().requestFocus();
 					Msg.sucessoSalvarRegistro();
 				}
 			} catch (Exception e) {
@@ -216,13 +220,13 @@ final class CentroCustoCont {
 		if (centroCusto == null) {
 			return;
 		}
-		getCentroCustoPc().getNomeGui().setText(centroCusto.getNome());
+		getCentroCustoPc().getGuiNome().setText(centroCusto.getNome());
 	}
 
 	public void atualizarObjeto() {
-		centroCusto.setNome(getCentroCustoPc().getNomeGui().getText());
+		centroCusto.setNome(getCentroCustoPc().getGuiNome().getText());
 		
-		if (getCentroCustoPc().getNomeGui().getText().length() == 0) {
+		if (getCentroCustoPc().getGuiNome().getText().length() == 0) {
 			centroCusto.setNome(null);
 		}
 	}

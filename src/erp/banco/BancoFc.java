@@ -132,7 +132,7 @@ public final class BancoFc extends JFrame implements Gui {
 		bancoPc.reiniciarGui();
 	}
 
-	public boolean validarCamposCadastro() {
-		return bancoPc.validarCamposCadastro();
+	public boolean validarGui() {
+		return bancoPc.validarGui();
 	}
 }

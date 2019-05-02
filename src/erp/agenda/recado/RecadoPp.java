@@ -68,7 +68,7 @@ public final class RecadoPp extends JPanel {
 		table.getSelectionModel().addListSelectionListener(listener);
 	}
 
-	public int pesquisarRegistroRecado(Recado recado) {
+	public int pesquisarRegistro(Recado recado) {
 		recadoList = new LinkedList<>();
 		try {
 			recadoList = new LinkedList<>(RecadoFac.pesquisarRegistro(recado));

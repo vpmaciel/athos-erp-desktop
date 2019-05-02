@@ -70,7 +70,7 @@ final class CartorioCont {
 		@Override
 		public void windowOpened(WindowEvent e) {
 			cartorio = new Cartorio();
-			getCartorioPc().getNomeFantasiaGui().requestFocus();
+			getCartorioPc().getNomeGuiFantasia().requestFocus();
 		}
 	}
 
@@ -94,8 +94,10 @@ final class CartorioCont {
 			} catch (Exception e) {
 				System.out.println(e);
 			}
+
 			CartorioRel cartorioRel = new CartorioRel(cartorios);
 			cartorioRel.retornarRelatorio(true);
+
 		}
 	}
 
@@ -123,7 +125,7 @@ final class CartorioCont {
 		public void actionPerformed(ActionEvent actionEvent) {
 			cartorio = new Cartorio();
 			getCartorioFc().limparGui();
-			getCartorioPc().getNomeFantasiaGui().requestFocus();
+			getCartorioPc().getNomeGuiFantasia().requestFocus();
 		}
 	}
 
@@ -164,22 +166,22 @@ final class CartorioCont {
 					return;
 				}
 
-				if ((getCartorioPc().getNomeFantasiaGui().getText()) == null
-						|| getCartorioPc().getNomeFantasiaGui().getText().length() == 0) {
-					getCartorioPc().getNomeFantasiaGui().requestFocus();
+				if ((getCartorioPc().getNomeGuiFantasia().getText()) == null
+						|| getCartorioPc().getNomeGuiFantasia().getText().length() == 0) {
+					getCartorioPc().getNomeGuiFantasia().requestFocus();
 					Msg.avisoCampoObrigatorio("NOME FANTASIA");
 					return;
 				}
 				
 				Cartorio cartorioPesquisa = new Cartorio();
-				cartorioPesquisa.setNomeFantasia(getCartorioPc().getNomeFantasiaGui().getText());
+				cartorioPesquisa.setNomeFantasia(getCartorioPc().getNomeGuiFantasia().getText());
 				Cartorio cartorioPesquisaRetornado = CartorioFac.consultarRegistro(cartorioPesquisa);
 
 				if (cartorio.getId() == null && cartorioPesquisa.getNomeFantasia() != null
 						&& cartorioPesquisaRetornado.getNomeFantasia() != null) {
 					if (cartorioPesquisa.getNomeFantasia().equals(cartorioPesquisaRetornado.getNomeFantasia())) {
 						Msg.avisoCampoDuplicado("NOME FANTASIA", cartorioPesquisa.getNomeFantasia());
-						getCartorioPc().getNomeFantasiaGui().requestFocus();
+						getCartorioPc().getNomeGuiFantasia().requestFocus();
 						return;
 					}
 				}
@@ -189,21 +191,21 @@ final class CartorioCont {
 					if (!cartorio.getNomeFantasia().equals(cartorioPesquisa.getNomeFantasia())) {
 						if (cartorioPesquisa.getNomeFantasia().equals(cartorioPesquisaRetornado.getNomeFantasia())) {
 							Msg.avisoCampoDuplicado("NOME FANTASIA", cartorioPesquisa.getNomeFantasia());
-							getCartorioPc().getNomeFantasiaGui().requestFocus();
+							getCartorioPc().getNomeGuiFantasia().requestFocus();
 						}
 						return;
 					}
 				}
 
 				cartorioPesquisa = new Cartorio();
-				cartorioPesquisa.setRazaoSocial(getCartorioPc().getRazaoSocialGui().getText());
+				cartorioPesquisa.setRazaoSocial(getCartorioPc().getGuiRazaoSocial().getText());
 				cartorioPesquisaRetornado = CartorioFac.consultarRegistro(cartorioPesquisa);
 
 				if (cartorio.getId() == null && cartorioPesquisa.getRazaoSocial() != null
 						&& cartorioPesquisaRetornado.getRazaoSocial() != null) {
 					if (cartorioPesquisa.getRazaoSocial().equals(cartorioPesquisaRetornado.getRazaoSocial())) {
 						Msg.avisoCampoDuplicado("RAZÃO SOCIAL", cartorioPesquisa.getRazaoSocial());
-						getCartorioPc().getRazaoSocialGui().requestFocus();
+						getCartorioPc().getGuiRazaoSocial().requestFocus();
 						return;
 					}
 				}
@@ -213,21 +215,21 @@ final class CartorioCont {
 					if (!cartorio.getRazaoSocial().equals(cartorioPesquisa.getRazaoSocial())) {
 						if (cartorioPesquisa.getRazaoSocial().equals(cartorioPesquisaRetornado.getRazaoSocial())) {
 							Msg.avisoCampoDuplicado("RAZÃO SOCIAL", cartorioPesquisa.getRazaoSocial());
-							getCartorioPc().getRazaoSocialGui().requestFocus();
+							getCartorioPc().getGuiRazaoSocial().requestFocus();
 						}
 						return;
 					}
 				}
 				
 				cartorioPesquisa = new Cartorio();
-				cartorioPesquisa.setCnpj(getCartorioPc().getCnpjGui().getText());
+				cartorioPesquisa.setCnpj(getCartorioPc().getGuiCnpj().getText());
 				cartorioPesquisaRetornado = CartorioFac.consultarRegistro(cartorioPesquisa);
 
 				if (cartorio.getId() == null && cartorioPesquisa.getCnpj() != null
 						&& cartorioPesquisaRetornado.getCnpj() != null) {
 					if (cartorioPesquisa.getCnpj().equals(cartorioPesquisaRetornado.getCnpj())) {
 						Msg.avisoCampoDuplicado("CNPJ", cartorioPesquisa.getCnpj());
-						getCartorioPc().getCnpjGui().requestFocus();
+						getCartorioPc().getGuiCnpj().requestFocus();
 						return;
 					}
 				}
@@ -237,7 +239,7 @@ final class CartorioCont {
 					if (!cartorio.getCnpj().equals(cartorioPesquisa.getCnpj())) {
 						if (cartorioPesquisa.getCnpj().equals(cartorioPesquisaRetornado.getCnpj())) {
 							Msg.avisoCampoDuplicado("CNPJ", cartorioPesquisa.getCnpj());
-							getCartorioPc().getCnpjGui().requestFocus();
+							getCartorioPc().getGuiCnpj().requestFocus();
 						}
 						return;
 					}
@@ -248,7 +250,7 @@ final class CartorioCont {
 					CartorioFac.salvarRegistro(cartorio);
 					cartorio = new Cartorio();
 					getCartorioFc().limparGui();
-					getCartorioPc().getNomeFantasiaGui().requestFocus();
+					getCartorioPc().getNomeGuiFantasia().requestFocus();
 					Msg.sucessoSalvarRegistro();
 				}
 			} catch (Exception e) {
@@ -267,59 +269,59 @@ final class CartorioCont {
 		if (cartorio == null) {
 			return;
 		}
-		getCartorioPc().getCnpjGui().setText(cartorio.getCnpj());
-		getCartorioPc().getComarcaGui().setText(cartorio.getComarca());
-		getCartorioPc().getDistritoGui().setText(cartorio.getDistrito());
-		getCartorioPc().getMunicipioGui().setText(cartorio.getMunicipio());
-		getCartorioPc().getNomeFantasiaGui().setText(cartorio.getNomeFantasia());
-		getCartorioPc().getRazaoSocialGui().setText(cartorio.getRazaoSocial());
-		getCartorioPc().getSubstitutoGui().setText(cartorio.getSubstituto());
-		getCartorioPc().getTitularGui().setText(cartorio.getTitular());
-		getCartorioPc().getEmailGui().setText(cartorio.getEmail());
-		getCartorioPc().getFaxGui().setText(cartorio.getFax());
-		getCartorioPc().getFone1Gui().setText(cartorio.getFone1());
-		getCartorioPc().getFone2Gui().setText(cartorio.getFone2());
-		getCartorioPc().getSiteGui().setText(cartorio.getSite());
-		getCartorioPc().getBairroGui().setText(cartorio.getBairro());
-		getCartorioPc().getCepGui().setText(cartorio.getCep());
-		getCartorioPc().getCidadeGui().setText(cartorio.getCidade());
-		getCartorioPc().getComplementoGui().setText(cartorio.getComplemento());
-		getCartorioPc().getEstadoGui().setText(cartorio.getEstado());
-		getCartorioPc().getLogradouroGui().setText(cartorio.getLogradouro());
-		getCartorioPc().getPaisGui().setText(cartorio.getPais());
+		getCartorioPc().getGuiCnpj().setText(cartorio.getCnpj());
+		getCartorioPc().getGuiComarca().setText(cartorio.getComarca());
+		getCartorioPc().getGuiDistrito().setText(cartorio.getDistrito());
+		getCartorioPc().getGuiMunicipio().setText(cartorio.getMunicipio());
+		getCartorioPc().getNomeGuiFantasia().setText(cartorio.getNomeFantasia());
+		getCartorioPc().getGuiRazaoSocial().setText(cartorio.getRazaoSocial());
+		getCartorioPc().getGuiSubstituto().setText(cartorio.getSubstituto());
+		getCartorioPc().getGuiTitular().setText(cartorio.getTitular());
+		getCartorioPc().getGuiEmail().setText(cartorio.getEmail());
+		getCartorioPc().getGuiFax().setText(cartorio.getFax());
+		getCartorioPc().getGuiFone1().setText(cartorio.getFone1());
+		getCartorioPc().getGuiFone2().setText(cartorio.getFone2());
+		getCartorioPc().getGuiSite().setText(cartorio.getSite());
+		getCartorioPc().getGuiBairro().setText(cartorio.getBairro());
+		getCartorioPc().getGuiCep().setText(cartorio.getCep());
+		getCartorioPc().getGuiCidade().setText(cartorio.getCidade());
+		getCartorioPc().getGuiComplemento().setText(cartorio.getComplemento());
+		getCartorioPc().getGuiEstado().setText(cartorio.getEstado());
+		getCartorioPc().getGuiLogradouro().setText(cartorio.getLogradouro());
+		getCartorioPc().getGuiPais().setText(cartorio.getPais());
 	}
 
 	public void atualizarObjeto() {
-		cartorio.setCnpj(getCartorioPc().getCnpjGui().getText());
-		cartorio.setComarca(getCartorioPc().getComarcaGui().getText());
-		cartorio.setDistrito(getCartorioPc().getDistritoGui().getText());
-		cartorio.setMunicipio(getCartorioPc().getMunicipioGui().getText());
-		cartorio.setNomeFantasia(getCartorioPc().getNomeFantasiaGui().getText());
-		cartorio.setRazaoSocial(getCartorioPc().getRazaoSocialGui().getText());
-		cartorio.setSubstituto(getCartorioPc().getSubstitutoGui().getText());
-		cartorio.setTitular(getCartorioPc().getTitularGui().getText());
-		cartorio.setEmail(getCartorioPc().getEmailGui().getText());
-		cartorio.setFax(getCartorioPc().getFaxGui().getText());
-		cartorio.setFone1(getCartorioPc().getFone1Gui().getText());
-		cartorio.setFone2(getCartorioPc().getFone2Gui().getText());
-		cartorio.setSite(getCartorioPc().getSiteGui().getText());
-		cartorio.setBairro(getCartorioPc().getBairroGui().getText());
-		cartorio.setCep(getCartorioPc().getCepGui().getText());
-		cartorio.setCidade(getCartorioPc().getCidadeGui().getText());
-		cartorio.setComplemento(getCartorioPc().getComplementoGui().getText());
-		cartorio.setEstado(getCartorioPc().getEstadoGui().getText());
-		cartorio.setLogradouro(getCartorioPc().getLogradouroGui().getText());
-		cartorio.setPais(getCartorioPc().getPaisGui().getText());
+		cartorio.setCnpj(getCartorioPc().getGuiCnpj().getText());
+		cartorio.setComarca(getCartorioPc().getGuiComarca().getText());
+		cartorio.setDistrito(getCartorioPc().getGuiDistrito().getText());
+		cartorio.setMunicipio(getCartorioPc().getGuiMunicipio().getText());
+		cartorio.setNomeFantasia(getCartorioPc().getNomeGuiFantasia().getText());
+		cartorio.setRazaoSocial(getCartorioPc().getGuiRazaoSocial().getText());
+		cartorio.setSubstituto(getCartorioPc().getGuiSubstituto().getText());
+		cartorio.setTitular(getCartorioPc().getGuiTitular().getText());
+		cartorio.setEmail(getCartorioPc().getGuiEmail().getText());
+		cartorio.setFax(getCartorioPc().getGuiFax().getText());
+		cartorio.setFone1(getCartorioPc().getGuiFone1().getText());
+		cartorio.setFone2(getCartorioPc().getGuiFone2().getText());
+		cartorio.setSite(getCartorioPc().getGuiSite().getText());
+		cartorio.setBairro(getCartorioPc().getGuiBairro().getText());
+		cartorio.setCep(getCartorioPc().getGuiCep().getText());
+		cartorio.setCidade(getCartorioPc().getGuiCidade().getText());
+		cartorio.setComplemento(getCartorioPc().getGuiComplemento().getText());
+		cartorio.setEstado(getCartorioPc().getGuiEstado().getText());
+		cartorio.setLogradouro(getCartorioPc().getGuiLogradouro().getText());
+		cartorio.setPais(getCartorioPc().getGuiPais().getText());
 		
-		if (getCartorioPc().getCnpjGui().getText().equals(Mascara.getCnpjVazio())) {
+		if (getCartorioPc().getGuiCnpj().getText().equals(Mascara.getCnpjVazio())) {
 			cartorio.setCnpj(null);
 		}
 		
-		if (getCartorioPc().getRazaoSocialGui().getText().length() == 0) {
+		if (getCartorioPc().getGuiRazaoSocial().getText().length() == 0) {
 			cartorio.setRazaoSocial(null);
 		}
 		
-		if (getCartorioPc().getNomeFantasiaGui().getText().length() == 0) {
+		if (getCartorioPc().getNomeGuiFantasia().getText().length() == 0) {
 			cartorio.setNomeFantasia(null);
 		}
 	}

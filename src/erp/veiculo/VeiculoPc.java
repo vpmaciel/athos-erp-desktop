@@ -49,6 +49,7 @@ public final class VeiculoPc extends JPanel implements Gui {
 	private JLabel labelVeiculoMarca;
 	private JLabel labelMarchas;
 	private JLabel labelZeroKm;
+	private JLabel labelNumeroPortas;
 	private JLabel labelVeiculoDeficiente;
 	private JLabel labelPneus;
 	private JLabel labelRodas;
@@ -59,6 +60,7 @@ public final class VeiculoPc extends JPanel implements Gui {
 	private JLabel labelLucro;
 	private JLabel labelDesconto;
 	private JLabel labelPrejuizo;
+	private JLabel labelTransmissao;
 	private JLabel labelDepreciacao;
 	private JLabel labelEstadoEmplacamento;
 	private JComboBox<VeiculoModelo> boxVeiculoModelo;
@@ -72,6 +74,7 @@ public final class VeiculoPc extends JPanel implements Gui {
 	private JTextField textFieldNumeroMotor;
 	private JFormattedTextField textFieldAnoReferenciaVenda;
 	private JTextField textFieldMarchas;
+	private JTextField textFieldNumeroPortas;
 	private JComboBox<String> boxZeroKm;
 	private JComboBox<String> boxPneus;
 	private JTextField textFieldDesconto;
@@ -89,6 +92,7 @@ public final class VeiculoPc extends JPanel implements Gui {
 	private JComboBox<String> boxCombustivel;
 	private JTextField textFieldPlaca;
 	private JComboBox<String> boxChassiRemarcado;
+	private JComboBox<String> boxTransmissao;
 	private JComboBox<String> boxTipo;
 	private JComboBox<String> boxAtividade;
 	private JComboBox<String> boxCor;
@@ -205,159 +209,167 @@ public final class VeiculoPc extends JPanel implements Gui {
 
 	}
 
+	public JTextField getGuiNumeroPortas() {
+		return textFieldNumeroPortas;
+	}
+
+	public JComboBox<String> getGuiTransmissao() {
+		return boxTransmissao;
+	}
+
 	public JLabel getLabelZeroKm() {
 		return labelZeroKm;
 	}
 
-	public JComboBox<VeiculoModelo> getBoxVeiculoModelo() {
+	public JComboBox<VeiculoModelo> getGuiVeiculoModelo() {
 		return boxVeiculoModelo;
 	}
 
-	public JComboBox<String> getBoxEstadoEmplacamento() {
+	public JComboBox<String> getGuiEstadoEmplacamento() {
 		return boxEstadoEmplacamento;
 	}
 
-	public JComboBox<String> getBoxVeiculoDeficiente() {
+	public JComboBox<String> getGuiVeiculoDeficiente() {
 		return boxVeiculoDeficiente;
 	}
 
-	public JComboBox<String> getBoxMesReferenciaCadastro() {
+	public JComboBox<String> getGuiMesReferenciaCadastro() {
 		return boxMesReferenciaCadastro;
 	}
 
-	public JTextField getTextFieldAnoReferenciaCadastro() {
+	public JTextField getGuiAnoReferenciaCadastro() {
 		return textFieldAnoReferenciaCadastro;
 	}
 
-	public JComboBox<String> getBoxMesReferenciaCompra() {
+	public JComboBox<String> getGuiMesReferenciaCompra() {
 		return boxMesReferenciaCompra;
 	}
 
-	public JComboBox<String> getBoxMesReferenciaVenda() {
+	public JComboBox<String> getGuiMesReferenciaVenda() {
 		return boxMesReferenciaVenda;
 	}
 
-	public JFormattedTextField getTextFieldAnoReferenciaCompra() {
+	public JFormattedTextField getGuiAnoReferenciaCompra() {
 		return textFieldAnoReferenciaCompra;
 	}
 
-	public JTextField getTextFieldNumeroMotor() {
+	public JTextField getGuiNumeroMotor() {
 		return textFieldNumeroMotor;
 	}
 
-	public JFormattedTextField getTextFieldAnoReferenciaVenda() {
+	public JFormattedTextField getGuiAnoReferenciaVenda() {
 		return textFieldAnoReferenciaVenda;
 	}
 
-	public JTextField getTextFieldMarchas() {
+	public JTextField getGuiMarchas() {
 		return textFieldMarchas;
 	}
 
-	public JComboBox<String> getBoxZeroKm() {
+	public JComboBox<String> getGuiZeroKm() {
 		return boxZeroKm;
 	}
 
-	public JComboBox<String> getBoxPneus() {
+	public JComboBox<String> getGuiPneus() {
 		return boxPneus;
 	}
 
-	public JTextField getTextFieldDesconto() {
+	public JTextField getGuiDesconto() {
 		return textFieldDesconto;
 	}
 
-	public JComboBox<String> getBoxRodas() {
+	public JComboBox<String> getGuiRodas() {
 		return boxRodas;
 	}
 
-	public JTextField getTextFieldValvulas() {
+	public JTextField getGuiValvulas() {
 		return textFieldValvulas;
 	}
 
-	public JComboBox<String> getBoxRebaixado() {
+	public JComboBox<String> getGuiRebaixado() {
 		return boxRebaixado;
 	}
 
-	public JTextField getTextFieldQuilometragem() {
+	public JTextField getGuiQuilometragem() {
 		return textFieldQuilometragem;
 	}
 
-	public JComboBox<CentroCusto> getBoxCentroCusto() {
+	public JComboBox<CentroCusto> getGuiCentroCusto() {
 		return boxCentroCusto;
 	}
 
-	public JTextField getTextFieldLucro() {
+	public JTextField getGuiLucro() {
 		return textFieldLucro;
 	}
 
-	public JTextField getTextFieldPrejuizo() {
+	public JTextField getGuiPrejuizo() {
 		return textFieldPrejuizo;
 	}
 
-	public JTextField getTextFieldDepreciacao() {
+	public JTextField getGuiDepreciacao() {
 		return textFieldDepreciacao;
 	}
 
-	public JComboBox<VeiculoMarca> getBoxVeiculoMarca() {
+	public JComboBox<VeiculoMarca> getGuiVeiculoMarca() {
 		return boxVeiculoMarca;
 	}
 
-	public JComboBox<String> getBoxCambio() {
+	public JComboBox<String> getGuiCambio() {
 		return boxCambio;
 	}
 
-	public JComboBox<String> getBoxSubCategoria() {
+	public JComboBox<String> getGuiSubCategoria() {
 		return boxSubCategoria;
 	}
 
-	public JTextField getTextFieldProprietarioAnteriorRGNumero() {
+	public JTextField getGuiProprietarioAnteriorRGNumero() {
 		return textFieldProprietarioAnteriorRGNumero;
 	}
 
-	public JTextField getTextFieldProprietarioAnteriorRGOrgaoEmissor() {
+	public JTextField getGuiProprietarioAnteriorRGOrgaoEmissor() {
 		return textFieldProprietarioAnteriorRGOrgaoEmissor;
 	}
 
-	public JComboBox<String> getAtividadeGui() {
+	public JComboBox<String> getGuiAtividade() {
 		return boxAtividade;
 	}
 
-	public JComboBox<String> getCarroceriaGui() {
+	public JComboBox<String> getGuiCarroceria() {
 		return boxCarroceria;
 	}
 
-	public JComboBox<String> getCategoriaGui() {
+	public JComboBox<String> getGuiCategoria() {
 		return boxCategoria;
 	}
 
-	public JComboBox<String> getChassiRemarcadoGui() {
+	public JComboBox<String> getGuiChassiRemarcado() {
 		return boxChassiRemarcado;
 	}
 
-	public JComboBox<String> getCombustivelGui() {
+	public JComboBox<String> getGuiCombustivel() {
 		return boxCombustivel;
 	}
 
-	public JComboBox<String> getCorGui() {
+	public JComboBox<String> getGuiCor() {
 		return boxCor;
 	}
 
-	public JComboBox<String> getEspecieGui() {
+	public JComboBox<String> getGuiEspecie() {
 		return boxEspecie;
 	}
 
-	public JComboBox<String> getFabricacaoGui() {
+	public JComboBox<String> getGuiFabricacao() {
 		return boxFabricacao;
 	}
 
-	public JComboBox<String> getIpvaGui() {
+	public JComboBox<String> getGuiIpva() {
 		return boxIpva;
 	}
 
-	public JComboBox<String> getRestricoesGui() {
+	public JComboBox<String> getGuiRestricoes() {
 		return boxRestricoes;
 	}
 
-	public JComboBox<String> getTipoGui() {
+	public JComboBox<String> getGuiTipo() {
 		return boxTipo;
 	}
 
@@ -366,163 +378,163 @@ public final class VeiculoPc extends JPanel implements Gui {
 		return configuracaoGui;
 	}
 
-	public JFormattedTextField getAnoFabricacaoGui() {
+	public JFormattedTextField getGuiAnoFabricacao() {
 		return textFieldAnoFabricacao;
 	}
 
-	public JFormattedTextField getAnoModeloGui() {
+	public JFormattedTextField getGuiAnoModelo() {
 		return textFieldAnoModelo;
 	}
 
-	public JTextField getBairroGui() {
+	public JTextField getGuiBairro() {
 		return textFieldBairro;
 	}
 
-	public JTextField getCapacidadePassageirosGui() {
+	public JTextField getGuiCapacidadePassageiros() {
 		return textFieldCapacidadePassageiros;
 	}
 
-	public JTextField getCapCargaGui() {
+	public JTextField getGuiCapCarga() {
 		return textFieldCapCarga;
 	}
 
-	public JFormattedTextField getCepGui() {
+	public JFormattedTextField getGuiCep() {
 		return textFieldCep;
 	}
 
-	public JTextField getChassiGui() {
+	public JTextField getGuiChassi() {
 		return textFieldChassi;
 	}
 
-	public JTextField getCidadeGui() {
+	public JTextField getGuiCidade() {
 		return textFieldCidade;
 	}
 
-	public JTextField getCilindradaGui() {
+	public JTextField getGuiCilindrada() {
 		return textFieldCilindrada;
 	}
 
-	public JTextField getCilindrosGui() {
+	public JTextField getGuiCilindros() {
 		return textFieldCilindros;
 	}
 
-	public JTextField getCmtTonGui() {
+	public JTextField getGuiCmtTon() {
 		return textFieldCmtTon;
 	}
 
-	public JTextField getComplementoGui() {
+	public JTextField getGuiComplemento() {
 		return textFieldComplemento;
 	}
 
-	public JFormattedTextField getDataCompraGui() {
+	public JFormattedTextField getGuiDataCompra() {
 		return textFieldDataCompra;
 	}
 
-	public JFormattedTextField getDataVendaGui() {
+	public JFormattedTextField getGuiDataVenda() {
 		return textFieldDataVenda;
 	}
 
-	public JTextField getEixosGui() {
+	public JTextField getGuiEixos() {
 		return textFieldEixos;
 	}
 
-	public JTextField getEstadoGui() {
+	public JTextField getGuiEstado() {
 		return textFieldEstado;
 	}
 
-	public JTextField getLogradouroGui() {
+	public JTextField getGuiLogradouro() {
 		return textFieldLogradouro;
 	}
 
-	public JTextField getMunicipioEmplacamentoGui() {
+	public JTextField getGuiMunicipioEmplacamento() {
 		return textFieldMunicipioEmplacamento;
 	}
 
-	public JTextField getPaisGui() {
+	public JTextField getGuiPais() {
 		return textFieldPais;
 	}
 
-	public JTextField getPlacaGui() {
+	public JTextField getGuiPlaca() {
 		return textFieldPlaca;
 	}
 
-	public JTextField getPotenciaGui() {
+	public JTextField getGuiPotencia() {
 		return textFieldPotencia;
 	}
 
-	public JFormattedTextField getProprietarioAnteriorCnpjGui() {
+	public JFormattedTextField getGuiProprietarioAnteriorCnpj() {
 		return textFieldProprietarioAnteriorCNPJ;
 	}
 
-	public JFormattedTextField getProprietarioAnteriorCpfGui() {
+	public JFormattedTextField getGuiProprietarioAnteriorCpf() {
 		return textFieldProprietarioAnteriorCPF;
 	}
 
-	public JTextField getProprietarioAnteriorEmailGui() {
+	public JTextField getGuiProprietarioAnteriorEmail() {
 		return textFieldProprietarioAnteriorEmail;
 	}
 
-	public JFormattedTextField getTextFieldProprietarioAnteriorFaxGui() {
+	public JFormattedTextField getGuiProprietarioAnteriorFax() {
 		return textFieldProprietarioAnteriorFax;
 	}
 
-	public JFormattedTextField getProprietarioAnteriorFone1Gui() {
+	public JFormattedTextField getGuiProprietarioAnteriorFone1() {
 		return textFieldProprietarioAnteriorFone1;
 	}
 
-	public JFormattedTextField getProprietarioAnteriorFone2Gui() {
+	public JFormattedTextField getGuiProprietarioAnteriorFone2() {
 		return textFieldProprietarioAnteriorFone2;
 	}
 
-	public JTextField getProprietarioAnteriorNomeGui() {
+	public JTextField getGuiProprietarioAnteriorNome() {
 		return textFieldProprietarioAnteriorNome;
 	}
 
-	public JFormattedTextField getProprietarioCnpjGui() {
+	public JFormattedTextField getGuiProprietarioCnpj() {
 		return textFieldProprietarioCNPJ;
 	}
 
-	public JFormattedTextField getProprietarioCpfGui() {
+	public JFormattedTextField getGuiProprietarioCpf() {
 		return textFieldProprietarioCPF;
 	}
 
-	public JTextField getProprietarioEmailGui() {
+	public JTextField getGuiProprietarioEmail() {
 		return textFieldProprietarioEmail;
 	}
 
-	public JFormattedTextField getProprietarioFaxGui() {
+	public JFormattedTextField getGuiProprietarioFax() {
 		return textFieldProprietarioFax;
 	}
 
-	public JFormattedTextField getProprietarioFone1Gui() {
+	public JFormattedTextField getGuiProprietarioFone1() {
 		return textFieldProprietarioFone1;
 	}
 
-	public JFormattedTextField getProprietarioFone2Gui() {
+	public JFormattedTextField getGuiProprietarioFone2() {
 		return textFieldProprietarioFone2;
 	}
 
-	public JTextField getProprietarioNomeGui() {
+	public JTextField getGuiProprietarioNome() {
 		return textFieldProprietarioNome;
 	}
 
-	public JTextField getProprietarioRGNumeroGui() {
+	public JTextField getGuiProprietarioRGNumero() {
 		return textFieldProprietarioRGNumero;
 	}
 
-	public JTextField getProprietarioRGOrgaoEmisssorGui() {
+	public JTextField getGuiProprietarioRGOrgaoEmisssor() {
 		return textFieldProprietarioRGOrgaoEmisssor;
 	}
 
-	public JTextField getRenavamGui() {
+	public JTextField getGuiRenavam() {
 		return textFieldRenavam;
 	}
 
-	public JTextField getValorCompraGui() {
+	public JTextField getGuiValorCompra() {
 		return textFieldValorCompra;
 	}
 
-	public JTextField getValorVendaGui() {
+	public JTextField getGuiValorVenda() {
 		return textFieldValorVenda;
 	}
 
@@ -607,7 +619,24 @@ public final class VeiculoPc extends JPanel implements Gui {
 		boxChassiRemarcado.addItem("SIM");
 		boxChassiRemarcado.addItem("NÃO");
 		add(boxChassiRemarcado);
+		
+		labelTransmissao = new JLabel("TRANSMISSÃO");
+		add(labelTransmissao);
 
+		boxTransmissao = new JComboBox<String>();
+		boxTransmissao.addItem("");
+		boxTransmissao.addItem("MANUAL");
+		boxTransmissao.addItem("AUTOMÁTICO");
+		add(boxTransmissao);
+
+		labelNumeroPortas = new JLabel("NÚMERO DE PORTAS");
+		add(labelNumeroPortas);
+
+		textFieldNumeroPortas = new JTextField();
+		textFieldNumeroPortas.setDocument(new EntradaMaiuscula(1));
+		add(textFieldNumeroPortas);
+
+		
 		labelValorCompra = new JLabel("VALOR DE COMPRA");
 		add(labelValorCompra);
 
@@ -660,7 +689,6 @@ public final class VeiculoPc extends JPanel implements Gui {
 		add(labelDataVenda);
 
 		textFieldDataVenda = new JFormattedTextField(Mascara.getData());
-		textFieldDataVenda.setDocument(new EntradaMinuscula(10));
 		add(textFieldDataVenda);
 
 		labelMesReferenciaCadastro = new JLabel("MÊS DE REFERÊNCIA DO CADASTRO");
@@ -789,112 +817,112 @@ public final class VeiculoPc extends JPanel implements Gui {
 		textFieldProprietarioNome.setDocument(new EntradaMaiuscula(50));
 		add(textFieldProprietarioNome);
 
-		labelProprietarioRGNumero = new JLabel("IDENTIDADE NÚMERO (PROPRIETÁRIO)");
+		labelProprietarioRGNumero = new JLabel("IDENTIDADE NÚMERO ( PROPRIETÁRIO )");
 		add(labelProprietarioRGNumero);
 
 		textFieldProprietarioRGNumero = new JTextField();
 		textFieldProprietarioRGNumero.setDocument(new EntradaMaiuscula(15));
 		add(textFieldProprietarioRGNumero);
 
-		labelProprietarioRGOrgaoEmisssor = new JLabel("IDENTIDADE ÓRGÃO EMISSOR (PROPRIETÁRIO)");
+		labelProprietarioRGOrgaoEmisssor = new JLabel("IDENTIDADE ÓRGÃO EMISSOR ( PROPRIETÁRIO )");
 		add(labelProprietarioRGOrgaoEmisssor);
 
 		textFieldProprietarioRGOrgaoEmisssor = new JTextField();
 		textFieldProprietarioRGOrgaoEmisssor.setDocument(new EntradaMaiuscula(20));
 		add(textFieldProprietarioRGOrgaoEmisssor);
 
-		labelProprietarioCPF = new JLabel("CPF (PROPRIETÁRIO)");
+		labelProprietarioCPF = new JLabel("CPF ( PROPRIETÁRIO )");
 		add(labelProprietarioCPF);
 
 		textFieldProprietarioCPF = new JFormattedTextField(Mascara.getCpf());
 		add(textFieldProprietarioCPF);
 
-		labelProprietarioCNPJ = new JLabel("CNPJ (PROPRIETÁRIO)");
+		labelProprietarioCNPJ = new JLabel("CNPJ ( PROPRIETÁRIO )");
 		add(labelProprietarioCNPJ);
 
 		textFieldProprietarioCNPJ = new JFormattedTextField(Mascara.getCnpj());
 		add(textFieldProprietarioCNPJ);
 
-		labelProprietarioFone1 = new JLabel("TELEFONE (PROPRIETÁRIO)");
+		labelProprietarioFone1 = new JLabel("TELEFONE ( PROPRIETÁRIO )");
 		add(labelProprietarioFone1);
 
 		textFieldProprietarioFone1 = new JFormattedTextField(Mascara.getFone());
 		add(textFieldProprietarioFone1);
 
-		labelProprietarioFone2 = new JLabel("TELEFONE (PROPRIETÁRIO)");
+		labelProprietarioFone2 = new JLabel("TELEFONE ( PROPRIETÁRIO )");
 		add(labelProprietarioFone2);
 
 		textFieldProprietarioFone2 = new JFormattedTextField(Mascara.getFone());
 		add(textFieldProprietarioFone2);
 
-		labelProprietarioFax = new JLabel("FAX (PROPRIETÁRIO)");
+		labelProprietarioFax = new JLabel("FAX ( PROPRIETÁRIO )");
 		add(labelProprietarioFax);
 
 		textFieldProprietarioFax = new JFormattedTextField(Mascara.getFax());
 		add(textFieldProprietarioFax);
 
-		labelProprietarioEmail = new JLabel("EMAIL (PROPRIETÁRIO)");
+		labelProprietarioEmail = new JLabel("EMAIL ( PROPRIETÁRIO )");
 		add(labelProprietarioEmail);
 
 		textFieldProprietarioEmail = new JTextField();
 		textFieldProprietarioEmail.setDocument(new EntradaMinuscula(50));
 		add(textFieldProprietarioEmail);
 
-		labelPais = new JLabel("PAÍS (ENDEREÇO DO PROPRIETÁRIO)");
+		labelPais = new JLabel("PAÍS ( ENDEREÇO DO PROPRIETÁRIO )");
 		add(labelPais);
 
 		textFieldPais = new JTextField();
 		textFieldPais.setDocument(new EntradaMaiuscula(50));
 		add(textFieldPais);
 
-		labelEstado = new JLabel("ESTADO (ENDEREÇO DO PROPRIETÁRIO)");
+		labelEstado = new JLabel("ESTADO ( ENDEREÇO DO PROPRIETÁRIO )");
 		add(labelEstado);
 
 		textFieldEstado = new JTextField();
 		textFieldEstado.setDocument(new EntradaMaiuscula(50));
 		add(textFieldEstado);
 
-		labelCidade = new JLabel("CIDADE (ENDEREÇO DO PROPRIETÁRIO)");
+		labelCidade = new JLabel("CIDADE ( ENDEREÇO DO PROPRIETÁRIO )");
 		add(labelCidade);
 
 		textFieldCidade = new JTextField();
 		textFieldCidade.setDocument(new EntradaMaiuscula(50));
 		add(textFieldCidade);
 
-		labelBairro = new JLabel("BAIRRO (ENDEREÇO DO PROPRIETÁRIO)");
+		labelBairro = new JLabel("BAIRRO ( ENDEREÇO DO PROPRIETÁRIO )");
 		add(labelBairro);
 
 		textFieldBairro = new JTextField();
 		textFieldBairro.setDocument(new EntradaMaiuscula(50));
 		add(textFieldBairro);
 
-		labelLogradouro = new JLabel("LOGRADOURO (ENDEREÇO DO PROPRIETÁRIO)");
+		labelLogradouro = new JLabel("LOGRADOURO ( ENDEREÇO DO PROPRIETÁRIO )");
 		add(labelLogradouro);
 
 		textFieldLogradouro = new JTextField();
 		textFieldLogradouro.setDocument(new EntradaMaiuscula(50));
 		add(textFieldLogradouro);
 
-		labelComplemento = new JLabel("COMPLEMENTO (ENDEREÇO DO PROPRIETÁRIO)");
+		labelComplemento = new JLabel("COMPLEMENTO ( ENDEREÇO DO PROPRIETÁRIO )");
 		add(labelComplemento);
 
 		textFieldComplemento = new JTextField();
 		textFieldComplemento.setDocument(new EntradaMaiuscula(20));
 		add(textFieldComplemento);
 
-		labelCep = new JLabel("CEP (ENDEREÇO DO PROPRIETÁRIO)");
+		labelCep = new JLabel("CEP ( ENDEREÇO DO PROPRIETÁRIO )");
 		add(labelCep);
 
 		textFieldCep = new JFormattedTextField(Mascara.getCep());
 		add(textFieldCep);
 
-		labelAnoFabricacao = new JLabel("ANO DE FABRICAÇÃO (VEÍCULO)");
+		labelAnoFabricacao = new JLabel("ANO DE FABRICAÇÃO ( VEÍCULO )");
 		add(labelAnoFabricacao);
 
 		textFieldAnoFabricacao = new JFormattedTextField(Mascara.getAno());
 		add(textFieldAnoFabricacao);
 
-		labelAnoModelo = new JLabel("ANO MODELO (VEÍCULO)");
+		labelAnoModelo = new JLabel("ANO MODELO ( VEÍCULO )");
 		add(labelAnoModelo);
 
 		textFieldAnoModelo = new JFormattedTextField(Mascara.getAno());
@@ -1396,59 +1424,58 @@ public final class VeiculoPc extends JPanel implements Gui {
 		boxIpva.addItem("NÃO");
 		add(boxIpva);
 
-		labelProprietarioAnteriorNome = new JLabel("NOME (PROPRIETÁRIO ANTERIOR)");
+		labelProprietarioAnteriorNome = new JLabel("NOME ( PROPRIETÁRIO ANTERIOR )");
 		add(labelProprietarioAnteriorNome);
 
 		textFieldProprietarioAnteriorNome = new JTextField();
 		textFieldProprietarioAnteriorNome.setDocument(new EntradaMaiuscula(50));
 		add(textFieldProprietarioAnteriorNome);
 
-		labelProprietarioAnteriorCPF = new JLabel("CPF (PROPRIETÁRIO ANTERIOR)");
+		labelProprietarioAnteriorCPF = new JLabel("CPF ( PROPRIETÁRIO ANTERIOR )");
 		add(labelProprietarioAnteriorCPF);
 
 		textFieldProprietarioAnteriorCPF = new JFormattedTextField(Mascara.getCpf());
 		add(textFieldProprietarioAnteriorCPF);
 
-		labelProprietarioAnteriorCNPJ = new JLabel("CNPJ (PROPRIETÁRIO ANTERIOR)");
+		labelProprietarioAnteriorCNPJ = new JLabel("CNPJ ( PROPRIETÁRIO ANTERIOR )");
 		add(labelProprietarioAnteriorCNPJ);
 
 		textFieldProprietarioAnteriorCNPJ = new JFormattedTextField(Mascara.getCnpj());
-		;
 		add(textFieldProprietarioAnteriorCNPJ);
 
-		labelProprietarioAnteriorRGNumero = new JLabel("RG NÚMERO (PROPRIETÁRIO ANTERIOR)");
+		labelProprietarioAnteriorRGNumero = new JLabel("RG NÚMERO ( PROPRIETÁRIO ANTERIOR )");
 		add(labelProprietarioAnteriorRGNumero);
 
 		textFieldProprietarioAnteriorRGNumero = new JTextField();
 		textFieldProprietarioAnteriorRGNumero.setDocument(new EntradaMaiuscula(15));
 		add(textFieldProprietarioAnteriorRGNumero);
 
-		labelProprietarioAnteriorRGOrgaoEmissor = new JLabel("RG ORGÃO EMISSOR (PROPRIETÁRIO ANTERIOR)");
+		labelProprietarioAnteriorRGOrgaoEmissor = new JLabel("RG ORGÃO EMISSOR ( PROPRIETÁRIO ANTERIOR )");
 		add(labelProprietarioAnteriorRGOrgaoEmissor);
 
 		textFieldProprietarioAnteriorRGOrgaoEmissor = new JTextField();
 		textFieldProprietarioAnteriorRGOrgaoEmissor.setDocument(new EntradaMaiuscula(20));
 		add(textFieldProprietarioAnteriorRGOrgaoEmissor);
 
-		labelProprietarioAnteriorFone1 = new JLabel("TELEFONE (PROPRIETÁRIO ANTERIOR)");
+		labelProprietarioAnteriorFone1 = new JLabel("TELEFONE ( PROPRIETÁRIO ANTERIOR )");
 		add(labelProprietarioAnteriorFone1);
 
 		textFieldProprietarioAnteriorFone1 = new JFormattedTextField(Mascara.getFone());
 		add(textFieldProprietarioAnteriorFone1);
 
-		labelProprietarioAnteriorFone2 = new JLabel("TELEFONE (PROPRIETÁRIO ANTERIOR)");
+		labelProprietarioAnteriorFone2 = new JLabel("TELEFONE ( PROPRIETÁRIO ANTERIOR )");
 		add(labelProprietarioAnteriorFone2);
 
 		textFieldProprietarioAnteriorFone2 = new JFormattedTextField(Mascara.getFone());
 		add(textFieldProprietarioAnteriorFone2);
 
-		labelProprietarioAnteriorFax = new JLabel("FAX (PROPRIETÁRIO ANTERIOR)");
+		labelProprietarioAnteriorFax = new JLabel("FAX ( PROPRIETÁRIO ANTERIOR )");
 		add(labelProprietarioAnteriorFax);
 
 		textFieldProprietarioAnteriorFax = new JFormattedTextField(Mascara.getFax());
 		add(textFieldProprietarioAnteriorFax);
 
-		labelProprietarioAnteriorEmail = new JLabel("EMAIL (PROPRIETÁRIO ANTERIOR)");
+		labelProprietarioAnteriorEmail = new JLabel("EMAIL ( PROPRIETÁRIO ANTERIOR )");
 		add(labelProprietarioAnteriorEmail);
 
 		textFieldProprietarioAnteriorEmail = new JTextField();
@@ -1456,7 +1483,7 @@ public final class VeiculoPc extends JPanel implements Gui {
 		add(textFieldProprietarioAnteriorEmail);
 
 		// Lay out the panel.
-		SpringUtilities.makeCompactGrid(this, 157, 1, // rows, cols
+		SpringUtilities.makeCompactGrid(this, 161, 1, // rows, cols
 				5, 5, // initX, initY
 				5, 5); // xPad, yPad
 		setOpaque(true); // content panes must be opaque

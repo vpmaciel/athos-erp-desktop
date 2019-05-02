@@ -131,7 +131,7 @@ public final class LoginPc extends JPanel implements Gui {
 
 	}
 
-	public boolean validarCamposCadastro() {
+	public boolean validarGui() {
 
 		if (getTextFieldNome().getText().length() == 0 || new String(getTextFieldSenha().getPassword()).length() == 0) {
 			System.exit(0);

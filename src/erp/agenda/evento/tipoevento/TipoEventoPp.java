@@ -68,7 +68,7 @@ public final class TipoEventoPp extends JPanel {
 		table.getSelectionModel().addListSelectionListener(listener);
 	}
 
-	public int pesquisarRegistroAgenda(TipoEvento tipoEvento) {
+	public int pesquisarRegistro(TipoEvento tipoEvento) {
 		agendaList = new LinkedList<>();
 		try {
 			agendaList = new LinkedList<>(TipoEventoFac.pesquisarRegistro(tipoEvento));

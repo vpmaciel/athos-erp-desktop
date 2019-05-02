@@ -15,6 +15,7 @@ import erp.agenda.evento.tipoevento.TipoEvento;
 import erp.agenda.evento.tipoevento.TipoEventoComp;
 import erp.agenda.evento.tipoevento.TipoEventoFac;
 import erp.main.MainCont;
+import erp.main.MainFc;
 
 final class EventoCont {
 
@@ -93,21 +94,18 @@ final class EventoCont {
 
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
+
 			List<Evento> eventos = new LinkedList<>();
 
-			if (evento.getId() == null) {
-				Msg.avisoImprimiRegistroNaoCadastrado();
-				return;
-			}
-
 			try {
-				if (eventos.add(EventoFac.getRegistro(evento))) {
-					EventoRel eventoRel = new EventoRel(eventos);
-					eventoRel.retornarRelatorio(true);
-				}
+				eventos = new LinkedList<>(EventoFac.pesquisarRegistro(new Evento()));
 			} catch (Exception e) {
 				System.out.println(e);
 			}
+
+			EventoRel eventoRel = new EventoRel(eventos);
+			eventoRel.retornarRelatorio(true);
+
 		}
 	}
 
@@ -117,15 +115,18 @@ final class EventoCont {
 		public void actionPerformed(ActionEvent actionEvent) {
 			List<Evento> eventos = new LinkedList<>();
 
-			try {
-				eventos = new LinkedList<>(EventoFac.pesquisarRegistro(evento));
-			} catch (Exception e) {
-				System.out.println(e);
+			if (evento.getId() == null) {
+				Msg.avisoImprimiRegistroNaoCadastrado();
+				return;
 			}
-			EventoRel eventoRel = new EventoRel(eventos);
-			eventoRel.retornarRelatorio(true);
+			if (eventos.add(EventoFac.getRegistro(evento))) {
+				EventoRel eventoRel = new EventoRel(eventos);
+				eventoRel.retornarRelatorio(true);
+			}
+
 		}
 	}
+
 
 	public class Novo implements ActionListener {
 
@@ -144,7 +145,7 @@ final class EventoCont {
 
 			evento = new Evento();
 			getEventoFc().limparGui();
-			getEventoPc().getDescricaoGui().requestFocus();
+			getEventoPc().getGuiDescricao().requestFocus();
 		}
 	}
 
@@ -152,11 +153,14 @@ final class EventoCont {
 
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
-			evento = new Evento();
 			atualizarObjeto();
-			getEventoPp().pesquisarRegistroEvento(evento);
+			long totalPesquisaRegistro = 0;
+			totalPesquisaRegistro = getEventoPp().pesquisarRegistro(evento);
+			Msg.avisoRegistroEncontrado(totalPesquisaRegistro);
 
-			MainCont.mostrarFrame(getEventoFp());
+			if (totalPesquisaRegistro > 0) {
+				MainFc.mostrarFrame(getEventoFp());
+			}
 		}
 	}
 
@@ -184,9 +188,9 @@ final class EventoCont {
 				if (mensagem != JOptionPane.YES_OPTION) {
 					return;
 				}
-				String placa = getEventoPc().getDescricaoGui().getText();
+				String placa = getEventoPc().getGuiDescricao().getText();
 				if (placa == null || placa.length() == 0) {
-					getEventoPc().getDescricaoGui().requestFocus();
+					getEventoPc().getGuiDescricao().requestFocus();
 					Msg.avisoCampoObrigatorio("Data");
 					return;
 				}
@@ -196,7 +200,7 @@ final class EventoCont {
 					EventoFac.salvarRegistro(evento);
 					evento = new Evento();
 					MainCont.getAgendaEventoFc().limparGui();
-					getEventoPc().getDescricaoGui().requestFocus();
+					getEventoPc().getGuiDescricao().requestFocus();
 					Msg.sucessoSalvarRegistro();
 				}
 			} catch (Exception e) {
@@ -213,15 +217,15 @@ final class EventoCont {
 		}
 		getEventoPc().getTipoEventoGui().setSelectedItem(evento.getTipoEvento());
 		getEventoPc().getDataGui().setText(evento.getData());
-		getEventoPc().getDescricaoGui().setText(evento.getDescricao());
-		getEventoPc().getHoraInicioGui().setText(evento.getHoraInicio());
-		getEventoPc().getHoraTerminoGui().setText(evento.getHoraTermino());
+		getEventoPc().getGuiDescricao().setText(evento.getDescricao());
+		getEventoPc().getGuiHoraInicio().setText(evento.getHoraInicio());
+		getEventoPc().getGuiHoraTermino().setText(evento.getHoraTermino());
 	}
 
 	public void atualizarObjeto() {
-		evento.setDescricao(getEventoPc().getDescricaoGui().getText());
-		evento.setHoraTermino(getEventoPc().getHoraTerminoGui().getText());
-		evento.setHoraInicio(getEventoPc().getHoraInicioGui().getText());
+		evento.setDescricao(getEventoPc().getGuiDescricao().getText());
+		evento.setHoraTermino(getEventoPc().getGuiHoraTermino().getText());
+		evento.setHoraInicio(getEventoPc().getGuiHoraInicio().getText());
 		evento.setData(getEventoPc().getDataGui().getText());
 		evento.setTipoEvento((TipoEvento) getEventoPc().getTipoEventoGui().getSelectedItem());
 	}

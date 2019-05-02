@@ -14,6 +14,7 @@ import javax.swing.JOptionPane;
 
 import arquitetura.gui.Msg;
 import erp.main.MainCont;
+import erp.main.MainFc;
 
 final class UsuarioCont {
 
@@ -92,21 +93,17 @@ final class UsuarioCont {
 
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
+
 			List<Usuario> usuarios = new LinkedList<>();
 
-			if (usuario.getId() == null) {
-				Msg.avisoImprimiRegistroNaoCadastrado();
-				return;
-			}
-
 			try {
-				if (usuarios.add(UsuarioFac.getRegistro(usuario))) {
-					UsuarioRel usuarioRel = new UsuarioRel(usuarios);
-					usuarioRel.retornarRelatorio(true);
-				}
+				usuarios = new LinkedList<>(UsuarioFac.pesquisarRegistro(new Usuario()));
 			} catch (Exception e) {
 				System.out.println(e);
 			}
+
+			UsuarioRel usuarioRel = new UsuarioRel(usuarios);
+			usuarioRel.retornarRelatorio(true);
 
 		}
 	}
@@ -117,15 +114,17 @@ final class UsuarioCont {
 		public void actionPerformed(ActionEvent actionEvent) {
 			List<Usuario> usuarios = new LinkedList<>();
 
-			try {
-				usuarios = new LinkedList<>(UsuarioFac.pesquisarRegistro(usuario));
-			} catch (Exception e) {
-				System.out.println(e);
+			if (usuario.getId() == null) {
+				Msg.avisoImprimiRegistroNaoCadastrado();
+				return;
 			}
-			UsuarioRel usuarioRel = new UsuarioRel(usuarios);
-			usuarioRel.retornarRelatorio(true);
+			if (usuarios.add(UsuarioFac.getRegistro(usuario))) {
+				UsuarioRel usuarioRel = new UsuarioRel(usuarios);
+				usuarioRel.retornarRelatorio(true);
+			}
 		}
 	}
+
 
 	public class MostraFrameUsuario extends MouseAdapter {
 
@@ -153,10 +152,14 @@ final class UsuarioCont {
 
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
-			usuario = new Usuario();
 			atualizarObjeto();
-			getUsuarioPp().pesquisarRegistroUsuario(usuario);
-			MainCont.mostrarFrame(getUsuarioFp());
+			long totalPesquisaRegistro = 0;
+			totalPesquisaRegistro = getUsuarioPp().pesquisarRegistroUsuario(usuario);
+			Msg.avisoRegistroEncontrado(totalPesquisaRegistro);
+
+			if (totalPesquisaRegistro > 0) {
+				MainFc.mostrarFrame(getUsuarioFp());
+			}
 		}
 	}
 

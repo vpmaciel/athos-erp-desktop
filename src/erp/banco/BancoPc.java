@@ -46,11 +46,11 @@ public final class BancoPc extends JPanel implements Gui {
 		return configuracaoGui;
 	}
 
-	public JTextField getCodigoGui() {
+	public JTextField getGuiCodigo() {
 		return textFieldCodigo;
 	}
 
-	public JTextField getNomeGui() {
+	public JTextField getGuiNome() {
 		return textFieldNome;
 	}
 
@@ -115,7 +115,7 @@ public final class BancoPc extends JPanel implements Gui {
 	public void reiniciarGui() {
 	}
 
-	public boolean validarCamposCadastro() {
+	public boolean validarGui() {
 		if (!Entrada.validar(textFieldNome, labelNome, RegExp.NOME, true)) {
 			return false;
 		}

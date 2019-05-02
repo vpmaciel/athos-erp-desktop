@@ -38,7 +38,7 @@ public final class TipoEventoPc extends JPanel implements Gui {
 		return configuracaoGui;
 	}
 
-	public JTextField getNomeGui() {
+	public JTextField getGuiNome() {
 		return textFieldNome;
 	}
 

@@ -111,7 +111,7 @@ public final class UsuarioPc extends JPanel implements Gui {
 	public void reiniciarGui() {
 	}
 
-	public boolean validarCamposCadastro() {
+	public boolean validarGui() {
 		if (!Entrada.validar(textFieldNome, labelNome, RegExp.NOME, true)) {
 			return false;
 		}

@@ -1,5 +1,6 @@
 package erp.curriculo.caracteristica;
 
+import java.awt.Cursor;
 import java.util.Collections;
 import java.util.List;
 
@@ -251,455 +252,459 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 	private JLabel labelSerio;
 	private JComboBox<String> boxSerio;
 
-	public JComboBox<Funcionario> getFuncionarioGui() {
+	public JLabel getLabelFuncionario() {
+		return labelFuncionario;
+	}
+	
+	public JComboBox<Funcionario> getGuiFuncionario() {
 		return boxFuncionario;
 	}
 
-	public JComboBox<String> getSimpaticoGui() {
+	public JComboBox<String> getGuiSimpatico() {
 		return boxSimpatico;
 	}
 
-	public JComboBox<String> getCuidadosoGui() {
+	public JComboBox<String> getGuiCuidadoso() {
 		return boxCuidadoso;
 	}
 
-	public JComboBox<String> getPreocupadoGui() {
+	public JComboBox<String> getGuiPreocupado() {
 		return boxPreocupado;
 	}
 
-	public JComboBox<String> getInquietoGui() {
+	public JComboBox<String> getGuiInquieto() {
 		return boxInquieto;
 	}
 
-	public JComboBox<String> getEstavelGui() {
+	public JComboBox<String> getGuiEstavel() {
 		return boxEstavel;
 	}
 
-	public JComboBox<String> getDespretensiosoGui() {
+	public JComboBox<String> getGuiDespretensioso() {
 		return boxDespretensioso;
 	}
 
-	public JComboBox<String> getBemHumoradoGui() {
+	public JComboBox<String> getGuiBemHumorado() {
 		return boxBemHumorado;
 	}
 
-	public JComboBox<String> getIncertoGui() {
+	public JComboBox<String> getGuiIncerto() {
 		return boxIncerto;
 	}
 
-	public JComboBox<String> getExigenteGui() {
+	public JComboBox<String> getGuiExigente() {
 		return boxExigente;
 	}
 
-	public JComboBox<String> getInteressadoGui() {
+	public JComboBox<String> getGuiInteressado() {
 		return boxInteressado;
 	}
 
-	public JComboBox<String> getDependenteGui() {
+	public JComboBox<String> getGuiDependente() {
 		return boxDependente;
 	}
 
-	public JComboBox<String> getPacificoGui() {
+	public JComboBox<String> getGuiPacifico() {
 		return boxPacifico;
 	}
 
-	public JComboBox<String> getArticuladoGui() {
+	public JComboBox<String> getGuiArticulado() {
 		return boxArticulado;
 	}
 
-	public JComboBox<String> getPrevisivelGui() {
+	public JComboBox<String> getGuiPrevisivel() {
 		return boxPrevisivel;
 	}
 
-	public JComboBox<String> getSeguroGui() {
+	public JComboBox<String> getGuiSeguro() {
 		return boxSeguro;
 	}
 
-	public JComboBox<String> getDedicadoGui() {
+	public JComboBox<String> getGuiDedicado() {
 		return boxDedicado;
 	}
 
-	public JComboBox<String> getPersuasivoGui() {
+	public JComboBox<String> getGuiPersuasivo() {
 		return boxPersuasivo;
 	}
 
-	public JComboBox<String> getEncantadorGui() {
+	public JComboBox<String> getGuiEncantador() {
 		return boxEncantador;
 	}
 
-	public JComboBox<String> getTeimosoGui() {
+	public JComboBox<String> getGuiTeimoso() {
 		return boxTeimoso;
 	}
 
-	public JComboBox<String> getCompetitivoGui() {
+	public JComboBox<String> getGuiCompetitivo() {
 		return boxCompetitivo;
 	}
 
-	public JComboBox<String> getMaleavelGui() {
+	public JComboBox<String> getGuiMaleavel() {
 		return boxMaleavel;
 	}
 
-	public JComboBox<String> getObedienteGui() {
+	public JComboBox<String> getGuiObediente() {
 		return boxObediente;
 	}
 
-	public JComboBox<String> getIntrospectivoGui() {
+	public JComboBox<String> getGuiIntrospectivo() {
 		return boxIntrospectivo;
 	}
 
-	public JComboBox<String> getPerfeccionistaGui() {
+	public JComboBox<String> getGuiPerfeccionista() {
 		return boxPerfeccionista;
 	}
 
-	public JComboBox<String> getPrecavidoGui() {
+	public JComboBox<String> getGuiPrecavido() {
 		return boxPrecavido;
 	}
 
-	public JComboBox<String> getPraticoGui() {
+	public JComboBox<String> getGuiPratico() {
 		return boxPratico;
 	}
 
-	public JComboBox<String> getImpulsivoGui() {
+	public JComboBox<String> getGuiImpulsivo() {
 		return boxImpulsivo;
 	}
 
-	public JComboBox<String> getSemLimitesGui() {
+	public JComboBox<String> getGuiSemLimites() {
 		return boxSemLimites;
 	}
 
-	public JComboBox<String> getIndiferenteGui() {
+	public JComboBox<String> getGuiIndiferente() {
 		return boxIndiferente;
 	}
 
-	public JComboBox<String> getAgilGui() {
+	public JComboBox<String> getGuiAgil() {
 		return boxAgil;
 	}
 
-	public JComboBox<String> getSociavelGui() {
+	public JComboBox<String> getGuiSociavel() {
 		return boxSociavel;
 	}
 
-	public JComboBox<String> getCarismaticoGui() {
+	public JComboBox<String> getGuiCarismatico() {
 		return boxCarismatico;
 	}
 
-	public JComboBox<String> getPassivoGui() {
+	public JComboBox<String> getGuiPassivo() {
 		return boxPassivo;
 	}
 
-	public JComboBox<String> getOusadoGui() {
+	public JComboBox<String> getGuiOusado() {
 		return boxOusado;
 	}
 
-	public JComboBox<String> getIndependenteGui() {
+	public JComboBox<String> getGuiIndependente() {
 		return boxIndependente;
 	}
 
-	public JComboBox<String> getCautelosoGui() {
+	public JComboBox<String> getGuiCauteloso() {
 		return boxCauteloso;
 	}
 
-	public JComboBox<String> getConvincenteGui() {
+	public JComboBox<String> getGuiConvincente() {
 		return boxConvincente;
 	}
 
-	public JComboBox<String> getAlegreGui() {
+	public JComboBox<String> getGuiAlegre() {
 		return boxAlegre;
 	}
 
-	public JComboBox<String> getDestemidoGui() {
+	public JComboBox<String> getGuiDestemido() {
 		return boxDestemido;
 	}
 
-	public JComboBox<String> getMenteAbertaGui() {
+	public JComboBox<String> getGuiMenteAberta() {
 		return boxMenteAberta;
 	}
 
-	public JComboBox<String> getInspiradorGui() {
+	public JComboBox<String> getGuiInspirador() {
 		return boxInspirador;
 	}
 
-	public JComboBox<String> getFirmeGui() {
+	public JComboBox<String> getGuiFirme() {
 		return boxFirme;
 	}
 
-	public JComboBox<String> getPrecisoGui() {
+	public JComboBox<String> getGuiPreciso() {
 		return boxPreciso;
 	}
 
-	public JComboBox<String> getDesprendidoGui() {
+	public JComboBox<String> getGuiDesprendido() {
 		return boxDesprendido;
 	}
 
-	public JComboBox<String> getObstinadoGui() {
+	public JComboBox<String> getGuiObstinado() {
 		return boxObstinado;
 	}
 
-	public JComboBox<String> getCalmoGui() {
+	public JComboBox<String> getGuiCalmo() {
 		return boxCalmo;
 	}
 
-	public JComboBox<String> getLealGui() {
+	public JComboBox<String> getGuiLeal() {
 		return boxLeal;
 	}
 
-	public JComboBox<String> getAmavelGui() {
+	public JComboBox<String> getGuiAmavel() {
 		return boxAmavel;
 	}
 
-	public JComboBox<String> getContidoGui() {
+	public JComboBox<String> getGuiContido() {
 		return boxContido;
 	}
 
-	public JComboBox<String> getEmpolgadoGui() {
+	public JComboBox<String> getGuiEmpolgado() {
 		return boxEmpolgado;
 	}
 
-	public JComboBox<String> getCompreensivoGui() {
+	public JComboBox<String> getGuiCompreensivo() {
 		return boxCompreensivo;
 	}
 
-	public JComboBox<String> getExtrovertidoGui() {
+	public JComboBox<String> getGuiExtrovertido() {
 		return boxExtrovertido;
 	}
 
-	public JComboBox<String> getPrevenidoGui() {
+	public JComboBox<String> getGuiPrevenido() {
 		return boxPrevenido;
 	}
 
-	public JComboBox<String> getVersatilGui() {
+	public JComboBox<String> getGuiVersatil() {
 		return boxVersatil;
 	}
 
-	public JComboBox<String> getEnergicoGui() {
+	public JComboBox<String> getGuiEnergico() {
 		return boxEnergico;
 	}
 
-	public JComboBox<String> getPersistenteGui() {
+	public JComboBox<String> getGuiPersistente() {
 		return boxPersistente;
 	}
 
-	public JComboBox<String> getDesligadoGui() {
+	public JComboBox<String> getGuiDesligado() {
 		return boxDesligado;
 	}
 
-	public JComboBox<String> getDivertidoGui() {
+	public JComboBox<String> getGuiDivertido() {
 		return boxDivertido;
 	}
 
-	public JComboBox<String> getObjetivoGui() {
+	public JComboBox<String> getGuiObjetivo() {
 		return boxObjetivo;
 	}
 
-	public JComboBox<String> getAssumeRiscosCalculadosGui() {
+	public JComboBox<String> getGuiAssumeRiscosCalculados() {
 		return boxAssumeRiscosCalculados;
 	}
 
-	public JComboBox<String> getDisciplinadoGui() {
+	public JComboBox<String> getGuiDisciplinado() {
 		return boxDisciplinado;
 	}
 
-	public JComboBox<String> getMeticulosoGui() {
+	public JComboBox<String> getGuiMeticuloso() {
 		return boxMeticuloso;
 	}
 
-	public JComboBox<String> getPonderadoGui() {
+	public JComboBox<String> getGuiPonderado() {
 		return boxPonderado;
 	}
 
-	public JComboBox<String> getObservadorGui() {
+	public JComboBox<String> getGuiObservador() {
 		return boxObservador;
 	}
 
-	public JComboBox<String> getAnsiosoGui() {
+	public JComboBox<String> getGuiAnsioso() {
 		return boxAnsioso;
 	}
 
-	public JComboBox<String> getAnaliticoGui() {
+	public JComboBox<String> getGuiAnalitico() {
 		return boxAnalitico;
 	}
 
-	public JComboBox<String> getAnimadoGui() {
+	public JComboBox<String> getGuiAnimado() {
 		return boxAnimado;
 	}
 
-	public JComboBox<String> getDiscretoGui() {
+	public JComboBox<String> getGuiDiscreto() {
 		return boxDiscreto;
 	}
 
-	public JComboBox<String> getOriginalGui() {
+	public JComboBox<String> getGuiOriginal() {
 		return boxOriginal;
 	}
 
-	public JComboBox<String> getConciliadorGui() {
+	public JComboBox<String> getGuiConciliador() {
 		return boxConciliador;
 	}
 
-	public JComboBox<String> getLiberalGui() {
+	public JComboBox<String> getGuiLiberal() {
 		return boxLiberal;
 	}
 
-	public JComboBox<String> getSarcasticoGui() {
+	public JComboBox<String> getGuiSarcastico() {
 		return boxSarcastico;
 	}
 
-	public JComboBox<String> getPessimistaGui() {
+	public JComboBox<String> getGuiPessimista() {
 		return boxPessimista;
 	}
 
-	public JComboBox<String> getRebeldeGui() {
+	public JComboBox<String> getGuiRebelde() {
 		return boxRebelde;
 	}
 
-	public JComboBox<String> getDiplomaticoGui() {
+	public JComboBox<String> getGuiDiplomatico() {
 		return boxDiplomatico;
 	}
 
-	public JComboBox<String> getDiretoGui() {
+	public JComboBox<String> getGuiDireto() {
 		return boxDireto;
 	}
 
-	public JComboBox<String> getAtenciosoGui() {
+	public JComboBox<String> getGuiAtencioso() {
 		return boxAtencioso;
 	}
 
-	public JComboBox<String> getDominadorGui() {
+	public JComboBox<String> getGuiDominador() {
 		return boxDominador;
 	}
 
-	public JComboBox<String> getReceosoGui() {
+	public JComboBox<String> getGuiReceoso() {
 		return boxReceoso;
 	}
 
-	public JComboBox<String> getRespeitosoGui() {
+	public JComboBox<String> getGuiRespeitoso() {
 		return boxRespeitoso;
 	}
 
-	public JComboBox<String> getDescrenteGui() {
+	public JComboBox<String> getGuiDescrente() {
 		return boxDescrente;
 	}
 
-	public JComboBox<String> getAgitadoGui() {
+	public JComboBox<String> getGuiAgitado() {
 		return boxAgitado;
 	}
 
-	public JComboBox<String> getInfluenteGui() {
+	public JComboBox<String> getGuiInfluente() {
 		return boxInfluente;
 	}
 
-	public JComboBox<String> getDisponivelGui() {
+	public JComboBox<String> getGuiDisponivel() {
 		return boxDisponivel;
 	}
 
-	public JComboBox<String> getExpansivoGui() {
+	public JComboBox<String> getGuiExpansivo() {
 		return boxExpansivo;
 	}
 
-	public JComboBox<String> getConvencionalGui() {
+	public JComboBox<String> getGuiConvencional() {
 		return boxConvencional;
 	}
 
-	public JComboBox<String> getPacienteGui() {
+	public JComboBox<String> getGuiPaciente() {
 		return boxPaciente;
 	}
 
-	public JComboBox<String> getAventureiroGui() {
+	public JComboBox<String> getGuiAventureiro() {
 		return boxAventureiro;
 	}
 
-	public JComboBox<String> getDecididoGui() {
+	public JComboBox<String> getGuiDecidido() {
 		return boxDecidido;
 	}
 
-	public JComboBox<String> getRealistaGui() {
+	public JComboBox<String> getGuiRealista() {
 		return boxRealista;
 	}
 
-	public JComboBox<String> getExpressivoGui() {
+	public JComboBox<String> getGuiExpressivo() {
 		return boxExpressivo;
 	}
 
-	public JComboBox<String> getDeterminadoGui() {
+	public JComboBox<String> getGuiDeterminado() {
 		return boxDeterminado;
 	}
 
-	public JComboBox<String> getFechadoGui() {
+	public JComboBox<String> getGuiFechado() {
 		return boxFechado;
 	}
 
-	public JComboBox<String> getAutoConfianteGui() {
+	public JComboBox<String> getGuiAutoConfiante() {
 		return boxAutoconfiante;
 	}
 
-	public JComboBox<String> getSensatoGui() {
+	public JComboBox<String> getGuiSensato() {
 		return boxSensato;
 	}
 
-	public JComboBox<String> getAdequadoGui() {
+	public JComboBox<String> getGuiAdequado() {
 		return boxAdequado;
 	}
 
-	public JComboBox<String> getEspontaneoGui() {
+	public JComboBox<String> getGuiEspontaneo() {
 		return boxEspontaneo;
 	}
 
-	public JComboBox<String> getAtivoGui() {
+	public JComboBox<String> getGuiAtivo() {
 		return boxAtivo;
 	}
 
-	public JComboBox<String> getDesconfiadoGui() {
+	public JComboBox<String> getGuiDesconfiado() {
 		return boxDesconfiado;
 	}
 
-	public JComboBox<String> getLivreGui() {
+	public JComboBox<String> getGuiLivre() {
 		return boxLivre;
 	}
 
-	public JComboBox<String> getJustoGui() {
+	public JComboBox<String> getGuiJusto() {
 		return boxJusto;
 	}
 
-	public JComboBox<String> getDesencanadoGui() {
+	public JComboBox<String> getGuiDesencanado() {
 		return boxDesencanado;
 	}
 
-	public JComboBox<String> getLogicoGui() {
+	public JComboBox<String> getGuiLogico() {
 		return boxLogico;
 	}
 
-	public JComboBox<String> getApaticoGui() {
+	public JComboBox<String> getGuiApatico() {
 		return boxApatico;
 	}
 
-	public JComboBox<String> getReservadoGui() {
+	public JComboBox<String> getGuiReservado() {
 		return boxReservado;
 	}
 
-	public JComboBox<String> getHumildeGui() {
+	public JComboBox<String> getGuiHumilde() {
 		return boxHumilde;
 	}
 
-	public JComboBox<String> getEgocentricoGui() {
+	public JComboBox<String> getGuiEgocentrico() {
 		return boxEgocentrico;
 	}
 
-	public JComboBox<String> getSistematicoGui() {
+	public JComboBox<String> getGuiSistematico() {
 		return boxSistematico;
 	}
 
-	public JComboBox<String> getGostaDeSeArriscarGui() {
+	public JComboBox<String> getGuiGostaDeSeArriscar() {
 		return boxGostaDeSeArriscar;
 	}
 
-	public JComboBox<String> getSerenoGui() {
+	public JComboBox<String> getGuiSereno() {
 		return boxSereno;
 	}
 
-	public JComboBox<String> getCortesGui() {
+	public JComboBox<String> getGuiCortes() {
 		return boxCortes;
 	}
 
-	public JComboBox<String> getSerioGui() {
+	public JComboBox<String> getGuiSerio() {
 		return boxSerio;
 	}
 
@@ -731,10 +736,14 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 
 	@Override
 	public void iniciarGui() {
+		
+		final Cursor cursor = Cursor.getPredefinedCursor(Cursor.HAND_CURSOR);
+
 		toolBar = new ToolBar();
 		add(toolBar.getToolBar());
 
 		labelFuncionario = new JLabel("FUNCIONÁRIO");
+		labelFuncionario.setCursor(cursor);
 		add(labelFuncionario);
 
 		boxFuncionario = new JComboBox<Funcionario>();
@@ -743,7 +752,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		for (Funcionario funcionario : funcionarios) {
 			boxFuncionario.addItem(funcionario);
 		}
-
+		
 		add(boxFuncionario);
 
 		labelAdequado = new JLabel("ADEQUADO");
@@ -1792,9 +1801,9 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		Funcionario funcionario = null;
 		List<Funcionario> funcionarios = (List<Funcionario>) FuncionarioFac.getRegistro();
 		Collections.sort(funcionarios, new FuncionarioComp().new Nome());
-		this.boxFuncionario.removeAllItems();
+		boxFuncionario.removeAllItems();
 		for (Funcionario b : funcionarios) {
-			this.boxFuncionario.addItem(b);
+			boxFuncionario.addItem(b);
 		}
 		if (!MainCont.getCurriculoCaracteristicaFc().isShowing()
 				&& MainCont.getCurriculoCaracteristicaFc().getCaracteristicaCont().getCaracteristica() != null) {
@@ -1802,7 +1811,6 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 					.getFuncionario();
 			boxFuncionario.setSelectedItem(funcionario);
 		}
-
 	}
 
 	@Override

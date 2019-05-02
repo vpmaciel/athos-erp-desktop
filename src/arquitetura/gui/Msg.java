@@ -161,6 +161,14 @@ public final class Msg {
 	public static final void erroValorInvalido() {
 		JOptionPane.showMessageDialog(null, "Valor inválido !", "Erro", JOptionPane.ERROR_MESSAGE);
 	}
+	
+	public static final void erroCriarPasta() {
+		JOptionPane.showMessageDialog(null, "Não foi possível criar pasta !", "Erro", JOptionPane.ERROR_MESSAGE);
+	}
+
+	public static final void erroLookAndFeel() {
+		JOptionPane.showMessageDialog(null, "Não foi possível utilizar Look and Feel !", "Erro", JOptionPane.ERROR_MESSAGE);
+	}
 
 	public static final void sucessoAtualizarRegistro() {
 		JOptionPane.showMessageDialog(null, "Registro atualizado com sucesso !", "Informação",

@@ -67,7 +67,7 @@ public final class ContatoPp extends JPanel {
 		table.getSelectionModel().addListSelectionListener(listener);
 	}
 
-	public int pesquisarRegistroContato(Contato contato) {
+	public int pesquisarRegistro(Contato contato) {
 		contatoList = new LinkedList<>();
 		try {
 			contatoList = new LinkedList<>(ContatoFac.pesquisarRegistro(contato));

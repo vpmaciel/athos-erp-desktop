@@ -25,6 +25,8 @@ public class Veiculo implements Serializable {
 	@Id
 	@GeneratedValue
 	private Long id;
+	@Column(length = 10)
+	private String cambio;
 	@ManyToOne(cascade = CascadeType.ALL)
 	private VeiculoMarca marca;
 	@ManyToOne(cascade = CascadeType.ALL)
@@ -35,14 +37,16 @@ public class Veiculo implements Serializable {
 	private String mesReferenciaCompra;
 	@Column(length = 9)
 	private String mesReferenciaVenda;
-	@Column(length = 3)
+	@Column(length = 9)
+	private String mesReferenciaCadastro;
+	@Column(length = 4)
 	private String anoReferenciaCompra;
 	@Column(length = 4)
 	private String anoReferenciaVenda;
+	@Column(length = 4)
+	private String anoReferenciaCadastro;
 	@Column(length = 50)
 	private String nomeVeiculo;
-	@Column(length = 50)
-	private String transmissão;
 	@Column(length = 2)
 	private String marchas;
 	@Column(length = 3)
@@ -115,10 +119,9 @@ public class Veiculo implements Serializable {
 	private String proprietarioCpf;
 	@Column(length = 20)
 	private String proprietarioFax;
-	@Column(length = 50)
-	private String valorCompra;
-	@Column(length = 10)
-	private String valorVenda;
+	private double valorCompra;
+	private double valorVenda;
+	private double desconto;
 	@Column(length = 20)
 	private String proprietarioFone1;
 	@Column(length = 20)
@@ -171,7 +174,40 @@ public class Veiculo implements Serializable {
 	private String proprietarioAnteriorFone2;
 	@Column(length = 20)
 	private String proprietarioAnteriorEmail;
+	private int numeroPotas;
+	
+	public String getCambio() {
+		return cambio;
+	}
 
+	public void setCambio(String cambio) {
+		this.cambio = cambio;
+	}
+
+	public int getNumeroPortas() {
+		return numeroPotas;
+	}
+
+	public void setNumeroPortas(int numeroPotas) {
+		this.numeroPotas = numeroPotas;
+	}
+
+	public String getMesReferenciaCadastro() {
+		return mesReferenciaCadastro;
+	}
+
+	public void setMesReferenciaCadastro(String mesReferenciaCadastro) {
+		this.mesReferenciaCadastro = mesReferenciaCadastro;
+	}
+
+	public String getAnoReferenciaCadastro() {
+		return anoReferenciaCadastro;
+	}
+
+	public void setAnoReferenciaCadastro(String anoReferenciaCadastro) {
+		this.anoReferenciaCadastro = anoReferenciaCadastro;
+	}
+	
 	public String getAnoFabricacao() {
 		return anoFabricacao;
 	}
@@ -376,7 +412,7 @@ public class Veiculo implements Serializable {
 		return proprietarioAnteriorRGOrgaoEmisssor;
 	}
 
-	public String getProprietarioCNPJ() {
+	public String getProprietarioCnpj() {
 		return proprietarioCnpj;
 	}
 
@@ -424,14 +460,18 @@ public class Veiculo implements Serializable {
 		return tipo;
 	}
 
-	public String getValorCompra() {
+	public double getValorCompra() {
 		return valorCompra;
 	}
 
-	public String getValorVenda() {
+	public double getValorVenda() {
 		return valorVenda;
 	}
-
+	
+	public double getDesconto() {
+		return desconto;
+	}
+	
 	public String getZeroKm() {
 		return zeroKm;
 	}
@@ -604,12 +644,12 @@ public class Veiculo implements Serializable {
 		this.prejuizo = prejuizo;
 	}
 
-	public void setProprietarioAnteriorCnpj(String proprietarioAnteriorCNPJ) {
-		this.proprietarioAnteriorCnpj = proprietarioAnteriorCNPJ;
+	public void setProprietarioAnteriorCnpj(String proprietarioAnteriorCnpj) {
+		this.proprietarioAnteriorCnpj = proprietarioAnteriorCnpj;
 	}
 
-	public void setProprietarioAnteriorCpf(String proprietarioAnteriorCPF) {
-		this.proprietarioAnteriorCpf = proprietarioAnteriorCPF;
+	public void setProprietarioAnteriorCpf(String proprietarioAnteriorCpf) {
+		this.proprietarioAnteriorCpf = proprietarioAnteriorCpf;
 	}
 
 	public void setProprietarioAnteriorEmail(String proprietarioAnteriorEmail) {
@@ -640,12 +680,12 @@ public class Veiculo implements Serializable {
 		this.proprietarioAnteriorRGOrgaoEmisssor = proprietarioAnteriorRGOrgaoEmisssor;
 	}
 
-	public void setProprietarioCnpj(String proprietarioCNPJ) {
-		this.proprietarioCnpj = proprietarioCNPJ;
+	public void setProprietarioCnpj(String proprietarioCnpj) {
+		this.proprietarioCnpj = proprietarioCnpj;
 	}
 
-	public void setProprietarioCpf(String proprietarioCPF) {
-		this.proprietarioCpf = proprietarioCPF;
+	public void setProprietarioCpf(String proprietarioCpf) {
+		this.proprietarioCpf = proprietarioCpf;
 	}
 
 	public void setProprietarioEmail(String proprietarioEmail) {
@@ -688,14 +728,18 @@ public class Veiculo implements Serializable {
 		this.tipo = tipo;
 	}
 
-	public void setValorCompra(String valorCompra) {
+	public void setValorCompra(double valorCompra) {
 		this.valorCompra = valorCompra;
 	}
 
-	public void setValorVenda(String valorVenda) {
+	public void setValorVenda(double valorVenda) {
 		this.valorVenda = valorVenda;
 	}
 
+	public void setDesconto(double desconto) {
+		this.desconto = desconto;
+	}
+	
 	public void setZeroKm(String zeroKm) {
 		this.zeroKm = zeroKm;
 	}
@@ -706,14 +750,6 @@ public class Veiculo implements Serializable {
 
 	public void setNumeroMotor(String numeroMotor) {
 		this.numeroMotor = numeroMotor;
-	}
-
-	public String getTransmissão() {
-		return transmissão;
-	}
-
-	public void setTransmissão(String transmissão) {
-		this.transmissão = transmissão;
 	}
 
 	public String getMarchas() {

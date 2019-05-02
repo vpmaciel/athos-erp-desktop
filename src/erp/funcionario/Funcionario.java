@@ -32,7 +32,7 @@ public class Funcionario implements Serializable {
 	private String nacionalidade;
 	@Column(length = 12)
 	private String cor;
-	@Column(length = 19)
+	@Column(length = 19, nullable = true)
 	private String cnpj;
 	@Column(length = 50)
 	private String conjuge;
@@ -44,7 +44,7 @@ public class Funcionario implements Serializable {
 	private CentroCusto centroCusto;
 	@Column(length = 3)
 	private String cnhCategoria;
-	@Column(length = 14)
+	@Column(length = 14, nullable = true)
 	private String cpf;
 	@Column(length = 19)
 	private String ctpsNumero;

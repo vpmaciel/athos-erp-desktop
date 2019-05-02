@@ -22,7 +22,7 @@ public final class CaracteristicaFc extends JFrame implements Gui {
 
 	private CaracteristicaCont caracteristicaCont;
 	private ConfiguracaoGui configuracaoGui;
-	private CaracteristicaPc clientePc;
+	private CaracteristicaPc caracteristicaPc;
 
 	public CaracteristicaFc() {
 		iniciarLayout();
@@ -47,7 +47,7 @@ public final class CaracteristicaFc extends JFrame implements Gui {
 	}
 
 	public CaracteristicaPc getCaracteristicaPc() {
-		return clientePc;
+		return caracteristicaPc;
 	}
 
 	@Override
@@ -60,10 +60,10 @@ public final class CaracteristicaFc extends JFrame implements Gui {
 	public void iniciarGui() {
 		setIconImage(Imagem.getLogoTipoImage());
 
-		clientePc = new CaracteristicaPc();
-		clientePc.setOpaque(true); // content panes must be opaque
+		caracteristicaPc = new CaracteristicaPc();
+		caracteristicaPc.setOpaque(true); // content panes must be opaque
 
-		final JScrollPane scrollPane = new JScrollPane(clientePc);
+		final JScrollPane scrollPane = new JScrollPane(caracteristicaPc);
 
 		KeyboardFocusManager.getCurrentKeyboardFocusManager().addPropertyChangeListener("focusOwner",
 				new PropertyChangeListener() {
@@ -74,8 +74,8 @@ public final class CaracteristicaFc extends JFrame implements Gui {
 							return;
 						}
 						JComponent focused = (JComponent) evt.getNewValue();
-						if (clientePc.isAncestorOf(focused)) {
-							clientePc.scrollRectToVisible(focused.getBounds());
+						if (caracteristicaPc.isAncestorOf(focused)) {
+							caracteristicaPc.scrollRectToVisible(focused.getBounds());
 						}
 					}
 				});
@@ -96,16 +96,17 @@ public final class CaracteristicaFc extends JFrame implements Gui {
 		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		caracteristicaCont = new CaracteristicaCont();
 		addWindowListener(caracteristicaCont.new Frame());
-		clientePc.getTB().getExcluirBtn().addActionListener(caracteristicaCont.new Exclui());
-		clientePc.getTB().getNovoBtn().addActionListener(caracteristicaCont.new Novo());
-		clientePc.getTB().getPesquisarBtn().addActionListener(caracteristicaCont.new Pesquisa());
-		clientePc.getTB().getImprimirBtn().addActionListener(caracteristicaCont.new Imprime());
-		clientePc.getTB().getRelatorioBtn().addActionListener(caracteristicaCont.new Relatorio());
-		clientePc.getTB().getSalvarBtn().addActionListener(caracteristicaCont.new Salva());
-		clientePc.getTB().getFecharBtn().addActionListener(caracteristicaCont.new FechaJanela());
-		clientePc.getTB().getSairBtn().addActionListener(caracteristicaCont.new SaidaSistema());
-		clientePc.getTB().getAjudaBtn().addActionListener(caracteristicaCont.new Ajuda());
-		clientePc.getTB().getHomeBtn().addActionListener(caracteristicaCont.new Home());
+		caracteristicaPc.getLabelFuncionario().addMouseListener(caracteristicaCont.new MostraFrame());
+		caracteristicaPc.getTB().getExcluirBtn().addActionListener(caracteristicaCont.new Exclui());
+		caracteristicaPc.getTB().getNovoBtn().addActionListener(caracteristicaCont.new Novo());
+		caracteristicaPc.getTB().getPesquisarBtn().addActionListener(caracteristicaCont.new Pesquisa());
+		caracteristicaPc.getTB().getImprimirBtn().addActionListener(caracteristicaCont.new Imprime());
+		caracteristicaPc.getTB().getRelatorioBtn().addActionListener(caracteristicaCont.new Relatorio());
+		caracteristicaPc.getTB().getSalvarBtn().addActionListener(caracteristicaCont.new Salva());
+		caracteristicaPc.getTB().getFecharBtn().addActionListener(caracteristicaCont.new FechaJanela());
+		caracteristicaPc.getTB().getSairBtn().addActionListener(caracteristicaCont.new SaidaSistema());
+		caracteristicaPc.getTB().getAjudaBtn().addActionListener(caracteristicaCont.new Ajuda());
+		caracteristicaPc.getTB().getHomeBtn().addActionListener(caracteristicaCont.new Home());
 	}
 
 	@Override
@@ -128,6 +129,6 @@ public final class CaracteristicaFc extends JFrame implements Gui {
 
 	@Override
 	public void reiniciarGui() {
-		clientePc.reiniciarGui();
+		caracteristicaPc.reiniciarGui();
 	}
 }

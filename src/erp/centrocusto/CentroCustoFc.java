@@ -135,7 +135,7 @@ public final class CentroCustoFc extends JFrame implements Gui {
 	public void reiniciarGui() {
 	}
 
-	public boolean validarCamposCadastro() {
-		return centroCustoPc.validarCamposCadastro();
+	public boolean validarGui() {
+		return centroCustoPc.validarGui();
 	}
 }

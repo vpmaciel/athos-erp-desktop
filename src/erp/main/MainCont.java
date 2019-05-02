@@ -148,9 +148,9 @@ public final class MainCont {
 					.setTitle(AOP.getNomeSistema() + " - CARACTERÍSTICA " + Data.getData() + AOP.getUsuarioFormatado());
 			MainCont.getCurriculoCaracteristicaFp()
 					.setTitle(AOP.getNomeSistema() + " - CARACTERÍSTICA " + Data.getData() + AOP.getUsuarioFormatado());
-			MainCont.getCurriculoCaracteristicaFc()
+			MainCont.getCurriculoCertificadoFc()
 					.setTitle(AOP.getNomeSistema() + " - CERTIFICADO " + Data.getData() + AOP.getUsuarioFormatado());
-			MainCont.getCurriculoCaracteristicaFp()
+			MainCont.getCurriculoCertificadoFp()
 					.setTitle(AOP.getNomeSistema() + " - CERTIFICADO " + Data.getData() + AOP.getUsuarioFormatado());
 		}
 	}

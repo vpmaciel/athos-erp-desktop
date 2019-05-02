@@ -68,7 +68,7 @@ final class BancoCont {
 		@Override
 		public void windowOpened(WindowEvent e) {
 			banco = new Banco();
-			getBancoPc().getNomeGui().requestFocus();
+			getBancoPc().getGuiNome().requestFocus();
 		}
 	}
 
@@ -123,7 +123,7 @@ final class BancoCont {
 		public void actionPerformed(ActionEvent actionEvent) {
 			banco = new Banco();
 			getBancoFc().limparGui();
-			getBancoPc().getNomeGui().requestFocus();
+			getBancoPc().getGuiNome().requestFocus();
 		}
 	}
 
@@ -165,26 +165,26 @@ final class BancoCont {
 					return;
 				}
 
-				if (!getBancoPc().validarCamposCadastro()) {
+				if (!getBancoPc().validarGui()) {
 					return;
 				}
 
-				if ((getBancoPc().getNomeGui().getText()) == null
-						|| getBancoPc().getNomeGui().getText().length() == 0) {
-					getBancoPc().getNomeGui().requestFocus();
+				if ((getBancoPc().getGuiNome().getText()) == null
+						|| getBancoPc().getGuiNome().getText().length() == 0) {
+					getBancoPc().getGuiNome().requestFocus();
 					Msg.avisoCampoObrigatorio("NOME");
 					return;
 				}
 
 				Banco bancoPesquisa = new Banco();
-				bancoPesquisa.setNome(getBancoPc().getNomeGui().getText());
+				bancoPesquisa.setNome(getBancoPc().getGuiNome().getText());
 				Banco bancoPesquisaRetornado = BancoFac.consultarRegistro(bancoPesquisa);
 
 				if (banco.getId() == null && bancoPesquisa.getNome() != null
 						&& bancoPesquisaRetornado.getNome() != null) {
 					if (bancoPesquisa.getNome().equals(bancoPesquisaRetornado.getNome())) {
 						Msg.avisoCampoDuplicado("NOME", bancoPesquisa.getNome());
-						getBancoPc().getNomeGui().requestFocus();
+						getBancoPc().getGuiNome().requestFocus();
 						return;
 					}
 				}
@@ -194,21 +194,21 @@ final class BancoCont {
 					if (!banco.getNome().equals(bancoPesquisa.getNome())) {
 						if (bancoPesquisa.getNome().equals(bancoPesquisaRetornado.getNome())) {
 							Msg.avisoCampoDuplicado("NOME", bancoPesquisa.getNome());
-							getBancoPc().getNomeGui().requestFocus();
+							getBancoPc().getGuiNome().requestFocus();
 						}
 						return;
 					}
 				}
 
 				bancoPesquisa = new Banco();
-				bancoPesquisa.setCodigo(getBancoPc().getCodigoGui().getText());
+				bancoPesquisa.setCodigo(getBancoPc().getGuiCodigo().getText());
 				bancoPesquisaRetornado = BancoFac.consultarRegistro(bancoPesquisa);
 
 				if (banco.getId() == null && bancoPesquisa.getCodigo() != null
 						&& bancoPesquisaRetornado.getCodigo() != null) {
 					if (bancoPesquisa.getCodigo().equals(bancoPesquisaRetornado.getCodigo())) {
 						Msg.avisoCampoDuplicado("CÓDIGO", bancoPesquisa.getCodigo());
-						getBancoPc().getCodigoGui().requestFocus();
+						getBancoPc().getGuiCodigo().requestFocus();
 						return;
 					}
 				}
@@ -218,7 +218,7 @@ final class BancoCont {
 					if (!banco.getCodigo().equals(bancoPesquisa.getCodigo())) {
 						if (bancoPesquisa.getCodigo().equals(bancoPesquisaRetornado.getCodigo())) {
 							Msg.avisoCampoDuplicado("CÓDIGO", bancoPesquisa.getCodigo());
-							getBancoPc().getCodigoGui().requestFocus();
+							getBancoPc().getGuiCodigo().requestFocus();
 						}
 						return;
 					}
@@ -228,12 +228,12 @@ final class BancoCont {
 					BancoFac.salvarBanco(banco);
 					banco = new Banco();
 					getBancoFc().limparGui();
-					getBancoPc().getNomeGui().requestFocus();
+					getBancoPc().getGuiNome().requestFocus();
 					Msg.sucessoSalvarRegistro();
 				}
 			} catch (Exception e) {
 				Msg.erroInserirRegistro();
-				Msg.avisoCampoDuplicado("NOME", getBancoPc().getNomeGui().getText());
+				Msg.avisoCampoDuplicado("NOME", getBancoPc().getGuiNome().getText());
 			}
 		}
 	}
@@ -248,17 +248,13 @@ final class BancoCont {
 		if (banco == null) {
 			return;
 		}
-		getBancoPc().getNomeGui().setText(banco.getNome());
-		getBancoPc().getCodigoGui().setText(banco.getCodigo());
+		getBancoPc().getGuiNome().setText(banco.getNome());
+		getBancoPc().getGuiCodigo().setText(banco.getCodigo());
 	}
 
 	public void atualizarObjeto() {
-		banco.setCodigo(getBancoPc().getCodigoGui().getText());
-		banco.setNome(getBancoPc().getNomeGui().getText());
-		
-		if(getBancoPc().getNomeGui().getText().length() == 0) {
-			banco.setNome(null);
-		}
+		banco.setCodigo(getBancoPc().getGuiCodigo().getText());
+		banco.setNome(getBancoPc().getGuiNome().getText());
 	}
 
 	public Banco getBanco() {

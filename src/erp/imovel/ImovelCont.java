@@ -13,6 +13,7 @@ import javax.swing.JOptionPane;
 
 import arquitetura.gui.Msg;
 import erp.main.MainCont;
+import erp.main.MainFc;
 
 final class ImovelCont {
 
@@ -91,21 +92,18 @@ final class ImovelCont {
 
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
-			List<Imovel> imoveis = new LinkedList<>();
 
-			if (imovel.getId() == null) {
-				Msg.avisoImprimiRegistroNaoCadastrado();
-				return;
-			}
+			List<Imovel> imovels = new LinkedList<>();
 
 			try {
-				if (imoveis.add(ImovelFac.getRegistro(imovel))) {
-					ImovelRel imovelRel = new ImovelRel(imoveis);
-					imovelRel.retornarRelatorio(true);
-				}
+				imovels = new LinkedList<>(ImovelFac.pesquisarRegistro(new Imovel()));
 			} catch (Exception e) {
 				System.out.println(e);
 			}
+
+			ImovelRel imovelRel = new ImovelRel(imovels);
+			imovelRel.retornarRelatorio(true);
+
 		}
 	}
 
@@ -113,15 +111,16 @@ final class ImovelCont {
 
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
-			List<Imovel> imoveis = new LinkedList<>();
+			List<Imovel> imovels = new LinkedList<>();
 
-			try {
-				imoveis = new LinkedList<>(ImovelFac.pesquisarRegistro(imovel));
-			} catch (Exception e) {
-				System.out.println(e);
+			if (imovel.getId() == null) {
+				Msg.avisoImprimiRegistroNaoCadastrado();
+				return;
 			}
-			ImovelRel imovelRel = new ImovelRel(imoveis);
-			imovelRel.retornarRelatorio(true);
+			if (imovels.add(ImovelFac.getRegistro(imovel))) {
+				ImovelRel imovelRel = new ImovelRel(imovels);
+				imovelRel.retornarRelatorio(true);
+			}
 		}
 	}
 
@@ -150,11 +149,15 @@ final class ImovelCont {
 	public class Pesquisa implements ActionListener {
 
 		@Override
-		public void actionPerformed(ActionEvent actionEvent) {
-			imovel = new Imovel();
-			ImovelCont.this.atualizarObjeto();
-			getImovelPp().pesquisarRegistroImovel(imovel);
-			MainCont.mostrarFrame(MainCont.getImovelFp());
+		public void actionPerformed(ActionEvent actionEvent) {	
+			atualizarObjeto();
+			long totalPesquisaRegistro = 0;
+			totalPesquisaRegistro = getImovelPp().pesquisarRegistroImovel(imovel);
+			Msg.avisoRegistroEncontrado(totalPesquisaRegistro);
+
+			if (totalPesquisaRegistro > 0) {
+				MainFc.mostrarFrame(getImovelFp());
+			}
 		}
 	}
 
@@ -275,7 +278,7 @@ final class ImovelCont {
 		return MainCont.getImovelFc().getImovelPc();
 	}
 
-	public ImovelFp getImovelFpp() {
+	public ImovelFp getImovelFp() {
 		return MainCont.getImovelFp();
 	}
 

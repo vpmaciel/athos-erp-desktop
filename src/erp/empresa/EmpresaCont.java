@@ -14,6 +14,7 @@ import javax.swing.JOptionPane;
 import arquitetura.gui.Msg;
 import arquitetura.validacao.Mascara;
 import erp.main.MainCont;
+import erp.main.MainFc;
 
 final class EmpresaCont {
 
@@ -92,21 +93,18 @@ final class EmpresaCont {
 
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
+
 			List<Empresa> empresas = new LinkedList<>();
 
-			if (empresa.getId() == null) {
-				Msg.avisoImprimiRegistroNaoCadastrado();
-				return;
-			}
-
 			try {
-				if (empresas.add(EmpresaFac.getRegistro(empresa))) {
-					EmpresaRel empresaRel = new EmpresaRel(empresas);
-					empresaRel.retornarRelatorio(true);
-				}
+				empresas = new LinkedList<>(EmpresaFac.pesquisarRegistro(new Empresa()));
 			} catch (Exception e) {
 				System.out.println(e);
 			}
+
+			EmpresaRel empresaRel = new EmpresaRel(empresas);
+			empresaRel.retornarRelatorio(true);
+
 		}
 	}
 
@@ -116,13 +114,14 @@ final class EmpresaCont {
 		public void actionPerformed(ActionEvent actionEvent) {
 			List<Empresa> empresas = new LinkedList<>();
 
-			try {
-				empresas = new LinkedList<>(EmpresaFac.pesquisarRegistro(empresa));
-			} catch (Exception e) {
-				System.out.println(e);
+			if (empresa.getId() == null) {
+				Msg.avisoImprimiRegistroNaoCadastrado();
+				return;
 			}
-			EmpresaRel empresaRel = new EmpresaRel(empresas);
-			empresaRel.retornarRelatorio(true);
+			if (empresas.add(EmpresaFac.getRegistro(empresa))) {
+				EmpresaRel empresaRel = new EmpresaRel(empresas);
+				empresaRel.retornarRelatorio(true);
+			}
 		}
 	}
 
@@ -152,10 +151,14 @@ final class EmpresaCont {
 
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
-			empresa = new Empresa();
 			atualizarObjeto();
-			getEmpresaPp().pesquisarRegistroEmpresa(empresa);
-			MainCont.mostrarFrame(getEmpresaFp());
+			long totalPesquisaRegistro = 0;
+			totalPesquisaRegistro = getEmpresaPp().pesquisarRegistroEmpresa(empresa);
+			Msg.avisoRegistroEncontrado(totalPesquisaRegistro);
+
+			if (totalPesquisaRegistro > 0) {
+				MainFc.mostrarFrame(getEmpresaFp());
+			}
 		}
 	}
 

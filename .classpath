@@ -25,5 +25,7 @@
 	<classpathentry kind="lib" path="lib/sqltool.jar"/>
 	<classpathentry kind="lib" path="lib/javassist.jar"/>
 	<classpathentry kind="lib" path="lib/hsqldb.jar"/>
+	<classpathentry kind="lib" path="lib/log4j-1.2.17.jar"/>
+	<classpathentry kind="lib" path="lib/slf4j-api-1.6.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

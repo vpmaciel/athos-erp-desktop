@@ -140,7 +140,7 @@ public final class UsuarioFc extends JFrame implements Gui {
 
 	}
 
-	public boolean validarCamposCadastro() {
-		return usuarioPc.validarCamposCadastro();
+	public boolean validarGui() {
+		return usuarioPc.validarGui();
 	}
 }

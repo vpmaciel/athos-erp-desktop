@@ -18,8 +18,13 @@
 			<property name="javax.persistence.jdbc.url"
 				value="jdbc:hsqldb:file:/db_athos/" />
 			<property name="hibernate.connection.CharSet" value="utf8" />
-			<property name="hibernate.connection.characterEncoding" value="utf8" />
-			<property name="hibernate.connection.useUnicode" value="true" />
+			<property name="hibernate.connection.characterEncoding"
+				value="utf8" />
+			<property name="hibernate.connection.useUnicode"
+				value="true" />
+			<property name="hibernate.show_sql" value="false" />
+			<property name="hibernate.format_sql" value="false" />
+			<property name="hibernate.use_sql_comments" value="true" />
 		</properties>
 	</persistence-unit>
-</persistence>
+</persistence>	

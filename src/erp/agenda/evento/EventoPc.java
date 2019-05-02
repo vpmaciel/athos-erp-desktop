@@ -65,7 +65,7 @@ public final class EventoPc extends JPanel implements Gui {
 		return labelTipoEvento;
 	}
 
-	public JFormattedTextField getHoraInicioGui() {
+	public JFormattedTextField getGuiHoraInicio() {
 		return textFieldHoraInicio;
 	}
 
@@ -73,11 +73,11 @@ public final class EventoPc extends JPanel implements Gui {
 		return textFieldData;
 	}
 
-	public JFormattedTextField getHoraTerminoGui() {
+	public JFormattedTextField getGuiHoraTermino() {
 		return textFieldHoraTermino;
 	}
 
-	public JTextField getDescricaoGui() {
+	public JTextField getGuiDescricao() {
 		return textFieldDescricao;
 	}
 

@@ -96,21 +96,18 @@ final class FuncionarioCont {
 
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
+
 			List<Funcionario> funcionarios = new LinkedList<>();
 
-			if (funcionario.getId() == null) {
-				Msg.avisoImprimiRegistroNaoCadastrado();
-				return;
-			}
-
 			try {
-				if (funcionarios.add(FuncionarioFac.getRegistro(funcionario))) {
-					FuncionarioRel funcionarioRel = new FuncionarioRel(funcionarios);
-					funcionarioRel.retornarRelatorio(true);
-				}
+				funcionarios = new LinkedList<>(FuncionarioFac.pesquisarRegistro(new Funcionario()));
 			} catch (Exception e) {
 				System.out.println(e);
 			}
+
+			FuncionarioRel funcionarioRel = new FuncionarioRel(funcionarios);
+			funcionarioRel.retornarRelatorio(true);
+
 		}
 	}
 
@@ -120,13 +117,14 @@ final class FuncionarioCont {
 		public void actionPerformed(ActionEvent actionEvent) {
 			List<Funcionario> funcionarios = new LinkedList<>();
 
-			try {
-				funcionarios = new LinkedList<>(FuncionarioFac.pesquisarRegistro(funcionario));
-			} catch (Exception e) {
-				System.out.println(e);
+			if (funcionario.getId() == null) {
+				Msg.avisoImprimiRegistroNaoCadastrado();
+				return;
 			}
-			FuncionarioRel funcionarioRel = new FuncionarioRel(funcionarios);
-			funcionarioRel.retornarRelatorio(true);
+			if (funcionarios.add(FuncionarioFac.getRegistro(funcionario))) {
+				FuncionarioRel funcionarioRel = new FuncionarioRel(funcionarios);
+				funcionarioRel.retornarRelatorio(true);
+			}
 		}
 	}
 
@@ -194,7 +192,7 @@ final class FuncionarioCont {
 				String nome = getFuncionarioPc().getNomeGui().getText();
 				if (nome == null || nome.length() == 0) {
 					getFuncionarioPc().getNomeGui().requestFocus();
-					Msg.avisoCampoObrigatorio("Data");
+					Msg.avisoCampoObrigatorio("NOME");
 					return;
 				}
 
@@ -210,7 +208,7 @@ final class FuncionarioCont {
 						return;
 					}
 				}
-
+				
 				if (funcionario.getId() != null && funcionarioPesquisa.getCpf() != null
 						&& funcionarioPesquisaRetornado.getCpf() != null) {
 					if (!funcionario.getCpf().equals(funcionarioPesquisa.getCpf())) {

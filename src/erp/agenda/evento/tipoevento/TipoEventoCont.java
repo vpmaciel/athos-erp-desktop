@@ -11,6 +11,7 @@ import javax.swing.JOptionPane;
 
 import arquitetura.gui.Msg;
 import erp.main.MainCont;
+import erp.main.MainFc;
 
 final class TipoEventoCont {
 
@@ -91,16 +92,16 @@ final class TipoEventoCont {
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
 
-			List<TipoEvento> TipoEventos = new LinkedList<>();
+			List<TipoEvento> tipoEventos = new LinkedList<>();
 
 			try {
-				TipoEventos = new LinkedList<>(TipoEventoFac.pesquisarRegistro(new TipoEvento()));
+				tipoEventos = new LinkedList<>(TipoEventoFac.pesquisarRegistro(new TipoEvento()));
 			} catch (Exception e) {
 				System.out.println(e);
 			}
 
-			TipoEventoRel TipoEventoRel = new TipoEventoRel(TipoEventos);
-			TipoEventoRel.retornarRelatorio(true);
+			TipoEventoRel tipoEventoRel = new TipoEventoRel(tipoEventos);
+			tipoEventoRel.retornarRelatorio(true);
 
 		}
 	}
@@ -109,15 +110,15 @@ final class TipoEventoCont {
 
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
-			List<TipoEvento> TipoEventos = new LinkedList<>();
+			List<TipoEvento> tipoEventos = new LinkedList<>();
 
 			if (tipoEvento.getId() == null) {
 				Msg.avisoImprimiRegistroNaoCadastrado();
 				return;
 			}
-			if (TipoEventos.add(TipoEventoFac.getRegistro(tipoEvento))) {
-				TipoEventoRel TipoEventoRel = new TipoEventoRel(TipoEventos);
-				TipoEventoRel.retornarRelatorio(true);
+			if (tipoEventos.add(TipoEventoFac.getRegistro(tipoEvento))) {
+				TipoEventoRel tipoEventoRel = new TipoEventoRel(tipoEventos);
+				tipoEventoRel.retornarRelatorio(true);
 			}
 
 		}
@@ -129,7 +130,7 @@ final class TipoEventoCont {
 		public void actionPerformed(ActionEvent actionEvent) {
 			tipoEvento = new TipoEvento();
 			MainCont.getAgendaTipoEventoFc().limparGui();
-			getTipoEventoPc().getNomeGui().requestFocus();
+			getTipoEventoPc().getGuiNome().requestFocus();
 		}
 	}
 
@@ -137,10 +138,14 @@ final class TipoEventoCont {
 
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
-			tipoEvento = new TipoEvento();
 			atualizarObjeto();
-			getTipoEventoPp().pesquisarRegistroAgenda(tipoEvento);
-			MainCont.mostrarFrame(MainCont.getAgendaTipoEventoFp());
+			long totalPesquisaRegistro = 0;
+			totalPesquisaRegistro = getTipoEventoPp().pesquisarRegistro(tipoEvento);
+			Msg.avisoRegistroEncontrado(totalPesquisaRegistro);
+
+			if (totalPesquisaRegistro > 0) {
+				MainFc.mostrarFrame(getTipoEventoFp());
+			}
 		}
 	}
 
@@ -171,23 +176,23 @@ final class TipoEventoCont {
 					return;
 				}
 
-				String nome = getTipoEventoPc().getNomeGui().getText();
+				String nome = getTipoEventoPc().getGuiNome().getText();
 
 				if (nome == null || nome.length() == 0) {
-					getTipoEventoPc().getNomeGui().requestFocus();
+					getTipoEventoPc().getGuiNome().requestFocus();
 					Msg.avisoCampoObrigatorio("NOME");
 					return;
 				}
 
 				TipoEvento tipoEventoPesquisa = new TipoEvento();
-				tipoEventoPesquisa.setNome(getTipoEventoPc().getNomeGui().getText());
+				tipoEventoPesquisa.setNome(getTipoEventoPc().getGuiNome().getText());
 				TipoEvento tipoEventoPesquisaRetornado = TipoEventoFac.consultarRegistro(tipoEventoPesquisa);
 
 				if (tipoEvento.getId() == null && tipoEventoPesquisa.getNome() != null
 						&& tipoEventoPesquisaRetornado.getNome() != null) {
 					if (tipoEventoPesquisa.getNome().equals(tipoEventoPesquisaRetornado.getNome())) {
 						Msg.avisoCampoDuplicado("NOME", tipoEventoPesquisa.getNome());
-						getTipoEventoPc().getNomeGui().requestFocus();
+						getTipoEventoPc().getGuiNome().requestFocus();
 						return;
 					}
 				}
@@ -197,7 +202,7 @@ final class TipoEventoCont {
 					if (!tipoEvento.getNome().equals(tipoEventoPesquisa.getNome())) {
 						if (tipoEventoPesquisa.getNome().equals(tipoEventoPesquisaRetornado.getNome())) {
 							Msg.avisoCampoDuplicado("NOME", tipoEventoPesquisa.getNome());
-							getTipoEventoPc().getNomeGui().requestFocus();
+							getTipoEventoPc().getGuiNome().requestFocus();
 						}
 						return;
 					}
@@ -208,7 +213,7 @@ final class TipoEventoCont {
 					TipoEventoFac.salvarRegistro(tipoEvento);
 					tipoEvento = new TipoEvento();
 					MainCont.getAgendaTipoEventoFc().limparGui();
-					getTipoEventoPc().getNomeGui().requestFocus();
+					getTipoEventoPc().getGuiNome().requestFocus();
 					Msg.sucessoSalvarRegistro();
 				}
 			} catch (Exception e) {
@@ -224,13 +229,13 @@ final class TipoEventoCont {
 		if (tipoEvento == null) {
 			return;
 		}
-		getTipoEventoPc().getNomeGui().setText(tipoEvento.getNome());
+		getTipoEventoPc().getGuiNome().setText(tipoEvento.getNome());
 	}
 
 	public void atualizarObjeto() {
-		tipoEvento.setNome(getTipoEventoPc().getNomeGui().getText());
+		tipoEvento.setNome(getTipoEventoPc().getGuiNome().getText());
 
-		if (getTipoEventoPc().getNomeGui().getText().length() == 0) {
+		if (getTipoEventoPc().getGuiNome().getText().length() == 0) {
 			tipoEvento.setNome(null);
 		}
 	}

@@ -44,7 +44,7 @@ public final class CentroCustoPc extends JPanel implements Gui {
 		return configuracaoGui;
 	}
 
-	public JTextField getNomeGui() {
+	public JTextField getGuiNome() {
 		return textFieldNome;
 	}
 
@@ -93,6 +93,7 @@ public final class CentroCustoPc extends JPanel implements Gui {
 
 	@Override
 	public void iniciarTabela() {
+	
 	}
 
 	@Override
@@ -102,9 +103,10 @@ public final class CentroCustoPc extends JPanel implements Gui {
 
 	@Override
 	public void reiniciarGui() {
+	
 	}
 
-	public boolean validarCamposCadastro() {
+	public boolean validarGui() {
 		if (!Entrada.validar(textFieldNome, labelNome, RegExp.NOME, true)) {
 			return false;
 		}

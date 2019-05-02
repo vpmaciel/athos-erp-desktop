@@ -20,7 +20,7 @@ public class LoginCont {
 
 		@Override
 		public void actionPerformed(final ActionEvent actionEvent) {
-			MainCont.getLoginFc().getLoginPc().validarCamposCadastro();
+			MainCont.getLoginFc().getLoginPc().validarGui();
 			usuario = new Usuario();
 			usuario.setNome(MainCont.getLoginFc().getLoginPc().getTextFieldNome().getText());
 			usuario.setSenha(new String(MainCont.getLoginFc().getLoginPc().getTextFieldSenha().getPassword()));
@@ -49,7 +49,7 @@ public class LoginCont {
 			final int key = evt.getKeyCode();
 			if (key == KeyEvent.VK_ENTER) {
 				evt.getComponent().requestFocus();
-				MainCont.getLoginFc().getLoginPc().validarCamposCadastro();
+				MainCont.getLoginFc().getLoginPc().validarGui();
 			}
 		}
 	}

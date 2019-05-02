@@ -11,6 +11,7 @@ import javax.swing.JOptionPane;
 
 import arquitetura.gui.Msg;
 import erp.main.MainCont;
+import erp.main.MainFc;
 
 final class RecadoCont {
 
@@ -126,7 +127,7 @@ final class RecadoCont {
 		public void actionPerformed(ActionEvent actionEvent) {
 			recado = new Recado();
 			getRecadoFc().limparGui();
-			getRecadoPc().getDataGui().requestFocus();
+			getRecadoPc().getGuiData().requestFocus();
 		}
 	}
 
@@ -134,10 +135,14 @@ final class RecadoCont {
 
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
-			recado = new Recado();
 			atualizarObjeto();
-			getRecadoPp().pesquisarRegistroRecado(recado);
-			MainCont.mostrarFrame(MainCont.getAgendaRecadoFp());
+			long totalPesquisaRegistro = 0;
+			totalPesquisaRegistro = getRecadoPp().pesquisarRegistro(recado);
+			Msg.avisoRegistroEncontrado(totalPesquisaRegistro);
+
+			if (totalPesquisaRegistro > 0) {
+				MainFc.mostrarFrame(getRecadoFp());
+			}
 		}
 	}
 
@@ -165,9 +170,9 @@ final class RecadoCont {
 				if (mensagem != JOptionPane.YES_OPTION) {
 					return;
 				}
-				String data = getRecadoPc().getDataGui().getText();
+				String data = getRecadoPc().getGuiData().getText();
 				if (data == null || data.length() == 0) {
-					getRecadoPc().getDataGui().requestFocus();
+					getRecadoPc().getGuiData().requestFocus();
 					Msg.avisoCampoObrigatorio("Data");
 					return;
 				}
@@ -176,7 +181,7 @@ final class RecadoCont {
 					RecadoFac.salvarRegistro(recado);
 					recado = new Recado();
 					MainCont.getAgendaRecadoFc().limparGui();
-					getRecadoPc().getDataGui().requestFocus();
+					getRecadoPc().getGuiData().requestFocus();
 					Msg.sucessoSalvarRegistro();
 				}
 			} catch (Exception e) {
@@ -192,17 +197,17 @@ final class RecadoCont {
 		if (recado == null) {
 			return;
 		}
-		getRecadoPc().getRemetenteGui().setText(recado.getRemetente());
-		getRecadoPc().getDataGui().setText(recado.getData());
-		getRecadoPc().getRecadoGui().setText(recado.getRecado());
-		getRecadoPc().getDestinatarioGui().setText(recado.getDestinatario());
+		getRecadoPc().getGuiRemetente().setText(recado.getRemetente());
+		getRecadoPc().getGuiData().setText(recado.getData());
+		getRecadoPc().getGuiRecado().setText(recado.getRecado());
+		getRecadoPc().getGuiDestinatario().setText(recado.getDestinatario());
 	}
 
 	public void atualizarObjeto() {
-		recado.setRemetente(getRecadoPc().getRemetenteGui().getText());
-		recado.setData(getRecadoPc().getDataGui().getText());
-		recado.setRecado(getRecadoPc().getRecadoGui().getText());
-		recado.setDestinatario(getRecadoPc().getDestinatarioGui().getText());
+		recado.setRemetente(getRecadoPc().getGuiRemetente().getText());
+		recado.setData(getRecadoPc().getGuiData().getText());
+		recado.setRecado(getRecadoPc().getGuiRecado().getText());
+		recado.setDestinatario(getRecadoPc().getGuiDestinatario().getText());
 	}
 
 	public Recado getRecado() {

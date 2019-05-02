@@ -537,7 +537,6 @@ public final class FuncionarioPc extends JPanel implements Gui {
 		add(labelCPF);
 
 		textFieldCPF = new JFormattedTextField(Mascara.getCpf());
-		textFieldCPF.setDocument(new EntradaMaiuscula(14));
 		add(textFieldCPF);
 
 		labelCTPS = new JLabel("CTPS");

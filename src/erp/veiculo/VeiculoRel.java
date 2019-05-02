@@ -69,7 +69,7 @@ public class VeiculoRel {
 				document.add(
 						new Paragraph("TELEFONE (PROPRIETÁRIO ANTERIOR): " + veiculo.getProprietarioAnteriorFone2()));
 				document.add(new Paragraph("NOME (PROPRIETÁRIO ANTERIOR): " + veiculo.getProprietarioAnteriorNome()));
-				document.add(new Paragraph("CNPJ: " + veiculo.getProprietarioCNPJ()));
+				document.add(new Paragraph("CNPJ: " + veiculo.getProprietarioCnpj()));
 				document.add(new Paragraph("CPF: " + veiculo.getProprietarioCpf()));
 				document.add(new Paragraph("E-MAIL: " + veiculo.getProprietarioEmail()));
 				document.add(new Paragraph("FAX: " + veiculo.getProprietarioFax()));
