@@ -45,12 +45,12 @@ public class Veiculo implements Serializable {
 	private String anoReferenciaVenda;
 	@Column(length = 4)
 	private String anoReferenciaCadastro;
-	@Column(length = 50)
-	private String nomeVeiculo;
 	@Column(length = 2)
 	private String marchas;
 	@Column(length = 3)
 	private String zeroKm;
+	@Column(length = 3)
+	private String adaptadoDeficiente;
 	@Column(length = 50)
 	private String pneus;
 	@Column(length = 50)
@@ -87,6 +87,8 @@ public class Veiculo implements Serializable {
 	private String renavam;
 	@Column(length = 50)
 	private String municipioEmplacamento;
+	@Column(length = 50)
+	private String estadoEmplacamento;
 	@Column(length = 20)
 	private String chassi;
 	@Column(length = 50)
@@ -142,6 +144,8 @@ public class Veiculo implements Serializable {
 	private String complemento;
 	@Column(length = 50)
 	private String categoria;
+	@Column(length = 50)
+	private String subCategoria;
 	@Column(length = 10)
 	private String cmtTon;
 	@Column(length = 2)
@@ -176,6 +180,14 @@ public class Veiculo implements Serializable {
 	private String proprietarioAnteriorEmail;
 	private int numeroPotas;
 	
+	public String getSubCategoria() {
+		return subCategoria;
+	}
+
+	public void setSubCategoria(String subCategoria) {
+		this.subCategoria = subCategoria;
+	}
+
 	public String getCambio() {
 		return cambio;
 	}
@@ -354,10 +366,6 @@ public class Veiculo implements Serializable {
 
 	public String getMunicipioEmplacamento() {
 		return municipioEmplacamento;
-	}
-
-	public String getNomeVeiculo() {
-		return nomeVeiculo;
 	}
 
 	public String getPais() {
@@ -624,10 +632,6 @@ public class Veiculo implements Serializable {
 		this.municipioEmplacamento = municipioEmplacamento;
 	}
 
-	public void setNomeVeiculo(String nomeVeiculo) {
-		this.nomeVeiculo = nomeVeiculo;
-	}
-
 	public void setPais(String pais) {
 		this.pais = pais;
 	}
@@ -798,6 +802,30 @@ public class Veiculo implements Serializable {
 
 	public void setQuilometragem(String quilometragem) {
 		this.quilometragem = quilometragem;
+	}
+	
+	public String getEstadoEmplacamento() {
+		return estadoEmplacamento;
+	}
+
+	public void setEstadoEmplacamento(String estadoEmplacamento) {
+		this.estadoEmplacamento = estadoEmplacamento;
+	}
+
+	public int getNumeroPotas() {
+		return numeroPotas;
+	}
+
+	public void setNumeroPotas(int numeroPotas) {
+		this.numeroPotas = numeroPotas;
+	}
+
+	public String getAdaptadoDeficiente() {
+		return adaptadoDeficiente;
+	}
+
+	public void setAdaptadoDeficiente(String adaptadoDeficiente) {
+		this.adaptadoDeficiente = adaptadoDeficiente;
 	}
 
 	@Override

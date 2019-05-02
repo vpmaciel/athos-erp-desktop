@@ -144,7 +144,7 @@ final class UsuarioCont {
 		public void actionPerformed(ActionEvent actionEvent) {
 			usuario = new Usuario();
 			getUsuarioFc().limparGui();
-			getUsuarioPc().getNomeGui().requestFocus();
+			getUsuarioPc().getGuiNome().requestFocus();
 		}
 	}
 
@@ -189,22 +189,22 @@ final class UsuarioCont {
 					return;
 				}
 
-				if ((getUsuarioPc().getNomeGui().getText()) == null
-						|| getUsuarioPc().getNomeGui().getText().length() == 0) {
-					getUsuarioPc().getNomeGui().requestFocus();
+				if ((getUsuarioPc().getGuiNome().getText()) == null
+						|| getUsuarioPc().getGuiNome().getText().length() == 0) {
+					getUsuarioPc().getGuiNome().requestFocus();
 					Msg.avisoCampoObrigatorio("Data");
 					return;
 				}
 
 				Usuario usuarioPesquisa = new Usuario();
-				usuarioPesquisa.setNome(getUsuarioPc().getNomeGui().getText());
+				usuarioPesquisa.setNome(getUsuarioPc().getGuiNome().getText());
 				Usuario usuarioPesquisaRetornado = UsuarioFac.consultarRegistro(usuarioPesquisa);
 
 				if (usuario.getId() == null && usuarioPesquisa.getNome() != null
 						&& usuarioPesquisaRetornado.getNome() != null) {
 					if (usuarioPesquisa.getNome().equals(usuarioPesquisaRetornado.getNome())) {
 						Msg.avisoCampoDuplicado("NOME", usuarioPesquisa.getNome());
-						getUsuarioPc().getNomeGui().requestFocus();
+						getUsuarioPc().getGuiNome().requestFocus();
 						return;
 					}
 				}
@@ -214,7 +214,7 @@ final class UsuarioCont {
 					if (!usuario.getNome().equals(usuarioPesquisa.getNome())) {
 						if (usuarioPesquisa.getNome().equals(usuarioPesquisaRetornado.getNome())) {
 							Msg.avisoCampoDuplicado("NOME", usuarioPesquisa.getNome());
-							getUsuarioPc().getNomeGui().requestFocus();
+							getUsuarioPc().getGuiNome().requestFocus();
 						}
 						return;
 					}
@@ -225,7 +225,7 @@ final class UsuarioCont {
 					UsuarioFac.salvarRegistro(usuario);
 					usuario = new Usuario();
 					MainCont.getUsuarioFc().limparGui();
-					getUsuarioPc().getNomeGui().requestFocus();
+					getUsuarioPc().getGuiNome().requestFocus();
 					Msg.sucessoSalvarRegistro();
 				}
 			} catch (HeadlessException e) {
@@ -243,14 +243,14 @@ final class UsuarioCont {
 		if (usuario == null) {
 			return;
 		}
-		getUsuarioPc().getNomeGui().setText(usuario.getNome());
-		getUsuarioPc().getSenhaGui().setText(usuario.getSenha());
+		getUsuarioPc().getGuiNome().setText(usuario.getNome());
+		getUsuarioPc().getGuiSenha().setText(usuario.getSenha());
 	}
 
 	public void atualizarObjeto() {
 
-		usuario.setSenha(getUsuarioPc().getSenhaGui().getText());
-		usuario.setNome(getUsuarioPc().getNomeGui().getText());
+		usuario.setSenha(getUsuarioPc().getGuiSenha().getText());
+		usuario.setNome(getUsuarioPc().getGuiNome().getText());
 	}
 
 	public Usuario getUsuario() {

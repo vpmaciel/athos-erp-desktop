@@ -81,7 +81,7 @@ public final class EmpresaPc extends JPanel implements Gui {
 
 	}
 
-	public JComboBox<String> getEmpresaGui() {
+	public JComboBox<String> getGuiEmpresa() {
 		return boxTipoEmpresa;
 	}
 
@@ -90,27 +90,27 @@ public final class EmpresaPc extends JPanel implements Gui {
 		return configuracaoGui;
 	}
 
-	public JTextField getBairroGui() {
+	public JTextField getGuiBairro() {
 		return textFieldBairro;
 	}
 
-	public JTextField getCapitalSocialGui() {
+	public JTextField getGuiCapitalSocial() {
 		return textFieldCapitalSocial;
 	}
 
-	public JFormattedTextField getCepGui() {
+	public JFormattedTextField getGuiCep() {
 		return textFieldCep;
 	}
 
-	public JTextField getCidadeGui() {
+	public JTextField getGuiCidade() {
 		return textFieldCidade;
 	}
 
-	public JFormattedTextField getCnpjGui() {
+	public JFormattedTextField getGuiCnpj() {
 		return textFieldCNPJ;
 	}
 
-	public JTextField getComplementoGui() {
+	public JTextField getGuiComplemento() {
 		return textFieldComplemento;
 	}
 
@@ -118,63 +118,63 @@ public final class EmpresaPc extends JPanel implements Gui {
 		return textFieldCPF;
 	}
 
-	public JFormattedTextField getDataFundacaoGui() {
+	public JFormattedTextField getGuiDataFundacao() {
 		return textFieldDataFundacao;
 	}
 
-	public JTextField getEmailGui() {
+	public JTextField getGuiEmail() {
 		return textFieldEmail;
 	}
 
-	public JTextField getEstadoGui() {
+	public JTextField getGuiEstado() {
 		return textFieldEstado;
 	}
 
-	public JTextField getFaturamentoMensalGui() {
+	public JTextField getGuiFaturamentoMensal() {
 		return textFieldFaturamentoMensal;
 	}
 
-	public JTextField getFaxGui() {
+	public JTextField getGuiFax() {
 		return textFieldFax;
 	}
 
-	public JTextField getFone1Gui() {
+	public JTextField getGuiFone1() {
 		return textFieldFone1;
 	}
 
-	public JTextField getFone2Gui() {
+	public JTextField getGuiFone2() {
 		return textFieldFone2;
 	}
 
-	public JTextField getInscricaoEstadualGui() {
+	public JTextField getGuiInscricaoEstadual() {
 		return textFieldInscricaoEstadual;
 	}
 
-	public JTextField getInscricaoMunicipalGui() {
+	public JTextField getGuiInscricaoMunicipal() {
 		return textFieldInscricaoMunicipal;
 	}
 
-	public JTextField getLogradouroGui() {
+	public JTextField getGuiLogradouro() {
 		return textFieldLogradouro;
 	}
 
-	public JTextField getNomeFantasiaGui() {
+	public JTextField getGuiNomeFantasia() {
 		return textFieldNomeFantasia;
 	}
 
-	public JTextField getNumeroFuncionariosGui() {
+	public JTextField getGuiNumeroFuncionarios() {
 		return textFieldNumeroFuncionarios;
 	}
 
-	public JTextField getPaisGui() {
+	public JTextField getGuiPais() {
 		return textFieldPais;
 	}
 
-	public JTextField getRamoAtividadeGui() {
+	public JTextField getGuiRamoAtividade() {
 		return textFieldRamoAtividade;
 	}
 
-	public JTextField getRazaoSocialGui() {
+	public JTextField getGuiRazaoSocial() {
 		return textFieldRazaoSocial;
 	}
 

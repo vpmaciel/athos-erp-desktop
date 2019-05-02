@@ -82,15 +82,15 @@ public final class ImovelPc extends JPanel implements Gui {
 
 	}
 
-	public JComboBox<String> getGaragemGui() {
+	public JComboBox<String> getGuiGaragem() {
 		return boxGaragem;
 	}
 
-	public JComboBox<String> getPiscinaGui() {
+	public JComboBox<String> getGuiPiscina() {
 		return boxPiscina;
 	}
 
-	public JComboBox<String> getTerracoGui() {
+	public JComboBox<String> getGuiTerraco() {
 		return boxTerraco;
 	}
 
@@ -99,83 +99,83 @@ public final class ImovelPc extends JPanel implements Gui {
 		return configuracaoGui;
 	}
 
-	public JTextField getBairroGui() {
+	public JTextField getGuiBairro() {
 		return textFieldBairro;
 	}
 
-	public JTextField getBanheiroGui() {
+	public JTextField getGuiBanheiro() {
 		return textFieldBanheiro;
 	}
 
-	public JTextField getCepGui() {
+	public JTextField getGuiCep() {
 		return textFieldCep;
 	}
 
-	public JTextField getCidadeGui() {
+	public JTextField getGuiCidade() {
 		return textFieldCidade;
 	}
 
-	public JTextField getCnpjGui() {
+	public JTextField getGuiCnpj() {
 		return textFieldCNPJ;
 	}
 
-	public JTextField getComplementoGui() {
+	public JTextField getGuiComplemento() {
 		return textFieldComplemento;
 	}
 
-	public JTextField getCozinhaGui() {
+	public JTextField getGuiCozinha() {
 		return textFieldCozinha;
 	}
 
-	public JTextField getCpfGui() {
+	public JTextField getGuiCpf() {
 		return textFieldCPF;
 	}
 
-	public JTextField getEmailGui() {
+	public JTextField getGuiEmail() {
 		return textFieldEmail;
 	}
 
-	public JTextField getEstadoGui() {
+	public JTextField getGuiEstado() {
 		return textFieldEstado;
 	}
 
-	public JFormattedTextField getFaxGui() {
+	public JFormattedTextField getGuiFax() {
 		return textFieldFax;
 	}
 
-	public JFormattedTextField getFone1Gui() {
+	public JFormattedTextField getGuiFone1() {
 		return textFieldFone1;
 	}
 
-	public JFormattedTextField getFone2Gui() {
+	public JFormattedTextField getGuiFone2() {
 		return textFieldFone2;
 	}
 
-	public JTextField getLogradouroGui() {
+	public JTextField getGuiLogradouro() {
 		return textFieldLogradouro;
 	}
 
-	public JTextField getNomeProprietarioGui() {
+	public JTextField getGuiNomeProprietario() {
 		return textFieldNomeProprietario;
 	}
 
-	public JTextField getPaisGui() {
+	public JTextField getGuiPais() {
 		return textFieldPais;
 	}
 
-	public JTextField getQuartoGui() {
+	public JTextField getGuiQuarto() {
 		return textFieldQuarto;
 	}
 
-	public JTextField getSalaGui() {
+	public JTextField getGuiSala() {
 		return textFieldSala;
 	}
 
-	public JTextField getSuiteGui() {
+	public JTextField getGuiSuite() {
 		return textFieldSuite;
 	}
 
-	public JTextField getVarandaGui() {
+	public JTextField getGuiVaranda() {
 		return textFieldVaranda;
 	}
 

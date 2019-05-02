@@ -115,31 +115,31 @@ public final class FuncionarioPc extends JPanel implements Gui {
 
 	}
 
-	public JComboBox<CentroCusto> getCentroCustoGui() {
+	public JComboBox<CentroCusto> getGuiCentroCusto() {
 		return boxCentroCusto;
 	}
 
-	public JComboBox<String> getCorGui() {
+	public JComboBox<String> getGuiCor() {
 		return boxCor;
 	}
 
-	public JComboBox<String> getDeficienciaGui() {
+	public JComboBox<String> getGuiDeficiencia() {
 		return boxDeficiencia;
 	}
 
-	public JComboBox<String> getEscolaridadeGui() {
+	public JComboBox<String> getGuiEscolaridade() {
 		return boxEscolaridade;
 	}
 
-	public JComboBox<String> getEstadoCivilGui() {
+	public JComboBox<String> getGuiEstadoCivil() {
 		return boxEstadoCivil;
 	}
 
-	public JComboBox<String> getNacionalidadeGui() {
+	public JComboBox<String> getGuiNacionalidade() {
 		return boxNacionalidade;
 	}
 
-	public JComboBox<String> getSexoGui() {
+	public JComboBox<String> getGuiSexo() {
 		return boxSexo;
 	}
 
@@ -152,119 +152,119 @@ public final class FuncionarioPc extends JPanel implements Gui {
 		return labelCentroCusto;
 	}
 
-	public JTextField getBairroGui() {
+	public JTextField getGuiBairro() {
 		return textFieldBairro;
 	}
 
-	public JTextField getCargoGui() {
+	public JTextField getGuiCargo() {
 		return textFieldCargo;
 	}
 
-	public JTextField getCategoriaGui() {
+	public JTextField getGuiCategoria() {
 		return textFieldCategoria;
 	}
 
-	public JFormattedTextField getCepGui() {
+	public JFormattedTextField getGuiCep() {
 		return textFieldCep;
 	}
 
-	public JTextField getCidadeGui() {
+	public JTextField getGuiCidade() {
 		return textFieldCidade;
 	}
 
-	public JTextField getCNHCategoriaGui() {
+	public JTextField getGuiCNHCategoria() {
 		return textFieldCNHCategoria;
 	}
 
-	public JFormattedTextField getCnpjGui() {
+	public JFormattedTextField getGuiCnpj() {
 		return textFieldCNPJ;
 	}
 
-	public JTextField getComplementoGui() {
+	public JTextField getGuiComplemento() {
 		return textFieldComplemento;
 	}
 
-	public JTextField getConjugeGui() {
+	public JTextField getGuiConjuge() {
 		return textFieldConjuge;
 	}
 
-	public JFormattedTextField getCpfGui() {
+	public JFormattedTextField getGuiCpf() {
 		return textFieldCPF;
 	}
 
-	public JTextField getCtpsGui() {
+	public JTextField getGuiCtps() {
 		return textFieldCTPS;
 	}
 
-	public JTextField getDepartamentoGui() {
+	public JTextField getGuiDepartamento() {
 		return textFieldDepartamento;
 	}
 
-	public JTextField getEmailGui() {
+	public JTextField getGuiEmail() {
 		return textFieldEmail;
 	}
 
-	public JTextField getEmpresaGui() {
+	public JTextField getGuiEmpresa() {
 		return textFieldEmpresa;
 	}
 
-	public JTextField getEstadoGui() {
+	public JTextField getGuiEstado() {
 		return textFieldEstado;
 	}
 
-	public JFormattedTextField getFaxGui() {
+	public JFormattedTextField getGuiFax() {
 		return textFieldFax;
 	}
 
-	public JTextField getFilhosGui() {
+	public JTextField getGuiFilhos() {
 		return textFieldFilhos;
 	}
 
-	public JFormattedTextField getFone1Gui() {
+	public JFormattedTextField getGuiFone1() {
 		return textFieldFone1;
 	}
 
-	public JFormattedTextField getFone2Gui() {
+	public JFormattedTextField getGuiFone2() {
 		return textFieldFone2;
 	}
 
-	public JTextField getGerenteGui() {
+	public JTextField getGuiGerente() {
 		return textFieldGerente;
 	}
 
-	public JTextField getLogradouroGui() {
+	public JTextField getGuiLogradouro() {
 		return textFieldLogradouro;
 	}
 
-	public JTextField getMatriculaGui() {
+	public JTextField getGuiMatricula() {
 		return textFieldMatricula;
 	}
 
-	public JTextField getNomeGui() {
+	public JTextField getGuiNome() {
 		return textFieldNome;
 	}
 
-	public JTextField getPaisGui() {
+	public JTextField getGuiPais() {
 		return textFieldPais;
 	}
 
-	public JFormattedTextField getPisGui() {
+	public JFormattedTextField getGuiPis() {
 		return textFieldPIS;
 	}
 
-	public JTextField getRGNumeroGui() {
+	public JTextField getGuiRGNumero() {
 		return textFieldRGNumero;
 	}
 
-	public JTextField getRGOrgaoEmisssorGui() {
+	public JTextField getGuiRGOrgaoEmisssor() {
 		return textFieldRGOrgaoEmisssor;
 	}
 
-	public JTextField getSalarioGui() {
+	public JTextField getGuiSalario() {
 		return textFieldSalario;
 	}
 
-	public JTextField getTurnoGui() {
+	public JTextField getGuiTurno() {
 		return textFieldTurno;
 	}
 

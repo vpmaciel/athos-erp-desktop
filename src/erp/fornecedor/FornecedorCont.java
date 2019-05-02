@@ -144,7 +144,7 @@ final class FornecedorCont {
 		public void actionPerformed(ActionEvent actionEvent) {
 			fornecedor = new Fornecedor();
 			getFornecedorFc().limparGui();
-			getFornecedorPc().getNomeFantasiaGui().requestFocus();
+			getFornecedorPc().getGuiNomeFantasia().requestFocus();
 		}
 	}
 
@@ -187,22 +187,22 @@ final class FornecedorCont {
 				if (mensagem != JOptionPane.YES_OPTION) {
 					return;
 				}
-				String nome = getFornecedorPc().getNomeFantasiaGui().getText();
+				String nome = getFornecedorPc().getGuiNomeFantasia().getText();
 				if (nome == null || nome.length() == 0) {
-					getFornecedorPc().getNomeFantasiaGui().requestFocus();
+					getFornecedorPc().getGuiNomeFantasia().requestFocus();
 					Msg.avisoCampoObrigatorio("NOME FANTASIA");
 					return;
 				}
 				
 				Fornecedor fornecedorPesquisa = new Fornecedor();
-				fornecedorPesquisa.setCpf(getFornecedorPc().getCpfGui().getText());
+				fornecedorPesquisa.setCpf(getFornecedorPc().getGuiCpf().getText());
 				Fornecedor fornecedorPesquisaRetornado = FornecedorFac.consultarRegistro(fornecedorPesquisa);
 
 				if (fornecedor.getId() == null && fornecedorPesquisa.getCpf() != null
 						&& fornecedorPesquisaRetornado.getCpf() != null) {
 					if (fornecedorPesquisa.getCpf().equals(fornecedorPesquisaRetornado.getCpf())) {
 						Msg.avisoCampoDuplicado("CPF", fornecedorPesquisa.getCpf());
-						getFornecedorPc().getCpfGui().requestFocus();
+						getFornecedorPc().getGuiCpf().requestFocus();
 						return;
 					}
 				}
@@ -212,21 +212,21 @@ final class FornecedorCont {
 					if (!fornecedor.getCpf().equals(fornecedorPesquisa.getCpf())) {
 						if (fornecedorPesquisa.getCpf().equals(fornecedorPesquisaRetornado.getCpf())) {
 							Msg.avisoCampoDuplicado("CPF", fornecedorPesquisa.getCpf());
-							getFornecedorPc().getCpfGui().requestFocus();
+							getFornecedorPc().getGuiCpf().requestFocus();
 						}
 						return;
 					}
 				}
 
 				fornecedorPesquisa = new Fornecedor();
-				fornecedorPesquisa.setCnpj(getFornecedorPc().getCnpjGui().getText());
+				fornecedorPesquisa.setCnpj(getFornecedorPc().getGuiCnpj().getText());
 				fornecedorPesquisaRetornado = FornecedorFac.consultarRegistro(fornecedorPesquisa);
 
 				if (fornecedor.getId() == null && fornecedorPesquisa.getCnpj() != null
 						&& fornecedorPesquisaRetornado.getCnpj() != null) {
 					if (fornecedorPesquisa.getCnpj().equals(fornecedorPesquisaRetornado.getCnpj())) {
 						Msg.avisoCampoDuplicado("CNPJ", fornecedorPesquisa.getCnpj());
-						getFornecedorPc().getCnpjGui().requestFocus();
+						getFornecedorPc().getGuiCnpj().requestFocus();
 						return;
 					}
 				}
@@ -236,7 +236,7 @@ final class FornecedorCont {
 					if (!fornecedor.getCnpj().equals(fornecedorPesquisa.getCnpj())) {
 						if (fornecedorPesquisa.getCnpj().equals(fornecedorPesquisaRetornado.getCnpj())) {
 							Msg.avisoCampoDuplicado("CNPJ", fornecedorPesquisa.getCnpj());
-							getFornecedorPc().getCnpjGui().requestFocus();
+							getFornecedorPc().getGuiCnpj().requestFocus();
 						}
 						return;
 					}
@@ -247,7 +247,7 @@ final class FornecedorCont {
 					FornecedorFac.salvarRegistro(fornecedor);
 					fornecedor = new Fornecedor();
 					getFornecedorFc().limparGui();
-					getFornecedorPc().getNomeFantasiaGui().requestFocus();
+					getFornecedorPc().getGuiNomeFantasia().requestFocus();
 					Msg.sucessoSalvarRegistro();
 				}
 			} catch (Exception e) {
@@ -262,61 +262,61 @@ final class FornecedorCont {
 		if (fornecedor == null) {
 			return;
 		}
-		getFornecedorPc().getNomeFantasiaGui().setText(fornecedor.getNomeFantasia());
-		getFornecedorPc().getNumeroFuncionariosGui().setText(fornecedor.getNumeroFuncionarios());
-		getFornecedorPc().getRamoAtividadeGui().setText(fornecedor.getRamoAtividade());
-		getFornecedorPc().getRazaoSocialGui().setText(fornecedor.getRazaoSocial());
-		getFornecedorPc().getEmailGui().setText(fornecedor.getEmail());
-		getFornecedorPc().getFaxGui().setText(fornecedor.getFax());
-		getFornecedorPc().getFone1Gui().setText(fornecedor.getFone1());
-		getFornecedorPc().getFone2Gui().setText(fornecedor.getFone2());
-		getFornecedorPc().getInscricaoEstadualGui().setText(fornecedor.getInscricaoEstadual());
-		getFornecedorPc().getInscricaoMunicipalGui().setText(fornecedor.getInscricaoMunicipal());
-		getFornecedorPc().getCapitalSocialGui().setText(fornecedor.getCapitalSocial());
-		getFornecedorPc().getDataFundacaoGui().setText(fornecedor.getDataFundacao());
-		getFornecedorPc().getBairroGui().setText(fornecedor.getBairro());
-		getFornecedorPc().getCepGui().setText(fornecedor.getCep());
-		getFornecedorPc().getCidadeGui().setText(fornecedor.getCidade());
-		getFornecedorPc().getComplementoGui().setText(fornecedor.getComplemento());
-		getFornecedorPc().getEstadoGui().setText(fornecedor.getEstado());
-		getFornecedorPc().getLogradouroGui().setText(fornecedor.getLogradouro());
-		getFornecedorPc().getPaisGui().setText(fornecedor.getPais());
-		getFornecedorPc().getCnpjGui().setText(fornecedor.getCnpj());
-		getFornecedorPc().getCpfGui().setText(fornecedor.getCpf());
-		getFornecedorPc().getTipoEmpresaGui().setSelectedItem(fornecedor.getTipoEmpresa());
-		getFornecedorPc().getFaturamentoMensalGui().setText(fornecedor.getFaturamentoMensal());
+		getFornecedorPc().getGuiNomeFantasia().setText(fornecedor.getNomeFantasia());
+		getFornecedorPc().getGuiNumeroFuncionarios().setText(fornecedor.getNumeroFuncionarios());
+		getFornecedorPc().getGuiRamoAtividade().setText(fornecedor.getRamoAtividade());
+		getFornecedorPc().getGuiRazaoSocial().setText(fornecedor.getRazaoSocial());
+		getFornecedorPc().getGuiEmail().setText(fornecedor.getEmail());
+		getFornecedorPc().getGuiFax().setText(fornecedor.getFax());
+		getFornecedorPc().getGuiFone1().setText(fornecedor.getFone1());
+		getFornecedorPc().getGuiFone2().setText(fornecedor.getFone2());
+		getFornecedorPc().getGuiInscricaoEstadual().setText(fornecedor.getInscricaoEstadual());
+		getFornecedorPc().getGuiInscricaoMunicipal().setText(fornecedor.getInscricaoMunicipal());
+		getFornecedorPc().getGuiCapitalSocial().setText(fornecedor.getCapitalSocial());
+		getFornecedorPc().getGuiDataFundacao().setText(fornecedor.getDataFundacao());
+		getFornecedorPc().getGuiBairro().setText(fornecedor.getBairro());
+		getFornecedorPc().getGuiCep().setText(fornecedor.getCep());
+		getFornecedorPc().getGuiCidade().setText(fornecedor.getCidade());
+		getFornecedorPc().getGuiComplemento().setText(fornecedor.getComplemento());
+		getFornecedorPc().getGuiEstado().setText(fornecedor.getEstado());
+		getFornecedorPc().getGuiLogradouro().setText(fornecedor.getLogradouro());
+		getFornecedorPc().getGuiPais().setText(fornecedor.getPais());
+		getFornecedorPc().getGuiCnpj().setText(fornecedor.getCnpj());
+		getFornecedorPc().getGuiCpf().setText(fornecedor.getCpf());
+		getFornecedorPc().getGuiTipoEmpresa().setSelectedItem(fornecedor.getTipoEmpresa());
+		getFornecedorPc().getGuiFaturamentoMensal().setText(fornecedor.getFaturamentoMensal());
 	}
 
 	public void atualizarObjeto() {
-		fornecedor.setNomeFantasia(getFornecedorPc().getNomeFantasiaGui().getText());
-		fornecedor.setNumeroFuncionarios(getFornecedorPc().getNumeroFuncionariosGui().getText());
-		fornecedor.setRamoAtividade(getFornecedorPc().getRamoAtividadeGui().getText());
-		fornecedor.setRazaoSocial(getFornecedorPc().getRazaoSocialGui().getText());
-		fornecedor.setEmail(getFornecedorPc().getEmailGui().getText());
-		fornecedor.setFax(getFornecedorPc().getFaxGui().getText());
-		fornecedor.setFone1(getFornecedorPc().getFone1Gui().getText());
-		fornecedor.setFone2(getFornecedorPc().getFone2Gui().getText());
-		fornecedor.setInscricaoEstadual(getFornecedorPc().getInscricaoEstadualGui().getText());
-		fornecedor.setInscricaoMunicipal(getFornecedorPc().getInscricaoMunicipalGui().getText());
-		fornecedor.setCapitalSocial(getFornecedorPc().getCapitalSocialGui().getText());
-		fornecedor.setDataFundacao(getFornecedorPc().getDataFundacaoGui().getText());
-		fornecedor.setBairro(getFornecedorPc().getBairroGui().getText());
-		fornecedor.setCep(getFornecedorPc().getCepGui().getText());
-		fornecedor.setCidade(getFornecedorPc().getCidadeGui().getText());
-		fornecedor.setComplemento(getFornecedorPc().getComplementoGui().getText());
-		fornecedor.setEstado(getFornecedorPc().getEstadoGui().getText());
-		fornecedor.setLogradouro(getFornecedorPc().getLogradouroGui().getText());
-		fornecedor.setPais(getFornecedorPc().getPaisGui().getText());
-		fornecedor.setCnpj(getFornecedorPc().getCnpjGui().getText());
-		fornecedor.setCpf(getFornecedorPc().getCpfGui().getText());
-		fornecedor.setTipoEmpresa((String) getFornecedorPc().getTipoEmpresaGui().getSelectedItem());
-		fornecedor.setFaturamentoMensal(getFornecedorPc().getFaturamentoMensalGui().getText());
+		fornecedor.setNomeFantasia(getFornecedorPc().getGuiNomeFantasia().getText());
+		fornecedor.setNumeroFuncionarios(getFornecedorPc().getGuiNumeroFuncionarios().getText());
+		fornecedor.setRamoAtividade(getFornecedorPc().getGuiRamoAtividade().getText());
+		fornecedor.setRazaoSocial(getFornecedorPc().getGuiRazaoSocial().getText());
+		fornecedor.setEmail(getFornecedorPc().getGuiEmail().getText());
+		fornecedor.setFax(getFornecedorPc().getGuiFax().getText());
+		fornecedor.setFone1(getFornecedorPc().getGuiFone1().getText());
+		fornecedor.setFone2(getFornecedorPc().getGuiFone2().getText());
+		fornecedor.setInscricaoEstadual(getFornecedorPc().getGuiInscricaoEstadual().getText());
+		fornecedor.setInscricaoMunicipal(getFornecedorPc().getGuiInscricaoMunicipal().getText());
+		fornecedor.setCapitalSocial(getFornecedorPc().getGuiCapitalSocial().getText());
+		fornecedor.setDataFundacao(getFornecedorPc().getGuiDataFundacao().getText());
+		fornecedor.setBairro(getFornecedorPc().getGuiBairro().getText());
+		fornecedor.setCep(getFornecedorPc().getGuiCep().getText());
+		fornecedor.setCidade(getFornecedorPc().getGuiCidade().getText());
+		fornecedor.setComplemento(getFornecedorPc().getGuiComplemento().getText());
+		fornecedor.setEstado(getFornecedorPc().getGuiEstado().getText());
+		fornecedor.setLogradouro(getFornecedorPc().getGuiLogradouro().getText());
+		fornecedor.setPais(getFornecedorPc().getGuiPais().getText());
+		fornecedor.setCnpj(getFornecedorPc().getGuiCnpj().getText());
+		fornecedor.setCpf(getFornecedorPc().getGuiCpf().getText());
+		fornecedor.setTipoEmpresa((String) getFornecedorPc().getGuiTipoEmpresa().getSelectedItem());
+		fornecedor.setFaturamentoMensal(getFornecedorPc().getGuiFaturamentoMensal().getText());
 
-		if (getFornecedorPc().getCnpjGui().getText().equals(Mascara.getCnpjVazio())) {
+		if (getFornecedorPc().getGuiCnpj().getText().equals(Mascara.getCnpjVazio())) {
 			fornecedor.setCnpj(null);
 		}
 
-		if (getFornecedorPc().getCpfGui().getText().equals(Mascara.getCpfVazio())) {
+		if (getFornecedorPc().getGuiCpf().getText().equals(Mascara.getCpfVazio())) {
 			fornecedor.setCpf(null);
 		}
 	}

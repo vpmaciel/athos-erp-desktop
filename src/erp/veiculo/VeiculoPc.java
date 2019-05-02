@@ -50,7 +50,7 @@ public final class VeiculoPc extends JPanel implements Gui {
 	private JLabel labelMarchas;
 	private JLabel labelZeroKm;
 	private JLabel labelNumeroPortas;
-	private JLabel labelVeiculoDeficiente;
+	private JLabel labelAdaptadoDeficiente;
 	private JLabel labelPneus;
 	private JLabel labelRodas;
 	private JLabel labelValvulas;
@@ -60,12 +60,11 @@ public final class VeiculoPc extends JPanel implements Gui {
 	private JLabel labelLucro;
 	private JLabel labelDesconto;
 	private JLabel labelPrejuizo;
-	private JLabel labelTransmissao;
 	private JLabel labelDepreciacao;
 	private JLabel labelEstadoEmplacamento;
 	private JComboBox<VeiculoModelo> boxVeiculoModelo;
 	private JComboBox<String> boxEstadoEmplacamento;
-	private JComboBox<String> boxVeiculoDeficiente;
+	private JComboBox<String> boxAdaptadoDeficiente;
 	private JComboBox<String> boxMesReferenciaCadastro;
 	private JFormattedTextField textFieldAnoReferenciaCadastro;
 	private JComboBox<String> boxMesReferenciaCompra;
@@ -92,7 +91,6 @@ public final class VeiculoPc extends JPanel implements Gui {
 	private JComboBox<String> boxCombustivel;
 	private JTextField textFieldPlaca;
 	private JComboBox<String> boxChassiRemarcado;
-	private JComboBox<String> boxTransmissao;
 	private JComboBox<String> boxTipo;
 	private JComboBox<String> boxAtividade;
 	private JComboBox<String> boxCor;
@@ -209,12 +207,12 @@ public final class VeiculoPc extends JPanel implements Gui {
 
 	}
 
+	public JComboBox<String> getGuiAdaptadoDeficiente(){
+		return boxAdaptadoDeficiente;
+	}
+	
 	public JTextField getGuiNumeroPortas() {
 		return textFieldNumeroPortas;
-	}
-
-	public JComboBox<String> getGuiTransmissao() {
-		return boxTransmissao;
 	}
 
 	public JLabel getLabelZeroKm() {
@@ -230,7 +228,7 @@ public final class VeiculoPc extends JPanel implements Gui {
 	}
 
 	public JComboBox<String> getGuiVeiculoDeficiente() {
-		return boxVeiculoDeficiente;
+		return boxAdaptadoDeficiente;
 	}
 
 	public JComboBox<String> getGuiMesReferenciaCadastro() {
@@ -620,15 +618,6 @@ public final class VeiculoPc extends JPanel implements Gui {
 		boxChassiRemarcado.addItem("NÃO");
 		add(boxChassiRemarcado);
 		
-		labelTransmissao = new JLabel("TRANSMISSÃO");
-		add(labelTransmissao);
-
-		boxTransmissao = new JComboBox<String>();
-		boxTransmissao.addItem("");
-		boxTransmissao.addItem("MANUAL");
-		boxTransmissao.addItem("AUTOMÁTICO");
-		add(boxTransmissao);
-
 		labelNumeroPortas = new JLabel("NÚMERO DE PORTAS");
 		add(labelNumeroPortas);
 
@@ -960,14 +949,14 @@ public final class VeiculoPc extends JPanel implements Gui {
 		boxZeroKm.addItem("NÃO");
 		add(boxZeroKm);
 
-		labelVeiculoDeficiente = new JLabel("VEÍCULO ADAPTADO PARA DEFICIENTE");
-		add(labelVeiculoDeficiente);
+		labelAdaptadoDeficiente = new JLabel("VEÍCULO ADAPTADO PARA DEFICIENTE");
+		add(labelAdaptadoDeficiente);
 
-		boxVeiculoDeficiente = new JComboBox<String>();
-		boxVeiculoDeficiente.addItem("");
-		boxVeiculoDeficiente.addItem("SIM");
-		boxVeiculoDeficiente.addItem("NÃO");
-		add(boxVeiculoDeficiente);
+		boxAdaptadoDeficiente = new JComboBox<String>();
+		boxAdaptadoDeficiente.addItem("");
+		boxAdaptadoDeficiente.addItem("SIM");
+		boxAdaptadoDeficiente.addItem("NÃO");
+		add(boxAdaptadoDeficiente);
 
 		labelCapacidaPassageiros = new JLabel("CAPACIDADE DE PASSAGEIROS");
 		add(labelCapacidaPassageiros);
@@ -1483,7 +1472,7 @@ public final class VeiculoPc extends JPanel implements Gui {
 		add(textFieldProprietarioAnteriorEmail);
 
 		// Lay out the panel.
-		SpringUtilities.makeCompactGrid(this, 161, 1, // rows, cols
+		SpringUtilities.makeCompactGrid(this, 159, 1, // rows, cols
 				5, 5, // initX, initY
 				5, 5); // xPad, yPad
 		setOpaque(true); // content panes must be opaque

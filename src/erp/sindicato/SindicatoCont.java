@@ -145,7 +145,7 @@ final class SindicatoCont {
 		public void actionPerformed(ActionEvent actionEvent) {
 			sindicato = new Sindicato();
 			getSindicatoFc().limparGui();
-			getSindicatoPc().getNomeFantasiaGui().requestFocus();
+			getSindicatoPc().getGuiNomeFantasia().requestFocus();
 		}
 	}
 
@@ -188,9 +188,9 @@ final class SindicatoCont {
 				if (mensagem != JOptionPane.YES_OPTION) {
 					return;
 				}
-				String nome = getSindicatoPc().getNomeFantasiaGui().getText();
+				String nome = getSindicatoPc().getGuiNomeFantasia().getText();
 				if (nome == null || nome.length() == 0) {
-					getSindicatoPc().getNomeFantasiaGui().requestFocus();
+					getSindicatoPc().getGuiNomeFantasia().requestFocus();
 					Msg.avisoCampoObrigatorio("NomeFantasia");
 					return;
 				}
@@ -199,18 +199,18 @@ final class SindicatoCont {
 					SindicatoFac.salvarRegistro(sindicato);
 					sindicato = new Sindicato();
 					getSindicatoFc().limparGui();
-					getSindicatoPc().getNomeFantasiaGui().requestFocus();
+					getSindicatoPc().getGuiNomeFantasia().requestFocus();
 					Msg.sucessoSalvarRegistro();
 				}
 				Sindicato sindicatoPesquisa = new Sindicato();
-				sindicatoPesquisa.setCnpj(getSindicatoPc().getCnpjGui().getText());
+				sindicatoPesquisa.setCnpj(getSindicatoPc().getGuiCnpj().getText());
 				Sindicato sindicatoPesquisaRetornado = SindicatoFac.consultarRegistro(sindicatoPesquisa);
 
 				if (sindicato.getId() == null && sindicatoPesquisa.getCnpj() != null
 						&& sindicatoPesquisaRetornado.getCnpj() != null) {
 					if (sindicatoPesquisa.getCnpj().equals(sindicatoPesquisaRetornado.getCnpj())) {
 						Msg.avisoCampoDuplicado("CNPJ", sindicatoPesquisa.getCnpj());
-						getSindicatoPc().getCnpjGui().requestFocus();
+						getSindicatoPc().getGuiCnpj().requestFocus();
 						return;
 					}
 				}
@@ -220,7 +220,7 @@ final class SindicatoCont {
 					if (!sindicato.getCnpj().equals(sindicatoPesquisa.getCnpj())) {
 						if (sindicatoPesquisa.getCnpj().equals(sindicatoPesquisaRetornado.getCnpj())) {
 							Msg.avisoCampoDuplicado("CNPJ", sindicatoPesquisa.getCnpj());
-							getSindicatoPc().getCnpjGui().requestFocus();
+							getSindicatoPc().getGuiCnpj().requestFocus();
 						}
 						return;
 					}
@@ -238,56 +238,55 @@ final class SindicatoCont {
 		if (sindicato == null) {
 			return;
 		}
-		getSindicatoPc().getNomeFantasiaGui().setText(sindicato.getNomeFantasia());
-		getSindicatoPc().getNumeroFuncionariosGui().setText(sindicato.getNumeroFuncionarios());
-		getSindicatoPc().getRamoAtividadeGui().setText(sindicato.getRamoAtividade());
-		getSindicatoPc().getNomeFantasiaGui().setText(sindicato.getNomeFantasia());
-		getSindicatoPc().getRazaoSocialGui().setText(sindicato.getRazaoSocial());
-		getSindicatoPc().getEmailGui().setText(sindicato.getEmail());
-		getSindicatoPc().getFaxGui().setText(sindicato.getFax());
-		getSindicatoPc().getFone1Gui().setText(sindicato.getFone1());
-		getSindicatoPc().getFone2Gui().setText(sindicato.getFone2());
-		getSindicatoPc().getTextEstadualGui().setText(sindicato.getInscricaoEstadual());
-		getSindicatoPc().getInscricaoMunicipalGui().setText(sindicato.getInscricaoMunicipal());
-		getSindicatoPc().getCapitalSocialGui().setText(sindicato.getCapitalSocial());
-		getSindicatoPc().getDataFundacaoGui().setText(sindicato.getDataFundacao());
-		getSindicatoPc().getBairroGui().setText(sindicato.getBairro());
-		getSindicatoPc().getCepGui().setText(sindicato.getCep());
-		getSindicatoPc().getCidadeGui().setText(sindicato.getCidade());
-		getSindicatoPc().getComplementoGui().setText(sindicato.getComplemento());
-		getSindicatoPc().getEstadoGui().setText(sindicato.getEstado());
-		getSindicatoPc().getLogradouroGui().setText(sindicato.getLogradouro());
-		getSindicatoPc().getPaisGui().setText(sindicato.getPais());
-		getSindicatoPc().getCnpjGui().setText(sindicato.getCnpj());
-		getSindicatoPc().getTipoSindicatoGui().setSelectedItem(sindicato.getTipoSindicato());
-		getSindicatoPc().getFaturamentoMensalGui().setText(sindicato.getFaturamentoMensal());
+		getSindicatoPc().getGuiNomeFantasia().setText(sindicato.getNomeFantasia());
+		getSindicatoPc().getGuiNumeroFuncionarios().setText(sindicato.getNumeroFuncionarios());
+		getSindicatoPc().getGuiRamoAtividade().setText(sindicato.getRamoAtividade());
+		getSindicatoPc().getGuiRazaoSocial().setText(sindicato.getRazaoSocial());
+		getSindicatoPc().getGuiEmail().setText(sindicato.getEmail());
+		getSindicatoPc().getGuiFax().setText(sindicato.getFax());
+		getSindicatoPc().getGuiFone1().setText(sindicato.getFone1());
+		getSindicatoPc().getGuiFone2().setText(sindicato.getFone2());
+		getSindicatoPc().getGuiTextEstadual().setText(sindicato.getInscricaoEstadual());
+		getSindicatoPc().getGuiInscricaoMunicipal().setText(sindicato.getInscricaoMunicipal());
+		getSindicatoPc().getGuiCapitalSocial().setText(sindicato.getCapitalSocial());
+		getSindicatoPc().getGuiDataFundacao().setText(sindicato.getDataFundacao());
+		getSindicatoPc().getGuiBairro().setText(sindicato.getBairro());
+		getSindicatoPc().getGuiCep().setText(sindicato.getCep());
+		getSindicatoPc().getGuiCidade().setText(sindicato.getCidade());
+		getSindicatoPc().getGuiComplemento().setText(sindicato.getComplemento());
+		getSindicatoPc().getGuiEstado().setText(sindicato.getEstado());
+		getSindicatoPc().getGuiLogradouro().setText(sindicato.getLogradouro());
+		getSindicatoPc().getGuiPais().setText(sindicato.getPais());
+		getSindicatoPc().getGuiCnpj().setText(sindicato.getCnpj());
+		getSindicatoPc().getGuiTipoSindicato().setSelectedItem(sindicato.getTipoSindicato());
+		getSindicatoPc().getGuiFaturamentoMensal().setText(sindicato.getFaturamentoMensal());
 	}
 
 	public void atualizarObjeto() {
-		sindicato.setNomeFantasia(getSindicatoPc().getNomeFantasiaGui().getText());
-		sindicato.setNumeroFuncionarios(getSindicatoPc().getNumeroFuncionariosGui().getText());
-		sindicato.setRamoAtividade(getSindicatoPc().getRamoAtividadeGui().getText());
-		sindicato.setRazaoSocial(getSindicatoPc().getRazaoSocialGui().getText());
-		sindicato.setEmail(getSindicatoPc().getEmailGui().getText());
-		sindicato.setFax(getSindicatoPc().getFaxGui().getText());
-		sindicato.setFone1(getSindicatoPc().getFone1Gui().getText());
-		sindicato.setFone2(getSindicatoPc().getFone2Gui().getText());
-		sindicato.setInscricaoEstadual(getSindicatoPc().getTextEstadualGui().getText());
-		sindicato.setInscricaoMunicipal(getSindicatoPc().getInscricaoMunicipalGui().getText());
-		sindicato.setCapitalSocial(getSindicatoPc().getCapitalSocialGui().getText());
-		sindicato.setDataFundacao(getSindicatoPc().getDataFundacaoGui().getText());
-		sindicato.setBairro(getSindicatoPc().getBairroGui().getText());
-		sindicato.setCep(getSindicatoPc().getCepGui().getText());
-		sindicato.setCidade(getSindicatoPc().getCidadeGui().getText());
-		sindicato.setComplemento(getSindicatoPc().getComplementoGui().getText());
-		sindicato.setEstado(getSindicatoPc().getEstadoGui().getText());
-		sindicato.setLogradouro(getSindicatoPc().getLogradouroGui().getText());
-		sindicato.setPais(getSindicatoPc().getPaisGui().getText());
-		sindicato.setCnpj(getSindicatoPc().getCnpjGui().getText());
-		sindicato.setTipoSindicato((String) getSindicatoPc().getTipoSindicatoGui().getSelectedItem());
-		sindicato.setFaturamentoMensal(getSindicatoPc().getFaturamentoMensalGui().getText());
+		sindicato.setNomeFantasia(getSindicatoPc().getGuiNomeFantasia().getText());
+		sindicato.setNumeroFuncionarios(getSindicatoPc().getGuiNumeroFuncionarios().getText());
+		sindicato.setRamoAtividade(getSindicatoPc().getGuiRamoAtividade().getText());
+		sindicato.setRazaoSocial(getSindicatoPc().getGuiRazaoSocial().getText());
+		sindicato.setEmail(getSindicatoPc().getGuiEmail().getText());
+		sindicato.setFax(getSindicatoPc().getGuiFax().getText());
+		sindicato.setFone1(getSindicatoPc().getGuiFone1().getText());
+		sindicato.setFone2(getSindicatoPc().getGuiFone2().getText());
+		sindicato.setInscricaoEstadual(getSindicatoPc().getGuiTextEstadual().getText());
+		sindicato.setInscricaoMunicipal(getSindicatoPc().getGuiInscricaoMunicipal().getText());
+		sindicato.setCapitalSocial(getSindicatoPc().getGuiCapitalSocial().getText());
+		sindicato.setDataFundacao(getSindicatoPc().getGuiDataFundacao().getText());
+		sindicato.setBairro(getSindicatoPc().getGuiBairro().getText());
+		sindicato.setCep(getSindicatoPc().getGuiCep().getText());
+		sindicato.setCidade(getSindicatoPc().getGuiCidade().getText());
+		sindicato.setComplemento(getSindicatoPc().getGuiComplemento().getText());
+		sindicato.setEstado(getSindicatoPc().getGuiEstado().getText());
+		sindicato.setLogradouro(getSindicatoPc().getGuiLogradouro().getText());
+		sindicato.setPais(getSindicatoPc().getGuiPais().getText());
+		sindicato.setCnpj(getSindicatoPc().getGuiCnpj().getText());
+		sindicato.setTipoSindicato((String) getSindicatoPc().getGuiTipoSindicato().getSelectedItem());
+		sindicato.setFaturamentoMensal(getSindicatoPc().getGuiFaturamentoMensal().getText());
 
-		if (getSindicatoPc().getCnpjGui().getText().equals(Mascara.getCnpjVazio())) {
+		if (getSindicatoPc().getGuiCnpj().getText().equals(Mascara.getCnpjVazio())) {
 			sindicato.setCnpj(null);
 		}
 	}

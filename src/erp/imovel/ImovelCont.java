@@ -142,7 +142,7 @@ final class ImovelCont {
 		public void actionPerformed(ActionEvent actionEvent) {
 			imovel = new Imovel();
 			getImovelFc().limparGui();
-			getImovelPc().getNomeProprietarioGui().requestFocus();
+			getImovelPc().getGuiNomeProprietario().requestFocus();
 		}
 	}
 
@@ -185,9 +185,9 @@ final class ImovelCont {
 				if (mensagem != JOptionPane.YES_OPTION) {
 					return;
 				}
-				String nomeProprietario = getImovelPc().getNomeProprietarioGui().getText();
+				String nomeProprietario = getImovelPc().getGuiNomeProprietario().getText();
 				if (nomeProprietario == null || nomeProprietario.length() == 0) {
-					getImovelPc().getNomeProprietarioGui().requestFocus();
+					getImovelPc().getGuiNomeProprietario().requestFocus();
 					Msg.avisoCampoObrigatorio("NomeFantasia");
 					return;
 				}
@@ -196,7 +196,7 @@ final class ImovelCont {
 					ImovelFac.salvarRegistro(imovel);
 					imovel = new Imovel();
 					getImovelFc().limparGui();
-					getImovelPc().getNomeProprietarioGui().requestFocus();
+					getImovelPc().getGuiNomeProprietario().requestFocus();
 					Msg.sucessoSalvarRegistro();
 				}
 			} catch (Exception e) {
@@ -211,55 +211,55 @@ final class ImovelCont {
 		if (imovel == null) {
 			return;
 		}
-		getImovelPc().getNomeProprietarioGui().setText(imovel.getNomeProprietario());
-		getImovelPc().getCozinhaGui().setText(imovel.getCozinha());
-		getImovelPc().getSalaGui().setText(imovel.getSala());
-		getImovelPc().getQuartoGui().setText(imovel.getQuarto());
-		getImovelPc().getEmailGui().setText(imovel.getEmail());
-		getImovelPc().getFaxGui().setText(imovel.getFax());
-		getImovelPc().getFone1Gui().setText(imovel.getFone1());
-		getImovelPc().getFone2Gui().setText(imovel.getFone2());
-		getImovelPc().getBanheiroGui().setText(imovel.getBanheiro());
-		getImovelPc().getSuiteGui().setText(imovel.getSuite());
-		getImovelPc().getVarandaGui().setText(imovel.getVaranda());
-		getImovelPc().getTerracoGui().setSelectedItem(imovel.getTerracao());
-		getImovelPc().getBairroGui().setText(imovel.getBairro());
-		getImovelPc().getCepGui().setText(imovel.getCep());
-		getImovelPc().getCidadeGui().setText(imovel.getCidade());
-		getImovelPc().getComplementoGui().setText(imovel.getComplemento());
-		getImovelPc().getEstadoGui().setText(imovel.getEstado());
-		getImovelPc().getLogradouroGui().setText(imovel.getLogradouro());
-		getImovelPc().getPaisGui().setText(imovel.getPais());
-		getImovelPc().getCnpjGui().setText(imovel.getCnpj());
-		getImovelPc().getCpfGui().setText(imovel.getCpf());
-		getImovelPc().getGaragemGui().setSelectedItem(imovel.getGaragem());
-		getImovelPc().getPiscinaGui().setSelectedItem(imovel.getPiscina());
+		getImovelPc().getGuiNomeProprietario().setText(imovel.getNomeProprietario());
+		getImovelPc().getGuiCozinha().setText(imovel.getCozinha());
+		getImovelPc().getGuiSala().setText(imovel.getSala());
+		getImovelPc().getGuiQuarto().setText(imovel.getQuarto());
+		getImovelPc().getGuiEmail().setText(imovel.getEmail());
+		getImovelPc().getGuiFax().setText(imovel.getFax());
+		getImovelPc().getGuiFone1().setText(imovel.getFone1());
+		getImovelPc().getGuiFone2().setText(imovel.getFone2());
+		getImovelPc().getGuiBanheiro().setText(imovel.getBanheiro());
+		getImovelPc().getGuiSuite().setText(imovel.getSuite());
+		getImovelPc().getGuiVaranda().setText(imovel.getVaranda());
+		getImovelPc().getGuiTerraco().setSelectedItem(imovel.getTerracao());
+		getImovelPc().getGuiBairro().setText(imovel.getBairro());
+		getImovelPc().getGuiCep().setText(imovel.getCep());
+		getImovelPc().getGuiCidade().setText(imovel.getCidade());
+		getImovelPc().getGuiComplemento().setText(imovel.getComplemento());
+		getImovelPc().getGuiEstado().setText(imovel.getEstado());
+		getImovelPc().getGuiLogradouro().setText(imovel.getLogradouro());
+		getImovelPc().getGuiPais().setText(imovel.getPais());
+		getImovelPc().getGuiCnpj().setText(imovel.getCnpj());
+		getImovelPc().getGuiCpf().setText(imovel.getCpf());
+		getImovelPc().getGuiGaragem().setSelectedItem(imovel.getGaragem());
+		getImovelPc().getGuiPiscina().setSelectedItem(imovel.getPiscina());
 	}
 
 	public void atualizarObjeto() {
-		imovel.setNomeProprietario(getImovelPc().getNomeProprietarioGui().getText());
-		imovel.setCozinha(getImovelPc().getCozinhaGui().getText());
-		imovel.setSala(getImovelPc().getSalaGui().getText());
-		imovel.setQuarto(getImovelPc().getQuartoGui().getText());
-		imovel.setEmail(getImovelPc().getEmailGui().getText());
-		imovel.setFax(getImovelPc().getFaxGui().getText());
-		imovel.setFone1(getImovelPc().getFone1Gui().getText());
-		imovel.setFone2(getImovelPc().getFone2Gui().getText());
-		imovel.setBanheiro(getImovelPc().getBanheiroGui().getText());
-		imovel.setSuite(getImovelPc().getSuiteGui().getText());
-		imovel.setVaranda(getImovelPc().getVarandaGui().getText());
-		imovel.setTerraco((String) getImovelPc().getTerracoGui().getSelectedItem());
-		imovel.setBairro(getImovelPc().getBairroGui().getText());
-		imovel.setCep(getImovelPc().getCepGui().getText());
-		imovel.setCidade(getImovelPc().getCidadeGui().getText());
-		imovel.setComplemento(getImovelPc().getComplementoGui().getText());
-		imovel.setEstado(getImovelPc().getEstadoGui().getText());
-		imovel.setLogradouro(getImovelPc().getLogradouroGui().getText());
-		imovel.setPais(getImovelPc().getPaisGui().getText());
-		imovel.setCnpj(getImovelPc().getCnpjGui().getText());
-		imovel.setCpf(getImovelPc().getCpfGui().getText());
-		imovel.setGaragem((String) getImovelPc().getGaragemGui().getSelectedItem());
-		imovel.setPiscina((String) getImovelPc().getPiscinaGui().getSelectedItem());
+		imovel.setNomeProprietario(getImovelPc().getGuiNomeProprietario().getText());
+		imovel.setCozinha(getImovelPc().getGuiCozinha().getText());
+		imovel.setSala(getImovelPc().getGuiSala().getText());
+		imovel.setQuarto(getImovelPc().getGuiQuarto().getText());
+		imovel.setEmail(getImovelPc().getGuiEmail().getText());
+		imovel.setFax(getImovelPc().getGuiFax().getText());
+		imovel.setFone1(getImovelPc().getGuiFone1().getText());
+		imovel.setFone2(getImovelPc().getGuiFone2().getText());
+		imovel.setBanheiro(getImovelPc().getGuiBanheiro().getText());
+		imovel.setSuite(getImovelPc().getGuiSuite().getText());
+		imovel.setVaranda(getImovelPc().getGuiVaranda().getText());
+		imovel.setTerraco((String) getImovelPc().getGuiTerraco().getSelectedItem());
+		imovel.setBairro(getImovelPc().getGuiBairro().getText());
+		imovel.setCep(getImovelPc().getGuiCep().getText());
+		imovel.setCidade(getImovelPc().getGuiCidade().getText());
+		imovel.setComplemento(getImovelPc().getGuiComplemento().getText());
+		imovel.setEstado(getImovelPc().getGuiEstado().getText());
+		imovel.setLogradouro(getImovelPc().getGuiLogradouro().getText());
+		imovel.setPais(getImovelPc().getGuiPais().getText());
+		imovel.setCnpj(getImovelPc().getGuiCnpj().getText());
+		imovel.setCpf(getImovelPc().getGuiCpf().getText());
+		imovel.setGaragem((String) getImovelPc().getGuiGaragem().getSelectedItem());
+		imovel.setPiscina((String) getImovelPc().getGuiPiscina().getSelectedItem());
 	}
 
 	public Imovel getImovel() {
