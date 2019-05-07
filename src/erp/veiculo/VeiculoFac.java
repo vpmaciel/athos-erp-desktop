@@ -6,16 +6,20 @@ public final class VeiculoFac {
 
 	private static final VeiculoDao veiculoDao = new VeiculoImp();
 
+	public static Veiculo consultarRegistro(Veiculo veiculo) {
+		return veiculoDao.consultarRegistro(veiculo);
+	}
+
 	public static void deletarRegistro(Veiculo veiculo) {
 		veiculoDao.deletarRegistro(veiculo);
 	}
 
-	public static Veiculo getRegistro(Veiculo veiculo) {
-		return veiculoDao.getRegistro(veiculo);
-	}
-
 	public static Collection<Veiculo> getRegistro() {
 		return veiculoDao.getRegistro();
+	}
+
+	public static Veiculo getRegistro(Veiculo veiculo) {
+		return veiculoDao.getRegistro(veiculo);
 	}
 
 	public static Collection<Veiculo> pesquisarRegistro(Veiculo veiculo) {
@@ -26,10 +30,6 @@ public final class VeiculoFac {
 		veiculoDao.salvarRegistro(veiculo);
 	}
 
-	public static Veiculo consultarRegistro(Veiculo veiculo) {
-		return veiculoDao.consultarRegistro(veiculo);
-	}
-	
 	private VeiculoFac() {
 	}
 }

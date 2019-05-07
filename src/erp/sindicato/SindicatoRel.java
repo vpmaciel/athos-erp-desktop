@@ -14,11 +14,11 @@ import arquitetura.relatorio.Relatorio;
 
 public class SindicatoRel {
 
-	private PdfWriter writer = null;
-	private Document document = new Document();
 	private String arquivo = "sindicato.pdf";
-	private String titulo = "SINDICATOS";
+	private Document document = new Document();
 	private Relatorio relatorio = new Relatorio();
+	private String titulo = "SINDICATOS";
+	private PdfWriter writer = null;
 
 	public SindicatoRel(List<Sindicato> sindicatos) {
 

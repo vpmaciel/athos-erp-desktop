@@ -20,8 +20,8 @@ import arquitetura.gui.Imagem;
 @SuppressWarnings("serial")
 public final class VeiculoFc extends JFrame implements Gui {
 
-	private VeiculoCont veiculoCont;
 	private ConfiguracaoGui configuracaoGui;
+	private VeiculoCont veiculoCont;
 	private VeiculoPc veiculoPc;
 
 	public VeiculoFc() {
@@ -42,12 +42,29 @@ public final class VeiculoFc extends JFrame implements Gui {
 		return configuracaoGui;
 	}
 
+	public VeiculoCont getVeiculoCont() {
+		return veiculoCont;
+	}
+
 	public VeiculoPc getVeiculoPc() {
 		return veiculoPc;
 	}
 
-	public VeiculoCont getVeiculoCont() {
-		return veiculoCont;
+	@Override
+	public void iniciarControlador() {
+		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
+		veiculoCont = new VeiculoCont();
+		addWindowListener(veiculoCont.new Frame());
+		veiculoPc.getToolBar().getExcluirBtn().addActionListener(veiculoCont.new Exclui());
+		veiculoPc.getToolBar().getNovoBtn().addActionListener(veiculoCont.new Novo());
+		veiculoPc.getToolBar().getPesquisarBtn().addActionListener(veiculoCont.new Pesquisa());
+		veiculoPc.getToolBar().getImprimirBtn().addActionListener(veiculoCont.new Imprime());
+		veiculoPc.getToolBar().getRelatorioBtn().addActionListener(veiculoCont.new Relatorio());
+		veiculoPc.getToolBar().getSalvarBtn().addActionListener(veiculoCont.new Salva());
+		veiculoPc.getToolBar().getFecharBtn().addActionListener(veiculoCont.new FechaJanela());
+		veiculoPc.getToolBar().getSairBtn().addActionListener(veiculoCont.new SaidaSistema());
+		veiculoPc.getToolBar().getAjudaBtn().addActionListener(veiculoCont.new Ajuda());
+		veiculoPc.getToolBar().getHomeBtn().addActionListener(veiculoCont.new Home());
 	}
 
 	@Override
@@ -89,23 +106,6 @@ public final class VeiculoFc extends JFrame implements Gui {
 	@Override
 	public void iniciarGuiControlador() {
 		configuracaoGui = new ConfiguracaoGui(this);
-	}
-
-	@Override
-	public void iniciarControlador() {
-		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
-		veiculoCont = new VeiculoCont();
-		addWindowListener(veiculoCont.new Frame());
-		veiculoPc.getToolBar().getExcluirBtn().addActionListener(veiculoCont.new Exclui());
-		veiculoPc.getToolBar().getNovoBtn().addActionListener(veiculoCont.new Novo());
-		veiculoPc.getToolBar().getPesquisarBtn().addActionListener(veiculoCont.new Pesquisa());
-		veiculoPc.getToolBar().getImprimirBtn().addActionListener(veiculoCont.new Imprime());
-		veiculoPc.getToolBar().getRelatorioBtn().addActionListener(veiculoCont.new Relatorio());
-		veiculoPc.getToolBar().getSalvarBtn().addActionListener(veiculoCont.new Salva());
-		veiculoPc.getToolBar().getFecharBtn().addActionListener(veiculoCont.new FechaJanela());
-		veiculoPc.getToolBar().getSairBtn().addActionListener(veiculoCont.new SaidaSistema());
-		veiculoPc.getToolBar().getAjudaBtn().addActionListener(veiculoCont.new Ajuda());
-		veiculoPc.getToolBar().getHomeBtn().addActionListener(veiculoCont.new Home());
 	}
 
 	@Override

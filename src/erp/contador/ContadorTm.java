@@ -13,14 +13,7 @@ public class ContadorTm extends AbstractTableModel {
 	public static final int ID = 0;
 	public static int[] largura;
 	private static boolean[] podeEditar;
-	private List<Contador> contadorList = new LinkedList<>();
-	private Contador contador;
 	private static TabelaModelo tabelaModelo = new TabelaModelo();
-
-	public ContadorTm() {
-
-	}
-
 	static {
 		tabelaModelo.adicionar("ID", 0, 100);
 		tabelaModelo.adicionar("CNPJ", 1, 100);
@@ -35,20 +28,16 @@ public class ContadorTm extends AbstractTableModel {
 			podeEditar[i] = false;
 		}
 	}
+	private Contador contador;
+
+	private List<Contador> contadorList = new LinkedList<>();
+
+	public ContadorTm() {
+
+	}
 
 	public ContadorTm(List<Contador> lista) {
 		contadorList.addAll(lista);
-	}
-
-	public Contador getContador(int linha) {
-		if (contadorList.size() > 0) {
-			return contadorList.get(linha);
-		}
-		return null;
-	}
-
-	public List<Contador> getContadorList() {
-		return contadorList;
 	}
 
 	@Override
@@ -68,6 +57,17 @@ public class ContadorTm extends AbstractTableModel {
 	@Override
 	public String getColumnName(int column) {
 		return tabelaModelo.getNome(column);
+	}
+
+	public Contador getContador(int linha) {
+		if (contadorList.size() > 0) {
+			return contadorList.get(linha);
+		}
+		return null;
+	}
+
+	public List<Contador> getContadorList() {
+		return contadorList;
 	}
 
 	@Override

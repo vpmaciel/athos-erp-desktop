@@ -44,6 +44,329 @@ import arquitetura.gui.Msg;
 @SuppressWarnings("serial")
 public class EditorTextoFc extends JFrame {
 
+	/**************** CLASSE DESTINADA A TRATAMENTO DE EVENTOS ****************/
+	private class EventosBlocoDeNotas {
+
+		Color color = Color.BLACK;
+		String pesquisa;
+		int posicaoInicial;
+		int selecionar;
+		Color ultimaCor = Color.BLACK;
+
+		/**
+		 * Permite ao usuário selecionar algum arquivo do computador para que este ser
+		 * aberto pelo Editor de Texto.
+		 */
+		public void AbrirArquivo() {
+
+			JFileChooser abrindoArquivo = new JFileChooser();
+
+			// configurando para que somente arquivos seja abertos.
+			abrindoArquivo.setFileSelectionMode(JFileChooser.FILES_ONLY);
+
+			SwingUtilities.updateComponentTreeUI(abrindoArquivo);
+
+			// definindo filtro de Extensão para abrir somente arquivo *.txt
+			abrindoArquivo.setFileFilter(new javax.swing.filechooser.FileFilter() {
+
+				@Override
+				public boolean accept(File file) {
+					return file.getName().toLowerCase().endsWith(".txt") || file.isDirectory();
+				}
+
+				@Override
+				public String getDescription() {
+					return "Documento de Texto (.txt)";
+				}
+			});
+
+			// armazena a escolha do usuário.
+			int respostaDeAbrindoArquivo = abrindoArquivo.showOpenDialog(EditorTextoFc.this);
+
+			// se o usuário clicar para abrir o arquivo...
+			if (respostaDeAbrindoArquivo == JFileChooser.APPROVE_OPTION) {
+
+				File Arquivo = abrindoArquivo.getSelectedFile();
+				texto.setText("");
+
+				try {
+					BufferedReader bufferedReader = new BufferedReader(new FileReader(Arquivo));
+					String linha;
+
+					while ((linha = bufferedReader.readLine()) != null) {
+						texto.append(linha + "\n");
+					}
+
+					bufferedReader.close();
+				} catch (IOException ex) {
+					// possíveis erros são tratatos aqui.
+				}
+			}
+		}
+
+		/**
+		 * Permite que o usuário determine se deseja que o documento seja salvo ou não,
+		 * quando clicado no botão fechar do aplicativo.
+		 */
+		public void FecharWindowListener() {
+
+			int resposta = Msg.confirmarFecharJanela();
+
+			if (resposta == JOptionPane.YES_OPTION) {
+				setVisible(false);
+			}
+		}
+
+		/**
+		 * Abre um documento já existente.
+		 */
+		public void MenuItemAbrirActionListener() {
+
+			AbrirArquivo();
+		}
+
+		/**
+		 * Estando abilitado, será exibido informações sobre a fonte e seu estilo e
+		 * tamanho, no canto inferior da Janela.
+		 */
+		public void MenuItemBarraDeStatusActionListener() {
+
+			if (menuItemBarraDeStatus.isSelected())
+				barraDeStatus.setVisible(true);
+			else
+				barraDeStatus.setVisible(false);
+		}
+
+		/**
+		 * Insere o texto no documento que esta na área de transferéncia.
+		 */
+		public void MenuItemColarActionListener() {
+
+			texto.paste();
+		}
+
+		/**
+		 * Tranfere para a área de tranferéncia o texto selecionado.
+		 */
+		public void MenuItemCopiarActionListener() {
+			texto.copy();
+		}
+
+		/**
+		 * Abrindo uma caixa de diálogo que permite ao usuário selecionar uma
+		 * determinada cor de forma interativa.
+		 */
+		public void MenuItemCorActionListener() {
+
+			color = JColorChooser.showDialog(EditorTextoFc.this, "Alterar cor da fonte", color);
+
+			if (color != null)
+				ultimaCor = color;
+
+			texto.setForeground(ultimaCor);
+		}
+
+		/**
+		 * Object obtém todas as fontes do sistema, sendo estas fontes exibidas em um
+		 * JOptionPane; Quando o usuário efetivar sua escolha toda a fonte do texto será
+		 * mudada.
+		 */
+		public void MenuItemFonteActionListener() {
+
+			Object[] nomeFonte = GraphicsEnvironment.getLocalGraphicsEnvironment().getAvailableFontFamilyNames();
+
+			String fonteEscolhida = (String) JOptionPane.showInputDialog(EditorTextoFc.this, "Escolha a fonte", "Fonte",
+					JOptionPane.PLAIN_MESSAGE, null, nomeFonte, "");
+
+			if (fonteEscolhida == null)
+				texto.setFont(new Font("Lucida Console", Font.PLAIN, 14));
+			else {
+				texto.setFont(new Font(fonteEscolhida, Font.PLAIN, 14));
+				barraDeStatus.setText(fonteEscolhida + " // Font.PLAIN // 14  ");
+			}
+		}
+
+		/**
+		 * Busca uma determinada palavra no documento; Quando o MenuItemLocalizar for
+		 * acionado, uma caixa de diálogo será aberta e no campo de texto a palavra o
+		 * qual desejasse buscar no documento deverá ser armazenada na variável, no
+		 * formato String, pesquisa; Caso a variável pesquisa tenha um valor não nulo, a
+		 * palavra solicitada deverá ser buscada no JTextArea, sendo está, quando
+		 * encontrada, selecionada no texto.
+		 */
+		public void MenuItemLocalizarActionListener() {
+
+			pesquisa = JOptionPane.showInputDialog(EditorTextoFc.this, "Pesquisar:", "Localizar",
+					JOptionPane.PLAIN_MESSAGE);
+
+			if (pesquisa != null) {
+
+				posicaoInicial = 0;
+				texto.requestFocus();
+
+				selecionar = texto.getText().indexOf(pesquisa, posicaoInicial);
+
+				if (selecionar < 0) {
+					JOptionPane.showMessageDialog(EditorTextoFc.this, "Texto não encontrado");
+					posicaoInicial = 0;
+				} else {
+					texto.requestFocus();
+					texto.select(selecionar, selecionar + pesquisa.length());
+				}
+			}
+		}
+
+		/**
+		 * Localiza a ocorréncia de uma palavra.
+		 */
+		public void MenuItemLocalizarProximaActionListener() {
+
+			if (pesquisa != null) {
+
+				texto.requestFocus();
+				posicaoInicial = selecionar + pesquisa.length();
+
+				selecionar = texto.getText().indexOf(pesquisa, posicaoInicial);
+
+				if (selecionar < 0) {
+
+					// informa ao usuário que todas as palavras foram encontradas.
+					JOptionPane.showMessageDialog(EditorTextoFc.this, "Não existe \"" + pesquisa + "\" em frente!");
+					selecionar = -1;
+					posicaoInicial = 0;
+
+				} else {
+
+					texto.requestFocus();
+					texto.select(selecionar, selecionar + pesquisa.length());
+					posicaoInicial = selecionar + pesquisa.length();
+				}
+			}
+		}
+
+		/**
+		 * Apaga todo texto existente no documento.
+		 */
+		public void MenuItemNovoActionListener() {
+
+			texto.setText("");
+		}
+
+		/**
+		 * Estando ativado o menuItemQuebraAtomaticaDeLinha, o texto passa para a linha
+		 * posterior quando este alcanÃ§a a margem direita do documento; Estando
+		 * desabilitado, o texto segue normalmente na mesma linha atÃ© o usuário apertar
+		 * a tecla ENTER.
+		 */
+		public void MenuItemQuebraAtomaticaDeLinhaActionListener() {
+
+			if (menuItemQuebraAtomaticaDeLinha.isSelected())
+				texto.setLineWrap(true);
+			else
+				texto.setLineWrap(false);
+		}
+
+		/**
+		 * Apaga o texto selecionado e transfere para a área de transferéncia.
+		 */
+		public void MenuItemRecortarActionListener() {
+			texto.cut();
+		}
+
+		/**
+		 * MÃ©todo responsável por fechar o aplicativo.
+		 */
+		public void MenuItemSairActionListener() {
+			FecharWindowListener();
+		}
+
+		/**
+		 * Salva o arquivo texto em um diretório.
+		 */
+		public void MenuItemSalvarComoActionListener() {
+			SalvarArquivo();
+		}
+
+		/**
+		 * Agiliza o processo de recortar, copiar e colar todo o texto.
+		 */
+		public void MenuItemSelecionarTudoActionListener() {
+			texto.selectAll();
+		}
+
+		public void SalvarArquivo() {
+
+			JFileChooser salvandoArquivo = new JFileChooser();
+
+			if (salvandoArquivo.showSaveDialog(EditorTextoFc.this) != JFileChooser.APPROVE_OPTION)
+				return;
+
+			File arquivo = salvandoArquivo.getSelectedFile();
+			if (arquivo == null)
+				return;
+
+			FileWriter writer = null;
+			try {
+				writer = new FileWriter(arquivo);
+				writer.write(texto.getText());
+			} catch (IOException Ex) {
+				// possíveis erros aqui.
+			}
+
+			finally {
+				if (writer != null) {
+					try {
+						writer.close();
+					} catch (IOException ex) {
+					}
+				}
+			}
+		}
+	}
+
+	private JLabel barraDeStatus;
+
+	private JPopupMenu botãoEsquerdo;
+
+	private Font fontePadrao;
+
+	private JMenu menuArquivo;
+
+	// Componentes gráficos utilizados no JFrame.
+	private JMenuBar menuBar;
+	private JMenu menuEditar;
+	private JMenu menuExibir;
+	private JMenu menuFormatar;
+
+	private JMenuItem menuItemAbrir;
+
+	private JCheckBoxMenuItem menuItemBarraDeStatus;
+	private JMenuItem menuItemColar;
+	private JMenuItem menuItemCopiar;
+	private JMenuItem menuItemCor;
+	private JMenuItem menuItemDesfazer;
+	private JMenuItem menuItemFonte;
+	private JMenuItem menuItemLocalizar;
+
+	private JMenuItem menuItemLocalizarProxima;
+
+	private JMenuItem menuItemNovo;
+	private JCheckBoxMenuItem menuItemQuebraAtomaticaDeLinha;
+	private JMenuItem menuItemRecortar;
+
+	private JMenuItem menuItemSair;
+
+	private JMenuItem menuItemSalvarComo;
+
+	private JMenuItem menuItemSelecionarTudo;
+
+	private JMenuItem popupMenuItemColar;
+	private JMenuItem popupMenuItemCopiar;
+	private JMenuItem popupMenuItemDesfazer;
+	private JMenuItem popupMenuItemRecortar;
+	private JMenuItem popupMenuItemSelecionarTudo;
+	private JTextArea texto;
+
 	public EditorTextoFc() {
 		super("ATHOS - EDITOR DE TEXTO");
 
@@ -408,325 +731,4 @@ public class EditorTextoFc extends JFrame {
 			}
 		});
 	}
-
-	/**************** CLASSE DESTINADA A TRATAMENTO DE EVENTOS ****************/
-	private class EventosBlocoDeNotas {
-
-		int posicaoInicial;
-		int selecionar;
-		String pesquisa;
-		Color color = Color.BLACK;
-		Color ultimaCor = Color.BLACK;
-
-		/**
-		 * Apaga todo texto existente no documento.
-		 */
-		public void MenuItemNovoActionListener() {
-
-			texto.setText("");
-		}
-
-		/**
-		 * Abre um documento já existente.
-		 */
-		public void MenuItemAbrirActionListener() {
-
-			AbrirArquivo();
-		}
-
-		/**
-		 * Salva o arquivo texto em um diretório.
-		 */
-		public void MenuItemSalvarComoActionListener() {
-			SalvarArquivo();
-		}
-
-		/**
-		 * MÃ©todo responsável por fechar o aplicativo.
-		 */
-		public void MenuItemSairActionListener() {
-			FecharWindowListener();
-		}
-
-		/**
-		 * Apaga o texto selecionado e transfere para a área de transferéncia.
-		 */
-		public void MenuItemRecortarActionListener() {
-			texto.cut();
-		}
-
-		/**
-		 * Tranfere para a área de tranferéncia o texto selecionado.
-		 */
-		public void MenuItemCopiarActionListener() {
-			texto.copy();
-		}
-
-		/**
-		 * Insere o texto no documento que esta na área de transferéncia.
-		 */
-		public void MenuItemColarActionListener() {
-
-			texto.paste();
-		}
-
-		/**
-		 * Busca uma determinada palavra no documento; Quando o MenuItemLocalizar for
-		 * acionado, uma caixa de diálogo será aberta e no campo de texto a palavra o
-		 * qual desejasse buscar no documento deverá ser armazenada na variável, no
-		 * formato String, pesquisa; Caso a variável pesquisa tenha um valor não nulo, a
-		 * palavra solicitada deverá ser buscada no JTextArea, sendo está, quando
-		 * encontrada, selecionada no texto.
-		 */
-		public void MenuItemLocalizarActionListener() {
-
-			pesquisa = JOptionPane.showInputDialog(EditorTextoFc.this, "Pesquisar:", "Localizar",
-					JOptionPane.PLAIN_MESSAGE);
-
-			if (pesquisa != null) {
-
-				posicaoInicial = 0;
-				texto.requestFocus();
-
-				selecionar = texto.getText().indexOf(pesquisa, posicaoInicial);
-
-				if (selecionar < 0) {
-					JOptionPane.showMessageDialog(EditorTextoFc.this, "Texto não encontrado");
-					posicaoInicial = 0;
-				} else {
-					texto.requestFocus();
-					texto.select(selecionar, selecionar + pesquisa.length());
-				}
-			}
-		}
-
-		/**
-		 * Localiza a ocorréncia de uma palavra.
-		 */
-		public void MenuItemLocalizarProximaActionListener() {
-
-			if (pesquisa != null) {
-
-				texto.requestFocus();
-				posicaoInicial = selecionar + pesquisa.length();
-
-				selecionar = texto.getText().indexOf(pesquisa, posicaoInicial);
-
-				if (selecionar < 0) {
-
-					// informa ao usuário que todas as palavras foram encontradas.
-					JOptionPane.showMessageDialog(EditorTextoFc.this, "Não existe \"" + pesquisa + "\" em frente!");
-					selecionar = -1;
-					posicaoInicial = 0;
-
-				} else {
-
-					texto.requestFocus();
-					texto.select(selecionar, selecionar + pesquisa.length());
-					posicaoInicial = selecionar + pesquisa.length();
-				}
-			}
-		}
-
-		/**
-		 * Agiliza o processo de recortar, copiar e colar todo o texto.
-		 */
-		public void MenuItemSelecionarTudoActionListener() {
-			texto.selectAll();
-		}
-
-		/**
-		 * Estando ativado o menuItemQuebraAtomaticaDeLinha, o texto passa para a linha
-		 * posterior quando este alcanÃ§a a margem direita do documento; Estando
-		 * desabilitado, o texto segue normalmente na mesma linha atÃ© o usuário apertar
-		 * a tecla ENTER.
-		 */
-		public void MenuItemQuebraAtomaticaDeLinhaActionListener() {
-
-			if (menuItemQuebraAtomaticaDeLinha.isSelected())
-				texto.setLineWrap(true);
-			else
-				texto.setLineWrap(false);
-		}
-
-		/**
-		 * Object obtém todas as fontes do sistema, sendo estas fontes exibidas em um
-		 * JOptionPane; Quando o usuário efetivar sua escolha toda a fonte do texto será
-		 * mudada.
-		 */
-		public void MenuItemFonteActionListener() {
-
-			Object[] nomeFonte = GraphicsEnvironment.getLocalGraphicsEnvironment().getAvailableFontFamilyNames();
-
-			String fonteEscolhida = (String) JOptionPane.showInputDialog(EditorTextoFc.this, "Escolha a fonte", "Fonte",
-					JOptionPane.PLAIN_MESSAGE, null, nomeFonte, "");
-
-			if (fonteEscolhida == null)
-				texto.setFont(new Font("Lucida Console", Font.PLAIN, 14));
-			else {
-				texto.setFont(new Font(fonteEscolhida, Font.PLAIN, 14));
-				barraDeStatus.setText(fonteEscolhida + " // Font.PLAIN // 14  ");
-			}
-		}
-
-		/**
-		 * Abrindo uma caixa de diálogo que permite ao usuário selecionar uma
-		 * determinada cor de forma interativa.
-		 */
-		public void MenuItemCorActionListener() {
-
-			color = JColorChooser.showDialog(EditorTextoFc.this, "Alterar cor da fonte", color);
-
-			if (color != null)
-				ultimaCor = color;
-
-			texto.setForeground(ultimaCor);
-		}
-
-		/**
-		 * Estando abilitado, será exibido informações sobre a fonte e seu estilo e
-		 * tamanho, no canto inferior da Janela.
-		 */
-		public void MenuItemBarraDeStatusActionListener() {
-
-			if (menuItemBarraDeStatus.isSelected())
-				barraDeStatus.setVisible(true);
-			else
-				barraDeStatus.setVisible(false);
-		}
-
-		/**
-		 * Permite ao usuário selecionar algum arquivo do computador para que este ser
-		 * aberto pelo Editor de Texto.
-		 */
-		public void AbrirArquivo() {
-
-			JFileChooser abrindoArquivo = new JFileChooser();
-
-			// configurando para que somente arquivos seja abertos.
-			abrindoArquivo.setFileSelectionMode(JFileChooser.FILES_ONLY);
-
-			SwingUtilities.updateComponentTreeUI(abrindoArquivo);
-
-			// definindo filtro de Extensão para abrir somente arquivo *.txt
-			abrindoArquivo.setFileFilter(new javax.swing.filechooser.FileFilter() {
-
-				@Override
-				public boolean accept(File file) {
-					return file.getName().toLowerCase().endsWith(".txt") || file.isDirectory();
-				}
-
-				@Override
-				public String getDescription() {
-					return "Documento de Texto (.txt)";
-				}
-			});
-
-			// armazena a escolha do usuário.
-			int respostaDeAbrindoArquivo = abrindoArquivo.showOpenDialog(EditorTextoFc.this);
-
-			// se o usuário clicar para abrir o arquivo...
-			if (respostaDeAbrindoArquivo == JFileChooser.APPROVE_OPTION) {
-
-				File Arquivo = abrindoArquivo.getSelectedFile();
-				texto.setText("");
-
-				try {
-					BufferedReader bufferedReader = new BufferedReader(new FileReader(Arquivo));
-					String linha;
-
-					while ((linha = bufferedReader.readLine()) != null) {
-						texto.append(linha + "\n");
-					}
-
-					bufferedReader.close();
-				} catch (IOException ex) {
-					// possíveis erros são tratatos aqui.
-				}
-			}
-		}
-
-		public void SalvarArquivo() {
-
-			JFileChooser salvandoArquivo = new JFileChooser();
-
-			if (salvandoArquivo.showSaveDialog(EditorTextoFc.this) != JFileChooser.APPROVE_OPTION)
-				return;
-
-			File arquivo = salvandoArquivo.getSelectedFile();
-			if (arquivo == null)
-				return;
-
-			FileWriter writer = null;
-			try {
-				writer = new FileWriter(arquivo);
-				writer.write(texto.getText());
-			} catch (IOException Ex) {
-				// possíveis erros aqui.
-			}
-
-			finally {
-				if (writer != null) {
-					try {
-						writer.close();
-					} catch (IOException ex) {
-					}
-				}
-			}
-		}
-
-		/**
-		 * Permite que o usuário determine se deseja que o documento seja salvo ou não,
-		 * quando clicado no botão fechar do aplicativo.
-		 */
-		public void FecharWindowListener() {
-
-			int resposta = Msg.confirmarFecharJanela();
-
-			if (resposta == JOptionPane.YES_OPTION) {
-				setVisible(false);
-			}
-		}
-	}
-
-	// Componentes gráficos utilizados no JFrame.
-	private JMenuBar menuBar;
-
-	private JMenu menuArquivo;
-
-	private JMenuItem menuItemNovo;
-	private JMenuItem menuItemAbrir;
-	private JMenuItem menuItemSalvarComo;
-	private JMenuItem menuItemSair;
-
-	private JMenu menuEditar;
-
-	private JMenuItem menuItemDesfazer;
-	private JMenuItem menuItemRecortar;
-	private JMenuItem menuItemCopiar;
-	private JMenuItem menuItemColar;
-	private JMenuItem menuItemLocalizar;
-	private JMenuItem menuItemLocalizarProxima;
-	private JMenuItem menuItemSelecionarTudo;
-
-	private JMenu menuFormatar;
-
-	private JCheckBoxMenuItem menuItemQuebraAtomaticaDeLinha;
-	private JMenuItem menuItemFonte;
-	private JMenuItem menuItemCor;
-
-	private JMenu menuExibir;
-
-	private JCheckBoxMenuItem menuItemBarraDeStatus;
-
-	private JPopupMenu botãoEsquerdo;
-
-	private JMenuItem popupMenuItemDesfazer;
-	private JMenuItem popupMenuItemRecortar;
-	private JMenuItem popupMenuItemCopiar;
-	private JMenuItem popupMenuItemColar;
-	private JMenuItem popupMenuItemSelecionarTudo;
-	private Font fontePadrao;
-	private JLabel barraDeStatus;
-	private JTextArea texto;
 }

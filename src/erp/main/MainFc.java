@@ -16,40 +16,39 @@ public class MainFc extends JFrame {
 
 	private static MainCont mainCont;
 
-	public static MainCont getMainGerenteEventos() {
-		return mainCont;
-	}
-
 	public static MainFc getFrameMain() {
 		return MainCont.getMainFc();
+	}
+
+	public static MainCont getMainGerenteEventos() {
+		return mainCont;
 	}
 
 	public static void mostrarFrame(JFrame frame) {
 		MainCont.mostrarFrame(frame);
 	}
 
-	private final JMenuBar menuBar = new JMenuBar();
 	private JMenu menuAjuda;
 	private JMenu menuArquivo;
+	private final JMenuBar menuBar = new JMenuBar();
 	private JMenu menuCadastro;
+	private JMenu menuCadastroCurriculo;
 	private JMenu menuCadastroProduto;
-	private JMenu menuEscritorio;
+	private JMenu menuCadastroVeiculo;
 	private JMenu menuContabilidade;
+	private JMenu menuEscritorio;
 	private JMenu menuEstatistica;
 	private JMenu menuFinanceiro;
-	private JMenu menuUtilitario;
-	private JMenu menuUtilitarioAgenda;
-	private JMenu menuSistema;
 	private JMenuItem menuItemAjudaSobreSistema;
 	private JMenuItem menuItemArquivoLogin;
 	private JMenuItem menuItemArquivoLogoff;
 	private JMenuItem menuItemArquivoReiniciar;
 	private JMenuItem menuItemArquivoSair;
-	private JMenuItem menuItemCadastroCentroCusto;
 	private JMenuItem menuItemCadastroBanco;
 	private JMenuItem menuItemCadastroCartorio;
+	private JMenuItem menuItemCadastroCentroCusto;
+	private JMenuItem menuItemCadastroCliente;
 	private JMenuItem menuItemCadastroContador;
-	private JMenu menuCadastroCurriculo;
 	private JMenuItem menuItemCadastroCurriculoCaracteristica;
 	private JMenuItem menuItemCadastroCurriculoCertificado;
 	private JMenuItem menuItemCadastroCurriculoCurso;
@@ -57,42 +56,43 @@ public class MainFc extends JFrame {
 	private JMenuItem menuItemCadastroCurriculoHabilidade;
 	private JMenuItem menuItemCadastroCurriculoIdioma;
 	private JMenuItem menuItemCadastroCurriculoObjetivoProfissional;
-	private JMenuItem menuItemCadastroCurriculoTestePersonalidade;
 	private JMenuItem menuItemCadastroCurriculoTesteDisc;
-
+	private JMenuItem menuItemCadastroCurriculoTestePersonalidadeA;
 	private JMenuItem menuItemCadastroDocumento;
-	private JMenuItem menuItemCadastroCliente;
-	private JMenuItem menuItemCadastroFornecedor;
-	private JMenuItem menuItemCadastroImovel;
 	private JMenuItem menuItemCadastroEmpresa;
-	private JMenuItem menuItemCadastroProdutoProduto;
-	private JMenuItem menuItemCadastroProdutoMarca;
+	private JMenuItem menuItemCadastroEscolaridade;
+	private JMenuItem menuItemCadastroFornecedor;
+	private JMenuItem menuItemCadastroFuncionario;
+	private JMenuItem menuItemCadastroImovel;
 	private JMenuItem menuItemCadastroProdutoCategoria;
+	private JMenuItem menuItemCadastroProdutoMarca;
+	private JMenuItem menuItemCadastroProdutoProduto;
 	private JMenuItem menuItemCadastroServico;
+	private JMenuItem menuItemCadastroSindicato;
+	private JMenuItem menuItemCadastroVeiculoMarca;
+	private JMenuItem menuItemCadastroVeiculoModelo;
+	private JMenuItem menuItemCadastroVeiculoVeiculo;
+	private JMenuItem menuItemCadastroVenda;
+	private JMenuItem menuItemEstatisticaGrafico;
+	private JMenuItem menuItemEstatisticaRelatorio;
+	private JMenuItem menuItemFinanceiroBoletoBancario;
 	private JMenuItem menuItemFinanceiroCaixa;
 	private JMenuItem menuItemFinanceiroContasPagar;
 	private JMenuItem menuItemFinanceiroContasReceber;
-	private JMenuItem menuItemCadastroEscolaridade;
-	private JMenuItem menuItemCadastroFuncionario;
-	private JMenuItem menuItemUtilitarioMalaDireta;
-	private JMenuItem menuItemFinanceiroBoletoBancario;
-	private JMenuItem menuItemCadastroVenda;
-	private JMenu menuCadastroVeiculo;
-	private JMenuItem menuItemCadastroVeiculoVeiculo;
-	private JMenuItem menuItemCadastroVeiculoModelo;
-	private JMenuItem menuItemCadastroVeiculoMarca;
-	private JMenuItem menuItemCadastroSindicato;
-	private JMenuItem menuItemUtilitarioAgendaContato;
-	private JMenuItem menuItemUtilitarioAgendaEvento;
-	private JMenuItem menuItemUtilitarioAgendaTipoEvento;
-	private JMenuItem menuItemUtilitarioAgendaRecado;
-	private JMenuItem menuItemUtilitarioCalculadora;
-	private JMenuItem menuItemUtilitarioEditorTexto;
 	private JMenuItem menuItemSistemaBackup;
+	private JMenuItem menuItemSistemaDados;
 	private JMenuItem menuItemSistemaRestaurar;
 	private JMenuItem menuItemSistemaUsuario;
-	private JMenuItem menuItemEstatisticaRelatorio;
-	private JMenuItem menuItemEstatisticaGrafico;
+	private JMenuItem menuItemUtilitarioAgendaContato;
+	private JMenuItem menuItemUtilitarioAgendaEvento;
+	private JMenuItem menuItemUtilitarioAgendaRecado;
+	private JMenuItem menuItemUtilitarioAgendaTipoEvento;
+	private JMenuItem menuItemUtilitarioCalculadora;
+	private JMenuItem menuItemUtilitarioEditorTexto;
+	private JMenuItem menuItemUtilitarioMalaDireta;
+	private JMenu menuSistema;
+	private JMenu menuUtilitario;
+	private JMenu menuUtilitarioAgenda;
 
 	public MainFc() {
 		iniciarGui();
@@ -159,6 +159,42 @@ public class MainFc extends JFrame {
 		return menuItemCadastroContador;
 	}
 
+	public JMenuItem getMenuItemCadastroCurriculoCaracteristica() {
+		return menuItemCadastroCurriculoCaracteristica;
+	}
+
+	public JMenuItem getMenuItemCadastroCurriculoCertificado() {
+		return menuItemCadastroCurriculoCertificado;
+	}
+
+	public JMenuItem getMenuItemCadastroCurriculoCurso() {
+		return menuItemCadastroCurriculoCurso;
+	}
+
+	public JMenuItem getMenuItemCadastroCurriculoExperienciaProfissional() {
+		return menuItemCadastroCurriculoExperienciaProfissional;
+	}
+
+	public JMenuItem getMenuItemCadastroCurriculoHabilidade() {
+		return menuItemCadastroCurriculoHabilidade;
+	}
+
+	public JMenuItem getMenuItemCadastroCurriculoIdioma() {
+		return menuItemCadastroCurriculoIdioma;
+	}
+
+	public JMenuItem getMenuItemCadastroCurriculoObjetivoProfissional() {
+		return menuItemCadastroCurriculoObjetivoProfissional;
+	}
+
+	public JMenuItem getMenuItemCadastroCurriculoTesteDisc() {
+		return menuItemCadastroCurriculoTesteDisc;
+	}
+
+	public JMenuItem getMenuItemCadastroCurriculoTestePersonalidadeA() {
+		return menuItemCadastroCurriculoTestePersonalidadeA;
+	}
+
 	public JMenuItem getMenuItemCadastroDocumento() {
 		return menuItemCadastroDocumento;
 	}
@@ -195,12 +231,12 @@ public class MainFc extends JFrame {
 		return menuItemCadastroProdutoProduto;
 	}
 
-	public JMenuItem getMenuItemCadastroSindicato() {
-		return menuItemCadastroSindicato;
-	}
-
 	public JMenuItem getMenuItemCadastroServico() {
 		return menuItemCadastroServico;
+	}
+
+	public JMenuItem getMenuItemCadastroSindicato() {
+		return menuItemCadastroSindicato;
 	}
 
 	public JMenu getMenuItemCadastroVeiculo() {
@@ -223,6 +259,14 @@ public class MainFc extends JFrame {
 		return menuItemCadastroVenda;
 	}
 
+	public JMenuItem getMenuItemEstatisticaGrafico() {
+		return menuItemEstatisticaGrafico;
+	}
+
+	public JMenuItem getMenuItemEstatisticaRelatorio() {
+		return menuItemEstatisticaRelatorio;
+	}
+
 	public JMenuItem getMenuItemFinanceiroBoletoBancario() {
 		return menuItemFinanceiroBoletoBancario;
 	}
@@ -241,6 +285,10 @@ public class MainFc extends JFrame {
 
 	public JMenuItem getMenuItemSistemaBackup() {
 		return menuItemSistemaBackup;
+	}
+
+	public JMenuItem getMenuItemSistemaDados() {
+		return menuItemSistemaDados;
 	}
 
 	public JMenuItem getMenuItemSistemaRestaurar() {
@@ -267,16 +315,16 @@ public class MainFc extends JFrame {
 		return menuItemUtilitarioAgendaTipoEvento;
 	}
 
-	public JMenuItem getMenuItemUtilitarioMalaDireta() {
-		return menuItemUtilitarioMalaDireta;
-	}
-
 	public JMenuItem getMenuItemUtilitarioCalculadora() {
 		return menuItemUtilitarioCalculadora;
 	}
 
 	public JMenuItem getMenuItemUtilitarioEditorTexto() {
 		return menuItemUtilitarioEditorTexto;
+	}
+
+	public JMenuItem getMenuItemUtilitarioMalaDireta() {
+		return menuItemUtilitarioMalaDireta;
 	}
 
 	public JMenu getMenuSistema() {
@@ -295,48 +343,48 @@ public class MainFc extends JFrame {
 		return menuUtilitarioAgenda;
 	}
 
-	public JMenuItem getMenuItemEstatisticaRelatorio() {
-		return menuItemEstatisticaRelatorio;
-	}
-
-	public JMenuItem getMenuItemEstatisticaGrafico() {
-		return menuItemEstatisticaGrafico;
-	}
-
-	public JMenuItem getMenuItemCadastroCurriculoCaracteristica() {
-		return menuItemCadastroCurriculoCaracteristica;
-	}
-
-	public JMenuItem getMenuItemCadastroCurriculoCertificado() {
-		return menuItemCadastroCurriculoCertificado;
-	}
-
-	public JMenuItem getMenuItemCadastroCurriculoCurso() {
-		return menuItemCadastroCurriculoCurso;
-	}
-
-	public JMenuItem getMenuItemCadastroCurriculoExperienciaProfissional() {
-		return menuItemCadastroCurriculoExperienciaProfissional;
-	}
-
-	public JMenuItem getMenuItemCadastroCurriculoHabilidade() {
-		return menuItemCadastroCurriculoHabilidade;
-	}
-
-	public JMenuItem getMenuItemCadastroCurriculoIdioma() {
-		return menuItemCadastroCurriculoIdioma;
-	}
-
-	public JMenuItem getMenuItemCadastroCurriculoObjetivoProfissional() {
-		return menuItemCadastroCurriculoObjetivoProfissional;
-	}
-
-	public JMenuItem getMenuItemCadastroCurriculoTestePersonalidade() {
-		return menuItemCadastroCurriculoTestePersonalidade;
-	}
-
-	public JMenuItem getMenuItemCadastroCurriculoTesteDisc() {
-		return menuItemCadastroCurriculoTesteDisc;
+	public void iniciarCont() {
+		mainCont = MainCont.getInstance(this);
+		Timer timer = new Timer(1000, mainCont.new Relogio());
+		timer.setInitialDelay(0);
+		timer.setRepeats(true);
+		timer.start();
+		addWindowListener(mainCont.new FrameGerenteEventos());
+		menuItemArquivoLogin.addActionListener(mainCont.new MenuArquivoGerenteEventos());
+		menuItemArquivoLogoff.addActionListener(mainCont.new MenuArquivoGerenteEventos());
+		menuItemArquivoReiniciar.addActionListener(mainCont.new MenuArquivoGerenteEventos());
+		menuItemArquivoSair.addActionListener(mainCont.new MenuArquivoGerenteEventos());
+		menuItemCadastroBanco.addActionListener(mainCont.new MenuCadastroGerenteEventos());
+		menuItemCadastroCentroCusto.addActionListener(mainCont.new MenuCadastroGerenteEventos());
+		menuItemCadastroCartorio.addActionListener(mainCont.new MenuCadastroGerenteEventos());
+		menuItemCadastroContador.addActionListener(mainCont.new MenuCadastroGerenteEventos());
+		menuItemCadastroFuncionario.addActionListener(mainCont.new MenuCadastroGerenteEventos());
+		menuItemCadastroCliente.addActionListener(mainCont.new MenuCadastroGerenteEventos());
+		menuItemCadastroCurriculoCaracteristica.addActionListener(mainCont.new MenuCadastroGerenteEventos());
+		menuItemCadastroCurriculoCertificado.addActionListener(mainCont.new MenuCadastroGerenteEventos());
+		menuItemCadastroCurriculoCurso.addActionListener(mainCont.new MenuCadastroGerenteEventos());
+		menuItemCadastroCurriculoExperienciaProfissional.addActionListener(mainCont.new MenuCadastroGerenteEventos());
+		menuItemCadastroCurriculoHabilidade.addActionListener(mainCont.new MenuCadastroGerenteEventos());
+		menuItemCadastroCurriculoIdioma.addActionListener(mainCont.new MenuCadastroGerenteEventos());
+		menuItemCadastroCurriculoObjetivoProfissional.addActionListener(mainCont.new MenuCadastroGerenteEventos());
+		menuItemCadastroCurriculoTestePersonalidadeA.addActionListener(mainCont.new MenuCadastroGerenteEventos());
+		menuItemCadastroCurriculoTesteDisc.addActionListener(mainCont.new MenuCadastroGerenteEventos());
+		menuItemCadastroEmpresa.addActionListener(mainCont.new MenuCadastroGerenteEventos());
+		menuItemCadastroSindicato.addActionListener(mainCont.new MenuCadastroGerenteEventos());
+		menuItemCadastroServico.addActionListener(mainCont.new MenuCadastroGerenteEventos());
+		menuItemCadastroFornecedor.addActionListener(mainCont.new MenuCadastroGerenteEventos());
+		menuItemCadastroVeiculoVeiculo.addActionListener(mainCont.new MenuCadastroGerenteEventos());
+		menuItemCadastroVeiculoModelo.addActionListener(mainCont.new MenuCadastroGerenteEventos());
+		menuItemCadastroVeiculoMarca.addActionListener(mainCont.new MenuCadastroGerenteEventos());
+		menuItemCadastroImovel.addActionListener(mainCont.new MenuCadastroGerenteEventos());
+		menuItemAjudaSobreSistema.addActionListener(mainCont.new MenuAjudaGerenteEventos());
+		menuItemSistemaUsuario.addActionListener(mainCont.new MenuSistemaGerenteEventos());
+		menuItemUtilitarioAgendaEvento.addActionListener(mainCont.new MenuUtilitarioGerenteEventos());
+		menuItemUtilitarioAgendaTipoEvento.addActionListener(mainCont.new MenuUtilitarioGerenteEventos());
+		menuItemUtilitarioAgendaRecado.addActionListener(mainCont.new MenuUtilitarioGerenteEventos());
+		menuItemUtilitarioAgendaContato.addActionListener(mainCont.new MenuUtilitarioGerenteEventos());
+		menuItemUtilitarioCalculadora.addActionListener(mainCont.new MenuUtilitarioGerenteEventos());
+		menuItemUtilitarioEditorTexto.addActionListener(mainCont.new MenuUtilitarioGerenteEventos());
 	}
 
 	private void iniciarGui() {
@@ -406,8 +454,8 @@ public class MainFc extends JFrame {
 		menuItemCadastroCurriculoObjetivoProfissional = new JMenuItem("Objetivo Profissional");
 		menuCadastroCurriculo.add(menuItemCadastroCurriculoObjetivoProfissional);
 
-		menuItemCadastroCurriculoTestePersonalidade = new JMenuItem("Teste de Personalidade");
-		menuCadastroCurriculo.add(menuItemCadastroCurriculoTestePersonalidade);
+		menuItemCadastroCurriculoTestePersonalidadeA = new JMenuItem("Teste de Personalidade A");
+		menuCadastroCurriculo.add(menuItemCadastroCurriculoTestePersonalidadeA);
 
 		menuItemCadastroCurriculoTesteDisc = new JMenuItem("Teste D.I.S.C");
 		menuCadastroCurriculo.add(menuItemCadastroCurriculoTesteDisc);
@@ -532,6 +580,9 @@ public class MainFc extends JFrame {
 		menuSistema = new JMenu("Sistema");
 		menuSistema.setMnemonic('S');
 
+		menuItemSistemaDados = new JMenuItem("Dados do Sistema");
+		menuSistema.add(menuItemSistemaDados);
+
 		menuItemSistemaBackup = new JMenuItem("Database Backup");
 		menuSistema.add(menuItemSistemaBackup);
 
@@ -550,49 +601,5 @@ public class MainFc extends JFrame {
 
 		menuBar.add(menuAjuda);
 		setJMenuBar(menuBar);
-	}
-
-	public void iniciarCont() {
-		mainCont = MainCont.getInstance(this);
-		Timer timer = new Timer(1000, mainCont.new Relogio());
-		timer.setInitialDelay(0);
-		timer.setRepeats(true);
-		timer.start();
-		addWindowListener(mainCont.new FrameGerenteEventos());
-		menuItemArquivoLogin.addActionListener(mainCont.new MenuArquivoGerenteEventos());
-		menuItemArquivoLogoff.addActionListener(mainCont.new MenuArquivoGerenteEventos());
-		menuItemArquivoReiniciar.addActionListener(mainCont.new MenuArquivoGerenteEventos());
-		menuItemArquivoSair.addActionListener(mainCont.new MenuArquivoGerenteEventos());
-		menuItemCadastroBanco.addActionListener(mainCont.new MenuCadastroGerenteEventos());
-		menuItemCadastroCentroCusto.addActionListener(mainCont.new MenuCadastroGerenteEventos());
-		menuItemCadastroCartorio.addActionListener(mainCont.new MenuCadastroGerenteEventos());
-		menuItemCadastroContador.addActionListener(mainCont.new MenuCadastroGerenteEventos());
-		menuItemCadastroFuncionario.addActionListener(mainCont.new MenuCadastroGerenteEventos());
-		menuItemCadastroCliente.addActionListener(mainCont.new MenuCadastroGerenteEventos());
-		menuItemCadastroCurriculoCaracteristica.addActionListener(mainCont.new MenuCadastroGerenteEventos());
-		menuItemCadastroCurriculoCertificado.addActionListener(mainCont.new MenuCadastroGerenteEventos());
-		menuItemCadastroCurriculoCurso.addActionListener(mainCont.new MenuCadastroGerenteEventos());
-		menuItemCadastroCurriculoExperienciaProfissional.addActionListener(mainCont.new MenuCadastroGerenteEventos());
-		menuItemCadastroCurriculoHabilidade.addActionListener(mainCont.new MenuCadastroGerenteEventos());
-		menuItemCadastroCurriculoIdioma.addActionListener(mainCont.new MenuCadastroGerenteEventos());
-		menuItemCadastroCurriculoObjetivoProfissional.addActionListener(mainCont.new MenuCadastroGerenteEventos());
-		menuItemCadastroCurriculoTestePersonalidade.addActionListener(mainCont.new MenuCadastroGerenteEventos());
-		menuItemCadastroCurriculoTesteDisc.addActionListener(mainCont.new MenuCadastroGerenteEventos());
-		menuItemCadastroEmpresa.addActionListener(mainCont.new MenuCadastroGerenteEventos());
-		menuItemCadastroSindicato.addActionListener(mainCont.new MenuCadastroGerenteEventos());
-		menuItemCadastroServico.addActionListener(mainCont.new MenuCadastroGerenteEventos());
-		menuItemCadastroFornecedor.addActionListener(mainCont.new MenuCadastroGerenteEventos());
-		menuItemCadastroVeiculoVeiculo.addActionListener(mainCont.new MenuCadastroGerenteEventos());
-		menuItemCadastroVeiculoModelo.addActionListener(mainCont.new MenuCadastroGerenteEventos());
-		menuItemCadastroVeiculoMarca.addActionListener(mainCont.new MenuCadastroGerenteEventos());
-		menuItemCadastroImovel.addActionListener(mainCont.new MenuCadastroGerenteEventos());
-		menuItemAjudaSobreSistema.addActionListener(mainCont.new MenuAjudaGerenteEventos());
-		menuItemSistemaUsuario.addActionListener(mainCont.new MenuSistemaGerenteEventos());
-		menuItemUtilitarioAgendaEvento.addActionListener(mainCont.new MenuUtilitarioGerenteEventos());
-		menuItemUtilitarioAgendaTipoEvento.addActionListener(mainCont.new MenuUtilitarioGerenteEventos());
-		menuItemUtilitarioAgendaRecado.addActionListener(mainCont.new MenuUtilitarioGerenteEventos());
-		menuItemUtilitarioAgendaContato.addActionListener(mainCont.new MenuUtilitarioGerenteEventos());
-		menuItemUtilitarioCalculadora.addActionListener(mainCont.new MenuUtilitarioGerenteEventos());
-		menuItemUtilitarioEditorTexto.addActionListener(mainCont.new MenuUtilitarioGerenteEventos());
 	}
 }

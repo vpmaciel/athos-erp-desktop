@@ -4,15 +4,15 @@ import java.util.Collection;
 
 public interface FornecedorDao {
 
-	void deletarRegistro(Fornecedor fornecedor);
+	Fornecedor consultarRegistro(Fornecedor fornecedor);
 
-	Fornecedor getRegistro(Fornecedor fornecedor);
+	void deletarRegistro(Fornecedor fornecedor);
 
 	Collection<Fornecedor> getRegistro();
 
-	Collection<Fornecedor> pesquisarRegistro(Fornecedor fornecedor);
+	Fornecedor getRegistro(Fornecedor fornecedor);
 
-	Fornecedor consultarRegistro(Fornecedor fornecedor);
+	Collection<Fornecedor> pesquisarRegistro(Fornecedor fornecedor);
 
 	void salvarRegistro(Fornecedor fornecedor);
 }

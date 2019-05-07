@@ -19,16 +19,16 @@ import arquitetura.validacao.Mascara;
 @SuppressWarnings("serial")
 public final class RecadoPc extends JPanel implements Gui {
 
-	private ToolBar toolBar;
 	private ConfiguracaoGui configuracaoGui;
-	private JTextField textFieldDestinatario;
-	private JTextArea textAreaRecado;
+	private JFormattedTextField fieldData;
+	private JTextField fieldDestinatario;
+	private JTextArea fieldRecado;
+	private JTextField fieldRemetente;
+	private JLabel labelData;
 	private JLabel labelDestinatario;
 	private JLabel labelRecado;
-	private JTextField textFieldRemetente;
-	private JFormattedTextField textFieldData;
 	private JLabel labelRemetente;
-	private JLabel labelData;
+	private ToolBar toolBar;
 
 	public RecadoPc() {
 		iniciarLayout();
@@ -47,24 +47,29 @@ public final class RecadoPc extends JPanel implements Gui {
 		return configuracaoGui;
 	}
 
-	public JTextArea getGuiRecado() {
-		return textAreaRecado;
+	public JFormattedTextField getGuiData() {
+		return fieldData;
 	}
 
 	public JTextField getGuiDestinatario() {
-		return textFieldDestinatario;
+		return fieldDestinatario;
+	}
+
+	public JTextArea getGuiRecado() {
+		return fieldRecado;
 	}
 
 	public JTextField getGuiRemetente() {
-		return textFieldRemetente;
-	}
-
-	public JFormattedTextField getGuiData() {
-		return textFieldData;
+		return fieldRemetente;
 	}
 
 	public ToolBar getToolBar() {
 		return toolBar;
+	}
+
+	@Override
+	public void iniciarControlador() {
+
 	}
 
 	@Override
@@ -82,30 +87,30 @@ public final class RecadoPc extends JPanel implements Gui {
 		labelData = new JLabel("DATA");
 		add(labelData);
 
-		textFieldData = new JFormattedTextField(Mascara.getData());
-		add(textFieldData);
+		fieldData = new JFormattedTextField(Mascara.getData());
+		add(fieldData);
 
 		labelRemetente = new JLabel("REMETENTE");
 		add(labelRemetente);
 
-		textFieldRemetente = new JTextField();
-		textFieldRemetente.setDocument(new EntradaMaiuscula(50));
-		add(textFieldRemetente);
+		fieldRemetente = new JTextField();
+		fieldRemetente.setDocument(new EntradaMaiuscula(50));
+		add(fieldRemetente);
 
 		labelDestinatario = new JLabel("DESTINATÁRIO");
 		add(labelDestinatario);
 
-		textFieldDestinatario = new JTextField();
-		textFieldDestinatario.setDocument(new EntradaMaiuscula(14));
-		add(textFieldDestinatario);
+		fieldDestinatario = new JTextField();
+		fieldDestinatario.setDocument(new EntradaMaiuscula(14));
+		add(fieldDestinatario);
 
 		labelRecado = new JLabel("RECADO");
 		add(labelRecado);
 
-		textAreaRecado = new JTextArea();
-		textAreaRecado.setLineWrap(true);
-		textAreaRecado.setDocument(new EntradaMaiuscula(500));
-		add(textAreaRecado);
+		fieldRecado = new JTextArea();
+		fieldRecado.setLineWrap(true);
+		fieldRecado.setDocument(new EntradaMaiuscula(500));
+		add(fieldRecado);
 
 		// Lay out the panel.
 		SpringUtilities.makeCompactGrid(this, 9, 1, // rows, cols
@@ -117,11 +122,6 @@ public final class RecadoPc extends JPanel implements Gui {
 	@Override
 	public void iniciarGuiControlador() {
 		configuracaoGui = new ConfiguracaoGui(this);
-	}
-
-	@Override
-	public void iniciarControlador() {
-
 	}
 
 	@Override

@@ -10,18 +10,18 @@ import arquitetura.gui.Imagem;
 
 public class ToolBar {
 
-	JToolBar toolBar = new JToolBar();
+	JButton buttonAjuda = new JButton(Imagem.getAjudar());
 
-	JButton buttonHome = new JButton(Imagem.getHome());
-	JButton buttonNovo = new JButton(Imagem.getNovo());
 	JButton buttonExclui = new JButton(Imagem.getExclui());
-	JButton buttonSalvar = new JButton(Imagem.getSalva());
+	JButton buttonFechar = new JButton(Imagem.getFechar());
+	JButton buttonHome = new JButton(Imagem.getHome());
 	JButton buttonImprime = new JButton(Imagem.getImprime());
+	JButton buttonNovo = new JButton(Imagem.getNovo());
 	JButton buttonPesquisa = new JButton(Imagem.getpesquisar());
 	JButton buttonRelatorio = new JButton(Imagem.getRelatorio());
-	JButton buttonAjuda = new JButton(Imagem.getAjudar());
-	JButton buttonFechar = new JButton(Imagem.getFechar());
 	JButton buttonSair = new JButton(Imagem.getSair());
+	JButton buttonSalvar = new JButton(Imagem.getSalva());
+	JToolBar toolBar = new JToolBar();
 
 	public ToolBar() {
 		toolBar.setPreferredSize(new Dimension(700, 40));
@@ -79,10 +79,6 @@ public class ToolBar {
 		return buttonHome;
 	}
 
-	public JButton getRelatorioBtn() {
-		return this.buttonRelatorio;
-	}
-
 	public JButton getImprimirBtn() {
 		return this.buttonImprime;
 	}
@@ -93,6 +89,10 @@ public class ToolBar {
 
 	public JButton getPesquisarBtn() {
 		return this.buttonPesquisa;
+	}
+
+	public JButton getRelatorioBtn() {
+		return this.buttonRelatorio;
 	}
 
 	public JButton getSairBtn() {

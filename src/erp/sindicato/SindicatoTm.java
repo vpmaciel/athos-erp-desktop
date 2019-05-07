@@ -13,14 +13,7 @@ public class SindicatoTm extends AbstractTableModel {
 	public static final int ID = 0;
 	public static int[] largura;
 	private static boolean[] podeEditar;
-	private List<Sindicato> sindicatoList = new LinkedList<>();
-	private Sindicato sindicato;
 	private static TabelaModelo tabelaModelo = new TabelaModelo();
-
-	public SindicatoTm() {
-
-	}
-
 	static {
 		tabelaModelo.adicionar("ID", 0, 100);
 		tabelaModelo.adicionar("CNPJ", 1, 100);
@@ -33,20 +26,16 @@ public class SindicatoTm extends AbstractTableModel {
 			podeEditar[i] = false;
 		}
 	}
+	private Sindicato sindicato;
+
+	private List<Sindicato> sindicatoList = new LinkedList<>();
+
+	public SindicatoTm() {
+
+	}
 
 	public SindicatoTm(List<Sindicato> lista) {
 		sindicatoList.addAll(lista);
-	}
-
-	public Sindicato getSindicato(int linha) {
-		if (sindicatoList.size() > 0) {
-			return sindicatoList.get(linha);
-		}
-		return null;
-	}
-
-	public List<Sindicato> getSindicatoList() {
-		return sindicatoList;
 	}
 
 	@Override
@@ -71,6 +60,17 @@ public class SindicatoTm extends AbstractTableModel {
 	@Override
 	public int getRowCount() {
 		return sindicatoList.size();
+	}
+
+	public Sindicato getSindicato(int linha) {
+		if (sindicatoList.size() > 0) {
+			return sindicatoList.get(linha);
+		}
+		return null;
+	}
+
+	public List<Sindicato> getSindicatoList() {
+		return sindicatoList;
 	}
 
 	@Override

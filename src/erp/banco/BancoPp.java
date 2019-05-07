@@ -19,8 +19,8 @@ import arquitetura.gui.Tabela;
 @SuppressWarnings("serial")
 public final class BancoPp extends JPanel {
 
-	private final BancoTm bancoTm;
 	private List<Banco> bancos = null;
+	private final BancoTm bancoTm;
 	private final JTable table;
 
 	public BancoPp() {

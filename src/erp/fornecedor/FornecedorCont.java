@@ -89,25 +89,6 @@ final class FornecedorCont {
 		}
 	}
 
-	public class Relatorio implements ActionListener {
-
-		@Override
-		public void actionPerformed(ActionEvent actionEvent) {
-
-			List<Fornecedor> fornecedors = new LinkedList<>();
-
-			try {
-				fornecedors = new LinkedList<>(FornecedorFac.pesquisarRegistro(new Fornecedor()));
-			} catch (Exception e) {
-				System.out.println(e);
-			}
-
-			FornecedorRel fornecedorRel = new FornecedorRel(fornecedors);
-			fornecedorRel.retornarRelatorio(true);
-
-		}
-	}
-
 	public class Imprime implements ActionListener {
 
 		@Override
@@ -124,7 +105,6 @@ final class FornecedorCont {
 			}
 		}
 	}
-
 
 	public class MostraFrameFornecedor extends MouseAdapter {
 
@@ -163,6 +143,25 @@ final class FornecedorCont {
 		}
 	}
 
+	public class Relatorio implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent actionEvent) {
+
+			List<Fornecedor> fornecedors = new LinkedList<>();
+
+			try {
+				fornecedors = new LinkedList<>(FornecedorFac.pesquisarRegistro(new Fornecedor()));
+			} catch (Exception e) {
+				System.out.println(e);
+			}
+
+			FornecedorRel fornecedorRel = new FornecedorRel(fornecedors);
+			fornecedorRel.retornarRelatorio(true);
+
+		}
+	}
+
 	public class SaidaSistema implements ActionListener {
 
 		@Override
@@ -193,7 +192,7 @@ final class FornecedorCont {
 					Msg.avisoCampoObrigatorio("NOME FANTASIA");
 					return;
 				}
-				
+
 				Fornecedor fornecedorPesquisa = new Fornecedor();
 				fornecedorPesquisa.setCpf(getFornecedorPc().getGuiCpf().getText());
 				Fornecedor fornecedorPesquisaRetornado = FornecedorFac.consultarRegistro(fornecedorPesquisa);
@@ -241,7 +240,7 @@ final class FornecedorCont {
 						return;
 					}
 				}
-				
+
 				if (mensagem == JOptionPane.YES_OPTION) {
 					atualizarObjeto();
 					FornecedorFac.salvarRegistro(fornecedor);
@@ -325,23 +324,23 @@ final class FornecedorCont {
 		return fornecedor;
 	}
 
-	public void setFornecedor(Fornecedor fornecedor) {
-		this.fornecedor = fornecedor;
-	}
-
 	public FornecedorFc getFornecedorFc() {
 		return MainCont.getFornecedorFc();
-	}
-
-	public FornecedorPc getFornecedorPc() {
-		return MainCont.getFornecedorFc().getFornecedorPc();
 	}
 
 	public FornecedorFp getFornecedorFp() {
 		return MainCont.getFornecedorFp();
 	}
 
+	public FornecedorPc getFornecedorPc() {
+		return MainCont.getFornecedorFc().getFornecedorPc();
+	}
+
 	public FornecedorPp getFornecedorPp() {
 		return MainCont.getFornecedorFp().getFornecedorPp();
+	}
+
+	public void setFornecedor(Fornecedor fornecedor) {
+		this.fornecedor = fornecedor;
 	}
 }

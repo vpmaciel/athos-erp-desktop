@@ -22,27 +22,27 @@ public final class Entrada {
 		return true;
 	}
 
-	public static boolean validar(JPasswordField textField1, JLabel label1, JPasswordField textField2, JLabel label2) {
-		String valor1 = new String(textField1.getPassword());
-		if (valor1.equals(new String(textField2.getPassword())) && !valor1.equals(null) && !valor1.equals("")) {
+	public static boolean validar(JPasswordField field1, JLabel label1, JPasswordField field2, JLabel label2) {
+		String valor1 = new String(field1.getPassword());
+		if (valor1.equals(new String(field2.getPassword())) && !valor1.equals(null) && !valor1.equals("")) {
 			return true;
 		}
-		textField1.requestFocus();
-		textField1.setText("");
-		textField2.setText("");
+		field1.requestFocus();
+		field1.setText("");
+		field2.setText("");
 		Msg.avisoCampoDiferente(label1, label2);
 		return false;
 	}
 
-	public static boolean validar(JTextField textField, JLabel label, boolean valido, boolean obrigatorio) {
-		String valor = textField.getText();
-		if (textField instanceof JFormattedTextField) {
+	public static boolean validar(JTextField field, JLabel label, boolean valido, boolean obrigatorio) {
+		String valor = field.getText();
+		if (field instanceof JFormattedTextField) {
 			if (!obrigatorio && !valor.equals(null)) {
 				return true;
 			}
 			if (obrigatorio && valor.equals(null)) {
 				Msg.avisoCampoObrigatorio(label.getText());
-				textField.requestFocus();
+				field.requestFocus();
 				return false;
 			}
 		}
@@ -51,34 +51,34 @@ public final class Entrada {
 		}
 		if (obrigatorio && valor.equals("")) {
 			Msg.avisoCampoObrigatorio(label.getText());
-			textField.requestFocus();
+			field.requestFocus();
 			return false;
 		}
 		if (valido) {
 			return true;
 		}
 		Msg.avisoCampoInvalido(label.getText());
-		textField.requestFocus();
-		textField.setText("");
+		field.requestFocus();
+		field.setText("");
 		return false;
 	}
 
-	public static boolean validar(JTextField textField, JLabel label, Pattern p, boolean obrigatorio) {
-		String valor = textField.getText().toUpperCase();
-		if (textField instanceof JFormattedTextField) {
+	public static boolean validar(JTextField field, String label, Pattern p, boolean obrigatorio) {
+		String valor = field.getText().toUpperCase();
+		if (field instanceof JFormattedTextField) {
 			if (!obrigatorio && !valor.equals(null)) {
 				return true;
 			}
 			if (obrigatorio && valor.equals(null)) {
-				Msg.avisoCampoObrigatorio(label.getText());
-				textField.requestFocus();
+				Msg.avisoCampoObrigatorio(label);
+				field.requestFocus();
 				return false;
 			}
 			Matcher m = p.matcher(valor);
 			if (!m.find()) {
-				Msg.avisoCampoInvalido(label.getText());
-				textField.requestFocus();
-				textField.setText("");
+				Msg.avisoCampoInvalido(label);
+				field.requestFocus();
+				field.setText("");
 				return false;
 			}
 			return true;
@@ -87,15 +87,15 @@ public final class Entrada {
 			return true;
 		}
 		if (obrigatorio && valor.equals("")) {
-			Msg.avisoCampoObrigatorio(label.getText());
-			textField.requestFocus();
+			Msg.avisoCampoObrigatorio(label);
+			field.requestFocus();
 			return false;
 		}
 		Matcher m = p.matcher(valor);
 		if (!m.find()) {
-			Msg.avisoCampoInvalido(label.getText());
-			textField.requestFocus();
-			textField.setText("");
+			Msg.avisoCampoInvalido(label);
+			field.requestFocus();
+			field.setText("");
 			return false;
 		}
 		return true;

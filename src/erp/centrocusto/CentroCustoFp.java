@@ -26,13 +26,19 @@ public final class CentroCustoFp extends JFrame implements Gui {
 
 	}
 
+	public CentroCustoPp getCentroCustoPp() {
+		return CentroCustoPp;
+	}
+
 	@Override
 	public ConfiguracaoGui getConfiguracaoGui() {
 		return null;
 	}
 
-	public CentroCustoPp getCentroCustoPp() {
-		return CentroCustoPp;
+	@Override
+	public void iniciarControlador() {
+		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
+		CentroCustoPp.iniciarControlador();
 	}
 
 	@Override
@@ -50,12 +56,6 @@ public final class CentroCustoFp extends JFrame implements Gui {
 	@Override
 	public void iniciarGuiControlador() {
 
-	}
-
-	@Override
-	public void iniciarControlador() {
-		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
-		CentroCustoPp.iniciarControlador();
 	}
 
 	@Override

@@ -22,210 +22,178 @@ import erp.veiculo.modelo.VeiculoModelo;
 @Table(uniqueConstraints = { @UniqueConstraint(columnNames = { "placa", "renavam", "chassi" }) })
 public class Veiculo implements Serializable {
 
-	@Id
-	@GeneratedValue
-	private Long id;
-	@Column(length = 10)
-	private String cambio;
-	@ManyToOne(cascade = CascadeType.ALL)
-	private VeiculoMarca marca;
-	@ManyToOne(cascade = CascadeType.ALL)
-	private VeiculoModelo modelo;
-	@Column(length = 9)
-	private String numeroMotor;
-	@Column(length = 9)
-	private String mesReferenciaCompra;
-	@Column(length = 9)
-	private String mesReferenciaVenda;
-	@Column(length = 9)
-	private String mesReferenciaCadastro;
-	@Column(length = 4)
-	private String anoReferenciaCompra;
-	@Column(length = 4)
-	private String anoReferenciaVenda;
-	@Column(length = 4)
-	private String anoReferenciaCadastro;
-	@Column(length = 2)
-	private String marchas;
-	@Column(length = 3)
-	private String zeroKm;
 	@Column(length = 3)
 	private String adaptadoDeficiente;
-	@Column(length = 50)
-	private String pneus;
-	@Column(length = 50)
-	private String rodas;
-	@Column(length = 1)
-	private String valvulas;
-	@Column(length = 3)
-	private String rebaixado;
-	@Column(length = 7)
-	private String quilometragem;
-	@ManyToOne(cascade = CascadeType.ALL)
-	private CentroCusto centroCusto;
-	@Column(length = 10)
-	private String lucro;
-	@Column(length = 10)
-	private String prejuizo;
-	@Column(length = 10)
-	private String depreciacao;
-	@Column(length = 32)
-	private String combustivel;
-	@Column(length = 8, nullable = false)
-	private String placa;
-	@Column(length = 3)
-	private String chassiRemarcado;
-	@Column(length = 17)
-	private String tipo;
-	@Column(length = 18)
-	private String atividade;
-	@Column(length = 8)
-	private String cor;
-	@Column(length = 10)
-	private String especie;
-	@Column(length = 15)
-	private String renavam;
-	@Column(length = 50)
-	private String municipioEmplacamento;
-	@Column(length = 50)
-	private String estadoEmplacamento;
-	@Column(length = 20)
-	private String chassi;
-	@Column(length = 50)
-	private String proprietarioEmail;
-	@Column(length = 50, nullable = false)
-	private String proprietarioNome;
-	@Column(length = 10)
-	private String dataVenda;
-	@Column(length = 10)
-	private String dataCompra;
-	@Column(length = 19)
-	private String proprietarioAnteriorCnpj;
-	@Column(length = 50)
-	private String proprietarioAnteriorNome;
-	@Column(length = 14)
-	private String proprietarioAnteriorCpf;
-	@Column(length = 15)
-	private String proprietarioAnteriorRGNumero;
-	@Column(length = 20)
-	private String proprietarioAnteriorRGOrgaoEmisssor;
-	@Column(length = 15)
-	private String proprietarioRGNumero;
-	@Column(length = 20)
-	private String proprietarioRGOrgaoEmisssor;
-	@Column(length = 20)
-	private String proprietarioAnteriorFax;
-	@Column(length = 19)
-	private String proprietarioCnpj;
-	@Column(length = 14)
-	private String proprietarioCpf;
-	@Column(length = 20)
-	private String proprietarioFax;
-	private double valorCompra;
-	private double valorVenda;
-	private double desconto;
-	@Column(length = 20)
-	private String proprietarioFone1;
-	@Column(length = 20)
-	private String proprietarioFone2;
-	@Column(length = 50)
-	private String bairro;
-	@Column(length = 10)
-	private String cep;
-	@Column(length = 50)
-	private String cidade;
-	@Column(length = 50)
-	private String estado;
-	@Column(length = 50)
-	private String logradouro;
-	@Column(length = 50)
-	private String pais;
-	@Column(length = 20)
-	private String complemento;
-	@Column(length = 50)
-	private String categoria;
-	@Column(length = 50)
-	private String subCategoria;
-	@Column(length = 10)
-	private String cmtTon;
-	@Column(length = 2)
-	private String eixos;
 	@Column(length = 4)
 	private String anoFabricacao;
 	@Column(length = 4)
 	private String anoModelo;
-	@Column(length = 10)
-	private String potencia;
-	@Column(length = 2)
-	private String cilindros;
 	@Column(length = 4)
-	private String cilindrada;
+	private String anoReferenciaCadastro;
+	@Column(length = 4)
+	private String anoReferenciaCompra;
+	@Column(length = 4)
+	private String anoReferenciaVenda;
+	@Column(length = 18)
+	private String atividade;
+	@Column(length = 50)
+	private String bairro;
+	@Column(length = 10)
+	private String cambio;
 	@Column(length = 3)
 	private String capacidadePassageiros;
-	@Column(length = 9)
-	private String fabricacao;
-	@Column(length = 50)
-	private String carroceria;
 	@Column(length = 10)
 	private String capCarga;
+	@Column(length = 50)
+	private String carroceria;
+	@Column(length = 50)
+	private String categoria;
+	@ManyToOne(cascade = CascadeType.ALL)
+	private CentroCusto centroCusto;
+	@Column(length = 10)
+	private String cep;
 	@Column(length = 20)
-	private String restricoes;
+	private String chassi;
+	@Column(length = 3)
+	private String chassiRemarcado;
+	@Column(length = 50)
+	private String cidade;
+	@Column(length = 4)
+	private String cilindrada;
+	@Column(length = 2)
+	private String cilindros;
+	@Column(length = 10)
+	private String cmtTon;
+	@Column(length = 32)
+	private String combustivel;
+	@Column(length = 20)
+	private String complemento;
+	@Column(length = 8)
+	private String cor;
+	@Column(length = 10)
+	private String dataCompra;
+	@Column(length = 10)
+	private String dataVenda;
+	@Column(length = 10)
+	private String depreciacao;
+	private double desconto;
+	@Column(length = 2)
+	private String eixos;
+	@Column(length = 10)
+	private String especie;
+	@Column(length = 50)
+	private String estado;
+	@Column(length = 50)
+	private String estadoEmplacamento;
+	@Column(length = 9)
+	private String fabricacao;
+	@Id
+	@GeneratedValue
+	private Long id;
 	@Column(length = 3)
 	private String ipva;
+	@Column(length = 50)
+	private String logradouro;
+	@Column(length = 10)
+	private String lucro;
+	@ManyToOne(cascade = CascadeType.ALL)
+	private VeiculoMarca marca;
+	@Column(length = 2)
+	private String marchas;
+	@Column(length = 9)
+	private String mesReferenciaCadastro;
+	@Column(length = 9)
+	private String mesReferenciaCompra;
+	@Column(length = 9)
+	private String mesReferenciaVenda;
+	@ManyToOne(cascade = CascadeType.ALL)
+	private VeiculoModelo modelo;
+	@Column(length = 50)
+	private String municipioEmplacamento;
+	@Column(length = 9)
+	private String numeroMotor;
+	private int numeroPotas;
+	@Column(length = 50)
+	private String pais;
+	@Column(length = 8, nullable = false)
+	private String placa;
+	@Column(length = 50)
+	private String pneus;
+	@Column(length = 10)
+	private String potencia;
+	@Column(length = 10)
+	private String prejuizo;
+	@Column(length = 19)
+	private String proprietarioAnteriorCnpj;
+	@Column(length = 14)
+	private String proprietarioAnteriorCpf;
+	@Column(length = 20)
+	private String proprietarioAnteriorEmail;
+	@Column(length = 20)
+	private String proprietarioAnteriorFax;
 	@Column(length = 20)
 	private String proprietarioAnteriorFone1;
 	@Column(length = 20)
 	private String proprietarioAnteriorFone2;
+	@Column(length = 50)
+	private String proprietarioAnteriorNome;
+	@Column(length = 15)
+	private String proprietarioAnteriorRGNumero;
 	@Column(length = 20)
-	private String proprietarioAnteriorEmail;
-	private int numeroPotas;
-	
-	public String getSubCategoria() {
-		return subCategoria;
+	private String proprietarioAnteriorRGOrgaoEmisssor;
+	@Column(length = 19)
+	private String proprietarioCnpj;
+	@Column(length = 14)
+	private String proprietarioCpf;
+	@Column(length = 50)
+	private String proprietarioEmail;
+	@Column(length = 20)
+	private String proprietarioFax;
+	@Column(length = 20)
+	private String proprietarioFone1;
+	@Column(length = 20)
+	private String proprietarioFone2;
+	@Column(length = 50, nullable = false)
+	private String proprietarioNome;
+	@Column(length = 15)
+	private String proprietarioRGNumero;
+	@Column(length = 20)
+	private String proprietarioRGOrgaoEmisssor;
+	@Column(length = 7)
+	private String quilometragem;
+	@Column(length = 3)
+	private String rebaixado;
+	@Column(length = 15)
+	private String renavam;
+	@Column(length = 20)
+	private String restricoes;
+	@Column(length = 50)
+	private String rodas;
+	@Column(length = 50)
+	private String subCategoria;
+	@Column(length = 17)
+	private String tipo;
+	private double valorCompra;
+	private double valorVenda;
+	@Column(length = 1)
+	private String valvulas;
+	@Column(length = 3)
+	private String zeroKm;
+
+	public String getAdaptadoDeficiente() {
+		return adaptadoDeficiente;
 	}
 
-	public void setSubCategoria(String subCategoria) {
-		this.subCategoria = subCategoria;
-	}
-
-	public String getCambio() {
-		return cambio;
-	}
-
-	public void setCambio(String cambio) {
-		this.cambio = cambio;
-	}
-
-	public int getNumeroPortas() {
-		return numeroPotas;
-	}
-
-	public void setNumeroPortas(int numeroPotas) {
-		this.numeroPotas = numeroPotas;
-	}
-
-	public String getMesReferenciaCadastro() {
-		return mesReferenciaCadastro;
-	}
-
-	public void setMesReferenciaCadastro(String mesReferenciaCadastro) {
-		this.mesReferenciaCadastro = mesReferenciaCadastro;
-	}
-
-	public String getAnoReferenciaCadastro() {
-		return anoReferenciaCadastro;
-	}
-
-	public void setAnoReferenciaCadastro(String anoReferenciaCadastro) {
-		this.anoReferenciaCadastro = anoReferenciaCadastro;
-	}
-	
 	public String getAnoFabricacao() {
 		return anoFabricacao;
 	}
 
 	public String getAnoModelo() {
 		return anoModelo;
+	}
+
+	public String getAnoReferenciaCadastro() {
+		return anoReferenciaCadastro;
 	}
 
 	public String getAnoReferenciaCompra() {
@@ -242,6 +210,10 @@ public class Veiculo implements Serializable {
 
 	public String getBairro() {
 		return bairro;
+	}
+
+	public String getCambio() {
+		return cambio;
 	}
 
 	public String getCapacidadePassageiros() {
@@ -316,6 +288,10 @@ public class Veiculo implements Serializable {
 		return depreciacao;
 	}
 
+	public double getDesconto() {
+		return desconto;
+	}
+
 	public String getEixos() {
 		return eixos;
 	}
@@ -326,6 +302,10 @@ public class Veiculo implements Serializable {
 
 	public String getEstado() {
 		return estado;
+	}
+
+	public String getEstadoEmplacamento() {
+		return estadoEmplacamento;
 	}
 
 	public String getFabricacao() {
@@ -352,6 +332,14 @@ public class Veiculo implements Serializable {
 		return marca;
 	}
 
+	public String getMarchas() {
+		return marchas;
+	}
+
+	public String getMesReferenciaCadastro() {
+		return mesReferenciaCadastro;
+	}
+
 	public String getMesReferenciaCompra() {
 		return mesReferenciaCompra;
 	}
@@ -368,12 +356,28 @@ public class Veiculo implements Serializable {
 		return municipioEmplacamento;
 	}
 
+	public String getNumeroMotor() {
+		return numeroMotor;
+	}
+
+	public int getNumeroPortas() {
+		return numeroPotas;
+	}
+
+	public int getNumeroPotas() {
+		return numeroPotas;
+	}
+
 	public String getPais() {
 		return pais;
 	}
 
 	public String getPlaca() {
 		return placa;
+	}
+
+	public String getPneus() {
+		return pneus;
 	}
 
 	public String getPotencia() {
@@ -456,12 +460,28 @@ public class Veiculo implements Serializable {
 		return proprietarioRGOrgaoEmisssor;
 	}
 
+	public String getQuilometragem() {
+		return quilometragem;
+	}
+
+	public String getRebaixado() {
+		return rebaixado;
+	}
+
 	public String getRenavam() {
 		return renavam;
 	}
 
 	public String getRestricoes() {
 		return restricoes;
+	}
+
+	public String getRodas() {
+		return rodas;
+	}
+
+	public String getSubCategoria() {
+		return subCategoria;
 	}
 
 	public String getTipo() {
@@ -475,13 +495,17 @@ public class Veiculo implements Serializable {
 	public double getValorVenda() {
 		return valorVenda;
 	}
-	
-	public double getDesconto() {
-		return desconto;
+
+	public String getValvulas() {
+		return valvulas;
 	}
-	
+
 	public String getZeroKm() {
 		return zeroKm;
+	}
+
+	public void setAdaptadoDeficiente(String adaptadoDeficiente) {
+		this.adaptadoDeficiente = adaptadoDeficiente;
 	}
 
 	public void setAnoFabricacao(String anoFabricacao) {
@@ -490,6 +514,10 @@ public class Veiculo implements Serializable {
 
 	public void setAnoModelo(String anoModelo) {
 		this.anoModelo = anoModelo;
+	}
+
+	public void setAnoReferenciaCadastro(String anoReferenciaCadastro) {
+		this.anoReferenciaCadastro = anoReferenciaCadastro;
 	}
 
 	public void setAnoReferenciaCompra(String anoReferenciaCompra) {
@@ -506,6 +534,10 @@ public class Veiculo implements Serializable {
 
 	public void setBairro(String bairro) {
 		this.bairro = bairro;
+	}
+
+	public void setCambio(String cambio) {
+		this.cambio = cambio;
 	}
 
 	public void setCapacidadePassageiros(String capacidaPassageiros) {
@@ -580,6 +612,10 @@ public class Veiculo implements Serializable {
 		this.depreciacao = depreciacao;
 	}
 
+	public void setDesconto(double desconto) {
+		this.desconto = desconto;
+	}
+
 	public void setEixos(String eixos) {
 		this.eixos = eixos;
 	}
@@ -590,6 +626,10 @@ public class Veiculo implements Serializable {
 
 	public void setEstado(String estado) {
 		this.estado = estado;
+	}
+
+	public void setEstadoEmplacamento(String estadoEmplacamento) {
+		this.estadoEmplacamento = estadoEmplacamento;
 	}
 
 	public void setFabricacao(String fabricacao) {
@@ -616,6 +656,14 @@ public class Veiculo implements Serializable {
 		this.marca = marca;
 	}
 
+	public void setMarchas(String marchas) {
+		this.marchas = marchas;
+	}
+
+	public void setMesReferenciaCadastro(String mesReferenciaCadastro) {
+		this.mesReferenciaCadastro = mesReferenciaCadastro;
+	}
+
 	public void setMesReferenciaCompra(String mesReferenciaCompra) {
 		this.mesReferenciaCompra = mesReferenciaCompra;
 	}
@@ -632,12 +680,28 @@ public class Veiculo implements Serializable {
 		this.municipioEmplacamento = municipioEmplacamento;
 	}
 
+	public void setNumeroMotor(String numeroMotor) {
+		this.numeroMotor = numeroMotor;
+	}
+
+	public void setNumeroPortas(int numeroPotas) {
+		this.numeroPotas = numeroPotas;
+	}
+
+	public void setNumeroPotas(int numeroPotas) {
+		this.numeroPotas = numeroPotas;
+	}
+
 	public void setPais(String pais) {
 		this.pais = pais;
 	}
 
 	public void setPlaca(String placa) {
 		this.placa = placa;
+	}
+
+	public void setPneus(String pneus) {
+		this.pneus = pneus;
 	}
 
 	public void setPotencia(String potencia) {
@@ -720,12 +784,28 @@ public class Veiculo implements Serializable {
 		this.proprietarioRGOrgaoEmisssor = proprietarioRGOrgaoEmisssor;
 	}
 
+	public void setQuilometragem(String quilometragem) {
+		this.quilometragem = quilometragem;
+	}
+
+	public void setRebaixado(String rebaixado) {
+		this.rebaixado = rebaixado;
+	}
+
 	public void setRenavam(String renavam) {
 		this.renavam = renavam;
 	}
 
 	public void setRestricoes(String restricoes) {
 		this.restricoes = restricoes;
+	}
+
+	public void setRodas(String rodas) {
+		this.rodas = rodas;
+	}
+
+	public void setSubCategoria(String subCategoria) {
+		this.subCategoria = subCategoria;
 	}
 
 	public void setTipo(String tipo) {
@@ -740,92 +820,12 @@ public class Veiculo implements Serializable {
 		this.valorVenda = valorVenda;
 	}
 
-	public void setDesconto(double desconto) {
-		this.desconto = desconto;
-	}
-	
-	public void setZeroKm(String zeroKm) {
-		this.zeroKm = zeroKm;
-	}
-
-	public String getNumeroMotor() {
-		return numeroMotor;
-	}
-
-	public void setNumeroMotor(String numeroMotor) {
-		this.numeroMotor = numeroMotor;
-	}
-
-	public String getMarchas() {
-		return marchas;
-	}
-
-	public void setMarchas(String marchas) {
-		this.marchas = marchas;
-	}
-
-	public String getPneus() {
-		return pneus;
-	}
-
-	public void setPneus(String pneus) {
-		this.pneus = pneus;
-	}
-
-	public String getRodas() {
-		return rodas;
-	}
-
-	public void setRodas(String rodas) {
-		this.rodas = rodas;
-	}
-
-	public String getValvulas() {
-		return valvulas;
-	}
-
 	public void setValvulas(String valvulas) {
 		this.valvulas = valvulas;
 	}
 
-	public String getRebaixado() {
-		return rebaixado;
-	}
-
-	public void setRebaixado(String rebaixado) {
-		this.rebaixado = rebaixado;
-	}
-
-	public String getQuilometragem() {
-		return quilometragem;
-	}
-
-	public void setQuilometragem(String quilometragem) {
-		this.quilometragem = quilometragem;
-	}
-	
-	public String getEstadoEmplacamento() {
-		return estadoEmplacamento;
-	}
-
-	public void setEstadoEmplacamento(String estadoEmplacamento) {
-		this.estadoEmplacamento = estadoEmplacamento;
-	}
-
-	public int getNumeroPotas() {
-		return numeroPotas;
-	}
-
-	public void setNumeroPotas(int numeroPotas) {
-		this.numeroPotas = numeroPotas;
-	}
-
-	public String getAdaptadoDeficiente() {
-		return adaptadoDeficiente;
-	}
-
-	public void setAdaptadoDeficiente(String adaptadoDeficiente) {
-		this.adaptadoDeficiente = adaptadoDeficiente;
+	public void setZeroKm(String zeroKm) {
+		this.zeroKm = zeroKm;
 	}
 
 	@Override

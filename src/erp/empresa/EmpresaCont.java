@@ -89,25 +89,6 @@ final class EmpresaCont {
 		}
 	}
 
-	public class Relatorio implements ActionListener {
-
-		@Override
-		public void actionPerformed(ActionEvent actionEvent) {
-
-			List<Empresa> empresas = new LinkedList<>();
-
-			try {
-				empresas = new LinkedList<>(EmpresaFac.pesquisarRegistro(new Empresa()));
-			} catch (Exception e) {
-				System.out.println(e);
-			}
-
-			EmpresaRel empresaRel = new EmpresaRel(empresas);
-			empresaRel.retornarRelatorio(true);
-
-		}
-	}
-
 	public class Imprime implements ActionListener {
 
 		@Override
@@ -159,6 +140,25 @@ final class EmpresaCont {
 			if (totalPesquisaRegistro > 0) {
 				MainFc.mostrarFrame(getEmpresaFp());
 			}
+		}
+	}
+
+	public class Relatorio implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent actionEvent) {
+
+			List<Empresa> empresas = new LinkedList<>();
+
+			try {
+				empresas = new LinkedList<>(EmpresaFac.pesquisarRegistro(new Empresa()));
+			} catch (Exception e) {
+				System.out.println(e);
+			}
+
+			EmpresaRel empresaRel = new EmpresaRel(empresas);
+			empresaRel.retornarRelatorio(true);
+
 		}
 	}
 
@@ -298,23 +298,23 @@ final class EmpresaCont {
 		return empresa;
 	}
 
-	public void setEmpresa(Empresa empresa) {
-		this.empresa = empresa;
-	}
-
 	public EmpresaFc getEmpresaFc() {
 		return MainCont.getEmpresaFc();
-	}
-
-	public EmpresaPc getEmpresaPc() {
-		return MainCont.getEmpresaFc().getEmpresaPc();
 	}
 
 	public EmpresaFp getEmpresaFp() {
 		return MainCont.getEmpresaFp();
 	}
 
+	public EmpresaPc getEmpresaPc() {
+		return MainCont.getEmpresaFc().getEmpresaPc();
+	}
+
 	public EmpresaPp getEmpresaPp() {
 		return MainCont.getEmpresaFp().getEmpresaPp();
+	}
+
+	public void setEmpresa(Empresa empresa) {
+		this.empresa = empresa;
 	}
 }

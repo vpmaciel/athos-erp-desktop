@@ -17,16 +17,6 @@ import erp.main.MainCont;
 
 final class CertificadoCont {
 
-	public class MostraFrame extends MouseAdapter {
-
-		@Override
-		public void mouseClicked(MouseEvent event) {
-			if (event.getSource() == getCertificadoPc().getLabelFuncionario()) {
-				MainCont.mostrarFrame(MainCont.getFuncionarioFc());
-			}
-		}
-	}
-
 	public class Ajuda implements ActionListener {
 
 		@Override
@@ -92,25 +82,6 @@ final class CertificadoCont {
 		}
 	}
 
-	public class Relatorio implements ActionListener {
-
-		@Override
-		public void actionPerformed(ActionEvent actionEvent) {
-
-			List<Certificado> certificados = new LinkedList<>();
-
-			try {
-				certificados = new LinkedList<>(CertificadoFac.pesquisarRegistro(new Certificado()));
-			} catch (Exception e) {
-				System.out.println(e);
-			}
-
-			CertificadoRel certificadoRel = new CertificadoRel(certificados);
-			certificadoRel.retornarRelatorio(true);
-
-		}
-	}
-
 	public class Imprime implements ActionListener {
 
 		@Override
@@ -124,6 +95,16 @@ final class CertificadoCont {
 			if (certificados.add(CertificadoFac.getRegistro(certificado))) {
 				CertificadoRel certificadoRel = new CertificadoRel(certificados);
 				certificadoRel.retornarRelatorio(true);
+			}
+		}
+	}
+
+	public class MostraFrame extends MouseAdapter {
+
+		@Override
+		public void mouseClicked(MouseEvent event) {
+			if (event.getSource() == getCertificadoPc().getLabelFuncionario()) {
+				MainCont.mostrarFrame(MainCont.getFuncionarioFc());
 			}
 		}
 	}
@@ -151,6 +132,25 @@ final class CertificadoCont {
 			if (totalPesquisaRegistro > 0) {
 				MainCont.mostrarFrame(getCertificadoFp());
 			}
+		}
+	}
+
+	public class Relatorio implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent actionEvent) {
+
+			List<Certificado> certificados = new LinkedList<>();
+
+			try {
+				certificados = new LinkedList<>(CertificadoFac.pesquisarRegistro(new Certificado()));
+			} catch (Exception e) {
+				System.out.println(e);
+			}
+
+			CertificadoRel certificadoRel = new CertificadoRel(certificados);
+			certificadoRel.retornarRelatorio(true);
+
 		}
 	}
 
@@ -226,23 +226,23 @@ final class CertificadoCont {
 		return certificado;
 	}
 
-	public void setCertificado(Certificado Certificado) {
-		this.certificado = Certificado;
-	}
-
 	public CertificadoFc getCertificadoFc() {
 		return MainCont.getCurriculoCertificadoFc();
-	}
-
-	public CertificadoPc getCertificadoPc() {
-		return MainCont.getCurriculoCertificadoFc().getCertificadoPc();
 	}
 
 	public CertificadoFp getCertificadoFp() {
 		return MainCont.getCurriculoCertificadoFp();
 	}
 
+	public CertificadoPc getCertificadoPc() {
+		return MainCont.getCurriculoCertificadoFc().getCertificadoPc();
+	}
+
 	public CertificadoPp getCertificadoPp() {
 		return MainCont.getCurriculoCertificadoFp().getCertificadoPp();
+	}
+
+	public void setCertificado(Certificado Certificado) {
+		this.certificado = Certificado;
 	}
 }

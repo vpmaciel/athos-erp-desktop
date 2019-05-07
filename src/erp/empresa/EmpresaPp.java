@@ -19,8 +19,8 @@ import arquitetura.gui.Tabela;
 @SuppressWarnings("serial")
 public final class EmpresaPp extends JPanel {
 
-	private final EmpresaTm empresaTm;
 	List<Empresa> empresaList = null;
+	private final EmpresaTm empresaTm;
 	private final JTable table;
 
 	public EmpresaPp() {

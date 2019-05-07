@@ -27,14 +27,6 @@ final class CertificadoImp implements CertificadoDao {
 	}
 
 	@Override
-	public Certificado getRegistro(Certificado certificado) {
-		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction tx = em.getTransaction();
-		tx.begin();
-		return em.find(Certificado.class, certificado.getId());
-	}
-
-	@Override
 	public Collection<Certificado> getRegistro() {
 		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
 		EntityTransaction tx = em.getTransaction();
@@ -45,6 +37,14 @@ final class CertificadoImp implements CertificadoDao {
 		tx.commit();
 		em.close();
 		return list;
+	}
+
+	@Override
+	public Certificado getRegistro(Certificado certificado) {
+		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
+		EntityTransaction tx = em.getTransaction();
+		tx.begin();
+		return em.find(Certificado.class, certificado.getId());
 	}
 
 	@Override
@@ -62,17 +62,17 @@ final class CertificadoImp implements CertificadoDao {
 		if (certificado.getFuncionario() != null && certificado.getFuncionario().getId() != null) {
 			predicates.add(criteriaBuilder.equal(rootCliente.get("funcionario"), certificado.getFuncionario()));
 		}
-		if (naoEstaVazio(certificado.getAnoConclusao())) {
+		if (certificado.getAnoConclusao() != null && certificado.getAnoConclusao().length() > 0) {
 			predicates.add(
 					criteriaBuilder.like(rootCliente.get("anoConclusao"), "%" + certificado.getAnoConclusao() + "%"));
 		}
-		if (certificado.getCargaHoraria() != null) {
+		if (certificado.getCargaHoraria() > 0) {
 			predicates.add(criteriaBuilder.equal(rootCliente.get("cargaHoraria"), certificado.getCargaHoraria()));
 		}
-		if (naoEstaVazio(certificado.getCurso())) {
+		if (certificado.getCurso() != null && certificado.getCurso().length() > 0) {
 			predicates.add(criteriaBuilder.like(rootCliente.get("curso"), "%" + certificado.getCurso() + "%"));
 		}
-		if (naoEstaVazio(certificado.getInstituicao())) {
+		if (certificado.getInstituicao() != null && certificado.getInstituicao().length() > 0) {
 			predicates.add(
 					criteriaBuilder.like(rootCliente.get("instituicao"), "%" + certificado.getInstituicao() + "%"));
 		}
@@ -93,16 +93,5 @@ final class CertificadoImp implements CertificadoDao {
 		em.merge(certificado);
 		tx.commit();
 		em.close();
-	}
-
-	private boolean naoEstaVazio(Object objeto) {
-		if (objeto == null) {
-			return false;
-		}
-		if (objeto.toString().equals("")) {
-			return false;
-		}
-
-		return true;
 	}
 }

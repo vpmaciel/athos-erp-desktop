@@ -8,10 +8,10 @@ import javax.swing.ImageIcon;
 
 public class Imagem {
 
-	private static ImageIcon imageIcon;
-	private static ClassLoader recursos;
 	private static URL caminhoImagem;
 	private static Image iconeTitulo;
+	private static ImageIcon imageIcon;
+	private static ClassLoader recursos;
 
 	static {
 		recursos = Imagem.class.getClassLoader();
@@ -52,11 +52,6 @@ public class Imagem {
 		return imageIcon;
 	}
 
-	public static ImageIcon getRelatorio() {
-		imageIcon = new ImageIcon(recursos.getResource("toolbarButtonGraphics/development/J2EEServer24.gif"));
-		return imageIcon;
-	}
-
 	public static Image getLogoTipoImage() {
 
 		caminhoImagem = recursos.getResource("arquitetura/gui/logo.png");
@@ -76,6 +71,11 @@ public class Imagem {
 
 	public static ImageIcon getpesquisar() {
 		imageIcon = new ImageIcon(recursos.getResource("toolbarButtonGraphics/general/Find24.gif"));
+		return imageIcon;
+	}
+
+	public static ImageIcon getRelatorio() {
+		imageIcon = new ImageIcon(recursos.getResource("toolbarButtonGraphics/development/J2EEServer24.gif"));
 		return imageIcon;
 	}
 

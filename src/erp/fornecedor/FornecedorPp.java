@@ -19,8 +19,8 @@ import arquitetura.gui.Tabela;
 @SuppressWarnings("serial")
 public final class FornecedorPp extends JPanel {
 
-	private final FornecedorTm fornecedorTm;
 	List<Fornecedor> fornecedorList = null;
+	private final FornecedorTm fornecedorTm;
 	private final JTable table;
 
 	public FornecedorPp() {

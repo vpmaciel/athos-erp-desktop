@@ -13,8 +13,6 @@ import javax.swing.JOptionPane;
 
 import arquitetura.gui.Msg;
 import arquitetura.validacao.Mascara;
-import erp.sindicato.Sindicato;
-import erp.sindicato.SindicatoFac;
 import erp.main.MainCont;
 import erp.main.MainFc;
 
@@ -91,25 +89,6 @@ final class SindicatoCont {
 		}
 	}
 
-	public class Relatorio implements ActionListener {
-
-		@Override
-		public void actionPerformed(ActionEvent actionEvent) {
-
-			List<Sindicato> sindicatos = new LinkedList<>();
-
-			try {
-				sindicatos = new LinkedList<>(SindicatoFac.pesquisarRegistro(new Sindicato()));
-			} catch (Exception e) {
-				System.out.println(e);
-			}
-
-			SindicatoRel sindicatoRel = new SindicatoRel(sindicatos);
-			sindicatoRel.retornarRelatorio(true);
-
-		}
-	}
-
 	public class Imprime implements ActionListener {
 
 		@Override
@@ -161,6 +140,25 @@ final class SindicatoCont {
 			if (totalPesquisaRegistro > 0) {
 				MainFc.mostrarFrame(getSindicatoFp());
 			}
+		}
+	}
+
+	public class Relatorio implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent actionEvent) {
+
+			List<Sindicato> sindicatos = new LinkedList<>();
+
+			try {
+				sindicatos = new LinkedList<>(SindicatoFac.pesquisarRegistro(new Sindicato()));
+			} catch (Exception e) {
+				System.out.println(e);
+			}
+
+			SindicatoRel sindicatoRel = new SindicatoRel(sindicatos);
+			sindicatoRel.retornarRelatorio(true);
+
 		}
 	}
 
@@ -295,23 +293,23 @@ final class SindicatoCont {
 		return sindicato;
 	}
 
-	public void setSindicato(Sindicato sindicato) {
-		this.sindicato = sindicato;
-	}
-
 	public SindicatoFc getSindicatoFc() {
 		return MainCont.getSindicatoFc();
-	}
-
-	public SindicatoPc getSindicatoPc() {
-		return MainCont.getSindicatoFc().getSindicatoPc();
 	}
 
 	public SindicatoFp getSindicatoFp() {
 		return MainCont.getSindicatoFp();
 	}
 
+	public SindicatoPc getSindicatoPc() {
+		return MainCont.getSindicatoFc().getSindicatoPc();
+	}
+
 	public SindicatoPp getSindicatoPp() {
 		return MainCont.getSindicatoFp().getSindicatoPp();
+	}
+
+	public void setSindicato(Sindicato sindicato) {
+		this.sindicato = sindicato;
 	}
 }

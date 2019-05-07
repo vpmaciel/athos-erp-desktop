@@ -6,9 +6,9 @@ public interface ImovelDao {
 
 	public void deletarRegistro(Imovel imovel);
 
-	public Imovel getRegistro(Imovel imovel);
-
 	public Collection<Imovel> getRegistro();
+
+	public Imovel getRegistro(Imovel imovel);
 
 	public Collection<Imovel> pesquisarRegistro(Imovel imovel);
 

@@ -20,8 +20,8 @@ import arquitetura.gui.Imagem;
 @SuppressWarnings("serial")
 public final class TipoEventoFc extends JFrame implements Gui {
 
-	private TipoEventoCont tipoEventoCont;
 	private ConfiguracaoGui configuracaoGui;
+	private TipoEventoCont tipoEventoCont;
 	private TipoEventoPc tipoEventoPc;
 
 	public TipoEventoFc() {
@@ -37,17 +37,35 @@ public final class TipoEventoFc extends JFrame implements Gui {
 
 	}
 
-	public TipoEventoCont getTipoEventoCont() {
-		return tipoEventoCont;
-	}
-
 	@Override
 	public ConfiguracaoGui getConfiguracaoGui() {
 		return configuracaoGui;
 	}
 
+	public TipoEventoCont getTipoEventoCont() {
+		return tipoEventoCont;
+	}
+
 	public TipoEventoPc getTipoEventoPc() {
 		return tipoEventoPc;
+	}
+
+	@Override
+	public void iniciarControlador() {
+		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
+		tipoEventoCont = new TipoEventoCont();
+		addWindowListener(tipoEventoCont.new Frame());
+		tipoEventoPc.getToolBar().getExcluirBtn().addActionListener(tipoEventoCont.new Exclui());
+		tipoEventoPc.getToolBar().getNovoBtn().addActionListener(tipoEventoCont.new Novo());
+		tipoEventoPc.getToolBar().getPesquisarBtn().addActionListener(tipoEventoCont.new Pesquisa());
+		tipoEventoPc.getToolBar().getImprimirBtn().addActionListener(tipoEventoCont.new Imprime());
+		tipoEventoPc.getToolBar().getRelatorioBtn().addActionListener(tipoEventoCont.new Relatorio());
+		tipoEventoPc.getToolBar().getSalvarBtn().addActionListener(tipoEventoCont.new Salva());
+		tipoEventoPc.getToolBar().getFecharBtn().addActionListener(tipoEventoCont.new FechaJanela());
+		tipoEventoPc.getToolBar().getSairBtn().addActionListener(tipoEventoCont.new SaidaSistema());
+		tipoEventoPc.getToolBar().getAjudaBtn().addActionListener(tipoEventoCont.new Ajuda());
+		tipoEventoPc.getToolBar().getHomeBtn().addActionListener(tipoEventoCont.new Home());
+
 	}
 
 	@Override
@@ -89,24 +107,6 @@ public final class TipoEventoFc extends JFrame implements Gui {
 	@Override
 	public void iniciarGuiControlador() {
 		configuracaoGui = new ConfiguracaoGui(this);
-	}
-
-	@Override
-	public void iniciarControlador() {
-		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
-		tipoEventoCont = new TipoEventoCont();
-		addWindowListener(tipoEventoCont.new Frame());
-		tipoEventoPc.getToolBar().getExcluirBtn().addActionListener(tipoEventoCont.new Exclui());
-		tipoEventoPc.getToolBar().getNovoBtn().addActionListener(tipoEventoCont.new Novo());
-		tipoEventoPc.getToolBar().getPesquisarBtn().addActionListener(tipoEventoCont.new Pesquisa());
-		tipoEventoPc.getToolBar().getImprimirBtn().addActionListener(tipoEventoCont.new Imprime());
-		tipoEventoPc.getToolBar().getRelatorioBtn().addActionListener(tipoEventoCont.new Relatorio());
-		tipoEventoPc.getToolBar().getSalvarBtn().addActionListener(tipoEventoCont.new Salva());
-		tipoEventoPc.getToolBar().getFecharBtn().addActionListener(tipoEventoCont.new FechaJanela());
-		tipoEventoPc.getToolBar().getSairBtn().addActionListener(tipoEventoCont.new SaidaSistema());
-		tipoEventoPc.getToolBar().getAjudaBtn().addActionListener(tipoEventoCont.new Ajuda());
-		tipoEventoPc.getToolBar().getHomeBtn().addActionListener(tipoEventoCont.new Home());
-
 	}
 
 	@Override

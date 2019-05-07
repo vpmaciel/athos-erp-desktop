@@ -17,53 +17,53 @@ import javax.persistence.UniqueConstraint;
 @Table(uniqueConstraints = { @UniqueConstraint(columnNames = { "cnpj" }) })
 public class Sindicato implements Serializable {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	@Column(length = 50)
+	private String bairro;
+	@Column(length = 50)
+	private String capitalSocial;
+	@Column(length = 10)
+	private String cep;
+	@Column(length = 50)
+	private String cidade;
 	@Column(length = 19)
 	private String cnpj;
+	@Column(length = 20)
+	private String complemento;
 	@Column(length = 10)
-	private String numeroFuncionarios;
-	@Column(length = 50)
-	private String inscricaoEstadual;
-	@Column(length = 50)
-	private String inscricaoMunicipal;
+	private String dataFundacao;
 	@Column(length = 10)
 	private String email;
 	@Column(length = 50)
-	private String capitalSocial;
-	@Column(length = 30)
-	private String razaoSocial;
+	private String estado;
+	@Column(length = 10)
+	private String faturamentoMensal;
 	@Column(length = 20)
 	private String fax;
 	@Column(length = 20)
 	private String fone1;
 	@Column(length = 20)
 	private String fone2;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	@Column(length = 50)
+	private String inscricaoEstadual;
+	@Column(length = 50)
+	private String inscricaoMunicipal;
+	@Column(length = 50)
+	private String logradouro;
 	@Column(length = 50)
 	private String nomeFantasia;
-	@Column(length = 6)
-	private String tipoSindicato;
 	@Column(length = 10)
-	private String faturamentoMensal;
-	@Column(length = 10)
-	private String dataFundacao;
-	@Column(length = 50)
-	private String ramoAtividade;
+	private String numeroFuncionarios;
 	@Column(length = 50)
 	private String pais;
 	@Column(length = 50)
-	private String estado;
-	@Column(length = 50)
-	private String cidade;
-	@Column(length = 50)
-	private String bairro;
-	@Column(length = 50)
-	private String logradouro;
-	@Column(length = 20)
-	private String complemento;
-	@Column(length = 10)
-	private String cep;
+	private String ramoAtividade;
+	@Column(length = 30)
+	private String razaoSocial;
+	@Column(length = 6)
+	private String tipoSindicato;
 
 	public String getBairro() {
 		return this.bairro;

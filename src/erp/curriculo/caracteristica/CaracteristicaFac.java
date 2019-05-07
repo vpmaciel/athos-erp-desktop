@@ -10,12 +10,12 @@ public final class CaracteristicaFac {
 		clienteDao.deletarRegistro(cliente);
 	}
 
-	public static Caracteristica getRegistro(Caracteristica cliente) {
-		return clienteDao.getRegistro(cliente);
-	}
-
 	public static Collection<Caracteristica> getRegistro() {
 		return clienteDao.getRegistro();
+	}
+
+	public static Caracteristica getRegistro(Caracteristica cliente) {
+		return clienteDao.getRegistro(cliente);
 	}
 
 	public static Collection<Caracteristica> pesquisarRegistro(Caracteristica cliente) {

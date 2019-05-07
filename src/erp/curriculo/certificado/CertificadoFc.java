@@ -21,8 +21,8 @@ import arquitetura.gui.Imagem;
 public final class CertificadoFc extends JFrame implements Gui {
 
 	private CertificadoCont certificadoCont;
-	private ConfiguracaoGui configuracaoGui;
 	private CertificadoPc certificadoPc;
+	private ConfiguracaoGui configuracaoGui;
 
 	public CertificadoFc() {
 		iniciarLayout();
@@ -41,13 +41,31 @@ public final class CertificadoFc extends JFrame implements Gui {
 		return certificadoCont;
 	}
 
+	public CertificadoPc getCertificadoPc() {
+		return certificadoPc;
+	}
+
 	@Override
 	public ConfiguracaoGui getConfiguracaoGui() {
 		return configuracaoGui;
 	}
 
-	public CertificadoPc getCertificadoPc() {
-		return certificadoPc;
+	@Override
+	public void iniciarControlador() {
+		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
+		certificadoCont = new CertificadoCont();
+		addWindowListener(certificadoCont.new Frame());
+		certificadoPc.getLabelFuncionario().addMouseListener(certificadoCont.new MostraFrame());
+		certificadoPc.getTB().getExcluirBtn().addActionListener(certificadoCont.new Exclui());
+		certificadoPc.getTB().getNovoBtn().addActionListener(certificadoCont.new Novo());
+		certificadoPc.getTB().getPesquisarBtn().addActionListener(certificadoCont.new Pesquisa());
+		certificadoPc.getTB().getImprimirBtn().addActionListener(certificadoCont.new Imprime());
+		certificadoPc.getTB().getRelatorioBtn().addActionListener(certificadoCont.new Relatorio());
+		certificadoPc.getTB().getSalvarBtn().addActionListener(certificadoCont.new Salva());
+		certificadoPc.getTB().getFecharBtn().addActionListener(certificadoCont.new FechaJanela());
+		certificadoPc.getTB().getSairBtn().addActionListener(certificadoCont.new SaidaSistema());
+		certificadoPc.getTB().getAjudaBtn().addActionListener(certificadoCont.new Ajuda());
+		certificadoPc.getTB().getHomeBtn().addActionListener(certificadoCont.new Home());
 	}
 
 	@Override
@@ -89,24 +107,6 @@ public final class CertificadoFc extends JFrame implements Gui {
 	@Override
 	public void iniciarGuiControlador() {
 		configuracaoGui = new ConfiguracaoGui(this);
-	}
-
-	@Override
-	public void iniciarControlador() {
-		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
-		certificadoCont = new CertificadoCont();
-		addWindowListener(certificadoCont.new Frame());
-		certificadoPc.getLabelFuncionario().addMouseListener(certificadoCont.new MostraFrame());
-		certificadoPc.getTB().getExcluirBtn().addActionListener(certificadoCont.new Exclui());
-		certificadoPc.getTB().getNovoBtn().addActionListener(certificadoCont.new Novo());
-		certificadoPc.getTB().getPesquisarBtn().addActionListener(certificadoCont.new Pesquisa());
-		certificadoPc.getTB().getImprimirBtn().addActionListener(certificadoCont.new Imprime());
-		certificadoPc.getTB().getRelatorioBtn().addActionListener(certificadoCont.new Relatorio());
-		certificadoPc.getTB().getSalvarBtn().addActionListener(certificadoCont.new Salva());
-		certificadoPc.getTB().getFecharBtn().addActionListener(certificadoCont.new FechaJanela());
-		certificadoPc.getTB().getSairBtn().addActionListener(certificadoCont.new SaidaSistema());
-		certificadoPc.getTB().getAjudaBtn().addActionListener(certificadoCont.new Ajuda());
-		certificadoPc.getTB().getHomeBtn().addActionListener(certificadoCont.new Home());
 	}
 
 	@Override

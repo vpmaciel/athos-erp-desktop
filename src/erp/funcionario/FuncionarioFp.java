@@ -35,6 +35,12 @@ public final class FuncionarioFp extends JFrame implements Gui {
 	}
 
 	@Override
+	public void iniciarControlador() {
+		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
+		FuncionarioPp.iniciarControlador();
+	}
+
+	@Override
 	public void iniciarFocoControlador() {
 
 	}
@@ -49,12 +55,6 @@ public final class FuncionarioFp extends JFrame implements Gui {
 	@Override
 	public void iniciarGuiControlador() {
 
-	}
-
-	@Override
-	public void iniciarControlador() {
-		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
-		FuncionarioPp.iniciarControlador();
 	}
 
 	@Override

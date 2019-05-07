@@ -14,14 +14,7 @@ public class CertificadoTm extends AbstractTableModel {
 	public static final int ID = 0;
 	public static int[] largura;
 	private static boolean[] podeEditar;
-	private List<Certificado> certificadoList = new LinkedList<>();
-	private Certificado certificado;
 	private static TabelaModelo tabelaModelo = new TabelaModelo();
-
-	public CertificadoTm() {
-
-	}
-
 	static {
 		tabelaModelo.adicionar("ID", 0, 100);
 		tabelaModelo.adicionar("FUNCIONÁRIO", 1, 500);
@@ -34,6 +27,13 @@ public class CertificadoTm extends AbstractTableModel {
 			largura[i] = tabelaModelo.getLargura(i);
 			podeEditar[i] = false;
 		}
+	}
+	private Certificado certificado;
+
+	private List<Certificado> certificadoList = new LinkedList<>();
+
+	public CertificadoTm() {
+
 	}
 
 	public CertificadoTm(List<Certificado> lista) {

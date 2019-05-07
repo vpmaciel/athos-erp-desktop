@@ -14,8 +14,6 @@ import javax.swing.JOptionPane;
 import arquitetura.gui.Msg;
 import arquitetura.validacao.Mascara;
 import erp.centrocusto.CentroCusto;
-import erp.funcionario.Funcionario;
-import erp.funcionario.FuncionarioFac;
 import erp.main.MainCont;
 
 final class FuncionarioCont {
@@ -92,25 +90,6 @@ final class FuncionarioCont {
 		}
 	}
 
-	public class Relatorio implements ActionListener {
-
-		@Override
-		public void actionPerformed(ActionEvent actionEvent) {
-
-			List<Funcionario> funcionarios = new LinkedList<>();
-
-			try {
-				funcionarios = new LinkedList<>(FuncionarioFac.pesquisarRegistro(new Funcionario()));
-			} catch (Exception e) {
-				System.out.println(e);
-			}
-
-			FuncionarioRel funcionarioRel = new FuncionarioRel(funcionarios);
-			funcionarioRel.retornarRelatorio(true);
-
-		}
-	}
-
 	public class Imprime implements ActionListener {
 
 		@Override
@@ -165,6 +144,25 @@ final class FuncionarioCont {
 		}
 	}
 
+	public class Relatorio implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent actionEvent) {
+
+			List<Funcionario> funcionarios = new LinkedList<>();
+
+			try {
+				funcionarios = new LinkedList<>(FuncionarioFac.pesquisarRegistro(new Funcionario()));
+			} catch (Exception e) {
+				System.out.println(e);
+			}
+
+			FuncionarioRel funcionarioRel = new FuncionarioRel(funcionarios);
+			funcionarioRel.retornarRelatorio(true);
+
+		}
+	}
+
 	public class SaidaSistema implements ActionListener {
 
 		@Override
@@ -208,7 +206,7 @@ final class FuncionarioCont {
 						return;
 					}
 				}
-				
+
 				if (funcionario.getId() != null && funcionarioPesquisa.getCpf() != null
 						&& funcionarioPesquisaRetornado.getCpf() != null) {
 					if (!funcionario.getCpf().equals(funcionarioPesquisa.getCpf())) {
@@ -353,23 +351,23 @@ final class FuncionarioCont {
 		return funcionario;
 	}
 
-	public void setFuncionario(Funcionario funcionario) {
-		this.funcionario = funcionario;
-	}
-
 	public FuncionarioFc getFuncionarioFc() {
 		return MainCont.getFuncionarioFc();
-	}
-
-	public FuncionarioPc getFuncionarioPc() {
-		return MainCont.getFuncionarioFc().getFuncionarioPc();
 	}
 
 	public FuncionarioFp getFuncionarioFp() {
 		return MainCont.getFuncionarioFp();
 	}
 
+	public FuncionarioPc getFuncionarioPc() {
+		return MainCont.getFuncionarioFc().getFuncionarioPc();
+	}
+
 	public FuncionarioPp getFuncionarioPp() {
 		return MainCont.getFuncionarioFp().getFuncionarioPp();
+	}
+
+	public void setFuncionario(Funcionario funcionario) {
+		this.funcionario = funcionario;
 	}
 }

@@ -6,9 +6,9 @@ interface EventoDao {
 
 	void deletarRegistro(Evento evento);
 
-	Evento getRegistro(Evento evento);
-
 	Collection<Evento> getRegistro();
+
+	Evento getRegistro(Evento evento);
 
 	Collection<Evento> pesquisarRegistro(Evento evento);
 

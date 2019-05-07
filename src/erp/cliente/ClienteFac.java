@@ -6,16 +6,20 @@ public final class ClienteFac {
 
 	private static final ClienteDao clienteDao = new ClienteImp();
 
+	public static Cliente consultarRegistro(Cliente cliente) {
+		return clienteDao.consultarRegistro(cliente);
+	}
+
 	public static void deletarRegistro(Cliente cliente) {
 		clienteDao.deletarRegistro(cliente);
 	}
 
-	public static Cliente getRegistro(Cliente cliente) {
-		return clienteDao.getRegistro(cliente);
-	}
-
 	public static Collection<Cliente> getRegistro() {
 		return clienteDao.getRegistro();
+	}
+
+	public static Cliente getRegistro(Cliente cliente) {
+		return clienteDao.getRegistro(cliente);
 	}
 
 	public static Collection<Cliente> pesquisarRegistro(Cliente cliente) {
@@ -26,9 +30,6 @@ public final class ClienteFac {
 		clienteDao.salvarRegistro(cliente);
 	}
 
-	public static Cliente consultarRegistro(Cliente cliente) {
-		return clienteDao.consultarRegistro(cliente);
-	}
 	private ClienteFac() {
 	}
 }

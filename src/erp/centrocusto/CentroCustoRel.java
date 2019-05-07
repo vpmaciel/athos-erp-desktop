@@ -14,11 +14,11 @@ import arquitetura.relatorio.Relatorio;
 
 public class CentroCustoRel {
 
-	private PdfWriter writer = null;
-	private Document document = new Document();
 	private String arquivo = "centro-de-custo.pdf";
-	private String titulo = "CENTROS DE CUSTO";
+	private Document document = new Document();
 	private Relatorio relatorio = new Relatorio();
+	private String titulo = "CENTROS DE CUSTO";
+	private PdfWriter writer = null;
 
 	public CentroCustoRel(List<CentroCusto> centroCustos) {
 

@@ -17,9 +17,6 @@ import javax.persistence.UniqueConstraint;
 @Table(uniqueConstraints = { @UniqueConstraint(columnNames = { "crc", "cpf", "cnpj" }) })
 public class Contador implements Serializable {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
 	@Column(length = 19)
 	private String cnpj;
 	@Column(length = 14)
@@ -28,14 +25,17 @@ public class Contador implements Serializable {
 	private String crc;
 	@Column(length = 50)
 	private String email;
-	@Column(length = 50, nullable = false)
-	private String nome;
 	@Column(length = 20)
 	private String fax;
 	@Column(length = 20)
 	private String fone1;
 	@Column(length = 20)
 	private String fone2;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	@Column(length = 50, nullable = false)
+	private String nome;
 	@Column(length = 50)
 	private String site;
 

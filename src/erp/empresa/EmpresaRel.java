@@ -14,11 +14,11 @@ import arquitetura.relatorio.Relatorio;
 
 public class EmpresaRel {
 
-	private PdfWriter writer = null;
-	private Document document = new Document();
 	private String arquivo = "empresa.pdf";
-	private String titulo = "EMPRESAS";
+	private Document document = new Document();
 	private Relatorio relatorio = new Relatorio();
+	private String titulo = "EMPRESAS";
+	private PdfWriter writer = null;
 
 	public EmpresaRel(List<Empresa> empresas) {
 

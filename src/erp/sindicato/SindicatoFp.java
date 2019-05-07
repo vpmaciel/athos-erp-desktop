@@ -36,6 +36,12 @@ public final class SindicatoFp extends JFrame implements Gui {
 	}
 
 	@Override
+	public void iniciarControlador() {
+		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
+		SindicatoPp.iniciarControlador();
+	}
+
+	@Override
 	public void iniciarFocoControlador() {
 
 	}
@@ -50,12 +56,6 @@ public final class SindicatoFp extends JFrame implements Gui {
 	@Override
 	public void iniciarGuiControlador() {
 
-	}
-
-	@Override
-	public void iniciarControlador() {
-		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
-		SindicatoPp.iniciarControlador();
 	}
 
 	@Override

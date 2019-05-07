@@ -18,6 +18,48 @@ import arquitetura.validacao.Mascara;
 final class VeiculoImp implements VeiculoDao {
 
 	@Override
+	public Veiculo consultarRegistro(Veiculo veiculo) {
+
+		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
+		EntityTransaction tx = entityManager.getTransaction();
+		tx.begin();
+
+		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+		CriteriaQuery<Veiculo> criteriaQuery = criteriaBuilder.createQuery(Veiculo.class);
+		Root<Veiculo> rootVeiculo = criteriaQuery.from(Veiculo.class);
+
+		List<Predicate> predicates = new ArrayList<Predicate>();
+
+		boolean naoTemCriterio = true;
+
+		if (veiculo.getChassi() != null && veiculo.getChassi().length() > 0) {
+			predicates.add(criteriaBuilder.equal(rootVeiculo.get("chassi"), veiculo.getChassi()));
+			naoTemCriterio = false;
+		}
+
+		if (veiculo.getPlaca() != null && veiculo.getPlaca().length() > 0) {
+			predicates.add(criteriaBuilder.equal(rootVeiculo.get("placa"), veiculo.getPlaca()));
+			naoTemCriterio = false;
+		}
+
+		if (veiculo.getRenavam() != null && veiculo.getRenavam().length() > 0) {
+			predicates.add(criteriaBuilder.equal(rootVeiculo.get("renavam"), veiculo.getRenavam()));
+			naoTemCriterio = false;
+		}
+
+		if (naoTemCriterio) {
+			return new Veiculo();
+		}
+
+		criteriaQuery.select(rootVeiculo).where(predicates.toArray(new Predicate[] {}));
+
+		List<Veiculo> list = entityManager.createQuery(criteriaQuery).getResultList();
+		tx.commit();
+		entityManager.close();
+		return list.size() > 0 ? list.get(0) : new Veiculo();
+	}
+
+	@Override
 	public void deletarRegistro(Veiculo veiculo) {
 		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
 		EntityTransaction tx = em.getTransaction();
@@ -25,14 +67,6 @@ final class VeiculoImp implements VeiculoDao {
 		em.remove(em.find(Veiculo.class, veiculo.getId()));
 		tx.commit();
 		em.close();
-	}
-
-	@Override
-	public Veiculo getRegistro(Veiculo veiculo) {
-		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction tx = em.getTransaction();
-		tx.begin();
-		return em.find(Veiculo.class, veiculo.getId());
 	}
 
 	@Override
@@ -46,6 +80,14 @@ final class VeiculoImp implements VeiculoDao {
 		tx.commit();
 		em.close();
 		return list;
+	}
+
+	@Override
+	public Veiculo getRegistro(Veiculo veiculo) {
+		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
+		EntityTransaction tx = em.getTransaction();
+		tx.begin();
+		return em.find(Veiculo.class, veiculo.getId());
 	}
 
 	@Override
@@ -252,7 +294,7 @@ final class VeiculoImp implements VeiculoDao {
 		if (veiculo.getValorCompra() > 0) {
 			predicates.add(criteriaBuilder.lessThanOrEqualTo(rootVeiculo.get("valorCompra"), veiculo.getValorCompra()));
 		}
-		if (veiculo.getValorVenda()  > 0) {
+		if (veiculo.getValorVenda() > 0) {
 			predicates.add(criteriaBuilder.lessThanOrEqualTo(rootVeiculo.get("valorVenda"), veiculo.getValorVenda()));
 		}
 
@@ -262,48 +304,6 @@ final class VeiculoImp implements VeiculoDao {
 		tx.commit();
 		entityManager.close();
 		return list;
-	}
-
-	@Override
-	public Veiculo consultarRegistro(Veiculo veiculo) {
-
-		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction tx = entityManager.getTransaction();
-		tx.begin();
-
-		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
-		CriteriaQuery<Veiculo> criteriaQuery = criteriaBuilder.createQuery(Veiculo.class);
-		Root<Veiculo> rootVeiculo = criteriaQuery.from(Veiculo.class);
-
-		List<Predicate> predicates = new ArrayList<Predicate>();
-
-		boolean naoTemCriterio = true;
-
-		if (veiculo.getChassi() != null && veiculo.getChassi().length() > 0) {
-			predicates.add(criteriaBuilder.equal(rootVeiculo.get("chassi"), veiculo.getChassi()));
-			naoTemCriterio = false;
-		}
-
-		if (veiculo.getPlaca() != null && veiculo.getPlaca().length() > 0) {
-			predicates.add(criteriaBuilder.equal(rootVeiculo.get("placa"), veiculo.getPlaca()));
-			naoTemCriterio = false;
-		}
-
-		if (veiculo.getRenavam() != null && veiculo.getRenavam().length() > 0) {
-			predicates.add(criteriaBuilder.equal(rootVeiculo.get("renavam"), veiculo.getRenavam()));
-			naoTemCriterio = false;
-		}
-
-		if (naoTemCriterio) {
-			return new Veiculo();
-		}
-
-		criteriaQuery.select(rootVeiculo).where(predicates.toArray(new Predicate[] {}));
-
-		List<Veiculo> list = entityManager.createQuery(criteriaQuery).getResultList();
-		tx.commit();
-		entityManager.close();
-		return list.size() > 0 ? list.get(0) : new Veiculo();
 	}
 
 	@Override

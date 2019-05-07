@@ -19,8 +19,8 @@ import arquitetura.gui.Tabela;
 @SuppressWarnings("serial")
 public final class CartorioPp extends JPanel {
 
-	private final CartorioTm cartorioTm;
 	List<Cartorio> cartorioList = null;
+	private final CartorioTm cartorioTm;
 	private final JTable table;
 
 	public CartorioPp() {

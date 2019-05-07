@@ -27,14 +27,6 @@ final class CaracteristicaImp implements CaracteristicaDao {
 	}
 
 	@Override
-	public Caracteristica getRegistro(Caracteristica caracteristica) {
-		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction tx = em.getTransaction();
-		tx.begin();
-		return em.find(Caracteristica.class, caracteristica.getId());
-	}
-
-	@Override
 	public Collection<Caracteristica> getRegistro() {
 		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
 		EntityTransaction tx = em.getTransaction();
@@ -45,6 +37,14 @@ final class CaracteristicaImp implements CaracteristicaDao {
 		tx.commit();
 		em.close();
 		return list;
+	}
+
+	@Override
+	public Caracteristica getRegistro(Caracteristica caracteristica) {
+		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
+		EntityTransaction tx = em.getTransaction();
+		tx.begin();
+		return em.find(Caracteristica.class, caracteristica.getId());
 	}
 
 	@Override

@@ -13,14 +13,7 @@ public class VeiculoMarcaTm extends AbstractTableModel {
 	public static final int ID = 0;
 	public static int[] largura;
 	private static boolean[] podeEditar;
-	private List<VeiculoMarca> veiculoMarcaList = new LinkedList<>();
-	private VeiculoMarca veiculoMarca;
 	private static TabelaModelo tabelaModelo = new TabelaModelo();
-
-	public VeiculoMarcaTm() {
-
-	}
-
 	static {
 		tabelaModelo.adicionar("ID", 0, 100);
 		tabelaModelo.adicionar("MARCA", 1, 500);
@@ -32,20 +25,16 @@ public class VeiculoMarcaTm extends AbstractTableModel {
 			podeEditar[i] = false;
 		}
 	}
+	private VeiculoMarca veiculoMarca;
+
+	private List<VeiculoMarca> veiculoMarcaList = new LinkedList<>();
+
+	public VeiculoMarcaTm() {
+
+	}
 
 	public VeiculoMarcaTm(List<VeiculoMarca> lista) {
 		veiculoMarcaList.addAll(lista);
-	}
-
-	public VeiculoMarca getVeiculoMarca(int linha) {
-		if (veiculoMarcaList.size() > 0) {
-			return veiculoMarcaList.get(linha);
-		}
-		return null;
-	}
-
-	public List<VeiculoMarca> getVeiculoMarcaList() {
-		return veiculoMarcaList;
 	}
 
 	@Override
@@ -86,13 +75,20 @@ public class VeiculoMarcaTm extends AbstractTableModel {
 		return veiculoMarca;
 	}
 
+	public VeiculoMarca getVeiculoMarca(int linha) {
+		if (veiculoMarcaList.size() > 0) {
+			return veiculoMarcaList.get(linha);
+		}
+		return null;
+	}
+
+	public List<VeiculoMarca> getVeiculoMarcaList() {
+		return veiculoMarcaList;
+	}
+
 	@Override
 	public boolean isCellEditable(int rowIndex, int columnIndex) {
 		return podeEditar[columnIndex];
-	}
-
-	public void setVeiculoMarcaList(List<VeiculoMarca> veiculoMarca) {
-		veiculoMarcaList = veiculoMarca;
 	}
 
 	@Override
@@ -106,5 +102,9 @@ public class VeiculoMarcaTm extends AbstractTableModel {
 			veiculoMarca.setMarca(aValue.toString());
 		}
 		fireTableDataChanged();
+	}
+
+	public void setVeiculoMarcaList(List<VeiculoMarca> veiculoMarca) {
+		veiculoMarcaList = veiculoMarca;
 	}
 }

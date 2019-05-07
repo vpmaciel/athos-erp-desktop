@@ -19,11 +19,9 @@ import arquitetura.validacao.RegExp;
 public final class BancoPc extends JPanel implements Gui {
 
 	private BancoCont bancoCont;
-	private JTextField textFieldCodigo;
-	private JTextField textFieldNome;
 	private ConfiguracaoGui configuracaoGui;
-	private JLabel labelCodigo;
-	private JLabel labelNome;
+	private JTextField fieldCodigo;
+	private JTextField fieldNome;
 	private ToolBar toolBar;
 
 	public BancoPc() {
@@ -47,15 +45,19 @@ public final class BancoPc extends JPanel implements Gui {
 	}
 
 	public JTextField getGuiCodigo() {
-		return textFieldCodigo;
+		return fieldCodigo;
 	}
 
 	public JTextField getGuiNome() {
-		return textFieldNome;
+		return fieldNome;
 	}
 
 	public ToolBar getTB() {
 		return toolBar;
+	}
+
+	@Override
+	public void iniciarControlador() {
 	}
 
 	@Override
@@ -69,16 +71,19 @@ public final class BancoPc extends JPanel implements Gui {
 		toolBar = new ToolBar();
 
 		add(toolBar.getToolBar());
-		labelNome = new JLabel("NOME");
-		add(labelNome);
-		textFieldNome = new JTextField();
-		textFieldNome.setDocument(new EntradaMaiuscula(50));
-		add(textFieldNome);
-		labelCodigo = new JLabel("CÓDIGO");
-		add(labelCodigo);
-		textFieldCodigo = new JTextField();
-		textFieldCodigo.setDocument(new EntradaMaiuscula(10));
-		add(textFieldCodigo);
+
+		add(new JLabel("NOME"));
+
+		fieldNome = new JTextField();
+		fieldNome.setDocument(new EntradaMaiuscula(50));
+		add(fieldNome);
+
+		add(new JLabel("CÓDIGO"));
+
+		fieldCodigo = new JTextField();
+		fieldCodigo.setDocument(new EntradaMaiuscula(10));
+		add(fieldCodigo);
+
 		// Lay out the panel.
 		SpringUtilities.makeCompactGrid(this, 5, 1, // rows, cols
 				5, 5, // initX, initY
@@ -90,10 +95,6 @@ public final class BancoPc extends JPanel implements Gui {
 	@Override
 	public void iniciarGuiControlador() {
 		configuracaoGui = new ConfiguracaoGui(this);
-	}
-
-	@Override
-	public void iniciarControlador() {
 	}
 
 	@Override
@@ -116,10 +117,10 @@ public final class BancoPc extends JPanel implements Gui {
 	}
 
 	public boolean validarGui() {
-		if (!Entrada.validar(textFieldNome, labelNome, RegExp.NOME, true)) {
+		if (!Entrada.validar(fieldNome, "NOME", RegExp.NOME, true)) {
 			return false;
 		}
-		if (!Entrada.validar(textFieldCodigo, labelCodigo, RegExp.NUMERO_BANCO, false)) {
+		if (!Entrada.validar(fieldCodigo, "CÓDIGO", RegExp.NUMERO_BANCO, false)) {
 			return false;
 		}
 		return true;

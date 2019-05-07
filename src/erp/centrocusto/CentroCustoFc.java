@@ -21,8 +21,8 @@ import arquitetura.gui.Imagem;
 public final class CentroCustoFc extends JFrame implements Gui {
 
 	private CentroCustoCont centroCustoCont;
-	private ConfiguracaoGui configuracaoGui;
 	private CentroCustoPc centroCustoPc;
+	private ConfiguracaoGui configuracaoGui;
 
 	public CentroCustoFc() {
 		iniciarLayout();
@@ -43,17 +43,34 @@ public final class CentroCustoFc extends JFrame implements Gui {
 		return centroCustoCont;
 	}
 
+	public CentroCustoPc getCentroCustoPc() {
+		return centroCustoPc;
+	}
+
 	@Override
 	public ConfiguracaoGui getConfiguracaoGui() {
 		return configuracaoGui;
 	}
 
-	public CentroCustoPc getCentroCustoPc() {
+	public CentroCustoPc getPanelCentroCustoCadastro() {
 		return centroCustoPc;
 	}
 
-	public CentroCustoPc getPanelCentroCustoCadastro() {
-		return centroCustoPc;
+	@Override
+	public void iniciarControlador() {
+		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
+		centroCustoCont = new CentroCustoCont();
+		addWindowListener(centroCustoCont.new Frame());
+		centroCustoPc.getTB().getExcluirBtn().addActionListener(centroCustoCont.new Exclui());
+		centroCustoPc.getTB().getNovoBtn().addActionListener(centroCustoCont.new Novo());
+		centroCustoPc.getTB().getPesquisarBtn().addActionListener(centroCustoCont.new Pesquisa());
+		centroCustoPc.getTB().getImprimirBtn().addActionListener(centroCustoCont.new Imprime());
+		centroCustoPc.getTB().getRelatorioBtn().addActionListener(centroCustoCont.new Relatorio());
+		centroCustoPc.getTB().getSalvarBtn().addActionListener(centroCustoCont.new Salva());
+		centroCustoPc.getTB().getFecharBtn().addActionListener(centroCustoCont.new FechaJanela());
+		centroCustoPc.getTB().getSairBtn().addActionListener(centroCustoCont.new SaidaSistema());
+		centroCustoPc.getTB().getAjudaBtn().addActionListener(centroCustoCont.new Ajuda());
+		centroCustoPc.getTB().getHomeBtn().addActionListener(centroCustoCont.new Home());
 	}
 
 	@Override
@@ -94,23 +111,6 @@ public final class CentroCustoFc extends JFrame implements Gui {
 	@Override
 	public void iniciarGuiControlador() {
 		configuracaoGui = new ConfiguracaoGui(this);
-	}
-
-	@Override
-	public void iniciarControlador() {
-		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
-		centroCustoCont = new CentroCustoCont();
-		addWindowListener(centroCustoCont.new Frame());
-		centroCustoPc.getTB().getExcluirBtn().addActionListener(centroCustoCont.new Exclui());
-		centroCustoPc.getTB().getNovoBtn().addActionListener(centroCustoCont.new Novo());
-		centroCustoPc.getTB().getPesquisarBtn().addActionListener(centroCustoCont.new Pesquisa());
-		centroCustoPc.getTB().getImprimirBtn().addActionListener(centroCustoCont.new Imprime());
-		centroCustoPc.getTB().getRelatorioBtn().addActionListener(centroCustoCont.new Relatorio());
-		centroCustoPc.getTB().getSalvarBtn().addActionListener(centroCustoCont.new Salva());
-		centroCustoPc.getTB().getFecharBtn().addActionListener(centroCustoCont.new FechaJanela());
-		centroCustoPc.getTB().getSairBtn().addActionListener(centroCustoCont.new SaidaSistema());
-		centroCustoPc.getTB().getAjudaBtn().addActionListener(centroCustoCont.new Ajuda());
-		centroCustoPc.getTB().getHomeBtn().addActionListener(centroCustoCont.new Home());
 	}
 
 	@Override

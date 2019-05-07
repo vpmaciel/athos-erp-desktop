@@ -28,14 +28,6 @@ final class EventoImp implements EventoDao {
 	}
 
 	@Override
-	public Evento getRegistro(Evento evento) {
-		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction tx = em.getTransaction();
-		tx.begin();
-		return em.find(Evento.class, evento.getId());
-	}
-
-	@Override
 	public Collection<Evento> getRegistro() {
 		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
 		EntityTransaction tx = em.getTransaction();
@@ -46,6 +38,24 @@ final class EventoImp implements EventoDao {
 		tx.commit();
 		em.close();
 		return list;
+	}
+
+	@Override
+	public Evento getRegistro(Evento evento) {
+		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
+		EntityTransaction tx = em.getTransaction();
+		tx.begin();
+		return em.find(Evento.class, evento.getId());
+	}
+
+	private boolean naoEstaVazio(Object objeto) {
+		if (objeto == null) {
+			return false;
+		}
+		if (objeto.toString().equals("")) {
+			return false;
+		}
+		return true;
 	}
 
 	@Override
@@ -98,15 +108,5 @@ final class EventoImp implements EventoDao {
 		em.merge(evento);
 		tx.commit();
 		em.close();
-	}
-
-	private boolean naoEstaVazio(Object objeto) {
-		if (objeto == null) {
-			return false;
-		}
-		if (objeto.toString().equals("")) {
-			return false;
-		}
-		return true;
 	}
 }

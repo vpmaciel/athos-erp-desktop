@@ -19,9 +19,8 @@ import arquitetura.validacao.RegExp;
 public final class CentroCustoPc extends JPanel implements Gui {
 
 	private CentroCustoCont centroCustoCont;
-	private JTextField textFieldNome;
 	private ConfiguracaoGui configuracaoGui;
-	private JLabel labelNome;
+	private JTextField fieldNome;
 	private ToolBar toolBar;
 
 	public CentroCustoPc() {
@@ -45,11 +44,15 @@ public final class CentroCustoPc extends JPanel implements Gui {
 	}
 
 	public JTextField getGuiNome() {
-		return textFieldNome;
+		return fieldNome;
 	}
 
 	public ToolBar getTB() {
 		return toolBar;
+	}
+
+	@Override
+	public void iniciarControlador() {
 	}
 
 	@Override
@@ -63,11 +66,13 @@ public final class CentroCustoPc extends JPanel implements Gui {
 		toolBar = new ToolBar();
 
 		add(toolBar.getToolBar());
-		labelNome = new JLabel("NOME");
-		add(labelNome);
-		textFieldNome = new JTextField();
-		textFieldNome.setDocument(new EntradaMaiuscula(50));
-		add(textFieldNome);
+
+		add(new JLabel("NOME"));
+
+		fieldNome = new JTextField();
+		fieldNome.setDocument(new EntradaMaiuscula(50));
+		add(fieldNome);
+
 		// Lay out the panel.
 		SpringUtilities.makeCompactGrid(this, 3, 1, // rows, cols
 				5, 5, // initX, initY
@@ -82,10 +87,6 @@ public final class CentroCustoPc extends JPanel implements Gui {
 	}
 
 	@Override
-	public void iniciarControlador() {
-	}
-
-	@Override
 	public void iniciarLayout() {
 		setBorder(BorderFactory.createTitledBorder("CENTRO DE CUSTO"));
 		setLayout(new SpringLayout());
@@ -93,7 +94,7 @@ public final class CentroCustoPc extends JPanel implements Gui {
 
 	@Override
 	public void iniciarTabela() {
-	
+
 	}
 
 	@Override
@@ -103,11 +104,11 @@ public final class CentroCustoPc extends JPanel implements Gui {
 
 	@Override
 	public void reiniciarGui() {
-	
+
 	}
 
 	public boolean validarGui() {
-		if (!Entrada.validar(textFieldNome, labelNome, RegExp.NOME, true)) {
+		if (!Entrada.validar(fieldNome, "NOME", RegExp.NOME, true)) {
 			return false;
 		}
 		return true;

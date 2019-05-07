@@ -10,12 +10,12 @@ public final class EventoFac {
 		eventoDao.deletarRegistro(evento);
 	}
 
-	public static Evento getRegistro(Evento evento) {
-		return eventoDao.getRegistro(evento);
-	}
-
 	public static Collection<Evento> getRegistro() {
 		return eventoDao.getRegistro();
+	}
+
+	public static Evento getRegistro(Evento evento) {
+		return eventoDao.getRegistro(evento);
 	}
 
 	public static Collection<Evento> pesquisarRegistro(Evento evento) {

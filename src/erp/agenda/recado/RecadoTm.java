@@ -13,14 +13,7 @@ public class RecadoTm extends AbstractTableModel {
 	public static final int ID = 0;
 	public static int[] largura;
 	private static boolean[] podeEditar;
-	private List<Recado> RecadoList = new LinkedList<>();
-	private Recado recado;
 	private static TabelaModelo tabelaModelo = new TabelaModelo();
-
-	public RecadoTm() {
-
-	}
-
 	static {
 		tabelaModelo.adicionar("ID", 0, 100);
 		tabelaModelo.adicionar("DATA", 1, 100);
@@ -34,20 +27,16 @@ public class RecadoTm extends AbstractTableModel {
 			podeEditar[i] = false;
 		}
 	}
+	private Recado recado;
+
+	private List<Recado> RecadoList = new LinkedList<>();
+
+	public RecadoTm() {
+
+	}
 
 	public RecadoTm(List<Recado> lista) {
 		RecadoList.addAll(lista);
-	}
-
-	public Recado getRecado(int linha) {
-		if (RecadoList.size() > 0) {
-			return RecadoList.get(linha);
-		}
-		return null;
-	}
-
-	public List<Recado> getRecadoList() {
-		return RecadoList;
 	}
 
 	@Override
@@ -67,6 +56,17 @@ public class RecadoTm extends AbstractTableModel {
 	@Override
 	public String getColumnName(int column) {
 		return tabelaModelo.getNome(column);
+	}
+
+	public Recado getRecado(int linha) {
+		if (RecadoList.size() > 0) {
+			return RecadoList.get(linha);
+		}
+		return null;
+	}
+
+	public List<Recado> getRecadoList() {
+		return RecadoList;
 	}
 
 	@Override

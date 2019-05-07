@@ -32,11 +32,11 @@ public final class ConfiguracaoGui extends Container {
 				continue;
 			}
 			if (comp instanceof JTextField) {
-				JTextField textField = (JTextField) comp;
-				textField.setPreferredSize(new Dimension(740, 30));
-				textField.setMinimumSize(new Dimension(740, 30));
-				textField.setSize(new Dimension(740, 30));
-				textField.setMaximumSize(new Dimension(740, 30));
+				JTextField field = (JTextField) comp;
+				field.setPreferredSize(new Dimension(740, 30));
+				field.setMinimumSize(new Dimension(740, 30));
+				field.setSize(new Dimension(740, 30));
+				field.setMaximumSize(new Dimension(740, 30));
 				continue;
 			}
 			if (comp instanceof JFormattedTextField) {
@@ -71,11 +71,11 @@ public final class ConfiguracaoGui extends Container {
 				scrollPane.setMaximumSize(new Dimension(740, 150));
 			}
 			if (comp instanceof JTextArea) {
-				JTextArea textArea = (JTextArea) comp;
-				textArea.setPreferredSize(new Dimension(740, 150));
-				textArea.setMinimumSize(new Dimension(740, 150));
-				textArea.setSize(new Dimension(740, 150));
-				textArea.setMaximumSize(new Dimension(740, 150));
+				JTextArea field = (JTextArea) comp;
+				field.setPreferredSize(new Dimension(740, 150));
+				field.setMinimumSize(new Dimension(740, 150));
+				field.setSize(new Dimension(740, 150));
+				field.setMaximumSize(new Dimension(740, 150));
 			}
 		}
 	}
@@ -133,9 +133,9 @@ public final class ConfiguracaoGui extends Container {
 
 		for (Component comp : this.todosComponentes) {
 			if (comp instanceof JTextField) {
-				JTextField textField = (JTextField) comp;
-				textField.setEnabled(true);
-				textField.setEditable(true);
+				JTextField field = (JTextField) comp;
+				field.setEnabled(true);
+				field.setEditable(true);
 				continue;
 			}
 			if (comp instanceof JComboBox) {
@@ -150,9 +150,9 @@ public final class ConfiguracaoGui extends Container {
 				continue;
 			}
 			if (comp instanceof JTextArea) {
-				JTextArea textArea = (JTextArea) comp;
-				textArea.setEnabled(true);
-				textArea.setEditable(true);
+				JTextArea field = (JTextArea) comp;
+				field.setEnabled(true);
+				field.setEditable(true);
 				continue;
 			}
 			if (comp instanceof JPasswordField) {
@@ -170,9 +170,9 @@ public final class ConfiguracaoGui extends Container {
 				if (!(componentes[contador2] instanceof JTextArea)) {
 					continue;
 				}
-				JTextArea textArea = (JTextArea) componentes[contador2];
-				textArea.setEnabled(true);
-				textArea.setEditable(true);
+				JTextArea field = (JTextArea) componentes[contador2];
+				field.setEnabled(true);
+				field.setEditable(true);
 			}
 		}
 	}
@@ -180,9 +180,9 @@ public final class ConfiguracaoGui extends Container {
 	public void habilitarPesquisaRegistroGui(Container container) {
 		for (Component component : this.todosComponentes) {
 			if (component instanceof JTextField) {
-				JTextField textField = (JTextField) component;
-				textField.setEnabled(true);
-				textField.setEditable(true);
+				JTextField field = (JTextField) component;
+				field.setEnabled(true);
+				field.setEditable(true);
 				continue;
 			}
 			if (component instanceof JComboBox) {
@@ -198,9 +198,9 @@ public final class ConfiguracaoGui extends Container {
 				continue;
 			}
 			if (component instanceof JTextArea) {
-				JTextArea textArea = (JTextArea) component;
-				textArea.setEnabled(true);
-				textArea.setEditable(true);
+				JTextArea field = (JTextArea) component;
+				field.setEnabled(true);
+				field.setEditable(true);
 				continue;
 			}
 			if (!(component instanceof JPasswordField)) {
@@ -221,8 +221,8 @@ public final class ConfiguracaoGui extends Container {
 				continue;
 			}
 			if (comp instanceof JTextField) {
-				JTextField textField = (JTextField) comp;
-				textField.setText("");
+				JTextField field = (JTextField) comp;
+				field.setText("");
 				continue;
 			}
 			if (comp instanceof JFormattedTextField) {
@@ -242,8 +242,8 @@ public final class ConfiguracaoGui extends Container {
 					if (!(componentes[contador] instanceof JTextArea)) {
 						continue;
 					}
-					JTextArea textArea = (JTextArea) componentes[contador];
-					textArea.setText("");
+					JTextArea field = (JTextArea) componentes[contador];
+					field.setText("");
 				}
 			}
 		}

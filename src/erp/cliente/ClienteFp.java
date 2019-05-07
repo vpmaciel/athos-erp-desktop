@@ -26,13 +26,19 @@ public final class ClienteFp extends JFrame implements Gui {
 
 	}
 
+	public ClientePp getClientePp() {
+		return ClientePp;
+	}
+
 	@Override
 	public ConfiguracaoGui getConfiguracaoGui() {
 		return null;
 	}
 
-	public ClientePp getClientePp() {
-		return ClientePp;
+	@Override
+	public void iniciarControlador() {
+		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
+		ClientePp.iniciarControlador();
 	}
 
 	@Override
@@ -50,12 +56,6 @@ public final class ClienteFp extends JFrame implements Gui {
 	@Override
 	public void iniciarGuiControlador() {
 
-	}
-
-	@Override
-	public void iniciarControlador() {
-		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
-		ClientePp.iniciarControlador();
 	}
 
 	@Override

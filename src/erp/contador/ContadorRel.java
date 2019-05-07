@@ -14,11 +14,11 @@ import arquitetura.relatorio.Relatorio;
 
 public class ContadorRel {
 
-	private PdfWriter writer = null;
-	private Document document = new Document();
 	private String arquivo = "contador.pdf";
-	private String titulo = "contadores";
+	private Document document = new Document();
 	private Relatorio relatorio = new Relatorio();
+	private String titulo = "contadores";
+	private PdfWriter writer = null;
 
 	public ContadorRel(List<Contador> contadores) {
 

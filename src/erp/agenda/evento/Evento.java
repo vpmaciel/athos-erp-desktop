@@ -16,62 +16,62 @@ import erp.agenda.evento.tipoevento.TipoEvento;
 @PersistenceContext(unitName = "erp")
 @Entity
 public class Evento implements Serializable {
-	@Id
-	@GeneratedValue
-	private Long id;
-	@Column(length = 50)
-	private String descricao;
 	@Column(length = 10)
 	private String data;
+	@Column(length = 50)
+	private String descricao;
 	@Column(length = 5)
 	private String horaInicio;
 	@Column(length = 5)
 	private String horaTermino;
+	@Id
+	@GeneratedValue
+	private Long id;
 	@ManyToOne(cascade = CascadeType.ALL)
 	private TipoEvento tipoEvento;
 
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
+	public String getData() {
+		return data;
 	}
 
 	public String getDescricao() {
 		return descricao;
 	}
 
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
-	}
-
-	public String getData() {
-		return data;
-	}
-
-	public void setData(String data) {
-		this.data = data;
-	}
-
 	public String getHoraInicio() {
 		return horaInicio;
-	}
-
-	public void setHoraInicio(String horaInicio) {
-		this.horaInicio = horaInicio;
 	}
 
 	public String getHoraTermino() {
 		return horaTermino;
 	}
 
-	public void setHoraTermino(String horaTermino) {
-		this.horaTermino = horaTermino;
+	public Long getId() {
+		return id;
 	}
 
 	public TipoEvento getTipoEvento() {
 		return tipoEvento;
+	}
+
+	public void setData(String data) {
+		this.data = data;
+	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+
+	public void setHoraInicio(String horaInicio) {
+		this.horaInicio = horaInicio;
+	}
+
+	public void setHoraTermino(String horaTermino) {
+		this.horaTermino = horaTermino;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public void setTipoEvento(TipoEvento tipoEvento) {

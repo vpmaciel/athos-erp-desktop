@@ -17,49 +17,49 @@ import javax.persistence.UniqueConstraint;
 @Table(uniqueConstraints = { @UniqueConstraint(columnNames = { "nomeFantasia", "razaoSocial", "cnpj" }) })
 public class Cartorio implements Serializable {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	@Column(length = 50)
+	private String bairro;
+	@Column(length = 10)
+	private String cep;
+	@Column(length = 50)
+	private String cidade;
+	@Column(length = 19)
+	private String cnpj;
 	@Column(length = 50)
 	private String comarca;
+	@Column(length = 20)
+	private String complemento;
+	@Column(length = 50)
+	private String distrito;
+	@Column(length = 50)
+	private String email;
+	@Column(length = 50)
+	private String estado;
 	@Column(length = 20)
 	private String fax;
 	@Column(length = 20)
 	private String fone1;
 	@Column(length = 20)
 	private String fone2;
-	@Column(length = 50)
-	private String pais;
-	@Column(length = 50)
-	private String estado;
-	@Column(length = 50)
-	private String cidade;
-	@Column(length = 50)
-	private String bairro;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 	@Column(length = 50)
 	private String logradouro;
-	@Column(length = 20)
-	private String complemento;
-	@Column(length = 10)
-	private String cep;
 	@Column(length = 50)
 	private String municipio;
-	@Column(length = 50)
-	private String distrito;
-	@Column(length = 50)
-	private String titular;
-	@Column(length = 50)
-	private String substituto;
-	@Column(length = 19)
-	private String cnpj;
-	@Column(length = 50)
-	private String email;
-	@Column(length = 50)
-	private String site;
 	@Column(length = 50, nullable = false)
 	private String nomeFantasia;
 	@Column(length = 50)
+	private String pais;
+	@Column(length = 50)
 	private String razaoSocial;
+	@Column(length = 50)
+	private String site;
+	@Column(length = 50)
+	private String substituto;
+	@Column(length = 50)
+	private String titular;
 
 	public String getBairro() {
 		return this.bairro;

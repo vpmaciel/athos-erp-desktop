@@ -17,25 +17,26 @@ public class AOP {
 		return instancia == null ? new AOP() : instancia;
 	}
 
+	public static Locale getLocale() {
+		return new Locale("pt", "BR");
+	}
+
+	public static String getNomeSistema() {
+		return "ATHOS";
+	}
+
 	public static Usuario getUsuario() {
 		return AOP.usuario;
 	}
 
 	public static String getUsuarioFormatado() {
-		if(AOP.usuario == null) {
+		if (AOP.usuario == null) {
 			return " - [ ]";
 		}
 		return " - [ " + AOP.usuario + " ]";
 	}
-	public static Locale getLocale() {
-		return new Locale("pt", "BR");
-	}
 
 	public static void setUsuario(Usuario usuario) {
 		AOP.usuario = usuario;
-	}
-
-	public static String getNomeSistema() {
-		return "ATHOS";
 	}
 }

@@ -19,18 +19,6 @@ import erp.main.MainCont;
 
 final class ClienteCont {
 
-	public class MostraFrame extends MouseAdapter {
-
-		@Override
-		public void mouseClicked(MouseEvent event) {
-			if (event.getSource() == getClientePc().getLabelEmpresa()) {
-				MainCont.mostrarFrame(MainCont.getEmpresaFc());
-			} else if (event.getSource() == getClientePc().getLabelBanco()) {
-				MainCont.mostrarFrame(MainCont.getBancoFc());
-			}
-		}
-	}
-
 	public class Ajuda implements ActionListener {
 
 		@Override
@@ -96,25 +84,6 @@ final class ClienteCont {
 		}
 	}
 
-	public class Relatorio implements ActionListener {
-
-		@Override
-		public void actionPerformed(ActionEvent actionEvent) {
-
-			List<Cliente> clientes = new LinkedList<>();
-
-			try {
-				clientes = new LinkedList<>(ClienteFac.pesquisarRegistro(new Cliente()));
-			} catch (Exception e) {
-				System.out.println(e);
-			}
-
-			ClienteRel clienteRel = new ClienteRel(clientes);
-			clienteRel.retornarRelatorio(true);
-
-		}
-	}
-
 	public class Imprime implements ActionListener {
 
 		@Override
@@ -128,6 +97,18 @@ final class ClienteCont {
 			if (clientes.add(ClienteFac.getRegistro(cliente))) {
 				ClienteRel clienteRel = new ClienteRel(clientes);
 				clienteRel.retornarRelatorio(true);
+			}
+		}
+	}
+
+	public class MostraFrame extends MouseAdapter {
+
+		@Override
+		public void mouseClicked(MouseEvent event) {
+			if (event.getSource() == getClientePc().getLabelEmpresa()) {
+				MainCont.mostrarFrame(MainCont.getEmpresaFc());
+			} else if (event.getSource() == getClientePc().getLabelBanco()) {
+				MainCont.mostrarFrame(MainCont.getBancoFc());
 			}
 		}
 	}
@@ -158,6 +139,25 @@ final class ClienteCont {
 		}
 	}
 
+	public class Relatorio implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent actionEvent) {
+
+			List<Cliente> clientes = new LinkedList<>();
+
+			try {
+				clientes = new LinkedList<>(ClienteFac.pesquisarRegistro(new Cliente()));
+			} catch (Exception e) {
+				System.out.println(e);
+			}
+
+			ClienteRel clienteRel = new ClienteRel(clientes);
+			clienteRel.retornarRelatorio(true);
+
+		}
+	}
+
 	public class SaidaSistema implements ActionListener {
 
 		@Override
@@ -175,7 +175,7 @@ final class ClienteCont {
 			try {
 
 				int mensagem = Msg.confirmarSalvarRegistro();
-				
+
 				if (mensagem != JOptionPane.YES_OPTION) {
 					return;
 				}
@@ -186,7 +186,7 @@ final class ClienteCont {
 					Msg.avisoCampoObrigatorio("NOME");
 					return;
 				}
-				
+
 				Cliente clientePesquisa = new Cliente();
 				clientePesquisa.setCpf(getClientePc().getGuiCpf().getText());
 				Cliente clientePesquisaRetornado = ClienteFac.consultarRegistro(clientePesquisa);
@@ -210,7 +210,7 @@ final class ClienteCont {
 						return;
 					}
 				}
-				
+
 				clientePesquisa = new Cliente();
 				clientePesquisa.setCnpj(getClientePc().getGuiCnpj().getText());
 				clientePesquisaRetornado = ClienteFac.consultarRegistro(clientePesquisa);
@@ -234,7 +234,7 @@ final class ClienteCont {
 						return;
 					}
 				}
-				
+
 				if (mensagem == JOptionPane.YES_OPTION) {
 					atualizarObjeto();
 					ClienteFac.salvarRegistro(cliente);
@@ -357,23 +357,23 @@ final class ClienteCont {
 		return cliente;
 	}
 
-	public void setCliente(Cliente cliente) {
-		this.cliente = cliente;
-	}
-
 	public ClienteFc getClienteFc() {
 		return MainCont.getClienteFc();
-	}
-
-	public ClientePc getClientePc() {
-		return MainCont.getClienteFc().getClientePc();
 	}
 
 	public ClienteFp getClienteFp() {
 		return MainCont.getClienteFp();
 	}
 
+	public ClientePc getClientePc() {
+		return MainCont.getClienteFc().getClientePc();
+	}
+
 	public ClientePp getClientePp() {
 		return MainCont.getClienteFp().getClientePp();
+	}
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
 	}
 }

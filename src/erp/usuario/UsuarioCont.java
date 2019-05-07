@@ -89,25 +89,6 @@ final class UsuarioCont {
 		}
 	}
 
-	public class Relatorio implements ActionListener {
-
-		@Override
-		public void actionPerformed(ActionEvent actionEvent) {
-
-			List<Usuario> usuarios = new LinkedList<>();
-
-			try {
-				usuarios = new LinkedList<>(UsuarioFac.pesquisarRegistro(new Usuario()));
-			} catch (Exception e) {
-				System.out.println(e);
-			}
-
-			UsuarioRel usuarioRel = new UsuarioRel(usuarios);
-			usuarioRel.retornarRelatorio(true);
-
-		}
-	}
-
 	public class Imprime implements ActionListener {
 
 		@Override
@@ -124,7 +105,6 @@ final class UsuarioCont {
 			}
 		}
 	}
-
 
 	public class MostraFrameUsuario extends MouseAdapter {
 
@@ -160,6 +140,25 @@ final class UsuarioCont {
 			if (totalPesquisaRegistro > 0) {
 				MainFc.mostrarFrame(getUsuarioFp());
 			}
+		}
+	}
+
+	public class Relatorio implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent actionEvent) {
+
+			List<Usuario> usuarios = new LinkedList<>();
+
+			try {
+				usuarios = new LinkedList<>(UsuarioFac.pesquisarRegistro(new Usuario()));
+			} catch (Exception e) {
+				System.out.println(e);
+			}
+
+			UsuarioRel usuarioRel = new UsuarioRel(usuarios);
+			usuarioRel.retornarRelatorio(true);
+
 		}
 	}
 
@@ -257,23 +256,23 @@ final class UsuarioCont {
 		return usuario;
 	}
 
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
-	}
-
 	public UsuarioFc getUsuarioFc() {
 		return MainCont.getUsuarioFc();
-	}
-
-	public UsuarioPc getUsuarioPc() {
-		return MainCont.getUsuarioFc().getUsuarioPc();
 	}
 
 	public UsuarioFp getUsuarioFp() {
 		return MainCont.getUsuarioFp();
 	}
 
+	public UsuarioPc getUsuarioPc() {
+		return MainCont.getUsuarioFc().getUsuarioPc();
+	}
+
 	public UsuarioPp getUsuarioPp() {
 		return MainCont.getUsuarioFp().getUsuarioPp();
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 }

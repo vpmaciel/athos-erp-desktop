@@ -20,8 +20,8 @@ import arquitetura.gui.Imagem;
 @SuppressWarnings("serial")
 public final class VeiculoMarcaFc extends JFrame implements Gui {
 
-	private VeiculoMarcaCont veiculoMarcaCont;
 	private ConfiguracaoGui configuracaoGui;
+	private VeiculoMarcaCont veiculoMarcaCont;
 	private VeiculoMarcaPc veiculoMarcaPc;
 
 	public VeiculoMarcaFc() {
@@ -42,12 +42,29 @@ public final class VeiculoMarcaFc extends JFrame implements Gui {
 		return configuracaoGui;
 	}
 
+	public VeiculoMarcaCont getVeiculoMarcaCont() {
+		return veiculoMarcaCont;
+	}
+
 	public VeiculoMarcaPc getVeiculoMarcaPc() {
 		return veiculoMarcaPc;
 	}
 
-	public VeiculoMarcaCont getVeiculoMarcaCont() {
-		return veiculoMarcaCont;
+	@Override
+	public void iniciarControlador() {
+		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
+		veiculoMarcaCont = new VeiculoMarcaCont();
+		addWindowListener(veiculoMarcaCont.new Frame());
+		veiculoMarcaPc.getToolBar().getExcluirBtn().addActionListener(veiculoMarcaCont.new ExcluiRegistro());
+		veiculoMarcaPc.getToolBar().getNovoBtn().addActionListener(veiculoMarcaCont.new NovoFrame());
+		veiculoMarcaPc.getToolBar().getPesquisarBtn().addActionListener(veiculoMarcaCont.new PesquisaRegistro());
+		veiculoMarcaPc.getToolBar().getImprimirBtn().addActionListener(veiculoMarcaCont.new Relatorio());
+		veiculoMarcaPc.getToolBar().getRelatorioBtn().addActionListener(veiculoMarcaCont.new Imprime());
+		veiculoMarcaPc.getToolBar().getSalvarBtn().addActionListener(veiculoMarcaCont.new Salva());
+		veiculoMarcaPc.getToolBar().getFecharBtn().addActionListener(veiculoMarcaCont.new FechaJanela());
+		veiculoMarcaPc.getToolBar().getSairBtn().addActionListener(veiculoMarcaCont.new SaidaSistema());
+		veiculoMarcaPc.getToolBar().getAjudaBtn().addActionListener(veiculoMarcaCont.new Ajuda());
+		veiculoMarcaPc.getToolBar().getHomeBtn().addActionListener(veiculoMarcaCont.new Home());
 	}
 
 	@Override
@@ -89,23 +106,6 @@ public final class VeiculoMarcaFc extends JFrame implements Gui {
 	@Override
 	public void iniciarGuiControlador() {
 		configuracaoGui = new ConfiguracaoGui(this);
-	}
-
-	@Override
-	public void iniciarControlador() {
-		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
-		veiculoMarcaCont = new VeiculoMarcaCont();
-		addWindowListener(veiculoMarcaCont.new Frame());
-		veiculoMarcaPc.getToolBar().getExcluirBtn().addActionListener(veiculoMarcaCont.new ExcluiRegistro());
-		veiculoMarcaPc.getToolBar().getNovoBtn().addActionListener(veiculoMarcaCont.new NovoFrame());
-		veiculoMarcaPc.getToolBar().getPesquisarBtn().addActionListener(veiculoMarcaCont.new PesquisaRegistro());
-		veiculoMarcaPc.getToolBar().getImprimirBtn().addActionListener(veiculoMarcaCont.new Relatorio());
-		veiculoMarcaPc.getToolBar().getRelatorioBtn().addActionListener(veiculoMarcaCont.new Imprime());
-		veiculoMarcaPc.getToolBar().getSalvarBtn().addActionListener(veiculoMarcaCont.new Salva());
-		veiculoMarcaPc.getToolBar().getFecharBtn().addActionListener(veiculoMarcaCont.new FechaJanela());
-		veiculoMarcaPc.getToolBar().getSairBtn().addActionListener(veiculoMarcaCont.new SaidaSistema());
-		veiculoMarcaPc.getToolBar().getAjudaBtn().addActionListener(veiculoMarcaCont.new Ajuda());
-		veiculoMarcaPc.getToolBar().getHomeBtn().addActionListener(veiculoMarcaCont.new Home());
 	}
 
 	@Override

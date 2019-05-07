@@ -10,12 +10,12 @@ public final class ImovelFac {
 		imovelDao.deletarRegistro(imovel);
 	}
 
-	public static Imovel getRegistro(Imovel imovel) {
-		return imovelDao.getRegistro(imovel);
-	}
-
 	public static Collection<Imovel> getRegistro() {
 		return imovelDao.getRegistro();
+	}
+
+	public static Imovel getRegistro(Imovel imovel) {
+		return imovelDao.getRegistro(imovel);
 	}
 
 	public static Collection<Imovel> pesquisarRegistro(Imovel imovel) {

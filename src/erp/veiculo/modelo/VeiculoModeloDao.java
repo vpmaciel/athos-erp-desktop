@@ -4,15 +4,15 @@ import java.util.Collection;
 
 public interface VeiculoModeloDao {
 
-	void deletarRegistro(VeiculoModelo veiculoModelo);
+	VeiculoModelo consultarRegistro(VeiculoModelo veiculoModelo);
 
-	VeiculoModelo getRegistro(VeiculoModelo veiculoModelo);
+	void deletarRegistro(VeiculoModelo veiculoModelo);
 
 	Collection<VeiculoModelo> getRegistro();
 
-	Collection<VeiculoModelo> pesquisarRegistro(VeiculoModelo veiculoModelo);
+	VeiculoModelo getRegistro(VeiculoModelo veiculoModelo);
 
-	VeiculoModelo consultarRegistro(VeiculoModelo veiculoModelo);
+	Collection<VeiculoModelo> pesquisarRegistro(VeiculoModelo veiculoModelo);
 
 	void salvarRegistro(VeiculoModelo veiculoModelo);
 }

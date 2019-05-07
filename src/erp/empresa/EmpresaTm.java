@@ -13,14 +13,7 @@ public class EmpresaTm extends AbstractTableModel {
 	public static final int ID = 0;
 	public static int[] largura;
 	private static boolean[] podeEditar;
-	private List<Empresa> empresaList = new LinkedList<>();
-	private Empresa empresa;
 	private static TabelaModelo tabelaModelo = new TabelaModelo();
-
-	public EmpresaTm() {
-
-	}
-
 	static {
 		tabelaModelo.adicionar("ID", 0, 100);
 		tabelaModelo.adicionar("CNPJ", 1, 100);
@@ -33,20 +26,16 @@ public class EmpresaTm extends AbstractTableModel {
 			podeEditar[i] = false;
 		}
 	}
+	private Empresa empresa;
+
+	private List<Empresa> empresaList = new LinkedList<>();
+
+	public EmpresaTm() {
+
+	}
 
 	public EmpresaTm(List<Empresa> lista) {
 		empresaList.addAll(lista);
-	}
-
-	public Empresa getEmpresa(int linha) {
-		if (empresaList.size() > 0) {
-			return empresaList.get(linha);
-		}
-		return null;
-	}
-
-	public List<Empresa> getEmpresaList() {
-		return empresaList;
 	}
 
 	@Override
@@ -66,6 +55,17 @@ public class EmpresaTm extends AbstractTableModel {
 	@Override
 	public String getColumnName(int column) {
 		return tabelaModelo.getNome(column);
+	}
+
+	public Empresa getEmpresa(int linha) {
+		if (empresaList.size() > 0) {
+			return empresaList.get(linha);
+		}
+		return null;
+	}
+
+	public List<Empresa> getEmpresaList() {
+		return empresaList;
 	}
 
 	@Override

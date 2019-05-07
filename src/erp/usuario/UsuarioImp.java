@@ -17,6 +17,38 @@ import arquitetura.JPA;
 final class UsuarioImp implements UsuarioDao {
 
 	@Override
+	public Usuario consultarRegistro(Usuario usuario) {
+		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
+		EntityTransaction tx = entityManager.getTransaction();
+		tx.begin();
+
+		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+		CriteriaQuery<Usuario> criteriaQuery = criteriaBuilder.createQuery(Usuario.class);
+		Root<Usuario> rootUsuario = criteriaQuery.from(Usuario.class);
+
+		List<Predicate> predicates = new ArrayList<Predicate>();
+
+		boolean naoTemCriterio = true;
+
+		if (usuario.getNome() != null && usuario.getNome().length() > 0) {
+			predicates.add(criteriaBuilder.equal(rootUsuario.get("nome"), usuario.getNome()));
+			naoTemCriterio = false;
+		}
+
+		if (naoTemCriterio) {
+			return new Usuario();
+		}
+
+		criteriaQuery.select(rootUsuario).where(predicates.toArray(new Predicate[] {}));
+
+		List<Usuario> list = entityManager.createQuery(criteriaQuery).getResultList();
+		tx.commit();
+		entityManager.close();
+
+		return list.size() > 0 ? list.get(0) : new Usuario();
+	}
+
+	@Override
 	public void deletarRegistro(Usuario usuario) {
 		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
 		EntityTransaction tx = em.getTransaction();
@@ -24,14 +56,6 @@ final class UsuarioImp implements UsuarioDao {
 		em.remove(em.find(Usuario.class, usuario.getId()));
 		tx.commit();
 		em.close();
-	}
-
-	@Override
-	public Usuario getRegistro(Usuario usuario) {
-		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction tx = em.getTransaction();
-		tx.begin();
-		return em.find(Usuario.class, usuario.getId());
 	}
 
 	@Override
@@ -45,6 +69,14 @@ final class UsuarioImp implements UsuarioDao {
 		tx.commit();
 		em.close();
 		return list;
+	}
+
+	@Override
+	public Usuario getRegistro(Usuario usuario) {
+		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
+		EntityTransaction tx = em.getTransaction();
+		tx.begin();
+		return em.find(Usuario.class, usuario.getId());
 	}
 
 	@Override
@@ -105,38 +137,6 @@ final class UsuarioImp implements UsuarioDao {
 		entityManager.close();
 
 		return list;
-	}
-	
-	@Override
-	public Usuario consultarRegistro(Usuario usuario) {
-		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction tx = entityManager.getTransaction();
-		tx.begin();
-
-		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
-		CriteriaQuery<Usuario> criteriaQuery = criteriaBuilder.createQuery(Usuario.class);
-		Root<Usuario> rootUsuario = criteriaQuery.from(Usuario.class);
-
-		List<Predicate> predicates = new ArrayList<Predicate>();
-
-		boolean naoTemCriterio = true;
-		
-		if (usuario.getNome() != null && usuario.getNome().length() > 0) {
-			predicates.add(criteriaBuilder.equal(rootUsuario.get("nome"), usuario.getNome()));
-			naoTemCriterio = false;
-		}
-		
-		if (naoTemCriterio) {
-			return new Usuario();
-		}
-		
-		criteriaQuery.select(rootUsuario).where(predicates.toArray(new Predicate[] {}));
-
-		List<Usuario> list = entityManager.createQuery(criteriaQuery).getResultList();
-		tx.commit();
-		entityManager.close();
-
-		return list.size() > 0 ? list.get(0) : new Usuario();
 	}
 
 	@Override

@@ -10,8 +10,13 @@ import arquitetura.AOP;
 
 public class Data {
 
-	public Data() {
-
+	public static String getData() {
+		Locale locale = AOP.getLocale();
+		Calendar calendar = new GregorianCalendar();
+		String data = getDia(calendar.get(Calendar.DAY_OF_WEEK));
+		DateFormat dateFormat = new SimpleDateFormat(" - [ dd/MM/yyyy ] - [ HH:mm:ss ]", locale);
+		data += dateFormat.format(calendar.getTime());
+		return data;
 	}
 
 	public static String getDateTime() {
@@ -23,15 +28,6 @@ public class Data {
 		DateFormat dateFormat = new SimpleDateFormat("- [ dd/MM/yyyy ] - [ HH:mm:ss.SSSS ]", locale);
 		data += dateFormat.format(calendar.getTime());
 		data += AOP.getUsuarioFormatado();
-		return data;
-	}
-
-	public static String getData() {
-		Locale locale = AOP.getLocale();
-		Calendar calendar = new GregorianCalendar();
-		String data = getDia(calendar.get(Calendar.DAY_OF_WEEK));
-		DateFormat dateFormat = new SimpleDateFormat(" - [ dd/MM/yyyy ] - [ HH:mm:ss ]", locale);
-		data += dateFormat.format(calendar.getTime());
 		return data;
 	}
 
@@ -63,5 +59,9 @@ public class Data {
 			break;
 		}
 		return nome;
+	}
+
+	public Data() {
+
 	}
 }

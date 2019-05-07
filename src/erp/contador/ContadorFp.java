@@ -39,6 +39,12 @@ public final class ContadorFp extends JFrame implements Gui {
 	}
 
 	@Override
+	public void iniciarControlador() {
+		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
+		ContadorPp.iniciarControlador();
+	}
+
+	@Override
 	public void iniciarFocoControlador() {
 
 	}
@@ -53,12 +59,6 @@ public final class ContadorFp extends JFrame implements Gui {
 	@Override
 	public void iniciarGuiControlador() {
 
-	}
-
-	@Override
-	public void iniciarControlador() {
-		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
-		ContadorPp.iniciarControlador();
 	}
 
 	@Override

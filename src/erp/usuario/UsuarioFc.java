@@ -20,8 +20,8 @@ import arquitetura.gui.Imagem;
 @SuppressWarnings("serial")
 public final class UsuarioFc extends JFrame implements Gui {
 
-	private UsuarioCont usuarioCont;
 	private ConfiguracaoGui configuracaoGui;
+	private UsuarioCont usuarioCont;
 	private UsuarioPc usuarioPc;
 
 	public UsuarioFc() {
@@ -46,16 +46,33 @@ public final class UsuarioFc extends JFrame implements Gui {
 		return configuracaoGui;
 	}
 
-	public UsuarioPc getUsuarioPc() {
-		return usuarioPc;
-	}
-
 	public UsuarioPc getPanelUsuario() {
 		return usuarioPc;
 	}
 
 	public UsuarioCont getUsuarioCont() {
 		return usuarioCont;
+	}
+
+	public UsuarioPc getUsuarioPc() {
+		return usuarioPc;
+	}
+
+	@Override
+	public void iniciarControlador() {
+		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
+		usuarioCont = new UsuarioCont();
+		addWindowListener(usuarioCont.new Frame());
+		usuarioPc.getTB().getExcluirBtn().addActionListener(usuarioCont.new Exclui());
+		usuarioPc.getTB().getNovoBtn().addActionListener(usuarioCont.new Novo());
+		usuarioPc.getTB().getPesquisarBtn().addActionListener(usuarioCont.new Pesquisa());
+		usuarioPc.getTB().getImprimirBtn().addActionListener(usuarioCont.new Imprime());
+		usuarioPc.getTB().getRelatorioBtn().addActionListener(usuarioCont.new Relatorio());
+		usuarioPc.getTB().getSalvarBtn().addActionListener(usuarioCont.new Salva());
+		usuarioPc.getTB().getFecharBtn().addActionListener(usuarioCont.new FechaJanela());
+		usuarioPc.getTB().getSairBtn().addActionListener(usuarioCont.new SaidaSistema());
+		usuarioPc.getTB().getAjudaBtn().addActionListener(usuarioCont.new Ajuda());
+		usuarioPc.getTB().getHomeBtn().addActionListener(usuarioCont.new Home());
 	}
 
 	@Override
@@ -97,23 +114,6 @@ public final class UsuarioFc extends JFrame implements Gui {
 	@Override
 	public void iniciarGuiControlador() {
 		configuracaoGui = new ConfiguracaoGui(this);
-	}
-
-	@Override
-	public void iniciarControlador() {
-		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
-		usuarioCont = new UsuarioCont();
-		addWindowListener(usuarioCont.new Frame());
-		usuarioPc.getTB().getExcluirBtn().addActionListener(usuarioCont.new Exclui());
-		usuarioPc.getTB().getNovoBtn().addActionListener(usuarioCont.new Novo());
-		usuarioPc.getTB().getPesquisarBtn().addActionListener(usuarioCont.new Pesquisa());
-		usuarioPc.getTB().getImprimirBtn().addActionListener(usuarioCont.new Imprime());
-		usuarioPc.getTB().getRelatorioBtn().addActionListener(usuarioCont.new Relatorio());
-		usuarioPc.getTB().getSalvarBtn().addActionListener(usuarioCont.new Salva());
-		usuarioPc.getTB().getFecharBtn().addActionListener(usuarioCont.new FechaJanela());
-		usuarioPc.getTB().getSairBtn().addActionListener(usuarioCont.new SaidaSistema());
-		usuarioPc.getTB().getAjudaBtn().addActionListener(usuarioCont.new Ajuda());
-		usuarioPc.getTB().getHomeBtn().addActionListener(usuarioCont.new Home());
 	}
 
 	@Override

@@ -19,8 +19,8 @@ import arquitetura.gui.Tabela;
 @SuppressWarnings("serial")
 public final class RecadoPp extends JPanel {
 
-	private final RecadoTm recadoTm;
 	List<Recado> recadoList = null;
+	private final RecadoTm recadoTm;
 	private final JTable table;
 
 	public RecadoPp() {

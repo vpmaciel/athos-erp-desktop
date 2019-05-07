@@ -36,6 +36,12 @@ public final class EventoFp extends JFrame implements Gui {
 	}
 
 	@Override
+	public void iniciarControlador() {
+		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
+		EventoPp.iniciarControlador();
+	}
+
+	@Override
 	public void iniciarFocoControlador() {
 
 	}
@@ -50,12 +56,6 @@ public final class EventoFp extends JFrame implements Gui {
 	@Override
 	public void iniciarGuiControlador() {
 
-	}
-
-	@Override
-	public void iniciarControlador() {
-		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
-		EventoPp.iniciarControlador();
 	}
 
 	@Override

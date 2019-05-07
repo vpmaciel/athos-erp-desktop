@@ -17,11 +17,11 @@ import javax.persistence.UniqueConstraint;
 @Table(uniqueConstraints = { @UniqueConstraint(columnNames = { "nome", "codigo" }) })
 public class Banco implements Serializable {
 
+	@Column(length = 10, nullable = true)
+	private String codigo;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	@Column(length = 10, nullable = true)
-	private String codigo;
 	@Column(length = 50, nullable = false)
 	private String nome;
 

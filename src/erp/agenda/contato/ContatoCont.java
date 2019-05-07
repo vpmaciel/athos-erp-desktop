@@ -91,25 +91,6 @@ final class ContatoCont {
 		}
 	}
 
-	public class Relatorio implements ActionListener {
-
-		@Override
-		public void actionPerformed(ActionEvent actionEvent) {
-
-			List<Contato> contatos = new LinkedList<>();
-
-			try {
-				contatos = new LinkedList<>(ContatoFac.pesquisarRegistro(new Contato()));
-			} catch (Exception e) {
-				System.out.println(e);
-			}
-
-			ContatoRel contatoRel = new ContatoRel(contatos);
-			contatoRel.retornarRelatorio(true);
-
-		}
-	}
-
 	public class Imprime implements ActionListener {
 
 		@Override
@@ -175,6 +156,25 @@ final class ContatoCont {
 		}
 	}
 
+	public class Relatorio implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent actionEvent) {
+
+			List<Contato> contatos = new LinkedList<>();
+
+			try {
+				contatos = new LinkedList<>(ContatoFac.pesquisarRegistro(new Contato()));
+			} catch (Exception e) {
+				System.out.println(e);
+			}
+
+			ContatoRel contatoRel = new ContatoRel(contatos);
+			contatoRel.retornarRelatorio(true);
+
+		}
+	}
+
 	public class SaidaSistema implements ActionListener {
 
 		@Override
@@ -205,7 +205,7 @@ final class ContatoCont {
 					Msg.avisoCampoObrigatorio("NOME");
 					return;
 				}
-				
+
 				Contato contatoPesquisa = new Contato();
 				contatoPesquisa.setCnpj(getContatoPc().getGuiCnpj().getText());
 				Contato contatoPesquisaRetornado = ContatoFac.consultarRegistro(contatoPesquisa);
@@ -229,7 +229,7 @@ final class ContatoCont {
 						return;
 					}
 				}
-				
+
 				contatoPesquisa = new Contato();
 				contatoPesquisa.setCpf(getContatoPc().getGuiCpf().getText());
 				contatoPesquisaRetornado = ContatoFac.consultarRegistro(contatoPesquisa);
@@ -253,7 +253,7 @@ final class ContatoCont {
 						return;
 					}
 				}
-			
+
 				if (mensagem == JOptionPane.YES_OPTION) {
 					atualizarObjeto();
 					ContatoFac.salvarRegistro(contato);
@@ -324,23 +324,23 @@ final class ContatoCont {
 		return contato;
 	}
 
-	public void setContato(Contato contato) {
-		this.contato = contato;
-	}
-
 	public ContatoFc getContatoFc() {
 		return MainCont.getAgendaContatoFc();
-	}
-
-	public ContatoPc getContatoPc() {
-		return MainCont.getAgendaContatoFc().getContatoPc();
 	}
 
 	public ContatoFp getContatoFp() {
 		return MainCont.getAgendaContatoFp();
 	}
 
+	public ContatoPc getContatoPc() {
+		return MainCont.getAgendaContatoFc().getContatoPc();
+	}
+
 	public ContatoPp getContatoPp() {
 		return MainCont.getAgendaContatoFp().getContatoPp();
+	}
+
+	public void setContato(Contato contato) {
+		this.contato = contato;
 	}
 }

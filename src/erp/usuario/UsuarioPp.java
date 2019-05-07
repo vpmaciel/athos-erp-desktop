@@ -20,8 +20,8 @@ import arquitetura.gui.Tabela;
 public final class UsuarioPp extends JPanel {
 
 	private final UsuarioTm agenciaTableModel;
-	List<Usuario> usuarioList = null;
 	private final JTable table;
+	List<Usuario> usuarioList = null;
 
 	public UsuarioPp() {
 		setBorder(BorderFactory.createTitledBorder("USUÁRIO"));

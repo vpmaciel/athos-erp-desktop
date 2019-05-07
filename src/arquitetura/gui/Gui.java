@@ -6,13 +6,13 @@ public interface Gui {
 
 	ConfiguracaoGui getConfiguracaoGui();
 
+	void iniciarControlador();
+
 	void iniciarFocoControlador();
 
 	void iniciarGui();
 
 	void iniciarGuiControlador();
-
-	void iniciarControlador();
 
 	void iniciarLayout();
 

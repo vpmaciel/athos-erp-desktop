@@ -18,6 +18,46 @@ import arquitetura.validacao.Mascara;
 final class ContatoImp implements ContatoDao {
 
 	@Override
+	public Contato consultarRegistro(Contato contato) {
+		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
+		EntityTransaction tx = entityManager.getTransaction();
+		tx.begin();
+
+		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+		CriteriaQuery<Contato> criteriaQuery = criteriaBuilder.createQuery(Contato.class);
+		Root<Contato> rootContato = criteriaQuery.from(Contato.class);
+
+		List<Predicate> predicates = new ArrayList<Predicate>();
+
+		boolean naoTemCriterio = true;
+
+		System.out.println(contato.getCnpj());
+		System.out.println(contato.getCpf());
+
+		if (contato.getCnpj() != null && !contato.getCnpj().equals(Mascara.getCnpj().getPlaceholder())
+				&& !contato.getCnpj().equals(Mascara.getCnpjVazio())) {
+			predicates.add(criteriaBuilder.equal(rootContato.get("cnpj"), contato.getCnpj()));
+			naoTemCriterio = false;
+		}
+		if (contato.getCpf() != null && !contato.getCpf().equals(Mascara.getCpf().getPlaceholder())
+				&& !contato.getCpf().equals(Mascara.getCpfVazio())) {
+			predicates.add(criteriaBuilder.equal(rootContato.get("cpf"), contato.getCpf()));
+			naoTemCriterio = false;
+		}
+
+		if (naoTemCriterio) {
+			return new Contato();
+		}
+
+		criteriaQuery.select(rootContato).where(predicates.toArray(new Predicate[] {}));
+
+		List<Contato> list = entityManager.createQuery(criteriaQuery).getResultList();
+		tx.commit();
+		entityManager.close();
+		return list.size() > 0 ? list.get(0) : new Contato();
+	}
+
+	@Override
 	public void deletarRegistro(Contato contato) {
 		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
 		EntityTransaction tx = em.getTransaction();
@@ -25,14 +65,6 @@ final class ContatoImp implements ContatoDao {
 		em.remove(em.find(Contato.class, contato.getId()));
 		tx.commit();
 		em.close();
-	}
-
-	@Override
-	public Contato getRegistro(Contato contato) {
-		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction tx = em.getTransaction();
-		tx.begin();
-		return em.find(Contato.class, contato.getId());
 	}
 
 	@Override
@@ -46,6 +78,14 @@ final class ContatoImp implements ContatoDao {
 		tx.commit();
 		em.close();
 		return list;
+	}
+
+	@Override
+	public Contato getRegistro(Contato contato) {
+		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
+		EntityTransaction tx = em.getTransaction();
+		tx.begin();
+		return em.find(Contato.class, contato.getId());
 	}
 
 	@Override
@@ -124,46 +164,6 @@ final class ContatoImp implements ContatoDao {
 		tx.commit();
 		entityManager.close();
 		return list;
-	}
-
-	@Override
-	public Contato consultarRegistro(Contato contato) {
-		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction tx = entityManager.getTransaction();
-		tx.begin();
-
-		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
-		CriteriaQuery<Contato> criteriaQuery = criteriaBuilder.createQuery(Contato.class);
-		Root<Contato> rootContato = criteriaQuery.from(Contato.class);
-
-		List<Predicate> predicates = new ArrayList<Predicate>();
-
-		boolean naoTemCriterio = true;
-
-		System.out.println(contato.getCnpj());
-		System.out.println(contato.getCpf());
-
-		if (contato.getCnpj() != null && !contato.getCnpj().equals(Mascara.getCnpj().getPlaceholder())
-				&& !contato.getCnpj().equals(Mascara.getCnpjVazio())) {
-			predicates.add(criteriaBuilder.equal(rootContato.get("cnpj"), contato.getCnpj()));
-			naoTemCriterio = false;
-		}
-		if (contato.getCpf() != null && !contato.getCpf().equals(Mascara.getCpf().getPlaceholder())
-				&& !contato.getCpf().equals(Mascara.getCpfVazio())) {
-			predicates.add(criteriaBuilder.equal(rootContato.get("cpf"), contato.getCpf()));
-			naoTemCriterio = false;
-		}
-
-		if (naoTemCriterio) {
-			return new Contato();
-		}
-
-		criteriaQuery.select(rootContato).where(predicates.toArray(new Predicate[] {}));
-
-		List<Contato> list = entityManager.createQuery(criteriaQuery).getResultList();
-		tx.commit();
-		entityManager.close();
-		return list.size() > 0 ? list.get(0) : new Contato();
 	}
 
 	@Override

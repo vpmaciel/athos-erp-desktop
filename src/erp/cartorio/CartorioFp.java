@@ -26,16 +26,22 @@ public final class CartorioFp extends JFrame implements Gui {
 
 	}
 
+	public CartorioPp getCartorioPp() {
+		return CartorioPp;
+	}
+
 	@Override
 	public ConfiguracaoGui getConfiguracaoGui() {
 		return null;
 	}
 
-	public CartorioPp getCartorioPp() {
-		return CartorioPp;
+	public void habilitarPesquisaRegistroGui() {
 	}
 
-	public void habilitarPesquisaRegistroGui() {
+	@Override
+	public void iniciarControlador() {
+		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
+		CartorioPp.iniciarControlador();
 	}
 
 	@Override
@@ -53,12 +59,6 @@ public final class CartorioFp extends JFrame implements Gui {
 	@Override
 	public void iniciarGuiControlador() {
 
-	}
-
-	@Override
-	public void iniciarControlador() {
-		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
-		CartorioPp.iniciarControlador();
 	}
 
 	@Override

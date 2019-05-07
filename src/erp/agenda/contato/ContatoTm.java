@@ -13,14 +13,7 @@ public class ContatoTm extends AbstractTableModel {
 	public static final int ID = 0;
 	public static int[] largura;
 	private static boolean[] podeEditar;
-	private List<Contato> contatoList = new LinkedList<>();
-	private Contato contato;
 	private static TabelaModelo tabelaModelo = new TabelaModelo();
-
-	public ContatoTm() {
-
-	}
-
 	static {
 		tabelaModelo.adicionar("ID", 0, 100);
 		tabelaModelo.adicionar("NOME", 1, 500);
@@ -34,20 +27,16 @@ public class ContatoTm extends AbstractTableModel {
 			podeEditar[i] = false;
 		}
 	}
+	private Contato contato;
+
+	private List<Contato> contatoList = new LinkedList<>();
+
+	public ContatoTm() {
+
+	}
 
 	public ContatoTm(List<Contato> lista) {
 		contatoList.addAll(lista);
-	}
-
-	public Contato getContato(int linha) {
-		if (contatoList.size() > 0) {
-			return contatoList.get(linha);
-		}
-		return null;
-	}
-
-	public List<Contato> getContatoList() {
-		return contatoList;
 	}
 
 	@Override
@@ -68,6 +57,17 @@ public class ContatoTm extends AbstractTableModel {
 	@Override
 	public String getColumnName(int column) {
 		return tabelaModelo.getNome(column);
+	}
+
+	public Contato getContato(int linha) {
+		if (contatoList.size() > 0) {
+			return contatoList.get(linha);
+		}
+		return null;
+	}
+
+	public List<Contato> getContatoList() {
+		return contatoList;
 	}
 
 	@Override

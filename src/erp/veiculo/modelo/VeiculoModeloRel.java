@@ -14,11 +14,11 @@ import arquitetura.relatorio.Relatorio;
 
 public class VeiculoModeloRel {
 
-	private PdfWriter writer = null;
-	private Document document = new Document();
 	private String arquivo = "veiculo-modelo.pdf";
-	private String titulo = "MODELO DE VEÍCULOS";
+	private Document document = new Document();
 	private Relatorio relatorio = new Relatorio();
+	private String titulo = "MODELO DE VEÍCULOS";
+	private PdfWriter writer = null;
 
 	public VeiculoModeloRel(List<VeiculoModelo> veiculoModelos) {
 

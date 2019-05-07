@@ -14,11 +14,11 @@ import arquitetura.relatorio.Relatorio;
 
 public class CartorioRel {
 
-	private PdfWriter writer = null;
-	private Document document = new Document();
 	private String arquivo = "cartorio.pdf";
-	private String titulo = "CARTÓRIOS";
+	private Document document = new Document();
 	private Relatorio relatorio = new Relatorio();
+	private String titulo = "CARTÓRIOS";
+	private PdfWriter writer = null;
 
 	public CartorioRel(List<Cartorio> cartorios) {
 

@@ -10,8 +10,18 @@ import com.google.gson.Gson;
 import erp.banco.Banco;
 
 public class Json<Tipo> {
-	Tipo tipo;
 	String local;
+	Tipo tipo;
+
+	{
+		/*
+		 * Banco banco = new Banco(); banco.setId(1L); banco.setCodigo("111");
+		 * banco.setNome("BMG");
+		 * 
+		 * Json<Banco> json = new Json<Banco>(banco); json.lerArquivo();
+		 */
+
+	}
 
 	public Json(Tipo tipo) {
 		this.tipo = tipo;
@@ -54,15 +64,5 @@ public class Json<Tipo> {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-	}
-
-	{
-		/*
-		 * Banco banco = new Banco(); banco.setId(1L); banco.setCodigo("111");
-		 * banco.setNome("BMG");
-		 * 
-		 * Json<Banco> json = new Json<Banco>(banco); json.lerArquivo();
-		 */
-
 	}
 }

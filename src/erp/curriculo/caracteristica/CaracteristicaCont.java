@@ -17,16 +17,6 @@ import erp.main.MainCont;
 
 final class CaracteristicaCont {
 
-	public class MostraFrame extends MouseAdapter {
-
-		@Override
-		public void mouseClicked(MouseEvent event) {
-			if (event.getSource() == getCaracteristicaPc().getLabelFuncionario()) {
-				MainCont.mostrarFrame(MainCont.getFuncionarioFc());
-			}
-		}
-	}
-
 	public class Ajuda implements ActionListener {
 
 		@Override
@@ -92,25 +82,6 @@ final class CaracteristicaCont {
 		}
 	}
 
-	public class Relatorio implements ActionListener {
-
-		@Override
-		public void actionPerformed(ActionEvent actionEvent) {
-
-			List<Caracteristica> caracteristicas = new LinkedList<>();
-
-			try {
-				caracteristicas = new LinkedList<>(CaracteristicaFac.pesquisarRegistro(new Caracteristica()));
-			} catch (Exception e) {
-				System.out.println(e);
-			}
-
-			CaracteristicaRel caracteristicaRel = new CaracteristicaRel(caracteristicas);
-			caracteristicaRel.retornarRelatorio(true);
-
-		}
-	}
-
 	public class Imprime implements ActionListener {
 
 		@Override
@@ -124,6 +95,16 @@ final class CaracteristicaCont {
 			if (caracteristicas.add(CaracteristicaFac.getRegistro(caracteristica))) {
 				CaracteristicaRel caracteristicaRel = new CaracteristicaRel(caracteristicas);
 				caracteristicaRel.retornarRelatorio(true);
+			}
+		}
+	}
+
+	public class MostraFrame extends MouseAdapter {
+
+		@Override
+		public void mouseClicked(MouseEvent event) {
+			if (event.getSource() == getCaracteristicaPc().getLabelFuncionario()) {
+				MainCont.mostrarFrame(MainCont.getFuncionarioFc());
 			}
 		}
 	}
@@ -151,6 +132,25 @@ final class CaracteristicaCont {
 			if (totalPesquisaRegistro > 0) {
 				MainCont.mostrarFrame(getCaracteristicaFp());
 			}
+		}
+	}
+
+	public class Relatorio implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent actionEvent) {
+
+			List<Caracteristica> caracteristicas = new LinkedList<>();
+
+			try {
+				caracteristicas = new LinkedList<>(CaracteristicaFac.pesquisarRegistro(new Caracteristica()));
+			} catch (Exception e) {
+				System.out.println(e);
+			}
+
+			CaracteristicaRel caracteristicaRel = new CaracteristicaRel(caracteristicas);
+			caracteristicaRel.retornarRelatorio(true);
+
 		}
 	}
 
@@ -439,23 +439,23 @@ final class CaracteristicaCont {
 		return caracteristica;
 	}
 
-	public void setCaracteristica(Caracteristica Caracteristica) {
-		this.caracteristica = Caracteristica;
-	}
-
 	public CaracteristicaFc getCaracteristicaFc() {
 		return MainCont.getCurriculoCaracteristicaFc();
-	}
-
-	public CaracteristicaPc getCaracteristicaPc() {
-		return MainCont.getCurriculoCaracteristicaFc().getCaracteristicaPc();
 	}
 
 	public CaracteristicaFp getCaracteristicaFp() {
 		return MainCont.getCurriculoCaracteristicaFp();
 	}
 
+	public CaracteristicaPc getCaracteristicaPc() {
+		return MainCont.getCurriculoCaracteristicaFc().getCaracteristicaPc();
+	}
+
 	public CaracteristicaPp getCaracteristicaPp() {
 		return MainCont.getCurriculoCaracteristicaFp().getCertificadoPp();
+	}
+
+	public void setCaracteristica(Caracteristica Caracteristica) {
+		this.caracteristica = Caracteristica;
 	}
 }

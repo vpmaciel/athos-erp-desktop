@@ -19,25 +19,16 @@ import arquitetura.validacao.Mascara;
 @SuppressWarnings("serial")
 public final class ContadorPc extends JPanel implements Gui {
 
-	private JFormattedTextField textFieldCnpj;
-	private JFormattedTextField textFieldCpf;
-	private JTextField textFieldCrc;
-	private JTextField textFieldNome;
 	private ConfiguracaoGui configuracaoGui;
-	private JLabel labelCnpj;
-	private JLabel labelCpf;
-	private JLabel labelCrc;
-	private JLabel labelNome;
-	private JTextField textFieldEmail;
-	private JFormattedTextField textFieldFax;
-	private JFormattedTextField textFieldFone1;
-	private JFormattedTextField textFieldFone2;
-	private JTextField textFieldSite;
-	private JLabel labelFone2;
-	private JLabel labelEmail;
-	private JLabel labelSite;
-	private JLabel labelFax;
-	private JLabel labelFone1;
+	private JFormattedTextField fieldCnpj;
+	private JFormattedTextField fieldCpf;
+	private JTextField fieldCrc;
+	private JTextField fieldEmail;
+	private JFormattedTextField fieldFax;
+	private JFormattedTextField fieldFone1;
+	private JFormattedTextField fieldFone2;
+	private JTextField fieldNome;
+	private JTextField fieldSite;
 	private ToolBar toolBar;
 
 	public ContadorPc() {
@@ -58,43 +49,48 @@ public final class ContadorPc extends JPanel implements Gui {
 	}
 
 	public JFormattedTextField getGuiCnpj() {
-		return textFieldCnpj;
+		return fieldCnpj;
 	}
 
 	public JFormattedTextField getGuiCpf() {
-		return textFieldCpf;
+		return fieldCpf;
 	}
 
 	public JTextField getGuiCrc() {
-		return textFieldCrc;
+		return fieldCrc;
 	}
 
 	public JTextField getGuiEmail() {
-		return textFieldEmail;
+		return fieldEmail;
 	}
 
 	public JFormattedTextField getGuiFax() {
-		return textFieldFax;
+		return fieldFax;
 	}
 
 	public JFormattedTextField getGuiFone1() {
-		return textFieldFone1;
+		return fieldFone1;
 	}
 
 	public JFormattedTextField getGuiFone2() {
-		return textFieldFone2;
+		return fieldFone2;
 	}
 
 	public JTextField getGuiNome() {
-		return textFieldNome;
+		return fieldNome;
 	}
 
 	public JTextField getGuiSite() {
-		return textFieldSite;
+		return fieldSite;
 	}
 
 	public ToolBar getTB() {
 		return toolBar;
+	}
+
+	@Override
+	public void iniciarControlador() {
+
 	}
 
 	@Override
@@ -108,59 +104,66 @@ public final class ContadorPc extends JPanel implements Gui {
 		toolBar = new ToolBar();
 
 		add(toolBar.getToolBar());
-		labelNome = new JLabel("NOME");
-		add(labelNome);
-		textFieldNome = new JTextField();
-		textFieldNome.setDocument(new EntradaMaiuscula(50));
-		add(textFieldNome);
-		labelCrc = new JLabel("CRC");
-		add(labelCrc);
-		textFieldCrc = new JTextField();
-		textFieldCrc.setDocument(new EntradaMaiuscula(20));
-		add(textFieldCrc);
-		labelCpf = new JLabel("CPF");
-		labelCpf.setBounds(10, 90, 70, 35);
-		add(labelCpf);
-		textFieldCpf = new JFormattedTextField(Mascara.getCpf());
-		add(textFieldCpf);
-		labelCnpj = new JLabel("CNPJ");
-		add(labelCnpj);
-		textFieldCnpj = new JFormattedTextField(Mascara.getCnpj());
-		add(textFieldCnpj);
-		labelFone1 = new JLabel("TELEFONE");
-		add(labelFone1);
-		textFieldFone1 = new JFormattedTextField(Mascara.getFone());
-		add(textFieldFone1);
-		labelFone2 = new JLabel("TELEFONE");
-		add(labelFone2);
-		textFieldFone2 = new JFormattedTextField(Mascara.getFone());
-		add(textFieldFone2);
-		labelFax = new JLabel("FAX");
-		add(labelFax);
-		textFieldFax = new JFormattedTextField(Mascara.getFax());
-		add(textFieldFax);
-		labelEmail = new JLabel("E-MAIL");
-		add(labelEmail);
-		textFieldEmail = new JTextField();
-		textFieldEmail.setDocument(new EntradaMinuscula(50));
-		add(textFieldEmail);
-		labelSite = new JLabel("SITE");
-		add(labelSite);
-		textFieldSite = new JTextField();
-		textFieldSite.setDocument(new EntradaMinuscula(50));
-		add(textFieldSite);
-		SpringUtilities.makeCompactGrid(this, 19, 1, 5, 5, 5, 5);
+
+		add(new JLabel("NOME"));
+
+		fieldNome = new JTextField();
+		fieldNome.setDocument(new EntradaMaiuscula(50));
+		add(fieldNome);
+
+		add(new JLabel("CRC"));
+
+		fieldCrc = new JTextField();
+		fieldCrc.setDocument(new EntradaMaiuscula(20));
+		add(fieldCrc);
+
+		add(new JLabel("CPF"));
+
+		fieldCpf = new JFormattedTextField(Mascara.getCpf());
+		add(fieldCpf);
+
+		add(new JLabel("CNPJ"));
+
+		fieldCnpj = new JFormattedTextField(Mascara.getCnpj());
+		add(fieldCnpj);
+
+		add(new JLabel("TELEFONE"));
+
+		fieldFone1 = new JFormattedTextField(Mascara.getFone());
+		add(fieldFone1);
+
+		add(new JLabel("TELEFONE"));
+
+		fieldFone2 = new JFormattedTextField(Mascara.getFone());
+		add(fieldFone2);
+
+		add(new JLabel("FAX"));
+
+		fieldFax = new JFormattedTextField(Mascara.getFax());
+		add(fieldFax);
+
+		add(new JLabel("E-MAIL"));
+
+		fieldEmail = new JTextField();
+		fieldEmail.setDocument(new EntradaMinuscula(50));
+		add(fieldEmail);
+
+		add(new JLabel("SITE"));
+
+		fieldSite = new JTextField();
+		fieldSite.setDocument(new EntradaMinuscula(50));
+		add(fieldSite);
+
+		SpringUtilities.makeCompactGrid(this, 19, 1, // rows, cols
+				5, 5, // initX, initY
+				5, 5); // xPad, yPad
+		setOpaque(true); // content panes must be opaque
 		setOpaque(true);
 	}
 
 	@Override
 	public void iniciarGuiControlador() {
 		configuracaoGui = new ConfiguracaoGui(this);
-	}
-
-	@Override
-	public void iniciarControlador() {
-
 	}
 
 	@Override

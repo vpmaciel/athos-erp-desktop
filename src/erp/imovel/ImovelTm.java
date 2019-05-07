@@ -13,14 +13,7 @@ public class ImovelTm extends AbstractTableModel {
 	public static final int ID = 0;
 	public static int[] largura;
 	private static boolean[] podeEditar;
-	private List<Imovel> imovelList = new LinkedList<>();
-	private Imovel imovel;
 	private static TabelaModelo tabelaModelo = new TabelaModelo();
-
-	public ImovelTm() {
-
-	}
-
 	static {
 		tabelaModelo.adicionar("ID", 0, 100);
 		tabelaModelo.adicionar("NOME PROPRIETÁRIO", 1, 500);
@@ -34,20 +27,16 @@ public class ImovelTm extends AbstractTableModel {
 			podeEditar[i] = false;
 		}
 	}
+	private Imovel imovel;
+
+	private List<Imovel> imovelList = new LinkedList<>();
+
+	public ImovelTm() {
+
+	}
 
 	public ImovelTm(List<Imovel> lista) {
 		imovelList.addAll(lista);
-	}
-
-	public Imovel getImovel(int linha) {
-		if (imovelList.size() > 0) {
-			return imovelList.get(linha);
-		}
-		return null;
-	}
-
-	public List<Imovel> getImovelList() {
-		return imovelList;
 	}
 
 	@Override
@@ -67,6 +56,17 @@ public class ImovelTm extends AbstractTableModel {
 	@Override
 	public String getColumnName(int column) {
 		return tabelaModelo.getNome(column);
+	}
+
+	public Imovel getImovel(int linha) {
+		if (imovelList.size() > 0) {
+			return imovelList.get(linha);
+		}
+		return null;
+	}
+
+	public List<Imovel> getImovelList() {
+		return imovelList;
 	}
 
 	@Override

@@ -11,8 +11,6 @@ import javax.swing.JOptionPane;
 
 import arquitetura.gui.Msg;
 import arquitetura.validacao.Mascara;
-import erp.cartorio.Cartorio;
-import erp.cartorio.CartorioFac;
 import erp.main.MainCont;
 
 final class CartorioCont {
@@ -82,25 +80,6 @@ final class CartorioCont {
 		}
 	}
 
-	public class Relatorio implements ActionListener {
-
-		@Override
-		public void actionPerformed(ActionEvent actionEvent) {
-
-			List<Cartorio> cartorios = new LinkedList<>();
-
-			try {
-				cartorios = new LinkedList<>(CartorioFac.pesquisarRegistro(new Cartorio()));
-			} catch (Exception e) {
-				System.out.println(e);
-			}
-
-			CartorioRel cartorioRel = new CartorioRel(cartorios);
-			cartorioRel.retornarRelatorio(true);
-
-		}
-	}
-
 	public class Imprime implements ActionListener {
 
 		@Override
@@ -145,6 +124,25 @@ final class CartorioCont {
 		}
 	}
 
+	public class Relatorio implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent actionEvent) {
+
+			List<Cartorio> cartorios = new LinkedList<>();
+
+			try {
+				cartorios = new LinkedList<>(CartorioFac.pesquisarRegistro(new Cartorio()));
+			} catch (Exception e) {
+				System.out.println(e);
+			}
+
+			CartorioRel cartorioRel = new CartorioRel(cartorios);
+			cartorioRel.retornarRelatorio(true);
+
+		}
+	}
+
 	public class SaidaSistema implements ActionListener {
 
 		@Override
@@ -172,7 +170,7 @@ final class CartorioCont {
 					Msg.avisoCampoObrigatorio("NOME FANTASIA");
 					return;
 				}
-				
+
 				Cartorio cartorioPesquisa = new Cartorio();
 				cartorioPesquisa.setNomeFantasia(getCartorioPc().getNomeGuiFantasia().getText());
 				Cartorio cartorioPesquisaRetornado = CartorioFac.consultarRegistro(cartorioPesquisa);
@@ -220,7 +218,7 @@ final class CartorioCont {
 						return;
 					}
 				}
-				
+
 				cartorioPesquisa = new Cartorio();
 				cartorioPesquisa.setCnpj(getCartorioPc().getGuiCnpj().getText());
 				cartorioPesquisaRetornado = CartorioFac.consultarRegistro(cartorioPesquisa);
@@ -312,15 +310,15 @@ final class CartorioCont {
 		cartorio.setEstado(getCartorioPc().getGuiEstado().getText());
 		cartorio.setLogradouro(getCartorioPc().getGuiLogradouro().getText());
 		cartorio.setPais(getCartorioPc().getGuiPais().getText());
-		
+
 		if (getCartorioPc().getGuiCnpj().getText().equals(Mascara.getCnpjVazio())) {
 			cartorio.setCnpj(null);
 		}
-		
+
 		if (getCartorioPc().getGuiRazaoSocial().getText().length() == 0) {
 			cartorio.setRazaoSocial(null);
 		}
-		
+
 		if (getCartorioPc().getNomeGuiFantasia().getText().length() == 0) {
 			cartorio.setNomeFantasia(null);
 		}
@@ -330,23 +328,23 @@ final class CartorioCont {
 		return cartorio;
 	}
 
-	public void setCartorio(Cartorio cartorio) {
-		this.cartorio = cartorio;
-	}
-
 	public CartorioFc getCartorioFc() {
 		return MainCont.getCartorioFc();
-	}
-
-	public CartorioPc getCartorioPc() {
-		return MainCont.getCartorioFc().getCartorioPc();
 	}
 
 	public CartorioFp getCartorioFp() {
 		return MainCont.getCartorioFp();
 	}
 
+	public CartorioPc getCartorioPc() {
+		return MainCont.getCartorioFc().getCartorioPc();
+	}
+
 	public CartorioPp getCartorioPp() {
 		return MainCont.getCartorioFp().getCartorioPp();
+	}
+
+	public void setCartorio(Cartorio cartorio) {
+		this.cartorio = cartorio;
 	}
 }

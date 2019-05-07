@@ -20,8 +20,8 @@ import arquitetura.gui.Imagem;
 @SuppressWarnings("serial")
 public final class EmpresaFc extends JFrame implements Gui {
 
-	private EmpresaCont empresaCont;
 	private ConfiguracaoGui configuracaoGui;
+	private EmpresaCont empresaCont;
 	private EmpresaPc empresaPc;
 
 	public EmpresaFc() {
@@ -37,17 +37,34 @@ public final class EmpresaFc extends JFrame implements Gui {
 
 	}
 
-	public EmpresaCont getEmpresaCont() {
-		return empresaCont;
-	}
-
 	@Override
 	public ConfiguracaoGui getConfiguracaoGui() {
 		return configuracaoGui;
 	}
 
+	public EmpresaCont getEmpresaCont() {
+		return empresaCont;
+	}
+
 	public EmpresaPc getEmpresaPc() {
 		return empresaPc;
+	}
+
+	@Override
+	public void iniciarControlador() {
+		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
+		empresaCont = new EmpresaCont();
+		addWindowListener(empresaCont.new Frame());
+		empresaPc.getTB().getExcluirBtn().addActionListener(empresaCont.new Exclui());
+		empresaPc.getTB().getNovoBtn().addActionListener(empresaCont.new NovoFrame());
+		empresaPc.getTB().getPesquisarBtn().addActionListener(empresaCont.new Pesquisa());
+		empresaPc.getTB().getImprimirBtn().addActionListener(empresaCont.new Imprime());
+		empresaPc.getTB().getRelatorioBtn().addActionListener(empresaCont.new Relatorio());
+		empresaPc.getTB().getSalvarBtn().addActionListener(empresaCont.new Salva());
+		empresaPc.getTB().getFecharBtn().addActionListener(empresaCont.new FechaJanela());
+		empresaPc.getTB().getSairBtn().addActionListener(empresaCont.new SaidaSistema());
+		empresaPc.getTB().getAjudaBtn().addActionListener(empresaCont.new Ajuda());
+		empresaPc.getTB().getHomeBtn().addActionListener(empresaCont.new Home());
 	}
 
 	@Override
@@ -88,23 +105,6 @@ public final class EmpresaFc extends JFrame implements Gui {
 	@Override
 	public void iniciarGuiControlador() {
 		configuracaoGui = new ConfiguracaoGui(this);
-	}
-
-	@Override
-	public void iniciarControlador() {
-		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
-		empresaCont = new EmpresaCont();
-		addWindowListener(empresaCont.new Frame());
-		empresaPc.getTB().getExcluirBtn().addActionListener(empresaCont.new Exclui());
-		empresaPc.getTB().getNovoBtn().addActionListener(empresaCont.new NovoFrame());
-		empresaPc.getTB().getPesquisarBtn().addActionListener(empresaCont.new Pesquisa());
-		empresaPc.getTB().getImprimirBtn().addActionListener(empresaCont.new Imprime());
-		empresaPc.getTB().getRelatorioBtn().addActionListener(empresaCont.new Relatorio());
-		empresaPc.getTB().getSalvarBtn().addActionListener(empresaCont.new Salva());
-		empresaPc.getTB().getFecharBtn().addActionListener(empresaCont.new FechaJanela());
-		empresaPc.getTB().getSairBtn().addActionListener(empresaCont.new SaidaSistema());
-		empresaPc.getTB().getAjudaBtn().addActionListener(empresaCont.new Ajuda());
-		empresaPc.getTB().getHomeBtn().addActionListener(empresaCont.new Home());
 	}
 
 	@Override

@@ -38,6 +38,8 @@ import erp.curriculo.caracteristica.CaracteristicaFc;
 import erp.curriculo.caracteristica.CaracteristicaFp;
 import erp.curriculo.certificado.CertificadoFc;
 import erp.curriculo.certificado.CertificadoFp;
+import erp.curriculo.curso.CursoFc;
+import erp.curriculo.curso.CursoFp;
 import erp.editor.EditorTextoFc;
 import erp.empresa.EmpresaFc;
 import erp.empresa.EmpresaFp;
@@ -60,6 +62,184 @@ import erp.veiculo.modelo.VeiculoModeloFc;
 import erp.veiculo.modelo.VeiculoModeloFp;
 
 public final class MainCont {
+
+	public class FrameGerenteEventos extends WindowAdapter {
+
+		@Override
+		public void windowActivated(WindowEvent e) {
+
+		}
+
+		@Override
+		public void windowClosing(WindowEvent e) {
+			if (Msg.confirmarSairDoSistema() == JOptionPane.OK_OPTION) {
+				System.exit(0);
+			}
+		}
+
+		@Override
+		public void windowOpened(WindowEvent e) {
+
+		}
+	}
+
+	public class MenuAjudaGerenteEventos implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent actionEvent) {
+			Msg.ajuda();
+		}
+	}
+
+	public class MenuArquivoGerenteEventos implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent actionEvent) {
+			if (actionEvent.getSource() == mainFc.getMenuItemArquivoSair()) {
+				if (Msg.confirmarSairDoSistema() == 0) {
+					System.exit(0);
+				}
+			} else if (actionEvent.getSource() == mainFc.getMenuItemArquivoLogin()) {
+				mostrarFrame(loginFc);
+			} else if (actionEvent.getSource() == mainFc.getMenuItemArquivoLogoff()) {
+				AOP.setUsuario(null);
+				Msg.avisoUsuarioNaoLogado();
+			} else if (actionEvent.getSource() == mainFc.getMenuItemArquivoReiniciar()) {
+				@SuppressWarnings("rawtypes")
+				Class cls = ERP.class;
+				ProtectionDomain pDomain = cls.getProtectionDomain();
+				CodeSource cSource = pDomain.getCodeSource();
+				URL loc = cSource.getLocation();
+
+				String comando = "java -jar " + loc.toString().substring(5);
+
+				try {
+					@SuppressWarnings("unused")
+					Process processo = Runtime.getRuntime().exec(comando);
+				} catch (IOException MensagemdeErro) {
+					System.out.println(MensagemdeErro);
+				}
+				System.exit(0);
+			}
+		}
+	}
+
+	public class MenuCadastroBancoGerenteEventos implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent actionEvent) {
+			if (AOP.getUsuario() == null) {
+				Msg.avisoUsuarioNaoLogado();
+				return;
+			}
+
+		}
+	}
+
+	public class MenuCadastroGerenteEventos implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent actionEvent) {
+			if (AOP.getUsuario() == null) {
+				Msg.avisoUsuarioNaoLogado();
+				return;
+			}
+			if (actionEvent.getSource() == mainFc.getMenuItemCadastroCentroCusto()) {
+				mostrarFrame(centroCustoFc);
+			} else if (actionEvent.getSource() == mainFc.getMenuItemCadastroBanco()) {
+				mostrarFrame(bancoFc);
+			} else if (actionEvent.getSource() == mainFc.getMenuItemCadastroCartorio()) {
+				mostrarFrame(cartorioFc);
+			} else if (actionEvent.getSource() == mainFc.getMenuItemCadastroFuncionario()) {
+				mostrarFrame(funcionarioFc);
+			} else if (actionEvent.getSource() == mainFc.getMenuItemCadastroContador()) {
+				mostrarFrame(contadorFc);
+			} else if (actionEvent.getSource() == mainFc.getMenuItemCadastroCliente()) {
+				mostrarFrame(clienteFc);
+			} else if (actionEvent.getSource() == mainFc.getMenuItemCadastroEmpresa()) {
+				mostrarFrame(empresaFc);
+			} else if (actionEvent.getSource() == mainFc.getMenuItemCadastroSindicato()) {
+				mostrarFrame(sindicatoFc);
+			} else if (actionEvent.getSource() == mainFc.getMenuItemCadastroFornecedor()) {
+				mostrarFrame(fornecedorFc);
+			} else if (actionEvent.getSource() == mainFc.getMenuItemCadastroVeiculoVeiculo()) {
+				mostrarFrame(veiculoFc);
+			} else if (actionEvent.getSource() == mainFc.getMenuItemCadastroVeiculoModelo()) {
+				mostrarFrame(veiculoModeloFc);
+			} else if (actionEvent.getSource() == mainFc.getMenuItemCadastroVeiculoMarca()) {
+				mostrarFrame(veiculoMarcaFc);
+			} else if (actionEvent.getSource() == mainFc.getMenuItemCadastroImovel()) {
+				mostrarFrame(imovelFc);
+			} else if (actionEvent.getSource() == mainFc.getMenuItemCadastroCurriculoCaracteristica()) {
+				mostrarFrame(curriculoCaracteristicaFc);
+			} else if (actionEvent.getSource() == mainFc.getMenuItemCadastroCurriculoCertificado()) {
+				mostrarFrame(curriculoCertificadoFc);
+			} else if (actionEvent.getSource() == mainFc.getMenuItemCadastroCurriculoCurso()) {
+				mostrarFrame(curriculoCursoFc);
+			}
+			/*
+			 * else if (actionEvent.getSource() == mainFc.getMenuItemCadastroImovel()) {
+			 * mostrarFrame(curriculoExperienciaProfissionalFc); } else if
+			 * (actionEvent.getSource() == mainFc.getMenuItemCadastroImovel()) {
+			 * mostrarFrame(curriculoHabilidadeFc); } else if (actionEvent.getSource() ==
+			 * mainFc.getMenuItemCadastroImovel()) { mostrarFrame(curriculoIdiomaFc); } else
+			 * if (actionEvent.getSource() == mainFc.getMenuItemCadastroImovel()) {
+			 * mostrarFrame(curriculoObjetivoProfissionalFc); } else if
+			 * (actionEvent.getSource() == mainFc.getMenuItemCadastroImovel()) {
+			 * mostrarFrame(curriculoHabilidade); } else if (actionEvent.getSource() ==
+			 * mainFc.getMenuItemCadastroImovel()) { mostrarFrame(curriculoIdiomaFc); } else
+			 * if (actionEvent.getSource() == mainFc.getMenuItemCadastroImovel()) {
+			 * mostrarFrame(curriculoObjetivoProfissionalFc); } else if
+			 * (actionEvent.getSource() == mainFc.getMenuItemCadastroImovel()) {
+			 * mostrarFrame(curriculoTestePersonalidadeFc); } else if
+			 * (actionEvent.getSource() == mainFc.getMenuItemCadastroImovel()) {
+			 * mostrarFrame(curriculoTesteDiscFc); }
+			 */
+		}
+	}
+
+	public class MenuSistemaGerenteEventos implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent actionEvent) {
+			if (AOP.getUsuario() == null) {
+				Msg.avisoUsuarioNaoLogado();
+				return;
+			}
+			if (actionEvent.getSource() == mainFc.getMenuItemSistemaUsuario()) {
+				mostrarFrame(usuarioFc);
+			}
+		}
+	}
+
+	public class MenuUtilitarioGerenteEventos implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent actionEvent) {
+			if (AOP.getUsuario() == null) {
+				Msg.avisoUsuarioNaoLogado();
+				return;
+			}
+			if (actionEvent.getSource() == mainFc.getMenuItemUtilitarioAgendaEvento()) {
+				mostrarFrame(eventoFc);
+			}
+			if (actionEvent.getSource() == mainFc.getMenuItemUtilitarioAgendaTipoEvento()) {
+				mostrarFrame(tipoEventoFc);
+			}
+			if (actionEvent.getSource() == mainFc.getMenuItemUtilitarioAgendaRecado()) {
+				mostrarFrame(recadoFc);
+			}
+			if (actionEvent.getSource() == mainFc.getMenuItemUtilitarioAgendaContato()) {
+				mostrarFrame(contatoFc);
+			}
+			if (actionEvent.getSource() == mainFc.getMenuItemUtilitarioCalculadora()) {
+				mostrarFrame(calculadoraFc);
+			}
+			if (actionEvent.getSource() == mainFc.getMenuItemUtilitarioEditorTexto()) {
+				mostrarFrame(editorTextoFc);
+			}
+		}
+	}
 
 	public class Relogio implements ActionListener {
 		@Override
@@ -152,207 +332,39 @@ public final class MainCont {
 					.setTitle(AOP.getNomeSistema() + " - CERTIFICADO " + Data.getData() + AOP.getUsuarioFormatado());
 			MainCont.getCurriculoCertificadoFp()
 					.setTitle(AOP.getNomeSistema() + " - CERTIFICADO " + Data.getData() + AOP.getUsuarioFormatado());
+			MainCont.getCurriculoCursoFc()
+					.setTitle(AOP.getNomeSistema() + " - CURSO " + Data.getData() + AOP.getUsuarioFormatado());
+			MainCont.getCurriculoCursoFp()
+					.setTitle(AOP.getNomeSistema() + " - CURSO " + Data.getData() + AOP.getUsuarioFormatado());
 		}
 	}
 
-	public class FrameGerenteEventos extends WindowAdapter {
-
-		@Override
-		public void windowActivated(WindowEvent e) {
-
-		}
-
-		@Override
-		public void windowClosing(WindowEvent e) {
-			if (Msg.confirmarSairDoSistema() == JOptionPane.OK_OPTION) {
-				System.exit(0);
-			}
-		}
-
-		@Override
-		public void windowOpened(WindowEvent e) {
-
-		}
-	}
-
-	public class MenuAjudaGerenteEventos implements ActionListener {
-
-		@Override
-		public void actionPerformed(ActionEvent actionEvent) {
-			Msg.ajuda();
-		}
-	}
-
-	public class MenuArquivoGerenteEventos implements ActionListener {
-
-		@Override
-		public void actionPerformed(ActionEvent actionEvent) {
-			if (actionEvent.getSource() == mainFc.getMenuItemArquivoSair()) {
-				if (Msg.confirmarSairDoSistema() == 0) {
-					System.exit(0);
-				}
-			} else if (actionEvent.getSource() == mainFc.getMenuItemArquivoLogin()) {
-				mostrarFrame(loginFc);
-			} else if (actionEvent.getSource() == mainFc.getMenuItemArquivoLogoff()) {
-				AOP.setUsuario(null);
-				Msg.avisoUsuarioNaoLogado();
-			} else if (actionEvent.getSource() == mainFc.getMenuItemArquivoReiniciar()) {
-				@SuppressWarnings("rawtypes")
-				Class cls = ERP.class;
-				ProtectionDomain pDomain = cls.getProtectionDomain();
-				CodeSource cSource = pDomain.getCodeSource();
-				URL loc = cSource.getLocation();
-
-				String comando = "java -jar " + loc.toString().substring(5);
-
-				try {
-					@SuppressWarnings("unused")
-					Process processo = Runtime.getRuntime().exec(comando);
-				} catch (IOException MensagemdeErro) {
-					System.out.println(MensagemdeErro);
-				}
-				System.exit(0);
-			}
-		}
-	}
-
-	public class MenuCadastroGerenteEventos implements ActionListener {
-
-		@Override
-		public void actionPerformed(ActionEvent actionEvent) {
-			if (AOP.getUsuario() == null) {
-				Msg.avisoUsuarioNaoLogado();
-				return;
-			}
-			if (actionEvent.getSource() == mainFc.getMenuItemCadastroCentroCusto()) {
-				mostrarFrame(centroCustoFc);
-			} else if (actionEvent.getSource() == mainFc.getMenuItemCadastroBanco()) {
-				mostrarFrame(bancoFc);
-			} else if (actionEvent.getSource() == mainFc.getMenuItemCadastroCartorio()) {
-				mostrarFrame(cartorioFc);
-			} else if (actionEvent.getSource() == mainFc.getMenuItemCadastroFuncionario()) {
-				mostrarFrame(funcionarioFc);
-			} else if (actionEvent.getSource() == mainFc.getMenuItemCadastroContador()) {
-				mostrarFrame(contadorFc);
-			} else if (actionEvent.getSource() == mainFc.getMenuItemCadastroCliente()) {
-				mostrarFrame(clienteFc);
-			} else if (actionEvent.getSource() == mainFc.getMenuItemCadastroEmpresa()) {
-				mostrarFrame(empresaFc);
-			} else if (actionEvent.getSource() == mainFc.getMenuItemCadastroSindicato()) {
-				mostrarFrame(sindicatoFc);
-			} else if (actionEvent.getSource() == mainFc.getMenuItemCadastroFornecedor()) {
-				mostrarFrame(fornecedorFc);
-			} else if (actionEvent.getSource() == mainFc.getMenuItemCadastroVeiculoVeiculo()) {
-				mostrarFrame(veiculoFc);
-			} else if (actionEvent.getSource() == mainFc.getMenuItemCadastroVeiculoModelo()) {
-				mostrarFrame(veiculoModeloFc);
-			} else if (actionEvent.getSource() == mainFc.getMenuItemCadastroVeiculoMarca()) {
-				mostrarFrame(veiculoMarcaFc);
-			} else if (actionEvent.getSource() == mainFc.getMenuItemCadastroImovel()) {
-				mostrarFrame(imovelFc);
-			} else if (actionEvent.getSource() == mainFc.getMenuItemCadastroCurriculoCaracteristica()) {
-				mostrarFrame(curriculoCaracteristicaFc);
-			} else if (actionEvent.getSource() == mainFc.getMenuItemCadastroCurriculoCertificado()) {
-				mostrarFrame(curriculoCertificadoFc);
-			} /*
-				 * else if (actionEvent.getSource() == mainFc.getMenuItemCadastroImovel()) {
-				 * mostrarFrame(curriculoCursoFc); } else if (actionEvent.getSource() ==
-				 * mainFc.getMenuItemCadastroImovel()) {
-				 * mostrarFrame(curriculoExperienciaProfissionalFc); } else if
-				 * (actionEvent.getSource() == mainFc.getMenuItemCadastroImovel()) {
-				 * mostrarFrame(curriculoHabilidadeFc); } else if (actionEvent.getSource() ==
-				 * mainFc.getMenuItemCadastroImovel()) { mostrarFrame(curriculoIdiomaFc); } else
-				 * if (actionEvent.getSource() == mainFc.getMenuItemCadastroImovel()) {
-				 * mostrarFrame(curriculoObjetivoProfissionalFc); } else if
-				 * (actionEvent.getSource() == mainFc.getMenuItemCadastroImovel()) {
-				 * mostrarFrame(curriculoHabilidade); } else if (actionEvent.getSource() ==
-				 * mainFc.getMenuItemCadastroImovel()) { mostrarFrame(curriculoIdiomaFc); } else
-				 * if (actionEvent.getSource() == mainFc.getMenuItemCadastroImovel()) {
-				 * mostrarFrame(curriculoObjetivoProfissionalFc); } else if
-				 * (actionEvent.getSource() == mainFc.getMenuItemCadastroImovel()) {
-				 * mostrarFrame(curriculoTestePersonalidadeFc); } else if
-				 * (actionEvent.getSource() == mainFc.getMenuItemCadastroImovel()) {
-				 * mostrarFrame(curriculoTesteDiscFc); }
-				 */
-		}
-	}
-
-	public class MenuCadastroBancoGerenteEventos implements ActionListener {
-
-		@Override
-		public void actionPerformed(ActionEvent actionEvent) {
-			if (AOP.getUsuario() == null) {
-				Msg.avisoUsuarioNaoLogado();
-				return;
-			}
-
-		}
-	}
-
-	public class MenuSistemaGerenteEventos implements ActionListener {
-
-		@Override
-		public void actionPerformed(ActionEvent actionEvent) {
-			if (AOP.getUsuario() == null) {
-				Msg.avisoUsuarioNaoLogado();
-				return;
-			}
-			if (actionEvent.getSource() == mainFc.getMenuItemSistemaUsuario()) {
-				mostrarFrame(usuarioFc);
-			}
-		}
-	}
-
-	public class MenuUtilitarioGerenteEventos implements ActionListener {
-
-		@Override
-		public void actionPerformed(ActionEvent actionEvent) {
-			if (AOP.getUsuario() == null) {
-				Msg.avisoUsuarioNaoLogado();
-				return;
-			}
-			if (actionEvent.getSource() == mainFc.getMenuItemUtilitarioAgendaEvento()) {
-				mostrarFrame(eventoFc);
-			}
-			if (actionEvent.getSource() == mainFc.getMenuItemUtilitarioAgendaTipoEvento()) {
-				mostrarFrame(tipoEventoFc);
-			}
-			if (actionEvent.getSource() == mainFc.getMenuItemUtilitarioAgendaRecado()) {
-				mostrarFrame(recadoFc);
-			}
-			if (actionEvent.getSource() == mainFc.getMenuItemUtilitarioAgendaContato()) {
-				mostrarFrame(contatoFc);
-			}
-			if (actionEvent.getSource() == mainFc.getMenuItemUtilitarioCalculadora()) {
-				mostrarFrame(calculadoraFc);
-			}
-			if (actionEvent.getSource() == mainFc.getMenuItemUtilitarioEditorTexto()) {
-				mostrarFrame(editorTextoFc);
-			}
-		}
-	}
-
-	private static LoginFc loginFc;
 	private static BancoFc bancoFc;
 	private static BancoFp bancoFp;
-	private static CentroCustoFc centroCustoFc;
-	private static CentroCustoFp centroCustoFp;
-	private static EventoFc eventoFc;
-	private static EventoFp eventoFp;
-	private static TipoEventoFc tipoEventoFc;
-	private static TipoEventoFp tipoEventoFp;
-	private static ContatoFc contatoFc;
-	private static ContatoFp contatoFp;
-	private static RecadoFc recadoFc;
-	private static RecadoFp recadoFp;
+	private static CalculadoraFc calculadoraFc;
 	private static CartorioFc cartorioFc;
 	private static CartorioFp cartorioFp;
+	private static CentroCustoFc centroCustoFc;
+	private static CentroCustoFp centroCustoFp;
+	private static ClienteFc clienteFc;
+	private static ClienteFp clienteFp;
 	private static ContadorFc contadorFc;
 	private static ContadorFp contadorFp;
+	private static ContatoFc contatoFc;
+	private static ContatoFp contatoFp;
 	private static CaracteristicaFc curriculoCaracteristicaFc;
 	private static CaracteristicaFp curriculoCaracteristicaFp;
 	private static CertificadoFc curriculoCertificadoFc;
 	private static CertificadoFp curriculoCertificadoFp;
+	private static CursoFc curriculoCursoFc;
+	private static CursoFp curriculoCursoFp;
+	private static EditorTextoFc editorTextoFc;
+	private static EmpresaFc empresaFc;
+	private static EmpresaFp empresaFp;
+	private static EventoFc eventoFc;
+	private static EventoFp eventoFp;
+	private static FornecedorFc fornecedorFc;
+	private static FornecedorFp fornecedorFp;
 	/*
 	 * private static CursoFc curriculoCursoFc; private static CursoFp
 	 * curriculoCursoFp; private static ExperienciaProfissionalFc
@@ -369,192 +381,105 @@ public final class MainCont {
 	 */
 	private static FuncionarioFc funcionarioFc;
 	private static FuncionarioFp funcionarioFp;
-	private static UsuarioFc usuarioFc;
-	private static UsuarioFp usuarioFp;
-	private static ClienteFc clienteFc;
-	private static ClienteFp clienteFp;
-	private static EmpresaFc empresaFc;
-	private static EmpresaFp empresaFp;
+	private static ImovelFc imovelFc;
+	private static ImovelFp imovelFp;
+	private static LoginFc loginFc;
+	private static MainCont mainCont;
+	private static MainFc mainFc;
+	private static RecadoFc recadoFc;
+	private static RecadoFp recadoFp;
 	private static SindicatoFc sindicatoFc;
 	private static SindicatoFp sindicatoFp;
-	private static FornecedorFc fornecedorFc;
-	private static FornecedorFp fornecedorFp;
+	private static TipoEventoFc tipoEventoFc;
+	private static TipoEventoFp tipoEventoFp;
+	private static int totalPrincipalCont;
+	private static UsuarioFc usuarioFc;
+	private static UsuarioFp usuarioFp;
 	private static VeiculoFc veiculoFc;
 	private static VeiculoFp veiculoFp;
 	private static VeiculoMarcaFc veiculoMarcaFc;
 	private static VeiculoMarcaFp veiculoMarcaFp;
 	private static VeiculoModeloFc veiculoModeloFc;
 	private static VeiculoModeloFp veiculoModeloFp;
-	private static ImovelFc imovelFc;
-	private static ImovelFp imovelFp;
-	private static CalculadoraFc calculadoraFc;
-	private static EditorTextoFc editorTextoFc;
-	private static MainCont mainCont;
-	private static MainFc mainFc;
-	private static int totalPrincipalCont;
 
 	static {
 		totalPrincipalCont = 0;
-	}
-
-	public static EditorTextoFc getEditorTextoFc() {
-		return editorTextoFc;
-	}
-
-	public static CalculadoraFc getCalculadoraFc() {
-		return calculadoraFc;
-	}
-
-	public static EventoFc getAgendaEventoFc() {
-		return eventoFc;
-	}
-
-	public static BancoFc getBancoFc() {
-		return bancoFc;
-	}
-
-	public static CartorioFc getCartorioFc() {
-		return cartorioFc;
-	}
-
-	public static CentroCustoFc getCentroCustoFc() {
-		return centroCustoFc;
-	}
-
-	public static ClienteFc getClienteFc() {
-		return clienteFc;
-	}
-
-	public static TipoEventoFc getAgendaTipoEventoFc() {
-		return tipoEventoFc;
 	}
 
 	public static ContatoFc getAgendaContatoFc() {
 		return contatoFc;
 	}
 
-	public static ContadorFc getContadorFc() {
-		return contadorFc;
+	public static ContatoFp getAgendaContatoFp() {
+		return contatoFp;
 	}
 
-	public static EmpresaFc getEmpresaFc() {
-		return empresaFc;
-	}
-
-	public static FornecedorFc getFornecedorFc() {
-		return fornecedorFc;
-	}
-
-	public static FuncionarioFc getFuncionarioFc() {
-		return funcionarioFc;
-	}
-
-	public static ImovelFc getImovelFc() {
-		return imovelFc;
-	}
-
-	public static RecadoFc getAgendaRecadoFc() {
-		return recadoFc;
-	}
-
-	public static SindicatoFc getSindicatoFc() {
-		return sindicatoFc;
-	}
-
-	public static UsuarioFc getUsuarioFc() {
-		return usuarioFc;
-	}
-
-	public static VeiculoFc getVeiculoFc() {
-		return veiculoFc;
-	}
-
-	public static VeiculoMarcaFc getVeiculoMarcaFc() {
-		return veiculoMarcaFc;
-	}
-
-	public static VeiculoModeloFc getVeiculoModeloFc() {
-		return veiculoModeloFc;
-	}
-
-	public static LoginFc getLoginFc() {
-		return loginFc;
-	}
-
-	public static MainFc getMainFc() {
-		return mainFc;
-	}
-
-	public static TipoEventoFp getAgendaTipoEventoFp() {
-		return tipoEventoFp;
+	public static EventoFc getAgendaEventoFc() {
+		return eventoFc;
 	}
 
 	public static EventoFp getAgendaEventoFp() {
 		return eventoFp;
 	}
 
-	public static ContatoFp getAgendaContatoFp() {
-		return contatoFp;
-	}
-
-	public static BancoFp getBancoFp() {
-		return bancoFp;
-	}
-
-	public static CartorioFp getCartorioFp() {
-		return cartorioFp;
-	}
-
-	public static CentroCustoFp getCentroCustoFp() {
-		return centroCustoFp;
-	}
-
-	public static ClienteFp getClienteFp() {
-		return clienteFp;
-	}
-
-	public static ContadorFp getContadorFp() {
-		return contadorFp;
-	}
-
-	public static EmpresaFp getEmpresaFp() {
-		return empresaFp;
-	}
-
-	public static FornecedorFp getFornecedorFp() {
-		return fornecedorFp;
-	}
-
-	public static FuncionarioFp getFuncionarioFp() {
-		return funcionarioFp;
-	}
-
-	public static ImovelFp getImovelFp() {
-		return imovelFp;
+	public static RecadoFc getAgendaRecadoFc() {
+		return recadoFc;
 	}
 
 	public static RecadoFp getAgendaRecadoFp() {
 		return recadoFp;
 	}
 
-	public static SindicatoFp getSindicatoFp() {
-		return sindicatoFp;
+	public static TipoEventoFc getAgendaTipoEventoFc() {
+		return tipoEventoFc;
 	}
 
-	public static UsuarioFp getUsuarioFp() {
-		return usuarioFp;
+	public static TipoEventoFp getAgendaTipoEventoFp() {
+		return tipoEventoFp;
 	}
 
-	public static VeiculoFp getVeiculoFp() {
-		return veiculoFp;
+	public static BancoFc getBancoFc() {
+		return bancoFc;
 	}
 
-	public static VeiculoMarcaFp getVeiculoMarcaFp() {
-		return veiculoMarcaFp;
+	public static BancoFp getBancoFp() {
+		return bancoFp;
 	}
 
-	public static VeiculoModeloFp getVeiculoModeloFp() {
-		return veiculoModeloFp;
+	public static CalculadoraFc getCalculadoraFc() {
+		return calculadoraFc;
+	}
+
+	public static CartorioFc getCartorioFc() {
+		return cartorioFc;
+	}
+
+	public static CartorioFp getCartorioFp() {
+		return cartorioFp;
+	}
+
+	public static CentroCustoFc getCentroCustoFc() {
+		return centroCustoFc;
+	}
+
+	public static CentroCustoFp getCentroCustoFp() {
+		return centroCustoFp;
+	}
+
+	public static ClienteFc getClienteFc() {
+		return clienteFc;
+	}
+
+	public static ClienteFp getClienteFp() {
+		return clienteFp;
+	}
+
+	public static ContadorFc getContadorFc() {
+		return contadorFc;
+	}
+
+	public static ContadorFp getContadorFp() {
+		return contadorFp;
 	}
 
 	public static CaracteristicaFc getCurriculoCaracteristicaFc() {
@@ -573,6 +498,50 @@ public final class MainCont {
 		return curriculoCertificadoFp;
 	}
 
+	public static CursoFc getCurriculoCursoFc() {
+		return curriculoCursoFc;
+	}
+
+	public static CursoFp getCurriculoCursoFp() {
+		return curriculoCursoFp;
+	}
+
+	public static EditorTextoFc getEditorTextoFc() {
+		return editorTextoFc;
+	}
+
+	public static EmpresaFc getEmpresaFc() {
+		return empresaFc;
+	}
+
+	public static EmpresaFp getEmpresaFp() {
+		return empresaFp;
+	}
+
+	public static FornecedorFc getFornecedorFc() {
+		return fornecedorFc;
+	}
+
+	public static FornecedorFp getFornecedorFp() {
+		return fornecedorFp;
+	}
+
+	public static FuncionarioFc getFuncionarioFc() {
+		return funcionarioFc;
+	}
+
+	public static FuncionarioFp getFuncionarioFp() {
+		return funcionarioFp;
+	}
+
+	public static ImovelFc getImovelFc() {
+		return imovelFc;
+	}
+
+	public static ImovelFp getImovelFp() {
+		return imovelFp;
+	}
+
 	public static synchronized MainCont getInstance(MainFc mainFc) {
 		if (totalPrincipalCont > 1) {
 			JOptionPane.showMessageDialog(null, "Foi instanciado mais de uma Objeto:" + ERP.class);
@@ -583,6 +552,54 @@ public final class MainCont {
 			return new MainCont(mainFc);
 		}
 		return mainCont;
+	}
+
+	public static LoginFc getLoginFc() {
+		return loginFc;
+	}
+
+	public static MainFc getMainFc() {
+		return mainFc;
+	}
+
+	public static SindicatoFc getSindicatoFc() {
+		return sindicatoFc;
+	}
+
+	public static SindicatoFp getSindicatoFp() {
+		return sindicatoFp;
+	}
+
+	public static UsuarioFc getUsuarioFc() {
+		return usuarioFc;
+	}
+
+	public static UsuarioFp getUsuarioFp() {
+		return usuarioFp;
+	}
+
+	public static VeiculoFc getVeiculoFc() {
+		return veiculoFc;
+	}
+
+	public static VeiculoFp getVeiculoFp() {
+		return veiculoFp;
+	}
+
+	public static VeiculoMarcaFc getVeiculoMarcaFc() {
+		return veiculoMarcaFc;
+	}
+
+	public static VeiculoMarcaFp getVeiculoMarcaFp() {
+		return veiculoMarcaFp;
+	}
+
+	public static VeiculoModeloFc getVeiculoModeloFc() {
+		return veiculoModeloFc;
+	}
+
+	public static VeiculoModeloFp getVeiculoModeloFp() {
+		return veiculoModeloFp;
 	}
 
 	public static void mostrarFrame(JFrame frame) {
@@ -727,6 +744,12 @@ public final class MainCont {
 
 		curriculoCertificadoFp = new CertificadoFp();
 		criarFrame(curriculoCertificadoFp);
+
+		curriculoCursoFc = new CursoFc();
+		criarFrame(curriculoCursoFc);
+
+		curriculoCursoFp = new CursoFp();
+		criarFrame(curriculoCursoFp);
 
 		calculadoraFc = new CalculadoraFc();
 		criarFrame(calculadoraFc);

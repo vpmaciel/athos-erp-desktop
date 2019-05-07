@@ -19,41 +19,41 @@ import erp.empresa.Empresa;
 @Entity
 @Table(uniqueConstraints = { @UniqueConstraint(columnNames = { "cpf", "cnpj" }) })
 public class Contato implements Serializable {
-	@Id
-	@GeneratedValue
-	private Long id;
+	@Column(length = 50)
+	private String bairro;
+	@Column(length = 15)
+	private String cep;
+	@Column(length = 50)
+	private String cidade;
 	@Column(length = 19)
 	private String cnpj;
+	@Column(length = 50)
+	private String complemento;
 	@Column(length = 14)
 	private String cpf;
 	@Column(length = 50)
 	private String email;
 	@ManyToOne(cascade = CascadeType.ALL)
 	private Empresa empresa;
+	@Column(length = 50)
+	private String estado;
 	@Column(length = 16)
 	private String fax;
 	@Column(length = 16)
 	private String fone1;
 	@Column(length = 16)
 	private String fone2;
-	@Column(length = 50)
-	private String nome;
-	@Column(length = 9)
-	private String sexo;
-	@Column(length = 50)
-	private String pais;
-	@Column(length = 50)
-	private String estado;
-	@Column(length = 50)
-	private String cidade;
-	@Column(length = 50)
-	private String bairro;
+	@Id
+	@GeneratedValue
+	private Long id;
 	@Column(length = 50)
 	private String logradouro;
 	@Column(length = 50)
-	private String complemento;
-	@Column(length = 15)
-	private String cep;
+	private String nome;
+	@Column(length = 50)
+	private String pais;
+	@Column(length = 9)
+	private String sexo;
 
 	public String getBairro() {
 		return this.bairro;

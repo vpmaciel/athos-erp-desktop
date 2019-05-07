@@ -18,6 +18,39 @@ import arquitetura.validacao.Mascara;
 final class SindicatoImp implements SindicatoDao {
 
 	@Override
+	public Sindicato consultarRegistro(Sindicato sindicato) {
+		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
+		EntityTransaction tx = entityManager.getTransaction();
+		tx.begin();
+
+		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+		CriteriaQuery<Sindicato> criteriaQuery = criteriaBuilder.createQuery(Sindicato.class);
+		Root<Sindicato> rootSindicato = criteriaQuery.from(Sindicato.class);
+
+		List<Predicate> predicates = new ArrayList<Predicate>();
+
+		boolean naoTemCriterio = true;
+
+		if (sindicato.getCnpj() != null && !sindicato.getCnpj().equals(Mascara.getCnpj().getPlaceholder())
+				&& !sindicato.getCnpj().equals(Mascara.getCnpjVazio())) {
+			predicates.add(criteriaBuilder.equal(rootSindicato.get("cnpj"), sindicato.getCnpj()));
+			naoTemCriterio = false;
+		}
+
+		if (naoTemCriterio) {
+			return new Sindicato();
+		}
+
+		criteriaQuery.select(rootSindicato).where(predicates.toArray(new Predicate[] {}));
+
+		List<Sindicato> list = entityManager.createQuery(criteriaQuery).getResultList();
+		tx.commit();
+		entityManager.close();
+
+		return list.size() > 0 ? list.get(0) : new Sindicato();
+	}
+
+	@Override
 	public void deletarRegistro(Sindicato sindicato) {
 		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
 		EntityTransaction tx = em.getTransaction();
@@ -25,14 +58,6 @@ final class SindicatoImp implements SindicatoDao {
 		em.remove(em.find(Sindicato.class, sindicato.getId()));
 		tx.commit();
 		em.close();
-	}
-
-	@Override
-	public Sindicato getRegistro(Sindicato sindicato) {
-		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction tx = em.getTransaction();
-		tx.begin();
-		return em.find(Sindicato.class, sindicato.getId());
 	}
 
 	@Override
@@ -46,6 +71,14 @@ final class SindicatoImp implements SindicatoDao {
 		tx.commit();
 		em.close();
 		return list;
+	}
+
+	@Override
+	public Sindicato getRegistro(Sindicato sindicato) {
+		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
+		EntityTransaction tx = em.getTransaction();
+		tx.begin();
+		return em.find(Sindicato.class, sindicato.getId());
 	}
 
 	@Override
@@ -155,39 +188,6 @@ final class SindicatoImp implements SindicatoDao {
 		tx.commit();
 		entityManager.close();
 		return list;
-	}
-
-	@Override
-	public Sindicato consultarRegistro(Sindicato sindicato) {
-		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction tx = entityManager.getTransaction();
-		tx.begin();
-
-		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
-		CriteriaQuery<Sindicato> criteriaQuery = criteriaBuilder.createQuery(Sindicato.class);
-		Root<Sindicato> rootSindicato = criteriaQuery.from(Sindicato.class);
-
-		List<Predicate> predicates = new ArrayList<Predicate>();
-
-		boolean naoTemCriterio = true;
-
-		if (sindicato.getCnpj() != null && !sindicato.getCnpj().equals(Mascara.getCnpj().getPlaceholder())
-				&& !sindicato.getCnpj().equals(Mascara.getCnpjVazio())) {
-			predicates.add(criteriaBuilder.equal(rootSindicato.get("cnpj"), sindicato.getCnpj()));
-			naoTemCriterio = false;
-		}
-
-		if (naoTemCriterio) {
-			return new Sindicato();
-		}
-
-		criteriaQuery.select(rootSindicato).where(predicates.toArray(new Predicate[] {}));
-
-		List<Sindicato> list = entityManager.createQuery(criteriaQuery).getResultList();
-		tx.commit();
-		entityManager.close();
-
-		return list.size() > 0 ? list.get(0) : new Sindicato();
 	}
 
 	@Override

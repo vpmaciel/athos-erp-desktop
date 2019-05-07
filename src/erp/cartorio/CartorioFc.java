@@ -21,8 +21,8 @@ import arquitetura.gui.Imagem;
 public final class CartorioFc extends JFrame implements Gui {
 
 	private CartorioCont cartorioCont;
-	private ConfiguracaoGui configuracaoGui;
 	private CartorioPc cartorioPc;
+	private ConfiguracaoGui configuracaoGui;
 
 	public CartorioFc() {
 		iniciarLayout();
@@ -41,13 +41,31 @@ public final class CartorioFc extends JFrame implements Gui {
 		return cartorioCont;
 	}
 
+	public CartorioPc getCartorioPc() {
+		return cartorioPc;
+	}
+
 	@Override
 	public ConfiguracaoGui getConfiguracaoGui() {
 		return configuracaoGui;
 	}
 
-	public CartorioPc getCartorioPc() {
-		return cartorioPc;
+	@Override
+	public void iniciarControlador() {
+		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
+		cartorioCont = new CartorioCont();
+		addWindowListener(cartorioCont.new Frame());
+		cartorioPc.getTB().getExcluirBtn().addActionListener(cartorioCont.new Exclui());
+		cartorioPc.getTB().getNovoBtn().addActionListener(cartorioCont.new Novo());
+		cartorioPc.getTB().getPesquisarBtn().addActionListener(cartorioCont.new Pesquisa());
+		cartorioPc.getTB().getImprimirBtn().addActionListener(cartorioCont.new Imprime());
+		cartorioPc.getTB().getRelatorioBtn().addActionListener(cartorioCont.new Relatorio());
+		cartorioPc.getTB().getSalvarBtn().addActionListener(cartorioCont.new Salva());
+		cartorioPc.getTB().getFecharBtn().addActionListener(cartorioCont.new FechaJanela());
+		cartorioPc.getTB().getSairBtn().addActionListener(cartorioCont.new SaidaSistema());
+		cartorioPc.getTB().getAjudaBtn().addActionListener(cartorioCont.new Ajuda());
+		cartorioPc.getTB().getHomeBtn().addActionListener(cartorioCont.new Home());
+
 	}
 
 	@Override
@@ -89,24 +107,6 @@ public final class CartorioFc extends JFrame implements Gui {
 	@Override
 	public void iniciarGuiControlador() {
 		configuracaoGui = new ConfiguracaoGui(this);
-	}
-
-	@Override
-	public void iniciarControlador() {
-		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
-		cartorioCont = new CartorioCont();
-		addWindowListener(cartorioCont.new Frame());
-		cartorioPc.getTB().getExcluirBtn().addActionListener(cartorioCont.new Exclui());
-		cartorioPc.getTB().getNovoBtn().addActionListener(cartorioCont.new Novo());
-		cartorioPc.getTB().getPesquisarBtn().addActionListener(cartorioCont.new Pesquisa());
-		cartorioPc.getTB().getImprimirBtn().addActionListener(cartorioCont.new Imprime());
-		cartorioPc.getTB().getRelatorioBtn().addActionListener(cartorioCont.new Relatorio());
-		cartorioPc.getTB().getSalvarBtn().addActionListener(cartorioCont.new Salva());
-		cartorioPc.getTB().getFecharBtn().addActionListener(cartorioCont.new FechaJanela());
-		cartorioPc.getTB().getSairBtn().addActionListener(cartorioCont.new SaidaSistema());
-		cartorioPc.getTB().getAjudaBtn().addActionListener(cartorioCont.new Ajuda());
-		cartorioPc.getTB().getHomeBtn().addActionListener(cartorioCont.new Home());
-
 	}
 
 	@Override

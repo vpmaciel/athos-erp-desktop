@@ -19,8 +19,8 @@ import arquitetura.gui.Gui;
 @SuppressWarnings("serial")
 public final class FuncionarioFc extends JFrame implements Gui {
 
-	private FuncionarioCont funcionarioCont;
 	private ConfiguracaoGui configuracaoGui;
+	private FuncionarioCont funcionarioCont;
 	private FuncionarioPc funcionarioPc;
 
 	public FuncionarioFc() {
@@ -36,17 +36,36 @@ public final class FuncionarioFc extends JFrame implements Gui {
 
 	}
 
-	public FuncionarioCont getFuncionarioCont() {
-		return funcionarioCont;
-	}
-
 	@Override
 	public ConfiguracaoGui getConfiguracaoGui() {
 		return configuracaoGui;
 	}
 
+	public FuncionarioCont getFuncionarioCont() {
+		return funcionarioCont;
+	}
+
 	public FuncionarioPc getFuncionarioPc() {
 		return funcionarioPc;
+	}
+
+	@Override
+	public void iniciarControlador() {
+		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
+		funcionarioCont = new FuncionarioCont();
+		funcionarioPc.getLabelCentroCusto().addMouseListener(funcionarioCont.new MostraFrame());
+		addWindowListener(funcionarioCont.new Frame());
+		funcionarioPc.getTB().getExcluirBtn().addActionListener(funcionarioCont.new Exclui());
+		funcionarioPc.getTB().getNovoBtn().addActionListener(funcionarioCont.new Novo());
+		funcionarioPc.getTB().getPesquisarBtn().addActionListener(funcionarioCont.new Pesquisa());
+		funcionarioPc.getTB().getImprimirBtn().addActionListener(funcionarioCont.new Imprime());
+		funcionarioPc.getTB().getRelatorioBtn().addActionListener(funcionarioCont.new Relatorio());
+		funcionarioPc.getTB().getSalvarBtn().addActionListener(funcionarioCont.new Salva());
+		funcionarioPc.getTB().getFecharBtn().addActionListener(funcionarioCont.new FechaJanela());
+		funcionarioPc.getTB().getSairBtn().addActionListener(funcionarioCont.new SaidaSistema());
+		funcionarioPc.getTB().getAjudaBtn().addActionListener(funcionarioCont.new Ajuda());
+		funcionarioPc.getTB().getHomeBtn().addActionListener(funcionarioCont.new Home());
+
 	}
 
 	@Override
@@ -87,25 +106,6 @@ public final class FuncionarioFc extends JFrame implements Gui {
 	@Override
 	public void iniciarGuiControlador() {
 		configuracaoGui = new ConfiguracaoGui(this);
-	}
-
-	@Override
-	public void iniciarControlador() {
-		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
-		funcionarioCont = new FuncionarioCont();
-		funcionarioPc.getLabelCentroCusto().addMouseListener(funcionarioCont.new MostraFrame());
-		addWindowListener(funcionarioCont.new Frame());
-		funcionarioPc.getTB().getExcluirBtn().addActionListener(funcionarioCont.new Exclui());
-		funcionarioPc.getTB().getNovoBtn().addActionListener(funcionarioCont.new Novo());
-		funcionarioPc.getTB().getPesquisarBtn().addActionListener(funcionarioCont.new Pesquisa());
-		funcionarioPc.getTB().getImprimirBtn().addActionListener(funcionarioCont.new Imprime());
-		funcionarioPc.getTB().getRelatorioBtn().addActionListener(funcionarioCont.new Relatorio());
-		funcionarioPc.getTB().getSalvarBtn().addActionListener(funcionarioCont.new Salva());
-		funcionarioPc.getTB().getFecharBtn().addActionListener(funcionarioCont.new FechaJanela());
-		funcionarioPc.getTB().getSairBtn().addActionListener(funcionarioCont.new SaidaSistema());
-		funcionarioPc.getTB().getAjudaBtn().addActionListener(funcionarioCont.new Ajuda());
-		funcionarioPc.getTB().getHomeBtn().addActionListener(funcionarioCont.new Home());
-
 	}
 
 	@Override

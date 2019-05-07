@@ -19,8 +19,8 @@ import arquitetura.gui.Tabela;
 @SuppressWarnings("serial")
 public final class CaracteristicaPp extends JPanel {
 
-	private final CaracteristicaTm caracteristicaTm;
 	List<Caracteristica> caracteristicas = null;
+	private final CaracteristicaTm caracteristicaTm;
 	private final JTable table;
 
 	public CaracteristicaPp() {

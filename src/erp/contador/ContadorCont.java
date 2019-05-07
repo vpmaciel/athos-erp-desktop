@@ -89,25 +89,6 @@ final class ContadorCont {
 		}
 	}
 
-	public class Relatorio implements ActionListener {
-
-		@Override
-		public void actionPerformed(ActionEvent actionEvent) {
-
-			List<Contador> contadors = new LinkedList<>();
-
-			try {
-				contadors = new LinkedList<>(ContadorFac.pesquisarRegistro(new Contador()));
-			} catch (Exception e) {
-				System.out.println(e);
-			}
-
-			ContadorRel contadorRel = new ContadorRel(contadors);
-			contadorRel.retornarRelatorio(true);
-
-		}
-	}
-
 	public class Imprime implements ActionListener {
 
 		@Override
@@ -159,6 +140,25 @@ final class ContadorCont {
 			if (totalPesquisaRegistro > 0) {
 				MainFc.mostrarFrame(getContadorFp());
 			}
+		}
+	}
+
+	public class Relatorio implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent actionEvent) {
+
+			List<Contador> contadors = new LinkedList<>();
+
+			try {
+				contadors = new LinkedList<>(ContadorFac.pesquisarRegistro(new Contador()));
+			} catch (Exception e) {
+				System.out.println(e);
+			}
+
+			ContadorRel contadorRel = new ContadorRel(contadors);
+			contadorRel.retornarRelatorio(true);
+
 		}
 	}
 
@@ -307,7 +307,7 @@ final class ContadorCont {
 		contador.setFone1(getContadorPc().getGuiFone1().getText());
 		contador.setFone2(getContadorPc().getGuiFone2().getText());
 		contador.setSite(getContadorPc().getGuiSite().getText());
-		
+
 		if (contador.getCnpj().equals(Mascara.getCnpjVazio())) {
 			contador.setCnpj(null);
 		}
@@ -315,7 +315,7 @@ final class ContadorCont {
 		if (contador.getCpf().equals(Mascara.getCpfVazio())) {
 			contador.setCpf(null);
 		}
-		
+
 		if (getContadorPc().getGuiCrc().getText().length() == 0) {
 			contador.setCrc(null);
 		}
@@ -325,23 +325,23 @@ final class ContadorCont {
 		return contador;
 	}
 
-	public void setContador(Contador contador) {
-		this.contador = contador;
-	}
-
 	public ContadorFc getContadorFc() {
 		return MainCont.getContadorFc();
-	}
-
-	public ContadorPc getContadorPc() {
-		return MainCont.getContadorFc().getContadorPc();
 	}
 
 	public ContadorFp getContadorFp() {
 		return MainCont.getContadorFp();
 	}
 
+	public ContadorPc getContadorPc() {
+		return MainCont.getContadorFc().getContadorPc();
+	}
+
 	public ContadorPp getContadorPp() {
 		return MainCont.getContadorFp().getContadorPp();
+	}
+
+	public void setContador(Contador contador) {
+		this.contador = contador;
 	}
 }

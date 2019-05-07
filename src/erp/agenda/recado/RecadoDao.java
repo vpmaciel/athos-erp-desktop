@@ -6,9 +6,9 @@ interface RecadoDao {
 
 	void deletarRegistro(Recado recado);
 
-	Recado getRegistro(Recado recado);
-
 	Collection<Recado> getRegistro();
+
+	Recado getRegistro(Recado recado);
 
 	Collection<Recado> pesquisarRegistro(Recado recado);
 

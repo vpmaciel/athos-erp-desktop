@@ -37,6 +37,11 @@ public final class ContatoFp extends JFrame implements Gui {
 	}
 
 	@Override
+	public void iniciarControlador() {
+		ContatoPp.iniciarCont();
+	}
+
+	@Override
 	public void iniciarFocoControlador() {
 
 	}
@@ -52,11 +57,6 @@ public final class ContatoFp extends JFrame implements Gui {
 	@Override
 	public void iniciarGuiControlador() {
 
-	}
-
-	@Override
-	public void iniciarControlador() {
-		ContatoPp.iniciarCont();
 	}
 
 	@Override

@@ -27,18 +27,14 @@ import erp.main.MainCont;
 @SuppressWarnings("serial")
 public final class EventoPc extends JPanel implements Gui {
 
-	private ToolBar toolBar;
-	private ConfiguracaoGui configuracaoGui;
-	private JTextField textFieldDescricao;
-	private JLabel labelDescricao;
-	private JFormattedTextField textFieldHoraInicio;
-	private JLabel labelHoraTermino;
-	private JFormattedTextField textFieldHoraTermino;
-	private JLabel labelHoraInicio;
-	private JLabel labelData;
-	private JFormattedTextField textFieldData;
 	private JComboBox<TipoEvento> boxTipoEvento;
+	private ConfiguracaoGui configuracaoGui;
+	private JFormattedTextField fieldData;
+	private JTextField fieldDescricao;
+	private JFormattedTextField fieldHoraInicio;
+	private JFormattedTextField fieldHoraTermino;
 	private JLabel labelTipoEvento;
+	private ToolBar toolBar;
 
 	public EventoPc() {
 		iniciarLayout();
@@ -52,37 +48,42 @@ public final class EventoPc extends JPanel implements Gui {
 
 	}
 
-	public JComboBox<TipoEvento> getTipoEventoGui() {
-		return boxTipoEvento;
-	}
-
 	@Override
 	public ConfiguracaoGui getConfiguracaoGui() {
 		return configuracaoGui;
+	}
+
+	public JTextField getDataGui() {
+		return fieldData;
+	}
+
+	public JTextField getGuiDescricao() {
+		return fieldDescricao;
+	}
+
+	public JFormattedTextField getGuiHoraInicio() {
+		return fieldHoraInicio;
+	}
+
+	public JFormattedTextField getGuiHoraTermino() {
+		return fieldHoraTermino;
 	}
 
 	public JLabel getLabelTipoEvento() {
 		return labelTipoEvento;
 	}
 
-	public JFormattedTextField getGuiHoraInicio() {
-		return textFieldHoraInicio;
-	}
-
-	public JTextField getDataGui() {
-		return textFieldData;
-	}
-
-	public JFormattedTextField getGuiHoraTermino() {
-		return textFieldHoraTermino;
-	}
-
-	public JTextField getGuiDescricao() {
-		return textFieldDescricao;
+	public JComboBox<TipoEvento> getTipoEventoGui() {
+		return boxTipoEvento;
 	}
 
 	public ToolBar getToolBar() {
 		return toolBar;
+	}
+
+	@Override
+	public void iniciarControlador() {
+
 	}
 
 	@Override
@@ -116,30 +117,26 @@ public final class EventoPc extends JPanel implements Gui {
 
 		add(boxTipoEvento);
 
-		labelDescricao = new JLabel("DESCRIÇÃO");
-		add(labelDescricao);
+		add(new JLabel("DESCRIÇÃO"));
 
-		textFieldDescricao = new JTextField();
-		textFieldDescricao.setDocument(new EntradaMaiuscula(50));
-		add(textFieldDescricao);
+		fieldDescricao = new JTextField();
+		fieldDescricao.setDocument(new EntradaMaiuscula(50));
+		add(fieldDescricao);
 
-		labelData = new JLabel("DATA");
-		add(labelData);
+		add(new JLabel("DATA"));
 
-		textFieldData = new JFormattedTextField(Mascara.getData());
-		add(textFieldData);
+		fieldData = new JFormattedTextField(Mascara.getData());
+		add(fieldData);
 
-		labelHoraInicio = new JLabel("HORÁRIO DE INÍCIO");
-		add(labelHoraInicio);
+		add(new JLabel("HORÁRIO DE INÍCIO"));
 
-		textFieldHoraInicio = new JFormattedTextField(Mascara.getHora());
-		add(textFieldHoraInicio);
+		fieldHoraInicio = new JFormattedTextField(Mascara.getHora());
+		add(fieldHoraInicio);
 
-		labelHoraTermino = new JLabel("HORÁRIO DE TÉRMINO");
-		add(labelHoraTermino);
+		add(new JLabel("HORÁRIO DE TÉRMINO"));
 
-		textFieldHoraTermino = new JFormattedTextField(Mascara.getHora());
-		add(textFieldHoraTermino);
+		fieldHoraTermino = new JFormattedTextField(Mascara.getHora());
+		add(fieldHoraTermino);
 
 		// Lay out the panel.
 		SpringUtilities.makeCompactGrid(this, 11, 1, // rows, cols
@@ -151,11 +148,6 @@ public final class EventoPc extends JPanel implements Gui {
 	@Override
 	public void iniciarGuiControlador() {
 		configuracaoGui = new ConfiguracaoGui(this);
-	}
-
-	@Override
-	public void iniciarControlador() {
-
 	}
 
 	@Override
@@ -172,7 +164,6 @@ public final class EventoPc extends JPanel implements Gui {
 	@Override
 	public void limparGui() {
 		configuracaoGui.limparGui();
-		// reiniciarGui();
 	}
 
 	@Override

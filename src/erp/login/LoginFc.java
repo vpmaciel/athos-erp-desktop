@@ -22,8 +22,6 @@ import erp.usuario.Usuario;
 public final class LoginFc extends JFrame implements Gui {
 
 	private static Usuario usuario;
-	private LoginCont loginCont;
-	private LoginPc loginPc;
 
 	public static Usuario getUsuario() {
 		return usuario;
@@ -32,6 +30,10 @@ public final class LoginFc extends JFrame implements Gui {
 	public static void setUsuario(Usuario usuario) {
 		LoginFc.usuario = usuario;
 	}
+
+	private LoginCont loginCont;
+
+	private LoginPc loginPc;
 
 	public LoginFc() {
 		iniciarLayout();
@@ -57,6 +59,17 @@ public final class LoginFc extends JFrame implements Gui {
 
 	public LoginPc getLoginPc() {
 		return loginPc;
+	}
+
+	@Override
+	public void iniciarControlador() {
+		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
+		loginCont = new LoginCont();
+		addWindowListener(loginCont.new Frame());
+		loginPc.getTextFieldSenha().addActionListener(loginCont.new ButtonEntrar());
+		loginPc.getTextFieldSenha().addKeyListener(loginCont.new ButtonEntrarTeclado());
+		loginPc.getButtonEntrar().addActionListener(loginCont.new ButtonEntrar());
+
 	}
 
 	@Override
@@ -96,17 +109,6 @@ public final class LoginFc extends JFrame implements Gui {
 
 	@Override
 	public void iniciarGuiControlador() {
-
-	}
-
-	@Override
-	public void iniciarControlador() {
-		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
-		loginCont = new LoginCont();
-		addWindowListener(loginCont.new Frame());
-		loginPc.getTextFieldSenha().addActionListener(loginCont.new ButtonEntrar());
-		loginPc.getTextFieldSenha().addKeyListener(loginCont.new ButtonEntrarTeclado());
-		loginPc.getButtonEntrar().addActionListener(loginCont.new ButtonEntrar());
 
 	}
 

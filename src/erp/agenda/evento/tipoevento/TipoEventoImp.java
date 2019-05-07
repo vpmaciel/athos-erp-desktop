@@ -17,65 +17,6 @@ import arquitetura.JPA;
 final class TipoEventoImp implements TipoEventoDao {
 
 	@Override
-	public void deletarRegistro(TipoEvento tipoEvento) {
-		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction tx = em.getTransaction();
-		tx.begin();
-		em.remove(em.find(TipoEvento.class, tipoEvento.getId()));
-		tx.commit();
-		em.close();
-	}
-
-	@Override
-	public TipoEvento getRegistro(TipoEvento tipoEvento) {
-		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction tx = em.getTransaction();
-		tx.begin();
-		return em.find(TipoEvento.class, tipoEvento.getId());
-	}
-
-	@Override
-	public Collection<TipoEvento> getRegistro() {
-		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction tx = em.getTransaction();
-		tx.begin();
-		Query query = em.createQuery("from erp.agenda.evento.tipoevento.TipoEvento C order by C.nome");
-		@SuppressWarnings("unchecked")
-		List<TipoEvento> list = query.getResultList();
-		tx.commit();
-		em.close();
-		return list;
-	}
-
-	@Override
-	public Collection<TipoEvento> pesquisarRegistro(TipoEvento tipoEvento) {
-		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction tx = entityManager.getTransaction();
-		tx.begin();
-
-		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
-		CriteriaQuery<TipoEvento> criteriaQuery = criteriaBuilder.createQuery(TipoEvento.class);
-		Root<TipoEvento> rootTipoEvento = criteriaQuery.from(TipoEvento.class);
-
-		List<Predicate> predicates = new ArrayList<Predicate>();
-
-		if (tipoEvento.getId() != null) {
-			predicates.add(criteriaBuilder.equal(rootTipoEvento.get("id"), tipoEvento.getId()));
-		}
-
-		if (tipoEvento.getNome() != null && tipoEvento.getNome().length() > 0) {
-			predicates.add(criteriaBuilder.like(rootTipoEvento.get("nome"), "%" + tipoEvento.getNome() + "%"));
-		}
-
-		criteriaQuery.select(rootTipoEvento).where(predicates.toArray(new Predicate[] {}));
-
-		List<TipoEvento> list = entityManager.createQuery(criteriaQuery).getResultList();
-		tx.commit();
-		entityManager.close();
-		return list;
-	}
-
-	@Override
 	public TipoEvento consultarRegistro(TipoEvento tipoEvento) {
 		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
 		EntityTransaction tx = entityManager.getTransaction();
@@ -104,6 +45,65 @@ final class TipoEventoImp implements TipoEventoDao {
 		tx.commit();
 		entityManager.close();
 		return list.size() > 0 ? list.get(0) : new TipoEvento();
+	}
+
+	@Override
+	public void deletarRegistro(TipoEvento tipoEvento) {
+		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
+		EntityTransaction tx = em.getTransaction();
+		tx.begin();
+		em.remove(em.find(TipoEvento.class, tipoEvento.getId()));
+		tx.commit();
+		em.close();
+	}
+
+	@Override
+	public Collection<TipoEvento> getRegistro() {
+		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
+		EntityTransaction tx = em.getTransaction();
+		tx.begin();
+		Query query = em.createQuery("from erp.agenda.evento.tipoevento.TipoEvento C order by C.nome");
+		@SuppressWarnings("unchecked")
+		List<TipoEvento> list = query.getResultList();
+		tx.commit();
+		em.close();
+		return list;
+	}
+
+	@Override
+	public TipoEvento getRegistro(TipoEvento tipoEvento) {
+		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
+		EntityTransaction tx = em.getTransaction();
+		tx.begin();
+		return em.find(TipoEvento.class, tipoEvento.getId());
+	}
+
+	@Override
+	public Collection<TipoEvento> pesquisarRegistro(TipoEvento tipoEvento) {
+		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
+		EntityTransaction tx = entityManager.getTransaction();
+		tx.begin();
+
+		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+		CriteriaQuery<TipoEvento> criteriaQuery = criteriaBuilder.createQuery(TipoEvento.class);
+		Root<TipoEvento> rootTipoEvento = criteriaQuery.from(TipoEvento.class);
+
+		List<Predicate> predicates = new ArrayList<Predicate>();
+
+		if (tipoEvento.getId() != null) {
+			predicates.add(criteriaBuilder.equal(rootTipoEvento.get("id"), tipoEvento.getId()));
+		}
+
+		if (tipoEvento.getNome() != null && tipoEvento.getNome().length() > 0) {
+			predicates.add(criteriaBuilder.like(rootTipoEvento.get("nome"), "%" + tipoEvento.getNome() + "%"));
+		}
+
+		criteriaQuery.select(rootTipoEvento).where(predicates.toArray(new Predicate[] {}));
+
+		List<TipoEvento> list = entityManager.createQuery(criteriaQuery).getResultList();
+		tx.commit();
+		entityManager.close();
+		return list;
 	}
 
 	@Override

@@ -12,8 +12,6 @@ import javax.swing.JOptionPane;
 import arquitetura.gui.Msg;
 import erp.main.MainCont;
 import erp.main.MainFc;
-import erp.veiculo.modelo.VeiculoModelo;
-import erp.veiculo.modelo.VeiculoModeloFac;
 
 final class VeiculoModeloCont {
 
@@ -88,25 +86,6 @@ final class VeiculoModeloCont {
 		}
 	}
 
-	public class Relatorio implements ActionListener {
-
-		@Override
-		public void actionPerformed(ActionEvent actionEvent) {
-
-			List<VeiculoModelo> veiculoModelos = new LinkedList<>();
-
-			try {
-				veiculoModelos = new LinkedList<>(VeiculoModeloFac.pesquisarRegistro(new VeiculoModelo()));
-			} catch (Exception e) {
-				System.out.println(e);
-			}
-
-			VeiculoModeloRel veiculoModeloRel = new VeiculoModeloRel(veiculoModelos);
-			veiculoModeloRel.retornarRelatorio(true);
-
-		}
-	}
-
 	public class Imprime implements ActionListener {
 
 		@Override
@@ -149,6 +128,25 @@ final class VeiculoModeloCont {
 		}
 	}
 
+	public class Relatorio implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent actionEvent) {
+
+			List<VeiculoModelo> veiculoModelos = new LinkedList<>();
+
+			try {
+				veiculoModelos = new LinkedList<>(VeiculoModeloFac.pesquisarRegistro(new VeiculoModelo()));
+			} catch (Exception e) {
+				System.out.println(e);
+			}
+
+			VeiculoModeloRel veiculoModeloRel = new VeiculoModeloRel(veiculoModelos);
+			veiculoModeloRel.retornarRelatorio(true);
+
+		}
+	}
+
 	public class SaidaSistema implements ActionListener {
 
 		@Override
@@ -181,7 +179,8 @@ final class VeiculoModeloCont {
 				}
 				VeiculoModelo veiculoModeloPesquisa = new VeiculoModelo();
 				veiculoModeloPesquisa.setModelo(getVeiculoModeloPc().getGuiModelo().getText());
-				VeiculoModelo veiculoModeloPesquisaRetornado = VeiculoModeloFac.consultarRegistro(veiculoModeloPesquisa);
+				VeiculoModelo veiculoModeloPesquisaRetornado = VeiculoModeloFac
+						.consultarRegistro(veiculoModeloPesquisa);
 
 				if (veiculoModelo.getId() == null && veiculoModeloPesquisa.getModelo() != null
 						&& veiculoModeloPesquisaRetornado.getModelo() != null) {
@@ -228,8 +227,8 @@ final class VeiculoModeloCont {
 
 	public void atualizarObjeto() {
 		veiculoModelo.setModelo(getVeiculoModeloPc().getGuiModelo().getText());
-		
-		if(getVeiculoModeloPc().getGuiModelo().getText().length() == 0) {
+
+		if (getVeiculoModeloPc().getGuiModelo().getText().length() == 0) {
 			veiculoModelo.setModelo(null);
 		}
 	}
@@ -238,23 +237,23 @@ final class VeiculoModeloCont {
 		return veiculoModelo;
 	}
 
-	public void setVeiculoModelo(VeiculoModelo veiculoModelo) {
-		this.veiculoModelo = veiculoModelo;
-	}
-
 	public VeiculoModeloFc getVeiculoModeloFc() {
 		return MainCont.getVeiculoModeloFc();
-	}
-
-	public VeiculoModeloPc getVeiculoModeloPc() {
-		return MainCont.getVeiculoModeloFc().getVeiculoModeloPc();
 	}
 
 	public VeiculoModeloFp getVeiculoModeloFp() {
 		return MainCont.getVeiculoModeloFp();
 	}
 
+	public VeiculoModeloPc getVeiculoModeloPc() {
+		return MainCont.getVeiculoModeloFc().getVeiculoModeloPc();
+	}
+
 	public VeiculoModeloPp getVeiculoModeloPp() {
 		return MainCont.getVeiculoModeloFp().getVeiculoModeloPp();
+	}
+
+	public void setVeiculoModelo(VeiculoModelo veiculoModelo) {
+		this.veiculoModelo = veiculoModelo;
 	}
 }

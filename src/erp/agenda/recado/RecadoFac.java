@@ -10,12 +10,12 @@ public final class RecadoFac {
 		recadoDao.deletarRegistro(recado);
 	}
 
-	public static Recado getRegistro(Recado recado) {
-		return recadoDao.getRegistro(recado);
-	}
-
 	public static Collection<Recado> getRegistro() {
 		return recadoDao.getRegistro();
+	}
+
+	public static Recado getRegistro(Recado recado) {
+		return recadoDao.getRegistro(recado);
 	}
 
 	public static Collection<Recado> pesquisarRegistro(Recado recado) {

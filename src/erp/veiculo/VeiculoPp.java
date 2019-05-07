@@ -19,9 +19,9 @@ import arquitetura.gui.Tabela;
 @SuppressWarnings("serial")
 public final class VeiculoPp extends JPanel {
 
-	private final VeiculoTm veiculoTm;
-	List<Veiculo> veiculoList = null;
 	private final JTable table;
+	List<Veiculo> veiculoList = null;
+	private final VeiculoTm veiculoTm;
 
 	public VeiculoPp() {
 		setBorder(BorderFactory.createTitledBorder("VEÍCULO"));

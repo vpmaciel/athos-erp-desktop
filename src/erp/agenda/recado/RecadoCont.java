@@ -84,25 +84,6 @@ final class RecadoCont {
 		}
 	}
 
-	public class Relatorio implements ActionListener {
-
-		@Override
-		public void actionPerformed(ActionEvent actionEvent) {
-
-			List<Recado> recados = new LinkedList<>();
-
-			try {
-				recados = new LinkedList<>(RecadoFac.pesquisarRegistro(new Recado()));
-			} catch (Exception e) {
-				System.out.println(e);
-			}
-
-			RecadoRel recadoRel = new RecadoRel(recados);
-			recadoRel.retornarRelatorio(true);
-
-		}
-	}
-
 	public class Imprime implements ActionListener {
 
 		@Override
@@ -143,6 +124,25 @@ final class RecadoCont {
 			if (totalPesquisaRegistro > 0) {
 				MainFc.mostrarFrame(getRecadoFp());
 			}
+		}
+	}
+
+	public class Relatorio implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent actionEvent) {
+
+			List<Recado> recados = new LinkedList<>();
+
+			try {
+				recados = new LinkedList<>(RecadoFac.pesquisarRegistro(new Recado()));
+			} catch (Exception e) {
+				System.out.println(e);
+			}
+
+			RecadoRel recadoRel = new RecadoRel(recados);
+			recadoRel.retornarRelatorio(true);
+
 		}
 	}
 
@@ -214,23 +214,23 @@ final class RecadoCont {
 		return recado;
 	}
 
-	public void setRecado(Recado recado) {
-		this.recado = recado;
-	}
-
 	public RecadoFc getRecadoFc() {
 		return MainCont.getAgendaRecadoFc();
-	}
-
-	public RecadoPc getRecadoPc() {
-		return MainCont.getAgendaRecadoFc().getRecadoPc();
 	}
 
 	public RecadoFp getRecadoFp() {
 		return MainCont.getAgendaRecadoFp();
 	}
 
+	public RecadoPc getRecadoPc() {
+		return MainCont.getAgendaRecadoFc().getRecadoPc();
+	}
+
 	public RecadoPp getRecadoPp() {
 		return MainCont.getAgendaRecadoFp().getRecadoPp();
+	}
+
+	public void setRecado(Recado recado) {
+		this.recado = recado;
 	}
 }

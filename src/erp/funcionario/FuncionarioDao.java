@@ -4,15 +4,15 @@ import java.util.Collection;
 
 public interface FuncionarioDao {
 
-	void deletarRegistro(Funcionario funcionario);
+	Funcionario consultarRegistro(Funcionario funcionario);
 
-	Funcionario getRegistro(Funcionario funcionario);
+	void deletarRegistro(Funcionario funcionario);
 
 	Collection<Funcionario> getRegistro();
 
-	Collection<Funcionario> pesquisarRegistro(Funcionario funcionario);
+	Funcionario getRegistro(Funcionario funcionario);
 
-	Funcionario consultarRegistro(Funcionario funcionario);
+	Collection<Funcionario> pesquisarRegistro(Funcionario funcionario);
 
 	void salvarRegistro(Funcionario funcionario);
 }

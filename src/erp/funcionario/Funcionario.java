@@ -21,39 +21,44 @@ import erp.centrocusto.CentroCusto;
 @Table(uniqueConstraints = { @UniqueConstraint(columnNames = { "cpf", "cnpj" }) })
 public class Funcionario implements Serializable {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-	@Column(length = 22)
-	private String deficiencia;
-	@Column(length = 24)
-	private String escolaridade;
-	@Column(length = 34)
-	private String nacionalidade;
-	@Column(length = 12)
-	private String cor;
-	@Column(length = 19, nullable = true)
-	private String cnpj;
 	@Column(length = 50)
-	private String conjuge;
+	private String bairro;
 	@Column(length = 50)
 	private String cargo;
 	@Column(length = 50)
 	private String categoria;
 	@ManyToOne(cascade = CascadeType.ALL)
 	private CentroCusto centroCusto;
+	@Column(length = 10)
+	private String cep;
+	@Column(length = 50)
+	private String cidade;
 	@Column(length = 3)
 	private String cnhCategoria;
+	@Column(length = 19, nullable = true)
+	private String cnpj;
+	@Column(length = 20)
+	private String complemento;
+	@Column(length = 50)
+	private String conjuge;
+	@Column(length = 12)
+	private String cor;
 	@Column(length = 14, nullable = true)
 	private String cpf;
 	@Column(length = 19)
 	private String ctpsNumero;
+	@Column(length = 22)
+	private String deficiencia;
 	@Column(length = 50)
 	private String departamento;
 	@Column(length = 50)
 	private String email;
 	@Column(length = 50)
 	private String empresa;
+	@Column(length = 24)
+	private String escolaridade;
+	@Column(length = 50)
+	private String estado;
 	@Column(length = 14)
 	private String estadoCivil;
 	@Column(length = 20)
@@ -66,10 +71,19 @@ public class Funcionario implements Serializable {
 	private String fone2;
 	@Column(length = 50)
 	private String gerente;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	@Column(length = 50)
+	private String logradouro;
 	@Column(length = 20)
 	private String matricula;
+	@Column(length = 34)
+	private String nacionalidade;
 	@Column(length = 50, nullable = false)
 	private String nome;
+	@Column(length = 50)
+	private String pais;
 	@Column(length = 20)
 	private String pis;
 	@Column(length = 15)
@@ -82,20 +96,6 @@ public class Funcionario implements Serializable {
 	private String sexo;
 	@Column(length = 50)
 	private String turno;
-	@Column(length = 50)
-	private String pais;
-	@Column(length = 50)
-	private String estado;
-	@Column(length = 50)
-	private String cidade;
-	@Column(length = 50)
-	private String bairro;
-	@Column(length = 50)
-	private String logradouro;
-	@Column(length = 20)
-	private String complemento;
-	@Column(length = 10)
-	private String cep;
 
 	public String getBairro() {
 		return this.bairro;

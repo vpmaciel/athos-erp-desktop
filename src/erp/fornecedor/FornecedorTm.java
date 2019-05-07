@@ -13,14 +13,7 @@ public class FornecedorTm extends AbstractTableModel {
 	public static final int ID = 0;
 	public static int[] largura;
 	private static boolean[] podeEditar;
-	private List<Fornecedor> fornecedorList = new LinkedList<>();
-	private Fornecedor fornecedor;
 	private static TabelaModelo tabelaModelo = new TabelaModelo();
-
-	public FornecedorTm() {
-
-	}
-
 	static {
 		tabelaModelo.adicionar("ID", 0, 100);
 		tabelaModelo.adicionar("CNPJ", 1, 100);
@@ -33,20 +26,16 @@ public class FornecedorTm extends AbstractTableModel {
 			podeEditar[i] = false;
 		}
 	}
+	private Fornecedor fornecedor;
+
+	private List<Fornecedor> fornecedorList = new LinkedList<>();
+
+	public FornecedorTm() {
+
+	}
 
 	public FornecedorTm(List<Fornecedor> lista) {
 		fornecedorList.addAll(lista);
-	}
-
-	public Fornecedor getFornecedor(int linha) {
-		if (fornecedorList.size() > 0) {
-			return fornecedorList.get(linha);
-		}
-		return null;
-	}
-
-	public List<Fornecedor> getFornecedorList() {
-		return fornecedorList;
 	}
 
 	@Override
@@ -66,6 +55,17 @@ public class FornecedorTm extends AbstractTableModel {
 	@Override
 	public String getColumnName(int column) {
 		return tabelaModelo.getNome(column);
+	}
+
+	public Fornecedor getFornecedor(int linha) {
+		if (fornecedorList.size() > 0) {
+			return fornecedorList.get(linha);
+		}
+		return null;
+	}
+
+	public List<Fornecedor> getFornecedorList() {
+		return fornecedorList;
 	}
 
 	@Override

@@ -21,8 +21,8 @@ import arquitetura.gui.Imagem;
 public final class CaracteristicaFc extends JFrame implements Gui {
 
 	private CaracteristicaCont caracteristicaCont;
-	private ConfiguracaoGui configuracaoGui;
 	private CaracteristicaPc caracteristicaPc;
+	private ConfiguracaoGui configuracaoGui;
 
 	public CaracteristicaFc() {
 		iniciarLayout();
@@ -41,13 +41,31 @@ public final class CaracteristicaFc extends JFrame implements Gui {
 		return caracteristicaCont;
 	}
 
+	public CaracteristicaPc getCaracteristicaPc() {
+		return caracteristicaPc;
+	}
+
 	@Override
 	public ConfiguracaoGui getConfiguracaoGui() {
 		return configuracaoGui;
 	}
 
-	public CaracteristicaPc getCaracteristicaPc() {
-		return caracteristicaPc;
+	@Override
+	public void iniciarControlador() {
+		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
+		caracteristicaCont = new CaracteristicaCont();
+		addWindowListener(caracteristicaCont.new Frame());
+		caracteristicaPc.getLabelFuncionario().addMouseListener(caracteristicaCont.new MostraFrame());
+		caracteristicaPc.getTB().getExcluirBtn().addActionListener(caracteristicaCont.new Exclui());
+		caracteristicaPc.getTB().getNovoBtn().addActionListener(caracteristicaCont.new Novo());
+		caracteristicaPc.getTB().getPesquisarBtn().addActionListener(caracteristicaCont.new Pesquisa());
+		caracteristicaPc.getTB().getImprimirBtn().addActionListener(caracteristicaCont.new Imprime());
+		caracteristicaPc.getTB().getRelatorioBtn().addActionListener(caracteristicaCont.new Relatorio());
+		caracteristicaPc.getTB().getSalvarBtn().addActionListener(caracteristicaCont.new Salva());
+		caracteristicaPc.getTB().getFecharBtn().addActionListener(caracteristicaCont.new FechaJanela());
+		caracteristicaPc.getTB().getSairBtn().addActionListener(caracteristicaCont.new SaidaSistema());
+		caracteristicaPc.getTB().getAjudaBtn().addActionListener(caracteristicaCont.new Ajuda());
+		caracteristicaPc.getTB().getHomeBtn().addActionListener(caracteristicaCont.new Home());
 	}
 
 	@Override
@@ -89,24 +107,6 @@ public final class CaracteristicaFc extends JFrame implements Gui {
 	@Override
 	public void iniciarGuiControlador() {
 		configuracaoGui = new ConfiguracaoGui(this);
-	}
-
-	@Override
-	public void iniciarControlador() {
-		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
-		caracteristicaCont = new CaracteristicaCont();
-		addWindowListener(caracteristicaCont.new Frame());
-		caracteristicaPc.getLabelFuncionario().addMouseListener(caracteristicaCont.new MostraFrame());
-		caracteristicaPc.getTB().getExcluirBtn().addActionListener(caracteristicaCont.new Exclui());
-		caracteristicaPc.getTB().getNovoBtn().addActionListener(caracteristicaCont.new Novo());
-		caracteristicaPc.getTB().getPesquisarBtn().addActionListener(caracteristicaCont.new Pesquisa());
-		caracteristicaPc.getTB().getImprimirBtn().addActionListener(caracteristicaCont.new Imprime());
-		caracteristicaPc.getTB().getRelatorioBtn().addActionListener(caracteristicaCont.new Relatorio());
-		caracteristicaPc.getTB().getSalvarBtn().addActionListener(caracteristicaCont.new Salva());
-		caracteristicaPc.getTB().getFecharBtn().addActionListener(caracteristicaCont.new FechaJanela());
-		caracteristicaPc.getTB().getSairBtn().addActionListener(caracteristicaCont.new SaidaSistema());
-		caracteristicaPc.getTB().getAjudaBtn().addActionListener(caracteristicaCont.new Ajuda());
-		caracteristicaPc.getTB().getHomeBtn().addActionListener(caracteristicaCont.new Home());
 	}
 
 	@Override

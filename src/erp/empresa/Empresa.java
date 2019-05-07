@@ -17,53 +17,53 @@ import javax.persistence.UniqueConstraint;
 @Table(uniqueConstraints = { @UniqueConstraint(columnNames = { "cnpj" }) })
 public class Empresa implements Serializable {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-	@Column(length = 19)
-	private String cnpj;
-	@Column(length = 6)
-	private String numeroFuncionarios;
-	@Column(length = 20)
-	private String inscricaoEstadual;
-	@Column(length = 20)
-	private String inscricaoMunicipal;
 	@Column(length = 50)
-	private String email;
+	private String bairro;
 	@Column(length = 10)
 	private String capitalSocial;
+	@Column(length = 10)
+	private String cep;
 	@Column(length = 50)
-	private String razaoSocial;
+	private String cidade;
+	@Column(length = 19)
+	private String cnpj;
+	@Column(length = 50)
+	private String complemento;
+	@Column(length = 10)
+	private String dataFundacao;
+	@Column(length = 50)
+	private String email;
+	@Column(length = 50)
+	private String estado;
+	@Column(length = 10)
+	private String faturamentoMensal;
 	@Column(length = 20)
 	private String fax;
 	@Column(length = 20)
 	private String fone1;
 	@Column(length = 20)
 	private String fone2;
-	@Column(length = 50)
-	private String nomeFantasia;
-	@Column(length = 6)
-	private String tipoEmpresa;
-	@Column(length = 10)
-	private String faturamentoMensal;
-	@Column(length = 10)
-	private String dataFundacao;
-	@Column(length = 50)
-	private String ramoAtividade;
-	@Column(length = 50)
-	private String pais;
-	@Column(length = 50)
-	private String estado;
-	@Column(length = 50)
-	private String cidade;
-	@Column(length = 50)
-	private String bairro;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	@Column(length = 20)
+	private String inscricaoEstadual;
+	@Column(length = 20)
+	private String inscricaoMunicipal;
 	@Column(length = 50)
 	private String logradouro;
 	@Column(length = 50)
-	private String complemento;
-	@Column(length = 10)
-	private String cep;
+	private String nomeFantasia;
+	@Column(length = 6)
+	private String numeroFuncionarios;
+	@Column(length = 50)
+	private String pais;
+	@Column(length = 50)
+	private String ramoAtividade;
+	@Column(length = 50)
+	private String razaoSocial;
+	@Column(length = 6)
+	private String tipoEmpresa;
 
 	public String getBairro() {
 		return this.bairro;

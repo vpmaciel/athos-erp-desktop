@@ -15,14 +15,7 @@ public class ClienteTm extends AbstractTableModel {
 	public static final int ID = 0;
 	public static int[] largura;
 	private static boolean[] podeEditar;
-	private List<Cliente> clienteList = new LinkedList<>();
-	private Cliente cliente;
 	private static TabelaModelo tabelaModelo = new TabelaModelo();
-
-	public ClienteTm() {
-
-	}
-
 	static {
 		tabelaModelo.adicionar("ID", 0, 100);
 		tabelaModelo.adicionar("CNPJ", 1, 100);
@@ -37,6 +30,13 @@ public class ClienteTm extends AbstractTableModel {
 			largura[i] = tabelaModelo.getLargura(i);
 			podeEditar[i] = false;
 		}
+	}
+	private Cliente cliente;
+
+	private List<Cliente> clienteList = new LinkedList<>();
+
+	public ClienteTm() {
+
 	}
 
 	public ClienteTm(List<Cliente> lista) {

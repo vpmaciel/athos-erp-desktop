@@ -22,27 +22,42 @@ import erp.empresa.Empresa;
 @Table(uniqueConstraints = { @UniqueConstraint(columnNames = { "cpf", "cnpj" }) })
 public class Cliente implements Serializable {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-	@Column(length = 9)
-	private String mesReferenciaCadastro;
 	@Column(length = 4)
 	private String anoReferenciaCadastro;
-	@Column(length = 19)
-	private String cnpj;
-	@Column(length = 10)
-	private String dataCadastro;
+	@Column(length = 50)
+	private String bairro;
+	@ManyToOne(cascade = CascadeType.ALL)
+	private Banco banco;
 	@Column(length = 50)
 	private String cargo;
+	@Column(length = 10)
+	private String cep;
+	@Column(length = 50)
+	private String cidade;
 	@Column(length = 50)
 	private String classeEconomica;
+	@Column(length = 19)
+	private String cnpj;
+	@Column(length = 20)
+	private String complemento;
+	@Column(length = 11)
+	private String cor;
 	@Column(length = 14)
 	private String cpf;
+	@Column(length = 10)
+	private String dataCadastro;
+	@Column(length = 10)
+	private String dataNascimento;
+	@Column(length = 22)
+	private String deficiencia;
 	@Column(length = 50)
 	private String email;
 	@ManyToOne(cascade = CascadeType.ALL)
 	private Empresa empresa;
+	@Column(length = 24)
+	private String escolaridade;
+	@Column(length = 50)
+	private String estado;
 	@Column(length = 14)
 	private String estadoCivil;
 	@Column(length = 20)
@@ -51,8 +66,43 @@ public class Cliente implements Serializable {
 	private String fone1;
 	@Column(length = 20)
 	private String fone2;
+	@Column(length = 20)
+	private String foneReferencia1;
+	@Column(length = 20)
+	private String foneReferencia2;
+	@Column(length = 20)
+	private String foneReferencia3;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	@Column(length = 3)
+	private String idade;
+	@Column(length = 50)
+	private String logradouro;
+	@Column(length = 9)
+	private String mesReferenciaCadastro;
+	@Column(length = 31)
+	private String nacionalidade;
 	@Column(length = 50, nullable = false)
 	private String nome;
+	@Column(length = 50)
+	private String nomeReferencia1;
+	@Column(length = 50)
+	private String nomeReferencia2;
+	@Column(length = 50)
+	private String nomeReferencia3;
+	@Column(length = 20)
+	private String numeroAgenciaBancaria;
+	@Column(length = 20)
+	private String numeroContaBancaria;
+	@Column(length = 50)
+	private String pais;
+	@Column(length = 18)
+	private String relacionamentoReferencia1;
+	@Column(length = 18)
+	private String relacionamentoReferencia2;
+	@Column(length = 18)
+	private String relacionamentoReferencia3;
 	@Column(length = 15)
 	private String rgNumero;
 	@Column(length = 20)
@@ -61,58 +111,8 @@ public class Cliente implements Serializable {
 	private String salario;
 	@Column(length = 9)
 	private String sexo;
-	@Column(length = 50)
-	private String pais;
-	@Column(length = 50)
-	private String estado;
-	@Column(length = 50)
-	private String cidade;
-	@Column(length = 50)
-	private String bairro;
 	@Column(length = 7)
 	private String status;
-	@Column(length = 20)
-	private String complemento;
-	@Column(length = 10)
-	private String cep;
-	@Column(length = 22)
-	private String deficiencia;
-	@Column(length = 24)
-	private String escolaridade;
-	@Column(length = 31)
-	private String nacionalidade;
-	@Column(length = 11)
-	private String cor;
-	@Column(length = 10)
-	private String dataNascimento;
-	@Column(length = 3)
-	private String idade;
-	@ManyToOne(cascade = CascadeType.ALL)
-	private Banco banco;
-	@Column(length = 20)
-	private String numeroAgenciaBancaria;
-	@Column(length = 20)
-	private String numeroContaBancaria;
-	@Column(length = 50)
-	private String nomeReferencia1;
-	@Column(length = 50)
-	private String nomeReferencia2;
-	@Column(length = 50)
-	private String nomeReferencia3;
-	@Column(length = 20)
-	private String foneReferencia1;
-	@Column(length = 20)
-	private String foneReferencia2;
-	@Column(length = 20)
-	private String foneReferencia3;
-	@Column(length = 50)
-	private String logradouro;
-	@Column(length = 18)
-	private String relacionamentoReferencia1;
-	@Column(length = 18)
-	private String relacionamentoReferencia2;
-	@Column(length = 18)
-	private String relacionamentoReferencia3;
 
 	public Cliente() {
 

@@ -23,690 +23,122 @@ import erp.main.MainCont;
 @SuppressWarnings("serial")
 public final class CaracteristicaPc extends JPanel implements Gui {
 
-	private ToolBar toolBar;
+	private JComboBox<String> boxAdequado;
+	private JComboBox<String> boxAgil;
+	private JComboBox<String> boxAgitado;
+	private JComboBox<String> boxAlegre;
+	private JComboBox<String> boxAmavel;
+	private JComboBox<String> boxAnalitico;
+	private JComboBox<String> boxAnimado;
+	private JComboBox<String> boxAnsioso;
+	private JComboBox<String> boxApatico;
+	private JComboBox<String> boxArticulado;
+	private JComboBox<String> boxAssumeRiscosCalculados;
+	private JComboBox<String> boxAtencioso;
+	private JComboBox<String> boxAtivo;
+	private JComboBox<String> boxAutoconfiante;
+	private JComboBox<String> boxAventureiro;
+	private JComboBox<String> boxBemHumorado;
+	private JComboBox<String> boxCalmo;
+	private JComboBox<String> boxCarismatico;
+	private JComboBox<String> boxCauteloso;
+	private JComboBox<String> boxCompetitivo;
+	private JComboBox<String> boxCompreensivo;
+	private JComboBox<String> boxConciliador;
+	private JComboBox<String> boxContido;
+	private JComboBox<String> boxConvencional;
+	private JComboBox<String> boxConvincente;
+	private JComboBox<String> boxCortes;
+	private JComboBox<String> boxCuidadoso;
+	private JComboBox<String> boxDecidido;
+	private JComboBox<String> boxDedicado;
+	private JComboBox<String> boxDependente;
+	private JComboBox<String> boxDesconfiado;
+	private JComboBox<String> boxDescrente;
+	private JComboBox<String> boxDesencanado;
+	private JComboBox<String> boxDesligado;
+	private JComboBox<String> boxDesprendido;
+	private JComboBox<String> boxDespretensioso;
+	private JComboBox<String> boxDestemido;
+	private JComboBox<String> boxDeterminado;
+	private JComboBox<String> boxDiplomatico;
+	private JComboBox<String> boxDireto;
+	private JComboBox<String> boxDisciplinado;
+	private JComboBox<String> boxDiscreto;
+	private JComboBox<String> boxDisponivel;
+	private JComboBox<String> boxDivertido;
+	private JComboBox<String> boxDominador;
+	private JComboBox<String> boxEgocentrico;
+	private JComboBox<String> boxEmpolgado;
+	private JComboBox<String> boxEncantador;
+	private JComboBox<String> boxEnergico;
+	private JComboBox<String> boxEspontaneo;
+	private JComboBox<String> boxEstavel;
+	private JComboBox<String> boxExigente;
+	private JComboBox<String> boxExpansivo;
+	private JComboBox<String> boxExpressivo;
+	private JComboBox<String> boxExtrovertido;
+	private JComboBox<String> boxFechado;
+	private JComboBox<String> boxFirme;
+	private JComboBox<Funcionario> boxFuncionario;
+	private JComboBox<String> boxGostaDeSeArriscar;
+	private JComboBox<String> boxHumilde;
+	private JComboBox<String> boxImpulsivo;
+	private JComboBox<String> boxIncerto;
+	private JComboBox<String> boxIndependente;
+	private JComboBox<String> boxIndiferente;
+	private JComboBox<String> boxInfluente;
+	private JComboBox<String> boxInquieto;
+	private JComboBox<String> boxInspirador;
+	private JComboBox<String> boxInteressado;
+	private JComboBox<String> boxIntrospectivo;
+	private JComboBox<String> boxJusto;
+	private JComboBox<String> boxLeal;
+	private JComboBox<String> boxLiberal;
+	private JComboBox<String> boxLivre;
+	private JComboBox<String> boxLogico;
+	private JComboBox<String> boxMaleavel;
+	private JComboBox<String> boxMenteAberta;
+	private JComboBox<String> boxMeticuloso;
+	private JComboBox<String> boxObediente;
+	private JComboBox<String> boxObjetivo;
+	private JComboBox<String> boxObservador;
+	private JComboBox<String> boxObstinado;
+	private JComboBox<String> boxOriginal;
+	private JComboBox<String> boxOusado;
+	private JComboBox<String> boxPaciente;
+	private JComboBox<String> boxPacifico;
+	private JComboBox<String> boxPassivo;
+	private JComboBox<String> boxPerfeccionista;
+	private JComboBox<String> boxPersistente;
+	private JComboBox<String> boxPersuasivo;
+	private JComboBox<String> boxPessimista;
+	private JComboBox<String> boxPonderado;
+	private JComboBox<String> boxPratico;
+	private JComboBox<String> boxPrecavido;
+	private JComboBox<String> boxPreciso;
+	private JComboBox<String> boxPreocupado;
+	private JComboBox<String> boxPrevenido;
+	private JComboBox<String> boxPrevisivel;
+	private JComboBox<String> boxRealista;
+	private JComboBox<String> boxRebelde;
+	private JComboBox<String> boxReceoso;
+	private JComboBox<String> boxReservado;
+	private JComboBox<String> boxRespeitoso;
+	private JComboBox<String> boxSarcastico;
+	private JComboBox<String> boxSeguro;
+	private JComboBox<String> boxSemLimites;
+	private JComboBox<String> boxSensato;
+	private JComboBox<String> boxSereno;
+	private JComboBox<String> boxSerio;
+	private JComboBox<String> boxSimpatico;
+	private JComboBox<String> boxSistematico;
+	private JComboBox<String> boxSociavel;
+	private JComboBox<String> boxTeimoso;
+	private JComboBox<String> boxVersatil;
 	private ConfiguracaoGui configuracaoGui;
 	private JLabel labelFuncionario;
-	private JComboBox<Funcionario> boxFuncionario;
-	private JLabel labelSimpatico;
-	private JComboBox<String> boxSimpatico;
-	private JLabel labelCuidadoso;
-	private JComboBox<String> boxCuidadoso;
-	private JLabel labelPreocupado;
-	private JComboBox<String> boxPreocupado;
-	private JLabel labelInquieto;
-	private JComboBox<String> boxInquieto;
-	private JLabel labelEstavel;
-	private JComboBox<String> boxEstavel;
-	private JLabel labelDespretensioso;
-	private JComboBox<String> boxDespretensioso;
-	private JLabel labelBemHumorado;
-	private JComboBox<String> boxBemHumorado;
-	private JLabel labelIncerto;
-	private JComboBox<String> boxIncerto;
-	private JLabel labelExigente;
-	private JComboBox<String> boxExigente;
-	private JLabel labelInteressado;
-	private JComboBox<String> boxInteressado;
-	private JLabel labelDependente;
-	private JComboBox<String> boxDependente;
-	private JLabel labelPacifico;
-	private JComboBox<String> boxPacifico;
-	private JLabel labelArticulado;
-	private JComboBox<String> boxArticulado;
-	private JLabel labelPrevisivel;
-	private JComboBox<String> boxPrevisivel;
-	private JLabel labelSeguro;
-	private JComboBox<String> boxSeguro;
-	private JLabel labelDedicado;
-	private JComboBox<String> boxDedicado;
-	private JLabel labelPersuasivo;
-	private JComboBox<String> boxPersuasivo;
-	private JLabel labelEncantador;
-	private JComboBox<String> boxEncantador;
-	private JLabel labelTeimoso;
-	private JComboBox<String> boxTeimoso;
-	private JLabel labelCompetitivo;
-	private JComboBox<String> boxCompetitivo;
-	private JLabel labelMaleavel;
-	private JComboBox<String> boxMaleavel;
-	private JLabel labelObediente;
-	private JComboBox<String> boxObediente;
-	private JLabel labelIntrospectivo;
-	private JComboBox<String> boxIntrospectivo;
-	private JLabel labelPerfeccionista;
-	private JComboBox<String> boxPerfeccionista;
-	private JLabel labelPrecavido;
-	private JComboBox<String> boxPrecavido;
-	private JLabel labelPratico;
-	private JComboBox<String> boxPratico;
-	private JLabel labelImpulsivo;
-	private JComboBox<String> boxImpulsivo;
-	private JLabel labelSemLimites;
-	private JComboBox<String> boxSemLimites;
-	private JLabel labelIndiferente;
-	private JComboBox<String> boxIndiferente;
-	private JLabel labelAgil;
-	private JComboBox<String> boxAgil;
-	private JLabel labelSociavel;
-	private JComboBox<String> boxSociavel;
-	private JLabel labelCarismatico;
-	private JComboBox<String> boxCarismatico;
-	private JLabel labelPassivo;
-	private JComboBox<String> boxPassivo;
-	private JLabel labelOusado;
-	private JComboBox<String> boxOusado;
-	private JLabel labelIndependente;
-	private JComboBox<String> boxIndependente;
-	private JLabel labelCauteloso;
-	private JComboBox<String> boxCauteloso;
-	private JLabel labelConvincente;
-	private JComboBox<String> boxConvincente;
-	private JLabel labelAlegre;
-	private JComboBox<String> boxAlegre;
-	private JLabel labelDestemido;
-	private JComboBox<String> boxDestemido;
-	private JLabel labelMenteAberta;
-	private JComboBox<String> boxMenteAberta;
-	private JLabel labelInspirador;
-	private JComboBox<String> boxInspirador;
-	private JLabel labelFirme;
-	private JComboBox<String> boxFirme;
-	private JLabel labelPreciso;
-	private JComboBox<String> boxPreciso;
-	private JLabel labelDesprendido;
-	private JComboBox<String> boxDesprendido;
-	private JLabel labelObstinado;
-	private JComboBox<String> boxObstinado;
-	private JLabel labelCalmo;
-	private JComboBox<String> boxCalmo;
-	private JLabel labelLeal;
-	private JComboBox<String> boxLeal;
-	private JLabel labelAmavel;
-	private JComboBox<String> boxAmavel;
-	private JLabel labelContido;
-	private JComboBox<String> boxContido;
-	private JLabel labelEmpolgado;
-	private JComboBox<String> boxEmpolgado;
-	private JLabel labelCompreensivo;
-	private JComboBox<String> boxCompreensivo;
-	private JLabel labelExtrovertido;
-	private JComboBox<String> boxExtrovertido;
-	private JLabel labelPrevenido;
-	private JComboBox<String> boxPrevenido;
-	private JLabel labelVersatil;
-	private JComboBox<String> boxVersatil;
-	private JLabel labelEnergico;
-	private JComboBox<String> boxEnergico;
-	private JLabel labelPersistente;
-	private JComboBox<String> boxPersistente;
-	private JLabel labelDesligado;
-	private JComboBox<String> boxDesligado;
-	private JLabel labelDivertido;
-	private JComboBox<String> boxDivertido;
-	private JLabel labelObjetivo;
-	private JComboBox<String> boxObjetivo;
-	private JLabel labelAssumeRiscosCalculados;
-	private JComboBox<String> boxAssumeRiscosCalculados;
-	private JLabel labelDisciplinado;
-	private JComboBox<String> boxDisciplinado;
-	private JLabel labelMeticuloso;
-	private JComboBox<String> boxMeticuloso;
-	private JLabel labelPonderado;
-	private JComboBox<String> boxPonderado;
-	private JLabel labelObservador;
-	private JComboBox<String> boxObservador;
-	private JLabel labelAnsioso;
-	private JComboBox<String> boxAnsioso;
-	private JLabel labelAnalitico;
-	private JComboBox<String> boxAnalitico;
-	private JLabel labelAnimado;
-	private JComboBox<String> boxAnimado;
-	private JLabel labelDiscreto;
-	private JComboBox<String> boxDiscreto;
-	private JLabel labelOriginal;
-	private JComboBox<String> boxOriginal;
-	private JLabel labelConciliador;
-	private JComboBox<String> boxConciliador;
-	private JLabel labelLiberal;
-	private JComboBox<String> boxLiberal;
-	private JLabel labelSarcastico;
-	private JComboBox<String> boxSarcastico;
-	private JLabel labelPessimista;
-	private JComboBox<String> boxPessimista;
-	private JLabel labelRebelde;
-	private JComboBox<String> boxRebelde;
-	private JLabel labelDiplomatico;
-	private JComboBox<String> boxDiplomatico;
-	private JLabel labelDireto;
-	private JComboBox<String> boxDireto;
-	private JLabel labelAtencioso;
-	private JComboBox<String> boxAtencioso;
-	private JLabel labelDominador;
-	private JComboBox<String> boxDominador;
-	private JLabel labelReceoso;
-	private JComboBox<String> boxReceoso;
-	private JLabel labelRespeitoso;
-	private JComboBox<String> boxRespeitoso;
-	private JLabel labelDescrente;
-	private JComboBox<String> boxDescrente;
-	private JLabel labelAgitado;
-	private JComboBox<String> boxAgitado;
-	private JLabel labelInfluente;
-	private JComboBox<String> boxInfluente;
-	private JLabel labelDisponivel;
-	private JComboBox<String> boxDisponivel;
-	private JLabel labelExpansivo;
-	private JComboBox<String> boxExpansivo;
-	private JLabel labelConvencional;
-	private JComboBox<String> boxConvencional;
-	private JLabel labelPaciente;
-	private JComboBox<String> boxPaciente;
-	private JLabel labelAventureiro;
-	private JComboBox<String> boxAventureiro;
-	private JLabel labelDecidido;
-	private JComboBox<String> boxDecidido;
-	private JLabel labelRealista;
-	private JComboBox<String> boxRealista;
-	private JLabel labelExpressivo;
-	private JComboBox<String> boxExpressivo;
-	private JLabel labelDeterminado;
-	private JComboBox<String> boxDeterminado;
-	private JLabel labelFechado;
-	private JComboBox<String> boxFechado;
-	private JLabel labelAutoconfiante;
-	private JComboBox<String> boxAutoconfiante;
-	private JLabel labelSensato;
-	private JComboBox<String> boxSensato;
-	private JLabel labelAdequado;
-	private JComboBox<String> boxAdequado;
-	private JLabel labelEspontaneo;
-	private JComboBox<String> boxEspontaneo;
-	private JLabel labelAtivo;
-	private JComboBox<String> boxAtivo;
-	private JLabel labelDesconfiado;
-	private JComboBox<String> boxDesconfiado;
-	private JLabel labelLivre;
-	private JComboBox<String> boxLivre;
-	private JLabel labelJusto;
-	private JComboBox<String> boxJusto;
-	private JLabel labelDesencanado;
-	private JComboBox<String> boxDesencanado;
-	private JLabel labelLogico;
-	private JComboBox<String> boxLogico;
-	private JLabel labelApatico;
-	private JComboBox<String> boxApatico;
-	private JLabel labelReservado;
-	private JComboBox<String> boxReservado;
-	private JLabel labelHumilde;
-	private JComboBox<String> boxHumilde;
-	private JLabel labelEgocentrico;
-	private JComboBox<String> boxEgocentrico;
-	private JLabel labelSistematico;
-	private JComboBox<String> boxSistematico;
-	private JLabel labelGostaDeSeArriscar;
-	private JComboBox<String> boxGostaDeSeArriscar;
-	private JLabel labelSereno;
-	private JComboBox<String> boxSereno;
-	private JLabel labelCortes;
-	private JComboBox<String> boxCortes;
-	private JLabel labelSerio;
-	private JComboBox<String> boxSerio;
-
-	public JLabel getLabelFuncionario() {
-		return labelFuncionario;
-	}
-	
-	public JComboBox<Funcionario> getGuiFuncionario() {
-		return boxFuncionario;
-	}
-
-	public JComboBox<String> getGuiSimpatico() {
-		return boxSimpatico;
-	}
-
-	public JComboBox<String> getGuiCuidadoso() {
-		return boxCuidadoso;
-	}
-
-	public JComboBox<String> getGuiPreocupado() {
-		return boxPreocupado;
-	}
-
-	public JComboBox<String> getGuiInquieto() {
-		return boxInquieto;
-	}
-
-	public JComboBox<String> getGuiEstavel() {
-		return boxEstavel;
-	}
-
-	public JComboBox<String> getGuiDespretensioso() {
-		return boxDespretensioso;
-	}
-
-	public JComboBox<String> getGuiBemHumorado() {
-		return boxBemHumorado;
-	}
-
-	public JComboBox<String> getGuiIncerto() {
-		return boxIncerto;
-	}
-
-	public JComboBox<String> getGuiExigente() {
-		return boxExigente;
-	}
-
-	public JComboBox<String> getGuiInteressado() {
-		return boxInteressado;
-	}
-
-	public JComboBox<String> getGuiDependente() {
-		return boxDependente;
-	}
-
-	public JComboBox<String> getGuiPacifico() {
-		return boxPacifico;
-	}
-
-	public JComboBox<String> getGuiArticulado() {
-		return boxArticulado;
-	}
-
-	public JComboBox<String> getGuiPrevisivel() {
-		return boxPrevisivel;
-	}
-
-	public JComboBox<String> getGuiSeguro() {
-		return boxSeguro;
-	}
-
-	public JComboBox<String> getGuiDedicado() {
-		return boxDedicado;
-	}
-
-	public JComboBox<String> getGuiPersuasivo() {
-		return boxPersuasivo;
-	}
-
-	public JComboBox<String> getGuiEncantador() {
-		return boxEncantador;
-	}
-
-	public JComboBox<String> getGuiTeimoso() {
-		return boxTeimoso;
-	}
-
-	public JComboBox<String> getGuiCompetitivo() {
-		return boxCompetitivo;
-	}
-
-	public JComboBox<String> getGuiMaleavel() {
-		return boxMaleavel;
-	}
-
-	public JComboBox<String> getGuiObediente() {
-		return boxObediente;
-	}
-
-	public JComboBox<String> getGuiIntrospectivo() {
-		return boxIntrospectivo;
-	}
-
-	public JComboBox<String> getGuiPerfeccionista() {
-		return boxPerfeccionista;
-	}
-
-	public JComboBox<String> getGuiPrecavido() {
-		return boxPrecavido;
-	}
-
-	public JComboBox<String> getGuiPratico() {
-		return boxPratico;
-	}
-
-	public JComboBox<String> getGuiImpulsivo() {
-		return boxImpulsivo;
-	}
-
-	public JComboBox<String> getGuiSemLimites() {
-		return boxSemLimites;
-	}
-
-	public JComboBox<String> getGuiIndiferente() {
-		return boxIndiferente;
-	}
-
-	public JComboBox<String> getGuiAgil() {
-		return boxAgil;
-	}
-
-	public JComboBox<String> getGuiSociavel() {
-		return boxSociavel;
-	}
-
-	public JComboBox<String> getGuiCarismatico() {
-		return boxCarismatico;
-	}
-
-	public JComboBox<String> getGuiPassivo() {
-		return boxPassivo;
-	}
-
-	public JComboBox<String> getGuiOusado() {
-		return boxOusado;
-	}
-
-	public JComboBox<String> getGuiIndependente() {
-		return boxIndependente;
-	}
-
-	public JComboBox<String> getGuiCauteloso() {
-		return boxCauteloso;
-	}
-
-	public JComboBox<String> getGuiConvincente() {
-		return boxConvincente;
-	}
-
-	public JComboBox<String> getGuiAlegre() {
-		return boxAlegre;
-	}
-
-	public JComboBox<String> getGuiDestemido() {
-		return boxDestemido;
-	}
-
-	public JComboBox<String> getGuiMenteAberta() {
-		return boxMenteAberta;
-	}
-
-	public JComboBox<String> getGuiInspirador() {
-		return boxInspirador;
-	}
-
-	public JComboBox<String> getGuiFirme() {
-		return boxFirme;
-	}
-
-	public JComboBox<String> getGuiPreciso() {
-		return boxPreciso;
-	}
-
-	public JComboBox<String> getGuiDesprendido() {
-		return boxDesprendido;
-	}
-
-	public JComboBox<String> getGuiObstinado() {
-		return boxObstinado;
-	}
-
-	public JComboBox<String> getGuiCalmo() {
-		return boxCalmo;
-	}
-
-	public JComboBox<String> getGuiLeal() {
-		return boxLeal;
-	}
-
-	public JComboBox<String> getGuiAmavel() {
-		return boxAmavel;
-	}
-
-	public JComboBox<String> getGuiContido() {
-		return boxContido;
-	}
-
-	public JComboBox<String> getGuiEmpolgado() {
-		return boxEmpolgado;
-	}
-
-	public JComboBox<String> getGuiCompreensivo() {
-		return boxCompreensivo;
-	}
-
-	public JComboBox<String> getGuiExtrovertido() {
-		return boxExtrovertido;
-	}
-
-	public JComboBox<String> getGuiPrevenido() {
-		return boxPrevenido;
-	}
-
-	public JComboBox<String> getGuiVersatil() {
-		return boxVersatil;
-	}
-
-	public JComboBox<String> getGuiEnergico() {
-		return boxEnergico;
-	}
-
-	public JComboBox<String> getGuiPersistente() {
-		return boxPersistente;
-	}
-
-	public JComboBox<String> getGuiDesligado() {
-		return boxDesligado;
-	}
-
-	public JComboBox<String> getGuiDivertido() {
-		return boxDivertido;
-	}
-
-	public JComboBox<String> getGuiObjetivo() {
-		return boxObjetivo;
-	}
-
-	public JComboBox<String> getGuiAssumeRiscosCalculados() {
-		return boxAssumeRiscosCalculados;
-	}
-
-	public JComboBox<String> getGuiDisciplinado() {
-		return boxDisciplinado;
-	}
-
-	public JComboBox<String> getGuiMeticuloso() {
-		return boxMeticuloso;
-	}
-
-	public JComboBox<String> getGuiPonderado() {
-		return boxPonderado;
-	}
-
-	public JComboBox<String> getGuiObservador() {
-		return boxObservador;
-	}
-
-	public JComboBox<String> getGuiAnsioso() {
-		return boxAnsioso;
-	}
-
-	public JComboBox<String> getGuiAnalitico() {
-		return boxAnalitico;
-	}
-
-	public JComboBox<String> getGuiAnimado() {
-		return boxAnimado;
-	}
-
-	public JComboBox<String> getGuiDiscreto() {
-		return boxDiscreto;
-	}
-
-	public JComboBox<String> getGuiOriginal() {
-		return boxOriginal;
-	}
-
-	public JComboBox<String> getGuiConciliador() {
-		return boxConciliador;
-	}
-
-	public JComboBox<String> getGuiLiberal() {
-		return boxLiberal;
-	}
-
-	public JComboBox<String> getGuiSarcastico() {
-		return boxSarcastico;
-	}
-
-	public JComboBox<String> getGuiPessimista() {
-		return boxPessimista;
-	}
-
-	public JComboBox<String> getGuiRebelde() {
-		return boxRebelde;
-	}
-
-	public JComboBox<String> getGuiDiplomatico() {
-		return boxDiplomatico;
-	}
-
-	public JComboBox<String> getGuiDireto() {
-		return boxDireto;
-	}
-
-	public JComboBox<String> getGuiAtencioso() {
-		return boxAtencioso;
-	}
-
-	public JComboBox<String> getGuiDominador() {
-		return boxDominador;
-	}
-
-	public JComboBox<String> getGuiReceoso() {
-		return boxReceoso;
-	}
-
-	public JComboBox<String> getGuiRespeitoso() {
-		return boxRespeitoso;
-	}
-
-	public JComboBox<String> getGuiDescrente() {
-		return boxDescrente;
-	}
-
-	public JComboBox<String> getGuiAgitado() {
-		return boxAgitado;
-	}
-
-	public JComboBox<String> getGuiInfluente() {
-		return boxInfluente;
-	}
-
-	public JComboBox<String> getGuiDisponivel() {
-		return boxDisponivel;
-	}
-
-	public JComboBox<String> getGuiExpansivo() {
-		return boxExpansivo;
-	}
-
-	public JComboBox<String> getGuiConvencional() {
-		return boxConvencional;
-	}
-
-	public JComboBox<String> getGuiPaciente() {
-		return boxPaciente;
-	}
-
-	public JComboBox<String> getGuiAventureiro() {
-		return boxAventureiro;
-	}
-
-	public JComboBox<String> getGuiDecidido() {
-		return boxDecidido;
-	}
-
-	public JComboBox<String> getGuiRealista() {
-		return boxRealista;
-	}
-
-	public JComboBox<String> getGuiExpressivo() {
-		return boxExpressivo;
-	}
-
-	public JComboBox<String> getGuiDeterminado() {
-		return boxDeterminado;
-	}
-
-	public JComboBox<String> getGuiFechado() {
-		return boxFechado;
-	}
-
-	public JComboBox<String> getGuiAutoConfiante() {
-		return boxAutoconfiante;
-	}
-
-	public JComboBox<String> getGuiSensato() {
-		return boxSensato;
-	}
-
-	public JComboBox<String> getGuiAdequado() {
-		return boxAdequado;
-	}
-
-	public JComboBox<String> getGuiEspontaneo() {
-		return boxEspontaneo;
-	}
-
-	public JComboBox<String> getGuiAtivo() {
-		return boxAtivo;
-	}
-
-	public JComboBox<String> getGuiDesconfiado() {
-		return boxDesconfiado;
-	}
-
-	public JComboBox<String> getGuiLivre() {
-		return boxLivre;
-	}
-
-	public JComboBox<String> getGuiJusto() {
-		return boxJusto;
-	}
-
-	public JComboBox<String> getGuiDesencanado() {
-		return boxDesencanado;
-	}
-
-	public JComboBox<String> getGuiLogico() {
-		return boxLogico;
-	}
-
-	public JComboBox<String> getGuiApatico() {
-		return boxApatico;
-	}
-
-	public JComboBox<String> getGuiReservado() {
-		return boxReservado;
-	}
-
-	public JComboBox<String> getGuiHumilde() {
-		return boxHumilde;
-	}
-
-	public JComboBox<String> getGuiEgocentrico() {
-		return boxEgocentrico;
-	}
-
-	public JComboBox<String> getGuiSistematico() {
-		return boxSistematico;
-	}
-
-	public JComboBox<String> getGuiGostaDeSeArriscar() {
-		return boxGostaDeSeArriscar;
-	}
-
-	public JComboBox<String> getGuiSereno() {
-		return boxSereno;
-	}
-
-	public JComboBox<String> getGuiCortes() {
-		return boxCortes;
-	}
-
-	public JComboBox<String> getGuiSerio() {
-		return boxSerio;
-	}
+	private ToolBar toolBar;
 
 	public CaracteristicaPc() {
 		iniciarLayout();
@@ -724,8 +156,474 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		return boxSimpatico;
 	}
 
+	@Override
+	public ConfiguracaoGui getConfiguracaoGui() {
+		return configuracaoGui;
+	}
+
+	public JComboBox<String> getGuiAdequado() {
+		return boxAdequado;
+	}
+
+	public JComboBox<String> getGuiAgil() {
+		return boxAgil;
+	}
+
+	public JComboBox<String> getGuiAgitado() {
+		return boxAgitado;
+	}
+
+	public JComboBox<String> getGuiAlegre() {
+		return boxAlegre;
+	}
+
+	public JComboBox<String> getGuiAmavel() {
+		return boxAmavel;
+	}
+
+	public JComboBox<String> getGuiAnalitico() {
+		return boxAnalitico;
+	}
+
+	public JComboBox<String> getGuiAnimado() {
+		return boxAnimado;
+	}
+
+	public JComboBox<String> getGuiAnsioso() {
+		return boxAnsioso;
+	}
+
+	public JComboBox<String> getGuiApatico() {
+		return boxApatico;
+	}
+
+	public JComboBox<String> getGuiArticulado() {
+		return boxArticulado;
+	}
+
+	public JComboBox<String> getGuiAssumeRiscosCalculados() {
+		return boxAssumeRiscosCalculados;
+	}
+
+	public JComboBox<String> getGuiAtencioso() {
+		return boxAtencioso;
+	}
+
+	public JComboBox<String> getGuiAtivo() {
+		return boxAtivo;
+	}
+
+	public JComboBox<String> getGuiAutoConfiante() {
+		return boxAutoconfiante;
+	}
+
+	public JComboBox<String> getGuiAventureiro() {
+		return boxAventureiro;
+	}
+
+	public JComboBox<String> getGuiBemHumorado() {
+		return boxBemHumorado;
+	}
+
+	public JComboBox<String> getGuiCalmo() {
+		return boxCalmo;
+	}
+
+	public JComboBox<String> getGuiCarismatico() {
+		return boxCarismatico;
+	}
+
+	public JComboBox<String> getGuiCauteloso() {
+		return boxCauteloso;
+	}
+
+	public JComboBox<String> getGuiCompetitivo() {
+		return boxCompetitivo;
+	}
+
+	public JComboBox<String> getGuiCompreensivo() {
+		return boxCompreensivo;
+	}
+
+	public JComboBox<String> getGuiConciliador() {
+		return boxConciliador;
+	}
+
+	public JComboBox<String> getGuiContido() {
+		return boxContido;
+	}
+
+	public JComboBox<String> getGuiConvencional() {
+		return boxConvencional;
+	}
+
+	public JComboBox<String> getGuiConvincente() {
+		return boxConvincente;
+	}
+
+	public JComboBox<String> getGuiCortes() {
+		return boxCortes;
+	}
+
+	public JComboBox<String> getGuiCuidadoso() {
+		return boxCuidadoso;
+	}
+
+	public JComboBox<String> getGuiDecidido() {
+		return boxDecidido;
+	}
+
+	public JComboBox<String> getGuiDedicado() {
+		return boxDedicado;
+	}
+
+	public JComboBox<String> getGuiDependente() {
+		return boxDependente;
+	}
+
+	public JComboBox<String> getGuiDesconfiado() {
+		return boxDesconfiado;
+	}
+
+	public JComboBox<String> getGuiDescrente() {
+		return boxDescrente;
+	}
+
+	public JComboBox<String> getGuiDesencanado() {
+		return boxDesencanado;
+	}
+
+	public JComboBox<String> getGuiDesligado() {
+		return boxDesligado;
+	}
+
+	public JComboBox<String> getGuiDesprendido() {
+		return boxDesprendido;
+	}
+
+	public JComboBox<String> getGuiDespretensioso() {
+		return boxDespretensioso;
+	}
+
+	public JComboBox<String> getGuiDestemido() {
+		return boxDestemido;
+	}
+
+	public JComboBox<String> getGuiDeterminado() {
+		return boxDeterminado;
+	}
+
+	public JComboBox<String> getGuiDiplomatico() {
+		return boxDiplomatico;
+	}
+
+	public JComboBox<String> getGuiDireto() {
+		return boxDireto;
+	}
+
+	public JComboBox<String> getGuiDisciplinado() {
+		return boxDisciplinado;
+	}
+
+	public JComboBox<String> getGuiDiscreto() {
+		return boxDiscreto;
+	}
+
+	public JComboBox<String> getGuiDisponivel() {
+		return boxDisponivel;
+	}
+
+	public JComboBox<String> getGuiDivertido() {
+		return boxDivertido;
+	}
+
+	public JComboBox<String> getGuiDominador() {
+		return boxDominador;
+	}
+
+	public JComboBox<String> getGuiEgocentrico() {
+		return boxEgocentrico;
+	}
+
+	public JComboBox<String> getGuiEmpolgado() {
+		return boxEmpolgado;
+	}
+
+	public JComboBox<String> getGuiEncantador() {
+		return boxEncantador;
+	}
+
+	public JComboBox<String> getGuiEnergico() {
+		return boxEnergico;
+	}
+
+	public JComboBox<String> getGuiEspontaneo() {
+		return boxEspontaneo;
+	}
+
+	public JComboBox<String> getGuiEstavel() {
+		return boxEstavel;
+	}
+
+	public JComboBox<String> getGuiExigente() {
+		return boxExigente;
+	}
+
+	public JComboBox<String> getGuiExpansivo() {
+		return boxExpansivo;
+	}
+
+	public JComboBox<String> getGuiExpressivo() {
+		return boxExpressivo;
+	}
+
+	public JComboBox<String> getGuiExtrovertido() {
+		return boxExtrovertido;
+	}
+
+	public JComboBox<String> getGuiFechado() {
+		return boxFechado;
+	}
+
+	public JComboBox<String> getGuiFirme() {
+		return boxFirme;
+	}
+
+	public JComboBox<Funcionario> getGuiFuncionario() {
+		return boxFuncionario;
+	}
+
+	public JComboBox<String> getGuiGostaDeSeArriscar() {
+		return boxGostaDeSeArriscar;
+	}
+
+	public JComboBox<String> getGuiHumilde() {
+		return boxHumilde;
+	}
+
+	public JComboBox<String> getGuiImpulsivo() {
+		return boxImpulsivo;
+	}
+
+	public JComboBox<String> getGuiIncerto() {
+		return boxIncerto;
+	}
+
+	public JComboBox<String> getGuiIndependente() {
+		return boxIndependente;
+	}
+
+	public JComboBox<String> getGuiIndiferente() {
+		return boxIndiferente;
+	}
+
+	public JComboBox<String> getGuiInfluente() {
+		return boxInfluente;
+	}
+
+	public JComboBox<String> getGuiInquieto() {
+		return boxInquieto;
+	}
+
+	public JComboBox<String> getGuiInspirador() {
+		return boxInspirador;
+	}
+
+	public JComboBox<String> getGuiInteressado() {
+		return boxInteressado;
+	}
+
+	public JComboBox<String> getGuiIntrospectivo() {
+		return boxIntrospectivo;
+	}
+
+	public JComboBox<String> getGuiJusto() {
+		return boxJusto;
+	}
+
+	public JComboBox<String> getGuiLeal() {
+		return boxLeal;
+	}
+
+	public JComboBox<String> getGuiLiberal() {
+		return boxLiberal;
+	}
+
+	public JComboBox<String> getGuiLivre() {
+		return boxLivre;
+	}
+
+	public JComboBox<String> getGuiLogico() {
+		return boxLogico;
+	}
+
+	public JComboBox<String> getGuiMaleavel() {
+		return boxMaleavel;
+	}
+
+	public JComboBox<String> getGuiMenteAberta() {
+		return boxMenteAberta;
+	}
+
+	public JComboBox<String> getGuiMeticuloso() {
+		return boxMeticuloso;
+	}
+
+	public JComboBox<String> getGuiObediente() {
+		return boxObediente;
+	}
+
+	public JComboBox<String> getGuiObjetivo() {
+		return boxObjetivo;
+	}
+
+	public JComboBox<String> getGuiObservador() {
+		return boxObservador;
+	}
+
+	public JComboBox<String> getGuiObstinado() {
+		return boxObstinado;
+	}
+
+	public JComboBox<String> getGuiOriginal() {
+		return boxOriginal;
+	}
+
+	public JComboBox<String> getGuiOusado() {
+		return boxOusado;
+	}
+
+	public JComboBox<String> getGuiPaciente() {
+		return boxPaciente;
+	}
+
+	public JComboBox<String> getGuiPacifico() {
+		return boxPacifico;
+	}
+
+	public JComboBox<String> getGuiPassivo() {
+		return boxPassivo;
+	}
+
+	public JComboBox<String> getGuiPerfeccionista() {
+		return boxPerfeccionista;
+	}
+
+	public JComboBox<String> getGuiPersistente() {
+		return boxPersistente;
+	}
+
+	public JComboBox<String> getGuiPersuasivo() {
+		return boxPersuasivo;
+	}
+
+	public JComboBox<String> getGuiPessimista() {
+		return boxPessimista;
+	}
+
+	public JComboBox<String> getGuiPonderado() {
+		return boxPonderado;
+	}
+
+	public JComboBox<String> getGuiPratico() {
+		return boxPratico;
+	}
+
+	public JComboBox<String> getGuiPrecavido() {
+		return boxPrecavido;
+	}
+
+	public JComboBox<String> getGuiPreciso() {
+		return boxPreciso;
+	}
+
+	public JComboBox<String> getGuiPreocupado() {
+		return boxPreocupado;
+	}
+
+	public JComboBox<String> getGuiPrevenido() {
+		return boxPrevenido;
+	}
+
+	public JComboBox<String> getGuiPrevisivel() {
+		return boxPrevisivel;
+	}
+
+	public JComboBox<String> getGuiRealista() {
+		return boxRealista;
+	}
+
+	public JComboBox<String> getGuiRebelde() {
+		return boxRebelde;
+	}
+
+	public JComboBox<String> getGuiReceoso() {
+		return boxReceoso;
+	}
+
+	public JComboBox<String> getGuiReservado() {
+		return boxReservado;
+	}
+
+	public JComboBox<String> getGuiRespeitoso() {
+		return boxRespeitoso;
+	}
+
+	public JComboBox<String> getGuiSarcastico() {
+		return boxSarcastico;
+	}
+
+	public JComboBox<String> getGuiSeguro() {
+		return boxSeguro;
+	}
+
+	public JComboBox<String> getGuiSemLimites() {
+		return boxSemLimites;
+	}
+
+	public JComboBox<String> getGuiSensato() {
+		return boxSensato;
+	}
+
+	public JComboBox<String> getGuiSereno() {
+		return boxSereno;
+	}
+
+	public JComboBox<String> getGuiSerio() {
+		return boxSerio;
+	}
+
+	public JComboBox<String> getGuiSimpatico() {
+		return boxSimpatico;
+	}
+
+	public JComboBox<String> getGuiSistematico() {
+		return boxSistematico;
+	}
+
+	public JComboBox<String> getGuiSociavel() {
+		return boxSociavel;
+	}
+
+	public JComboBox<String> getGuiTeimoso() {
+		return boxTeimoso;
+	}
+
+	public JComboBox<String> getGuiVersatil() {
+		return boxVersatil;
+	}
+
+	public JLabel getLabelFuncionario() {
+		return labelFuncionario;
+	}
+
 	public ToolBar getTB() {
 		return toolBar;
+	}
+
+	@Override
+	public void iniciarControlador() {
+
 	}
 
 	@Override
@@ -736,7 +634,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 
 	@Override
 	public void iniciarGui() {
-		
+
 		final Cursor cursor = Cursor.getPredefinedCursor(Cursor.HAND_CURSOR);
 
 		toolBar = new ToolBar();
@@ -752,11 +650,10 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		for (Funcionario funcionario : funcionarios) {
 			boxFuncionario.addItem(funcionario);
 		}
-		
+
 		add(boxFuncionario);
 
-		labelAdequado = new JLabel("ADEQUADO");
-		add(labelAdequado);
+		add(new JLabel("ADEQUADO"));
 
 		boxAdequado = new JComboBox<String>();
 		boxAdequado.addItem("");
@@ -764,8 +661,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxAdequado.addItem("NÃO");
 		add(boxAdequado);
 
-		labelAgil = new JLabel("ÁGIL");
-		add(labelAgil);
+		add(new JLabel("ÁGIL"));
 
 		boxAgil = new JComboBox<String>();
 		boxAgil.addItem("");
@@ -773,8 +669,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxAgil.addItem("NÃO");
 		add(boxAgil);
 
-		labelAgitado = new JLabel("AGITADO");
-		add(labelAgitado);
+		add(new JLabel("AGITADO"));
 
 		boxAgitado = new JComboBox<String>();
 		boxAgitado.addItem("");
@@ -782,8 +677,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxAgitado.addItem("NÃO");
 		add(boxAgitado);
 
-		labelAlegre = new JLabel("ALEGRE");
-		add(labelAlegre);
+		add(new JLabel("ALEGRE"));
 
 		boxAlegre = new JComboBox<String>();
 		boxAlegre.addItem("");
@@ -791,8 +685,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxAlegre.addItem("NÃO");
 		add(boxAlegre);
 
-		labelAmavel = new JLabel("AMÁVEL");
-		add(labelAmavel);
+		add(new JLabel("AMÁVEL"));
 
 		boxAmavel = new JComboBox<String>();
 		boxAmavel.addItem("");
@@ -800,8 +693,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxAmavel.addItem("NÃO");
 		add(boxAmavel);
 
-		labelAnalitico = new JLabel("ANALÍTICO");
-		add(labelAnalitico);
+		add(new JLabel("ANALÍTICO"));
 
 		boxAnalitico = new JComboBox<String>();
 		boxAnalitico.addItem("");
@@ -809,8 +701,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxAnalitico.addItem("NÃO");
 		add(boxAnalitico);
 
-		labelAnimado = new JLabel("ANIMADO");
-		add(labelAnimado);
+		add(new JLabel("ANIMADO"));
 
 		boxAnimado = new JComboBox<String>();
 		boxAnimado.addItem("");
@@ -818,8 +709,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxAnimado.addItem("NÃO");
 		add(boxAnimado);
 
-		labelAnsioso = new JLabel("ANSIOSO");
-		add(labelAnsioso);
+		add(new JLabel("ANSIOSO"));
 
 		boxAnsioso = new JComboBox<String>();
 		boxAnsioso.addItem("");
@@ -827,8 +717,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxAnsioso.addItem("NÃO");
 		add(boxAnsioso);
 
-		labelApatico = new JLabel("APÁTICO");
-		add(labelApatico);
+		add(new JLabel("APÁTICO"));
 
 		boxApatico = new JComboBox<String>();
 		boxApatico.addItem("");
@@ -836,8 +725,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxApatico.addItem("NÃO");
 		add(boxApatico);
 
-		labelArticulado = new JLabel("ARTICULADO");
-		add(labelArticulado);
+		add(new JLabel("ARTICULADO"));
 
 		boxArticulado = new JComboBox<String>();
 		boxArticulado.addItem("");
@@ -845,8 +733,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxArticulado.addItem("NÃO");
 		add(boxArticulado);
 
-		labelAssumeRiscosCalculados = new JLabel("ASSUME RISCOS CALCULADOS");
-		add(labelAssumeRiscosCalculados);
+		add(new JLabel("ASSUME RISCOS CALCULADOS"));
 
 		boxAssumeRiscosCalculados = new JComboBox<String>();
 		boxAssumeRiscosCalculados.addItem("");
@@ -854,8 +741,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxAssumeRiscosCalculados.addItem("NÃO");
 		add(boxAssumeRiscosCalculados);
 
-		labelAtencioso = new JLabel("ATENCIOSO");
-		add(labelAtencioso);
+		add(new JLabel("ATENCIOSO"));
 
 		boxAtencioso = new JComboBox<String>();
 		boxAtencioso.addItem("");
@@ -863,8 +749,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxAtencioso.addItem("NÃO");
 		add(boxAtencioso);
 
-		labelAtivo = new JLabel("ATIVO");
-		add(labelAtivo);
+		add(new JLabel("ATIVO"));
 
 		boxAtivo = new JComboBox<String>();
 		boxAtivo.addItem("");
@@ -872,8 +757,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxAtivo.addItem("NÃO");
 		add(boxAtivo);
 
-		labelAutoconfiante = new JLabel("AUTO CONFIANTE");
-		add(labelAutoconfiante);
+		add(new JLabel("AUTO CONFIANTE"));
 
 		boxAutoconfiante = new JComboBox<String>();
 		boxAutoconfiante.addItem("");
@@ -881,8 +765,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxAutoconfiante.addItem("NÃO");
 		add(boxAutoconfiante);
 
-		labelAventureiro = new JLabel("AVENTUREIRO");
-		add(labelAventureiro);
+		add(new JLabel("AVENTUREIRO"));
 
 		boxAventureiro = new JComboBox<String>();
 		boxAventureiro.addItem("");
@@ -890,8 +773,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxAventureiro.addItem("NÃO");
 		add(boxAventureiro);
 
-		labelBemHumorado = new JLabel("BEM HUMORADO");
-		add(labelBemHumorado);
+		add(new JLabel("BEM HUMORADO"));
 
 		boxBemHumorado = new JComboBox<String>();
 		boxBemHumorado.addItem("");
@@ -899,8 +781,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxBemHumorado.addItem("NÃO");
 		add(boxBemHumorado);
 
-		labelCalmo = new JLabel("CALMO");
-		add(labelCalmo);
+		add(new JLabel("CALMO"));
 
 		boxCalmo = new JComboBox<String>();
 		boxCalmo.addItem("");
@@ -908,8 +789,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxCalmo.addItem("NÃO");
 		add(boxCalmo);
 
-		labelCarismatico = new JLabel("CARISMÁTICO");
-		add(labelCarismatico);
+		add(new JLabel("CARISMÁTICO"));
 
 		boxCarismatico = new JComboBox<String>();
 		boxCarismatico.addItem("");
@@ -917,8 +797,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxCarismatico.addItem("NÃO");
 		add(boxCarismatico);
 
-		labelCauteloso = new JLabel("CAUTELOSO");
-		add(labelCauteloso);
+		add(new JLabel("CAUTELOSO"));
 
 		boxCauteloso = new JComboBox<String>();
 		boxCauteloso.addItem("");
@@ -926,8 +805,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxCauteloso.addItem("NÃO");
 		add(boxCauteloso);
 
-		labelCompetitivo = new JLabel("COMPETITIVO");
-		add(labelCompetitivo);
+		add(new JLabel("COMPETITIVO"));
 
 		boxCompetitivo = new JComboBox<String>();
 		boxCompetitivo.addItem("");
@@ -935,8 +813,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxCompetitivo.addItem("NÃO");
 		add(boxCompetitivo);
 
-		labelCompreensivo = new JLabel("COMPREENSIVO");
-		add(labelCompreensivo);
+		add(new JLabel("COMPREENSIVO"));
 
 		boxCompreensivo = new JComboBox<String>();
 		boxCompreensivo.addItem("");
@@ -944,8 +821,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxCompreensivo.addItem("NÃO");
 		add(boxCompreensivo);
 
-		labelConciliador = new JLabel("CONCILIADOR");
-		add(labelConciliador);
+		add(new JLabel("CONCILIADOR"));
 
 		boxConciliador = new JComboBox<String>();
 		boxConciliador.addItem("");
@@ -953,8 +829,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxConciliador.addItem("NÃO");
 		add(boxConciliador);
 
-		labelContido = new JLabel("CONTIDO");
-		add(labelContido);
+		add(new JLabel("CONTIDO"));
 
 		boxContido = new JComboBox<String>();
 		boxContido.addItem("");
@@ -962,8 +837,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxContido.addItem("NÃO");
 		add(boxContido);
 
-		labelConvencional = new JLabel("CONVENCIONAL");
-		add(labelConvencional);
+		add(new JLabel("CONVENCIONAL"));
 
 		boxConvencional = new JComboBox<String>();
 		boxConvencional.addItem("");
@@ -971,8 +845,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxConvencional.addItem("NÃO");
 		add(boxConvencional);
 
-		labelConvincente = new JLabel("CONVINCENTE");
-		add(labelConvincente);
+		add(new JLabel("CONVINCENTE"));
 
 		boxConvincente = new JComboBox<String>();
 		boxConvincente.addItem("");
@@ -980,8 +853,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxConvincente.addItem("NÃO");
 		add(boxConvincente);
 
-		labelCortes = new JLabel("CORTÊS");
-		add(labelCortes);
+		add(new JLabel("CORTÊS"));
 
 		boxCortes = new JComboBox<String>();
 		boxCortes.addItem("");
@@ -989,8 +861,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxCortes.addItem("NÃO");
 		add(boxCortes);
 
-		labelCuidadoso = new JLabel("CUIDADOSO");
-		add(labelCuidadoso);
+		add(new JLabel("CUIDADOSO"));
 
 		boxCuidadoso = new JComboBox<String>();
 		boxCuidadoso.addItem("");
@@ -998,8 +869,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxCuidadoso.addItem("NÃO");
 		add(boxCuidadoso);
 
-		labelDecidido = new JLabel("DECIDIDO");
-		add(labelDecidido);
+		add(new JLabel("DECIDIDO"));
 
 		boxDecidido = new JComboBox<String>();
 		boxDecidido.addItem("");
@@ -1007,8 +877,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxDecidido.addItem("NÃO");
 		add(boxDecidido);
 
-		labelDedicado = new JLabel("DEDICADO");
-		add(labelDedicado);
+		add(new JLabel("DEDICADO"));
 
 		boxDedicado = new JComboBox<String>();
 		boxDedicado.addItem("");
@@ -1016,8 +885,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxDedicado.addItem("NÃO");
 		add(boxDedicado);
 
-		labelDependente = new JLabel("DEPENDENTE");
-		add(labelDependente);
+		add(new JLabel("DEPENDENTE"));
 
 		boxDependente = new JComboBox<String>();
 		boxDependente.addItem("");
@@ -1025,8 +893,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxDependente.addItem("NÃO");
 		add(boxDependente);
 
-		labelDesconfiado = new JLabel("DESCONFIADO");
-		add(labelDesconfiado);
+		add(new JLabel("DESCONFIADO"));
 
 		boxDesconfiado = new JComboBox<String>();
 		boxDesconfiado.addItem("");
@@ -1034,8 +901,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxDesconfiado.addItem("NÃO");
 		add(boxDesconfiado);
 
-		labelDescrente = new JLabel("DESCRENTE");
-		add(labelDescrente);
+		add(new JLabel("DESCRENTE"));
 
 		boxDescrente = new JComboBox<String>();
 		boxDescrente.addItem("");
@@ -1043,8 +909,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxDescrente.addItem("NÃO");
 		add(boxDescrente);
 
-		labelDesencanado = new JLabel("DESENCANADO");
-		add(labelDesencanado);
+		add(new JLabel("DESENCANADO"));
 
 		boxDesencanado = new JComboBox<String>();
 		boxDesencanado.addItem("");
@@ -1052,8 +917,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxDesencanado.addItem("NÃO");
 		add(boxDesencanado);
 
-		labelDesligado = new JLabel("DESLIGADO");
-		add(labelDesligado);
+		add(new JLabel("DESLIGADO"));
 
 		boxDesligado = new JComboBox<String>();
 		boxDesligado.addItem("");
@@ -1061,8 +925,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxDesligado.addItem("NÃO");
 		add(boxDesligado);
 
-		labelDesprendido = new JLabel("DESPRENDIDO");
-		add(labelDesprendido);
+		add(new JLabel("DESPRENDIDO"));
 
 		boxDesprendido = new JComboBox<String>();
 		boxDesprendido.addItem("");
@@ -1070,8 +933,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxDesprendido.addItem("NÃO");
 		add(boxDesprendido);
 
-		labelDespretensioso = new JLabel("DESPRETENSIOSO");
-		add(labelDespretensioso);
+		add(new JLabel("DESPRETENSIOSO"));
 
 		boxDespretensioso = new JComboBox<String>();
 		boxDespretensioso.addItem("");
@@ -1079,8 +941,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxDespretensioso.addItem("NÃO");
 		add(boxDespretensioso);
 
-		labelDestemido = new JLabel("DESTEMIDO");
-		add(labelDestemido);
+		add(new JLabel("DESTEMIDO"));
 
 		boxDestemido = new JComboBox<String>();
 		boxDestemido.addItem("");
@@ -1088,8 +949,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxDestemido.addItem("NÃO");
 		add(boxDestemido);
 
-		labelDeterminado = new JLabel("DETERMINADO");
-		add(labelDeterminado);
+		add(new JLabel("DETERMINADO"));
 
 		boxDeterminado = new JComboBox<String>();
 		boxDeterminado.addItem("");
@@ -1097,8 +957,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxDeterminado.addItem("NÃO");
 		add(boxDeterminado);
 
-		labelDiplomatico = new JLabel("DIPLOMÁTICO");
-		add(labelDiplomatico);
+		add(new JLabel("DIPLOMÁTICO"));
 
 		boxDiplomatico = new JComboBox<String>();
 		boxDiplomatico.addItem("");
@@ -1106,8 +965,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxDiplomatico.addItem("NÃO");
 		add(boxDiplomatico);
 
-		labelDireto = new JLabel("DIRETO");
-		add(labelDireto);
+		add(new JLabel("DIRETO"));
 
 		boxDireto = new JComboBox<String>();
 		boxDireto.addItem("");
@@ -1115,8 +973,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxDireto.addItem("NÃO");
 		add(boxDireto);
 
-		labelDisciplinado = new JLabel("DISCIPLINADO");
-		add(labelDisciplinado);
+		add(new JLabel("DISCIPLINADO"));
 
 		boxDisciplinado = new JComboBox<String>();
 		boxDisciplinado.addItem("");
@@ -1124,8 +981,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxDisciplinado.addItem("NÃO");
 		add(boxDisciplinado);
 
-		labelDiscreto = new JLabel("DISCRETO");
-		add(labelDiscreto);
+		add(new JLabel("DISCRETO"));
 
 		boxDiscreto = new JComboBox<String>();
 		boxDiscreto.addItem("");
@@ -1133,8 +989,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxDiscreto.addItem("NÃO");
 		add(boxDiscreto);
 
-		labelDisponivel = new JLabel("DISPONÍVEL");
-		add(labelDisponivel);
+		add(new JLabel("DISPONÍVEL"));
 
 		boxDisponivel = new JComboBox<String>();
 		boxDisponivel.addItem("");
@@ -1142,8 +997,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxDisponivel.addItem("NÃO");
 		add(boxDisponivel);
 
-		labelDivertido = new JLabel("DIVERTIDO");
-		add(labelDivertido);
+		add(new JLabel("DIVERTIDO"));
 
 		boxDivertido = new JComboBox<String>();
 		boxDivertido.addItem("");
@@ -1151,8 +1005,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxDivertido.addItem("NÃO");
 		add(boxDivertido);
 
-		labelDominador = new JLabel("DOMINADOR");
-		add(labelDominador);
+		add(new JLabel("DOMINADOR"));
 
 		boxDominador = new JComboBox<String>();
 		boxDominador.addItem("");
@@ -1160,8 +1013,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxDominador.addItem("NÃO");
 		add(boxDominador);
 
-		labelEgocentrico = new JLabel("EGOCÊNTRICO");
-		add(labelEgocentrico);
+		add(new JLabel("EGOCÊNTRICO"));
 
 		boxEgocentrico = new JComboBox<String>();
 		boxEgocentrico.addItem("");
@@ -1169,8 +1021,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxEgocentrico.addItem("NÃO");
 		add(boxEgocentrico);
 
-		labelEmpolgado = new JLabel("EMPOLGADO");
-		add(labelEmpolgado);
+		add(new JLabel("EMPOLGADO"));
 
 		boxEmpolgado = new JComboBox<String>();
 		boxEmpolgado.addItem("");
@@ -1178,8 +1029,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxEmpolgado.addItem("NÃO");
 		add(boxEmpolgado);
 
-		labelEncantador = new JLabel("ENCANTADOR");
-		add(labelEncantador);
+		add(new JLabel("ENCANTADOR"));
 
 		boxEncantador = new JComboBox<String>();
 		boxEncantador.addItem("");
@@ -1187,8 +1037,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxEncantador.addItem("NÃO");
 		add(boxEncantador);
 
-		labelEnergico = new JLabel("ENÉRGICO");
-		add(labelEnergico);
+		add(new JLabel("ENÉRGICO"));
 
 		boxEnergico = new JComboBox<String>();
 		boxEnergico.addItem("");
@@ -1196,8 +1045,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxEnergico.addItem("NÃO");
 		add(boxEnergico);
 
-		labelEspontaneo = new JLabel("ESPONTÂNEO");
-		add(labelEspontaneo);
+		add(new JLabel("ESPONTÂNEO"));
 
 		boxEspontaneo = new JComboBox<String>();
 		boxEspontaneo.addItem("");
@@ -1205,8 +1053,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxEspontaneo.addItem("NÃO");
 		add(boxEspontaneo);
 
-		labelEstavel = new JLabel("ESTÁVEL");
-		add(labelEstavel);
+		add(new JLabel("ESTÁVEL"));
 
 		boxEstavel = new JComboBox<String>();
 		boxEstavel.addItem("");
@@ -1214,8 +1061,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxEstavel.addItem("NÃO");
 		add(boxEstavel);
 
-		labelExigente = new JLabel("EXIGENTE");
-		add(labelExigente);
+		add(new JLabel("EXIGENTE"));
 
 		boxExigente = new JComboBox<String>();
 		boxExigente.addItem("");
@@ -1223,8 +1069,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxExigente.addItem("NÃO");
 		add(boxExigente);
 
-		labelExpansivo = new JLabel("EXPANSIVO");
-		add(labelExpansivo);
+		add(new JLabel("EXPANSIVO"));
 
 		boxExpansivo = new JComboBox<String>();
 		boxExpansivo.addItem("");
@@ -1232,8 +1077,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxExpansivo.addItem("NÃO");
 		add(boxExpansivo);
 
-		labelExpressivo = new JLabel("EXPRESSIVO");
-		add(labelExpressivo);
+		add(new JLabel("EXPRESSIVO"));
 
 		boxExpressivo = new JComboBox<String>();
 		boxExpressivo.addItem("");
@@ -1241,8 +1085,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxExpressivo.addItem("NÃO");
 		add(boxExpressivo);
 
-		labelExtrovertido = new JLabel("EXTROVERTIDO");
-		add(labelExtrovertido);
+		add(new JLabel("EXTROVERTIDO"));
 
 		boxExtrovertido = new JComboBox<String>();
 		boxExtrovertido.addItem("");
@@ -1250,8 +1093,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxExtrovertido.addItem("NÃO");
 		add(boxExtrovertido);
 
-		labelFechado = new JLabel("FECHADO");
-		add(labelFechado);
+		add(new JLabel("FECHADO"));
 
 		boxFechado = new JComboBox<String>();
 		boxFechado.addItem("");
@@ -1259,8 +1101,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxFechado.addItem("NÃO");
 		add(boxFechado);
 
-		labelFirme = new JLabel("FIRME");
-		add(labelFirme);
+		add(new JLabel("FIRME"));
 
 		boxFirme = new JComboBox<String>();
 		boxFirme.addItem("");
@@ -1268,8 +1109,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxFirme.addItem("NÃO");
 		add(boxFirme);
 
-		labelGostaDeSeArriscar = new JLabel("GOSTA DE SE ARRRISCAR");
-		add(labelGostaDeSeArriscar);
+		add(new JLabel("GOSTA DE SE ARRRISCAR"));
 
 		boxGostaDeSeArriscar = new JComboBox<String>();
 		boxGostaDeSeArriscar.addItem("");
@@ -1277,8 +1117,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxGostaDeSeArriscar.addItem("NÃO");
 		add(boxGostaDeSeArriscar);
 
-		labelHumilde = new JLabel("HUMILDE");
-		add(labelHumilde);
+		add(new JLabel("HUMILDE"));
 
 		boxHumilde = new JComboBox<String>();
 		boxHumilde.addItem("");
@@ -1286,8 +1125,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxHumilde.addItem("NÃO");
 		add(boxHumilde);
 
-		labelImpulsivo = new JLabel("IMPULSIVO");
-		add(labelImpulsivo);
+		add(new JLabel("IMPULSIVO"));
 
 		boxImpulsivo = new JComboBox<String>();
 		boxImpulsivo.addItem("");
@@ -1295,8 +1133,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxImpulsivo.addItem("NÃO");
 		add(boxImpulsivo);
 
-		labelIncerto = new JLabel("INCERTO");
-		add(labelIncerto);
+		add(new JLabel("INCERTO"));
 
 		boxIncerto = new JComboBox<String>();
 		boxIncerto.addItem("");
@@ -1304,8 +1141,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxIncerto.addItem("NÃO");
 		add(boxIncerto);
 
-		labelIndependente = new JLabel("INDEPENDENTE");
-		add(labelIndependente);
+		add(new JLabel("INDEPENDENTE"));
 
 		boxIndependente = new JComboBox<String>();
 		boxIndependente.addItem("");
@@ -1313,8 +1149,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxIndependente.addItem("NÃO");
 		add(boxIndependente);
 
-		labelIndiferente = new JLabel("INDIFERENTE");
-		add(labelIndiferente);
+		add(new JLabel("INDIFERENTE"));
 
 		boxIndiferente = new JComboBox<String>();
 		boxIndiferente.addItem("");
@@ -1322,8 +1157,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxIndiferente.addItem("NÃO");
 		add(boxIndiferente);
 
-		labelInfluente = new JLabel("INFLUENTE");
-		add(labelInfluente);
+		add(new JLabel("INFLUENTE"));
 
 		boxInfluente = new JComboBox<String>();
 		boxInfluente.addItem("");
@@ -1331,8 +1165,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxInfluente.addItem("NÃO");
 		add(boxInfluente);
 
-		labelInquieto = new JLabel("INQUIETO");
-		add(labelInquieto);
+		add(new JLabel("INQUIETO"));
 
 		boxInquieto = new JComboBox<String>();
 		boxInquieto.addItem("");
@@ -1340,8 +1173,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxInquieto.addItem("NÃO");
 		add(boxInquieto);
 
-		labelInspirador = new JLabel("INSPIRADOR");
-		add(labelInspirador);
+		add(new JLabel("INSPIRADOR"));
 
 		boxInspirador = new JComboBox<String>();
 		boxInspirador.addItem("");
@@ -1349,8 +1181,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxInspirador.addItem("NÃO");
 		add(boxInspirador);
 
-		labelInteressado = new JLabel("INTERESSADO");
-		add(labelInteressado);
+		add(new JLabel("INTERESSADO"));
 
 		boxInteressado = new JComboBox<String>();
 		boxInteressado.addItem("");
@@ -1358,8 +1189,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxInteressado.addItem("NÃO");
 		add(boxInteressado);
 
-		labelIntrospectivo = new JLabel("INTROSPECTIVO");
-		add(labelIntrospectivo);
+		add(new JLabel("INTROSPECTIVO"));
 
 		boxIntrospectivo = new JComboBox<String>();
 		boxIntrospectivo.addItem("");
@@ -1367,8 +1197,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxIntrospectivo.addItem("NÃO");
 		add(boxIntrospectivo);
 
-		labelJusto = new JLabel("JUSTO");
-		add(labelJusto);
+		add(new JLabel("JUSTO"));
 
 		boxJusto = new JComboBox<String>();
 		boxJusto.addItem("");
@@ -1376,8 +1205,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxJusto.addItem("NÃO");
 		add(boxJusto);
 
-		labelLeal = new JLabel("LEAL");
-		add(labelLeal);
+		add(new JLabel("LEAL"));
 
 		boxLeal = new JComboBox<String>();
 		boxLeal.addItem("");
@@ -1385,8 +1213,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxLeal.addItem("NÃO");
 		add(boxLeal);
 
-		labelLiberal = new JLabel("LEAL");
-		add(labelLiberal);
+		add(new JLabel("LIBERAL"));
 
 		boxLiberal = new JComboBox<String>();
 		boxLiberal.addItem("");
@@ -1394,8 +1221,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxLiberal.addItem("NÃO");
 		add(boxLiberal);
 
-		labelLivre = new JLabel("LIVRE");
-		add(labelLivre);
+		add(new JLabel("LIVRE"));
 
 		boxLivre = new JComboBox<String>();
 		boxLivre.addItem("");
@@ -1403,8 +1229,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxLivre.addItem("NÃO");
 		add(boxLivre);
 
-		labelLogico = new JLabel("LÓGICO");
-		add(labelLogico);
+		add(new JLabel("LÓGICO"));
 
 		boxLogico = new JComboBox<String>();
 		boxLogico.addItem("");
@@ -1412,8 +1237,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxLogico.addItem("NÃO");
 		add(boxLogico);
 
-		labelMaleavel = new JLabel("MALEÁVEL");
-		add(labelMaleavel);
+		add(new JLabel("MALEÁVEL"));
 
 		boxMaleavel = new JComboBox<String>();
 		boxMaleavel.addItem("");
@@ -1421,8 +1245,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxMaleavel.addItem("NÃO");
 		add(boxMaleavel);
 
-		labelMenteAberta = new JLabel("MENTE ABERTA");
-		add(labelMenteAberta);
+		add(new JLabel("MENTE ABERTA"));
 
 		boxMenteAberta = new JComboBox<String>();
 		boxMenteAberta.addItem("");
@@ -1430,8 +1253,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxMenteAberta.addItem("NÃO");
 		add(boxMenteAberta);
 
-		labelMeticuloso = new JLabel("METICULOSO");
-		add(labelMeticuloso);
+		add(new JLabel("METICULOSO"));
 
 		boxMeticuloso = new JComboBox<String>();
 		boxMeticuloso.addItem("");
@@ -1439,8 +1261,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxMeticuloso.addItem("NÃO");
 		add(boxMeticuloso);
 
-		labelObediente = new JLabel("OBEDIENTE");
-		add(labelObediente);
+		add(new JLabel("OBEDIENTE"));
 
 		boxObediente = new JComboBox<String>();
 		boxObediente.addItem("");
@@ -1448,8 +1269,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxObediente.addItem("NÃO");
 		add(boxObediente);
 
-		labelObjetivo = new JLabel("OBJETIVO");
-		add(labelObjetivo);
+		add(new JLabel("OBJETIVO"));
 
 		boxObjetivo = new JComboBox<String>();
 		boxObjetivo.addItem("");
@@ -1457,8 +1277,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxObjetivo.addItem("NÃO");
 		add(boxObjetivo);
 
-		labelObservador = new JLabel("OBSERVADOR");
-		add(labelObservador);
+		add(new JLabel("OBSERVADOR"));
 
 		boxObservador = new JComboBox<String>();
 		boxObservador.addItem("");
@@ -1466,8 +1285,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxObservador.addItem("NÃO");
 		add(boxObservador);
 
-		labelObstinado = new JLabel("OBSTINADO");
-		add(labelObstinado);
+		add(new JLabel("OBSTINADO"));
 
 		boxObstinado = new JComboBox<String>();
 		boxObstinado.addItem("");
@@ -1475,8 +1293,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxObstinado.addItem("NÃO");
 		add(boxObstinado);
 
-		labelOriginal = new JLabel("ORIGINAL");
-		add(labelOriginal);
+		add(new JLabel("ORIGINAL"));
 
 		boxOriginal = new JComboBox<String>();
 		boxOriginal.addItem("");
@@ -1484,8 +1301,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxOriginal.addItem("NÃO");
 		add(boxOriginal);
 
-		labelOusado = new JLabel("OUSADO");
-		add(labelOusado);
+		add(new JLabel("OUSADO"));
 
 		boxOusado = new JComboBox<String>();
 		boxOusado.addItem("");
@@ -1493,8 +1309,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxOusado.addItem("NÃO");
 		add(boxOusado);
 
-		labelPaciente = new JLabel("PACIENTE");
-		add(labelPaciente);
+		add(new JLabel("PACIENTE"));
 
 		boxPaciente = new JComboBox<String>();
 		boxPaciente.addItem("");
@@ -1502,8 +1317,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxPaciente.addItem("NÃO");
 		add(boxPaciente);
 
-		labelPacifico = new JLabel("PACÍFICO");
-		add(labelPacifico);
+		add(new JLabel("PACÍFICO"));
 
 		boxPacifico = new JComboBox<String>();
 		boxPacifico.addItem("");
@@ -1511,8 +1325,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxPacifico.addItem("NÃO");
 		add(boxPacifico);
 
-		labelPassivo = new JLabel("PASSIVO");
-		add(labelPassivo);
+		add(new JLabel("PASSIVO"));
 
 		boxPassivo = new JComboBox<String>();
 		boxPassivo.addItem("");
@@ -1520,8 +1333,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxPassivo.addItem("NÃO");
 		add(boxPassivo);
 
-		labelPerfeccionista = new JLabel("PERFECCIONISTA");
-		add(labelPerfeccionista);
+		add(new JLabel("PERFECCIONISTA"));
 
 		boxPerfeccionista = new JComboBox<String>();
 		boxPerfeccionista.addItem("");
@@ -1529,8 +1341,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxPerfeccionista.addItem("NÃO");
 		add(boxPerfeccionista);
 
-		labelPersistente = new JLabel("PERSISTENTE");
-		add(labelPersistente);
+		add(new JLabel("PERSISTENTE"));
 
 		boxPersistente = new JComboBox<String>();
 		boxPersistente.addItem("");
@@ -1538,8 +1349,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxPersistente.addItem("NÃO");
 		add(boxPersistente);
 
-		labelPersuasivo = new JLabel("PERSUASIVO");
-		add(labelPersuasivo);
+		add(new JLabel("PERSUASIVO"));
 
 		boxPersuasivo = new JComboBox<String>();
 		boxPersuasivo.addItem("");
@@ -1547,8 +1357,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxPersuasivo.addItem("NÃO");
 		add(boxPersuasivo);
 
-		labelPessimista = new JLabel("PESSIMISTA");
-		add(labelPessimista);
+		add(new JLabel("PERSUASIVO"));
 
 		boxPessimista = new JComboBox<String>();
 		boxPessimista.addItem("");
@@ -1556,8 +1365,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxPessimista.addItem("NÃO");
 		add(boxPessimista);
 
-		labelPonderado = new JLabel("PONDERADO");
-		add(labelPonderado);
+		add(new JLabel("PONDERADO"));
 
 		boxPonderado = new JComboBox<String>();
 		boxPonderado.addItem("");
@@ -1565,8 +1373,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxPonderado.addItem("NÃO");
 		add(boxPonderado);
 
-		labelPratico = new JLabel("PRÁTICO");
-		add(labelPratico);
+		add(new JLabel("PRÁTICO"));
 
 		boxPratico = new JComboBox<String>();
 		boxPratico.addItem("");
@@ -1574,8 +1381,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxPratico.addItem("NÃO");
 		add(boxPratico);
 
-		labelPrecavido = new JLabel("PRECAVIDO");
-		add(labelPrecavido);
+		add(new JLabel("PRECAVIDO"));
 
 		boxPrecavido = new JComboBox<String>();
 		boxPrecavido.addItem("");
@@ -1583,8 +1389,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxPrecavido.addItem("NÃO");
 		add(boxPrecavido);
 
-		labelPreciso = new JLabel("PRECISO");
-		add(labelPreciso);
+		add(new JLabel("PRECISO"));
 
 		boxPreciso = new JComboBox<String>();
 		boxPreciso.addItem("");
@@ -1592,8 +1397,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxPreciso.addItem("NÃO");
 		add(boxPreciso);
 
-		labelPreocupado = new JLabel("PREOCUPADO");
-		add(labelPreocupado);
+		add(new JLabel("PREOCUPADO"));
 
 		boxPreocupado = new JComboBox<String>();
 		boxPreocupado.addItem("");
@@ -1601,8 +1405,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxPreocupado.addItem("NÃO");
 		add(boxPreocupado);
 
-		labelPrevenido = new JLabel("PREVENIDO");
-		add(labelPrevenido);
+		add(new JLabel("PREVENIDO"));
 
 		boxPrevenido = new JComboBox<String>();
 		boxPrevenido.addItem("");
@@ -1610,8 +1413,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxPrevenido.addItem("NÃO");
 		add(boxPrevenido);
 
-		labelPrevisivel = new JLabel("PREVISÍVEL");
-		add(labelPrevisivel);
+		add(new JLabel("PREVISÍVEL"));
 
 		boxPrevisivel = new JComboBox<String>();
 		boxPrevisivel.addItem("");
@@ -1619,8 +1421,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxPrevisivel.addItem("NÃO");
 		add(boxPrevisivel);
 
-		labelRealista = new JLabel("REALISTA");
-		add(labelRealista);
+		add(new JLabel("REALISTA"));
 
 		boxRealista = new JComboBox<String>();
 		boxRealista.addItem("");
@@ -1628,8 +1429,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxRealista.addItem("NÃO");
 		add(boxRealista);
 
-		labelRebelde = new JLabel("REBELDE");
-		add(labelRebelde);
+		add(new JLabel("REBELDE"));
 
 		boxRebelde = new JComboBox<String>();
 		boxRebelde.addItem("");
@@ -1637,8 +1437,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxRebelde.addItem("NÃO");
 		add(boxRebelde);
 
-		labelReceoso = new JLabel("RECEOSO");
-		add(labelReceoso);
+		add(new JLabel("RECEOSO"));
 
 		boxReceoso = new JComboBox<String>();
 		boxReceoso.addItem("");
@@ -1646,8 +1445,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxReceoso.addItem("NÃO");
 		add(boxReceoso);
 
-		labelReservado = new JLabel("RESERVADO");
-		add(labelReservado);
+		add(new JLabel("RESERVADO"));
 
 		boxReservado = new JComboBox<String>();
 		boxReservado.addItem("");
@@ -1655,8 +1453,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxReservado.addItem("NÃO");
 		add(boxReservado);
 
-		labelRespeitoso = new JLabel("RESPEITOSO");
-		add(labelRespeitoso);
+		add(new JLabel("RESPEITOSO"));
 
 		boxRespeitoso = new JComboBox<String>();
 		boxRespeitoso.addItem("");
@@ -1664,8 +1461,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxRespeitoso.addItem("NÃO");
 		add(boxRespeitoso);
 
-		labelSarcastico = new JLabel("SARCÁSTICO");
-		add(labelSarcastico);
+		add(new JLabel("SARCÁSTICO"));
 
 		boxSarcastico = new JComboBox<String>();
 		boxSarcastico.addItem("");
@@ -1673,8 +1469,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxSarcastico.addItem("NÃO");
 		add(boxSarcastico);
 
-		labelSeguro = new JLabel("SEGURO");
-		add(labelSeguro);
+		add(new JLabel("SEGURO"));
 
 		boxSeguro = new JComboBox<String>();
 		boxSeguro.addItem("");
@@ -1682,8 +1477,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxSeguro.addItem("NÃO");
 		add(boxSeguro);
 
-		labelSemLimites = new JLabel("SEM LIMITES");
-		add(labelSemLimites);
+		add(new JLabel("SEM LIMITES"));
 
 		boxSemLimites = new JComboBox<String>();
 		boxSemLimites.addItem("");
@@ -1691,8 +1485,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxSemLimites.addItem("NÃO");
 		add(boxSemLimites);
 
-		labelSensato = new JLabel("SENSATO");
-		add(labelSensato);
+		add(new JLabel("SENSATO"));
 
 		boxSensato = new JComboBox<String>();
 		boxSensato.addItem("");
@@ -1700,8 +1493,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxSensato.addItem("NÃO");
 		add(boxSensato);
 
-		labelSereno = new JLabel("SERENO");
-		add(labelSereno);
+		add(new JLabel("SERENO"));
 
 		boxSereno = new JComboBox<String>();
 		boxSereno.addItem("");
@@ -1709,8 +1501,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxSereno.addItem("NÃO");
 		add(boxSereno);
 
-		labelSerio = new JLabel("SÉRIO");
-		add(labelSerio);
+		add(new JLabel("SÉRIO"));
 
 		boxSerio = new JComboBox<String>();
 		boxSerio.addItem("");
@@ -1718,8 +1509,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxSerio.addItem("NÃO");
 		add(boxSerio);
 
-		labelSimpatico = new JLabel("SIMPÁTICO");
-		add(labelSimpatico);
+		add(new JLabel("SIMPÁTICO"));
 
 		boxSimpatico = new JComboBox<String>();
 		boxSimpatico.addItem("");
@@ -1727,8 +1517,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxSimpatico.addItem("NÃO");
 		add(boxSimpatico);
 
-		labelSistematico = new JLabel("SISTEMÁTICO");
-		add(labelSistematico);
+		add(new JLabel("SISTEMÁTICO"));
 
 		boxSistematico = new JComboBox<String>();
 		boxSistematico.addItem("");
@@ -1736,8 +1525,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxSistematico.addItem("NÃO");
 		add(boxSistematico);
 
-		labelSociavel = new JLabel("SOCIÁVEL");
-		add(labelSociavel);
+		add(new JLabel("SOCIÁVEL"));
 
 		boxSociavel = new JComboBox<String>();
 		boxSociavel.addItem("");
@@ -1745,8 +1533,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxSociavel.addItem("NÃO");
 		add(boxSociavel);
 
-		labelTeimoso = new JLabel("TEIMOSO");
-		add(labelTeimoso);
+		add(new JLabel("TEIMOSO"));
 
 		boxTeimoso = new JComboBox<String>();
 		boxTeimoso.addItem("");
@@ -1754,8 +1541,7 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 		boxTeimoso.addItem("NÃO");
 		add(boxTeimoso);
 
-		labelVersatil = new JLabel("VERSÁTIL");
-		add(labelVersatil);
+		add(new JLabel("VERSÁTIL"));
 
 		boxVersatil = new JComboBox<String>();
 		boxVersatil.addItem("");
@@ -1773,11 +1559,6 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 	@Override
 	public void iniciarGuiControlador() {
 		configuracaoGui = new ConfiguracaoGui(this);
-	}
-
-	@Override
-	public void iniciarControlador() {
-
 	}
 
 	@Override
@@ -1811,10 +1592,5 @@ public final class CaracteristicaPc extends JPanel implements Gui {
 					.getFuncionario();
 			boxFuncionario.setSelectedItem(funcionario);
 		}
-	}
-
-	@Override
-	public ConfiguracaoGui getConfiguracaoGui() {
-		return configuracaoGui;
 	}
 }

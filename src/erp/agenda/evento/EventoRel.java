@@ -14,11 +14,11 @@ import arquitetura.relatorio.Relatorio;
 
 public class EventoRel {
 
-	private PdfWriter writer = null;
-	private Document document = new Document();
 	private String arquivo = "agenda.pdf";
-	private String titulo = "AGENDA";
+	private Document document = new Document();
 	private Relatorio relatorio = new Relatorio();
+	private String titulo = "AGENDA";
+	private PdfWriter writer = null;
 
 	public EventoRel(List<Evento> eventos) {
 		try {

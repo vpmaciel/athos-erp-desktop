@@ -26,13 +26,19 @@ public final class BancoFp extends JFrame implements Gui {
 
 	}
 
+	public BancoPp getBancoPp() {
+		return BancoPp;
+	}
+
 	@Override
 	public ConfiguracaoGui getConfiguracaoGui() {
 		return null;
 	}
 
-	public BancoPp getBancoPp() {
-		return BancoPp;
+	@Override
+	public void iniciarControlador() {
+		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
+		BancoPp.iniciarControlador();
 	}
 
 	@Override
@@ -50,12 +56,6 @@ public final class BancoFp extends JFrame implements Gui {
 	@Override
 	public void iniciarGuiControlador() {
 
-	}
-
-	@Override
-	public void iniciarControlador() {
-		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
-		BancoPp.iniciarControlador();
 	}
 
 	@Override

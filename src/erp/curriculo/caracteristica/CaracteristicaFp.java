@@ -26,13 +26,19 @@ public final class CaracteristicaFp extends JFrame implements Gui {
 
 	}
 
+	public CaracteristicaPp getCertificadoPp() {
+		return caracteristicaPp;
+	}
+
 	@Override
 	public ConfiguracaoGui getConfiguracaoGui() {
 		return null;
 	}
 
-	public CaracteristicaPp getCertificadoPp() {
-		return caracteristicaPp;
+	@Override
+	public void iniciarControlador() {
+		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
+		caracteristicaPp.iniciarControlador();
 	}
 
 	@Override
@@ -50,12 +56,6 @@ public final class CaracteristicaFp extends JFrame implements Gui {
 	@Override
 	public void iniciarGuiControlador() {
 
-	}
-
-	@Override
-	public void iniciarControlador() {
-		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
-		caracteristicaPp.iniciarControlador();
 	}
 
 	@Override

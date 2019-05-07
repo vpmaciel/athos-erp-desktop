@@ -90,25 +90,6 @@ final class EventoCont {
 		}
 	}
 
-	public class Relatorio implements ActionListener {
-
-		@Override
-		public void actionPerformed(ActionEvent actionEvent) {
-
-			List<Evento> eventos = new LinkedList<>();
-
-			try {
-				eventos = new LinkedList<>(EventoFac.pesquisarRegistro(new Evento()));
-			} catch (Exception e) {
-				System.out.println(e);
-			}
-
-			EventoRel eventoRel = new EventoRel(eventos);
-			eventoRel.retornarRelatorio(true);
-
-		}
-	}
-
 	public class Imprime implements ActionListener {
 
 		@Override
@@ -126,7 +107,6 @@ final class EventoCont {
 
 		}
 	}
-
 
 	public class Novo implements ActionListener {
 
@@ -164,6 +144,25 @@ final class EventoCont {
 		}
 	}
 
+	public class Relatorio implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent actionEvent) {
+
+			List<Evento> eventos = new LinkedList<>();
+
+			try {
+				eventos = new LinkedList<>(EventoFac.pesquisarRegistro(new Evento()));
+			} catch (Exception e) {
+				System.out.println(e);
+			}
+
+			EventoRel eventoRel = new EventoRel(eventos);
+			eventoRel.retornarRelatorio(true);
+
+		}
+	}
+
 	public class SaidaSistema implements ActionListener {
 
 		@Override
@@ -194,7 +193,7 @@ final class EventoCont {
 					Msg.avisoCampoObrigatorio("Data");
 					return;
 				}
-				
+
 				if (mensagem == JOptionPane.YES_OPTION) {
 					atualizarObjeto();
 					EventoFac.salvarRegistro(evento);
@@ -230,24 +229,24 @@ final class EventoCont {
 		evento.setTipoEvento((TipoEvento) getEventoPc().getTipoEventoGui().getSelectedItem());
 	}
 
-	public EventoFc getEventoFc() {
-		return MainCont.getAgendaEventoFc();
+	public Evento getEvento() {
+		return evento;
 	}
 
-	public EventoPc getEventoPc() {
-		return MainCont.getAgendaEventoFc().getEventoPc();
+	public EventoFc getEventoFc() {
+		return MainCont.getAgendaEventoFc();
 	}
 
 	public EventoFp getEventoFp() {
 		return MainCont.getAgendaEventoFp();
 	}
 
-	public EventoPp getEventoPp() {
-		return MainCont.getAgendaEventoFp().getEventoPp();
+	public EventoPc getEventoPc() {
+		return MainCont.getAgendaEventoFc().getEventoPc();
 	}
 
-	public Evento getEvento() {
-		return evento;
+	public EventoPp getEventoPp() {
+		return MainCont.getAgendaEventoFp().getEventoPp();
 	}
 
 	public void setEvento(Evento evento) {

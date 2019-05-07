@@ -19,8 +19,8 @@ import arquitetura.gui.Tabela;
 @SuppressWarnings("serial")
 public final class CentroCustoPp extends JPanel {
 
-	private final CentroCustoTm centroCustoTm;
 	List<CentroCusto> centroCustos = null;
+	private final CentroCustoTm centroCustoTm;
 	private final JTable table;
 
 	public CentroCustoPp() {

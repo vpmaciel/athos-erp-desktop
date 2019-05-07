@@ -14,55 +14,55 @@ import javax.persistence.PersistenceContext;
 @Entity
 public class Imovel implements Serializable {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-	@Column(length = 19)
-	private String cnpj;
-	@Column(length = 2)
-	private String cozinha;
+	@Column(length = 50)
+	private String bairro;
 	@Column(length = 2)
 	private String banheiro;
+	@Column(length = 10)
+	private String cep;
+	@Column(length = 50)
+	private String cidade;
+	@Column(length = 19)
+	private String cnpj;
+	@Column(length = 20)
+	private String complemento;
 	@Column(length = 2)
-	private String quarto;
-	@Column(length = 2)
-	private String suite;
+	private String cozinha;
 	@Column(length = 14)
 	private String cpf;
 	@Column(length = 50)
 	private String email;
-	@Column(length = 2)
-	private String varanda;
+	@Column(length = 50)
+	private String estado;
 	@Column(length = 20)
 	private String fax;
 	@Column(length = 20)
 	private String fone1;
 	@Column(length = 20)
 	private String fone2;
-	@Column(length = 50)
-	private String nomeProprietario;
 	@Column(length = 3)
 	private String garagem;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	@Column(length = 50)
+	private String logradouro;
+	@Column(length = 50)
+	private String nomeProprietario;
+	@Column(length = 50)
+	private String pais;
 	@Column(length = 3)
 	private String piscina;
+	@Column(length = 2)
+	private String quarto;
+	@Column(length = 2)
+	private String sala;
+	@Column(length = 2)
+	private String suite;
 	@Column(length = 3)
 	private String terraco;
 	@Column(length = 2)
-	private String sala;
-	@Column(length = 50)
-	private String pais;
-	@Column(length = 50)
-	private String estado;
-	@Column(length = 50)
-	private String cidade;
-	@Column(length = 50)
-	private String bairro;
-	@Column(length = 50)
-	private String logradouro;
-	@Column(length = 20)
-	private String complemento;
-	@Column(length = 10)
-	private String cep;
+	private String varanda;
 
 	public String getBairro() {
 		return this.bairro;

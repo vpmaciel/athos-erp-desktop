@@ -20,8 +20,8 @@ import arquitetura.gui.Imagem;
 @SuppressWarnings("serial")
 public final class FornecedorFc extends JFrame implements Gui {
 
-	private FornecedorCont fornecedorCont;
 	private ConfiguracaoGui configuracaoGui;
+	private FornecedorCont fornecedorCont;
 	private FornecedorPc fornecedorPc;
 
 	public FornecedorFc() {
@@ -37,17 +37,34 @@ public final class FornecedorFc extends JFrame implements Gui {
 
 	}
 
-	public FornecedorCont getFornecedorCont() {
-		return fornecedorCont;
-	}
-
 	@Override
 	public ConfiguracaoGui getConfiguracaoGui() {
 		return configuracaoGui;
 	}
 
+	public FornecedorCont getFornecedorCont() {
+		return fornecedorCont;
+	}
+
 	public FornecedorPc getFornecedorPc() {
 		return fornecedorPc;
+	}
+
+	@Override
+	public void iniciarControlador() {
+		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
+		fornecedorCont = new FornecedorCont();
+		addWindowListener(fornecedorCont.new Frame());
+		fornecedorPc.getTB().getExcluirBtn().addActionListener(fornecedorCont.new Exclui());
+		fornecedorPc.getTB().getNovoBtn().addActionListener(fornecedorCont.new Novo());
+		fornecedorPc.getTB().getPesquisarBtn().addActionListener(fornecedorCont.new Pesquisa());
+		fornecedorPc.getTB().getImprimirBtn().addActionListener(fornecedorCont.new Imprime());
+		fornecedorPc.getTB().getRelatorioBtn().addActionListener(fornecedorCont.new Relatorio());
+		fornecedorPc.getTB().getSalvarBtn().addActionListener(fornecedorCont.new Salva());
+		fornecedorPc.getTB().getFecharBtn().addActionListener(fornecedorCont.new FechaJanela());
+		fornecedorPc.getTB().getSairBtn().addActionListener(fornecedorCont.new SaidaSistema());
+		fornecedorPc.getTB().getAjudaBtn().addActionListener(fornecedorCont.new Ajuda());
+		fornecedorPc.getTB().getHomeBtn().addActionListener(fornecedorCont.new Home());
 	}
 
 	@Override
@@ -89,23 +106,6 @@ public final class FornecedorFc extends JFrame implements Gui {
 	@Override
 	public void iniciarGuiControlador() {
 		configuracaoGui = new ConfiguracaoGui(this);
-	}
-
-	@Override
-	public void iniciarControlador() {
-		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
-		fornecedorCont = new FornecedorCont();
-		addWindowListener(fornecedorCont.new Frame());
-		fornecedorPc.getTB().getExcluirBtn().addActionListener(fornecedorCont.new Exclui());
-		fornecedorPc.getTB().getNovoBtn().addActionListener(fornecedorCont.new Novo());
-		fornecedorPc.getTB().getPesquisarBtn().addActionListener(fornecedorCont.new Pesquisa());
-		fornecedorPc.getTB().getImprimirBtn().addActionListener(fornecedorCont.new Imprime());
-		fornecedorPc.getTB().getRelatorioBtn().addActionListener(fornecedorCont.new Relatorio());
-		fornecedorPc.getTB().getSalvarBtn().addActionListener(fornecedorCont.new Salva());
-		fornecedorPc.getTB().getFecharBtn().addActionListener(fornecedorCont.new FechaJanela());
-		fornecedorPc.getTB().getSairBtn().addActionListener(fornecedorCont.new SaidaSistema());
-		fornecedorPc.getTB().getAjudaBtn().addActionListener(fornecedorCont.new Ajuda());
-		fornecedorPc.getTB().getHomeBtn().addActionListener(fornecedorCont.new Home());
 	}
 
 	@Override

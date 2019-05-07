@@ -25,43 +25,14 @@ import erp.main.MainCont;
 @SuppressWarnings("serial")
 public final class CertificadoPc extends JPanel implements Gui {
 
-	private ToolBar toolBar;
-	private ConfiguracaoGui configuracaoGui;
-	private JLabel labelFuncionario;
 	private JComboBox<Funcionario> boxFuncionario;
-	private JLabel labelInstituicao;
-	private JTextField textFieldInstituicao;
-	private JLabel labelCurso;
-	private JTextField textFieldCurso;
-	private JLabel labelCargaHoraria;
-	private JTextField textFieldCargaHoraria;
-	private JLabel labelAnoConclusao;
-	private JTextField textFieldAnoConclusao;
-
-	
-	public JLabel getLabelFuncionario() {
-		return labelFuncionario;
-	}
-	
-	public JComboBox<Funcionario> getGuiFuncionario() {
-		return boxFuncionario;
-	}
-
-	public JTextField getGuiInstituicao() {
-		return textFieldInstituicao;
-	}
-
-	public JTextField getGuiCurso() {
-		return textFieldCurso;
-	}
-
-	public JTextField getGuiCargaHoraria() {
-		return textFieldCargaHoraria;
-	}
-
-	public JTextField getGuiAnoConclusao() {
-		return textFieldAnoConclusao;
-	}
+	private ConfiguracaoGui configuracaoGui;
+	private JTextField fieldAnoConclusao;
+	private JTextField fieldCargaHoraria;
+	private JTextField fieldCurso;
+	private JTextField fieldInstituicao;
+	private JLabel labelFuncionario;
+	private ToolBar toolBar;
 
 	public CertificadoPc() {
 		iniciarLayout();
@@ -75,8 +46,42 @@ public final class CertificadoPc extends JPanel implements Gui {
 
 	}
 
+	@Override
+	public ConfiguracaoGui getConfiguracaoGui() {
+		return configuracaoGui;
+	}
+
+	public JTextField getGuiAnoConclusao() {
+		return fieldAnoConclusao;
+	}
+
+	public JTextField getGuiCargaHoraria() {
+		return fieldCargaHoraria;
+	}
+
+	public JTextField getGuiCurso() {
+		return fieldCurso;
+	}
+
+	public JComboBox<Funcionario> getGuiFuncionario() {
+		return boxFuncionario;
+	}
+
+	public JTextField getGuiInstituicao() {
+		return fieldInstituicao;
+	}
+
+	public JLabel getLabelFuncionario() {
+		return labelFuncionario;
+	}
+
 	public ToolBar getTB() {
 		return toolBar;
+	}
+
+	@Override
+	public void iniciarControlador() {
+
 	}
 
 	@Override
@@ -105,33 +110,29 @@ public final class CertificadoPc extends JPanel implements Gui {
 		}
 		add(boxFuncionario);
 
-		labelInstituicao = new JLabel("INSTITUIÇÃO");
-		add(labelInstituicao);
+		add(new JLabel("INSTITUIÇÃO"));
 
-		textFieldInstituicao = new JTextField();
-		textFieldInstituicao.setDocument(new EntradaMaiuscula(50));
-		add(textFieldInstituicao);
+		fieldInstituicao = new JTextField();
+		fieldInstituicao.setDocument(new EntradaMaiuscula(50));
+		add(fieldInstituicao);
 
-		labelCurso = new JLabel("CURSO");
-		add(labelCurso);
+		add(new JLabel("CURSO"));
 
-		textFieldCurso = new JTextField();
-		textFieldCurso.setDocument(new EntradaMaiuscula(50));
-		add(textFieldCurso);
+		fieldCurso = new JTextField();
+		fieldCurso.setDocument(new EntradaMaiuscula(50));
+		add(fieldCurso);
 
-		labelAnoConclusao = new JLabel("ANO CONCLUSÃO");
-		add(labelAnoConclusao);
+		add(new JLabel("ANO CONCLUSÃO"));
 
-		textFieldAnoConclusao = new JTextField();
-		textFieldAnoConclusao.setDocument(new EntradaMaiuscula(4));
-		add(textFieldAnoConclusao);
+		fieldAnoConclusao = new JTextField();
+		fieldAnoConclusao.setDocument(new EntradaMaiuscula(4));
+		add(fieldAnoConclusao);
 
-		labelCargaHoraria = new JLabel("CARGA HORÁRIA");
-		add(labelCargaHoraria);
+		add(new JLabel("CARGA HORÁRIA"));
 
-		textFieldCargaHoraria = new JTextField();
-		textFieldCargaHoraria.setDocument(new EntradaMaiuscula(5));
-		add(textFieldCargaHoraria);
+		fieldCargaHoraria = new JTextField();
+		fieldCargaHoraria.setDocument(new EntradaMaiuscula(5));
+		add(fieldCargaHoraria);
 
 		// Lay out the panel.
 		SpringUtilities.makeCompactGrid(this, 11, 1, // rows, cols
@@ -143,11 +144,6 @@ public final class CertificadoPc extends JPanel implements Gui {
 	@Override
 	public void iniciarGuiControlador() {
 		configuracaoGui = new ConfiguracaoGui(this);
-	}
-
-	@Override
-	public void iniciarControlador() {
-
 	}
 
 	@Override
@@ -181,10 +177,5 @@ public final class CertificadoPc extends JPanel implements Gui {
 			funcionario = MainCont.getCurriculoCertificadoFc().getCertificadoCont().getCertificado().getFuncionario();
 			boxFuncionario.setSelectedItem(funcionario);
 		}
-	}
-
-	@Override
-	public ConfiguracaoGui getConfiguracaoGui() {
-		return configuracaoGui;
 	}
 }

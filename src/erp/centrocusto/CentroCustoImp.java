@@ -17,6 +17,38 @@ import arquitetura.JPA;
 final class CentroCustoImp implements CentroCustoDao {
 
 	@Override
+	public CentroCusto consultarRegistro(CentroCusto centroCusto) {
+
+		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
+		EntityTransaction tx = entityManager.getTransaction();
+		tx.begin();
+
+		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+		CriteriaQuery<CentroCusto> criteriaQuery = criteriaBuilder.createQuery(CentroCusto.class);
+		Root<CentroCusto> rootCentroCusto = criteriaQuery.from(CentroCusto.class);
+
+		List<Predicate> predicates = new ArrayList<Predicate>();
+
+		boolean naoTemCriterio = true;
+
+		if (centroCusto.getNome() != null && centroCusto.getNome().length() > 0) {
+			predicates.add(criteriaBuilder.equal(rootCentroCusto.get("nome"), centroCusto.getNome()));
+			naoTemCriterio = false;
+		}
+
+		if (naoTemCriterio) {
+			return new CentroCusto();
+		}
+
+		criteriaQuery.select(rootCentroCusto).where(predicates.toArray(new Predicate[] {}));
+
+		List<CentroCusto> list = entityManager.createQuery(criteriaQuery).getResultList();
+		tx.commit();
+		entityManager.close();
+		return list.size() > 0 ? list.get(0) : new CentroCusto();
+	}
+
+	@Override
 	public void deletarRegistro(CentroCusto centroCusto) {
 		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
 		EntityTransaction tx = em.getTransaction();
@@ -24,14 +56,6 @@ final class CentroCustoImp implements CentroCustoDao {
 		em.remove(em.find(CentroCusto.class, centroCusto.getId()));
 		tx.commit();
 		em.close();
-	}
-
-	@Override
-	public CentroCusto getRegistro(CentroCusto centroCusto) {
-		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction tx = em.getTransaction();
-		tx.begin();
-		return em.find(CentroCusto.class, centroCusto.getId());
 	}
 
 	@Override
@@ -45,6 +69,14 @@ final class CentroCustoImp implements CentroCustoDao {
 		tx.commit();
 		em.close();
 		return list;
+	}
+
+	@Override
+	public CentroCusto getRegistro(CentroCusto centroCusto) {
+		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
+		EntityTransaction tx = em.getTransaction();
+		tx.begin();
+		return em.find(CentroCusto.class, centroCusto.getId());
 	}
 
 	@Override
@@ -75,39 +107,6 @@ final class CentroCustoImp implements CentroCustoDao {
 		entityManager.close();
 		return list;
 	}
-	
-	@Override
-	public CentroCusto consultarRegistro(CentroCusto centroCusto) {
-
-		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction tx = entityManager.getTransaction();
-		tx.begin();
-
-		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
-		CriteriaQuery<CentroCusto> criteriaQuery = criteriaBuilder.createQuery(CentroCusto.class);
-		Root<CentroCusto> rootCentroCusto = criteriaQuery.from(CentroCusto.class);
-
-		List<Predicate> predicates = new ArrayList<Predicate>();
-
-		boolean naoTemCriterio = true;
-
-		if (centroCusto.getNome() != null && centroCusto.getNome().length() > 0) {
-			predicates.add(criteriaBuilder.equal(rootCentroCusto.get("nome"),centroCusto.getNome()));
-			naoTemCriterio = false;
-		}
-		
-		if (naoTemCriterio) {
-			return new CentroCusto();
-		}
-
-		criteriaQuery.select(rootCentroCusto).where(predicates.toArray(new Predicate[] {}));
-
-		List<CentroCusto> list = entityManager.createQuery(criteriaQuery).getResultList();
-		tx.commit();
-		entityManager.close();
-		return list.size() > 0 ? list.get(0) : new CentroCusto();
-	}
-
 
 	@Override
 	public void salvarRegistro(CentroCusto centroCusto) {

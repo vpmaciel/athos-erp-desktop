@@ -13,17 +13,16 @@ import erp.usuario.UsuarioUtil;
 public class ERP {
 
 	public static void main(String[] args) {
-		
+
 		try {
-			String separador = System.getProperty("file.separator");  
+			String separador = System.getProperty("file.separator");
 			String caminhoArquivo = "C:" + separador + "athos" + separador + "mensagens_de_log";
 			File arquivo = new File(caminhoArquivo);
-			arquivo.mkdir();	
+			arquivo.mkdir();
 		} catch (Exception e) {
 			Msg.erroCriarPasta();
 		}
-		
-		
+
 		try {
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 		} catch (ClassNotFoundException | IllegalAccessException | InstantiationException

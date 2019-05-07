@@ -16,6 +16,42 @@ import arquitetura.JPA;
 final class BancoImp implements BancoDao {
 
 	@Override
+	public Banco consultarRegistro(Banco banco) {
+
+		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
+		EntityTransaction tx = entityManager.getTransaction();
+		tx.begin();
+
+		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+		CriteriaQuery<Banco> criteriaQuery = criteriaBuilder.createQuery(Banco.class);
+		Root<Banco> rootBanco = criteriaQuery.from(Banco.class);
+
+		List<Predicate> predicates = new ArrayList<Predicate>();
+
+		boolean naoTemCriterio = true;
+
+		if (banco.getNome() != null && banco.getNome().length() > 0) {
+			predicates.add(criteriaBuilder.equal(rootBanco.get("nome"), banco.getNome()));
+			naoTemCriterio = false;
+		}
+		if (banco.getCodigo() != null && banco.getCodigo().length() > 0) {
+			predicates.add(criteriaBuilder.equal(rootBanco.get("codigo"), banco.getCodigo()));
+			naoTemCriterio = false;
+		}
+
+		if (naoTemCriterio) {
+			return new Banco();
+		}
+
+		criteriaQuery.select(rootBanco).where(predicates.toArray(new Predicate[] {}));
+
+		List<Banco> list = entityManager.createQuery(criteriaQuery).getResultList();
+		tx.commit();
+		entityManager.close();
+		return list.size() > 0 ? list.get(0) : new Banco();
+	}
+
+	@Override
 	public void deletarRegistro(Banco banco) {
 		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
 		EntityTransaction tx = em.getTransaction();
@@ -23,14 +59,6 @@ final class BancoImp implements BancoDao {
 		em.remove(em.find(Banco.class, banco.getId()));
 		tx.commit();
 		em.close();
-	}
-
-	@Override
-	public Banco getRegistro(Banco banco) {
-		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction tx = em.getTransaction();
-		tx.begin();
-		return em.find(Banco.class, banco.getId());
 	}
 
 	@Override
@@ -45,6 +73,14 @@ final class BancoImp implements BancoDao {
 		tx.commit();
 		em.close();
 		return list;
+	}
+
+	@Override
+	public Banco getRegistro(Banco banco) {
+		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
+		EntityTransaction tx = em.getTransaction();
+		tx.begin();
+		return em.find(Banco.class, banco.getId());
 	}
 
 	@Override
@@ -76,42 +112,6 @@ final class BancoImp implements BancoDao {
 		tx.commit();
 		entityManager.close();
 		return list;
-	}
-
-	@Override
-	public Banco consultarRegistro(Banco banco) {
-
-		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction tx = entityManager.getTransaction();
-		tx.begin();
-
-		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
-		CriteriaQuery<Banco> criteriaQuery = criteriaBuilder.createQuery(Banco.class);
-		Root<Banco> rootBanco = criteriaQuery.from(Banco.class);
-
-		List<Predicate> predicates = new ArrayList<Predicate>();
-		
-		boolean naoTemCriterio = true;
-		
-		if (banco.getNome() != null && banco.getNome().length() > 0) {
-			predicates.add(criteriaBuilder.equal(rootBanco.get("nome"), banco.getNome()));
-			naoTemCriterio = false;
-		}
-		if (banco.getCodigo() != null && banco.getCodigo().length() > 0) {
-			predicates.add(criteriaBuilder.equal(rootBanco.get("codigo"), banco.getCodigo()));
-			naoTemCriterio = false;
-		}
-		
-		if(naoTemCriterio) {
-			return new Banco();
-		}
-
-		criteriaQuery.select(rootBanco).where(predicates.toArray(new Predicate[] {}));
-
-		List<Banco> list = entityManager.createQuery(criteriaQuery).getResultList();
-		tx.commit();
-		entityManager.close();
-		return list.size() > 0 ? list.get(0) : new Banco();
 	}
 
 	@Override

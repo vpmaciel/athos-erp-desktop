@@ -17,6 +17,10 @@ public final class Mascara {
 		return mascara;
 	}
 
+	public static final String getAnoVazio() {
+		return "    ";
+	}
+
 	public static final MaskFormatter getCei() {
 		MaskFormatter mascara = null;
 		try {
@@ -110,21 +114,6 @@ public final class Mascara {
 		return "  /  /    ";
 	}
 
-	public static final MaskFormatter getHora() {
-		MaskFormatter mascara = null;
-		try {
-			mascara = new MaskFormatter("##:##");
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
-		mascara.setPlaceholder("##:##");
-		return mascara;
-	}
-
-	public static final String getHoraVazio() {
-		return "  :  ";
-	}
-
 	public static final MaskFormatter getFax() {
 		MaskFormatter mascara = null;
 		try {
@@ -153,6 +142,21 @@ public final class Mascara {
 
 	public static final String getFoneVazio() {
 		return "(  )  -    -    ";
+	}
+
+	public static final MaskFormatter getHora() {
+		MaskFormatter mascara = null;
+		try {
+			mascara = new MaskFormatter("##:##");
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		mascara.setPlaceholder("##:##");
+		return mascara;
+	}
+
+	public static final String getHoraVazio() {
+		return "  :  ";
 	}
 
 	public static final MaskFormatter getPis() {

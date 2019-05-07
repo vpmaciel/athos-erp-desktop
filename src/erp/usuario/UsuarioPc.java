@@ -18,13 +18,11 @@ import arquitetura.validacao.RegExp;
 @SuppressWarnings("serial")
 public final class UsuarioPc extends JPanel implements Gui {
 
-	private UsuarioCont usuarioCont;
-	private JTextField textFieldSenha;
-	private JTextField textFieldNome;
 	private ConfiguracaoGui configuracaoGui;
-	private JLabel labelSenha;
-	private JLabel labelNome;
+	private JTextField fieldNome;
+	private JTextField fieldSenha;
 	private ToolBar toolBar;
+	private UsuarioCont usuarioCont;
 
 	public UsuarioPc() {
 		iniciarLayout();
@@ -43,11 +41,11 @@ public final class UsuarioPc extends JPanel implements Gui {
 	}
 
 	public JTextField getGuiNome() {
-		return textFieldNome;
+		return fieldNome;
 	}
 
 	public JTextField getGuiSenha() {
-		return textFieldSenha;
+		return fieldSenha;
 	}
 
 	public ToolBar getTB() {
@@ -56,6 +54,10 @@ public final class UsuarioPc extends JPanel implements Gui {
 
 	public UsuarioCont getUsuarioCont() {
 		return usuarioCont;
+	}
+
+	@Override
+	public void iniciarControlador() {
 	}
 
 	@Override
@@ -69,27 +71,30 @@ public final class UsuarioPc extends JPanel implements Gui {
 		toolBar = new ToolBar();
 
 		add(toolBar.getToolBar());
-		labelNome = new JLabel("NOME");
-		add(labelNome);
-		textFieldNome = new JTextField();
-		textFieldNome.setDocument(new EntradaMaiuscula(10));
-		add(textFieldNome);
-		labelSenha = new JLabel("SENHA");
-		add(labelSenha);
-		textFieldSenha = new JTextField();
-		textFieldSenha.setDocument(new EntradaMaiuscula(10));
-		add(textFieldSenha);
-		SpringUtilities.makeCompactGrid(this, 5, 1, 5, 5, 5, 5);
+
+		add(new JLabel("NOME"));
+
+		fieldNome = new JTextField();
+		fieldNome.setDocument(new EntradaMaiuscula(10));
+		add(fieldNome);
+
+		add(new JLabel("SENHA"));
+
+		fieldSenha = new JTextField();
+		fieldSenha.setDocument(new EntradaMaiuscula(10));
+		add(fieldSenha);
+
+		// Lay out the panel.
+		SpringUtilities.makeCompactGrid(this, 5, 1, // rows, cols
+				5, 5, // initX, initY
+				5, 5); // xPad, yPad
+
 		setOpaque(true);
 	}
 
 	@Override
 	public void iniciarGuiControlador() {
 		configuracaoGui = new ConfiguracaoGui(this);
-	}
-
-	@Override
-	public void iniciarControlador() {
 	}
 
 	@Override
@@ -112,10 +117,10 @@ public final class UsuarioPc extends JPanel implements Gui {
 	}
 
 	public boolean validarGui() {
-		if (!Entrada.validar(textFieldNome, labelNome, RegExp.NOME, true)) {
+		if (!Entrada.validar(fieldNome, "NOME", RegExp.NOME, true)) {
 			return false;
 		}
-		if (!Entrada.validar(textFieldSenha, labelSenha, RegExp.NUMERO_BANCO, false)) {
+		if (!Entrada.validar(fieldSenha, "SENHA", RegExp.NUMERO_BANCO, false)) {
 			return false;
 		}
 		return true;

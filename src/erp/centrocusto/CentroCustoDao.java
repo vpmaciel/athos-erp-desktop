@@ -4,15 +4,15 @@ import java.util.Collection;
 
 interface CentroCustoDao {
 
-	void deletarRegistro(CentroCusto centroCusto);
+	CentroCusto consultarRegistro(CentroCusto centroCusto);
 
-	CentroCusto getRegistro(CentroCusto centroCusto);
+	void deletarRegistro(CentroCusto centroCusto);
 
 	Collection<CentroCusto> getRegistro();
 
-	Collection<CentroCusto> pesquisarRegistro(CentroCusto centroCusto);
+	CentroCusto getRegistro(CentroCusto centroCusto);
 
-	CentroCusto consultarRegistro(CentroCusto centroCusto);
+	Collection<CentroCusto> pesquisarRegistro(CentroCusto centroCusto);
 
 	void salvarRegistro(CentroCusto centroCusto);
 }

@@ -13,14 +13,7 @@ public class UsuarioTm extends AbstractTableModel {
 	public static final int ID = 0;
 	public static int[] largura;
 	private static boolean[] podeEditar;
-	private List<Usuario> usuarioList = new LinkedList<>();
-	private Usuario usuario;
 	private static TabelaModelo tabelaModelo = new TabelaModelo();
-
-	public UsuarioTm() {
-
-	}
-
 	static {
 		tabelaModelo.adicionar("ID", 0, 100);
 		tabelaModelo.adicionar("NOME", 1, 500);
@@ -32,20 +25,16 @@ public class UsuarioTm extends AbstractTableModel {
 			podeEditar[i] = false;
 		}
 	}
+	private Usuario usuario;
+
+	private List<Usuario> usuarioList = new LinkedList<>();
+
+	public UsuarioTm() {
+
+	}
 
 	public UsuarioTm(List<Usuario> lista) {
 		usuarioList.addAll(lista);
-	}
-
-	public Usuario getUsuario(int linha) {
-		if (usuarioList.size() > 0) {
-			return usuarioList.get(linha);
-		}
-		return null;
-	}
-
-	public List<Usuario> getUsuarioList() {
-		return usuarioList;
 	}
 
 	@Override
@@ -71,6 +60,17 @@ public class UsuarioTm extends AbstractTableModel {
 	@Override
 	public int getRowCount() {
 		return usuarioList.size();
+	}
+
+	public Usuario getUsuario(int linha) {
+		if (usuarioList.size() > 0) {
+			return usuarioList.get(linha);
+		}
+		return null;
+	}
+
+	public List<Usuario> getUsuarioList() {
+		return usuarioList;
 	}
 
 	@Override

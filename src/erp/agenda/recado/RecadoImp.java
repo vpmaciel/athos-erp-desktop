@@ -28,14 +28,6 @@ final class RecadoImp implements RecadoDao {
 	}
 
 	@Override
-	public Recado getRegistro(Recado recado) {
-		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction tx = em.getTransaction();
-		tx.begin();
-		return em.find(Recado.class, recado.getId());
-	}
-
-	@Override
 	public Collection<Recado> getRegistro() {
 		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
 		EntityTransaction tx = em.getTransaction();
@@ -46,6 +38,24 @@ final class RecadoImp implements RecadoDao {
 		tx.commit();
 		em.close();
 		return list;
+	}
+
+	@Override
+	public Recado getRegistro(Recado recado) {
+		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
+		EntityTransaction tx = em.getTransaction();
+		tx.begin();
+		return em.find(Recado.class, recado.getId());
+	}
+
+	private boolean naoEstaVazio(Object objeto) {
+		if (objeto == null) {
+			return false;
+		}
+		if (objeto.toString().equals("")) {
+			return false;
+		}
+		return true;
 	}
 
 	@Override
@@ -92,15 +102,5 @@ final class RecadoImp implements RecadoDao {
 		em.merge(recado);
 		tx.commit();
 		em.close();
-	}
-
-	private boolean naoEstaVazio(Object objeto) {
-		if (objeto == null) {
-			return false;
-		}
-		if (objeto.toString().equals("")) {
-			return false;
-		}
-		return true;
 	}
 }

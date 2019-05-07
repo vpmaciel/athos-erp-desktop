@@ -20,9 +20,9 @@ import arquitetura.gui.Imagem;
 @SuppressWarnings("serial")
 public final class RecadoFc extends JFrame implements Gui {
 
-	private RecadoCont recadoCont;
 	private ConfiguracaoGui guiConfiguracao;
 	private RecadoPc pcRecado;
+	private RecadoCont recadoCont;
 
 	public RecadoFc() {
 		iniciarLayout();
@@ -42,12 +42,30 @@ public final class RecadoFc extends JFrame implements Gui {
 		return guiConfiguracao;
 	}
 
+	public RecadoCont getRecadoCont() {
+		return recadoCont;
+	}
+
 	public RecadoPc getRecadoPc() {
 		return pcRecado;
 	}
 
-	public RecadoCont getRecadoCont() {
-		return recadoCont;
+	@Override
+	public void iniciarControlador() {
+		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
+		recadoCont = new RecadoCont();
+		addWindowListener(recadoCont.new Frame());
+		pcRecado.getToolBar().getExcluirBtn().addActionListener(recadoCont.new Exclui());
+		pcRecado.getToolBar().getNovoBtn().addActionListener(recadoCont.new Novo());
+		pcRecado.getToolBar().getPesquisarBtn().addActionListener(recadoCont.new Pesquisa());
+		pcRecado.getToolBar().getImprimirBtn().addActionListener(recadoCont.new Imprime());
+		pcRecado.getToolBar().getRelatorioBtn().addActionListener(recadoCont.new Relatorio());
+		pcRecado.getToolBar().getSalvarBtn().addActionListener(recadoCont.new Salva());
+		pcRecado.getToolBar().getFecharBtn().addActionListener(recadoCont.new FechaJanela());
+		pcRecado.getToolBar().getSairBtn().addActionListener(recadoCont.new SaidaSistema());
+		pcRecado.getToolBar().getAjudaBtn().addActionListener(recadoCont.new Ajuda());
+		pcRecado.getToolBar().getHomeBtn().addActionListener(recadoCont.new Home());
+
 	}
 
 	@Override
@@ -90,24 +108,6 @@ public final class RecadoFc extends JFrame implements Gui {
 	@Override
 	public void iniciarGuiControlador() {
 		guiConfiguracao = new ConfiguracaoGui(this);
-	}
-
-	@Override
-	public void iniciarControlador() {
-		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
-		recadoCont = new RecadoCont();
-		addWindowListener(recadoCont.new Frame());
-		pcRecado.getToolBar().getExcluirBtn().addActionListener(recadoCont.new Exclui());
-		pcRecado.getToolBar().getNovoBtn().addActionListener(recadoCont.new Novo());
-		pcRecado.getToolBar().getPesquisarBtn().addActionListener(recadoCont.new Pesquisa());
-		pcRecado.getToolBar().getImprimirBtn().addActionListener(recadoCont.new Imprime());
-		pcRecado.getToolBar().getRelatorioBtn().addActionListener(recadoCont.new Relatorio());
-		pcRecado.getToolBar().getSalvarBtn().addActionListener(recadoCont.new Salva());
-		pcRecado.getToolBar().getFecharBtn().addActionListener(recadoCont.new FechaJanela());
-		pcRecado.getToolBar().getSairBtn().addActionListener(recadoCont.new SaidaSistema());
-		pcRecado.getToolBar().getAjudaBtn().addActionListener(recadoCont.new Ajuda());
-		pcRecado.getToolBar().getHomeBtn().addActionListener(recadoCont.new Home());
-
 	}
 
 	@Override

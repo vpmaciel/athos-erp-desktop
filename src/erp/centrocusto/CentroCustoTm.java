@@ -13,14 +13,7 @@ public class CentroCustoTm extends AbstractTableModel {
 	public static final int ID = 0;
 	public static int[] largura;
 	private static boolean[] podeEditar;
-	private List<CentroCusto> centroCustoList = new LinkedList<>();
-	private CentroCusto centroCusto;
 	private static TabelaModelo tabelaModelo = new TabelaModelo();
-
-	public CentroCustoTm() {
-
-	}
-
 	static {
 		tabelaModelo.adicionar("ID", 0, 100);
 		tabelaModelo.adicionar("NOME", 1, 500);
@@ -31,6 +24,13 @@ public class CentroCustoTm extends AbstractTableModel {
 			largura[i] = tabelaModelo.getLargura(i);
 			podeEditar[i] = false;
 		}
+	}
+	private CentroCusto centroCusto;
+
+	private List<CentroCusto> centroCustoList = new LinkedList<>();
+
+	public CentroCustoTm() {
+
 	}
 
 	public CentroCustoTm(List<CentroCusto> lista) {

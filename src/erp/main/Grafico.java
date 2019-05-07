@@ -29,16 +29,16 @@ import arquitetura.data.Data;
 
 public class Grafico {
 
+	public static void main(String[] args) throws FileNotFoundException, DocumentException, IOException {
+		(new Grafico()).create(new FileOutputStream(new File("ugly-demo.pdf")));
+	}
+
 	final JFreeChart chart;
 
 	public Grafico() {
 		final CategoryDataset dataset = createDataset();
 		chart = createChart(dataset);
 
-	}
-
-	public static void main(String[] args) throws FileNotFoundException, DocumentException, IOException {
-		(new Grafico()).create(new FileOutputStream(new File("ugly-demo.pdf")));
 	}
 
 	/**
@@ -100,6 +100,52 @@ public class Grafico {
 	}
 
 	/**
+	 * Creates a sample chart.
+	 * 
+	 * @param dataset a dataset.
+	 * 
+	 * @return The chart.
+	 */
+	private JFreeChart createChart(final CategoryDataset dataset) {
+
+		// create the chart...
+		final JFreeChart chart = ChartFactory.createLineChart("Variação de preços", // chart title
+				"Mês", // domain axis label
+				"Aumento Valor (R$)", // range axis label
+				dataset, // data
+				PlotOrientation.VERTICAL, // orientation
+				true, // include legend
+				true, // tooltips
+				false // urls
+		);
+
+		chart.setBackgroundPaint(Color.white);
+
+		final CategoryPlot plot = (CategoryPlot) chart.getPlot();
+		plot.setBackgroundPaint(Color.lightGray);
+		plot.setRangeGridlinePaint(Color.white);
+
+		// customise the range axis...
+		final NumberAxis rangeAxis = (NumberAxis) plot.getRangeAxis();
+		rangeAxis.setStandardTickUnits(NumberAxis.createIntegerTickUnits());
+		rangeAxis.setAutoRangeIncludesZero(true);
+
+		// customise the renderer...
+		final LineAndShapeRenderer renderer = (LineAndShapeRenderer) plot.getRenderer();
+//        renderer.setDrawShapes(true);
+
+		renderer.setSeriesStroke(0, new BasicStroke(2.0f, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND, 1.0f,
+				new float[] { 10.0f, 6.0f }, 0.0f));
+		renderer.setSeriesStroke(1, new BasicStroke(2.0f, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND, 1.0f,
+				new float[] { 6.0f, 6.0f }, 0.0f));
+		renderer.setSeriesStroke(2, new BasicStroke(2.0f, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND, 1.0f,
+				new float[] { 2.0f, 6.0f }, 0.0f));
+		// OPTIONAL CUSTOMISATION COMPLETED.
+
+		return chart;
+	}
+
+	/**
 	 * Creates a sample dataset.
 	 * 
 	 * @return The dataset.
@@ -153,51 +199,5 @@ public class Grafico {
 
 		return dataset;
 
-	}
-
-	/**
-	 * Creates a sample chart.
-	 * 
-	 * @param dataset a dataset.
-	 * 
-	 * @return The chart.
-	 */
-	private JFreeChart createChart(final CategoryDataset dataset) {
-
-		// create the chart...
-		final JFreeChart chart = ChartFactory.createLineChart("Variação de preços", // chart title
-				"Mês", // domain axis label
-				"Aumento Valor (R$)", // range axis label
-				dataset, // data
-				PlotOrientation.VERTICAL, // orientation
-				true, // include legend
-				true, // tooltips
-				false // urls
-		);
-
-		chart.setBackgroundPaint(Color.white);
-
-		final CategoryPlot plot = (CategoryPlot) chart.getPlot();
-		plot.setBackgroundPaint(Color.lightGray);
-		plot.setRangeGridlinePaint(Color.white);
-
-		// customise the range axis...
-		final NumberAxis rangeAxis = (NumberAxis) plot.getRangeAxis();
-		rangeAxis.setStandardTickUnits(NumberAxis.createIntegerTickUnits());
-		rangeAxis.setAutoRangeIncludesZero(true);
-
-		// customise the renderer...
-		final LineAndShapeRenderer renderer = (LineAndShapeRenderer) plot.getRenderer();
-//        renderer.setDrawShapes(true);
-
-		renderer.setSeriesStroke(0, new BasicStroke(2.0f, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND, 1.0f,
-				new float[] { 10.0f, 6.0f }, 0.0f));
-		renderer.setSeriesStroke(1, new BasicStroke(2.0f, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND, 1.0f,
-				new float[] { 6.0f, 6.0f }, 0.0f));
-		renderer.setSeriesStroke(2, new BasicStroke(2.0f, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND, 1.0f,
-				new float[] { 2.0f, 6.0f }, 0.0f));
-		// OPTIONAL CUSTOMISATION COMPLETED.
-
-		return chart;
 	}
 }

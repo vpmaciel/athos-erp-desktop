@@ -13,14 +13,7 @@ public class BancoTm extends AbstractTableModel {
 	public static final int ID = 0;
 	public static int[] largura;
 	private static boolean[] podeEditar;
-	private List<Banco> bancoList = new LinkedList<>();
-	private Banco banco;
 	private static TabelaModelo tabelaModelo = new TabelaModelo();
-
-	public BancoTm() {
-
-	}
-
 	static {
 		tabelaModelo.adicionar("ID", 0, 100);
 		tabelaModelo.adicionar("NOME", 1, 500);
@@ -32,6 +25,13 @@ public class BancoTm extends AbstractTableModel {
 			largura[i] = tabelaModelo.getLargura(i);
 			podeEditar[i] = false;
 		}
+	}
+	private Banco banco;
+
+	private List<Banco> bancoList = new LinkedList<>();
+
+	public BancoTm() {
+
 	}
 
 	public BancoTm(List<Banco> lista) {

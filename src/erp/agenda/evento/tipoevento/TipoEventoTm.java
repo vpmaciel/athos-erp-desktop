@@ -13,14 +13,7 @@ public class TipoEventoTm extends AbstractTableModel {
 	public static final int ID = 0;
 	public static int[] largura;
 	private static boolean[] podeEditar;
-	private List<TipoEvento> tipoEventoList = new LinkedList<>();
-	private TipoEvento tipoEvento;
 	private static TabelaModelo tabelaModelo = new TabelaModelo();
-
-	public TipoEventoTm() {
-
-	}
-
 	static {
 		tabelaModelo.adicionar("ID", 0, 100);
 		tabelaModelo.adicionar("NOME", 1, 500);
@@ -32,20 +25,16 @@ public class TipoEventoTm extends AbstractTableModel {
 			podeEditar[i] = false;
 		}
 	}
+	private TipoEvento tipoEvento;
+
+	private List<TipoEvento> tipoEventoList = new LinkedList<>();
+
+	public TipoEventoTm() {
+
+	}
 
 	public TipoEventoTm(List<TipoEvento> lista) {
 		tipoEventoList.addAll(lista);
-	}
-
-	public TipoEvento getTipoEvento(int linha) {
-		if (tipoEventoList.size() > 0) {
-			return tipoEventoList.get(linha);
-		}
-		return null;
-	}
-
-	public List<TipoEvento> getTipoEventoList() {
-		return tipoEventoList;
 	}
 
 	@Override
@@ -71,6 +60,17 @@ public class TipoEventoTm extends AbstractTableModel {
 	@Override
 	public int getRowCount() {
 		return tipoEventoList.size();
+	}
+
+	public TipoEvento getTipoEvento(int linha) {
+		if (tipoEventoList.size() > 0) {
+			return tipoEventoList.get(linha);
+		}
+		return null;
+	}
+
+	public List<TipoEvento> getTipoEventoList() {
+		return tipoEventoList;
 	}
 
 	@Override

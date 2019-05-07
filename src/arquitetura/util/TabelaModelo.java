@@ -15,15 +15,6 @@ public class TabelaModelo {
 		matrizList.add(new TabelaMatriz(nomeColuna, numeroColuna, larguraColuna));
 	}
 
-	public int getLargura(String nomeColuna) {
-		for (TabelaMatriz tabelaMatriz : matrizList) {
-			if (tabelaMatriz.nomeColuna.equals(nomeColuna)) {
-				return tabelaMatriz.larguraColuna;
-			}
-		}
-		return -1;
-	}
-
 	public int getLargura(int numeroColuna) {
 		for (TabelaMatriz tabelaMatriz : matrizList) {
 			if (tabelaMatriz.numeroColuna == numeroColuna) {
@@ -31,6 +22,15 @@ public class TabelaModelo {
 			}
 		}
 		return 0;
+	}
+
+	public int getLargura(String nomeColuna) {
+		for (TabelaMatriz tabelaMatriz : matrizList) {
+			if (tabelaMatriz.nomeColuna.equals(nomeColuna)) {
+				return tabelaMatriz.larguraColuna;
+			}
+		}
+		return -1;
 	}
 
 	public String getNome(int numeroColuna) {

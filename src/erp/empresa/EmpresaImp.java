@@ -18,6 +18,37 @@ import arquitetura.validacao.Mascara;
 final class EmpresaImp implements EmpresaDao {
 
 	@Override
+	public Empresa consultarRegistro(Empresa empresa) {
+		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
+		EntityTransaction tx = entityManager.getTransaction();
+		tx.begin();
+
+		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+		CriteriaQuery<Empresa> criteriaQuery = criteriaBuilder.createQuery(Empresa.class);
+		Root<Empresa> rootEmpresa = criteriaQuery.from(Empresa.class);
+
+		boolean naoTemCriterio = true;
+
+		List<Predicate> predicates = new ArrayList<Predicate>();
+		if (empresa.getCnpj() != null && !empresa.getCnpj().equals(Mascara.getCnpj().getPlaceholder())
+				&& !empresa.getCnpj().equals(Mascara.getCnpjVazio())) {
+			predicates.add(criteriaBuilder.equal(rootEmpresa.get("cnpj"), empresa.getCnpj()));
+			naoTemCriterio = false;
+		}
+
+		if (naoTemCriterio) {
+			return new Empresa();
+		}
+
+		criteriaQuery.select(rootEmpresa).where(predicates.toArray(new Predicate[] {}));
+
+		List<Empresa> list = entityManager.createQuery(criteriaQuery).getResultList();
+		tx.commit();
+		entityManager.close();
+		return list.size() > 0 ? list.get(0) : new Empresa();
+	}
+
+	@Override
 	public void deletarRegistro(Empresa empresa) {
 		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
 		EntityTransaction tx = em.getTransaction();
@@ -25,14 +56,6 @@ final class EmpresaImp implements EmpresaDao {
 		em.remove(em.find(Empresa.class, empresa.getId()));
 		tx.commit();
 		em.close();
-	}
-
-	@Override
-	public Empresa getRegistro(Empresa empresa) {
-		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction tx = em.getTransaction();
-		tx.begin();
-		return em.find(Empresa.class, empresa.getId());
 	}
 
 	@Override
@@ -46,6 +69,14 @@ final class EmpresaImp implements EmpresaDao {
 		tx.commit();
 		em.close();
 		return list;
+	}
+
+	@Override
+	public Empresa getRegistro(Empresa empresa) {
+		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
+		EntityTransaction tx = em.getTransaction();
+		tx.begin();
+		return em.find(Empresa.class, empresa.getId());
 	}
 
 	@Override
@@ -150,37 +181,6 @@ final class EmpresaImp implements EmpresaDao {
 		tx.commit();
 		entityManager.close();
 		return list;
-	}
-
-	@Override
-	public Empresa consultarRegistro(Empresa empresa) {
-		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction tx = entityManager.getTransaction();
-		tx.begin();
-
-		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
-		CriteriaQuery<Empresa> criteriaQuery = criteriaBuilder.createQuery(Empresa.class);
-		Root<Empresa> rootEmpresa = criteriaQuery.from(Empresa.class);
-
-		boolean naoTemCriterio = true;
-
-		List<Predicate> predicates = new ArrayList<Predicate>();
-		if (empresa.getCnpj() != null && !empresa.getCnpj().equals(Mascara.getCnpj().getPlaceholder())
-				&& !empresa.getCnpj().equals(Mascara.getCnpjVazio())) {
-			predicates.add(criteriaBuilder.equal(rootEmpresa.get("cnpj"), empresa.getCnpj()));
-			naoTemCriterio = false;
-		}
-
-		if (naoTemCriterio) {
-			return new Empresa();
-		}
-
-		criteriaQuery.select(rootEmpresa).where(predicates.toArray(new Predicate[] {}));
-
-		List<Empresa> list = entityManager.createQuery(criteriaQuery).getResultList();
-		tx.commit();
-		entityManager.close();
-		return list.size() > 0 ? list.get(0) : new Empresa();
 	}
 
 	@Override

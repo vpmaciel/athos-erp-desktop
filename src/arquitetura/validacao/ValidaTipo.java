@@ -2,18 +2,18 @@ package arquitetura.validacao;
 
 public class ValidaTipo {
 
-	public static boolean ehInteiro(String valor) {
+	public static boolean ehDouble(String valor) {
 		try {
-			Integer.parseInt(valor);
+			Double.parseDouble(valor);
 			return true;
 		} catch (NumberFormatException nfex) {
 			return false;
 		}
 	}
 
-	public static boolean ehDouble(String valor) {
+	public static boolean ehInteiro(String valor) {
 		try {
-			Double.parseDouble(valor);
+			Integer.parseInt(valor);
 			return true;
 		} catch (NumberFormatException nfex) {
 			return false;

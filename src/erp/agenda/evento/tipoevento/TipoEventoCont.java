@@ -87,25 +87,6 @@ final class TipoEventoCont {
 		}
 	}
 
-	public class Relatorio implements ActionListener {
-
-		@Override
-		public void actionPerformed(ActionEvent actionEvent) {
-
-			List<TipoEvento> tipoEventos = new LinkedList<>();
-
-			try {
-				tipoEventos = new LinkedList<>(TipoEventoFac.pesquisarRegistro(new TipoEvento()));
-			} catch (Exception e) {
-				System.out.println(e);
-			}
-
-			TipoEventoRel tipoEventoRel = new TipoEventoRel(tipoEventos);
-			tipoEventoRel.retornarRelatorio(true);
-
-		}
-	}
-
 	public class Imprime implements ActionListener {
 
 		@Override
@@ -146,6 +127,25 @@ final class TipoEventoCont {
 			if (totalPesquisaRegistro > 0) {
 				MainFc.mostrarFrame(getTipoEventoFp());
 			}
+		}
+	}
+
+	public class Relatorio implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent actionEvent) {
+
+			List<TipoEvento> tipoEventos = new LinkedList<>();
+
+			try {
+				tipoEventos = new LinkedList<>(TipoEventoFac.pesquisarRegistro(new TipoEvento()));
+			} catch (Exception e) {
+				System.out.println(e);
+			}
+
+			TipoEventoRel tipoEventoRel = new TipoEventoRel(tipoEventos);
+			tipoEventoRel.retornarRelatorio(true);
+
 		}
 	}
 
@@ -244,23 +244,23 @@ final class TipoEventoCont {
 		return tipoEvento;
 	}
 
-	public void setTipoEvento(TipoEvento TipoEvento) {
-		this.tipoEvento = TipoEvento;
-	}
-
 	public TipoEventoFc getTipoEventoFc() {
 		return MainCont.getAgendaTipoEventoFc();
-	}
-
-	public TipoEventoPc getTipoEventoPc() {
-		return MainCont.getAgendaTipoEventoFc().getTipoEventoPc();
 	}
 
 	public TipoEventoFp getTipoEventoFp() {
 		return MainCont.getAgendaTipoEventoFp();
 	}
 
+	public TipoEventoPc getTipoEventoPc() {
+		return MainCont.getAgendaTipoEventoFc().getTipoEventoPc();
+	}
+
 	public TipoEventoPp getTipoEventoPp() {
 		return MainCont.getAgendaTipoEventoFp().getTipoEventoPp();
+	}
+
+	public void setTipoEvento(TipoEvento TipoEvento) {
+		this.tipoEvento = TipoEvento;
 	}
 }

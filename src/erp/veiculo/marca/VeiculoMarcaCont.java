@@ -86,25 +86,6 @@ final class VeiculoMarcaCont {
 		}
 	}
 
-	public class Relatorio implements ActionListener {
-
-		@Override
-		public void actionPerformed(ActionEvent actionEvent) {
-
-			List<VeiculoMarca> veiculoMarcas = new LinkedList<>();
-
-			try {
-				veiculoMarcas = new LinkedList<>(VeiculoMarcaFac.pesquisarRegistro(new VeiculoMarca()));
-			} catch (Exception e) {
-				System.out.println(e);
-			}
-
-			VeiculoMarcaRel veiculoMarcaRel = new VeiculoMarcaRel(veiculoMarcas);
-			veiculoMarcaRel.retornarRelatorio(true);
-
-		}
-	}
-
 	public class Imprime implements ActionListener {
 
 		@Override
@@ -144,6 +125,25 @@ final class VeiculoMarcaCont {
 			if (totalPesquisaRegistro > 0) {
 				MainFc.mostrarFrame(getVeiculoMarcaFp());
 			}
+		}
+	}
+
+	public class Relatorio implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent actionEvent) {
+
+			List<VeiculoMarca> veiculoMarcas = new LinkedList<>();
+
+			try {
+				veiculoMarcas = new LinkedList<>(VeiculoMarcaFac.pesquisarRegistro(new VeiculoMarca()));
+			} catch (Exception e) {
+				System.out.println(e);
+			}
+
+			VeiculoMarcaRel veiculoMarcaRel = new VeiculoMarcaRel(veiculoMarcas);
+			veiculoMarcaRel.retornarRelatorio(true);
+
 		}
 	}
 
@@ -226,8 +226,8 @@ final class VeiculoMarcaCont {
 
 	public void atualizarObjeto() {
 		veiculoMarca.setMarca(getVeiculoMarcaPc().getGuiMarca().getText());
-		
-		if(getVeiculoMarcaPc().getGuiMarca().getText().length() == 0) {
+
+		if (getVeiculoMarcaPc().getGuiMarca().getText().length() == 0) {
 			veiculoMarca.setMarca(null);
 		}
 
@@ -237,23 +237,23 @@ final class VeiculoMarcaCont {
 		return veiculoMarca;
 	}
 
-	public void setVeiculoMarca(VeiculoMarca veiculoMarca) {
-		this.veiculoMarca = veiculoMarca;
-	}
-
 	public VeiculoMarcaFc getVeiculoMarcaFc() {
 		return MainCont.getVeiculoMarcaFc();
-	}
-
-	public VeiculoMarcaPc getVeiculoMarcaPc() {
-		return MainCont.getVeiculoMarcaFc().getVeiculoMarcaPc();
 	}
 
 	public VeiculoMarcaFp getVeiculoMarcaFp() {
 		return MainCont.getVeiculoMarcaFp();
 	}
 
+	public VeiculoMarcaPc getVeiculoMarcaPc() {
+		return MainCont.getVeiculoMarcaFc().getVeiculoMarcaPc();
+	}
+
 	public VeiculoMarcaPp getVeiculoMarcaPp() {
 		return MainCont.getVeiculoMarcaFp().getVeiculoMarcaPp();
+	}
+
+	public void setVeiculoMarca(VeiculoMarca veiculoMarca) {
+		this.veiculoMarca = veiculoMarca;
 	}
 }

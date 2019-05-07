@@ -20,54 +20,31 @@ import arquitetura.validacao.Mascara;
 @SuppressWarnings("serial")
 public final class SindicatoPc extends JPanel implements Gui {
 
-	private ToolBar toolBar;
-	private ConfiguracaoGui configuracaoGui;
-	private JTextField textFieldRamoAtividade;
-	private JTextField textFieldNomeFantasia;
-	private JTextField textFieldRazaoSocial;
-	private JTextField textFieldNumeroFuncionarios;
-	private JLabel labelRamoAtividade;
-	private JLabel labelNomeFantasia;
-	private JLabel labelRazaoSocial;
-	private JLabel labelNumeroFuncionarios;
-	private JFormattedTextField textFieldCPF;
 	private JComboBox<String> boxTipoSindicato;
-	private JTextField textFieldFaturamentoMensal;
-	private JFormattedTextField textFieldCNPJ;
-	private JLabel labelCPF;
-	private JLabel labelTipoSindicato;
-	private JLabel labelFaturamentoMensal;
-	private JLabel labelCNPJ;
-	private JTextField textFieldEmail;
-	private JFormattedTextField textFieldFax;
-	private JFormattedTextField textFieldFone1;
-	private JFormattedTextField textFieldFone2;
-	private JLabel labelFone2;
-	private JLabel labelEmail;
-	private JLabel labelFax;
-	private JLabel labelFone1;
-	private JTextField textFieldBairro;
-	private JFormattedTextField textFieldCep;
-	private JTextField textFieldCidade;
-	private JTextField textFieldEstado;
-	private JTextField textFieldLogradouro;
-	private JTextField textFieldPais;
-	private JTextField textFieldComplemento;
-	private JLabel labelBairro;
-	private JLabel labelCep;
-	private JLabel labelCidade;
-	private JLabel labelComplemento;
-	private JLabel labelEstado;
-	private JLabel labelLogradouro;
-	private JLabel labelPais;
-	private JTextField textFieldInscricaoEstadual;
-	private JTextField textFieldInscricaoMunicipal;
-	private JFormattedTextField textFieldDataFundacao;
-	private JTextField textFieldCapitalSocial;
-	private JLabel labelInscricaoEstadual;
-	private JLabel labelInscricaoMunicipal;
-	private JLabel labelDataFundacao;
-	private JLabel labelCapitalSocial;
+	private ConfiguracaoGui configuracaoGui;
+	private JTextField fieldBairro;
+	private JTextField fieldCapitalSocial;
+	private JFormattedTextField fieldCep;
+	private JTextField fieldCidade;
+	private JFormattedTextField fieldCNPJ;
+	private JTextField fieldComplemento;
+	private JFormattedTextField fieldCPF;
+	private JFormattedTextField fieldDataFundacao;
+	private JTextField fieldEmail;
+	private JTextField fieldEstado;
+	private JTextField fieldFaturamentoMensal;
+	private JFormattedTextField fieldFax;
+	private JFormattedTextField fieldFone1;
+	private JFormattedTextField fieldFone2;
+	private JTextField fieldInscricaoEstadual;
+	private JTextField fieldInscricaoMunicipal;
+	private JTextField fieldLogradouro;
+	private JTextField fieldNomeFantasia;
+	private JTextField fieldNumeroFuncionarios;
+	private JTextField fieldPais;
+	private JTextField fieldRamoAtividade;
+	private JTextField fieldRazaoSocial;
+	private ToolBar toolBar;
 
 	public SindicatoPc() {
 		iniciarLayout();
@@ -81,105 +58,110 @@ public final class SindicatoPc extends JPanel implements Gui {
 
 	}
 
-	public JComboBox<String> getGuiTipoSindicato() {
-		return boxTipoSindicato;
-	}
-
 	@Override
 	public ConfiguracaoGui getConfiguracaoGui() {
 		return configuracaoGui;
 	}
 
 	public JTextField getGuiBairro() {
-		return textFieldBairro;
+		return fieldBairro;
 	}
 
 	public JTextField getGuiCapitalSocial() {
-		return textFieldCapitalSocial;
+		return fieldCapitalSocial;
 	}
 
 	public JFormattedTextField getGuiCep() {
-		return textFieldCep;
+		return fieldCep;
 	}
 
 	public JTextField getGuiCidade() {
-		return textFieldCidade;
+		return fieldCidade;
 	}
 
 	public JFormattedTextField getGuiCnpj() {
-		return textFieldCNPJ;
+		return fieldCNPJ;
 	}
 
 	public JTextField getGuiComplemento() {
-		return textFieldComplemento;
-	}
-
-	public JFormattedTextField getTextFieldCPF() {
-		return textFieldCPF;
+		return fieldComplemento;
 	}
 
 	public JFormattedTextField getGuiDataFundacao() {
-		return textFieldDataFundacao;
+		return fieldDataFundacao;
 	}
 
 	public JTextField getGuiEmail() {
-		return textFieldEmail;
+		return fieldEmail;
 	}
 
 	public JTextField getGuiEstado() {
-		return textFieldEstado;
+		return fieldEstado;
 	}
 
 	public JTextField getGuiFaturamentoMensal() {
-		return textFieldFaturamentoMensal;
+		return fieldFaturamentoMensal;
 	}
 
 	public JFormattedTextField getGuiFax() {
-		return textFieldFax;
+		return fieldFax;
 	}
 
 	public JFormattedTextField getGuiFone1() {
-		return textFieldFone1;
+		return fieldFone1;
 	}
 
 	public JFormattedTextField getGuiFone2() {
-		return textFieldFone2;
-	}
-
-	public JTextField getGuiTextEstadual() {
-		return textFieldInscricaoEstadual;
+		return fieldFone2;
 	}
 
 	public JTextField getGuiInscricaoMunicipal() {
-		return textFieldInscricaoMunicipal;
+		return fieldInscricaoMunicipal;
 	}
 
 	public JTextField getGuiLogradouro() {
-		return textFieldLogradouro;
+		return fieldLogradouro;
 	}
 
 	public JTextField getGuiNomeFantasia() {
-		return textFieldNomeFantasia;
+		return fieldNomeFantasia;
 	}
 
 	public JTextField getGuiNumeroFuncionarios() {
-		return textFieldNumeroFuncionarios;
+		return fieldNumeroFuncionarios;
 	}
 
 	public JTextField getGuiPais() {
-		return textFieldPais;
+		return fieldPais;
 	}
 
 	public JTextField getGuiRamoAtividade() {
-		return textFieldRamoAtividade;
+		return fieldRamoAtividade;
 	}
 
 	public JTextField getGuiRazaoSocial() {
-		return textFieldRazaoSocial;
+		return fieldRazaoSocial;
+	}
+
+	public JTextField getGuiTextEstadual() {
+		return fieldInscricaoEstadual;
+	}
+
+	public JComboBox<String> getGuiTipoSindicato() {
+		return boxTipoSindicato;
 	}
 
 	public ToolBar getTB() {
 		return toolBar;
+	}
+
+	public JFormattedTextField getTextFieldCPF() {
+		return fieldCPF;
+	}
+
+	@Override
+	public void iniciarControlador() {
+
 	}
 
 	@Override
@@ -194,22 +176,19 @@ public final class SindicatoPc extends JPanel implements Gui {
 
 		this.add(toolBar.getToolBar());
 
-		labelNomeFantasia = new JLabel("NOME FANTASIA");
-		add(labelNomeFantasia);
+		add(new JLabel("NOME FANTASIA"));
 
-		textFieldNomeFantasia = new JTextField();
-		textFieldNomeFantasia.setDocument(new EntradaMaiuscula(50));
-		add(textFieldNomeFantasia);
+		fieldNomeFantasia = new JTextField();
+		fieldNomeFantasia.setDocument(new EntradaMaiuscula(50));
+		add(fieldNomeFantasia);
 
-		labelRazaoSocial = new JLabel("RAZÃO SOCIAL");
-		add(labelRazaoSocial);
+		add(new JLabel("RAZÃO SOCIAL"));
 
-		textFieldRazaoSocial = new JTextField();
-		textFieldRazaoSocial.setDocument(new EntradaMaiuscula(50));
-		add(textFieldRazaoSocial);
+		fieldRazaoSocial = new JTextField();
+		fieldRazaoSocial.setDocument(new EntradaMaiuscula(50));
+		add(fieldRazaoSocial);
 
-		labelTipoSindicato = new JLabel("EMPRESA");
-		add(labelTipoSindicato);
+		add(new JLabel("EMPRESA"));
 
 		boxTipoSindicato = new JComboBox<String>();
 		boxTipoSindicato.addItem("");
@@ -217,138 +196,118 @@ public final class SindicatoPc extends JPanel implements Gui {
 		boxTipoSindicato.addItem("FILIAL");
 		add(boxTipoSindicato);
 
-		labelRamoAtividade = new JLabel("RAMO DE ATIVIDADE");
-		add(labelRamoAtividade);
+		add(new JLabel("RAMO DE ATIVIDADE"));
 
-		textFieldRamoAtividade = new JTextField();
-		textFieldRamoAtividade.setDocument(new EntradaMaiuscula(50));
-		add(textFieldRamoAtividade);
+		fieldRamoAtividade = new JTextField();
+		fieldRamoAtividade.setDocument(new EntradaMaiuscula(50));
+		add(fieldRamoAtividade);
 
-		labelNumeroFuncionarios = new JLabel("NÚMERO DE FUNCIONÁRIOS");
-		add(labelNumeroFuncionarios);
+		add(new JLabel("NÚMERO DE FUNCIONÁRIOS"));
 
-		textFieldNumeroFuncionarios = new JTextField();
-		textFieldNumeroFuncionarios.setDocument(new EntradaMaiuscula(5));
-		add(textFieldNumeroFuncionarios);
+		fieldNumeroFuncionarios = new JTextField();
+		fieldNumeroFuncionarios.setDocument(new EntradaMaiuscula(5));
+		add(fieldNumeroFuncionarios);
 
-		labelFone1 = new JLabel("TELEFONE");
-		add(labelFone1);
+		add(new JLabel("TELEFONE"));
 
-		textFieldFone1 = new JFormattedTextField(Mascara.getFone());
-		add(textFieldFone1);
+		fieldFone1 = new JFormattedTextField(Mascara.getFone());
+		add(fieldFone1);
 
-		labelFone2 = new JLabel("TELEFONE");
-		add(labelFone2);
+		add(new JLabel("TELEFONE"));
 
-		textFieldFone2 = new JFormattedTextField(Mascara.getFone());
-		add(textFieldFone2);
+		fieldFone2 = new JFormattedTextField(Mascara.getFone());
+		add(fieldFone2);
 
-		labelFax = new JLabel("FAX");
-		add(labelFax);
+		add(new JLabel("FAX"));
 
-		textFieldFax = new JFormattedTextField(Mascara.getFax());
-		add(textFieldFax);
+		fieldFax = new JFormattedTextField(Mascara.getFax());
+		add(fieldFax);
 
-		labelEmail = new JLabel("E-MAIL");
-		add(labelEmail);
+		add(new JLabel("E-MAIL"));
 
-		textFieldEmail = new JTextField();
-		textFieldEmail.setDocument(new EntradaMinuscula(50));
-		add(textFieldEmail);
+		fieldEmail = new JTextField();
+		fieldEmail.setDocument(new EntradaMinuscula(50));
+		add(fieldEmail);
 
-		labelInscricaoEstadual = new JLabel("INSCRIÇÃO ESTADUAL");
-		add(labelInscricaoEstadual);
+		add(new JLabel("INSCRIÇÃO ESTADUAL"));
 
-		textFieldInscricaoEstadual = new JTextField();
-		textFieldInscricaoEstadual.setDocument(new EntradaMaiuscula(20));
-		add(textFieldInscricaoEstadual);
+		fieldInscricaoEstadual = new JTextField();
+		fieldInscricaoEstadual.setDocument(new EntradaMaiuscula(20));
+		add(fieldInscricaoEstadual);
 
-		labelInscricaoMunicipal = new JLabel("INSCRIÇÃO MUNICIPAL");
-		add(labelInscricaoMunicipal);
+		add(new JLabel("INSCRIÇÃO MUNICIPAL"));
 
-		textFieldInscricaoMunicipal = new JTextField();
-		textFieldInscricaoMunicipal.setDocument(new EntradaMaiuscula(20));
-		add(textFieldInscricaoMunicipal);
+		fieldInscricaoMunicipal = new JTextField();
+		fieldInscricaoMunicipal.setDocument(new EntradaMaiuscula(20));
+		add(fieldInscricaoMunicipal);
 
-		labelCapitalSocial = new JLabel("CAPITAL SOCIAL");
-		add(labelCapitalSocial);
+		add(new JLabel("CAPITAL SOCIAL"));
 
-		textFieldCapitalSocial = new JTextField();
-		textFieldCapitalSocial.setDocument(new EntradaMaiuscula(10));
-		add(textFieldCapitalSocial);
+		fieldCapitalSocial = new JTextField();
+		fieldCapitalSocial.setDocument(new EntradaMaiuscula(10));
+		add(fieldCapitalSocial);
 
-		labelFaturamentoMensal = new JLabel("FATURAMENTO MENSAL");
-		add(labelFaturamentoMensal);
+		add(new JLabel("FATURAMENTO MENSAL"));
 
-		textFieldFaturamentoMensal = new JTextField();
-		textFieldFaturamentoMensal.setDocument(new EntradaMaiuscula(10));
-		add(textFieldFaturamentoMensal);
+		fieldFaturamentoMensal = new JTextField();
+		fieldFaturamentoMensal.setDocument(new EntradaMaiuscula(10));
+		add(fieldFaturamentoMensal);
 
-		labelDataFundacao = new JLabel("DATA DE FUNDAÇÃO");
-		add(labelDataFundacao);
+		add(new JLabel("DATA DE FUNDAÇÃO"));
 
-		textFieldDataFundacao = new JFormattedTextField(Mascara.getData());
-		add(textFieldDataFundacao);
+		fieldDataFundacao = new JFormattedTextField(Mascara.getData());
+		add(fieldDataFundacao);
 
-		labelCPF = new JLabel("CPF");
-		add(labelCPF);
+		add(new JLabel("CPF"));
 
-		textFieldCPF = new JFormattedTextField(Mascara.getCpf());
-		add(textFieldCPF);
+		fieldCPF = new JFormattedTextField(Mascara.getCpf());
+		add(fieldCPF);
 
-		labelCNPJ = new JLabel("CNPJ");
-		add(labelCNPJ);
+		add(new JLabel("CNPJ"));
 
-		textFieldCNPJ = new JFormattedTextField(Mascara.getCnpj());
-		add(textFieldCNPJ);
+		fieldCNPJ = new JFormattedTextField(Mascara.getCnpj());
+		add(fieldCNPJ);
 
-		labelPais = new JLabel("PAÍS");
-		add(labelPais);
+		add(new JLabel("PAÍS"));
 
-		textFieldPais = new JTextField();
-		textFieldPais.setDocument(new EntradaMaiuscula(50));
-		add(textFieldPais);
+		fieldPais = new JTextField();
+		fieldPais.setDocument(new EntradaMaiuscula(50));
+		add(fieldPais);
 
-		labelEstado = new JLabel("ESTADO");
-		add(labelEstado);
+		add(new JLabel("ESTADO"));
 
-		textFieldEstado = new JTextField();
-		textFieldEstado.setDocument(new EntradaMaiuscula(50));
-		add(textFieldEstado);
+		fieldEstado = new JTextField();
+		fieldEstado.setDocument(new EntradaMaiuscula(50));
+		add(fieldEstado);
 
-		labelCidade = new JLabel("CIDADE");
-		add(labelCidade);
+		add(new JLabel("CIDADE"));
 
-		textFieldCidade = new JTextField();
-		textFieldCidade.setDocument(new EntradaMaiuscula(50));
-		add(textFieldCidade);
+		fieldCidade = new JTextField();
+		fieldCidade.setDocument(new EntradaMaiuscula(50));
+		add(fieldCidade);
 
-		labelBairro = new JLabel("BAIRRO");
-		add(labelBairro);
+		add(new JLabel("BAIRRO"));
 
-		textFieldBairro = new JTextField();
-		textFieldBairro.setDocument(new EntradaMaiuscula(50));
-		add(textFieldBairro);
+		fieldBairro = new JTextField();
+		fieldBairro.setDocument(new EntradaMaiuscula(50));
+		add(fieldBairro);
 
-		labelLogradouro = new JLabel("LOGRADOURO");
-		add(labelLogradouro);
+		add(new JLabel("LOGRADOURO"));
 
-		textFieldLogradouro = new JTextField();
-		textFieldLogradouro.setDocument(new EntradaMaiuscula(50));
-		add(textFieldLogradouro);
+		fieldLogradouro = new JTextField();
+		fieldLogradouro.setDocument(new EntradaMaiuscula(50));
+		add(fieldLogradouro);
 
-		labelComplemento = new JLabel("COMPLEMENTO");
-		add(labelComplemento);
+		add(new JLabel("COMPLEMENTO"));
 
-		textFieldComplemento = new JTextField();
-		textFieldComplemento.setDocument(new EntradaMaiuscula(20));
-		add(textFieldComplemento);
+		fieldComplemento = new JTextField();
+		fieldComplemento.setDocument(new EntradaMaiuscula(20));
+		add(fieldComplemento);
 
-		labelCep = new JLabel("CEP");
-		add(labelCep);
+		add(new JLabel("CEP"));
 
-		textFieldCep = new JFormattedTextField(Mascara.getCep());
-		add(textFieldCep);
+		fieldCep = new JFormattedTextField(Mascara.getCep());
+		add(fieldCep);
 
 		// Lay out the panel.
 		SpringUtilities.makeCompactGrid(this, 47, 1, // rows, cols
@@ -360,11 +319,6 @@ public final class SindicatoPc extends JPanel implements Gui {
 	@Override
 	public void iniciarGuiControlador() {
 		configuracaoGui = new ConfiguracaoGui(this);
-	}
-
-	@Override
-	public void iniciarControlador() {
-
 	}
 
 	@Override

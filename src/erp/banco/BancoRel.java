@@ -14,11 +14,11 @@ import arquitetura.relatorio.Relatorio;
 
 public final class BancoRel {
 
-	private PdfWriter writer = null;
-	private final Document document = new Document();
 	private final String arquivo = "banco.pdf";
-	private final String titulo = "BANCOS";
+	private final Document document = new Document();
 	private final Relatorio relatorio = new Relatorio();
+	private final String titulo = "BANCOS";
+	private PdfWriter writer = null;
 
 	public BancoRel(List<Banco> bancos) {
 

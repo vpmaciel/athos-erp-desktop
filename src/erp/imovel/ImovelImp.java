@@ -28,14 +28,6 @@ final class ImovelImp implements ImovelDao {
 	}
 
 	@Override
-	public Imovel getRegistro(Imovel imovel) {
-		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction tx = em.getTransaction();
-		tx.begin();
-		return em.find(Imovel.class, imovel.getId());
-	}
-
-	@Override
 	public Collection<Imovel> getRegistro() {
 		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
 		EntityTransaction tx = em.getTransaction();
@@ -46,6 +38,24 @@ final class ImovelImp implements ImovelDao {
 		tx.commit();
 		em.close();
 		return list;
+	}
+
+	@Override
+	public Imovel getRegistro(Imovel imovel) {
+		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
+		EntityTransaction tx = em.getTransaction();
+		tx.begin();
+		return em.find(Imovel.class, imovel.getId());
+	}
+
+	private boolean naoEstaVazio(Object objeto) {
+		if (objeto == null) {
+			return false;
+		}
+		if (objeto.toString().equals("")) {
+			return false;
+		}
+		return true;
 	}
 
 	@Override
@@ -156,15 +166,5 @@ final class ImovelImp implements ImovelDao {
 		em.merge(imovel);
 		tx.commit();
 		em.close();
-	}
-
-	private boolean naoEstaVazio(Object objeto) {
-		if (objeto == null) {
-			return false;
-		}
-		if (objeto.toString().equals("")) {
-			return false;
-		}
-		return true;
 	}
 }

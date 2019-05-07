@@ -13,14 +13,7 @@ public class FuncionarioTm extends AbstractTableModel {
 	public static final int ID = 0;
 	public static int[] largura;
 	private static boolean[] podeEditar;
-	private List<Funcionario> funcionarioList = new LinkedList<>();
-	private Funcionario funcionario;
 	private static TabelaModelo tabelaModelo = new TabelaModelo();
-
-	public FuncionarioTm() {
-
-	}
-
 	static {
 		tabelaModelo.adicionar("ID", 0, 100);
 		tabelaModelo.adicionar("CPF", 1, 100);
@@ -33,20 +26,16 @@ public class FuncionarioTm extends AbstractTableModel {
 			podeEditar[i] = false;
 		}
 	}
+	private Funcionario funcionario;
+
+	private List<Funcionario> funcionarioList = new LinkedList<>();
+
+	public FuncionarioTm() {
+
+	}
 
 	public FuncionarioTm(List<Funcionario> lista) {
 		funcionarioList.addAll(lista);
-	}
-
-	public Funcionario getFuncionario(int linha) {
-		if (funcionarioList.size() > 0) {
-			return funcionarioList.get(linha);
-		}
-		return null;
-	}
-
-	public List<Funcionario> getFuncionarioList() {
-		return funcionarioList;
 	}
 
 	@Override
@@ -66,6 +55,17 @@ public class FuncionarioTm extends AbstractTableModel {
 	@Override
 	public String getColumnName(int column) {
 		return tabelaModelo.getNome(column);
+	}
+
+	public Funcionario getFuncionario(int linha) {
+		if (funcionarioList.size() > 0) {
+			return funcionarioList.get(linha);
+		}
+		return null;
+	}
+
+	public List<Funcionario> getFuncionarioList() {
+		return funcionarioList;
 	}
 
 	@Override

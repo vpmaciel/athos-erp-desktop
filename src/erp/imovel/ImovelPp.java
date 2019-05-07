@@ -19,8 +19,8 @@ import arquitetura.gui.Tabela;
 @SuppressWarnings("serial")
 public final class ImovelPp extends JPanel {
 
-	private final ImovelTm imovelTm;
 	List<Imovel> imovelList = null;
+	private final ImovelTm imovelTm;
 	private final JTable table;
 
 	public ImovelPp() {

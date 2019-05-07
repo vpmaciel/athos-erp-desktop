@@ -13,14 +13,7 @@ public class CartorioTm extends AbstractTableModel {
 	public static final int ID = 0;
 	public static int[] largura;
 	private static boolean[] podeEditar;
-	private List<Cartorio> cartorioList = new LinkedList<>();
-	private Cartorio cartorio;
 	private static TabelaModelo tabelaModelo = new TabelaModelo();
-
-	public CartorioTm() {
-
-	}
-
 	static {
 		tabelaModelo.adicionar("ID", 0, 100);
 		tabelaModelo.adicionar("NOME FANTASIA", 1, 500);
@@ -33,6 +26,13 @@ public class CartorioTm extends AbstractTableModel {
 			largura[i] = tabelaModelo.getLargura(i);
 			podeEditar[i] = false;
 		}
+	}
+	private Cartorio cartorio;
+
+	private List<Cartorio> cartorioList = new LinkedList<>();
+
+	public CartorioTm() {
+
 	}
 
 	public CartorioTm(List<Cartorio> lista) {

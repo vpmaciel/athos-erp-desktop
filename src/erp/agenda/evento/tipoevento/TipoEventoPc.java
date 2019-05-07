@@ -16,10 +16,9 @@ import arquitetura.util.SpringUtilities;
 @SuppressWarnings("serial")
 public final class TipoEventoPc extends JPanel implements Gui {
 
-	private ToolBar toolBar;
 	private ConfiguracaoGui configuracaoGui;
-	private JLabel labelNome;
-	private JTextField textFieldNome;
+	private JTextField fieldNome;
+	private ToolBar toolBar;
 
 	public TipoEventoPc() {
 		iniciarLayout();
@@ -39,11 +38,16 @@ public final class TipoEventoPc extends JPanel implements Gui {
 	}
 
 	public JTextField getGuiNome() {
-		return textFieldNome;
+		return fieldNome;
 	}
 
 	public ToolBar getToolBar() {
 		return toolBar;
+	}
+
+	@Override
+	public void iniciarControlador() {
+
 	}
 
 	@Override
@@ -59,12 +63,11 @@ public final class TipoEventoPc extends JPanel implements Gui {
 
 		add(toolBar.getToolBar());
 
-		labelNome = new JLabel("NOME");
-		add(labelNome);
+		add(new JLabel("NOME"));
 
-		textFieldNome = new JTextField();
-		textFieldNome.setDocument(new EntradaMaiuscula(50));
-		add(textFieldNome);
+		fieldNome = new JTextField();
+		fieldNome.setDocument(new EntradaMaiuscula(50));
+		add(fieldNome);
 
 		// Lay out the panel.
 		SpringUtilities.makeCompactGrid(this, 3, 1, // rows, cols
@@ -76,11 +79,6 @@ public final class TipoEventoPc extends JPanel implements Gui {
 	@Override
 	public void iniciarGuiControlador() {
 		configuracaoGui = new ConfiguracaoGui(this);
-	}
-
-	@Override
-	public void iniciarControlador() {
-
 	}
 
 	@Override

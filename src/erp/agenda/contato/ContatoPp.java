@@ -19,8 +19,8 @@ import arquitetura.gui.Tabela;
 @SuppressWarnings("serial")
 public final class ContatoPp extends JPanel {
 
-	private final ContatoTm contatoTm;
 	List<Contato> contatoList = null;
+	private final ContatoTm contatoTm;
 	private final JTable table;
 
 	public ContatoPp() {

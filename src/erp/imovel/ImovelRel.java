@@ -14,11 +14,11 @@ import arquitetura.relatorio.Relatorio;
 
 public class ImovelRel {
 
-	private PdfWriter writer = null;
-	private Document document = new Document();
 	private String arquivo = "imovel.pdf";
-	private String titulo = "IMÓVEIS";
+	private Document document = new Document();
 	private Relatorio relatorio = new Relatorio();
+	private String titulo = "IMÓVEIS";
+	private PdfWriter writer = null;
 
 	public ImovelRel(List<Imovel> imoveis) {
 

@@ -14,14 +14,7 @@ public class CaracteristicaTm extends AbstractTableModel {
 	public static final int ID = 0;
 	public static int[] largura;
 	private static boolean[] podeEditar;
-	private List<Caracteristica> caracteristicaList = new LinkedList<>();
-	private Caracteristica caracteristica;
 	private static TabelaModelo tabelaModelo = new TabelaModelo();
-
-	public CaracteristicaTm() {
-
-	}
-
 	static {
 		tabelaModelo.adicionar("ID", 0, 100);
 		tabelaModelo.adicionar("FUNCIONÁRIO", 1, 500);
@@ -32,6 +25,13 @@ public class CaracteristicaTm extends AbstractTableModel {
 			largura[i] = tabelaModelo.getLargura(i);
 			podeEditar[i] = false;
 		}
+	}
+	private Caracteristica caracteristica;
+
+	private List<Caracteristica> caracteristicaList = new LinkedList<>();
+
+	public CaracteristicaTm() {
+
 	}
 
 	public CaracteristicaTm(List<Caracteristica> lista) {

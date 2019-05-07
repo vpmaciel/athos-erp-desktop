@@ -15,41 +15,41 @@ import erp.funcionario.Funcionario;
 @PersistenceContext(unitName = "erp")
 @Entity
 public class Habilidade implements Serializable {
-	@Id
-	private Long id;
-	@ManyToOne(cascade = CascadeType.ALL)
-	private Funcionario funcionario;
 	@Column(length = 50)
 	private String conhecimento;
+	@ManyToOne(cascade = CascadeType.ALL)
+	private Funcionario funcionario;
+	@Id
+	private Long id;
 	@Column(length = 50)
 	private String nivelConhecimento;
 
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
+	public String getConhecimento() {
+		return conhecimento;
 	}
 
 	public Funcionario getFuncionario() {
 		return funcionario;
 	}
 
-	public void setFuncionario(Funcionario funcionario) {
-		this.funcionario = funcionario;
+	public Long getId() {
+		return id;
 	}
 
-	public String getConhecimento() {
-		return conhecimento;
+	public String getNivelConhecimento() {
+		return nivelConhecimento;
 	}
 
 	public void setConhecimento(String conhecimento) {
 		this.conhecimento = conhecimento;
 	}
 
-	public String getNivelConhecimento() {
-		return nivelConhecimento;
+	public void setFuncionario(Funcionario funcionario) {
+		this.funcionario = funcionario;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public void setNivelConhecimento(String nivelConhecimento) {

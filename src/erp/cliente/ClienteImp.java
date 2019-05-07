@@ -18,6 +18,42 @@ import arquitetura.validacao.Mascara;
 final class ClienteImp implements ClienteDao {
 
 	@Override
+	public Cliente consultarRegistro(Cliente cliente) {
+		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
+		EntityTransaction tx = entityManager.getTransaction();
+		tx.begin();
+
+		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+		CriteriaQuery<Cliente> criteriaQuery = criteriaBuilder.createQuery(Cliente.class);
+		Root<Cliente> rootCliente = criteriaQuery.from(Cliente.class);
+
+		List<Predicate> predicates = new ArrayList<Predicate>();
+		boolean naoTemCriterio = true;
+
+		if (cliente.getCpf() != null && !cliente.getCpf().equals(Mascara.getCpf().getPlaceholder())
+				&& !cliente.getCpf().equals(Mascara.getCpfVazio())) {
+			predicates.add(criteriaBuilder.equal(rootCliente.get("cpf"), cliente.getCpf()));
+			naoTemCriterio = false;
+		}
+		if (cliente.getCnpj() != null && !cliente.getCnpj().equals(Mascara.getCnpj().getPlaceholder())
+				&& !cliente.getCnpj().equals(Mascara.getCnpjVazio())) {
+			predicates.add(criteriaBuilder.equal(rootCliente.get("cnpj"), cliente.getCnpj()));
+			naoTemCriterio = false;
+		}
+
+		if (naoTemCriterio) {
+			return new Cliente();
+		}
+
+		criteriaQuery.select(rootCliente).where(predicates.toArray(new Predicate[] {}));
+
+		List<Cliente> list = entityManager.createQuery(criteriaQuery).getResultList();
+		tx.commit();
+		entityManager.close();
+		return list.size() > 0 ? list.get(0) : new Cliente();
+	}
+
+	@Override
 	public void deletarRegistro(Cliente cliente) {
 		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
 		EntityTransaction tx = em.getTransaction();
@@ -25,14 +61,6 @@ final class ClienteImp implements ClienteDao {
 		em.remove(em.find(Cliente.class, cliente.getId()));
 		tx.commit();
 		em.close();
-	}
-
-	@Override
-	public Cliente getRegistro(Cliente cliente) {
-		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction tx = em.getTransaction();
-		tx.begin();
-		return em.find(Cliente.class, cliente.getId());
 	}
 
 	@Override
@@ -46,6 +74,14 @@ final class ClienteImp implements ClienteDao {
 		tx.commit();
 		em.close();
 		return list;
+	}
+
+	@Override
+	public Cliente getRegistro(Cliente cliente) {
+		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
+		EntityTransaction tx = em.getTransaction();
+		tx.begin();
+		return em.find(Cliente.class, cliente.getId());
 	}
 
 	@Override
@@ -207,41 +243,6 @@ final class ClienteImp implements ClienteDao {
 		return list;
 	}
 
-	@Override
-	public Cliente consultarRegistro(Cliente cliente) {
-		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction tx = entityManager.getTransaction();
-		tx.begin();
-
-		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
-		CriteriaQuery<Cliente> criteriaQuery = criteriaBuilder.createQuery(Cliente.class);
-		Root<Cliente> rootCliente = criteriaQuery.from(Cliente.class);
-
-		List<Predicate> predicates = new ArrayList<Predicate>();
-		boolean naoTemCriterio = true;
-		
-		if (cliente.getCpf() != null && !cliente.getCpf().equals(Mascara.getCpf().getPlaceholder())
-				&& !cliente.getCpf().equals(Mascara.getCpfVazio())) {
-			predicates.add(criteriaBuilder.equal(rootCliente.get("cpf"), cliente.getCpf()));
-			naoTemCriterio = false;
-		}
-		if (cliente.getCnpj() != null && !cliente.getCnpj().equals(Mascara.getCnpj().getPlaceholder())
-				&& !cliente.getCnpj().equals(Mascara.getCnpjVazio())) {
-			predicates.add(criteriaBuilder.equal(rootCliente.get("cnpj"), cliente.getCnpj()));
-			naoTemCriterio = false;
-		}
-
-		if (naoTemCriterio) {
-			return new Cliente();
-		}
-
-		criteriaQuery.select(rootCliente).where(predicates.toArray(new Predicate[] {}));
-
-		List<Cliente> list = entityManager.createQuery(criteriaQuery).getResultList();
-		tx.commit();
-		entityManager.close();
-		return list.size() > 0 ? list.get(0) : new Cliente();
-	}
 	@Override
 	public void salvarRegistro(Cliente cliente) {
 		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();

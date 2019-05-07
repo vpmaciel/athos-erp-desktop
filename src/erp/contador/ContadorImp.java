@@ -18,6 +18,50 @@ import arquitetura.validacao.Mascara;
 final class ContadorImp implements ContadorDao {
 
 	@Override
+	public Contador consultarRegistro(Contador contador) {
+		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
+		EntityTransaction tx = entityManager.getTransaction();
+		tx.begin();
+
+		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+		CriteriaQuery<Contador> criteriaQuery = criteriaBuilder.createQuery(Contador.class);
+		Root<Contador> rootContador = criteriaQuery.from(Contador.class);
+
+		List<Predicate> predicates = new ArrayList<Predicate>();
+
+		boolean naoTemCriterio = true;
+
+		if (contador.getCnpj() != null && !contador.getCnpj().equals(Mascara.getCnpj().getPlaceholder())
+				&& !contador.getCnpj().equals(Mascara.getCnpjVazio())) {
+			predicates.add(criteriaBuilder.like(rootContador.get("cnpj"), contador.getCnpj()));
+			naoTemCriterio = false;
+
+		}
+		if (contador.getCpf() != null && !contador.getCpf().equals(Mascara.getCpf().getPlaceholder())
+				&& !contador.getCpf().equals(Mascara.getCpfVazio())) {
+			predicates.add(criteriaBuilder.like(rootContador.get("cpf"), contador.getCpf()));
+			naoTemCriterio = false;
+
+		}
+		if (contador.getCrc() != null && contador.getCrc().length() > 0) {
+			predicates.add(criteriaBuilder.like(rootContador.get("crc"), contador.getCrc()));
+			naoTemCriterio = false;
+
+		}
+
+		if (naoTemCriterio) {
+			return new Contador();
+		}
+
+		criteriaQuery.select(rootContador).where(predicates.toArray(new Predicate[] {}));
+
+		List<Contador> list = entityManager.createQuery(criteriaQuery).getResultList();
+		tx.commit();
+		entityManager.close();
+		return list.size() > 0 ? list.get(0) : new Contador();
+	}
+
+	@Override
 	public void deletarRegistro(Contador contador) {
 		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
 		EntityTransaction tx = em.getTransaction();
@@ -25,14 +69,6 @@ final class ContadorImp implements ContadorDao {
 		em.remove(em.find(Contador.class, contador.getId()));
 		tx.commit();
 		em.close();
-	}
-
-	@Override
-	public Contador getRegistro(Contador contador) {
-		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction tx = em.getTransaction();
-		tx.begin();
-		return em.find(Contador.class, contador.getId());
 	}
 
 	@Override
@@ -46,6 +82,14 @@ final class ContadorImp implements ContadorDao {
 		tx.commit();
 		em.close();
 		return list;
+	}
+
+	@Override
+	public Contador getRegistro(Contador contador) {
+		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
+		EntityTransaction tx = em.getTransaction();
+		tx.begin();
+		return em.find(Contador.class, contador.getId());
 	}
 
 	@Override
@@ -102,50 +146,6 @@ final class ContadorImp implements ContadorDao {
 		tx.commit();
 		entityManager.close();
 		return list;
-	}
-
-	@Override
-	public Contador consultarRegistro(Contador contador) {
-		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction tx = entityManager.getTransaction();
-		tx.begin();
-
-		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
-		CriteriaQuery<Contador> criteriaQuery = criteriaBuilder.createQuery(Contador.class);
-		Root<Contador> rootContador = criteriaQuery.from(Contador.class);
-
-		List<Predicate> predicates = new ArrayList<Predicate>();
-
-		boolean naoTemCriterio = true;
-
-		if (contador.getCnpj() != null && !contador.getCnpj().equals(Mascara.getCnpj().getPlaceholder())
-				&& !contador.getCnpj().equals(Mascara.getCnpjVazio())) {
-			predicates.add(criteriaBuilder.like(rootContador.get("cnpj"), contador.getCnpj()));
-			naoTemCriterio = false;
-
-		}
-		if (contador.getCpf() != null && !contador.getCpf().equals(Mascara.getCpf().getPlaceholder())
-				&& !contador.getCpf().equals(Mascara.getCpfVazio())) {
-			predicates.add(criteriaBuilder.like(rootContador.get("cpf"), contador.getCpf()));
-			naoTemCriterio = false;
-
-		}
-		if (contador.getCrc() != null && contador.getCrc().length() > 0) {
-			predicates.add(criteriaBuilder.like(rootContador.get("crc"), contador.getCrc()));
-			naoTemCriterio = false;
-
-		}
-
-		if (naoTemCriterio) {
-			return new Contador();
-		}
-
-		criteriaQuery.select(rootContador).where(predicates.toArray(new Predicate[] {}));
-
-		List<Contador> list = entityManager.createQuery(criteriaQuery).getResultList();
-		tx.commit();
-		entityManager.close();
-		return list.size() > 0 ? list.get(0) : new Contador();
 	}
 
 	@Override

@@ -18,6 +18,48 @@ import arquitetura.validacao.Mascara;
 final class CartorioImp implements CartorioDao {
 
 	@Override
+	public Cartorio consultarRegistro(Cartorio cartorio) {
+		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
+		EntityTransaction tx = entityManager.getTransaction();
+		tx.begin();
+
+		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+		CriteriaQuery<Cartorio> criteriaQuery = criteriaBuilder.createQuery(Cartorio.class);
+		Root<Cartorio> rootCartorio = criteriaQuery.from(Cartorio.class);
+
+		List<Predicate> predicates = new ArrayList<Predicate>();
+
+		boolean naoTemCriterio = true;
+
+		if (cartorio.getNomeFantasia() != null && cartorio.getNomeFantasia().length() > 0) {
+			predicates.add(criteriaBuilder.equal(rootCartorio.get("nomeFantasia"), cartorio.getNomeFantasia()));
+			naoTemCriterio = false;
+
+		}
+		if (cartorio.getRazaoSocial() != null && cartorio.getRazaoSocial().length() > 0) {
+			predicates.add(criteriaBuilder.equal(rootCartorio.get("razaoSocial"), cartorio.getRazaoSocial()));
+			naoTemCriterio = false;
+
+		}
+		if (cartorio.getCnpj() != null && !cartorio.getCnpj().equals(Mascara.getCnpj().getPlaceholder())
+				&& !cartorio.getCnpj().equals(Mascara.getCnpjVazio())) {
+			predicates.add(criteriaBuilder.equal(rootCartorio.get("cnpj"), cartorio.getCnpj()));
+			naoTemCriterio = false;
+		}
+
+		if (naoTemCriterio) {
+			return new Cartorio();
+		}
+
+		criteriaQuery.select(rootCartorio).where(predicates.toArray(new Predicate[] {}));
+
+		List<Cartorio> list = entityManager.createQuery(criteriaQuery).getResultList();
+		tx.commit();
+		entityManager.close();
+		return list.size() > 0 ? list.get(0) : new Cartorio();
+	}
+
+	@Override
 	public void deletarRegistro(Cartorio cartorio) {
 		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
 		EntityTransaction tx = em.getTransaction();
@@ -25,14 +67,6 @@ final class CartorioImp implements CartorioDao {
 		em.remove(em.find(Cartorio.class, cartorio.getId()));
 		tx.commit();
 		em.close();
-	}
-
-	@Override
-	public Cartorio getRegistro(Cartorio cartorio) {
-		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction tx = em.getTransaction();
-		tx.begin();
-		return em.find(Cartorio.class, cartorio.getId());
 	}
 
 	@Override
@@ -46,6 +80,14 @@ final class CartorioImp implements CartorioDao {
 		tx.commit();
 		em.close();
 		return list;
+	}
+
+	@Override
+	public Cartorio getRegistro(Cartorio cartorio) {
+		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
+		EntityTransaction tx = em.getTransaction();
+		tx.begin();
+		return em.find(Cartorio.class, cartorio.getId());
 	}
 
 	@Override
@@ -138,48 +180,6 @@ final class CartorioImp implements CartorioDao {
 		tx.commit();
 		entityManager.close();
 		return list;
-	}
-
-	@Override
-	public Cartorio consultarRegistro(Cartorio cartorio) {
-		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction tx = entityManager.getTransaction();
-		tx.begin();
-
-		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
-		CriteriaQuery<Cartorio> criteriaQuery = criteriaBuilder.createQuery(Cartorio.class);
-		Root<Cartorio> rootCartorio = criteriaQuery.from(Cartorio.class);
-
-		List<Predicate> predicates = new ArrayList<Predicate>();
-
-		boolean naoTemCriterio = true;
-
-		if (cartorio.getNomeFantasia() != null && cartorio.getNomeFantasia().length() > 0) {
-			predicates.add(criteriaBuilder.equal(rootCartorio.get("nomeFantasia"), cartorio.getNomeFantasia()));
-			naoTemCriterio = false;
-
-		}
-		if (cartorio.getRazaoSocial() != null && cartorio.getRazaoSocial().length() > 0) {
-			predicates.add(criteriaBuilder.equal(rootCartorio.get("razaoSocial"), cartorio.getRazaoSocial()));
-			naoTemCriterio = false;
-
-		}
-		if (cartorio.getCnpj() != null && !cartorio.getCnpj().equals(Mascara.getCnpj().getPlaceholder())
-				&& !cartorio.getCnpj().equals(Mascara.getCnpjVazio())) {
-			predicates.add(criteriaBuilder.equal(rootCartorio.get("cnpj"), cartorio.getCnpj()));
-			naoTemCriterio = false;
-		}
-
-		if (naoTemCriterio) {
-			return new Cartorio();
-		}
-
-		criteriaQuery.select(rootCartorio).where(predicates.toArray(new Predicate[] {}));
-
-		List<Cartorio> list = entityManager.createQuery(criteriaQuery).getResultList();
-		tx.commit();
-		entityManager.close();
-		return list.size() > 0 ? list.get(0) : new Cartorio();
 	}
 
 	@Override

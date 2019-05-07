@@ -80,25 +80,6 @@ final class BancoCont {
 		}
 	}
 
-	public class Relatorio implements ActionListener {
-
-		@Override
-		public void actionPerformed(ActionEvent actionEvent) {
-
-			List<Banco> bancos = new LinkedList<>();
-
-			try {
-				bancos = new LinkedList<>(BancoFac.pesquisarRegistro(new Banco()));
-			} catch (Exception e) {
-				System.out.println(e);
-			}
-
-			BancoRel bancoRel = new BancoRel(bancos);
-			bancoRel.retornarRelatorio(true);
-
-		}
-	}
-
 	public class Imprime implements ActionListener {
 
 		@Override
@@ -140,6 +121,25 @@ final class BancoCont {
 			if (totalPesquisaRegistro > 0) {
 				MainFc.mostrarFrame(getBancoFp());
 			}
+		}
+	}
+
+	public class Relatorio implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent actionEvent) {
+
+			List<Banco> bancos = new LinkedList<>();
+
+			try {
+				bancos = new LinkedList<>(BancoFac.pesquisarRegistro(new Banco()));
+			} catch (Exception e) {
+				System.out.println(e);
+			}
+
+			BancoRel bancoRel = new BancoRel(bancos);
+			bancoRel.retornarRelatorio(true);
+
 		}
 	}
 
@@ -265,12 +265,12 @@ final class BancoCont {
 		return MainCont.getBancoFc();
 	}
 
-	public BancoPc getBancoPc() {
-		return MainCont.getBancoFc().getBancoPc();
-	}
-
 	public BancoFp getBancoFp() {
 		return MainCont.getBancoFp();
+	}
+
+	public BancoPc getBancoPc() {
+		return MainCont.getBancoFc().getBancoPc();
 	}
 
 	public BancoPp getBancoPp() {

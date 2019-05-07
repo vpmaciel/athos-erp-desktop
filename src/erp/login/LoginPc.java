@@ -20,12 +20,9 @@ import arquitetura.util.SpringUtilities;
 public final class LoginPc extends JPanel implements Gui {
 
 	private JButton buttonEntrar;
-	private JPasswordField textFieldSenha;
 	private ConfiguracaoGui configuracaoGui;
-	private JLabel labelNome;
-	private JLabel labelSenha;
-	private JLabel labelEntrar;
-	private JTextField textFieldNome;
+	private JTextField fieldNome;
+	private JPasswordField fieldSenha;
 
 	public LoginPc() {
 		iniciarLayout();
@@ -55,11 +52,16 @@ public final class LoginPc extends JPanel implements Gui {
 	}
 
 	public JTextField getTextFieldNome() {
-		return textFieldNome;
+		return fieldNome;
 	}
 
 	public JPasswordField getTextFieldSenha() {
-		return textFieldSenha;
+		return fieldSenha;
+	}
+
+	@Override
+	public void iniciarControlador() {
+
 	}
 
 	@Override
@@ -71,25 +73,22 @@ public final class LoginPc extends JPanel implements Gui {
 	@Override
 	public void iniciarGui() {
 
-		labelNome = new JLabel("USUÁRIO");
-		add(labelNome);
+		add(new JLabel("USUÁRIO"));
 
-		textFieldNome = new JTextField(25);
-		textFieldNome.setDocument(new EntradaMaiuscula(10));
-		textFieldNome.setText("ADMIN");
-		textFieldNome.requestFocus();
-		add(textFieldNome);
+		fieldNome = new JTextField(25);
+		fieldNome.setDocument(new EntradaMaiuscula(10));
+		fieldNome.setText("ADMIN");
+		fieldNome.requestFocus();
+		add(fieldNome);
 
-		labelSenha = new JLabel("SENHA");
-		add(labelSenha);
+		add(new JLabel("SENHA"));
 
-		textFieldSenha = new JPasswordField(25);
-		textFieldSenha.setDocument(new EntradaMaiuscula(10));
-		textFieldSenha.setText("123");
-		add(textFieldSenha);
+		fieldSenha = new JPasswordField(25);
+		fieldSenha.setDocument(new EntradaMaiuscula(10));
+		fieldSenha.setText("123");
+		add(fieldSenha);
 
-		labelEntrar = new JLabel("ENTRAR");
-		add(labelEntrar);
+		add(new JLabel("ENTRAR"));
 
 		buttonEntrar = new JButton("ENTRAR");
 		add(buttonEntrar);
@@ -103,11 +102,6 @@ public final class LoginPc extends JPanel implements Gui {
 	@Override
 	public void iniciarGuiControlador() {
 		configuracaoGui = new ConfiguracaoGui(this);
-	}
-
-	@Override
-	public void iniciarControlador() {
-
 	}
 
 	@Override

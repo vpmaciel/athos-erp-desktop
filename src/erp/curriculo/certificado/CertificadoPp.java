@@ -19,8 +19,8 @@ import arquitetura.gui.Tabela;
 @SuppressWarnings("serial")
 public final class CertificadoPp extends JPanel {
 
-	private final CertificadoTm certificadoTm;
 	List<Certificado> certificados = null;
+	private final CertificadoTm certificadoTm;
 	private final JTable table;
 
 	public CertificadoPp() {

@@ -21,8 +21,8 @@ import arquitetura.gui.Imagem;
 public final class BancoFc extends JFrame implements Gui {
 
 	private BancoCont bancoCont;
-	private ConfiguracaoGui configuracaoGui;
 	private BancoPc bancoPc;
+	private ConfiguracaoGui configuracaoGui;
 
 	public BancoFc() {
 		iniciarLayout();
@@ -43,13 +43,30 @@ public final class BancoFc extends JFrame implements Gui {
 		return bancoCont;
 	}
 
+	public BancoPc getBancoPc() {
+		return bancoPc;
+	}
+
 	@Override
 	public ConfiguracaoGui getConfiguracaoGui() {
 		return configuracaoGui;
 	}
 
-	public BancoPc getBancoPc() {
-		return bancoPc;
+	@Override
+	public void iniciarControlador() {
+		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
+		bancoCont = new BancoCont();
+		addWindowListener(bancoCont.new Frame());
+		bancoPc.getTB().getExcluirBtn().addActionListener(bancoCont.new Exclui());
+		bancoPc.getTB().getNovoBtn().addActionListener(bancoCont.new Novo());
+		bancoPc.getTB().getPesquisarBtn().addActionListener(bancoCont.new Pesquisa());
+		bancoPc.getTB().getImprimirBtn().addActionListener(bancoCont.new Imprime());
+		bancoPc.getTB().getRelatorioBtn().addActionListener(bancoCont.new Relatorio());
+		bancoPc.getTB().getSalvarBtn().addActionListener(bancoCont.new Salva());
+		bancoPc.getTB().getFecharBtn().addActionListener(bancoCont.new FechaJanela());
+		bancoPc.getTB().getSairBtn().addActionListener(bancoCont.new SaidaSistema());
+		bancoPc.getTB().getAjudaBtn().addActionListener(bancoCont.new Ajuda());
+		bancoPc.getTB().getHomeBtn().addActionListener(bancoCont.new Home());
 	}
 
 	@Override
@@ -90,23 +107,6 @@ public final class BancoFc extends JFrame implements Gui {
 	@Override
 	public void iniciarGuiControlador() {
 		configuracaoGui = new ConfiguracaoGui(this);
-	}
-
-	@Override
-	public void iniciarControlador() {
-		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
-		bancoCont = new BancoCont();
-		addWindowListener(bancoCont.new Frame());
-		bancoPc.getTB().getExcluirBtn().addActionListener(bancoCont.new Exclui());
-		bancoPc.getTB().getNovoBtn().addActionListener(bancoCont.new Novo());
-		bancoPc.getTB().getPesquisarBtn().addActionListener(bancoCont.new Pesquisa());
-		bancoPc.getTB().getImprimirBtn().addActionListener(bancoCont.new Imprime());
-		bancoPc.getTB().getRelatorioBtn().addActionListener(bancoCont.new Relatorio());
-		bancoPc.getTB().getSalvarBtn().addActionListener(bancoCont.new Salva());
-		bancoPc.getTB().getFecharBtn().addActionListener(bancoCont.new FechaJanela());
-		bancoPc.getTB().getSairBtn().addActionListener(bancoCont.new SaidaSistema());
-		bancoPc.getTB().getAjudaBtn().addActionListener(bancoCont.new Ajuda());
-		bancoPc.getTB().getHomeBtn().addActionListener(bancoCont.new Home());
 	}
 
 	@Override

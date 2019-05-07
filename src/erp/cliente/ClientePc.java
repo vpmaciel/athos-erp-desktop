@@ -31,92 +31,52 @@ import erp.main.MainCont;
 @SuppressWarnings("serial")
 public final class ClientePc extends JPanel implements Gui {
 
-	private ToolBar toolBar;
-	private ConfiguracaoGui configuracaoGui;
-	private JComboBox<String> boxEscolaridade;
-	private JComboBox<String> boxNacionalidade;
-	private JComboBox<String> boxDeficiencia;
-	private JComboBox<String> boxCor;
-	private JComboBox<String> boxSexo;
-	private JTextField textFieldNome;
-	private JComboBox<String> boxEstadoCivil;
-	private JFormattedTextField textFieldDataCadastro;
-	private JLabel labelSexo;
-	private JLabel labelStatus;
-	private JLabel labelNome;
-	private JLabel labelDataNascimento;
-	private JLabel labelIdade;
-	private JLabel labelNumeroAgenciaBancaria;
-	private JLabel labelEstadoCivil;
-	private JLabel labelDataCadastro;
-	private JLabel labelBanco;
-	private JFormattedTextField textFieldDataNascimento;
-	private JTextField textFieldIdade;
-	private JFormattedTextField textFieldCPF;
-	private JTextField textFieldRGNumero;
-	private JTextField textFieldRGOrgaoEmisssor;
-	private JFormattedTextField textFieldCNPJ;
-	private JLabel labelCPF;
-	private JLabel labelRGNumero;
-	private JLabel labelRGOrgaoEmisssor;
-	private JLabel labelCNPJ;
-	private JTextField textFieldEmail;
-	private JFormattedTextField textFieldFax;
-	private JFormattedTextField textFieldFone1;
-	private JFormattedTextField textFieldFone2;
-	private JLabel labelFone2;
-	private JLabel labelEmail;
-	private JLabel labelFax;
-	private JLabel labelFone1;
-	private JTextField textFieldBairro;
-	private JFormattedTextField textFieldCep;
-	private JTextField textFieldCidade;
-	private JTextField textFieldEstado;
-	private JTextField textFieldLogradouro;
-	private JTextField textFieldPais;
-	private JTextField textFieldComplemento;
-	private JTextField textFieldNumeroContaBancaria;
-	private JLabel labelBairro;
-	private JLabel labelCep;
-	private JLabel labelCidade;
-	private JLabel labelComplemento;
-	private JLabel labelEstado;
-	private JLabel labelLogradouro;
-	private JLabel labelPais;
-	private JTextField textFieldCargo;
-	private JComboBox<String> boxClasseEconomica;
-	private JTextField textFieldSalario;
-	private JTextField textFieldNumeroAgenciaBancaria;
-	private JComboBox<Empresa> boxEmpresa;
-	private JComboBox<String> boxStatus;
 	private JComboBox<Banco> boxBanco;
-	private JLabel labelCargo;
-	private JLabel labelClasseEconomica;
-	private JLabel labelSalario;
-	private JLabel labelEmpresa;
-	private JLabel labelNomeReferencia1;
-	private JLabel labelNomeReferencia2;
-	private JLabel labelNomeReferencia3;
-	private JLabel labelFoneReferencia1;
-	private JLabel labelFoneReferencia2;
-	private JLabel labelFoneReferencia3;
-	private JLabel labelReferenciaRelacionamento1;
-	private JLabel labelReferenciaRelacionamento2;
-	private JLabel labelReferenciaRelacionamento3;
-	private JLabel labelEscolaridade;
-	private JLabel labelNacionalidade;
-	private JLabel labelDeficiencia;
-	private JLabel labelCor;
-	private JLabel labelNumeroContaBancaria;
+	private JComboBox<String> boxClasseEconomica;
+	private JComboBox<String> boxCor;
+	private JComboBox<String> boxDeficiencia;
+	private JComboBox<Empresa> boxEmpresa;
+	private JComboBox<String> boxEscolaridade;
+	private JComboBox<String> boxEstadoCivil;
+	private JComboBox<String> boxNacionalidade;
 	private JComboBox<String> boxRelacionamentoReferencia1;
 	private JComboBox<String> boxRelacionamentoReferencia2;
 	private JComboBox<String> boxRelacionamentoReferencia3;
-	private JTextField textFieldNomeReferencia1;
-	private JTextField textFieldNomeReferencia2;
-	private JTextField textFieldNomeReferencia3;
-	private JFormattedTextField textFieldFoneReferencia1;
-	private JFormattedTextField textFieldFoneReferencia2;
-	private JFormattedTextField textFieldFoneReferencia3;
+	private JComboBox<String> boxSexo;
+	private JComboBox<String> boxStatus;
+	private ConfiguracaoGui configuracaoGui;
+	private JTextField fieldBairro;
+	private JTextField fieldCargo;
+	private JFormattedTextField fieldCep;
+	private JTextField fieldCidade;
+	private JFormattedTextField fieldCNPJ;
+	private JTextField fieldComplemento;
+	private JFormattedTextField fieldCPF;
+	private JFormattedTextField fieldDataCadastro;
+	private JFormattedTextField fieldDataNascimento;
+	private JTextField fieldEmail;
+	private JTextField fieldEstado;
+	private JFormattedTextField fieldFax;
+	private JFormattedTextField fieldFone1;
+	private JFormattedTextField fieldFone2;
+	private JFormattedTextField fieldFoneReferencia1;
+	private JFormattedTextField fieldFoneReferencia2;
+	private JFormattedTextField fieldFoneReferencia3;
+	private JTextField fieldIdade;
+	private JTextField fieldLogradouro;
+	private JTextField fieldNome;
+	private JTextField fieldNomeReferencia1;
+	private JTextField fieldNomeReferencia2;
+	private JTextField fieldNomeReferencia3;
+	private JTextField fieldNumeroAgenciaBancaria;
+	private JTextField fieldNumeroContaBancaria;
+	private JTextField fieldPais;
+	private JTextField fieldRGNumero;
+	private JTextField fieldRGOrgaoEmisssor;
+	private JTextField fieldSalario;
+	private JLabel labelBanco;
+	private JLabel labelEmpresa;
+	private ToolBar toolBar;
 
 	public ClientePc() {
 		iniciarLayout();
@@ -130,20 +90,65 @@ public final class ClientePc extends JPanel implements Gui {
 
 	}
 
+	@Override
+	public ConfiguracaoGui getConfiguracaoGui() {
+		return configuracaoGui;
+	}
+
+	public JTextField getGuiBairro() {
+		return fieldBairro;
+	}
+
 	public JComboBox<Banco> getGuiBanco() {
 		return boxBanco;
+	}
+
+	public JTextField getGuiCargo() {
+		return fieldCargo;
+	}
+
+	public JFormattedTextField getGuiCep() {
+		return fieldCep;
+	}
+
+	public JTextField getGuiCidade() {
+		return fieldCidade;
 	}
 
 	public JComboBox<String> getGuiClasseEconomica() {
 		return boxClasseEconomica;
 	}
 
+	public JFormattedTextField getGuiCnpj() {
+		return fieldCNPJ;
+	}
+
+	public JTextField getGuiComplemento() {
+		return fieldComplemento;
+	}
+
 	public JComboBox<String> getGuiCor() {
 		return boxCor;
 	}
 
+	public JFormattedTextField getGuiCpf() {
+		return fieldCPF;
+	}
+
+	public JFormattedTextField getGuiDataCadastro() {
+		return fieldDataCadastro;
+	}
+
+	public JFormattedTextField getGuiDataNascimento() {
+		return fieldDataNascimento;
+	}
+
 	public JComboBox<String> getGuiDeficiencia() {
 		return boxDeficiencia;
+	}
+
+	public JTextField getGuiEmail() {
+		return fieldEmail;
 	}
 
 	public JComboBox<Empresa> getGuiEmpresa() {
@@ -154,12 +159,72 @@ public final class ClientePc extends JPanel implements Gui {
 		return boxEscolaridade;
 	}
 
+	public JTextField getGuiEstado() {
+		return fieldEstado;
+	}
+
 	public JComboBox<String> getGuiEstadoCivil() {
 		return boxEstadoCivil;
 	}
 
+	public JFormattedTextField getGuiFax() {
+		return fieldFax;
+	}
+
+	public JFormattedTextField getGuiFone1() {
+		return fieldFone1;
+	}
+
+	public JFormattedTextField getGuiFone2() {
+		return fieldFone2;
+	}
+
+	public JFormattedTextField getGuiFoneReferencia1() {
+		return fieldFoneReferencia1;
+	}
+
+	public JFormattedTextField getGuiFoneReferencia2() {
+		return fieldFoneReferencia2;
+	}
+
+	public JFormattedTextField getGuiFoneReferencia3() {
+		return fieldFoneReferencia3;
+	}
+
+	public JTextField getGuiIdade() {
+		return fieldIdade;
+	}
+
+	public JTextField getGuiLogradouro() {
+		return fieldLogradouro;
+	}
+
 	public JComboBox<String> getGuiNacionalidade() {
 		return boxNacionalidade;
+	}
+
+	public JTextField getGuiNome() {
+		return fieldNome;
+	}
+
+	public JTextField getGuiNomeReferencia3() {
+		return fieldNomeReferencia3;
+	}
+
+	public JTextField getGuiNumeroAgenciaBancaria() {
+		return fieldNumeroAgenciaBancaria;
+	}
+
+	public JTextField getGuiNumeroContaBancaria() {
+		return fieldNumeroContaBancaria;
+	}
+
+	public JTextField getGuiPais() {
+		return fieldPais;
+	}
+
+	public JTextField getGuiReferencia1() {
+		return fieldNomeReferencia1;
 	}
 
 	public JComboBox<String> getGuiRelRef1() {
@@ -174,21 +239,24 @@ public final class ClientePc extends JPanel implements Gui {
 		return boxRelacionamentoReferencia3;
 	}
 
+	public JTextField getGuiRGNumero() {
+		return fieldRGNumero;
+	}
+
+	public JTextField getGuiRGOrgaoEmisssor() {
+		return fieldRGOrgaoEmisssor;
+	}
+
+	public JTextField getGuiSalario() {
+		return fieldSalario;
+	}
+
 	public JComboBox<String> getGuiSexo() {
 		return boxSexo;
 	}
 
 	public JComboBox<String> getGuiStatus() {
 		return boxStatus;
-	}
-
-	public JTextField getGuiNumeroAgenciaBancaria() {
-		return textFieldNumeroAgenciaBancaria;
-	}
-
-	@Override
-	public ConfiguracaoGui getConfiguracaoGui() {
-		return configuracaoGui;
 	}
 
 	public JLabel getLabelBanco() {
@@ -199,124 +267,17 @@ public final class ClientePc extends JPanel implements Gui {
 		return labelEmpresa;
 	}
 
-	public JLabel getLabelPais() {
-		return labelPais;
-	}
-
-	public JTextField getGuiBairro() {
-		return textFieldBairro;
-	}
-
-	public JTextField getGuiCargo() {
-		return textFieldCargo;
-	}
-
-	public JFormattedTextField getGuiCep() {
-		return textFieldCep;
-	}
-
-	public JTextField getGuiCidade() {
-		return textFieldCidade;
-	}
-
-	public JFormattedTextField getGuiCnpj() {
-		return textFieldCNPJ;
-	}
-
-	public JTextField getGuiComplemento() {
-		return textFieldComplemento;
-	}
-
-	public JFormattedTextField getGuiCpf() {
-		return textFieldCPF;
-	}
-
-	public JFormattedTextField getGuiDataCadastro() {
-		return textFieldDataCadastro;
-	}
-
-	public JFormattedTextField getGuiDataNascimento() {
-		return textFieldDataNascimento;
-	}
-
-	public JTextField getGuiEmail() {
-		return textFieldEmail;
-	}
-
-	public JTextField getGuiEstado() {
-		return textFieldEstado;
-	}
-
-	public JFormattedTextField getGuiFax() {
-		return textFieldFax;
-	}
-
-	public JFormattedTextField getGuiFone1() {
-		return textFieldFone1;
-	}
-
-	public JFormattedTextField getGuiFone2() {
-		return textFieldFone2;
-	}
-
-	public JFormattedTextField getGuiFoneReferencia1() {
-		return textFieldFoneReferencia1;
-	}
-
-	public JFormattedTextField getGuiFoneReferencia2() {
-		return textFieldFoneReferencia2;
-	}
-
-	public JFormattedTextField getGuiFoneReferencia3() {
-		return textFieldFoneReferencia3;
-	}
-
-	public JTextField getGuiIdade() {
-		return textFieldIdade;
-	}
-
-	public JTextField getGuiLogradouro() {
-		return textFieldLogradouro;
-	}
-
-	public JTextField getGuiNome() {
-		return textFieldNome;
-	}
-
-	public JTextField getGuiReferencia1() {
-		return textFieldNomeReferencia1;
-	}
-
 	public JTextField getNomeGuiReferencia2() {
-		return textFieldNomeReferencia2;
-	}
-
-	public JTextField getGuiNomeReferencia3() {
-		return textFieldNomeReferencia3;
-	}
-
-	public JTextField getGuiNumeroContaBancaria() {
-		return textFieldNumeroContaBancaria;
-	}
-
-	public JTextField getGuiPais() {
-		return textFieldPais;
-	}
-
-	public JTextField getGuiRGNumero() {
-		return textFieldRGNumero;
-	}
-
-	public JTextField getGuiRGOrgaoEmisssor() {
-		return textFieldRGOrgaoEmisssor;
-	}
-
-	public JTextField getGuiSalario() {
-		return textFieldSalario;
+		return fieldNomeReferencia2;
 	}
 
 	public ToolBar getTB() {
 		return toolBar;
+	}
+
+	@Override
+	public void iniciarControlador() {
+
 	}
 
 	@Override
@@ -334,15 +295,13 @@ public final class ClientePc extends JPanel implements Gui {
 
 		add(toolBar.getToolBar());
 
-		labelNome = new JLabel("NOME DO CLIENTE");
-		add(labelNome);
+		add(new JLabel("NOME DO CLIENTE"));
 
-		textFieldNome = new JTextField();
-		textFieldNome.setDocument(new EntradaMaiuscula(50));
-		add(textFieldNome);
+		fieldNome = new JTextField();
+		fieldNome.setDocument(new EntradaMaiuscula(50));
+		add(fieldNome);
 
-		labelEstadoCivil = new JLabel("ESTADO CIVIL");
-		add(labelEstadoCivil);
+		add(new JLabel("ESTADO CIVIL"));
 
 		boxEstadoCivil = new JComboBox<String>();
 		boxEstadoCivil.addItem("");
@@ -353,8 +312,7 @@ public final class ClientePc extends JPanel implements Gui {
 		boxEstadoCivil.addItem("VIÚVO (A)");
 		add(boxEstadoCivil);
 
-		labelSexo = new JLabel("SEXO");
-		add(labelSexo);
+		add(new JLabel("SEXO"));
 
 		boxSexo = new JComboBox<String>();
 		boxSexo.addItem("");
@@ -362,14 +320,12 @@ public final class ClientePc extends JPanel implements Gui {
 		boxSexo.addItem("FEMININO");
 		add(boxSexo);
 
-		labelDataCadastro = new JLabel("DATA DE CADASTRO");
-		add(labelDataCadastro);
+		add(new JLabel("DATA DE CADASTRO"));
 
-		textFieldDataCadastro = new JFormattedTextField(Mascara.getData());
-		add(textFieldDataCadastro);
+		fieldDataCadastro = new JFormattedTextField(Mascara.getData());
+		add(fieldDataCadastro);
 
-		labelDeficiencia = new JLabel("DEFICIÊNCIA");
-		add(labelDeficiencia);
+		add(new JLabel("DEFICIÊNCIA"));
 
 		boxDeficiencia = new JComboBox<String>();
 		boxDeficiencia.addItem("");
@@ -382,8 +338,7 @@ public final class ClientePc extends JPanel implements Gui {
 		boxDeficiencia.addItem("MÚLTIPLA");
 		add(boxDeficiencia);
 
-		labelEscolaridade = new JLabel("ESCOLARIDADE");
-		add(labelEscolaridade);
+		add(new JLabel("ESCOLARIDADE"));
 
 		boxEscolaridade = new JComboBox<String>();
 		boxEscolaridade.addItem("");
@@ -399,8 +354,7 @@ public final class ClientePc extends JPanel implements Gui {
 		boxEscolaridade.addItem("PRIMEIRO GRAU INCOMPLETO");
 		add(boxEscolaridade);
 
-		labelNacionalidade = new JLabel("NACIONALIDADE");
-		add(labelNacionalidade);
+		add(new JLabel("NACIONALIDADE"));
 
 		boxNacionalidade = new JComboBox<String>();
 		boxNacionalidade.addItem("");
@@ -409,8 +363,7 @@ public final class ClientePc extends JPanel implements Gui {
 		boxNacionalidade.addItem("ESTRANGEIRO (A)");
 		add(boxNacionalidade);
 
-		labelCor = new JLabel("COR");
-		add(labelCor);
+		add(new JLabel("COR"));
 
 		boxCor = new JComboBox<String>();
 		boxCor.addItem("");
@@ -421,101 +374,86 @@ public final class ClientePc extends JPanel implements Gui {
 		boxCor.addItem("INDÍGENA");
 		add(boxCor);
 
-		labelDataNascimento = new JLabel("DATA DE NASCIMENTO");
-		add(labelDataNascimento);
+		add(new JLabel("DATA DE NASCIMENTO"));
 
-		textFieldDataNascimento = new JFormattedTextField(Mascara.getData());
-		add(textFieldDataNascimento);
+		fieldDataNascimento = new JFormattedTextField(Mascara.getData());
+		add(fieldDataNascimento);
 
-		labelIdade = new JLabel("IDADE");
-		add(labelIdade);
+		add(new JLabel("IDADE"));
 
-		textFieldIdade = new JTextField();
-		textFieldIdade.setDocument(new EntradaMaiuscula(3));
-		add(textFieldIdade);
+		fieldIdade = new JTextField();
+		fieldIdade.setDocument(new EntradaMaiuscula(3));
+		add(fieldIdade);
 
-		labelFone1 = new JLabel("TELEFONE");
-		add(labelFone1);
+		add(new JLabel("TELEFONE"));
 
-		textFieldFone1 = new JFormattedTextField(Mascara.getFone());
-		add(textFieldFone1);
+		fieldFone1 = new JFormattedTextField(Mascara.getFone());
+		add(fieldFone1);
 
-		labelFone2 = new JLabel("TELEFONE");
-		add(labelFone2);
+		add(new JLabel("TELEFONE"));
 
-		textFieldFone2 = new JFormattedTextField(Mascara.getFone());
-		add(textFieldFone2);
+		fieldFone2 = new JFormattedTextField(Mascara.getFone());
+		add(fieldFone2);
 
-		labelFax = new JLabel("FAX");
-		add(labelFax);
+		add(new JLabel("FAX"));
 
-		textFieldFax = new JFormattedTextField(Mascara.getFax());
-		add(textFieldFax);
+		fieldFax = new JFormattedTextField(Mascara.getFax());
+		add(fieldFax);
 
-		labelEmail = new JLabel("E-MAIL");
-		add(labelEmail);
+		add(new JLabel("E-MAIL"));
 
-		textFieldEmail = new JTextField();
-		textFieldEmail.setDocument(new EntradaMinuscula(50));
-		add(textFieldEmail);
+		fieldEmail = new JTextField();
+		fieldEmail.setDocument(new EntradaMinuscula(50));
+		add(fieldEmail);
 
-		labelPais = new JLabel("PAÍS");
-		add(labelPais);
+		add(new JLabel("PAÍS"));
 
-		textFieldPais = new JTextField();
-		textFieldPais.setDocument(new EntradaMaiuscula(50));
-		add(textFieldPais);
+		fieldPais = new JTextField();
+		fieldPais.setDocument(new EntradaMaiuscula(50));
+		add(fieldPais);
 
-		labelEstado = new JLabel("ESTADO");
-		add(labelEstado);
+		add(new JLabel("ESTADO"));
 
-		textFieldEstado = new JTextField();
-		textFieldEstado.setDocument(new EntradaMaiuscula(50));
-		add(textFieldEstado);
+		fieldEstado = new JTextField();
+		fieldEstado.setDocument(new EntradaMaiuscula(50));
+		add(fieldEstado);
 
-		labelCidade = new JLabel("CIDADE");
-		add(labelCidade);
+		add(new JLabel("CIDADE"));
 
-		textFieldCidade = new JTextField();
-		textFieldCidade.setDocument(new EntradaMaiuscula(50));
-		add(textFieldCidade);
+		fieldCidade = new JTextField();
+		fieldCidade.setDocument(new EntradaMaiuscula(50));
+		add(fieldCidade);
 
-		labelBairro = new JLabel("BAIRRO");
-		add(labelBairro);
+		add(new JLabel("BAIRRO"));
 
-		textFieldBairro = new JTextField();
-		textFieldBairro.setDocument(new EntradaMaiuscula(50));
-		add(textFieldBairro);
+		fieldBairro = new JTextField();
+		fieldBairro.setDocument(new EntradaMaiuscula(50));
+		add(fieldBairro);
 
-		labelLogradouro = new JLabel("LOGRADOURO");
-		add(labelLogradouro);
+		add(new JLabel("LOGRADOURO"));
 
-		textFieldLogradouro = new JTextField();
-		textFieldLogradouro.setDocument(new EntradaMaiuscula(50));
-		add(textFieldLogradouro);
+		fieldLogradouro = new JTextField();
+		fieldLogradouro.setDocument(new EntradaMaiuscula(50));
+		add(fieldLogradouro);
 
-		labelComplemento = new JLabel("COMPLEMENTO");
-		add(labelComplemento);
+		add(new JLabel("COMPLEMENTO"));
 
-		textFieldComplemento = new JTextField();
-		textFieldComplemento.setDocument(new EntradaMaiuscula(20));
-		add(textFieldComplemento);
+		fieldComplemento = new JTextField();
+		fieldComplemento.setDocument(new EntradaMaiuscula(20));
+		add(fieldComplemento);
 
-		labelCep = new JLabel("CEP");
-		add(labelCep);
+		add(new JLabel("CEP"));
 
-		textFieldCep = new JFormattedTextField(Mascara.getCep());
-		add(textFieldCep);
+		fieldCep = new JFormattedTextField(Mascara.getCep());
+		add(fieldCep);
 
-		labelCargo = new JLabel("CARGO");
-		add(labelCargo);
+		add(new JLabel("CARGO"));
 
-		textFieldCargo = new JTextField();
-		textFieldCargo.setDocument(new EntradaMaiuscula(50));
-		add(textFieldCargo);
+		fieldCargo = new JTextField();
+		fieldCargo.setDocument(new EntradaMaiuscula(50));
+		add(fieldCargo);
 
-		labelClasseEconomica = new JLabel("CLASSE ECONÔMICA");
-		add(labelClasseEconomica);
+		add(new JLabel("CLASSE ECONÔMICA"));
 
 		boxClasseEconomica = new JComboBox<String>();
 		boxClasseEconomica.addItem("");
@@ -539,41 +477,35 @@ public final class ClientePc extends JPanel implements Gui {
 		boxEmpresa.setMaximumRowCount(5);
 		add(boxEmpresa);
 
-		labelSalario = new JLabel("SALÁRIO");
-		add(labelSalario);
+		add(new JLabel("SALÁRIO"));
 
-		textFieldSalario = new JTextField();
-		textFieldSalario.setDocument(new EntradaMaiuscula(10));
-		add(textFieldSalario);
+		fieldSalario = new JTextField();
+		fieldSalario.setDocument(new EntradaMaiuscula(10));
+		add(fieldSalario);
 
-		labelCPF = new JLabel("CPF");
-		add(labelCPF);
+		add(new JLabel("CPF"));
 
-		textFieldCPF = new JFormattedTextField(Mascara.getCpf());
-		add(textFieldCPF);
+		fieldCPF = new JFormattedTextField(Mascara.getCpf());
+		add(fieldCPF);
 
-		labelRGNumero = new JLabel("IDENTIDADE NÚMERO");
-		add(labelRGNumero);
+		add(new JLabel("IDENTIDADE NÚMERO"));
 
-		textFieldRGNumero = new JTextField();
-		textFieldRGNumero.setDocument(new EntradaMaiuscula(15));
-		add(textFieldRGNumero);
+		fieldRGNumero = new JTextField();
+		fieldRGNumero.setDocument(new EntradaMaiuscula(15));
+		add(fieldRGNumero);
 
-		labelRGOrgaoEmisssor = new JLabel("IDENTIDADE ÓRGÃO EMISSOR");
-		add(labelRGOrgaoEmisssor);
+		add(new JLabel("IDENTIDADE ÓRGÃO EMISSOR"));
 
-		textFieldRGOrgaoEmisssor = new JTextField();
-		textFieldRGOrgaoEmisssor.setDocument(new EntradaMaiuscula(20));
-		add(textFieldRGOrgaoEmisssor);
+		fieldRGOrgaoEmisssor = new JTextField();
+		fieldRGOrgaoEmisssor.setDocument(new EntradaMaiuscula(20));
+		add(fieldRGOrgaoEmisssor);
 
-		labelCNPJ = new JLabel("CNPJ");
-		add(labelCNPJ);
+		add(new JLabel("CNPJ"));
 
-		textFieldCNPJ = new JFormattedTextField(Mascara.getCnpj());
-		add(textFieldCNPJ);
+		fieldCNPJ = new JFormattedTextField(Mascara.getCnpj());
+		add(fieldCNPJ);
 
-		labelStatus = new JLabel("STATUS");
-		add(labelStatus);
+		add(new JLabel("STATUS"));
 
 		boxStatus = new JComboBox<String>();
 		boxStatus.addItem("");
@@ -594,37 +526,31 @@ public final class ClientePc extends JPanel implements Gui {
 		boxBanco.setMaximumRowCount(5);
 		add(boxBanco);
 
-		labelNumeroAgenciaBancaria = new JLabel("AGÊNCIA BANCÁRIA NÚMERO");
-		labelNumeroAgenciaBancaria.setCursor(cursor);
-		add(labelNumeroAgenciaBancaria);
+		add(new JLabel("AGÊNCIA BANCÁRIA NÚMERO"));
 
-		textFieldNumeroAgenciaBancaria = new JTextField();
-		textFieldNumeroAgenciaBancaria.setDocument(new EntradaMaiuscula(20));
-		add(textFieldNumeroAgenciaBancaria);
+		fieldNumeroAgenciaBancaria = new JTextField();
+		fieldNumeroAgenciaBancaria.setDocument(new EntradaMaiuscula(20));
+		add(fieldNumeroAgenciaBancaria);
 
-		labelNumeroContaBancaria = new JLabel("CONTA BANCÁRIA NÚMERO");
-		add(labelNumeroContaBancaria);
+		add(new JLabel("CONTA BANCÁRIA NÚMERO"));
 
-		textFieldNumeroContaBancaria = new JTextField();
-		textFieldNumeroContaBancaria.setDocument(new EntradaMaiuscula(20));
-		add(textFieldNumeroContaBancaria);
+		fieldNumeroContaBancaria = new JTextField();
+		fieldNumeroContaBancaria.setDocument(new EntradaMaiuscula(20));
+		add(fieldNumeroContaBancaria);
 
-		labelNomeReferencia1 = new JLabel("NOME PARA REFERÊNCIA 1");
-		add(labelNomeReferencia1);
+		add(new JLabel("NOME PARA REFERÊNCIA 1"));
 
-		textFieldNomeReferencia1 = new JTextField();
-		textFieldNomeReferencia1.setDocument(new EntradaMaiuscula(50));
-		add(textFieldNomeReferencia1);
+		fieldNomeReferencia1 = new JTextField();
+		fieldNomeReferencia1.setDocument(new EntradaMaiuscula(50));
+		add(fieldNomeReferencia1);
 
-		labelFoneReferencia1 = new JLabel("TELEFONE PARA REFERÊNCIA 1");
-		add(labelFoneReferencia1);
+		add(new JLabel("TELEFONE PARA REFERÊNCIA 1"));
 
-		textFieldFoneReferencia1 = new JFormattedTextField(Mascara.getFone());
-		textFieldFoneReferencia1.setDocument(new EntradaMaiuscula(10));
-		add(textFieldFoneReferencia1);
+		fieldFoneReferencia1 = new JFormattedTextField(Mascara.getFone());
+		fieldFoneReferencia1.setDocument(new EntradaMaiuscula(10));
+		add(fieldFoneReferencia1);
 
-		labelReferenciaRelacionamento1 = new JLabel("NOME PARA REFERÊNCIA 1 É DO CLIENTE");
-		add(labelReferenciaRelacionamento1);
+		add(new JLabel("NOME PARA REFERÊNCIA 1 É DO CLIENTE"));
 
 		boxRelacionamentoReferencia1 = new JComboBox<String>();
 		boxRelacionamentoReferencia1.addItem("");
@@ -658,22 +584,19 @@ public final class ClientePc extends JPanel implements Gui {
 		boxRelacionamentoReferencia1.addItem("OUTROS");
 		add(boxRelacionamentoReferencia1);
 
-		labelNomeReferencia2 = new JLabel("NOME PARA REFERÊNCIA 2");
-		add(labelNomeReferencia2);
+		add(new JLabel("NOME PARA REFERÊNCIA 2"));
 
-		textFieldNomeReferencia2 = new JTextField();
-		textFieldNomeReferencia2.setDocument(new EntradaMaiuscula(50));
-		add(textFieldNomeReferencia2);
+		fieldNomeReferencia2 = new JTextField();
+		fieldNomeReferencia2.setDocument(new EntradaMaiuscula(50));
+		add(fieldNomeReferencia2);
 
-		labelFoneReferencia2 = new JLabel("TELEFONE PARA REFERÊNCIA 2");
-		add(labelFoneReferencia2);
+		add(new JLabel("TELEFONE PARA REFERÊNCIA 2"));
 
-		textFieldFoneReferencia2 = new JFormattedTextField(Mascara.getFone());
-		textFieldFoneReferencia2.setDocument(new EntradaMaiuscula(10));
-		add(textFieldFoneReferencia2);
+		fieldFoneReferencia2 = new JFormattedTextField(Mascara.getFone());
+		fieldFoneReferencia2.setDocument(new EntradaMaiuscula(10));
+		add(fieldFoneReferencia2);
 
-		labelReferenciaRelacionamento2 = new JLabel("NOME PARA REFERÊNCIA 2 É DO CLIENTE");
-		add(labelReferenciaRelacionamento2);
+		add(new JLabel("NOME PARA REFERÊNCIA 2 É DO CLIENTE"));
 
 		boxRelacionamentoReferencia2 = new JComboBox<String>();
 		boxRelacionamentoReferencia2.addItem("");
@@ -707,22 +630,19 @@ public final class ClientePc extends JPanel implements Gui {
 		boxRelacionamentoReferencia2.addItem("OUTROS");
 		add(boxRelacionamentoReferencia2);
 
-		labelNomeReferencia3 = new JLabel("NOME PARA REFERÊNCIA 3");
-		add(labelNomeReferencia3);
+		add(new JLabel("NOME PARA REFERÊNCIA 3"));
 
-		textFieldNomeReferencia3 = new JTextField();
-		textFieldNomeReferencia3.setDocument(new EntradaMaiuscula(50));
-		add(textFieldNomeReferencia3);
+		fieldNomeReferencia3 = new JTextField();
+		fieldNomeReferencia3.setDocument(new EntradaMaiuscula(50));
+		add(fieldNomeReferencia3);
 
-		labelFoneReferencia3 = new JLabel("TELEFONE PARA REFERÊNCIA 3");
-		add(labelFoneReferencia3);
+		add(new JLabel("TELEFONE PARA REFERÊNCIA 3"));
 
-		textFieldFoneReferencia3 = new JFormattedTextField(Mascara.getFone());
-		textFieldFoneReferencia3.setDocument(new EntradaMaiuscula(10));
-		add(textFieldFoneReferencia3);
+		fieldFoneReferencia3 = new JFormattedTextField(Mascara.getFone());
+		fieldFoneReferencia3.setDocument(new EntradaMaiuscula(10));
+		add(fieldFoneReferencia3);
 
-		labelReferenciaRelacionamento3 = new JLabel("NOME PARA REFERÊNCIA 3 É DO CLIENTE");
-		add(labelReferenciaRelacionamento3);
+		add(new JLabel("NOME PARA REFERÊNCIA 3 É DO CLIENTE"));
 
 		boxRelacionamentoReferencia3 = new JComboBox<String>();
 		boxRelacionamentoReferencia3.addItem("");
@@ -766,11 +686,6 @@ public final class ClientePc extends JPanel implements Gui {
 	@Override
 	public void iniciarGuiControlador() {
 		configuracaoGui = new ConfiguracaoGui(this);
-	}
-
-	@Override
-	public void iniciarControlador() {
-
 	}
 
 	@Override

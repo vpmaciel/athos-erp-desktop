@@ -6,16 +6,20 @@ public final class SindicatoFac {
 
 	private static final SindicatoDao sindicatoDao = new SindicatoImp();
 
+	public static Sindicato consultarRegistro(Sindicato sindicato) {
+		return sindicatoDao.consultarRegistro(sindicato);
+	}
+
 	public static void deletarRegistro(Sindicato sindicato) {
 		sindicatoDao.deletarRegistro(sindicato);
 	}
 
-	public static Sindicato getRegistro(Sindicato sindicato) {
-		return sindicatoDao.getRegistro(sindicato);
-	}
-
 	public static Collection<Sindicato> getRegistro() {
 		return sindicatoDao.getRegistro();
+	}
+
+	public static Sindicato getRegistro(Sindicato sindicato) {
+		return sindicatoDao.getRegistro(sindicato);
 	}
 
 	public static Collection<Sindicato> pesquisarRegistro(Sindicato sindicato) {
@@ -27,9 +31,5 @@ public final class SindicatoFac {
 	}
 
 	private SindicatoFac() {
-	}
-
-	public static Sindicato consultarRegistro(Sindicato sindicato) {
-		return sindicatoDao.consultarRegistro(sindicato);
 	}
 }

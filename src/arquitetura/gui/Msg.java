@@ -16,23 +16,13 @@ public final class Msg {
 				JOptionPane.INFORMATION_MESSAGE);
 	}
 
-	public static void avisoRegistroEncontrado(Long totalPesquisaRegistro) {
-		if (totalPesquisaRegistro > 0) {
-			JOptionPane.showMessageDialog(null, "Registros encontrados: " + totalPesquisaRegistro, "Informação",
-					JOptionPane.INFORMATION_MESSAGE);
-		} else {
-			JOptionPane.showMessageDialog(null, "Registro não encontrado !", "Informação", JOptionPane.ERROR_MESSAGE);
-		}
-	}
-
 	public static final void avisoCampoDiferente(JLabel label1, JLabel label2) {
 		JOptionPane.showMessageDialog(null, label1.getText() + " e " + label2.getText() + " são diferentes !",
 				"Informação", JOptionPane.INFORMATION_MESSAGE);
 	}
 
 	public static final void avisoCampoDuplicado(String campo, String valor) {
-		JOptionPane.showMessageDialog(null,
-				campo + " : " + valor + "\nJá está cadastrado em outro registro !",
+		JOptionPane.showMessageDialog(null, campo + " : " + valor + "\nJá está cadastrado em outro registro !",
 				"Informação", JOptionPane.INFORMATION_MESSAGE);
 	}
 
@@ -69,6 +59,15 @@ public final class Msg {
 	public static final void avisoPesquisaRegistro() {
 		JOptionPane.showMessageDialog(null, "PesquisaRegistrondo Registro !", "Informação",
 				JOptionPane.INFORMATION_MESSAGE);
+	}
+
+	public static void avisoRegistroEncontrado(Long totalPesquisaRegistro) {
+		if (totalPesquisaRegistro > 0) {
+			JOptionPane.showMessageDialog(null, "Registros encontrados: " + totalPesquisaRegistro, "Informação",
+					JOptionPane.INFORMATION_MESSAGE);
+		} else {
+			JOptionPane.showMessageDialog(null, "Registro não encontrado !", "Informação", JOptionPane.ERROR_MESSAGE);
+		}
 	}
 
 	public static final void avisoUsuarioInvalido() {
@@ -114,22 +113,22 @@ public final class Msg {
 		JOptionPane.showMessageDialog(null, "Voce deve digitar um número !", "Informação", JOptionPane.ERROR_MESSAGE);
 	}
 
-	public static final void erroPesquisarRegistro() {
-		JOptionPane.showMessageDialog(null, "Não foi possível pesquisar registro !", "Erro", JOptionPane.ERROR_MESSAGE);
-	}
-
 	public static final void erroConectarDataBase() {
 		JOptionPane.showMessageDialog(null, "Não foi possível conectar ao banco de dados !", "Erro",
 				JOptionPane.ERROR_MESSAGE);
 	}
 
+	public static final void erroConsultarRegistro() {
+		JOptionPane.showMessageDialog(null, "Não foi possível realizar a Consulta", "Erro", JOptionPane.ERROR_MESSAGE);
+	}
+
+	public static final void erroCriarPasta() {
+		JOptionPane.showMessageDialog(null, "Não foi possível criar pasta !", "Erro", JOptionPane.ERROR_MESSAGE);
+	}
+
 	public static final void erroDesconectarDataBase() {
 		JOptionPane.showMessageDialog(null, "Não foi possível desconectar ao banco de dados !", "Erro",
 				JOptionPane.ERROR_MESSAGE);
-	}
-
-	public static final void erroConsultarRegistro() {
-		JOptionPane.showMessageDialog(null, "Não foi possível realizar a Consulta", "Erro", JOptionPane.ERROR_MESSAGE);
 	}
 
 	public static final void erroExcluiRegistro() {
@@ -142,6 +141,15 @@ public final class Msg {
 
 	public static final void erroInserirRegistro() {
 		JOptionPane.showMessageDialog(null, "Não foi possível inserir o registro !", "Erro", JOptionPane.ERROR_MESSAGE);
+	}
+
+	public static final void erroLookAndFeel() {
+		JOptionPane.showMessageDialog(null, "Não foi possível utilizar Look and Feel !", "Erro",
+				JOptionPane.ERROR_MESSAGE);
+	}
+
+	public static final void erroPesquisarRegistro() {
+		JOptionPane.showMessageDialog(null, "Não foi possível pesquisar registro !", "Erro", JOptionPane.ERROR_MESSAGE);
 	}
 
 	public static final void erroTeclaNaoPermitida() {
@@ -160,14 +168,6 @@ public final class Msg {
 
 	public static final void erroValorInvalido() {
 		JOptionPane.showMessageDialog(null, "Valor inválido !", "Erro", JOptionPane.ERROR_MESSAGE);
-	}
-	
-	public static final void erroCriarPasta() {
-		JOptionPane.showMessageDialog(null, "Não foi possível criar pasta !", "Erro", JOptionPane.ERROR_MESSAGE);
-	}
-
-	public static final void erroLookAndFeel() {
-		JOptionPane.showMessageDialog(null, "Não foi possível utilizar Look and Feel !", "Erro", JOptionPane.ERROR_MESSAGE);
 	}
 
 	public static final void sucessoAtualizarRegistro() {

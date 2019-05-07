@@ -16,11 +16,9 @@ import arquitetura.util.SpringUtilities;
 @SuppressWarnings("serial")
 public final class VeiculoMarcaPc extends JPanel implements Gui {
 
-	private ToolBar toolBar;
 	private ConfiguracaoGui configuracaoGui;
-
-	private JTextField textFieldMarca;
-	private JLabel labelMarca;
+	private JTextField fieldMarca;
+	private ToolBar toolBar;
 
 	public VeiculoMarcaPc() {
 		iniciarLayout();
@@ -40,11 +38,16 @@ public final class VeiculoMarcaPc extends JPanel implements Gui {
 	}
 
 	public JTextField getGuiMarca() {
-		return textFieldMarca;
+		return fieldMarca;
 	}
 
 	public ToolBar getToolBar() {
 		return toolBar;
+	}
+
+	@Override
+	public void iniciarControlador() {
+
 	}
 
 	@Override
@@ -59,12 +62,11 @@ public final class VeiculoMarcaPc extends JPanel implements Gui {
 
 		this.add(toolBar.getToolBar());
 
-		labelMarca = new JLabel("MARCA");
-		add(labelMarca);
+		add(new JLabel("MARCA"));
 
-		textFieldMarca = new JTextField();
-		textFieldMarca.setDocument(new EntradaMaiuscula(20));
-		add(textFieldMarca);
+		fieldMarca = new JTextField();
+		fieldMarca.setDocument(new EntradaMaiuscula(20));
+		add(fieldMarca);
 
 		// Lay out the panel.
 		SpringUtilities.makeCompactGrid(this, 3, 1, // rows, cols
@@ -76,11 +78,6 @@ public final class VeiculoMarcaPc extends JPanel implements Gui {
 	@Override
 	public void iniciarGuiControlador() {
 		configuracaoGui = new ConfiguracaoGui(this);
-	}
-
-	@Override
-	public void iniciarControlador() {
-
 	}
 
 	@Override

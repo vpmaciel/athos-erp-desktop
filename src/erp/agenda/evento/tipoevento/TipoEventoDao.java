@@ -4,16 +4,16 @@ import java.util.Collection;
 
 public interface TipoEventoDao {
 
+	TipoEvento consultarRegistro(TipoEvento tipoEvento);
+
 	void deletarRegistro(TipoEvento tipoEvento);
 
-	TipoEvento getRegistro(TipoEvento tipoEvento);
-
 	Collection<TipoEvento> getRegistro();
+
+	TipoEvento getRegistro(TipoEvento tipoEvento);
 
 	Collection<TipoEvento> pesquisarRegistro(TipoEvento tipoEvento);
 
 	void salvarRegistro(TipoEvento tipoEvento);
-
-	TipoEvento consultarRegistro(TipoEvento tipoEvento);
 
 }

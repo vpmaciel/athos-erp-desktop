@@ -19,8 +19,8 @@ import arquitetura.gui.Tabela;
 @SuppressWarnings("serial")
 public final class ContadorPp extends JPanel {
 
-	private final ContadorTm contadorTm;
 	List<Contador> contadorList = null;
+	private final ContadorTm contadorTm;
 	private final JTable table;
 
 	public ContadorPp() {

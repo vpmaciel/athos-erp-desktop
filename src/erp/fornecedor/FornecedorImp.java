@@ -18,6 +18,45 @@ import arquitetura.validacao.Mascara;
 final class FornecedorImp implements FornecedorDao {
 
 	@Override
+	public Fornecedor consultarRegistro(Fornecedor fornecedor) {
+		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
+		EntityTransaction tx = entityManager.getTransaction();
+		tx.begin();
+
+		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+		CriteriaQuery<Fornecedor> criteriaQuery = criteriaBuilder.createQuery(Fornecedor.class);
+		Root<Fornecedor> rootFornecedor = criteriaQuery.from(Fornecedor.class);
+
+		List<Predicate> predicates = new ArrayList<Predicate>();
+
+		boolean naoTemCriterio = true;
+
+		if (fornecedor.getCpf() != null && !fornecedor.getCpf().equals(Mascara.getCpf().getPlaceholder())
+				&& !fornecedor.getCpf().equals(Mascara.getCpfVazio())) {
+			predicates.add(criteriaBuilder.equal(rootFornecedor.get("cpf"), fornecedor.getCpf()));
+			naoTemCriterio = false;
+		}
+
+		if (fornecedor.getCnpj() != null && !fornecedor.getCnpj().equals(Mascara.getCnpj().getPlaceholder())
+				&& !fornecedor.getCnpj().equals(Mascara.getCnpjVazio())) {
+			predicates.add(criteriaBuilder.equal(rootFornecedor.get("cnpj"), fornecedor.getCnpj()));
+			naoTemCriterio = false;
+		}
+
+		if (naoTemCriterio) {
+			return new Fornecedor();
+		}
+
+		criteriaQuery.select(rootFornecedor).where(predicates.toArray(new Predicate[] {}));
+
+		List<Fornecedor> list = entityManager.createQuery(criteriaQuery).getResultList();
+		tx.commit();
+		entityManager.close();
+
+		return list.size() > 0 ? list.get(0) : new Fornecedor();
+	}
+
+	@Override
 	public void deletarRegistro(Fornecedor fornecedor) {
 		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
 		EntityTransaction tx = em.getTransaction();
@@ -25,14 +64,6 @@ final class FornecedorImp implements FornecedorDao {
 		em.remove(em.find(Fornecedor.class, fornecedor.getId()));
 		tx.commit();
 		em.close();
-	}
-
-	@Override
-	public Fornecedor getRegistro(Fornecedor fornecedor) {
-		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction tx = em.getTransaction();
-		tx.begin();
-		return em.find(Fornecedor.class, fornecedor.getId());
 	}
 
 	@Override
@@ -46,6 +77,14 @@ final class FornecedorImp implements FornecedorDao {
 		tx.commit();
 		em.close();
 		return list;
+	}
+
+	@Override
+	public Fornecedor getRegistro(Fornecedor fornecedor) {
+		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
+		EntityTransaction tx = em.getTransaction();
+		tx.begin();
+		return em.find(Fornecedor.class, fornecedor.getId());
 	}
 
 	@Override
@@ -159,45 +198,6 @@ final class FornecedorImp implements FornecedorDao {
 		tx.commit();
 		entityManager.close();
 		return list;
-	}
-
-	@Override
-	public Fornecedor consultarRegistro(Fornecedor fornecedor) {
-		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction tx = entityManager.getTransaction();
-		tx.begin();
-
-		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
-		CriteriaQuery<Fornecedor> criteriaQuery = criteriaBuilder.createQuery(Fornecedor.class);
-		Root<Fornecedor> rootFornecedor = criteriaQuery.from(Fornecedor.class);
-
-		List<Predicate> predicates = new ArrayList<Predicate>();
-
-		boolean naoTemCriterio = true;
-
-		if (fornecedor.getCpf() != null && !fornecedor.getCpf().equals(Mascara.getCpf().getPlaceholder())
-				&& !fornecedor.getCpf().equals(Mascara.getCpfVazio())) {
-			predicates.add(criteriaBuilder.equal(rootFornecedor.get("cpf"), fornecedor.getCpf()));
-			naoTemCriterio = false;
-		}
-
-		if (fornecedor.getCnpj() != null && !fornecedor.getCnpj().equals(Mascara.getCnpj().getPlaceholder())
-				&& !fornecedor.getCnpj().equals(Mascara.getCnpjVazio())) {
-			predicates.add(criteriaBuilder.equal(rootFornecedor.get("cnpj"), fornecedor.getCnpj()));
-			naoTemCriterio = false;
-		}
-
-		if (naoTemCriterio) {
-			return new Fornecedor();
-		}
-
-		criteriaQuery.select(rootFornecedor).where(predicates.toArray(new Predicate[] {}));
-
-		List<Fornecedor> list = entityManager.createQuery(criteriaQuery).getResultList();
-		tx.commit();
-		entityManager.close();
-
-		return list.size() > 0 ? list.get(0) : new Fornecedor();
 	}
 
 	@Override

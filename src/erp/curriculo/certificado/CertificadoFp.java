@@ -26,13 +26,19 @@ public final class CertificadoFp extends JFrame implements Gui {
 
 	}
 
+	public CertificadoPp getCertificadoPp() {
+		return certificadoPp;
+	}
+
 	@Override
 	public ConfiguracaoGui getConfiguracaoGui() {
 		return null;
 	}
 
-	public CertificadoPp getCertificadoPp() {
-		return certificadoPp;
+	@Override
+	public void iniciarControlador() {
+		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
+		certificadoPp.iniciarControlador();
 	}
 
 	@Override
@@ -50,12 +56,6 @@ public final class CertificadoFp extends JFrame implements Gui {
 	@Override
 	public void iniciarGuiControlador() {
 
-	}
-
-	@Override
-	public void iniciarControlador() {
-		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
-		certificadoPp.iniciarControlador();
 	}
 
 	@Override
