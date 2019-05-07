@@ -126,6 +126,7 @@ final class TipoEventoCont {
 
 			if (totalPesquisaRegistro > 0) {
 				MainFc.mostrarFrame(getTipoEventoFp());
+				getTipoEventoFp().setExtendedState(java.awt.Frame.MAXIMIZED_BOTH);
 			}
 		}
 	}

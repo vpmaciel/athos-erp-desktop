@@ -124,6 +124,7 @@ final class VeiculoModeloCont {
 
 			if (totalPesquisaRegistro > 0) {
 				MainFc.mostrarFrame(getVeiculoModeloFp());
+				getVeiculoModeloFp().setExtendedState(java.awt.Frame.MAXIMIZED_BOTH);
 			}
 		}
 	}

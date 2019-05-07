@@ -139,6 +139,7 @@ final class FornecedorCont {
 
 			if (totalPesquisaRegistro > 0) {
 				MainFc.mostrarFrame(getFornecedorFp());
+				getFornecedorFp().setExtendedState(java.awt.Frame.MAXIMIZED_BOTH);
 			}
 		}
 	}

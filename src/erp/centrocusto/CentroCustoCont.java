@@ -119,6 +119,7 @@ final class CentroCustoCont {
 
 			if (totalPesquisaRegistro > 0) {
 				MainCont.mostrarFrame(getCentroCustoFp());
+				getCentroCustoFp().setExtendedState(java.awt.Frame.MAXIMIZED_BOTH);
 			}
 		}
 	}

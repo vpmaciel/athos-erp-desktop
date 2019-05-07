@@ -139,6 +139,7 @@ final class SindicatoCont {
 
 			if (totalPesquisaRegistro > 0) {
 				MainFc.mostrarFrame(getSindicatoFp());
+				getSindicatoFp().setExtendedState(java.awt.Frame.MAXIMIZED_BOTH);
 			}
 		}
 	}

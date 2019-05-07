@@ -4,13 +4,13 @@ import java.util.Collection;
 
 public interface CertificadoDao {
 
-	public void deletarRegistro(Certificado cliente);
+	public void deletarRegistro(Certificado certificado);
 
 	public Collection<Certificado> getRegistro();
 
-	public Certificado getRegistro(Certificado cliente);
+	public Certificado getRegistro(Certificado certificado);
 
-	public Collection<Certificado> pesquisarRegistro(Certificado cliente);
+	public Collection<Certificado> pesquisarRegistro(Certificado certificado);
 
-	public void salvarRegistro(Certificado cliente);
+	public void salvarRegistro(Certificado certificado);
 }

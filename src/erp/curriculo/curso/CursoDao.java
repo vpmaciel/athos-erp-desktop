@@ -4,13 +4,13 @@ import java.util.Collection;
 
 public interface CursoDao {
 
-	public void deletarRegistro(Curso cliente);
+	public void deletarRegistro(Curso curso);
 
 	public Collection<Curso> getRegistro();
 
-	public Curso getRegistro(Curso cliente);
+	public Curso getRegistro(Curso curso);
 
-	public Collection<Curso> pesquisarRegistro(Curso cliente);
+	public Collection<Curso> pesquisarRegistro(Curso curso);
 
-	public void salvarRegistro(Curso cliente);
+	public void salvarRegistro(Curso curso);
 }

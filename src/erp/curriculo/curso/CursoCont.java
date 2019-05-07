@@ -132,6 +132,7 @@ final class CursoCont {
 
 			if (totalPesquisaRegistro > 0) {
 				MainCont.mostrarFrame(getCursoFp());
+				getCursoFp().setExtendedState(java.awt.Frame.MAXIMIZED_BOTH);
 			}
 		}
 	}

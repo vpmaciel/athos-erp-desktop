@@ -139,6 +139,7 @@ final class EmpresaCont {
 
 			if (totalPesquisaRegistro > 0) {
 				MainFc.mostrarFrame(getEmpresaFp());
+				getEmpresaFp().setExtendedState(java.awt.Frame.MAXIMIZED_BOTH);
 			}
 		}
 	}

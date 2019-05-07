@@ -120,6 +120,7 @@ final class CartorioCont {
 
 			if (totalPesquisaRegistro > 0) {
 				MainCont.mostrarFrame(getCartorioFp());
+				getCartorioFp().setExtendedState(java.awt.Frame.MAXIMIZED_BOTH);
 			}
 		}
 	}

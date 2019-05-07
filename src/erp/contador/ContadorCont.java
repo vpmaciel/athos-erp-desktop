@@ -139,6 +139,7 @@ final class ContadorCont {
 
 			if (totalPesquisaRegistro > 0) {
 				MainFc.mostrarFrame(getContadorFp());
+				getContadorFp().setExtendedState(java.awt.Frame.MAXIMIZED_BOTH);
 			}
 		}
 	}

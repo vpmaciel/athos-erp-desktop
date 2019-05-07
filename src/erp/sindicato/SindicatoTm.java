@@ -17,7 +17,7 @@ public class SindicatoTm extends AbstractTableModel {
 	static {
 		tabelaModelo.adicionar("ID", 0, 100);
 		tabelaModelo.adicionar("CNPJ", 1, 100);
-		tabelaModelo.adicionar("NOME", 2, 500);
+		tabelaModelo.adicionar("NOME", 2, 400);
 
 		largura = new int[tabelaModelo.getTotalColunas()];
 		podeEditar = new boolean[tabelaModelo.getTotalColunas()];

@@ -139,6 +139,7 @@ final class UsuarioCont {
 
 			if (totalPesquisaRegistro > 0) {
 				MainFc.mostrarFrame(getUsuarioFp());
+				getUsuarioFp().setExtendedState(java.awt.Frame.MAXIMIZED_BOTH);
 			}
 		}
 	}

@@ -131,6 +131,7 @@ final class CaracteristicaCont {
 
 			if (totalPesquisaRegistro > 0) {
 				MainCont.mostrarFrame(getCaracteristicaFp());
+				getCaracteristicaFp().setExtendedState(java.awt.Frame.MAXIMIZED_BOTH);
 			}
 		}
 	}

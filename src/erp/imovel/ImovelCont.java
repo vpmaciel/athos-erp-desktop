@@ -138,6 +138,7 @@ final class ImovelCont {
 
 			if (totalPesquisaRegistro > 0) {
 				MainFc.mostrarFrame(getImovelFp());
+				getImovelFp().setExtendedState(java.awt.Frame.MAXIMIZED_BOTH);
 			}
 		}
 	}

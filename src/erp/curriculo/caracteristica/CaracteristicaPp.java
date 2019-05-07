@@ -24,7 +24,7 @@ public final class CaracteristicaPp extends JPanel {
 	private final JTable table;
 
 	public CaracteristicaPp() {
-		setBorder(BorderFactory.createTitledBorder("caracteristica"));
+		setBorder(BorderFactory.createTitledBorder("CARACTERÍSTICAS"));
 
 		caracteristicas = new LinkedList<>();
 		caracteristicaTm = new CaracteristicaTm(caracteristicas);

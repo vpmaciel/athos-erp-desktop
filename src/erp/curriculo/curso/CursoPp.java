@@ -24,7 +24,7 @@ public final class CursoPp extends JPanel {
 	private final JTable table;
 
 	public CursoPp() {
-		setBorder(BorderFactory.createTitledBorder("caracteristica"));
+		setBorder(BorderFactory.createTitledBorder("CURSO"));
 
 		cursos = new LinkedList<>();
 		cursoTm = new CursoTm(cursos);

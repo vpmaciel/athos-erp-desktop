@@ -152,6 +152,7 @@ final class ContatoCont {
 
 			if (totalPesquisaRegistro > 0) {
 				MainFc.mostrarFrame(getContatoFp());
+				getContatoFp().setExtendedState(java.awt.Frame.MAXIMIZED_BOTH);
 			}
 		}
 	}

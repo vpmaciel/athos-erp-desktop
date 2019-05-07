@@ -37,6 +37,7 @@ public class ERP {
 				MainFc mainFc = new MainFc();
 				UsuarioUtil.criarUsuario();
 				mainFc.setState(Frame.NORMAL);
+				mainFc.setExtendedState(java.awt.Frame.MAXIMIZED_BOTH);
 				mainFc.setLocationRelativeTo(null);
 				mainFc.setVisible(true);
 				mainFc.setResizable(false);

@@ -82,7 +82,7 @@ public final class ConfiguracaoGui extends Container {
 
 	public void desabilitarGui() {
 		for (Component comp : this.todosComponentes) {
-			JTextArea textArea;
+
 			if (comp instanceof JTextField) {
 				JTextField textField = (JTextField) comp;
 				textField.setEnabled(false);
@@ -99,7 +99,7 @@ public final class ConfiguracaoGui extends Container {
 				continue;
 			}
 			if (comp instanceof JTextArea) {
-				textArea = (JTextArea) comp;
+				JTextArea textArea = (JTextArea) comp;
 				textArea.setEnabled(false);
 				continue;
 			}
@@ -108,11 +108,6 @@ public final class ConfiguracaoGui extends Container {
 				passwordField.setEnabled(false);
 				continue;
 			}
-			if (!(comp instanceof JTextArea)) {
-				continue;
-			}
-			textArea = (JTextArea) comp;
-			textArea.setEnabled(false);
 		}
 	}
 
@@ -161,18 +156,19 @@ public final class ConfiguracaoGui extends Container {
 				passwordField.setEditable(true);
 				continue;
 			}
-			if (!(comp instanceof JScrollPane)) {
-				continue;
-			}
-			JScrollPane scrollPane = (JScrollPane) comp;
-			Component[] componentes = scrollPane.getViewport().getComponents();
-			for (int contador2 = 0; contador2 < componentes.length; ++contador2) {
-				if (!(componentes[contador2] instanceof JTextArea)) {
+			if (comp instanceof JScrollPane) {
+				JScrollPane scrollPane = (JScrollPane) comp;
+				Component[] componentes = scrollPane.getViewport().getComponents();
+				for (int contador2 = 0; contador2 < componentes.length; ++contador2) {
+					if (!(componentes[contador2] instanceof JTextArea)) {
+						continue;
+					}
+					JTextArea field = (JTextArea) componentes[contador2];
+					field.setEnabled(true);
+					field.setEditable(true);
 					continue;
 				}
-				JTextArea field = (JTextArea) componentes[contador2];
-				field.setEnabled(true);
-				field.setEditable(true);
+
 			}
 		}
 	}

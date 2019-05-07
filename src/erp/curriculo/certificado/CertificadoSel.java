@@ -21,11 +21,11 @@ final class CertificadoSel implements ListSelectionListener {
 			int[] selRows = table.getSelectedRows();
 			TableModel tm = table.getModel();
 			if (selRows.length > 0) {
-				Certificado CertificadoPesquisaRegistro = new Certificado();
-				CertificadoPesquisaRegistro.setId((Long) tm.getValueAt(selRows[0], CertificadoTm.ID));
+				Certificado certificadoPesquisaRegistro = new Certificado();
+				certificadoPesquisaRegistro.setId((Long) tm.getValueAt(selRows[0], CertificadoTm.ID));
 
 				if (table.getSelectedRow() != -1) {
-					Certificado Certificado = CertificadoFac.getRegistro(CertificadoPesquisaRegistro);
+					Certificado Certificado = CertificadoFac.getRegistro(certificadoPesquisaRegistro);
 					CertificadoTm CertificadoTm = (CertificadoTm) table.getModel();
 					CertificadoTm.getCertificado(table.getSelectedRow());
 					MainCont.mostrarFrame(MainCont.getCurriculoCertificadoFc());

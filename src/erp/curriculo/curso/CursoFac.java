@@ -4,26 +4,26 @@ import java.util.Collection;
 
 public final class CursoFac {
 
-	private static final CursoDao clienteDao = new CursoImp();
+	private static final CursoDao cursoDao = new CursoImp();
 
-	public static void deletarRegistro(Curso cliente) {
-		clienteDao.deletarRegistro(cliente);
+	public static void deletarRegistro(Curso curso) {
+		cursoDao.deletarRegistro(curso);
 	}
 
 	public static Collection<Curso> getRegistro() {
-		return clienteDao.getRegistro();
+		return cursoDao.getRegistro();
 	}
 
-	public static Curso getRegistro(Curso cliente) {
-		return clienteDao.getRegistro(cliente);
+	public static Curso getRegistro(Curso curso) {
+		return cursoDao.getRegistro(curso);
 	}
 
-	public static Collection<Curso> pesquisarRegistro(Curso cliente) {
-		return clienteDao.pesquisarRegistro(cliente);
+	public static Collection<Curso> pesquisarRegistro(Curso curso) {
+		return cursoDao.pesquisarRegistro(curso);
 	}
 
-	public static void salvarRegistro(Curso cliente) {
-		clienteDao.salvarRegistro(cliente);
+	public static void salvarRegistro(Curso curso) {
+		cursoDao.salvarRegistro(curso);
 	}
 
 	private CursoFac() {

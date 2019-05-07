@@ -1,4 +1,4 @@
-package erp.sindicato;
+package erp.curriculo.experienciaprofissional;
 
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -11,11 +11,11 @@ import arquitetura.gui.Gui;
 import arquitetura.gui.Imagem;
 
 @SuppressWarnings("serial")
-public final class SindicatoFp extends JFrame implements Gui {
+public final class ExperienciaProfissionalFp extends JFrame implements Gui {
 
-	private SindicatoPp SindicatoPp;
+	private ExperienciaProfissionalPp experienciaProfissionalPp;
 
-	public SindicatoFp() {
+	public ExperienciaProfissionalFp() {
 		iniciarLayout();
 		iniciarGui();
 		iniciarControlador();
@@ -31,14 +31,14 @@ public final class SindicatoFp extends JFrame implements Gui {
 		return null;
 	}
 
-	public SindicatoPp getSindicatoPp() {
-		return SindicatoPp;
+	public ExperienciaProfissionalPp getExperienciaProfissionalPp() {
+		return experienciaProfissionalPp;
 	}
 
 	@Override
 	public void iniciarControlador() {
 		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
-		SindicatoPp.iniciarControlador();
+		experienciaProfissionalPp.iniciarControlador();
 	}
 
 	@Override
@@ -49,8 +49,8 @@ public final class SindicatoFp extends JFrame implements Gui {
 	@Override
 	public void iniciarGui() {
 		setIconImage(Imagem.getLogoTipoImage());
-		SindicatoPp = new SindicatoPp();
-		setContentPane(SindicatoPp);
+		experienciaProfissionalPp = new ExperienciaProfissionalPp();
+		setContentPane(experienciaProfissionalPp);
 	}
 
 	@Override

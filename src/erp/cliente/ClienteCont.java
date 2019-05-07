@@ -135,6 +135,7 @@ final class ClienteCont {
 
 			if (totalPesquisaRegistro > 0) {
 				MainCont.mostrarFrame(getClienteFp());
+				getClienteFp().setExtendedState(java.awt.Frame.MAXIMIZED_BOTH);
 			}
 		}
 	}

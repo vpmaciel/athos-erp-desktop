@@ -131,6 +131,7 @@ final class CertificadoCont {
 
 			if (totalPesquisaRegistro > 0) {
 				MainCont.mostrarFrame(getCertificadoFp());
+				getCertificadoFp().setExtendedState(java.awt.Frame.MAXIMIZED_BOTH);
 			}
 		}
 	}

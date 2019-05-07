@@ -140,6 +140,7 @@ final class EventoCont {
 
 			if (totalPesquisaRegistro > 0) {
 				MainFc.mostrarFrame(getEventoFp());
+				getEventoFp().setExtendedState(java.awt.Frame.MAXIMIZED_BOTH);
 			}
 		}
 	}

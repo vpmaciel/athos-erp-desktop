@@ -120,6 +120,7 @@ final class BancoCont {
 
 			if (totalPesquisaRegistro > 0) {
 				MainFc.mostrarFrame(getBancoFp());
+				getBancoFp().setExtendedState(java.awt.Frame.MAXIMIZED_BOTH);
 			}
 		}
 	}

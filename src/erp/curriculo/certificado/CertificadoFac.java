@@ -4,26 +4,26 @@ import java.util.Collection;
 
 public final class CertificadoFac {
 
-	private static final CertificadoDao clienteDao = new CertificadoImp();
+	private static final CertificadoDao certificadoDao = new CertificadoImp();
 
-	public static void deletarRegistro(Certificado cliente) {
-		clienteDao.deletarRegistro(cliente);
+	public static void deletarRegistro(Certificado certificado) {
+		certificadoDao.deletarRegistro(certificado);
 	}
 
 	public static Collection<Certificado> getRegistro() {
-		return clienteDao.getRegistro();
+		return certificadoDao.getRegistro();
 	}
 
-	public static Certificado getRegistro(Certificado cliente) {
-		return clienteDao.getRegistro(cliente);
+	public static Certificado getRegistro(Certificado certificado) {
+		return certificadoDao.getRegistro(certificado);
 	}
 
-	public static Collection<Certificado> pesquisarRegistro(Certificado cliente) {
-		return clienteDao.pesquisarRegistro(cliente);
+	public static Collection<Certificado> pesquisarRegistro(Certificado certificado) {
+		return certificadoDao.pesquisarRegistro(certificado);
 	}
 
-	public static void salvarRegistro(Certificado cliente) {
-		clienteDao.salvarRegistro(cliente);
+	public static void salvarRegistro(Certificado certificado) {
+		certificadoDao.salvarRegistro(certificado);
 	}
 
 	private CertificadoFac() {

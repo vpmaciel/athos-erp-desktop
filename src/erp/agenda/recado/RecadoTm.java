@@ -17,8 +17,8 @@ public class RecadoTm extends AbstractTableModel {
 	static {
 		tabelaModelo.adicionar("ID", 0, 100);
 		tabelaModelo.adicionar("DATA", 1, 100);
-		tabelaModelo.adicionar("REMETENTE", 2, 500);
-		tabelaModelo.adicionar("DESTINATÁRIO", 3, 500);
+		tabelaModelo.adicionar("REMETENTE", 2, 400);
+		tabelaModelo.adicionar("DESTINATÁRIO", 3, 400);
 
 		largura = new int[tabelaModelo.getTotalColunas()];
 		podeEditar = new boolean[tabelaModelo.getTotalColunas()];

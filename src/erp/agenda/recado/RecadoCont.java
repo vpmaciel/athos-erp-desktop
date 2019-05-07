@@ -123,6 +123,7 @@ final class RecadoCont {
 
 			if (totalPesquisaRegistro > 0) {
 				MainFc.mostrarFrame(getRecadoFp());
+				getRecadoFp().setExtendedState(java.awt.Frame.MAXIMIZED_BOTH);
 			}
 		}
 	}

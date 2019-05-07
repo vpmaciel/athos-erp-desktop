@@ -1,4 +1,4 @@
-package erp.curriculo.curso;
+package erp.curriculo.experienciaprofissional;
 
 import java.awt.Cursor;
 import java.util.Collections;
@@ -9,6 +9,7 @@ import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 
@@ -25,21 +26,20 @@ import erp.funcionario.FuncionarioFac;
 import erp.main.MainCont;
 
 @SuppressWarnings("serial")
-public final class CursoPc extends JPanel implements Gui {
+public final class ExperienciaProfissionalPc extends JPanel implements Gui {
 
 	private JComboBox<Funcionario> boxFuncionario;
-	private JComboBox<String> boxModalidade;
-	private JComboBox<String> boxNivel;
-	private JComboBox<String> boxSituacao;
+	private JComboBox<String> boxNiveHierarquico;
+	private JTextArea fieldFuncoes;
 	private ConfiguracaoGui configuracaoGui;
-	private JFormattedTextField fieldAnoConclusao;
-	private JFormattedTextField fieldAnoInicio;
-	private JTextField fieldCurso;
-	private JTextField fieldInstituicao;
+	private JFormattedTextField fieldDataSaida;
+	private JFormattedTextField fieldDataAdmissao;
+	private JTextField fieldCargo;
+	private JTextField fieldEmpresa;
 	private JLabel labelFuncionario;
 	private ToolBar toolBar;
 
-	public CursoPc() {
+	public ExperienciaProfissionalPc() {
 		iniciarLayout();
 		iniciarGui();
 		iniciarFocoControlador();
@@ -56,36 +56,32 @@ public final class CursoPc extends JPanel implements Gui {
 		return configuracaoGui;
 	}
 
-	public JFormattedTextField getGuiAnoConclusao() {
-		return fieldAnoConclusao;
+	public JFormattedTextField getGuiDataSaida() {
+		return fieldDataSaida;
 	}
 
-	public JFormattedTextField getGuiAnoInicio() {
-		return fieldAnoInicio;
+	public JFormattedTextField getGuiDataAdmissao() {
+		return fieldDataAdmissao;
 	}
 
-	public JTextField getGuiCurso() {
-		return fieldCurso;
+	public JTextField getGuiCargo() {
+		return fieldCargo;
 	}
 
 	public JComboBox<Funcionario> getGuiFuncionario() {
 		return boxFuncionario;
 	}
 
-	public JTextField getGuiInstituicao() {
-		return fieldInstituicao;
+	public JTextField getGuiEmpresa() {
+		return fieldEmpresa;
 	}
 
-	public JComboBox<String> getGuiModalidade() {
-		return boxModalidade;
+	public JComboBox<String> getGuiNivelHierarquico() {
+		return boxNiveHierarquico;
 	}
 
-	public JComboBox<String> getGuiNivel() {
-		return boxNivel;
-	}
-
-	public JComboBox<String> getGuiSituacao() {
-		return boxSituacao;
+	public JTextArea getGuiFuncoes() {
+		return fieldFuncoes;
 	}
 
 	public JLabel getLabelFuncionario() {
@@ -127,68 +123,47 @@ public final class CursoPc extends JPanel implements Gui {
 		}
 		add(boxFuncionario);
 
-		add(new JLabel("INSTITUIÇÃO"));
+		add(new JLabel("EMPRESA"));
 
-		fieldInstituicao = new JTextField();
-		fieldInstituicao.setDocument(new EntradaMaiuscula(50));
-		add(fieldInstituicao);
+		fieldEmpresa = new JTextField();
+		fieldEmpresa.setDocument(new EntradaMaiuscula(50));
+		add(fieldEmpresa);
 
-		add(new JLabel("CURSO"));
+		add(new JLabel("CARGO"));
 
-		fieldCurso = new JTextField();
-		fieldCurso.setDocument(new EntradaMaiuscula(50));
-		add(fieldCurso);
+		fieldCargo = new JTextField();
+		fieldCargo.setDocument(new EntradaMaiuscula(50));
+		add(fieldCargo);
 
-		add(new JLabel("ANO INÍCIO"));
+		add(new JLabel("DATA SAÍDA"));
 
-		fieldAnoInicio = new JFormattedTextField(Mascara.getAno());
-		add(fieldAnoInicio);
+		fieldDataAdmissao = new JFormattedTextField(Mascara.getData());
+		add(fieldDataAdmissao);
 
-		add(new JLabel("ANO CONCLUSÃO"));
+		add(new JLabel("DATA SAÍDA"));
 
-		fieldAnoConclusao = new JFormattedTextField(Mascara.getAno());
-		add(fieldAnoConclusao);
+		fieldDataSaida = new JFormattedTextField(Mascara.getData());
+		add(fieldDataSaida);
 
-		add(new JLabel("SITUAÇÃO"));
+		add(new JLabel("NÍVEL HIERÁRQUICO"));
 
-		boxSituacao = new JComboBox<String>();
-		boxSituacao.addItem("");
-		boxSituacao.addItem("CONCLUÍDO");
-		boxSituacao.addItem("NÃO CONCLUÍDO");
-		boxSituacao.addItem("EM ANDAMENTO");
-		add(boxSituacao);
+		boxNiveHierarquico = new JComboBox<String>();
+		boxNiveHierarquico.addItem("");
+		boxNiveHierarquico.addItem("ESTRATÉGICO OU INSTITUCIONAL");
+		boxNiveHierarquico.addItem("TÁTICO OU INTERMEDIÁRIO");
+		boxNiveHierarquico.addItem("GESTORES E SUPERVISORES");
+		boxNiveHierarquico.addItem("OPERACIONAL");
+		add(boxNiveHierarquico);
 
-		add(new JLabel("MODALIDADE"));
+		add(new JLabel("FUNÇÕES"));
 
-		boxModalidade = new JComboBox<String>();
-		boxModalidade.addItem("");
-		boxModalidade.addItem("LICENCIATURA");
-		boxModalidade.addItem("BACHARELADO");
-		boxModalidade.addItem("MBA");
-		boxModalidade.addItem("TECNOLÓGO");
-		boxModalidade.addItem("TÉCNICO");
-		boxModalidade.addItem("ENSINO MÉDIO");
-		boxModalidade.addItem("ENSINO FUNDAMENTAL");
-		add(boxModalidade);
-
-		add(new JLabel("NÍVEL"));
-
-		boxNivel = new JComboBox<String>();
-		boxNivel.addItem("");
-		boxNivel.addItem("PÓS DOUTORADO");
-		boxNivel.addItem("DOUTORADO");
-		boxNivel.addItem("MESTRADO");
-		boxNivel.addItem("ESPECIALIZAÇÃO");
-		boxNivel.addItem("SUPERIOR COMPLETO");
-		boxNivel.addItem("SUPERIOR INCOMPLETO");
-		boxNivel.addItem("SEGUNDO GRAU COMPLETO");
-		boxNivel.addItem("SEGUNDO GRAU INCOMPLETO");
-		boxNivel.addItem("PRIMEIRO GRAU COMPLETO");
-		boxNivel.addItem("PRIMEIRO GRAU INCOMPLETO");
-		add(boxNivel);
+		fieldFuncoes = new JTextArea();
+		fieldFuncoes.setLineWrap(true);
+		fieldFuncoes.setDocument(new EntradaMaiuscula(500));
+		add(fieldFuncoes);
 
 		// Lay out the panel.
-		SpringUtilities.makeCompactGrid(this, 17, 1, // rows, cols
+		SpringUtilities.makeCompactGrid(this, 15, 1, // rows, cols
 				5, 5, // initX, initY
 				5, 5); // xPad, yPad
 		setOpaque(true); // content panes must be opaque
@@ -201,7 +176,7 @@ public final class CursoPc extends JPanel implements Gui {
 
 	@Override
 	public void iniciarLayout() {
-		setBorder(BorderFactory.createTitledBorder("CURSO"));
+		setBorder(BorderFactory.createTitledBorder("EXPERIÊNCIA PROFISSIONAL"));
 		setLayout(new SpringLayout());
 	}
 
@@ -225,9 +200,11 @@ public final class CursoPc extends JPanel implements Gui {
 		for (Funcionario b : funcionarios) {
 			boxFuncionario.addItem(b);
 		}
-		if (!MainCont.getCurriculoCursoFc().isShowing()
-				&& MainCont.getCurriculoCursoFc().getCursoCont().getCurso() != null) {
-			funcionario = MainCont.getCurriculoCursoFc().getCursoCont().getCurso().getFuncionario();
+		if (!MainCont.getCurriculoExperienciaProfissionalFc().isShowing()
+				&& MainCont.getCurriculoExperienciaProfissionalFc().getExperienciaProfissionalCont()
+						.getExperienciaProfissional() != null) {
+			funcionario = MainCont.getCurriculoExperienciaProfissionalFc().getExperienciaProfissionalCont()
+					.getExperienciaProfissional().getFuncionario();
 			boxFuncionario.setSelectedItem(funcionario);
 		}
 	}

@@ -17,8 +17,8 @@ public class EventoTm extends AbstractTableModel {
 	private static TabelaModelo tabelaModelo = new TabelaModelo();
 	static {
 		tabelaModelo.adicionar("ID", 0, 100);
-		tabelaModelo.adicionar("DESCRIÇÃO", 1, 500);
-		tabelaModelo.adicionar("TIPO DE EVENTO", 2, 500);
+		tabelaModelo.adicionar("DESCRIÇÃO", 1, 400);
+		tabelaModelo.adicionar("TIPO DE EVENTO", 2, 400);
 		tabelaModelo.adicionar("DATA", 3, 100);
 		tabelaModelo.adicionar("HORA INÍCIO", 4, 100);
 		tabelaModelo.adicionar("HORA TÉRMINO", 5, 100);

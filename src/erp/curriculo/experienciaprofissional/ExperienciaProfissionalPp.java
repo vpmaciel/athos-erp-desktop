@@ -1,4 +1,4 @@
-package erp.curriculo.certificado;
+package erp.curriculo.experienciaprofissional;
 
 import java.awt.BorderLayout;
 import java.awt.Rectangle;
@@ -17,24 +17,24 @@ import javax.swing.table.DefaultTableCellRenderer;
 import arquitetura.gui.Tabela;
 
 @SuppressWarnings("serial")
-public final class CertificadoPp extends JPanel {
+public final class ExperienciaProfissionalPp extends JPanel {
 
-	List<Certificado> certificados = null;
-	private final CertificadoTm certificadoTm;
+	List<ExperienciaProfissional> experienciaProfissionals = null;
+	private final ExperienciaProfissionalTm experienciaProfissionalTm;
 	private final JTable table;
 
-	public CertificadoPp() {
-		setBorder(BorderFactory.createTitledBorder("CERTIFICADO"));
+	public ExperienciaProfissionalPp() {
+		setBorder(BorderFactory.createTitledBorder("EXPERIÊNCIA PROFISSIONAL"));
 
-		certificados = new LinkedList<>();
-		certificadoTm = new CertificadoTm(certificados);
+		experienciaProfissionals = new LinkedList<>();
+		experienciaProfissionalTm = new ExperienciaProfissionalTm(experienciaProfissionals);
 
 		table = new JTable();
-		table.setModel(certificadoTm);
+		table.setModel(experienciaProfissionalTm);
 		for (int c = 0; c < table.getColumnCount(); ++c) {
 			table.setDefaultRenderer(table.getColumnClass(c), Tabela.getDefaultTableCellRenderer());
 		}
-		Tabela.configurarLarguraColunasTabela(table, CertificadoTm.largura);
+		Tabela.configurarLarguraColunasTabela(table, ExperienciaProfissionalTm.largura);
 		((DefaultTableCellRenderer) table.getTableHeader().getDefaultRenderer())
 				.setHorizontalAlignment(SwingConstants.RIGHT);
 		table.getColumnModel().getColumn(0).setMaxWidth(0);
@@ -54,28 +54,28 @@ public final class CertificadoPp extends JPanel {
 		super.add(scrollPane, "Center");
 	}
 
-	public void atualizarGui(List<Certificado> certificados) {
-		certificadoTm.setCertificadoList(certificados);
-		certificadoTm.fireTableDataChanged();
+	public void atualizarGui(List<ExperienciaProfissional> experienciaProfissionals) {
+		experienciaProfissionalTm.setExperienciaProfissionalList(experienciaProfissionals);
+		experienciaProfissionalTm.fireTableDataChanged();
 	}
 
-	public CertificadoTm getCaracteristicaTableModel() {
-		return certificadoTm;
+	public ExperienciaProfissionalTm getCaracteristicaTableModel() {
+		return experienciaProfissionalTm;
 	}
 
 	public void iniciarControlador() {
-		CertificadoSel listener = new CertificadoSel(table);
+		ExperienciaProfissionalSel listener = new ExperienciaProfissionalSel(table);
 		table.getSelectionModel().addListSelectionListener(listener);
 	}
 
-	public int pesquisarRegistroCaracteristica(Certificado certificado) {
-		certificados = new LinkedList<>();
+	public int pesquisarRegistroCaracteristica(ExperienciaProfissional ExperienciaProfissional) {
+		experienciaProfissionals = new LinkedList<>();
 		try {
-			certificados = new LinkedList<>(CertificadoFac.pesquisarRegistro(certificado));
+			experienciaProfissionals = new LinkedList<>(ExperienciaProfissionalFac.pesquisarRegistro(ExperienciaProfissional));
 		} catch (Exception e) {
 			System.out.println(e);
 		}
-		atualizarGui(certificados);
-		return certificados.size();
+		atualizarGui(experienciaProfissionals);
+		return experienciaProfissionals.size();
 	}
 }

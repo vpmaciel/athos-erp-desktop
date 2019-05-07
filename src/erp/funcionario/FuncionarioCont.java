@@ -140,6 +140,7 @@ final class FuncionarioCont {
 
 			if (totalPesquisaRegistro > 0) {
 				MainCont.mostrarFrame(getFuncionarioFp());
+				getFuncionarioFp().setExtendedState(java.awt.Frame.MAXIMIZED_BOTH);
 			}
 		}
 	}

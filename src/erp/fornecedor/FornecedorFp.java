@@ -61,10 +61,7 @@ public final class FornecedorFp extends JFrame implements Gui {
 	@Override
 	public void iniciarLayout() {
 		setLayout(new FlowLayout(FlowLayout.CENTER));
-		setPreferredSize(new Dimension(800, 600));
 		setMinimumSize(new Dimension(800, 600));
-		setSize(new Dimension(800, 600));
-		setMaximumSize(new Dimension(800, 600));
 	}
 
 	@Override

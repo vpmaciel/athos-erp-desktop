@@ -40,6 +40,8 @@ import erp.curriculo.certificado.CertificadoFc;
 import erp.curriculo.certificado.CertificadoFp;
 import erp.curriculo.curso.CursoFc;
 import erp.curriculo.curso.CursoFp;
+import erp.curriculo.experienciaprofissional.ExperienciaProfissionalFc;
+import erp.curriculo.experienciaprofissional.ExperienciaProfissionalFp;
 import erp.editor.EditorTextoFc;
 import erp.empresa.EmpresaFc;
 import erp.empresa.EmpresaFp;
@@ -79,7 +81,7 @@ public final class MainCont {
 
 		@Override
 		public void windowOpened(WindowEvent e) {
-
+			MainFc.mostrarFrame(loginFc);
 		}
 	}
 
@@ -176,10 +178,12 @@ public final class MainCont {
 				mostrarFrame(curriculoCertificadoFc);
 			} else if (actionEvent.getSource() == mainFc.getMenuItemCadastroCurriculoCurso()) {
 				mostrarFrame(curriculoCursoFc);
+			} else if (actionEvent.getSource() == mainFc.getMenuItemCadastroCurriculoExperienciaProfissional()) {
+				mostrarFrame(curriculoExperienciaProfissionalFc);
 			}
 			/*
-			 * else if (actionEvent.getSource() == mainFc.getMenuItemCadastroImovel()) {
-			 * mostrarFrame(curriculoExperienciaProfissionalFc); } else if
+			 * else if
+			 * 
 			 * (actionEvent.getSource() == mainFc.getMenuItemCadastroImovel()) {
 			 * mostrarFrame(curriculoHabilidadeFc); } else if (actionEvent.getSource() ==
 			 * mainFc.getMenuItemCadastroImovel()) { mostrarFrame(curriculoIdiomaFc); } else
@@ -336,6 +340,10 @@ public final class MainCont {
 					.setTitle(AOP.getNomeSistema() + " - CURSO " + Data.getData() + AOP.getUsuarioFormatado());
 			MainCont.getCurriculoCursoFp()
 					.setTitle(AOP.getNomeSistema() + " - CURSO " + Data.getData() + AOP.getUsuarioFormatado());
+			MainCont.getCurriculoExperienciaProfissionalFc()
+			.setTitle(AOP.getNomeSistema() + " - EXPERIÊNCIA PROFISSIONAL " + Data.getData() + AOP.getUsuarioFormatado());
+	MainCont.getCurriculoExperienciaProfissionalFp()
+			.setTitle(AOP.getNomeSistema() + " - EXPERIÊNCIA PROFISSIONAL " + Data.getData() + AOP.getUsuarioFormatado());
 		}
 	}
 
@@ -356,8 +364,21 @@ public final class MainCont {
 	private static CaracteristicaFp curriculoCaracteristicaFp;
 	private static CertificadoFc curriculoCertificadoFc;
 	private static CertificadoFp curriculoCertificadoFp;
+	private static ExperienciaProfissionalFc curriculoExperienciaProfissionalFc;
+	private static ExperienciaProfissionalFp curriculoExperienciaProfissionalFp;
 	private static CursoFc curriculoCursoFc;
 	private static CursoFp curriculoCursoFp;
+	/*
+	 * private static HabilidadeFc curriculoHabilidadeFc; private static
+	 * HabilidadeFp curriculoHabilidadeFp; private static IdiomaFc
+	 * curriculoIdiomaFc; private static IdiomaFp curriculoIdiomaFp; private static
+	 * ObjetivoProfissionalFc curriculoObjetivoProfissionalFc; private static
+	 * ObjetivoProfissionalFp curriculoObjetivoProfissionalFp; private static
+	 * TestePersonalidadeFc curriculoTestePersonalidadeFc; private static
+	 * TestePersonalidadeFp curriculoTestePersonalidadeFp; private static
+	 * TesteDiscFc curriculoTesteDiscFc; private static TesteDiscFp
+	 * curriculoTesteDiscFp;
+	 */
 	private static EditorTextoFc editorTextoFc;
 	private static EmpresaFc empresaFc;
 	private static EmpresaFp empresaFp;
@@ -365,20 +386,6 @@ public final class MainCont {
 	private static EventoFp eventoFp;
 	private static FornecedorFc fornecedorFc;
 	private static FornecedorFp fornecedorFp;
-	/*
-	 * private static CursoFc curriculoCursoFc; private static CursoFp
-	 * curriculoCursoFp; private static ExperienciaProfissionalFc
-	 * curriculoExperienciaProfissionalFc; private static ExperienciaProfissionalFp
-	 * curriculoExperienciaProfissionalFp; private static HabilidadeFc
-	 * curriculoHabilidadeFc; private static HabilidadeFp curriculoHabilidadeFp;
-	 * private static IdiomaFc curriculoIdiomaFc; private static IdiomaFp
-	 * curriculoIdiomaFp; private static ObjetivoProfissionalFc
-	 * curriculoObjetivoProfissionalFc; private static ObjetivoProfissionalFp
-	 * curriculoObjetivoProfissionalFp; private static TestePersonalidadeFc
-	 * curriculoTestePersonalidadeFc; private static TestePersonalidadeFp
-	 * curriculoTestePersonalidadeFp; private static TesteDiscFc
-	 * curriculoTesteDiscFc; private static TesteDiscFp curriculoTesteDiscFp;
-	 */
 	private static FuncionarioFc funcionarioFc;
 	private static FuncionarioFp funcionarioFp;
 	private static ImovelFc imovelFc;
@@ -504,6 +511,14 @@ public final class MainCont {
 
 	public static CursoFp getCurriculoCursoFp() {
 		return curriculoCursoFp;
+	}
+	
+	public static ExperienciaProfissionalFc getCurriculoExperienciaProfissionalFc() {
+		return curriculoExperienciaProfissionalFc;
+	}
+
+	public static ExperienciaProfissionalFp getCurriculoExperienciaProfissionalFp() {
+		return curriculoExperienciaProfissionalFp;
 	}
 
 	public static EditorTextoFc getEditorTextoFc() {
@@ -750,6 +765,12 @@ public final class MainCont {
 
 		curriculoCursoFp = new CursoFp();
 		criarFrame(curriculoCursoFp);
+
+		curriculoExperienciaProfissionalFc = new ExperienciaProfissionalFc();
+		criarFrame(curriculoExperienciaProfissionalFc);
+
+		curriculoExperienciaProfissionalFp = new ExperienciaProfissionalFp();
+		criarFrame(curriculoExperienciaProfissionalFp);
 
 		calculadoraFc = new CalculadoraFc();
 		criarFrame(calculadoraFc);
