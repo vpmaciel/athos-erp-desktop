@@ -14,10 +14,10 @@ import arquitetura.relatorio.Relatorio;
 
 public class ExperienciaProfissionalRel {
 
-	private String arquivo = "cliente.pdf";
+	private String arquivo = "experiencia-profissional.pdf";
 	private Document document = new Document();
 	private Relatorio relatorio = new Relatorio();
-	private String titulo = "CLIENTES";
+	private String titulo = "EXPERIÊNCIA PROFISSIONAL";
 	private PdfWriter writer = null;
 
 	public ExperienciaProfissionalRel(List<ExperienciaProfissional> ExperienciaProfissionals) {

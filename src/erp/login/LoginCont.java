@@ -29,9 +29,11 @@ public class LoginCont {
 				List<Usuario> list = (List<Usuario>) UsuarioFac.pesquisarRegistro(usuario);
 				AOP.setUsuario(list.get(0));
 				MainCont.getLoginFc().setVisible(false);
+				MainCont.getMainFc().toFront();
 
 			} else {
 				Msg.avisoUsuarioInvalido();
+				MainCont.getLoginFc().toFront();
 				++tentativas;
 
 				if (tentativas >= LoginCont.MAXIMO_LOGIN_TENTATIVAS) {

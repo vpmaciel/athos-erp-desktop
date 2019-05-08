@@ -205,7 +205,7 @@ final class CursoCont {
 		}
 		getCursoPc().getGuiFuncionario().setSelectedItem(curso.getFuncionario());
 		getCursoPc().getGuiAnoConclusao().setText(curso.getAnoConclusao());
-		getCursoPc().getGuiCurso().setText(curso.getCurso());
+		getCursoPc().getGuiNome().setText(curso.getCurso());
 		getCursoPc().getGuiInstituicao().setText(curso.getInstituicao());
 		getCursoPc().getGuiAnoInicio().setText(curso.getAnoInicio());
 		getCursoPc().getGuiSituacao().setSelectedItem(curso.getSituacao());
@@ -216,7 +216,7 @@ final class CursoCont {
 
 	public void atualizarObjeto() {
 		curso.setFuncionario((Funcionario) getCursoPc().getGuiFuncionario().getSelectedItem());
-		curso.setCurso(getCursoPc().getGuiCurso().getText());
+		curso.setNome(getCursoPc().getGuiNome().getText());
 		curso.setInstituicao(getCursoPc().getGuiInstituicao().getText());
 		curso.setAnoInicio(getCursoPc().getGuiAnoInicio().getText());
 		curso.setAnoConclusao(getCursoPc().getGuiAnoConclusao().getText());

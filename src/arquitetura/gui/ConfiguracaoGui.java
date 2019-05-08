@@ -156,20 +156,6 @@ public final class ConfiguracaoGui extends Container {
 				passwordField.setEditable(true);
 				continue;
 			}
-			if (comp instanceof JScrollPane) {
-				JScrollPane scrollPane = (JScrollPane) comp;
-				Component[] componentes = scrollPane.getViewport().getComponents();
-				for (int contador2 = 0; contador2 < componentes.length; ++contador2) {
-					if (!(componentes[contador2] instanceof JTextArea)) {
-						continue;
-					}
-					JTextArea field = (JTextArea) componentes[contador2];
-					field.setEnabled(true);
-					field.setEditable(true);
-					continue;
-				}
-
-			}
 		}
 	}
 
@@ -228,19 +214,13 @@ public final class ConfiguracaoGui extends Container {
 			}
 			if (comp instanceof JPasswordField) {
 				JPasswordField passwordField = (JPasswordField) comp;
-				passwordField.setEnabled(true);
+				passwordField.setText("");
 				continue;
 			}
-			if (comp instanceof JScrollPane) {
-				JScrollPane scrollPane = (JScrollPane) comp;
-				Component[] componentes = scrollPane.getViewport().getComponents();
-				for (int contador = 0; contador < componentes.length; ++contador) {
-					if (!(componentes[contador] instanceof JTextArea)) {
-						continue;
-					}
-					JTextArea field = (JTextArea) componentes[contador];
-					field.setText("");
-				}
+			if (comp instanceof JTextArea) {
+				JTextArea textArea = (JTextArea) comp;
+				textArea.setText("");
+				continue;
 			}
 		}
 	}

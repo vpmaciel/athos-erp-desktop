@@ -120,7 +120,7 @@ public class CursoTm extends AbstractTableModel {
 			curso.setInstituicao(aValue.toString());
 		}
 		if (tabelaModelo.getNome(columnIndex).equals("CURSO")) {
-			curso.setCurso(aValue.toString());
+			curso.setNome(aValue.toString());
 		}
 
 		fireTableDataChanged();

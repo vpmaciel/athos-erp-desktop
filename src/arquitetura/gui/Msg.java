@@ -71,7 +71,7 @@ public final class Msg {
 	}
 
 	public static final void avisoUsuarioInvalido() {
-		JOptionPane.showMessageDialog(null, "Usuário inválido !", "Informação", JOptionPane.INFORMATION_MESSAGE);
+		JOptionPane.showMessageDialog(null, "Usuário inválido !", "Informação", JOptionPane.ERROR_MESSAGE);
 	}
 
 	public static final void avisoUsuarioNaoExcluiRegistro() {

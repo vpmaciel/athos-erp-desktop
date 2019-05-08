@@ -42,6 +42,18 @@ import erp.curriculo.curso.CursoFc;
 import erp.curriculo.curso.CursoFp;
 import erp.curriculo.experienciaprofissional.ExperienciaProfissionalFc;
 import erp.curriculo.experienciaprofissional.ExperienciaProfissionalFp;
+import erp.curriculo.habilidade.HabilidadeFc;
+import erp.curriculo.habilidade.HabilidadeFp;
+import erp.curriculo.idioma.IdiomaFc;
+import erp.curriculo.idioma.IdiomaFp;
+import erp.curriculo.objetivoprofissional.ObjetivoProfissionalFc;
+import erp.curriculo.objetivoprofissional.ObjetivoProfissionalFp;
+import erp.curriculo.testepersonalidade.a.TesteAFc;
+import erp.curriculo.testepersonalidade.a.TesteAFp;
+import erp.curriculo.testepersonalidade.b.TesteBFc;
+import erp.curriculo.testepersonalidade.b.TesteBFp;
+import erp.curriculo.testepersonalidade.c.TesteCFc;
+import erp.curriculo.testepersonalidade.c.TesteCFp;
 import erp.editor.EditorTextoFc;
 import erp.empresa.EmpresaFc;
 import erp.empresa.EmpresaFp;
@@ -180,25 +192,20 @@ public final class MainCont {
 				mostrarFrame(curriculoCursoFc);
 			} else if (actionEvent.getSource() == mainFc.getMenuItemCadastroCurriculoExperienciaProfissional()) {
 				mostrarFrame(curriculoExperienciaProfissionalFc);
+			} else if (actionEvent.getSource() == mainFc.getMenuItemCadastroCurriculoHabilidade()) {
+				mostrarFrame(curriculoHabilidadeFc);
+			} else if (actionEvent.getSource() == mainFc.getMenuItemCadastroCurriculoIdioma()) {
+				mostrarFrame(curriculoIdiomaFc);
+			} else if (actionEvent.getSource() == mainFc.getMenuItemCadastroCurriculoObjetivoProfissional()) {
+				mostrarFrame(curriculoObjetivoProfissionalFc);
+			} else if (actionEvent.getSource() == mainFc.getMenuItemCadastroCurriculoTestePersonalidadeA()) {
+				mostrarFrame(curriculoTesteAFc);
+			} else if (actionEvent.getSource() == mainFc.getMenuItemCadastroCurriculoTestePersonalidadeB()) {
+				mostrarFrame(curriculoTesteBFc);
+			} else if (actionEvent.getSource() == mainFc.getMenuItemCadastroCurriculoTestePersonalidadeC()) {
+				mostrarFrame(curriculoTesteCFc);
 			}
-			/*
-			 * else if
-			 * 
-			 * (actionEvent.getSource() == mainFc.getMenuItemCadastroImovel()) {
-			 * mostrarFrame(curriculoHabilidadeFc); } else if (actionEvent.getSource() ==
-			 * mainFc.getMenuItemCadastroImovel()) { mostrarFrame(curriculoIdiomaFc); } else
-			 * if (actionEvent.getSource() == mainFc.getMenuItemCadastroImovel()) {
-			 * mostrarFrame(curriculoObjetivoProfissionalFc); } else if
-			 * (actionEvent.getSource() == mainFc.getMenuItemCadastroImovel()) {
-			 * mostrarFrame(curriculoHabilidade); } else if (actionEvent.getSource() ==
-			 * mainFc.getMenuItemCadastroImovel()) { mostrarFrame(curriculoIdiomaFc); } else
-			 * if (actionEvent.getSource() == mainFc.getMenuItemCadastroImovel()) {
-			 * mostrarFrame(curriculoObjetivoProfissionalFc); } else if
-			 * (actionEvent.getSource() == mainFc.getMenuItemCadastroImovel()) {
-			 * mostrarFrame(curriculoTestePersonalidadeFc); } else if
-			 * (actionEvent.getSource() == mainFc.getMenuItemCadastroImovel()) {
-			 * mostrarFrame(curriculoTesteDiscFc); }
-			 */
+
 		}
 	}
 
@@ -340,10 +347,22 @@ public final class MainCont {
 					.setTitle(AOP.getNomeSistema() + " - CURSO " + Data.getData() + AOP.getUsuarioFormatado());
 			MainCont.getCurriculoCursoFp()
 					.setTitle(AOP.getNomeSistema() + " - CURSO " + Data.getData() + AOP.getUsuarioFormatado());
-			MainCont.getCurriculoExperienciaProfissionalFc()
-			.setTitle(AOP.getNomeSistema() + " - EXPERIÊNCIA PROFISSIONAL " + Data.getData() + AOP.getUsuarioFormatado());
-	MainCont.getCurriculoExperienciaProfissionalFp()
-			.setTitle(AOP.getNomeSistema() + " - EXPERIÊNCIA PROFISSIONAL " + Data.getData() + AOP.getUsuarioFormatado());
+			MainCont.getCurriculoExperienciaProfissionalFc().setTitle(
+					AOP.getNomeSistema() + " - EXPERIÊNCIA PROFISSIONAL " + Data.getData() + AOP.getUsuarioFormatado());
+			MainCont.getCurriculoExperienciaProfissionalFp().setTitle(
+					AOP.getNomeSistema() + " - EXPERIÊNCIA PROFISSIONAL " + Data.getData() + AOP.getUsuarioFormatado());
+			MainCont.getCurriculoHabilidadeFc()
+					.setTitle(AOP.getNomeSistema() + " - HABILIDADE " + Data.getData() + AOP.getUsuarioFormatado());
+			MainCont.getCurriculoHabilidadeFp()
+					.setTitle(AOP.getNomeSistema() + " - HABILIDADE " + Data.getData() + AOP.getUsuarioFormatado());
+			MainCont.getCurriculoIdiomaFc()
+					.setTitle(AOP.getNomeSistema() + " - IDIOMA " + Data.getData() + AOP.getUsuarioFormatado());
+			MainCont.getCurriculoIdiomaFp()
+					.setTitle(AOP.getNomeSistema() + " - IDIOMA " + Data.getData() + AOP.getUsuarioFormatado());
+			MainCont.getCurriculoObjetivoProfissionalFc().setTitle(
+					AOP.getNomeSistema() + " - OBJETIVO PROFISSIONAL " + Data.getData() + AOP.getUsuarioFormatado());
+			MainCont.getCurriculoObjetivoProfissionalFp().setTitle(
+					AOP.getNomeSistema() + " - OBJETIVO PROFISSIONAL " + Data.getData() + AOP.getUsuarioFormatado());
 		}
 	}
 
@@ -368,17 +387,18 @@ public final class MainCont {
 	private static ExperienciaProfissionalFp curriculoExperienciaProfissionalFp;
 	private static CursoFc curriculoCursoFc;
 	private static CursoFp curriculoCursoFp;
-	/*
-	 * private static HabilidadeFc curriculoHabilidadeFc; private static
-	 * HabilidadeFp curriculoHabilidadeFp; private static IdiomaFc
-	 * curriculoIdiomaFc; private static IdiomaFp curriculoIdiomaFp; private static
-	 * ObjetivoProfissionalFc curriculoObjetivoProfissionalFc; private static
-	 * ObjetivoProfissionalFp curriculoObjetivoProfissionalFp; private static
-	 * TestePersonalidadeFc curriculoTestePersonalidadeFc; private static
-	 * TestePersonalidadeFp curriculoTestePersonalidadeFp; private static
-	 * TesteDiscFc curriculoTesteDiscFc; private static TesteDiscFp
-	 * curriculoTesteDiscFp;
-	 */
+	private static HabilidadeFc curriculoHabilidadeFc;
+	private static HabilidadeFp curriculoHabilidadeFp;
+	private static IdiomaFc curriculoIdiomaFc;
+	private static IdiomaFp curriculoIdiomaFp;
+	private static ObjetivoProfissionalFc curriculoObjetivoProfissionalFc;
+	private static ObjetivoProfissionalFp curriculoObjetivoProfissionalFp;
+	private static TesteAFc curriculoTesteAFc;
+	private static TesteAFp curriculoTesteAFp;
+	private static TesteBFc curriculoTesteBFc;
+	private static TesteBFp curriculoTesteBFp;
+	private static TesteCFc curriculoTesteCFc;
+	private static TesteCFp curriculoTesteCFp;
 	private static EditorTextoFc editorTextoFc;
 	private static EmpresaFc empresaFc;
 	private static EmpresaFp empresaFp;
@@ -512,7 +532,7 @@ public final class MainCont {
 	public static CursoFp getCurriculoCursoFp() {
 		return curriculoCursoFp;
 	}
-	
+
 	public static ExperienciaProfissionalFc getCurriculoExperienciaProfissionalFc() {
 		return curriculoExperienciaProfissionalFc;
 	}
@@ -521,6 +541,54 @@ public final class MainCont {
 		return curriculoExperienciaProfissionalFp;
 	}
 
+	public static HabilidadeFc getCurriculoHabilidadeFc() {
+		return curriculoHabilidadeFc;
+	}
+
+	public static HabilidadeFp getCurriculoHabilidadeFp() {
+		return curriculoHabilidadeFp;
+	}
+
+	public static IdiomaFc getCurriculoIdiomaFc() {
+		return curriculoIdiomaFc;
+	}
+
+	public static IdiomaFp getCurriculoIdiomaFp() {
+		return curriculoIdiomaFp;
+	}
+
+	public static ObjetivoProfissionalFc getCurriculoObjetivoProfissionalFc() {
+		return curriculoObjetivoProfissionalFc;
+	}
+
+	public static ObjetivoProfissionalFp getCurriculoObjetivoProfissionalFp() {
+		return curriculoObjetivoProfissionalFp;
+	}
+
+	public static TesteAFc getCurriculoTesteAFc() {
+		return curriculoTesteAFc;
+	}
+
+	public static TesteAFp getCurriculoTesteAFp() {
+		return curriculoTesteAFp;
+	}
+
+	public static TesteBFc getCurriculoTesteBFc() {
+		return curriculoTesteBFc;
+	}
+
+	public static TesteBFp getCurriculoTesteBFp() {
+		return curriculoTesteBFp;
+	}
+	
+	public static TesteCFc getCurriculoTesteCFc() {
+		return curriculoTesteCFc;
+	}
+
+	public static TesteCFp getCurriculoTesteCFp() {
+		return curriculoTesteCFp;
+	}
+	
 	public static EditorTextoFc getEditorTextoFc() {
 		return editorTextoFc;
 	}
@@ -771,6 +839,43 @@ public final class MainCont {
 
 		curriculoExperienciaProfissionalFp = new ExperienciaProfissionalFp();
 		criarFrame(curriculoExperienciaProfissionalFp);
+
+		curriculoHabilidadeFc = new HabilidadeFc();
+		criarFrame(curriculoHabilidadeFc);
+
+		curriculoHabilidadeFp = new HabilidadeFp();
+		criarFrame(curriculoHabilidadeFp);
+
+		curriculoIdiomaFc = new IdiomaFc();
+		criarFrame(curriculoIdiomaFc);
+
+		curriculoIdiomaFp = new IdiomaFp();
+		criarFrame(curriculoIdiomaFp);
+
+		curriculoObjetivoProfissionalFc = new ObjetivoProfissionalFc();
+		criarFrame(curriculoObjetivoProfissionalFc);
+
+		curriculoObjetivoProfissionalFp = new ObjetivoProfissionalFp();
+		criarFrame(curriculoObjetivoProfissionalFp);
+
+		curriculoTesteAFc = new TesteAFc();
+		criarFrame(curriculoTesteAFc);
+
+		curriculoTesteAFp = new TesteAFp();
+		criarFrame(curriculoTesteAFp);
+
+		curriculoTesteBFc = new TesteBFc();
+		criarFrame(curriculoTesteBFc);
+
+		curriculoTesteBFp = new TesteBFp();
+		criarFrame(curriculoTesteBFp);
+
+		
+		curriculoTesteCFc = new TesteCFc();
+		criarFrame(curriculoTesteCFc);
+
+		curriculoTesteCFp = new TesteCFp();
+		criarFrame(curriculoTesteCFp);
 
 		calculadoraFc = new CalculadoraFc();
 		criarFrame(calculadoraFc);

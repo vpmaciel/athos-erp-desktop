@@ -14,10 +14,10 @@ import arquitetura.relatorio.Relatorio;
 
 public class CursoRel {
 
-	private String arquivo = "cliente.pdf";
+	private String arquivo = "curso.pdf";
 	private Document document = new Document();
 	private Relatorio relatorio = new Relatorio();
-	private String titulo = "CLIENTES";
+	private String titulo = "CURSOS";
 	private PdfWriter writer = null;
 
 	public CursoRel(List<Curso> Cursos) {

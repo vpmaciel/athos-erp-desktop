@@ -14,10 +14,10 @@ import arquitetura.relatorio.Relatorio;
 
 public class CaracteristicaRel {
 
-	private String arquivo = "cliente.pdf";
+	private String arquivo = "caracteristica.pdf";
 	private Document document = new Document();
 	private Relatorio relatorio = new Relatorio();
-	private String titulo = "CLIENTES";
+	private String titulo = "CARACTERÍSTICAS";
 	private PdfWriter writer = null;
 
 	public CaracteristicaRel(List<Caracteristica> caracteristicas) {

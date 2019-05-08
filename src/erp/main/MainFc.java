@@ -56,8 +56,9 @@ public class MainFc extends JFrame {
 	private JMenuItem menuItemCadastroCurriculoHabilidade;
 	private JMenuItem menuItemCadastroCurriculoIdioma;
 	private JMenuItem menuItemCadastroCurriculoObjetivoProfissional;
-	private JMenuItem menuItemCadastroCurriculoTesteDisc;
 	private JMenuItem menuItemCadastroCurriculoTestePersonalidadeA;
+	private JMenuItem menuItemCadastroCurriculoTestePersonalidadeB;
+	private JMenuItem menuItemCadastroCurriculoTestePersonalidadeC;
 	private JMenuItem menuItemCadastroDocumento;
 	private JMenuItem menuItemCadastroEmpresa;
 	private JMenuItem menuItemCadastroEscolaridade;
@@ -187,12 +188,16 @@ public class MainFc extends JFrame {
 		return menuItemCadastroCurriculoObjetivoProfissional;
 	}
 
-	public JMenuItem getMenuItemCadastroCurriculoTesteDisc() {
-		return menuItemCadastroCurriculoTesteDisc;
-	}
-
 	public JMenuItem getMenuItemCadastroCurriculoTestePersonalidadeA() {
 		return menuItemCadastroCurriculoTestePersonalidadeA;
+	}
+	
+	public JMenuItem getMenuItemCadastroCurriculoTestePersonalidadeB() {
+		return menuItemCadastroCurriculoTestePersonalidadeB;
+	}
+	
+	public JMenuItem getMenuItemCadastroCurriculoTestePersonalidadeC() {
+		return menuItemCadastroCurriculoTestePersonalidadeC;
 	}
 
 	public JMenuItem getMenuItemCadastroDocumento() {
@@ -368,7 +373,8 @@ public class MainFc extends JFrame {
 		menuItemCadastroCurriculoIdioma.addActionListener(mainCont.new MenuCadastroGerenteEventos());
 		menuItemCadastroCurriculoObjetivoProfissional.addActionListener(mainCont.new MenuCadastroGerenteEventos());
 		menuItemCadastroCurriculoTestePersonalidadeA.addActionListener(mainCont.new MenuCadastroGerenteEventos());
-		menuItemCadastroCurriculoTesteDisc.addActionListener(mainCont.new MenuCadastroGerenteEventos());
+		menuItemCadastroCurriculoTestePersonalidadeB.addActionListener(mainCont.new MenuCadastroGerenteEventos());
+		menuItemCadastroCurriculoTestePersonalidadeC.addActionListener(mainCont.new MenuCadastroGerenteEventos());
 		menuItemCadastroEmpresa.addActionListener(mainCont.new MenuCadastroGerenteEventos());
 		menuItemCadastroSindicato.addActionListener(mainCont.new MenuCadastroGerenteEventos());
 		menuItemCadastroServico.addActionListener(mainCont.new MenuCadastroGerenteEventos());
@@ -455,8 +461,11 @@ public class MainFc extends JFrame {
 		menuItemCadastroCurriculoTestePersonalidadeA = new JMenuItem("Teste de Personalidade A");
 		menuCadastroCurriculo.add(menuItemCadastroCurriculoTestePersonalidadeA);
 
-		menuItemCadastroCurriculoTesteDisc = new JMenuItem("Teste D.I.S.C");
-		menuCadastroCurriculo.add(menuItemCadastroCurriculoTesteDisc);
+		menuItemCadastroCurriculoTestePersonalidadeB = new JMenuItem("Teste de Personalidade B");
+		menuCadastroCurriculo.add(menuItemCadastroCurriculoTestePersonalidadeB);
+
+		menuItemCadastroCurriculoTestePersonalidadeC = new JMenuItem("Teste de Personalidade C");
+		menuCadastroCurriculo.add(menuItemCadastroCurriculoTestePersonalidadeC);
 
 		menuItemCadastroDocumento = new JMenuItem("Documentos");
 		menuCadastro.add(menuItemCadastroDocumento);

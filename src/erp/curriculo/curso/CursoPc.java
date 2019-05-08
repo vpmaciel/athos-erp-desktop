@@ -34,7 +34,7 @@ public final class CursoPc extends JPanel implements Gui {
 	private ConfiguracaoGui configuracaoGui;
 	private JFormattedTextField fieldAnoConclusao;
 	private JFormattedTextField fieldAnoInicio;
-	private JTextField fieldCurso;
+	private JTextField fieldNome;
 	private JTextField fieldInstituicao;
 	private JLabel labelFuncionario;
 	private ToolBar toolBar;
@@ -64,8 +64,8 @@ public final class CursoPc extends JPanel implements Gui {
 		return fieldAnoInicio;
 	}
 
-	public JTextField getGuiCurso() {
-		return fieldCurso;
+	public JTextField getGuiNome() {
+		return fieldNome;
 	}
 
 	public JComboBox<Funcionario> getGuiFuncionario() {
@@ -135,9 +135,9 @@ public final class CursoPc extends JPanel implements Gui {
 
 		add(new JLabel("CURSO"));
 
-		fieldCurso = new JTextField();
-		fieldCurso.setDocument(new EntradaMaiuscula(50));
-		add(fieldCurso);
+		fieldNome = new JTextField();
+		fieldNome.setDocument(new EntradaMaiuscula(50));
+		add(fieldNome);
 
 		add(new JLabel("ANO INÍCIO"));
 

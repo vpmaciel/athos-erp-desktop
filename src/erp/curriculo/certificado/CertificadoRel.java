@@ -14,10 +14,10 @@ import arquitetura.relatorio.Relatorio;
 
 public class CertificadoRel {
 
-	private String arquivo = "cliente.pdf";
+	private String arquivo = "certificado.pdf";
 	private Document document = new Document();
 	private Relatorio relatorio = new Relatorio();
-	private String titulo = "CLIENTES";
+	private String titulo = "CERTIFICADOS";
 	private PdfWriter writer = null;
 
 	public CertificadoRel(List<Certificado> certificados) {
@@ -30,7 +30,7 @@ public class CertificadoRel {
 				document.newPage();
 				document.add(new Paragraph("FUNCIONÁRIO: " + certificado.getFuncionario()));
 				document.add(new Paragraph("INSTITUIÇÃO: " + certificado.getInstituicao()));
-				document.add(new Paragraph("CARGA HORÁRIA: " + certificado.getCurso()));
+				document.add(new Paragraph("CURSO: " + certificado.getCurso()));
 				document.add(new Paragraph("ANO DE CONCLUSÃO: " + certificado.getAnoConclusao()));
 				document.add(new Paragraph("CARGA HORÁRIA: " + certificado.getCargaHoraria()));
 			}
