@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import javax.persistence.Query;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
@@ -19,8 +20,8 @@ final class BancoImp implements BancoDao {
 	public Banco consultarRegistro(Banco banco) {
 
 		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction tx = entityManager.getTransaction();
-		tx.begin();
+		EntityTransaction entityTransaction = entityManager.getTransaction();
+		entityTransaction.begin();
 
 		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
 		CriteriaQuery<Banco> criteriaQuery = criteriaBuilder.createQuery(Banco.class);
@@ -46,49 +47,48 @@ final class BancoImp implements BancoDao {
 		criteriaQuery.select(rootBanco).where(predicates.toArray(new Predicate[] {}));
 
 		List<Banco> list = entityManager.createQuery(criteriaQuery).getResultList();
-		tx.commit();
+		entityTransaction.commit();
 		entityManager.close();
 		return list.size() > 0 ? list.get(0) : new Banco();
 	}
 
 	@Override
 	public void deletarRegistro(Banco banco) {
-		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction tx = em.getTransaction();
-		tx.begin();
-		em.remove(em.find(Banco.class, banco.getId()));
-		tx.commit();
-		em.close();
+		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
+		EntityTransaction entityTransaction = entityManager.getTransaction();
+		entityTransaction.begin();
+		entityManager.remove(entityManager.find(Banco.class, banco.getId()));
+		entityTransaction.commit();
+		entityManager.close();
 	}
 
 	@Override
 	public Collection<Banco> getRegistro() {
-		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction tx = em.getTransaction();
-		tx.begin();
-		CriteriaBuilder builder = em.getCriteriaBuilder();
-		CriteriaQuery<Banco> criteria = builder.createQuery(Banco.class);
-		criteria.from(Banco.class);
-		List<Banco> list = em.createQuery(criteria).getResultList();
-		tx.commit();
-		em.close();
+		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
+		EntityTransaction entityTransaction = entityManager.getTransaction();
+		entityTransaction.begin();
+		Query query = entityManager.createQuery("select T from Banco T order by T.nome", Banco.class);
+		@SuppressWarnings("unchecked")
+		List<Banco> list = query.getResultList();
+		entityTransaction.commit();
+		entityManager.close();
 		return list;
 	}
 
 	@Override
 	public Banco getRegistro(Banco banco) {
-		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction tx = em.getTransaction();
-		tx.begin();
-		return em.find(Banco.class, banco.getId());
+		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
+		EntityTransaction entityTransaction = entityManager.getTransaction();
+		entityTransaction.begin();
+		return entityManager.find(Banco.class, banco.getId());
 	}
 
 	@Override
 	public Collection<Banco> pesquisarRegistro(Banco banco) {
 
 		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction tx = entityManager.getTransaction();
-		tx.begin();
+		EntityTransaction entityTransaction = entityManager.getTransaction();
+		entityTransaction.begin();
 
 		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
 		CriteriaQuery<Banco> criteriaQuery = criteriaBuilder.createQuery(Banco.class);
@@ -109,18 +109,18 @@ final class BancoImp implements BancoDao {
 		criteriaQuery.select(rootBanco).where(predicates.toArray(new Predicate[] {}));
 
 		List<Banco> list = entityManager.createQuery(criteriaQuery).getResultList();
-		tx.commit();
+		entityTransaction.commit();
 		entityManager.close();
 		return list;
 	}
 
 	@Override
 	public void salvarRegistro(Banco banco) {
-		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction tx = em.getTransaction();
-		tx.begin();
-		em.merge(banco);
-		tx.commit();
-		em.close();
+		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
+		EntityTransaction entityTransaction = entityManager.getTransaction();
+		entityTransaction.begin();
+		entityManager.merge(banco);
+		entityTransaction.commit();
+		entityManager.close();
 	}
 }

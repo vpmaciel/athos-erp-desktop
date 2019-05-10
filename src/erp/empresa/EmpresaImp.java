@@ -20,8 +20,8 @@ final class EmpresaImp implements EmpresaDao {
 	@Override
 	public Empresa consultarRegistro(Empresa empresa) {
 		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction tx = entityManager.getTransaction();
-		tx.begin();
+		EntityTransaction entityTransaction = entityManager.getTransaction();
+		entityTransaction.begin();
 
 		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
 		CriteriaQuery<Empresa> criteriaQuery = criteriaBuilder.createQuery(Empresa.class);
@@ -43,47 +43,47 @@ final class EmpresaImp implements EmpresaDao {
 		criteriaQuery.select(rootEmpresa).where(predicates.toArray(new Predicate[] {}));
 
 		List<Empresa> list = entityManager.createQuery(criteriaQuery).getResultList();
-		tx.commit();
+		entityTransaction.commit();
 		entityManager.close();
 		return list.size() > 0 ? list.get(0) : new Empresa();
 	}
 
 	@Override
 	public void deletarRegistro(Empresa empresa) {
-		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction tx = em.getTransaction();
-		tx.begin();
-		em.remove(em.find(Empresa.class, empresa.getId()));
-		tx.commit();
-		em.close();
+		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
+		EntityTransaction entityTransaction = entityManager.getTransaction();
+		entityTransaction.begin();
+		entityManager.remove(entityManager.find(Empresa.class, empresa.getId()));
+		entityTransaction.commit();
+		entityManager.close();
 	}
 
 	@Override
 	public Collection<Empresa> getRegistro() {
-		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction tx = em.getTransaction();
-		tx.begin();
-		Query query = em.createQuery("from erp.empresa.Empresa C order by C.nomeFantasia");
+		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
+		EntityTransaction entityTransaction = entityManager.getTransaction();
+		entityTransaction.begin();
+		Query query = entityManager.createQuery("select T from Empresa T order by T.nomeFantasia", Empresa.class);
 		@SuppressWarnings("unchecked")
 		List<Empresa> list = query.getResultList();
-		tx.commit();
-		em.close();
+		entityTransaction.commit();
+		entityManager.close();
 		return list;
 	}
 
 	@Override
 	public Empresa getRegistro(Empresa empresa) {
-		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction tx = em.getTransaction();
-		tx.begin();
-		return em.find(Empresa.class, empresa.getId());
+		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
+		EntityTransaction entityTransaction = entityManager.getTransaction();
+		entityTransaction.begin();
+		return entityManager.find(Empresa.class, empresa.getId());
 	}
 
 	@Override
 	public Collection<Empresa> pesquisarRegistro(Empresa empresa) {
 		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction tx = entityManager.getTransaction();
-		tx.begin();
+		EntityTransaction entityTransaction = entityManager.getTransaction();
+		entityTransaction.begin();
 
 		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
 		CriteriaQuery<Empresa> criteriaQuery = criteriaBuilder.createQuery(Empresa.class);
@@ -178,18 +178,18 @@ final class EmpresaImp implements EmpresaDao {
 		criteriaQuery.select(rootEmpresa).where(predicates.toArray(new Predicate[] {}));
 
 		List<Empresa> list = entityManager.createQuery(criteriaQuery).getResultList();
-		tx.commit();
+		entityTransaction.commit();
 		entityManager.close();
 		return list;
 	}
 
 	@Override
 	public void salvarRegistro(Empresa empresa) {
-		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction tx = em.getTransaction();
-		tx.begin();
-		em.merge(empresa);
-		tx.commit();
-		em.close();
+		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
+		EntityTransaction entityTransaction = entityManager.getTransaction();
+		entityTransaction.begin();
+		entityManager.merge(empresa);
+		entityTransaction.commit();
+		entityManager.close();
 	}
 }

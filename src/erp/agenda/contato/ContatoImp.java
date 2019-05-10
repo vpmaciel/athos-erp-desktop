@@ -20,8 +20,8 @@ final class ContatoImp implements ContatoDao {
 	@Override
 	public Contato consultarRegistro(Contato contato) {
 		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction tx = entityManager.getTransaction();
-		tx.begin();
+		EntityTransaction entityTransaction = entityManager.getTransaction();
+		entityTransaction.begin();
 
 		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
 		CriteriaQuery<Contato> criteriaQuery = criteriaBuilder.createQuery(Contato.class);
@@ -29,70 +29,67 @@ final class ContatoImp implements ContatoDao {
 
 		List<Predicate> predicates = new ArrayList<Predicate>();
 
-		boolean naoTemCriterio = true;
-
-		System.out.println(contato.getCnpj());
-		System.out.println(contato.getCpf());
+		boolean naoTentityManagerCriterio = true;
 
 		if (contato.getCnpj() != null && !contato.getCnpj().equals(Mascara.getCnpj().getPlaceholder())
 				&& !contato.getCnpj().equals(Mascara.getCnpjVazio())) {
 			predicates.add(criteriaBuilder.equal(rootContato.get("cnpj"), contato.getCnpj()));
-			naoTemCriterio = false;
+			naoTentityManagerCriterio = false;
 		}
 		if (contato.getCpf() != null && !contato.getCpf().equals(Mascara.getCpf().getPlaceholder())
 				&& !contato.getCpf().equals(Mascara.getCpfVazio())) {
 			predicates.add(criteriaBuilder.equal(rootContato.get("cpf"), contato.getCpf()));
-			naoTemCriterio = false;
+			naoTentityManagerCriterio = false;
 		}
 
-		if (naoTemCriterio) {
+		if (naoTentityManagerCriterio) {
 			return new Contato();
 		}
 
 		criteriaQuery.select(rootContato).where(predicates.toArray(new Predicate[] {}));
 
 		List<Contato> list = entityManager.createQuery(criteriaQuery).getResultList();
-		tx.commit();
+		entityTransaction.commit();
 		entityManager.close();
 		return list.size() > 0 ? list.get(0) : new Contato();
 	}
 
 	@Override
 	public void deletarRegistro(Contato contato) {
-		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction tx = em.getTransaction();
-		tx.begin();
-		em.remove(em.find(Contato.class, contato.getId()));
-		tx.commit();
-		em.close();
+		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
+		EntityTransaction entityTransaction = entityManager.getTransaction();
+		entityTransaction.begin();
+		entityManager.remove(entityManager.find(Contato.class, contato.getId()));
+		entityTransaction.commit();
+		entityManager.close();
 	}
 
 	@Override
 	public Collection<Contato> getRegistro() {
-		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction tx = em.getTransaction();
-		tx.begin();
-		Query query = em.createQuery("from erp.agenda.contato.Contato C order by C.nome");
+		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
+		EntityTransaction entityTransaction = entityManager.getTransaction();
+		entityTransaction.begin();
+		Query query = entityManager.createQuery("select T from Contato T order by T.nome", Contato.class);
 		@SuppressWarnings("unchecked")
 		List<Contato> list = query.getResultList();
-		tx.commit();
-		em.close();
+		entityTransaction.commit();
+		entityManager.close();
 		return list;
 	}
 
 	@Override
 	public Contato getRegistro(Contato contato) {
-		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction tx = em.getTransaction();
-		tx.begin();
-		return em.find(Contato.class, contato.getId());
+		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
+		EntityTransaction entityTransaction = entityManager.getTransaction();
+		entityTransaction.begin();
+		return entityManager.find(Contato.class, contato.getId());
 	}
 
 	@Override
 	public Collection<Contato> pesquisarRegistro(Contato contato) {
 		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction tx = entityManager.getTransaction();
-		tx.begin();
+		EntityTransaction entityTransaction = entityManager.getTransaction();
+		entityTransaction.begin();
 
 		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
 		CriteriaQuery<Contato> criteriaQuery = criteriaBuilder.createQuery(Contato.class);
@@ -125,10 +122,10 @@ final class ContatoImp implements ContatoDao {
 			predicates.add(criteriaBuilder.like(rootContato.get("cpf"), "%" + contato.getCpf() + "%"));
 		}
 		if (contato.getEmail() != null && contato.getEmail().length() > 0) {
-			predicates.add(criteriaBuilder.like(rootContato.get("email"), "%" + contato.getEmail() + "%"));
+			predicates.add(criteriaBuilder.like(rootContato.get("entityManagerail"), "%" + contato.getEmail() + "%"));
 		}
 		if (contato.getEmpresa() != null && contato.getEmpresa().getId() != null) {
-			predicates.add(criteriaBuilder.equal(rootContato.get("empresa"), contato.getEmpresa()));
+			predicates.add(criteriaBuilder.equal(rootContato.get("entityManagerpresa"), contato.getEmpresa()));
 		}
 		if (contato.getEstado() != null && contato.getEstado().length() > 0) {
 			predicates.add(criteriaBuilder.like(rootContato.get("estado"), "%" + contato.getEstado() + "%"));
@@ -161,18 +158,18 @@ final class ContatoImp implements ContatoDao {
 		criteriaQuery.select(rootContato).where(predicates.toArray(new Predicate[] {}));
 
 		List<Contato> list = entityManager.createQuery(criteriaQuery).getResultList();
-		tx.commit();
+		entityTransaction.commit();
 		entityManager.close();
 		return list;
 	}
 
 	@Override
 	public void salvarRegistro(Contato contato) {
-		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction tx = em.getTransaction();
-		tx.begin();
-		em.merge(contato);
-		tx.commit();
-		em.close();
+		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
+		EntityTransaction entityTransaction = entityManager.getTransaction();
+		entityTransaction.begin();
+		entityManager.merge(contato);
+		entityTransaction.commit();
+		entityManager.close();
 	}
 }

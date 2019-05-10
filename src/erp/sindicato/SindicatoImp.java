@@ -20,8 +20,8 @@ final class SindicatoImp implements SindicatoDao {
 	@Override
 	public Sindicato consultarRegistro(Sindicato sindicato) {
 		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction tx = entityManager.getTransaction();
-		tx.begin();
+		EntityTransaction entityTransaction = entityManager.getTransaction();
+		entityTransaction.begin();
 
 		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
 		CriteriaQuery<Sindicato> criteriaQuery = criteriaBuilder.createQuery(Sindicato.class);
@@ -44,7 +44,7 @@ final class SindicatoImp implements SindicatoDao {
 		criteriaQuery.select(rootSindicato).where(predicates.toArray(new Predicate[] {}));
 
 		List<Sindicato> list = entityManager.createQuery(criteriaQuery).getResultList();
-		tx.commit();
+		entityTransaction.commit();
 		entityManager.close();
 
 		return list.size() > 0 ? list.get(0) : new Sindicato();
@@ -52,40 +52,40 @@ final class SindicatoImp implements SindicatoDao {
 
 	@Override
 	public void deletarRegistro(Sindicato sindicato) {
-		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction tx = em.getTransaction();
-		tx.begin();
-		em.remove(em.find(Sindicato.class, sindicato.getId()));
-		tx.commit();
-		em.close();
+		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
+		EntityTransaction entityTransaction = entityManager.getTransaction();
+		entityTransaction.begin();
+		entityManager.remove(entityManager.find(Sindicato.class, sindicato.getId()));
+		entityTransaction.commit();
+		entityManager.close();
 	}
 
 	@Override
 	public Collection<Sindicato> getRegistro() {
-		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction tx = em.getTransaction();
-		tx.begin();
-		Query query = em.createQuery("from erp.sindicato.Sindicato C order by C.nomeFantasia");
+		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
+		EntityTransaction entityTransaction = entityManager.getTransaction();
+		entityTransaction.begin();
+		Query query = entityManager.createQuery("select T from Sindicato T order by T.nomeFantasia", Sindicato.class);
 		@SuppressWarnings("unchecked")
 		List<Sindicato> list = query.getResultList();
-		tx.commit();
-		em.close();
+		entityTransaction.commit();
+		entityManager.close();
 		return list;
 	}
 
 	@Override
 	public Sindicato getRegistro(Sindicato sindicato) {
-		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction tx = em.getTransaction();
-		tx.begin();
-		return em.find(Sindicato.class, sindicato.getId());
+		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
+		EntityTransaction entityTransaction = entityManager.getTransaction();
+		entityTransaction.begin();
+		return entityManager.find(Sindicato.class, sindicato.getId());
 	}
 
 	@Override
 	public Collection<Sindicato> pesquisarRegistro(Sindicato sindicato) {
 		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction tx = entityManager.getTransaction();
-		tx.begin();
+		EntityTransaction entityTransaction = entityManager.getTransaction();
+		entityTransaction.begin();
 
 		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
 		CriteriaQuery<Sindicato> criteriaQuery = criteriaBuilder.createQuery(Sindicato.class);
@@ -185,18 +185,18 @@ final class SindicatoImp implements SindicatoDao {
 		criteriaQuery.select(rootSindicato).where(predicates.toArray(new Predicate[] {}));
 
 		List<Sindicato> list = entityManager.createQuery(criteriaQuery).getResultList();
-		tx.commit();
+		entityTransaction.commit();
 		entityManager.close();
 		return list;
 	}
 
 	@Override
 	public void salvarRegistro(Sindicato sindicato) {
-		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction tx = em.getTransaction();
-		tx.begin();
-		em.merge(sindicato);
-		tx.commit();
-		em.close();
+		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
+		EntityTransaction entityTransaction = entityManager.getTransaction();
+		entityTransaction.begin();
+		entityManager.merge(sindicato);
+		entityTransaction.commit();
+		entityManager.close();
 	}
 }

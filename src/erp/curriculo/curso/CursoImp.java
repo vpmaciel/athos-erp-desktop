@@ -19,40 +19,40 @@ final class CursoImp implements CursoDao {
 
 	@Override
 	public void deletarRegistro(Curso curso) {
-		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction tx = em.getTransaction();
-		tx.begin();
-		em.remove(em.find(Curso.class, curso.getId()));
-		tx.commit();
-		em.close();
+		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
+		EntityTransaction entityTransaction = entityManager.getTransaction();
+		entityTransaction.begin();
+		entityManager.remove(entityManager.find(Curso.class, curso.getId()));
+		entityTransaction.commit();
+		entityManager.close();
 	}
 
 	@Override
 	public Collection<Curso> getRegistro() {
-		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction tx = em.getTransaction();
-		tx.begin();
-		Query query = em.createQuery("from erp.currriculo.curso.Curso C");
+		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
+		EntityTransaction entityTransaction = entityManager.getTransaction();
+		entityTransaction.begin();
+		Query query = entityManager.createQuery("select T from Curso T order by T.id", Curso.class);
 		@SuppressWarnings("unchecked")
 		List<Curso> list = query.getResultList();
-		tx.commit();
-		em.close();
+		entityTransaction.commit();
+		entityManager.close();
 		return list;
 	}
 
 	@Override
 	public Curso getRegistro(Curso curso) {
-		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction tx = em.getTransaction();
-		tx.begin();
-		return em.find(Curso.class, curso.getId());
+		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
+		EntityTransaction entityTransaction = entityManager.getTransaction();
+		entityTransaction.begin();
+		return entityManager.find(Curso.class, curso.getId());
 	}
 
 	@Override
 	public Collection<Curso> pesquisarRegistro(Curso curso) {
 		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction tx = entityManager.getTransaction();
-		tx.begin();
+		EntityTransaction entityTransaction = entityManager.getTransaction();
+		entityTransaction.begin();
 
 		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
 		CriteriaQuery<Curso> criteriaQuery = criteriaBuilder.createQuery(Curso.class);
@@ -88,18 +88,18 @@ final class CursoImp implements CursoDao {
 		criteriaQuery.select(rootCliente).where(predicates.toArray(new Predicate[] {}));
 
 		List<Curso> list = entityManager.createQuery(criteriaQuery).getResultList();
-		tx.commit();
+		entityTransaction.commit();
 		entityManager.close();
 		return list;
 	}
 
 	@Override
 	public void salvarRegistro(Curso Curso) {
-		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction tx = em.getTransaction();
-		tx.begin();
-		em.merge(Curso);
-		tx.commit();
-		em.close();
+		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
+		EntityTransaction entityTransaction = entityManager.getTransaction();
+		entityTransaction.begin();
+		entityManager.merge(Curso);
+		entityTransaction.commit();
+		entityManager.close();
 	}
 }

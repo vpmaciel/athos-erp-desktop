@@ -18,40 +18,40 @@ final class ObjetivoProfissionalImp implements ObjetivoProfissionalDao {
 
 	@Override
 	public void deletarRegistro(ObjetivoProfissional objetivoProfissional) {
-		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction tx = em.getTransaction();
-		tx.begin();
-		em.remove(em.find(ObjetivoProfissional.class, objetivoProfissional.getId()));
-		tx.commit();
-		em.close();
+		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
+		EntityTransaction entityTransaction = entityManager.getTransaction();
+		entityTransaction.begin();
+		entityManager.remove(entityManager.find(ObjetivoProfissional.class, objetivoProfissional.getId()));
+		entityTransaction.commit();
+		entityManager.close();
 	}
 
 	@Override
 	public Collection<ObjetivoProfissional> getRegistro() {
-		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction tx = em.getTransaction();
-		tx.begin();
-		Query query = em.createQuery("from erp.currriculo.objetivoProfissional.ObjetivoProfissional C");
+		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
+		EntityTransaction entityTransaction = entityManager.getTransaction();
+		entityTransaction.begin();
+		Query query = entityManager.createQuery("select T from ObjetivoProfissional T order by T.id", ObjetivoProfissional.class);
 		@SuppressWarnings("unchecked")
 		List<ObjetivoProfissional> list = query.getResultList();
-		tx.commit();
-		em.close();
+		entityTransaction.commit();
+		entityManager.close();
 		return list;
 	}
 
 	@Override
 	public ObjetivoProfissional getRegistro(ObjetivoProfissional objetivoProfissional) {
-		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction tx = em.getTransaction();
-		tx.begin();
-		return em.find(ObjetivoProfissional.class, objetivoProfissional.getId());
+		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
+		EntityTransaction entityTransaction = entityManager.getTransaction();
+		entityTransaction.begin();
+		return entityManager.find(ObjetivoProfissional.class, objetivoProfissional.getId());
 	}
 
 	@Override
 	public Collection<ObjetivoProfissional> pesquisarRegistro(ObjetivoProfissional objetivoProfissional) {
 		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction tx = entityManager.getTransaction();
-		tx.begin();
+		EntityTransaction entityTransaction = entityManager.getTransaction();
+		entityTransaction.begin();
 
 		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
 		CriteriaQuery<ObjetivoProfissional> criteriaQuery = criteriaBuilder.createQuery(ObjetivoProfissional.class);
@@ -81,18 +81,18 @@ final class ObjetivoProfissionalImp implements ObjetivoProfissionalDao {
 		criteriaQuery.select(rootCliente).where(predicates.toArray(new Predicate[] {}));
 
 		List<ObjetivoProfissional> list = entityManager.createQuery(criteriaQuery).getResultList();
-		tx.commit();
+		entityTransaction.commit();
 		entityManager.close();
 		return list;
 	}
 
 	@Override
 	public void salvarRegistro(ObjetivoProfissional ObjetivoProfissional) {
-		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction tx = em.getTransaction();
-		tx.begin();
-		em.merge(ObjetivoProfissional);
-		tx.commit();
-		em.close();
+		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
+		EntityTransaction entityTransaction = entityManager.getTransaction();
+		entityTransaction.begin();
+		entityManager.merge(ObjetivoProfissional);
+		entityTransaction.commit();
+		entityManager.close();
 	}
 }

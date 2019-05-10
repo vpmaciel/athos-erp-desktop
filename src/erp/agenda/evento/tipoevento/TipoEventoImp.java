@@ -19,8 +19,8 @@ final class TipoEventoImp implements TipoEventoDao {
 	@Override
 	public TipoEvento consultarRegistro(TipoEvento tipoEvento) {
 		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction tx = entityManager.getTransaction();
-		tx.begin();
+		EntityTransaction entityTransaction = entityManager.getTransaction();
+		entityTransaction.begin();
 
 		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
 		CriteriaQuery<TipoEvento> criteriaQuery = criteriaBuilder.createQuery(TipoEvento.class);
@@ -42,47 +42,47 @@ final class TipoEventoImp implements TipoEventoDao {
 		criteriaQuery.select(rootTipoEvento).where(predicates.toArray(new Predicate[] {}));
 
 		List<TipoEvento> list = entityManager.createQuery(criteriaQuery).getResultList();
-		tx.commit();
+		entityTransaction.commit();
 		entityManager.close();
 		return list.size() > 0 ? list.get(0) : new TipoEvento();
 	}
 
 	@Override
 	public void deletarRegistro(TipoEvento tipoEvento) {
-		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction tx = em.getTransaction();
-		tx.begin();
-		em.remove(em.find(TipoEvento.class, tipoEvento.getId()));
-		tx.commit();
-		em.close();
+		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
+		EntityTransaction entityTransaction = entityManager.getTransaction();
+		entityTransaction.begin();
+		entityManager.remove(entityManager.find(TipoEvento.class, tipoEvento.getId()));
+		entityTransaction.commit();
+		entityManager.close();
 	}
 
 	@Override
 	public Collection<TipoEvento> getRegistro() {
-		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction tx = em.getTransaction();
-		tx.begin();
-		Query query = em.createQuery("from erp.agenda.evento.tipoevento.TipoEvento C order by C.nome");
+		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
+		EntityTransaction entityTransaction = entityManager.getTransaction();
+		entityTransaction.begin();
+		Query query = entityManager.createQuery("select T from TipoEvento T order by T.nome", TipoEvento.class);
 		@SuppressWarnings("unchecked")
 		List<TipoEvento> list = query.getResultList();
-		tx.commit();
-		em.close();
+		entityTransaction.commit();
+		entityManager.close();
 		return list;
 	}
 
 	@Override
 	public TipoEvento getRegistro(TipoEvento tipoEvento) {
-		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction tx = em.getTransaction();
-		tx.begin();
-		return em.find(TipoEvento.class, tipoEvento.getId());
+		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
+		EntityTransaction entityTransaction = entityManager.getTransaction();
+		entityTransaction.begin();
+		return entityManager.find(TipoEvento.class, tipoEvento.getId());
 	}
 
 	@Override
 	public Collection<TipoEvento> pesquisarRegistro(TipoEvento tipoEvento) {
 		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction tx = entityManager.getTransaction();
-		tx.begin();
+		EntityTransaction entityTransaction = entityManager.getTransaction();
+		entityTransaction.begin();
 
 		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
 		CriteriaQuery<TipoEvento> criteriaQuery = criteriaBuilder.createQuery(TipoEvento.class);
@@ -101,18 +101,18 @@ final class TipoEventoImp implements TipoEventoDao {
 		criteriaQuery.select(rootTipoEvento).where(predicates.toArray(new Predicate[] {}));
 
 		List<TipoEvento> list = entityManager.createQuery(criteriaQuery).getResultList();
-		tx.commit();
+		entityTransaction.commit();
 		entityManager.close();
 		return list;
 	}
 
 	@Override
 	public void salvarRegistro(TipoEvento tipoEvento) {
-		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction tx = em.getTransaction();
-		tx.begin();
-		em.merge(tipoEvento);
-		tx.commit();
-		em.close();
+		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
+		EntityTransaction entityTransaction = entityManager.getTransaction();
+		entityTransaction.begin();
+		entityManager.merge(tipoEvento);
+		entityTransaction.commit();
+		entityManager.close();
 	}
 }

@@ -29,7 +29,10 @@ public class TesteARel {
 			for (TesteA testeA : testeAs) {
 				document.newPage();
 				document.add(new Paragraph("FUNCIONÁRIO: " + testeA.getFuncionario()));
-				document.add(new Paragraph("ADEQUADO: " + testeA.getAdequado()));
+				document.add(new Paragraph("ÁGUIA: " + testeA.getTotalOpcaoI() * 100 / 25.0 + " %"));
+				document.add(new Paragraph("GATO: " + testeA.getTotalOpcaoC() * 100 / 25.0 + " %"));
+				document.add(new Paragraph("TUBARÃO: " + testeA.getTotalOpcaoA() * 100 / 25.0 + " %"));
+				document.add(new Paragraph("LOBO: " + testeA.getTotalOpcaoO() * 100 / 25.0 + " %"));
 			}
 		} catch (DocumentException | FileNotFoundException e) {
 			System.err.println(e.getMessage());

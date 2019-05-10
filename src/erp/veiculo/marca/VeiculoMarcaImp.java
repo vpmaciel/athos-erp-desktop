@@ -19,8 +19,8 @@ final class VeiculoMarcaImp implements VeiculoMarcaDao {
 	@Override
 	public VeiculoMarca consultarRegistro(VeiculoMarca veiculoMarca) {
 		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction tx = entityManager.getTransaction();
-		tx.begin();
+		EntityTransaction entityTransaction = entityManager.getTransaction();
+		entityTransaction.begin();
 
 		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
 		CriteriaQuery<VeiculoMarca> criteriaQuery = criteriaBuilder.createQuery(VeiculoMarca.class);
@@ -47,47 +47,47 @@ final class VeiculoMarcaImp implements VeiculoMarcaDao {
 		criteriaQuery.select(rootVeiculoMarca).where(predicates.toArray(new Predicate[] {}));
 
 		List<VeiculoMarca> list = entityManager.createQuery(criteriaQuery).getResultList();
-		tx.commit();
+		entityTransaction.commit();
 		entityManager.close();
 		return list.size() > 0 ? list.get(0) : new VeiculoMarca();
 	}
 
 	@Override
 	public void deletarRegistro(VeiculoMarca veiculoMarca) {
-		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction tx = em.getTransaction();
-		tx.begin();
-		em.remove(em.find(VeiculoMarca.class, veiculoMarca.getId()));
-		tx.commit();
-		em.close();
+		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
+		EntityTransaction entityTransaction = entityManager.getTransaction();
+		entityTransaction.begin();
+		entityManager.remove(entityManager.find(VeiculoMarca.class, veiculoMarca.getId()));
+		entityTransaction.commit();
+		entityManager.close();
 	}
 
 	@Override
 	public Collection<VeiculoMarca> getRegistro() {
-		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction tx = em.getTransaction();
-		tx.begin();
-		Query query = em.createQuery("from erp.veiculo.marca.VeiculoMarca C order by C.marca");
+		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
+		EntityTransaction entityTransaction = entityManager.getTransaction();
+		entityTransaction.begin();
+		Query query = entityManager.createQuery("select T from VeiculoMarca T order by T.marca", VeiculoMarca.class);
 		@SuppressWarnings("unchecked")
 		List<VeiculoMarca> list = query.getResultList();
-		tx.commit();
-		em.close();
+		entityTransaction.commit();
+		entityManager.close();
 		return list;
 	}
 
 	@Override
 	public VeiculoMarca getRegistro(VeiculoMarca veiculoMarca) {
-		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction tx = em.getTransaction();
-		tx.begin();
-		return em.find(VeiculoMarca.class, veiculoMarca.getId());
+		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
+		EntityTransaction entityTransaction = entityManager.getTransaction();
+		entityTransaction.begin();
+		return entityManager.find(VeiculoMarca.class, veiculoMarca.getId());
 	}
 
 	@Override
 	public Collection<VeiculoMarca> pesquisarRegistro(VeiculoMarca veiculoMarca) {
 		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction tx = entityManager.getTransaction();
-		tx.begin();
+		EntityTransaction entityTransaction = entityManager.getTransaction();
+		entityTransaction.begin();
 
 		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
 		CriteriaQuery<VeiculoMarca> criteriaQuery = criteriaBuilder.createQuery(VeiculoMarca.class);
@@ -105,18 +105,18 @@ final class VeiculoMarcaImp implements VeiculoMarcaDao {
 		criteriaQuery.select(rootVeiculoMarca).where(predicates.toArray(new Predicate[] {}));
 
 		List<VeiculoMarca> list = entityManager.createQuery(criteriaQuery).getResultList();
-		tx.commit();
+		entityTransaction.commit();
 		entityManager.close();
 		return list;
 	}
 
 	@Override
 	public void salvarRegistro(VeiculoMarca veiculoMarca) {
-		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction tx = em.getTransaction();
-		tx.begin();
-		em.merge(veiculoMarca);
-		tx.commit();
-		em.close();
+		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
+		EntityTransaction entityTransaction = entityManager.getTransaction();
+		entityTransaction.begin();
+		entityManager.merge(veiculoMarca);
+		entityTransaction.commit();
+		entityManager.close();
 	}
 }

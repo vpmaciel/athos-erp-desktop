@@ -20,8 +20,8 @@ final class FornecedorImp implements FornecedorDao {
 	@Override
 	public Fornecedor consultarRegistro(Fornecedor fornecedor) {
 		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction tx = entityManager.getTransaction();
-		tx.begin();
+		EntityTransaction entityTransaction = entityManager.getTransaction();
+		entityTransaction.begin();
 
 		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
 		CriteriaQuery<Fornecedor> criteriaQuery = criteriaBuilder.createQuery(Fornecedor.class);
@@ -50,7 +50,7 @@ final class FornecedorImp implements FornecedorDao {
 		criteriaQuery.select(rootFornecedor).where(predicates.toArray(new Predicate[] {}));
 
 		List<Fornecedor> list = entityManager.createQuery(criteriaQuery).getResultList();
-		tx.commit();
+		entityTransaction.commit();
 		entityManager.close();
 
 		return list.size() > 0 ? list.get(0) : new Fornecedor();
@@ -58,40 +58,40 @@ final class FornecedorImp implements FornecedorDao {
 
 	@Override
 	public void deletarRegistro(Fornecedor fornecedor) {
-		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction tx = em.getTransaction();
-		tx.begin();
-		em.remove(em.find(Fornecedor.class, fornecedor.getId()));
-		tx.commit();
-		em.close();
+		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
+		EntityTransaction entityTransaction = entityManager.getTransaction();
+		entityTransaction.begin();
+		entityManager.remove(entityManager.find(Fornecedor.class, fornecedor.getId()));
+		entityTransaction.commit();
+		entityManager.close();
 	}
 
 	@Override
 	public Collection<Fornecedor> getRegistro() {
-		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction tx = em.getTransaction();
-		tx.begin();
-		Query query = em.createQuery("from erp.fornecedor.Fornecedor C order by C.nome");
+		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
+		EntityTransaction entityTransaction = entityManager.getTransaction();
+		entityTransaction.begin();
+		Query query = entityManager.createQuery("select T from Fornecedor T order by C.nomeFantasia", Fornecedor.class);
 		@SuppressWarnings("unchecked")
 		List<Fornecedor> list = query.getResultList();
-		tx.commit();
-		em.close();
+		entityTransaction.commit();
+		entityManager.close();
 		return list;
 	}
 
 	@Override
 	public Fornecedor getRegistro(Fornecedor fornecedor) {
-		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction tx = em.getTransaction();
-		tx.begin();
-		return em.find(Fornecedor.class, fornecedor.getId());
+		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
+		EntityTransaction entityTransaction = entityManager.getTransaction();
+		entityTransaction.begin();
+		return entityManager.find(Fornecedor.class, fornecedor.getId());
 	}
 
 	@Override
 	public Collection<Fornecedor> pesquisarRegistro(Fornecedor fornecedor) {
 		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction tx = entityManager.getTransaction();
-		tx.begin();
+		EntityTransaction entityTransaction = entityManager.getTransaction();
+		entityTransaction.begin();
 
 		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
 		CriteriaQuery<Fornecedor> criteriaQuery = criteriaBuilder.createQuery(Fornecedor.class);
@@ -195,18 +195,18 @@ final class FornecedorImp implements FornecedorDao {
 		criteriaQuery.select(rootFornecedor).where(predicates.toArray(new Predicate[] {}));
 
 		List<Fornecedor> list = entityManager.createQuery(criteriaQuery).getResultList();
-		tx.commit();
+		entityTransaction.commit();
 		entityManager.close();
 		return list;
 	}
 
 	@Override
 	public void salvarRegistro(Fornecedor fornecedor) {
-		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction tx = em.getTransaction();
-		tx.begin();
-		em.merge(fornecedor);
-		tx.commit();
-		em.close();
+		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
+		EntityTransaction entityTransaction = entityManager.getTransaction();
+		entityTransaction.begin();
+		entityManager.merge(fornecedor);
+		entityTransaction.commit();
+		entityManager.close();
 	}
 }

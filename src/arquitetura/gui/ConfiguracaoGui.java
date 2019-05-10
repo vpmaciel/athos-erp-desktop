@@ -198,8 +198,7 @@ public final class ConfiguracaoGui extends Container {
 		for (Component comp : this.todosComponentes) {
 			if (comp instanceof JComboBox<?>) {
 				JComboBox<?> comboBox = (JComboBox<?>) comp;
-				comboBox.setSelectedItem("");
-				comboBox.setSelectedItem(null);
+				comboBox.setSelectedIndex(0);
 				continue;
 			}
 			if (comp instanceof JTextField) {

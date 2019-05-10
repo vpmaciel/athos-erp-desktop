@@ -1,4 +1,4 @@
-package arquitetura.registro;
+package arquitetura.gui.registro;
 
 import java.awt.Dimension;
 
@@ -21,6 +21,7 @@ public class ToolBar {
 	JButton buttonRelatorio = new JButton(Imagem.getRelatorio());
 	JButton buttonSair = new JButton(Imagem.getSair());
 	JButton buttonSalvar = new JButton(Imagem.getSalva());
+	JButton buttonRegistros = new JButton(Imagem.getRegistros());
 	JToolBar toolBar = new JToolBar();
 
 	public ToolBar() {
@@ -47,6 +48,9 @@ public class ToolBar {
 		buttonPesquisa.setToolTipText("Pesquisar");
 		toolBar.add(buttonPesquisa);
 
+		buttonRegistros.setToolTipText("Registros");
+		toolBar.add(buttonRegistros);
+		
 		buttonImprime.setToolTipText("Imprimir");
 		toolBar.add(buttonImprime);
 

@@ -15,7 +15,7 @@ import arquitetura.gui.ConfiguracaoGui;
 import arquitetura.gui.EntradaMaiuscula;
 import arquitetura.gui.FocoEvento;
 import arquitetura.gui.Gui;
-import arquitetura.registro.ToolBar;
+import arquitetura.gui.registro.ToolBar;
 import arquitetura.util.SpringUtilities;
 import erp.funcionario.Funcionario;
 import erp.funcionario.FuncionarioComp;

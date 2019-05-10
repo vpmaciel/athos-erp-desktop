@@ -20,40 +20,40 @@ final class ExperienciaProfissionalImp implements ExperienciaProfissionalDao {
 
 	@Override
 	public void deletarRegistro(ExperienciaProfissional experienciaProfissional) {
-		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction tx = em.getTransaction();
-		tx.begin();
-		em.remove(em.find(ExperienciaProfissional.class, experienciaProfissional.getId()));
-		tx.commit();
-		em.close();
+		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
+		EntityTransaction entityTransaction = entityManager.getTransaction();
+		entityTransaction.begin();
+		entityManager.remove(entityManager.find(ExperienciaProfissional.class, experienciaProfissional.getId()));
+		entityTransaction.commit();
+		entityManager.close();
 	}
 
 	@Override
 	public Collection<ExperienciaProfissional> getRegistro() {
-		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction tx = em.getTransaction();
-		tx.begin();
-		Query query = em.createQuery("from erp.currriculo.experienciaProfissional.ExperienciaProfissional C");
+		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
+		EntityTransaction entityTransaction = entityManager.getTransaction();
+		entityTransaction.begin();
+		Query query = entityManager.createQuery("select T from ExperienciaProfissional T order by T.id", ExperienciaProfissional.class);
 		@SuppressWarnings("unchecked")
 		List<ExperienciaProfissional> list = query.getResultList();
-		tx.commit();
-		em.close();
+		entityTransaction.commit();
+		entityManager.close();
 		return list;
 	}
 
 	@Override
 	public ExperienciaProfissional getRegistro(ExperienciaProfissional experienciaProfissional) {
-		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction tx = em.getTransaction();
-		tx.begin();
-		return em.find(ExperienciaProfissional.class, experienciaProfissional.getId());
+		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
+		EntityTransaction entityTransaction = entityManager.getTransaction();
+		entityTransaction.begin();
+		return entityManager.find(ExperienciaProfissional.class, experienciaProfissional.getId());
 	}
 
 	@Override
 	public Collection<ExperienciaProfissional> pesquisarRegistro(ExperienciaProfissional experienciaProfissional) {
 		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction tx = entityManager.getTransaction();
-		tx.begin();
+		EntityTransaction entityTransaction = entityManager.getTransaction();
+		entityTransaction.begin();
 
 		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
 		CriteriaQuery<ExperienciaProfissional> criteriaQuery = criteriaBuilder.createQuery(ExperienciaProfissional.class);
@@ -86,18 +86,18 @@ final class ExperienciaProfissionalImp implements ExperienciaProfissionalDao {
 		criteriaQuery.select(rootCliente).where(predicates.toArray(new Predicate[] {}));
 
 		List<ExperienciaProfissional> list = entityManager.createQuery(criteriaQuery).getResultList();
-		tx.commit();
+		entityTransaction.commit();
 		entityManager.close();
 		return list;
 	}
 
 	@Override
 	public void salvarRegistro(ExperienciaProfissional experienciaProfissional) {
-		EntityManager em = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction tx = em.getTransaction();
-		tx.begin();
-		em.merge(experienciaProfissional);
-		tx.commit();
-		em.close();
+		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
+		EntityTransaction entityTransaction = entityManager.getTransaction();
+		entityTransaction.begin();
+		entityManager.merge(experienciaProfissional);
+		entityTransaction.commit();
+		entityManager.close();
 	}
 }
