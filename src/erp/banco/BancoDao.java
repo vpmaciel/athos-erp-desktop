@@ -3,9 +3,7 @@ package erp.banco;
 import java.util.Collection;
 
 interface BancoDao {
-
-	Banco consultarRegistro(Banco banco);
-
+	
 	void deletarRegistro(Banco banco);
 
 	Collection<Banco> getRegistro();

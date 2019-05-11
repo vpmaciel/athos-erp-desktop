@@ -194,7 +194,7 @@ final class FuncionarioCont {
 					Msg.avisoCampoObrigatorio("NOME");
 					return;
 				}
-
+				
 				Funcionario funcionarioPesquisa = new Funcionario();
 				funcionarioPesquisa.setCpf(getFuncionarioPc().getGuiCpf().getText());
 				Funcionario funcionarioPesquisaRetornado = FuncionarioFac.consultarRegistro(funcionarioPesquisa);
@@ -242,7 +242,7 @@ final class FuncionarioCont {
 						return;
 					}
 				}
-
+				
 				if (mensagem == JOptionPane.YES_OPTION) {
 					atualizarObjeto();
 					FuncionarioFac.salvarRegistro(funcionario);
@@ -252,6 +252,7 @@ final class FuncionarioCont {
 					Msg.sucessoSalvarRegistro();
 				}
 			} catch (Exception e) {
+				e.printStackTrace();
 				Msg.erroInserirRegistro();
 			}
 		}

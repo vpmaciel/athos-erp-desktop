@@ -25,6 +25,19 @@ public final class Msg {
 		JOptionPane.showMessageDialog(null, campo + " : " + valor + "\nJá está cadastrado em outro registro !",
 				"Informação", JOptionPane.INFORMATION_MESSAGE);
 	}
+	
+	public static final void avisoCampoDuplicado(String campo) {
+		JOptionPane.showMessageDialog(null, campo + " : " + "\nJá está cadastrado em outro registro !",
+				"Informação", JOptionPane.INFORMATION_MESSAGE);
+	}
+	
+	public static final void avisoCampoDuplicado() {
+		JOptionPane.showMessageDialog(null, "Já está cadastrado em outro registro !",
+				"Informação", JOptionPane.INFORMATION_MESSAGE);
+	}
+	
+	
+	
 
 	public static final void avisoCampoInvalido(Object campo) {
 		JOptionPane.showMessageDialog(null, campo.toString().toUpperCase() + " inválido !", "Informação",

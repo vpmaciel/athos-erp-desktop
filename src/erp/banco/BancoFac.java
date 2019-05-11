@@ -6,10 +6,6 @@ public final class BancoFac {
 
 	private static final BancoDao bancoDao = new BancoImp();
 
-	public static Banco consultarRegistro(Banco banco) {
-		return bancoDao.consultarRegistro(banco);
-	}
-
 	public static void deletarRegistro(Banco banco) {
 		bancoDao.deletarRegistro(banco);
 	}

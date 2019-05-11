@@ -44,11 +44,11 @@ public class TesteA implements Serializable {
 	}
 
 	public void setTotalOpcaoA() {
-		if(this.totalOpcaoA == null) {
-			this.totalOpcaoA = 1;	
-		}else {
+		if (this.totalOpcaoA == null) {
+			this.totalOpcaoA = 1;
+		} else {
 			this.totalOpcaoA++;
-		}	
+		}
 	}
 
 	public Integer getTotalOpcaoC() {
@@ -56,9 +56,9 @@ public class TesteA implements Serializable {
 	}
 
 	public void setTotalOpcaoC() {
-		if(this.totalOpcaoC == null) {
-			this.totalOpcaoC = 1;	
-		}else {
+		if (this.totalOpcaoC == null) {
+			this.totalOpcaoC = 1;
+		} else {
 			this.totalOpcaoC++;
 		}
 	}
@@ -68,9 +68,9 @@ public class TesteA implements Serializable {
 	}
 
 	public void setTotalOpcaoO() {
-		if(this.totalOpcaoO == null) {
-			this.totalOpcaoO = 1;	
-		}else {
+		if (this.totalOpcaoO == null) {
+			this.totalOpcaoO = 1;
+		} else {
 			this.totalOpcaoO++;
 		}
 	}
@@ -80,9 +80,9 @@ public class TesteA implements Serializable {
 	}
 
 	public void setTotalOpcaoI() {
-		if(this.totalOpcaoI == null) {
-			this.totalOpcaoI = 1;	
-		}else {
+		if (this.totalOpcaoI == null) {
+			this.totalOpcaoI = 1;
+		} else {
 			this.totalOpcaoI++;
 		}
 	}

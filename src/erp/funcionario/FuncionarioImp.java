@@ -60,10 +60,16 @@ final class FuncionarioImp implements FuncionarioDao {
 	public void deletarRegistro(Funcionario funcionario) {
 		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
 		EntityTransaction entityTransaction = entityManager.getTransaction();
-		entityTransaction.begin();
-		entityManager.remove(entityManager.find(Funcionario.class, funcionario.getId()));
-		entityTransaction.commit();
-		entityManager.close();
+		try {
+			entityTransaction.begin();
+			entityManager.remove(entityManager.find(Funcionario.class, funcionario.getId()));
+			entityTransaction.commit();	
+		}catch (Exception e) {
+			entityTransaction.rollback();
+			e.printStackTrace();
+		}finally {
+			entityManager.close();	
+		}
 	}
 
 	@Override
@@ -221,9 +227,15 @@ final class FuncionarioImp implements FuncionarioDao {
 	public void salvarRegistro(Funcionario funcionario) {
 		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
 		EntityTransaction entityTransaction = entityManager.getTransaction();
-		entityTransaction.begin();
-		entityManager.merge(funcionario);
-		entityTransaction.commit();
-		entityManager.close();
+		try {
+			entityTransaction.begin();
+			entityManager.merge(funcionario);
+			entityTransaction.commit();
+		} catch (Exception e) {
+			entityTransaction.rollback();
+			e.printStackTrace();
+		} finally {
+			entityManager.close();
+		}
 	}
 }

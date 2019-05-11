@@ -13,114 +13,132 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
 import arquitetura.JPA;
+import arquitetura.gui.Msg;
 
 final class BancoImp implements BancoDao {
-
-	@Override
-	public Banco consultarRegistro(Banco banco) {
-
-		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction entityTransaction = entityManager.getTransaction();
-		entityTransaction.begin();
-
-		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
-		CriteriaQuery<Banco> criteriaQuery = criteriaBuilder.createQuery(Banco.class);
-		Root<Banco> rootBanco = criteriaQuery.from(Banco.class);
-
-		List<Predicate> predicates = new ArrayList<Predicate>();
-
-		boolean naoTemCriterio = true;
-
-		if (banco.getNome() != null && banco.getNome().length() > 0) {
-			predicates.add(criteriaBuilder.equal(rootBanco.get("nome"), banco.getNome()));
-			naoTemCriterio = false;
-		}
-		if (banco.getCodigo() != null && banco.getCodigo().length() > 0) {
-			predicates.add(criteriaBuilder.equal(rootBanco.get("codigo"), banco.getCodigo()));
-			naoTemCriterio = false;
-		}
-
-		if (naoTemCriterio) {
-			return new Banco();
-		}
-
-		criteriaQuery.select(rootBanco).where(predicates.toArray(new Predicate[] {}));
-
-		List<Banco> list = entityManager.createQuery(criteriaQuery).getResultList();
-		entityTransaction.commit();
-		entityManager.close();
-		return list.size() > 0 ? list.get(0) : new Banco();
-	}
 
 	@Override
 	public void deletarRegistro(Banco banco) {
 		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
 		EntityTransaction entityTransaction = entityManager.getTransaction();
-		entityTransaction.begin();
-		entityManager.remove(entityManager.find(Banco.class, banco.getId()));
-		entityTransaction.commit();
-		entityManager.close();
+		try {
+			entityTransaction.begin();
+			entityManager.remove(entityManager.find(Banco.class, banco.getId()));
+			entityTransaction.commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+			entityTransaction.rollback();
+		} finally {
+			entityManager.close();
+		}
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public Collection<Banco> getRegistro() {
-		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction entityTransaction = entityManager.getTransaction();
-		entityTransaction.begin();
-		Query query = entityManager.createQuery("select T from Banco T order by T.nome", Banco.class);
-		@SuppressWarnings("unchecked")
-		List<Banco> list = query.getResultList();
-		entityTransaction.commit();
-		entityManager.close();
-		return list;
+		EntityManager entityManager = null;
+		EntityTransaction entityTransaction = null;
+		List<Banco> bancoList = null;
+
+		try {
+			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityTransaction = entityManager.getTransaction();
+			entityTransaction.begin();
+			Query query = entityManager.createQuery("select T from Banco T order by T.nome", Banco.class);
+			bancoList = query.getResultList();
+			entityTransaction.commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			entityManager.close();
+		}
+		return bancoList;
 	}
 
 	@Override
 	public Banco getRegistro(Banco banco) {
-		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction entityTransaction = entityManager.getTransaction();
-		entityTransaction.begin();
-		return entityManager.find(Banco.class, banco.getId());
+		EntityManager entityManager = null;
+		EntityTransaction entityTransaction = null;
+
+		try {
+			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityTransaction = entityManager.getTransaction();
+			entityTransaction.begin();
+			banco = entityManager.find(Banco.class, banco.getId());
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			entityManager.close();
+		}
+		return banco;
 	}
 
 	@Override
 	public Collection<Banco> pesquisarRegistro(Banco banco) {
 
-		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction entityTransaction = entityManager.getTransaction();
-		entityTransaction.begin();
+		EntityManager entityManager = null;
+		EntityTransaction entityTransaction = null;
+		List<Banco> bancoList = null;
 
-		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
-		CriteriaQuery<Banco> criteriaQuery = criteriaBuilder.createQuery(Banco.class);
-		Root<Banco> rootBanco = criteriaQuery.from(Banco.class);
+		try {
+			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityTransaction = entityManager.getTransaction();
+			entityTransaction.begin();
+			CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+			CriteriaQuery<Banco> criteriaQuery = criteriaBuilder.createQuery(Banco.class);
+			Root<Banco> rootBanco = criteriaQuery.from(Banco.class);
+			List<Predicate> predicateList = new ArrayList<Predicate>();
 
-		List<Predicate> predicates = new ArrayList<Predicate>();
+			if (banco.getId() != null) {
+				predicateList.add(criteriaBuilder.equal(rootBanco.get("id"), banco.getId()));
+			}
+			if (banco.getNome() != null && banco.getNome().length() > 0) {
+				predicateList.add(criteriaBuilder.like(rootBanco.get("nome"), "%" + banco.getNome() + "%"));
+			}
+			if (banco.getCodigo() != null && banco.getCodigo().length() > 0) {
+				predicateList.add(criteriaBuilder.like(rootBanco.get("codigo"), "%" + banco.getCodigo() + "%"));
+			}
 
-		if (banco.getId() != null) {
-			predicates.add(criteriaBuilder.equal(rootBanco.get("id"), banco.getId()));
+			criteriaQuery.select(rootBanco).where(predicateList.toArray(new Predicate[] {}));
+			bancoList = entityManager.createQuery(criteriaQuery).getResultList();
+			entityTransaction.commit();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			entityManager.close();
 		}
-		if (banco.getNome() != null && banco.getNome().length() > 0) {
-			predicates.add(criteriaBuilder.like(rootBanco.get("nome"), "%" + banco.getNome() + "%"));
-		}
-		if (banco.getCodigo() != null && banco.getCodigo().length() > 0) {
-			predicates.add(criteriaBuilder.like(rootBanco.get("codigo"), "%" + banco.getCodigo() + "%"));
-		}
 
-		criteriaQuery.select(rootBanco).where(predicates.toArray(new Predicate[] {}));
-
-		List<Banco> list = entityManager.createQuery(criteriaQuery).getResultList();
-		entityTransaction.commit();
-		entityManager.close();
-		return list;
+		return bancoList;
 	}
 
 	@Override
 	public void salvarRegistro(Banco banco) {
+
 		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
 		EntityTransaction entityTransaction = entityManager.getTransaction();
-		entityTransaction.begin();
-		entityManager.merge(banco);
-		entityTransaction.commit();
-		entityManager.close();
+		try {
+			entityTransaction.begin();
+			entityManager.merge(banco);
+			entityTransaction.commit();
+		} catch (Exception e) {
+			Throwable throwable = e.getCause().getCause();
+			String mensagem = throwable.toString();
+			if (mensagem.contains("ConstraintViolationException")) {
+				if (mensagem.contains("INDEX_NOME")) {
+					Msg.avisoCampoDuplicado("NOME");
+				} else if (mensagem.contains("INDEX_CODIGO")) {
+					Msg.avisoCampoDuplicado("CÓDIGO");
+				} else {
+					Msg.avisoCampoDuplicado();
+				}
+			}
+			e.printStackTrace();
+			entityTransaction.rollback();
+			throw e;
+		} finally {
+			entityManager.close();
+		}
 	}
 }

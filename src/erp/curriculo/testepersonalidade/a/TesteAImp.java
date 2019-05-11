@@ -83,7 +83,6 @@ final class TesteAImp implements TesteADao {
 		List<TesteA> list = entityManager.createQuery(criteriaQuery).getResultList();
 		entityTransaction.commit();
 		entityManager.close();
-		System.out.println(list.size());
 		return list;
 	}
 

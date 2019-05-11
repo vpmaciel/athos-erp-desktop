@@ -9,6 +9,7 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
+import arquitetura.AOP;
 import arquitetura.gui.Msg;
 import erp.main.MainCont;
 import erp.main.MainFc;
@@ -177,53 +178,6 @@ final class BancoCont {
 					return;
 				}
 
-				Banco bancoPesquisa = new Banco();
-				bancoPesquisa.setNome(getBancoPc().getGuiNome().getText());
-				Banco bancoPesquisaRetornado = BancoFac.consultarRegistro(bancoPesquisa);
-
-				if (banco.getId() == null && bancoPesquisa.getNome() != null
-						&& bancoPesquisaRetornado.getNome() != null) {
-					if (bancoPesquisa.getNome().equals(bancoPesquisaRetornado.getNome())) {
-						Msg.avisoCampoDuplicado("NOME", bancoPesquisa.getNome());
-						getBancoPc().getGuiNome().requestFocus();
-						return;
-					}
-				}
-
-				if (banco.getId() != null && bancoPesquisa.getNome() != null
-						&& bancoPesquisaRetornado.getNome() != null) {
-					if (!banco.getNome().equals(bancoPesquisa.getNome())) {
-						if (bancoPesquisa.getNome().equals(bancoPesquisaRetornado.getNome())) {
-							Msg.avisoCampoDuplicado("NOME", bancoPesquisa.getNome());
-							getBancoPc().getGuiNome().requestFocus();
-						}
-						return;
-					}
-				}
-
-				bancoPesquisa = new Banco();
-				bancoPesquisa.setCodigo(getBancoPc().getGuiCodigo().getText());
-				bancoPesquisaRetornado = BancoFac.consultarRegistro(bancoPesquisa);
-
-				if (banco.getId() == null && bancoPesquisa.getCodigo() != null
-						&& bancoPesquisaRetornado.getCodigo() != null) {
-					if (bancoPesquisa.getCodigo().equals(bancoPesquisaRetornado.getCodigo())) {
-						Msg.avisoCampoDuplicado("CÓDIGO", bancoPesquisa.getCodigo());
-						getBancoPc().getGuiCodigo().requestFocus();
-						return;
-					}
-				}
-
-				if (banco.getId() != null && bancoPesquisa.getCodigo() != null
-						&& bancoPesquisaRetornado.getCodigo() != null) {
-					if (!banco.getCodigo().equals(bancoPesquisa.getCodigo())) {
-						if (bancoPesquisa.getCodigo().equals(bancoPesquisaRetornado.getCodigo())) {
-							Msg.avisoCampoDuplicado("CÓDIGO", bancoPesquisa.getCodigo());
-							getBancoPc().getGuiCodigo().requestFocus();
-						}
-						return;
-					}
-				}
 				if (mensagem == JOptionPane.YES_OPTION) {
 					atualizarObjeto();
 					BancoFac.salvarBanco(banco);
@@ -234,7 +188,6 @@ final class BancoCont {
 				}
 			} catch (Exception e) {
 				Msg.erroInserirRegistro();
-				Msg.avisoCampoDuplicado("NOME", getBancoPc().getGuiNome().getText());
 			}
 		}
 	}
@@ -256,6 +209,7 @@ final class BancoCont {
 	public void atualizarObjeto() {
 		banco.setCodigo(getBancoPc().getGuiCodigo().getText());
 		banco.setNome(getBancoPc().getGuiNome().getText());
+		banco.setUsuarioOperacao(AOP.getUsuario());
 	}
 
 	public Banco getBanco() {
