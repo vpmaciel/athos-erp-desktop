@@ -8,10 +8,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Index;
 import javax.persistence.ManyToOne;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
 
 import erp.banco.Banco;
 import erp.empresa.Empresa;
@@ -19,7 +19,9 @@ import erp.empresa.Empresa;
 @SuppressWarnings("serial")
 @PersistenceContext(unitName = "erp")
 @Entity
-@Table(uniqueConstraints = { @UniqueConstraint(columnNames = { "cpf", "cnpj" }) })
+@Table(indexes = { @Index(name = "INDEX_CLIENTE_CPF", columnList = "cpf", unique = true),
+		@Index(name = "INDEX_CLIENTE_CNPJ", columnList = "cnpj", unique = true)})
+
 public class Cliente implements Serializable {
 
 	@Column(length = 4)

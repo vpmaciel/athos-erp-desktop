@@ -17,135 +17,161 @@ import arquitetura.JPA;
 final class UsuarioImp implements UsuarioDao {
 
 	@Override
-	public Usuario consultarRegistro(Usuario usuario) {
-		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction entityTransaction = entityManager.getTransaction();
-		entityTransaction.begin();
-
-		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
-		CriteriaQuery<Usuario> criteriaQuery = criteriaBuilder.createQuery(Usuario.class);
-		Root<Usuario> rootUsuario = criteriaQuery.from(Usuario.class);
-
-		List<Predicate> predicates = new ArrayList<Predicate>();
-
-		boolean naoTemCriterio = true;
-
-		if (usuario.getNome() != null && usuario.getNome().length() > 0) {
-			predicates.add(criteriaBuilder.equal(rootUsuario.get("nome"), usuario.getNome()));
-			naoTemCriterio = false;
-		}
-
-		if (naoTemCriterio) {
-			return new Usuario();
-		}
-
-		criteriaQuery.select(rootUsuario).where(predicates.toArray(new Predicate[] {}));
-
-		List<Usuario> list = entityManager.createQuery(criteriaQuery).getResultList();
-		entityTransaction.commit();
-		entityManager.close();
-
-		return list.size() > 0 ? list.get(0) : new Usuario();
-	}
-
-	@Override
 	public void deletarRegistro(Usuario usuario) {
-		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction entityTransaction = entityManager.getTransaction();
-		entityTransaction.begin();
-		entityManager.remove(entityManager.find(Usuario.class, usuario.getId()));
-		entityTransaction.commit();
-		entityManager.close();
+		EntityManager entityManager = null;
+		EntityTransaction entityTransaction = null;
+		try {
+			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityTransaction = entityManager.getTransaction();
+			entityTransaction.begin();
+			entityManager.remove(entityManager.find(Usuario.class, usuario.getId()));
+			entityTransaction.commit();
+		} catch (Exception exception) {
+			exception.printStackTrace();
+			entityTransaction.rollback();
+			throw exception;
+		} finally {
+			if (entityManager.isOpen()) {
+				entityManager.close();
+			}
+		}
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public Collection<Usuario> getRegistro() {
-		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction entityTransaction = entityManager.getTransaction();
-		entityTransaction.begin();
-		Query query = entityManager.createQuery("select T from Usuario T order by T.nome", Usuario.class);
-		@SuppressWarnings("unchecked")
-		List<Usuario> list = query.getResultList();
-		entityTransaction.commit();
-		entityManager.close();
-		return list;
+		EntityManager entityManager = null;
+		EntityTransaction entityTransaction = null;
+		List<Usuario> usuarioList = null;
+
+		try {
+			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityTransaction = entityManager.getTransaction();
+			entityTransaction.begin();
+			Query query = entityManager.createQuery("select T from Usuario T order by T.nome", Usuario.class);
+			usuarioList = query.getResultList();
+		} catch (Exception exception) {
+			exception.printStackTrace();
+			throw exception;
+		} finally {
+			if (entityManager.isOpen()) {
+				entityManager.close();
+			}
+		}
+		return usuarioList;
 	}
 
 	@Override
 	public Usuario getRegistro(Usuario usuario) {
-		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction entityTransaction = entityManager.getTransaction();
-		entityTransaction.begin();
-		return entityManager.find(Usuario.class, usuario.getId());
-	}
-
-	@Override
-	public boolean isRegistroValido(Usuario usuario) {
-		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction entityTransaction = entityManager.getTransaction();
-		entityTransaction.begin();
-
-		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
-		CriteriaQuery<Usuario> criteriaQuery = criteriaBuilder.createQuery(Usuario.class);
-		Root<Usuario> rootUsuario = criteriaQuery.from(Usuario.class);
-
-		List<Predicate> predicates = new ArrayList<Predicate>();
-
-		if (usuario.getId() != null) {
-			predicates.add(criteriaBuilder.equal(rootUsuario.get("id"), usuario.getId()));
+		EntityManager entityManager = null;
+		EntityTransaction entityTransaction = null;
+		try {
+			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityTransaction = entityManager.getTransaction();
+			entityTransaction.begin();
+			usuario = entityManager.find(Usuario.class, usuario.getId());
+		} catch (Exception exception) {
+			exception.printStackTrace();
+			throw exception;
+		} finally {
+			if (entityManager.isOpen()) {
+				entityManager.close();
+			}
 		}
-		if (usuario.getNome() != null && !usuario.getNome().equals("")) {
-			predicates.add(criteriaBuilder.equal(rootUsuario.get("nome"), usuario.getNome()));
-		}
-		if (usuario.getSenha() != null && !usuario.getSenha().equals("")) {
-			predicates.add(criteriaBuilder.equal(rootUsuario.get("senha"), usuario.getSenha()));
-		}
-		criteriaQuery.select(rootUsuario).where(predicates.toArray(new Predicate[] {}));
-
-		List<Usuario> list = entityManager.createQuery(criteriaQuery).getResultList();
-		entityTransaction.commit();
-		entityManager.close();
-
-		return list.size() > 0;
+		return usuario;
 	}
 
 	@Override
 	public Collection<Usuario> pesquisarRegistro(Usuario usuario) {
-		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction entityTransaction = entityManager.getTransaction();
-		entityTransaction.begin();
-
-		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
-		CriteriaQuery<Usuario> criteriaQuery = criteriaBuilder.createQuery(Usuario.class);
-		Root<Usuario> rootUsuario = criteriaQuery.from(Usuario.class);
-
-		List<Predicate> predicates = new ArrayList<Predicate>();
-
-		if (usuario.getId() != null) {
-			predicates.add(criteriaBuilder.equal(rootUsuario.get("id"), usuario.getId()));
+		EntityManager entityManager = null;
+		EntityTransaction entityTransaction = null;
+		List<Usuario> usuarioList = null;
+		try {
+			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityTransaction = entityManager.getTransaction();
+			entityTransaction.begin();
+			CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+			CriteriaQuery<Usuario> criteriaQuery = criteriaBuilder.createQuery(Usuario.class);
+			Root<Usuario> rootUsuario = criteriaQuery.from(Usuario.class);
+			List<Predicate> predicateList = new ArrayList<Predicate>();
+			if (usuario.getId() != null) {
+				predicateList.add(criteriaBuilder.equal(rootUsuario.get("id"), usuario.getId()));
+			}
+			if (usuario.getNome() != null && usuario.getNome().length() > 0) {
+				predicateList.add(criteriaBuilder.equal(rootUsuario.get("nome"), usuario.getNome()));
+			}
+			if (usuario.getSenha() != null && usuario.getSenha().length() > 0) {
+				predicateList.add(criteriaBuilder.equal(rootUsuario.get("senha"), usuario.getSenha()));
+			}
+			criteriaQuery.select(rootUsuario).where(predicateList.toArray(new Predicate[] {}));
+			usuarioList = entityManager.createQuery(criteriaQuery).getResultList();
+		} catch (Exception exception) {
+			exception.printStackTrace();
+			throw exception;
+		} finally {
+			if (entityManager.isOpen()) {
+				entityManager.close();
+			}
 		}
-		if (usuario.getNome() != null && usuario.getNome().length() > 0) {
-			predicates.add(criteriaBuilder.equal(rootUsuario.get("nome"), usuario.getNome()));
-		}
-		if (usuario.getSenha() != null && usuario.getSenha().length() > 0) {
-			predicates.add(criteriaBuilder.equal(rootUsuario.get("senha"), usuario.getSenha()));
-		}
-		criteriaQuery.select(rootUsuario).where(predicates.toArray(new Predicate[] {}));
+		return usuarioList;
+	}
 
-		List<Usuario> list = entityManager.createQuery(criteriaQuery).getResultList();
-		entityTransaction.commit();
-		entityManager.close();
+	@Override
+	public boolean isRegistroValido(Usuario usuario) {
+		EntityManager entityManager = null;
+		EntityTransaction entityTransaction = null;
+		List<Usuario> usuarioList = null;
+		try {
+			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityTransaction = entityManager.getTransaction();
+			entityTransaction.begin();
 
-		return list;
+			CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+			CriteriaQuery<Usuario> criteriaQuery = criteriaBuilder.createQuery(Usuario.class);
+			Root<Usuario> rootUsuario = criteriaQuery.from(Usuario.class);
+
+			List<Predicate> predicateList = new ArrayList<Predicate>();
+			
+			if (usuario.getNome() != null && !usuario.getNome().equals("")) {
+				predicateList.add(criteriaBuilder.equal(rootUsuario.get("nome"), usuario.getNome()));
+			}
+			if (usuario.getSenha() != null && !usuario.getSenha().equals("")) {
+				predicateList.add(criteriaBuilder.equal(rootUsuario.get("senha"), usuario.getSenha()));
+			}
+			criteriaQuery.select(rootUsuario).where(predicateList.toArray(new Predicate[] {}));
+
+			usuarioList = entityManager.createQuery(criteriaQuery).getResultList();
+
+		} catch (Exception exception) {
+			exception.printStackTrace();
+			throw exception;
+		} finally {
+			if (entityManager.isOpen()) {
+				entityManager.close();
+			}
+		}
+
+		return usuarioList.size() == 1;
 	}
 
 	@Override
 	public void salvarRegistro(Usuario usuario) {
-		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction entityTransaction = entityManager.getTransaction();
-		entityTransaction.begin();
-		entityManager.merge(usuario);
-		entityTransaction.commit();
-		entityManager.close();
+		EntityManager entityManager = null;
+		EntityTransaction entityTransaction = null;
+		try {
+			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityTransaction = entityManager.getTransaction();
+			entityTransaction.begin();
+			entityManager.merge(usuario);
+			entityTransaction.commit();
+		} catch (Exception exception) {
+			entityTransaction.rollback();
+			exception.printStackTrace();
+			throw exception;
+		} finally {
+			if (entityManager.isOpen()) {
+				entityManager.close();
+			}
+		}
 	}
 }

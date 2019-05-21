@@ -17,102 +17,127 @@ import arquitetura.JPA;
 final class TipoEventoImp implements TipoEventoDao {
 
 	@Override
-	public TipoEvento consultarRegistro(TipoEvento tipoEvento) {
-		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction entityTransaction = entityManager.getTransaction();
-		entityTransaction.begin();
-
-		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
-		CriteriaQuery<TipoEvento> criteriaQuery = criteriaBuilder.createQuery(TipoEvento.class);
-		Root<TipoEvento> rootTipoEvento = criteriaQuery.from(TipoEvento.class);
-
-		List<Predicate> predicates = new ArrayList<Predicate>();
-
-		boolean naoTemCriterio = true;
-
-		if (tipoEvento.getNome() != null && tipoEvento.getNome().length() > 0) {
-			predicates.add(criteriaBuilder.equal(rootTipoEvento.get("nome"), tipoEvento.getNome()));
-			naoTemCriterio = false;
-		}
-
-		if (naoTemCriterio) {
-			return new TipoEvento();
-		}
-
-		criteriaQuery.select(rootTipoEvento).where(predicates.toArray(new Predicate[] {}));
-
-		List<TipoEvento> list = entityManager.createQuery(criteriaQuery).getResultList();
-		entityTransaction.commit();
-		entityManager.close();
-		return list.size() > 0 ? list.get(0) : new TipoEvento();
-	}
-
-	@Override
 	public void deletarRegistro(TipoEvento tipoEvento) {
-		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction entityTransaction = entityManager.getTransaction();
-		entityTransaction.begin();
-		entityManager.remove(entityManager.find(TipoEvento.class, tipoEvento.getId()));
-		entityTransaction.commit();
-		entityManager.close();
+		EntityManager entityManager = null;
+		EntityTransaction entityTransaction = null;
+
+		try {
+			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityTransaction = entityManager.getTransaction();
+
+			entityTransaction.begin();
+			entityManager.remove(entityManager.find(TipoEvento.class, tipoEvento.getId()));
+			entityTransaction.commit();
+		} catch (Exception exception) {
+			exception.printStackTrace();
+			entityTransaction.rollback();
+			throw exception;
+		} finally {
+			if (entityManager.isOpen()) {
+				entityManager.close();
+			}
+		}
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public Collection<TipoEvento> getRegistro() {
-		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction entityTransaction = entityManager.getTransaction();
-		entityTransaction.begin();
-		Query query = entityManager.createQuery("select T from TipoEvento T order by T.nome", TipoEvento.class);
-		@SuppressWarnings("unchecked")
-		List<TipoEvento> list = query.getResultList();
-		entityTransaction.commit();
-		entityManager.close();
-		return list;
+		EntityManager entityManager = null;
+		EntityTransaction entityTransaction = null;
+		List<TipoEvento> tipoEventoList = null;
+		try {
+			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityTransaction = entityManager.getTransaction();
+			entityTransaction.begin();
+			Query query = entityManager.createQuery("select T from TipoEvento T order by T.nome", TipoEvento.class);
+			tipoEventoList = query.getResultList();
+		} catch (Exception exception) {
+			exception.printStackTrace();
+			throw exception;
+		} finally {
+			if (entityManager.isOpen()) {
+				entityManager.close();
+			}
+		}
+
+		return tipoEventoList;
 	}
 
 	@Override
 	public TipoEvento getRegistro(TipoEvento tipoEvento) {
-		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction entityTransaction = entityManager.getTransaction();
-		entityTransaction.begin();
-		return entityManager.find(TipoEvento.class, tipoEvento.getId());
+		EntityManager entityManager = null;
+		EntityTransaction entityTransaction = null;
+		try {
+			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityTransaction = entityManager.getTransaction();
+			entityTransaction.begin();
+			tipoEvento = entityManager.find(TipoEvento.class, tipoEvento.getId());
+		} catch (Exception exception) {
+			exception.printStackTrace();
+			throw exception;
+		} finally {
+			if (entityManager.isOpen()) {
+				entityManager.close();
+			}
+		}
+		return tipoEvento;
 	}
 
 	@Override
 	public Collection<TipoEvento> pesquisarRegistro(TipoEvento tipoEvento) {
-		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction entityTransaction = entityManager.getTransaction();
-		entityTransaction.begin();
+		EntityManager entityManager = null;
+		EntityTransaction entityTransaction = null;
+		List<TipoEvento> tipoEventoList = null;
+		try {
+			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityTransaction = entityManager.getTransaction();
+			entityTransaction.begin();
+			CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+			CriteriaQuery<TipoEvento> criteriaQuery = criteriaBuilder.createQuery(TipoEvento.class);
+			Root<TipoEvento> rootTipoEvento = criteriaQuery.from(TipoEvento.class);
+			List<Predicate> predicateList = new ArrayList<Predicate>();
 
-		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
-		CriteriaQuery<TipoEvento> criteriaQuery = criteriaBuilder.createQuery(TipoEvento.class);
-		Root<TipoEvento> rootTipoEvento = criteriaQuery.from(TipoEvento.class);
+			if (tipoEvento.getId() != null) {
+				predicateList.add(criteriaBuilder.equal(rootTipoEvento.get("id"), tipoEvento.getId()));
+			}
 
-		List<Predicate> predicates = new ArrayList<Predicate>();
+			if (tipoEvento.getNome() != null && tipoEvento.getNome().length() > 0) {
+				predicateList.add(criteriaBuilder.like(rootTipoEvento.get("nome"), "%" + tipoEvento.getNome() + "%"));
+			}
 
-		if (tipoEvento.getId() != null) {
-			predicates.add(criteriaBuilder.equal(rootTipoEvento.get("id"), tipoEvento.getId()));
+			criteriaQuery.select(rootTipoEvento).where(predicateList.toArray(new Predicate[] {}));
+
+			tipoEventoList = entityManager.createQuery(criteriaQuery).getResultList();
+
+		} catch (Exception exception) {
+			exception.printStackTrace();
+			throw exception;
+		} finally {
+			if (entityManager.isOpen()) {
+				entityManager.close();
+			}
 		}
-
-		if (tipoEvento.getNome() != null && tipoEvento.getNome().length() > 0) {
-			predicates.add(criteriaBuilder.like(rootTipoEvento.get("nome"), "%" + tipoEvento.getNome() + "%"));
-		}
-
-		criteriaQuery.select(rootTipoEvento).where(predicates.toArray(new Predicate[] {}));
-
-		List<TipoEvento> list = entityManager.createQuery(criteriaQuery).getResultList();
-		entityTransaction.commit();
-		entityManager.close();
-		return list;
+		return tipoEventoList;
 	}
 
 	@Override
 	public void salvarRegistro(TipoEvento tipoEvento) {
-		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction entityTransaction = entityManager.getTransaction();
-		entityTransaction.begin();
-		entityManager.merge(tipoEvento);
-		entityTransaction.commit();
-		entityManager.close();
+		EntityManager entityManager = null;
+		EntityTransaction entityTransaction = null;
+		try {
+			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityTransaction = entityManager.getTransaction();
+			entityTransaction.begin();
+			entityManager.merge(tipoEvento);
+			entityTransaction.commit();
+		} catch (Exception exception) {
+			entityTransaction.rollback();
+			exception.printStackTrace();
+			throw exception;
+		} finally {
+			if (entityManager.isOpen()) {
+				entityManager.close();
+			}
+		}
 	}
 }

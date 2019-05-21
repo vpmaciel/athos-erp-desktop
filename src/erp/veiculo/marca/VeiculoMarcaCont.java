@@ -175,33 +175,9 @@ final class VeiculoMarcaCont {
 				String placa = getVeiculoMarcaPc().getGuiMarca().getText();
 				if (placa == null || placa.length() == 0) {
 					getVeiculoMarcaPc().getGuiMarca().requestFocus();
-					Msg.avisoCampoObrigatorio("Data");
+					Msg.avisoCampoObrigatorio("MARCA");
 					return;
 				}
-				VeiculoMarca veiculoMarcaPesquisa = new VeiculoMarca();
-				veiculoMarcaPesquisa.setMarca(getVeiculoMarcaPc().getGuiMarca().getText());
-				VeiculoMarca veiculoMarcaPesquisaRetornado = VeiculoMarcaFac.consultarRegistro(veiculoMarcaPesquisa);
-
-				if (veiculoMarca.getId() == null && veiculoMarcaPesquisa.getMarca() != null
-						&& veiculoMarcaPesquisaRetornado.getMarca() != null) {
-					if (veiculoMarcaPesquisa.getMarca().equals(veiculoMarcaPesquisaRetornado.getMarca())) {
-						Msg.avisoCampoDuplicado("NOME", veiculoMarcaPesquisa.getMarca());
-						getVeiculoMarcaPc().getGuiMarca().requestFocus();
-						return;
-					}
-				}
-
-				if (veiculoMarca.getId() != null && veiculoMarcaPesquisa.getMarca() != null
-						&& veiculoMarcaPesquisaRetornado.getMarca() != null) {
-					if (!veiculoMarca.getMarca().equals(veiculoMarcaPesquisa.getMarca())) {
-						if (veiculoMarcaPesquisa.getMarca().equals(veiculoMarcaPesquisaRetornado.getMarca())) {
-							Msg.avisoCampoDuplicado("NOME", veiculoMarcaPesquisa.getMarca());
-							getVeiculoMarcaPc().getGuiMarca().requestFocus();
-						}
-						return;
-					}
-				}
-
 				if (mensagem == JOptionPane.YES_OPTION) {
 					atualizarObjeto();
 					VeiculoMarcaFac.salvarRegistro(veiculoMarca);
@@ -211,7 +187,18 @@ final class VeiculoMarcaCont {
 					Msg.sucessoSalvarRegistro();
 				}
 			} catch (Exception e) {
-				Msg.erroInserirRegistro();
+				Throwable throwable = e.getCause().getCause();
+				String mensagem = throwable.toString();
+				if (mensagem.contains("ConstraintViolationException")) {
+					if (mensagem.contains("INDEX_VEICULO_MARCA_MARCA")) {
+						Msg.avisoCampoDuplicado("MARCA");
+						getVeiculoMarcaPc().getGuiMarca().requestFocus();
+					} else {
+						Msg.avisoCampoDuplicado();
+					}
+				}
+				e.printStackTrace();
+				Msg.erroSalvarRegistro();
 			}
 		}
 	}

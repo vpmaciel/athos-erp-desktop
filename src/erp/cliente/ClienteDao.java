@@ -4,8 +4,6 @@ import java.util.Collection;
 
 interface ClienteDao {
 
-	Cliente consultarRegistro(Cliente cliente);
-
 	void deletarRegistro(Cliente cliente);
 
 	Collection<Cliente> getRegistro();

@@ -190,7 +190,7 @@ final class TesteBCont {
 					Msg.sucessoSalvarRegistro();
 				}
 			} catch (Exception e) {
-				Msg.erroInserirRegistro();
+				Msg.erroSalvarRegistro();
 			}
 		}
 	}

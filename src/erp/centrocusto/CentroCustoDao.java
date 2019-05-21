@@ -4,8 +4,6 @@ import java.util.Collection;
 
 interface CentroCustoDao {
 
-	CentroCusto consultarRegistro(CentroCusto centroCusto);
-
 	void deletarRegistro(CentroCusto centroCusto);
 
 	Collection<CentroCusto> getRegistro();

@@ -181,79 +181,6 @@ final class VeiculoCont {
 					Msg.avisoCampoObrigatorio("PLACA");
 					return;
 				}
-
-				Veiculo veiculoPesquisa = new Veiculo();
-				veiculoPesquisa.setPlaca(getVeiculoPc().getGuiPlaca().getText());
-				Veiculo veiculoPesquisaRetornado = VeiculoFac.consultarRegistro(veiculoPesquisa);
-
-				if (veiculo.getId() == null && veiculoPesquisa.getPlaca() != null
-						&& veiculoPesquisaRetornado.getPlaca() != null) {
-					if (veiculoPesquisa.getPlaca().equals(veiculoPesquisaRetornado.getPlaca())) {
-						Msg.avisoCampoDuplicado("PLACA", veiculoPesquisa.getPlaca());
-						getVeiculoPc().getGuiPlaca().requestFocus();
-						return;
-					}
-				}
-
-				if (veiculo.getId() != null && veiculoPesquisa.getPlaca() != null
-						&& veiculoPesquisaRetornado.getPlaca() != null) {
-					if (!veiculo.getPlaca().equals(veiculoPesquisa.getPlaca())) {
-						if (veiculoPesquisa.getPlaca().equals(veiculoPesquisaRetornado.getPlaca())) {
-							Msg.avisoCampoDuplicado("PLACA", veiculoPesquisa.getPlaca());
-							getVeiculoPc().getGuiPlaca().requestFocus();
-						}
-						return;
-					}
-				}
-
-				veiculoPesquisa = new Veiculo();
-				veiculoPesquisa.setChassi(getVeiculoPc().getGuiChassi().getText());
-				veiculoPesquisaRetornado = VeiculoFac.consultarRegistro(veiculoPesquisa);
-
-				if (veiculo.getId() == null && veiculoPesquisa.getChassi() != null
-						&& veiculoPesquisaRetornado.getChassi() != null) {
-					if (veiculoPesquisa.getChassi().equals(veiculoPesquisaRetornado.getChassi())) {
-						Msg.avisoCampoDuplicado("CHASSI", veiculoPesquisa.getChassi());
-						getVeiculoPc().getGuiChassi().requestFocus();
-						return;
-					}
-				}
-
-				if (veiculo.getId() != null && veiculoPesquisa.getChassi() != null
-						&& veiculoPesquisaRetornado.getChassi() != null) {
-					if (!veiculo.getChassi().equals(veiculoPesquisa.getChassi())) {
-						if (veiculoPesquisa.getChassi().equals(veiculoPesquisaRetornado.getChassi())) {
-							Msg.avisoCampoDuplicado("CHASSI", veiculoPesquisa.getChassi());
-							getVeiculoPc().getGuiChassi().requestFocus();
-						}
-						return;
-					}
-				}
-
-				veiculoPesquisa = new Veiculo();
-				veiculoPesquisa.setRenavam(getVeiculoPc().getGuiRenavam().getText());
-				veiculoPesquisaRetornado = VeiculoFac.consultarRegistro(veiculoPesquisa);
-
-				if (veiculo.getId() == null && veiculoPesquisa.getRenavam() != null
-						&& veiculoPesquisaRetornado.getRenavam() != null) {
-					if (veiculoPesquisa.getRenavam().equals(veiculoPesquisaRetornado.getRenavam())) {
-						Msg.avisoCampoDuplicado("RENAVAM", veiculoPesquisa.getRenavam());
-						getVeiculoPc().getGuiRenavam().requestFocus();
-						return;
-					}
-				}
-
-				if (veiculo.getId() != null && veiculoPesquisa.getChassi() != null
-						&& veiculoPesquisaRetornado.getChassi() != null) {
-					if (!veiculo.getChassi().equals(veiculoPesquisa.getChassi())) {
-						if (veiculoPesquisa.getChassi().equals(veiculoPesquisaRetornado.getChassi())) {
-							Msg.avisoCampoDuplicado("RENAVAM", veiculoPesquisa.getChassi());
-							getVeiculoPc().getGuiChassi().requestFocus();
-						}
-						return;
-					}
-				}
-
 				if (mensagem == JOptionPane.YES_OPTION) {
 					atualizarObjeto();
 					VeiculoFac.salvarRegistro(veiculo);
@@ -263,7 +190,24 @@ final class VeiculoCont {
 					Msg.sucessoSalvarRegistro();
 				}
 			} catch (Exception e) {
-				Msg.erroInserirRegistro();
+				Throwable throwable = e.getCause().getCause();
+				String mensagem = throwable.toString();
+				if (mensagem.contains("ConstraintViolationException")) {
+					if (mensagem.contains("INDEX_VEICULO_PLACA")) {
+						Msg.avisoCampoDuplicado("PLACA");
+						getVeiculoPc().getGuiPlaca().requestFocus();
+					} else if (mensagem.contains("INDEX_VEICULO_RENAVAM")) {
+						Msg.avisoCampoDuplicado("RENAVAM");
+						getVeiculoPc().getGuiRenavam().requestFocus();
+					} else if (mensagem.contains("INDEX_VEICULO_CHASSI")) {
+						Msg.avisoCampoDuplicado("CHASSI");
+						getVeiculoPc().getGuiChassi().requestFocus();
+					} else {
+						Msg.avisoCampoDuplicado();
+					}
+				}
+				e.printStackTrace();
+				Msg.erroSalvarRegistro();
 			}
 		}
 	}

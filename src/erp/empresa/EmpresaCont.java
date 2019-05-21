@@ -196,32 +196,6 @@ final class EmpresaCont {
 					Msg.avisoCampoObrigatorio("NomeFantasia");
 					return;
 				}
-
-				Empresa empresaPesquisa = new Empresa();
-				empresaPesquisa.setCnpj(getEmpresaPc().getGuiCnpj().getText());
-				Empresa empresaPesquisaRetornado = EmpresaFac.consultarRegistro(empresaPesquisa);
-
-				if (empresa.getId() == null && empresaPesquisa.getCnpj() != null
-						&& empresaPesquisaRetornado.getCnpj() != null) {
-
-					if (empresaPesquisa.getCnpj().equals(empresaPesquisaRetornado.getCnpj())) {
-						Msg.avisoCampoDuplicado("CNPJ", empresaPesquisa.getCnpj());
-						getEmpresaPc().getGuiCnpj().requestFocus();
-						return;
-					}
-				}
-
-				if (empresa.getId() != null && empresaPesquisa.getCnpj() != null
-						&& empresaPesquisaRetornado.getCnpj() != null) {
-					if (!empresa.getCnpj().equals(empresaPesquisa.getCnpj())) {
-						if (empresaPesquisa.getCnpj().equals(empresaPesquisaRetornado.getCnpj())) {
-							Msg.avisoCampoDuplicado("CNPJ", empresaPesquisa.getCnpj());
-							getEmpresaPc().getGuiCnpj().requestFocus();
-						}
-						return;
-					}
-				}
-
 				if (mensagem == JOptionPane.YES_OPTION) {
 					atualizarObjeto();
 					EmpresaFac.salvarRegistro(empresa);
@@ -231,7 +205,18 @@ final class EmpresaCont {
 					Msg.sucessoSalvarRegistro();
 				}
 			} catch (Exception e) {
-				Msg.erroInserirRegistro();
+				Throwable throwable = e.getCause().getCause();
+				String mensagem = throwable.toString();
+				if (mensagem.contains("ConstraintViolationException")) {
+					if (mensagem.contains("INDEX_EMPRESA_CNPJ")) {
+						Msg.avisoCampoDuplicado("CNPJ");
+						getEmpresaPc().getGuiCnpj().requestFocus();
+					} else {
+						Msg.avisoCampoDuplicado();
+					}
+				}
+				e.printStackTrace();
+				Msg.erroSalvarRegistro();
 			}
 		}
 	}

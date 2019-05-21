@@ -6,10 +6,6 @@ public final class ContadorFac {
 
 	private static final ContadorDao contadorDao = new ContadorImp();
 
-	public static Contador consultarRegistro(Contador contador) {
-		return contadorDao.consultarRegistro(contador);
-	}
-
 	public static void deletarRegistro(Contador contador) {
 		contadorDao.deletarRegistro(contador);
 	}

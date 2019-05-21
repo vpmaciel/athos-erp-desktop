@@ -4,8 +4,6 @@ import java.util.Collection;
 
 public interface UsuarioDao {
 
-	Usuario consultarRegistro(Usuario usuario);
-
 	void deletarRegistro(Usuario usuario);
 
 	Collection<Usuario> getRegistro();

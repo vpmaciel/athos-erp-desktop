@@ -1,6 +1,5 @@
 package erp.usuario;
 
-import java.awt.HeadlessException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
@@ -192,34 +191,9 @@ final class UsuarioCont {
 				if ((getUsuarioPc().getGuiNome().getText()) == null
 						|| getUsuarioPc().getGuiNome().getText().length() == 0) {
 					getUsuarioPc().getGuiNome().requestFocus();
-					Msg.avisoCampoObrigatorio("Data");
+					Msg.avisoCampoObrigatorio("NOME");
 					return;
 				}
-
-				Usuario usuarioPesquisa = new Usuario();
-				usuarioPesquisa.setNome(getUsuarioPc().getGuiNome().getText());
-				Usuario usuarioPesquisaRetornado = UsuarioFac.consultarRegistro(usuarioPesquisa);
-
-				if (usuario.getId() == null && usuarioPesquisa.getNome() != null
-						&& usuarioPesquisaRetornado.getNome() != null) {
-					if (usuarioPesquisa.getNome().equals(usuarioPesquisaRetornado.getNome())) {
-						Msg.avisoCampoDuplicado("NOME", usuarioPesquisa.getNome());
-						getUsuarioPc().getGuiNome().requestFocus();
-						return;
-					}
-				}
-
-				if (usuario.getId() != null && usuarioPesquisa.getNome() != null
-						&& usuarioPesquisaRetornado.getNome() != null) {
-					if (!usuario.getNome().equals(usuarioPesquisa.getNome())) {
-						if (usuarioPesquisa.getNome().equals(usuarioPesquisaRetornado.getNome())) {
-							Msg.avisoCampoDuplicado("NOME", usuarioPesquisa.getNome());
-							getUsuarioPc().getGuiNome().requestFocus();
-						}
-						return;
-					}
-				}
-
 				if (mensagem == JOptionPane.YES_OPTION) {
 					atualizarObjeto();
 					UsuarioFac.salvarRegistro(usuario);
@@ -228,8 +202,19 @@ final class UsuarioCont {
 					getUsuarioPc().getGuiNome().requestFocus();
 					Msg.sucessoSalvarRegistro();
 				}
-			} catch (HeadlessException e) {
-				Msg.erroInserirRegistro();
+			} catch (Exception e) {
+				Throwable throwable = e.getCause().getCause();
+				String mensagem = throwable.toString();
+				if (mensagem.contains("ConstraintViolationException")) {
+					if (mensagem.contains("INDEX_USUARIO_NOME")) {
+						Msg.avisoCampoDuplicado("NOME");
+						getUsuarioPc().getGuiNome().requestFocus();
+					} else {
+						Msg.avisoCampoDuplicado();
+					}
+				}
+				e.printStackTrace();
+				Msg.erroSalvarRegistro();
 			}
 		}
 	}

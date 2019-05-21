@@ -4,8 +4,6 @@ import java.util.Collection;
 
 public interface TipoEventoDao {
 
-	TipoEvento consultarRegistro(TipoEvento tipoEvento);
-
 	void deletarRegistro(TipoEvento tipoEvento);
 
 	Collection<TipoEvento> getRegistro();

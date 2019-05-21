@@ -6,10 +6,6 @@ public final class VeiculoModeloFac {
 
 	private static final VeiculoModeloDao veiculoModeloDao = new VeiculoModeloImp();
 
-	public static VeiculoModelo consultarRegistro(VeiculoModelo veiculoModelo) {
-		return veiculoModeloDao.consultarRegistro(veiculoModelo);
-	}
-
 	public static void deletarRegistro(VeiculoModelo veiculoModelo) {
 		veiculoModeloDao.deletarRegistro(veiculoModelo);
 	}

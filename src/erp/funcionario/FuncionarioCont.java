@@ -193,56 +193,7 @@ final class FuncionarioCont {
 					getFuncionarioPc().getGuiNome().requestFocus();
 					Msg.avisoCampoObrigatorio("NOME");
 					return;
-				}
-				
-				Funcionario funcionarioPesquisa = new Funcionario();
-				funcionarioPesquisa.setCpf(getFuncionarioPc().getGuiCpf().getText());
-				Funcionario funcionarioPesquisaRetornado = FuncionarioFac.consultarRegistro(funcionarioPesquisa);
-
-				if (funcionario.getId() == null && funcionarioPesquisa.getCpf() != null
-						&& funcionarioPesquisaRetornado.getCpf() != null) {
-					if (funcionarioPesquisa.getCpf().equals(funcionarioPesquisaRetornado.getCpf())) {
-						Msg.avisoCampoDuplicado("CPF", funcionarioPesquisa.getCpf());
-						getFuncionarioPc().getGuiCpf().requestFocus();
-						return;
-					}
-				}
-
-				if (funcionario.getId() != null && funcionarioPesquisa.getCpf() != null
-						&& funcionarioPesquisaRetornado.getCpf() != null) {
-					if (!funcionario.getCpf().equals(funcionarioPesquisa.getCpf())) {
-						if (funcionarioPesquisa.getCpf().equals(funcionarioPesquisaRetornado.getCpf())) {
-							Msg.avisoCampoDuplicado("CPF", funcionarioPesquisa.getCpf());
-							getFuncionarioPc().getGuiCpf().requestFocus();
-						}
-						return;
-					}
-				}
-
-				funcionarioPesquisa = new Funcionario();
-				funcionarioPesquisa.setCnpj(getFuncionarioPc().getGuiCnpj().getText());
-				funcionarioPesquisaRetornado = FuncionarioFac.consultarRegistro(funcionarioPesquisa);
-
-				if (funcionario.getId() == null && funcionarioPesquisa.getCnpj() != null
-						&& funcionarioPesquisaRetornado.getCnpj() != null) {
-					if (funcionarioPesquisa.getCnpj().equals(funcionarioPesquisaRetornado.getCnpj())) {
-						Msg.avisoCampoDuplicado("CNPJ", funcionarioPesquisa.getCnpj());
-						getFuncionarioPc().getGuiCnpj().requestFocus();
-						return;
-					}
-				}
-
-				if (funcionario.getId() != null && funcionarioPesquisa.getCnpj() != null
-						&& funcionarioPesquisaRetornado.getCnpj() != null) {
-					if (!funcionario.getCnpj().equals(funcionarioPesquisa.getCnpj())) {
-						if (funcionarioPesquisa.getCnpj().equals(funcionarioPesquisaRetornado.getCnpj())) {
-							Msg.avisoCampoDuplicado("CNPJ", funcionarioPesquisa.getCnpj());
-							getFuncionarioPc().getGuiCnpj().requestFocus();
-						}
-						return;
-					}
-				}
-				
+				}				
 				if (mensagem == JOptionPane.YES_OPTION) {
 					atualizarObjeto();
 					FuncionarioFac.salvarRegistro(funcionario);
@@ -252,8 +203,21 @@ final class FuncionarioCont {
 					Msg.sucessoSalvarRegistro();
 				}
 			} catch (Exception e) {
+				Throwable throwable = e.getCause().getCause();
+				String mensagem = throwable.toString();
+				if (mensagem.contains("ConstraintViolationException")) {
+					if (mensagem.contains("INDEX_FUNCIONARIO_CPF")) {
+						Msg.avisoCampoDuplicado("CPF");
+						getFuncionarioPc().getGuiCpf().requestFocus();
+					} else if (mensagem.contains("INDEX_FUNCIONARIO_CNPJ")) {
+						Msg.avisoCampoDuplicado("CNPJ");
+						getFuncionarioPc().getGuiCnpj().requestFocus();
+					} else {
+						Msg.avisoCampoDuplicado();
+					}
+				}
 				e.printStackTrace();
-				Msg.erroInserirRegistro();
+				Msg.erroSalvarRegistro();
 			}
 		}
 	}

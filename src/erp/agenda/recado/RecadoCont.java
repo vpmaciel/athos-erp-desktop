@@ -187,7 +187,7 @@ final class RecadoCont {
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
-				Msg.erroInserirRegistro();
+				Msg.erroSalvarRegistro();
 			}
 		}
 	}

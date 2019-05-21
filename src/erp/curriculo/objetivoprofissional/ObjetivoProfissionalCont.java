@@ -192,7 +192,7 @@ final class ObjetivoProfissionalCont {
 					Msg.sucessoSalvarRegistro();
 				}
 			} catch (Exception e) {
-				Msg.erroInserirRegistro();
+				Msg.erroSalvarRegistro();
 			}
 		}
 	}

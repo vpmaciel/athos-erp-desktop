@@ -184,31 +184,6 @@ final class TipoEventoCont {
 					Msg.avisoCampoObrigatorio("NOME");
 					return;
 				}
-
-				TipoEvento tipoEventoPesquisa = new TipoEvento();
-				tipoEventoPesquisa.setNome(getTipoEventoPc().getGuiNome().getText());
-				TipoEvento tipoEventoPesquisaRetornado = TipoEventoFac.consultarRegistro(tipoEventoPesquisa);
-
-				if (tipoEvento.getId() == null && tipoEventoPesquisa.getNome() != null
-						&& tipoEventoPesquisaRetornado.getNome() != null) {
-					if (tipoEventoPesquisa.getNome().equals(tipoEventoPesquisaRetornado.getNome())) {
-						Msg.avisoCampoDuplicado("NOME", tipoEventoPesquisa.getNome());
-						getTipoEventoPc().getGuiNome().requestFocus();
-						return;
-					}
-				}
-
-				if (tipoEvento.getId() != null && tipoEventoPesquisa.getNome() != null
-						&& tipoEventoPesquisaRetornado.getNome() != null) {
-					if (!tipoEvento.getNome().equals(tipoEventoPesquisa.getNome())) {
-						if (tipoEventoPesquisa.getNome().equals(tipoEventoPesquisaRetornado.getNome())) {
-							Msg.avisoCampoDuplicado("NOME", tipoEventoPesquisa.getNome());
-							getTipoEventoPc().getGuiNome().requestFocus();
-						}
-						return;
-					}
-				}
-
 				if (mensagem == JOptionPane.YES_OPTION) {
 					atualizarObjeto();
 					TipoEventoFac.salvarRegistro(tipoEvento);
@@ -218,8 +193,18 @@ final class TipoEventoCont {
 					Msg.sucessoSalvarRegistro();
 				}
 			} catch (Exception e) {
+				Throwable throwable = e.getCause().getCause();
+				String mensagem = throwable.toString();
+				if (mensagem.contains("ConstraintViolationException")) {
+					if (mensagem.contains("INDEX_NOME")) {
+						Msg.avisoCampoDuplicado("NOME");
+						getTipoEventoPc().getGuiNome().requestFocus();
+					} else {
+						Msg.avisoCampoDuplicado();
+					}
+				}
 				e.printStackTrace();
-				Msg.erroInserirRegistro();
+				Msg.erroSalvarRegistro();
 			}
 		}
 	}

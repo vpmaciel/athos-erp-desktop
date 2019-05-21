@@ -19,94 +19,143 @@ final class EventoImp implements EventoDao {
 
 	@Override
 	public void deletarRegistro(Evento evento) {
-		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction entityTransaction = entityManager.getTransaction();
-		entityTransaction.begin();
-		entityManager.remove(entityManager.find(Evento.class, evento.getId()));
-		entityTransaction.commit();
-		entityManager.close();
+		EntityManager entityManager = null;
+		EntityTransaction entityTransaction = null;
+
+		try {
+			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityTransaction = entityManager.getTransaction();
+			entityTransaction.begin();
+			entityManager.remove(entityManager.find(Evento.class, evento.getId()));
+			entityTransaction.commit();
+		} catch (Exception exception) {
+			exception.printStackTrace();
+			entityTransaction.rollback();
+			throw exception;
+		} finally {
+			if (entityManager.isOpen()) {
+				entityManager.close();
+			}
+		}
+
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public Collection<Evento> getRegistro() {
-		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction entityTransaction = entityManager.getTransaction();
-		entityTransaction.begin();
-		Query query = entityManager.createQuery("select T from Evento T order by T.data, T.horaInicio", Evento.class);
-		@SuppressWarnings("unchecked")
-		List<Evento> list = query.getResultList();
-		entityTransaction.commit();
-		entityManager.close();
+		EntityManager entityManager = null;
+		EntityTransaction entityTransaction = null;
+		List<Evento> list = null;
+
+		try {
+			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityTransaction = entityManager.getTransaction();
+			entityTransaction.begin();
+			Query query = entityManager.createQuery("select T from Evento T order by T.data, T.horaInicio",
+					Evento.class);
+			list = query.getResultList();
+		} catch (Exception exception) {
+			exception.printStackTrace();
+			throw exception;
+		} finally {
+			if (entityManager.isOpen()) {
+				entityManager.close();
+			}
+		}
+
 		return list;
 	}
 
 	@Override
 	public Evento getRegistro(Evento evento) {
-		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction entityTransaction = entityManager.getTransaction();
-		entityTransaction.begin();
-		return entityManager.find(Evento.class, evento.getId());
-	}
+		EntityManager entityManager = null;
+		EntityTransaction entityTransaction = null;
 
-	private boolean naoEstaVazio(Object objeto) {
-		if (objeto == null) {
-			return false;
+		try {
+			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityTransaction = entityManager.getTransaction();
+			entityTransaction.begin();
+			evento = entityManager.find(Evento.class, evento.getId());
+		} catch (Exception exception) {
+			exception.printStackTrace();
+			throw exception;
+		} finally {
+			if (entityManager.isOpen()) {
+				entityManager.close();
+			}
 		}
-		if (objeto.toString().equals("")) {
-			return false;
-		}
-		return true;
+		return evento;
 	}
 
 	@Override
 	public Collection<Evento> pesquisarRegistro(Evento evento) {
-		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction entityTransaction = entityManager.getTransaction();
-		entityTransaction.begin();
+		EntityManager entityManager = null;
+		EntityTransaction entityTransaction = null;
+		List<Evento> eventoList = null;
+		try {
+			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityTransaction = entityManager.getTransaction();
+			entityTransaction.begin();
 
-		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
-		CriteriaQuery<Evento> criteriaQuery = criteriaBuilder.createQuery(Evento.class);
-		Root<Evento> rootEvento = criteriaQuery.from(Evento.class);
+			CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+			CriteriaQuery<Evento> criteriaQuery = criteriaBuilder.createQuery(Evento.class);
+			Root<Evento> rootEvento = criteriaQuery.from(Evento.class);
+			List<Predicate> predicateList = new ArrayList<Predicate>();
 
-		List<Predicate> predicates = new ArrayList<Predicate>();
-
-		if (naoEstaVazio(evento.getId())) {
-			predicates.add(criteriaBuilder.equal(rootEvento.get("id"), evento.getId()));
+			if (evento.getId() != null) {
+				predicateList.add(criteriaBuilder.equal(rootEvento.get("id"), evento.getId()));
+			}
+			if (evento.getData() != null && !evento.getData().equals(Mascara.getData().getPlaceholder())
+					&& !evento.getData().equals(Mascara.getDataVazio())) {
+				predicateList.add(criteriaBuilder.like(rootEvento.get("data"), "%" + evento.getData() + "%"));
+			}
+			if (evento.getDescricao() != null && evento.getDescricao().length() > 0) {
+				predicateList.add(criteriaBuilder.like(rootEvento.get("descricao"), "%" + evento.getDescricao() + "%"));
+			}
+			if (evento.getHoraInicio() != null && !evento.getHoraInicio().equals(Mascara.getHora().getPlaceholder())
+					&& !evento.getHoraInicio().equals(Mascara.getHoraVazio())) {
+				predicateList.add(criteriaBuilder.like(rootEvento.get("horaInicio"), "%" + evento.getHoraInicio() + "%"));
+			}
+			if (evento.getHoraTermino() != null && !evento.getHoraTermino().equals(Mascara.getHora().getPlaceholder())
+					&& !evento.getHoraTermino().equals(Mascara.getHoraVazio())) {
+				predicateList
+						.add(criteriaBuilder.like(rootEvento.get("horaTermino"), "%" + evento.getHoraTermino() + "%"));
+			}
+			if (evento.getTipoEvento() != null && evento.getTipoEvento().getId() != null) {
+				predicateList.add(criteriaBuilder.equal(rootEvento.get("tipoEvento"), evento.getTipoEvento()));
+			}
+			criteriaQuery.select(rootEvento).where(predicateList.toArray(new Predicate[] {}));
+			eventoList = entityManager.createQuery(criteriaQuery).getResultList();
+		} catch (Exception exception) {
+			exception.printStackTrace();
+			throw exception;
+		} finally {
+			if (entityManager.isOpen()) {
+				entityManager.close();
+			}
 		}
-		if (evento.getData() != null && !evento.getData().equals(Mascara.getData().getPlaceholder())
-				&& !evento.getData().equals(Mascara.getDataVazio())) {
-			predicates.add(criteriaBuilder.like(rootEvento.get("data"), "%" + evento.getData() + "%"));
-		}
-		if (naoEstaVazio(evento.getDescricao())) {
-			predicates.add(criteriaBuilder.like(rootEvento.get("descricao"), "%" + evento.getDescricao() + "%"));
-		}
-		if (evento.getHoraInicio() != null && !evento.getHoraInicio().equals(Mascara.getHora().getPlaceholder())
-				&& !evento.getHoraInicio().equals(Mascara.getHoraVazio())) {
-			predicates.add(criteriaBuilder.like(rootEvento.get("horaInicio"), "%" + evento.getHoraInicio() + "%"));
-		}
-		if (evento.getHoraTermino() != null && !evento.getHoraTermino().equals(Mascara.getHora().getPlaceholder())
-				&& !evento.getHoraTermino().equals(Mascara.getHoraVazio())) {
-			predicates.add(criteriaBuilder.like(rootEvento.get("horaTermino"), "%" + evento.getHoraTermino() + "%"));
-		}
-		if (evento.getTipoEvento() != null && evento.getTipoEvento().getId() != null) {
-			predicates.add(criteriaBuilder.equal(rootEvento.get("tipoEvento"), evento.getTipoEvento()));
-		}
-
-		criteriaQuery.select(rootEvento).where(predicates.toArray(new Predicate[] {}));
-
-		List<Evento> list = entityManager.createQuery(criteriaQuery).getResultList();
-		entityTransaction.commit();
-		entityManager.close();
-		return list;
+		return eventoList;
 	}
 
 	@Override
 	public void salvarRegistro(Evento evento) {
-		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction entityTransaction = entityManager.getTransaction();
-		entityTransaction.begin();
-		entityManager.merge(evento);
-		entityTransaction.commit();
-		entityManager.close();
+		EntityManager entityManager = null;
+		EntityTransaction entityTransaction = null;
+		try {
+			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityTransaction = entityManager.getTransaction();
+			entityTransaction.begin();
+			entityManager.merge(evento);
+			entityTransaction.commit();
+		} catch (Exception exception) {
+			entityTransaction.rollback();
+			exception.printStackTrace();
+			throw exception;
+		} finally {
+			if (entityManager.isOpen()) {
+				entityManager.close();
+			}
+		}
 	}
+
 }

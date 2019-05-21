@@ -201,32 +201,19 @@ final class SindicatoCont {
 					getSindicatoPc().getGuiNomeFantasia().requestFocus();
 					Msg.sucessoSalvarRegistro();
 				}
-				Sindicato sindicatoPesquisa = new Sindicato();
-				sindicatoPesquisa.setCnpj(getSindicatoPc().getGuiCnpj().getText());
-				Sindicato sindicatoPesquisaRetornado = SindicatoFac.consultarRegistro(sindicatoPesquisa);
-
-				if (sindicato.getId() == null && sindicatoPesquisa.getCnpj() != null
-						&& sindicatoPesquisaRetornado.getCnpj() != null) {
-					if (sindicatoPesquisa.getCnpj().equals(sindicatoPesquisaRetornado.getCnpj())) {
-						Msg.avisoCampoDuplicado("CNPJ", sindicatoPesquisa.getCnpj());
-						getSindicatoPc().getGuiCnpj().requestFocus();
-						return;
-					}
-				}
-
-				if (sindicato.getId() != null && sindicatoPesquisa.getCnpj() != null
-						&& sindicatoPesquisaRetornado.getCnpj() != null) {
-					if (!sindicato.getCnpj().equals(sindicatoPesquisa.getCnpj())) {
-						if (sindicatoPesquisa.getCnpj().equals(sindicatoPesquisaRetornado.getCnpj())) {
-							Msg.avisoCampoDuplicado("CNPJ", sindicatoPesquisa.getCnpj());
-							getSindicatoPc().getGuiCnpj().requestFocus();
-						}
-						return;
-					}
-				}
-
 			} catch (Exception e) {
-				Msg.erroInserirRegistro();
+				Throwable throwable = e.getCause().getCause();
+				String mensagem = throwable.toString();
+				if (mensagem.contains("ConstraintViolationException")) {
+					if (mensagem.contains("INDEX_SINDICATO_CNPJ")) {
+						Msg.avisoCampoDuplicado("CNPJ");
+						getSindicatoPc().getGuiCnpj().requestFocus();
+					} else {
+						Msg.avisoCampoDuplicado();
+					}
+				}
+				e.printStackTrace();
+				Msg.erroSalvarRegistro();
 			}
 		}
 	}

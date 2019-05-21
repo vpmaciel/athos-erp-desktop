@@ -4,8 +4,6 @@ import java.util.Collection;
 
 public interface EmpresaDao {
 
-	Empresa consultarRegistro(Empresa empresa);
-
 	void deletarRegistro(Empresa empresa);
 
 	Collection<Empresa> getRegistro();

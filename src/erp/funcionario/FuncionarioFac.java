@@ -6,10 +6,6 @@ public final class FuncionarioFac {
 
 	private static final FuncionarioDao funcionarioDao = new FuncionarioImp();
 
-	public static Funcionario consultarRegistro(Funcionario funcionario) {
-		return funcionarioDao.consultarRegistro(funcionario);
-	}
-
 	public static void deletarRegistro(Funcionario funcionario) {
 		funcionarioDao.deletarRegistro(funcionario);
 	}

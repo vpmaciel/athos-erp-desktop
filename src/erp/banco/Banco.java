@@ -11,13 +11,11 @@ import javax.persistence.Index;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Table;
 
-import erp.usuario.Usuario;
-
 @SuppressWarnings("serial")
 @PersistenceContext(unitName = "erp")
 @Entity
-@Table(indexes = { @Index(name = "INDEX_NOME", columnList = "nome", unique = true),
-		@Index(name = "INDEX_CODIGO", columnList = "codigo", unique = true) })
+@Table(indexes = { @Index(name = "INDEX_BANCO_NOME", columnList = "nome", unique = true),
+		@Index(name = "INDEX_BANCO_CODIGO", columnList = "codigo", unique = true) })
 public class Banco implements Serializable {
 
 	@Column(length = 10, nullable = true)
@@ -27,7 +25,6 @@ public class Banco implements Serializable {
 	private Long id;
 	@Column(length = 50, nullable = false)
 	private String nome;
-	private Usuario usuarioOperacao;
 
 	public String getCodigo() {
 		return this.codigo;
@@ -51,14 +48,6 @@ public class Banco implements Serializable {
 
 	public void setNome(String nome) {
 		this.nome = nome;
-	}
-
-	public Usuario getUsuarioOperacao() {
-		return usuarioOperacao;
-	}
-
-	public void setUsuarioOperacao(Usuario usuarioOperacao) {
-		this.usuarioOperacao = usuarioOperacao;
 	}
 
 	@Override

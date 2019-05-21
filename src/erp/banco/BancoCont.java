@@ -9,7 +9,6 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
-import arquitetura.AOP;
 import arquitetura.gui.Msg;
 import erp.main.MainCont;
 import erp.main.MainFc;
@@ -187,7 +186,21 @@ final class BancoCont {
 					Msg.sucessoSalvarRegistro();
 				}
 			} catch (Exception e) {
-				Msg.erroInserirRegistro();
+				Throwable throwable = e.getCause().getCause();
+				String mensagem = throwable.toString();
+				if (mensagem.contains("ConstraintViolationException")) {
+					if (mensagem.contains("INDEX_BANCO_NOME")) {
+						Msg.avisoCampoDuplicado("NOME");
+						getBancoPc().getGuiNome().requestFocus();
+					} else if (mensagem.contains("INDEX_BANCO_CODIGO")) {
+						Msg.avisoCampoDuplicado("CÓDIGO");
+						getBancoPc().getGuiCodigo().requestFocus();
+					} else {
+						Msg.avisoCampoDuplicado();
+					}
+				}
+				e.printStackTrace();
+				Msg.erroSalvarRegistro();
 			}
 		}
 	}
@@ -209,7 +222,6 @@ final class BancoCont {
 	public void atualizarObjeto() {
 		banco.setCodigo(getBancoPc().getGuiCodigo().getText());
 		banco.setNome(getBancoPc().getGuiNome().getText());
-		banco.setUsuarioOperacao(AOP.getUsuario());
 	}
 
 	public Banco getBanco() {

@@ -4,8 +4,6 @@ import java.util.Collection;
 
 public interface VeiculoModeloDao {
 
-	VeiculoModelo consultarRegistro(VeiculoModelo veiculoModelo);
-
 	void deletarRegistro(VeiculoModelo veiculoModelo);
 
 	Collection<VeiculoModelo> getRegistro();

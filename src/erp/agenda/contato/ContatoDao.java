@@ -4,8 +4,6 @@ import java.util.Collection;
 
 public interface ContatoDao {
 
-	Contato consultarRegistro(Contato contato);
-
 	void deletarRegistro(Contato contato);
 
 	Collection<Contato> getRegistro();

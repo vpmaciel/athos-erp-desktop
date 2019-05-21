@@ -4,8 +4,6 @@ import java.util.Collection;
 
 public interface ContadorDao {
 
-	Contador consultarRegistro(Contador contador);
-
 	void deletarRegistro(Contador contador);
 
 	Collection<Contador> getRegistro();

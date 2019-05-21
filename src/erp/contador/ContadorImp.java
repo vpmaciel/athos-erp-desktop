@@ -18,143 +18,151 @@ import arquitetura.validacao.Mascara;
 final class ContadorImp implements ContadorDao {
 
 	@Override
-	public Contador consultarRegistro(Contador contador) {
-		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction entityTransaction = entityManager.getTransaction();
-		entityTransaction.begin();
-
-		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
-		CriteriaQuery<Contador> criteriaQuery = criteriaBuilder.createQuery(Contador.class);
-		Root<Contador> rootContador = criteriaQuery.from(Contador.class);
-
-		List<Predicate> predicates = new ArrayList<Predicate>();
-
-		boolean naoTemCriterio = true;
-
-		if (contador.getCnpj() != null && !contador.getCnpj().equals(Mascara.getCnpj().getPlaceholder())
-				&& !contador.getCnpj().equals(Mascara.getCnpjVazio())) {
-			predicates.add(criteriaBuilder.like(rootContador.get("cnpj"), contador.getCnpj()));
-			naoTemCriterio = false;
-
-		}
-		if (contador.getCpf() != null && !contador.getCpf().equals(Mascara.getCpf().getPlaceholder())
-				&& !contador.getCpf().equals(Mascara.getCpfVazio())) {
-			predicates.add(criteriaBuilder.like(rootContador.get("cpf"), contador.getCpf()));
-			naoTemCriterio = false;
-
-		}
-		if (contador.getCrc() != null && contador.getCrc().length() > 0) {
-			predicates.add(criteriaBuilder.like(rootContador.get("crc"), contador.getCrc()));
-			naoTemCriterio = false;
-
-		}
-
-		if (naoTemCriterio) {
-			return new Contador();
-		}
-
-		criteriaQuery.select(rootContador).where(predicates.toArray(new Predicate[] {}));
-
-		List<Contador> list = entityManager.createQuery(criteriaQuery).getResultList();
-		entityTransaction.commit();
-		entityManager.close();
-		return list.size() > 0 ? list.get(0) : new Contador();
-	}
-
-	@Override
 	public void deletarRegistro(Contador contador) {
-		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction entityTransaction = entityManager.getTransaction();
-		entityTransaction.begin();
-		entityManager.remove(entityManager.find(Contador.class, contador.getId()));
-		entityTransaction.commit();
-		entityManager.close();
+		EntityManager entityManager = null;
+		EntityTransaction entityTransaction = null;
+		try {
+			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityTransaction = entityManager.getTransaction();
+			entityTransaction.begin();
+			entityManager.remove(entityManager.find(Contador.class, contador.getId()));
+			entityTransaction.commit();
+		} catch (Exception exception) {
+			exception.printStackTrace();
+			entityTransaction.rollback();
+			throw exception;
+		} finally {
+			if (entityManager.isOpen()) {
+				entityManager.close();
+			}
+		}
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public Collection<Contador> getRegistro() {
-		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction entityTransaction = entityManager.getTransaction();
-		entityTransaction.begin();
-		Query query = entityManager.createQuery("select T from Contador T order by T.nome", Contador.class);
-		@SuppressWarnings("unchecked")
-		List<Contador> list = query.getResultList();
-		entityTransaction.commit();
-		entityManager.close();
-		return list;
+		EntityManager entityManager = null;
+		EntityTransaction entityTransaction = null;
+		List<Contador> contadorList = null;
+
+		try {
+			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityTransaction = entityManager.getTransaction();
+			entityTransaction.begin();
+			Query query = entityManager.createQuery("select T from Contador T order by T.nome", Contador.class);
+			contadorList = query.getResultList();
+		} catch (Exception exception) {
+			exception.printStackTrace();
+			throw exception;
+		} finally {
+			if (entityManager.isOpen()) {
+				entityManager.close();
+			}
+		}
+		return contadorList;
 	}
 
 	@Override
 	public Contador getRegistro(Contador contador) {
-		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction entityTransaction = entityManager.getTransaction();
-		entityTransaction.begin();
-		return entityManager.find(Contador.class, contador.getId());
+		EntityManager entityManager = null;
+		EntityTransaction entityTransaction = null;
+		try {
+			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityTransaction = entityManager.getTransaction();
+			entityTransaction.begin();
+			contador = entityManager.find(Contador.class, contador.getId());
+		} catch (Exception exception) {
+			exception.printStackTrace();
+			throw exception;
+		} finally {
+			if (entityManager.isOpen()) {
+				entityManager.close();
+			}
+		}
+		return contador;
 	}
 
 	@Override
 	public Collection<Contador> pesquisarRegistro(Contador contador) {
-		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction entityTransaction = entityManager.getTransaction();
-		entityTransaction.begin();
+		EntityManager entityManager = null;
+		EntityTransaction entityTransaction = null;
+		List<Contador> contadorList = null;
+		try {
+			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityTransaction = entityManager.getTransaction();
+			entityTransaction.begin();
+			CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+			CriteriaQuery<Contador> criteriaQuery = criteriaBuilder.createQuery(Contador.class);
+			Root<Contador> rootContador = criteriaQuery.from(Contador.class);
+			List<Predicate> predicateList = new ArrayList<Predicate>();
 
-		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
-		CriteriaQuery<Contador> criteriaQuery = criteriaBuilder.createQuery(Contador.class);
-		Root<Contador> rootContador = criteriaQuery.from(Contador.class);
+			if (contador.getId() != null) {
+				predicateList.add(criteriaBuilder.equal(rootContador.get("id"), contador.getId()));
+			}
+			if (contador.getCnpj() != null && !contador.getCnpj().equals(Mascara.getCnpj().getPlaceholder())
+					&& !contador.getCnpj().equals(Mascara.getCnpjVazio())) {
+				predicateList.add(criteriaBuilder.like(rootContador.get("cnpj"), "%" + contador.getCnpj() + "%"));
+			}
+			if (contador.getCpf() != null && !contador.getCpf().equals(Mascara.getCpf().getPlaceholder())
+					&& !contador.getCpf().equals(Mascara.getCpfVazio())) {
+				predicateList.add(criteriaBuilder.like(rootContador.get("cpf"), "%" + contador.getCpf() + "%"));
+			}
+			if (contador.getCrc() != null && contador.getCrc().length() > 0) {
+				predicateList.add(criteriaBuilder.like(rootContador.get("crc"), "%" + contador.getCrc() + "%"));
+			}
+			if (contador.getEmail() != null && contador.getEmail().length() > 0) {
+				predicateList.add(criteriaBuilder.like(rootContador.get("email"), "%" + contador.getEmail() + "%"));
+			}
+			if (contador.getFax() != null && !contador.getFax().equals(Mascara.getFax().getPlaceholder())
+					&& !contador.getFax().equals(Mascara.getFaxVazio())) {
+				predicateList.add(criteriaBuilder.like(rootContador.get("fax"), "%" + contador.getFax() + "%"));
+			}
+			if (contador.getFone1() != null && !contador.getFone1().equals(Mascara.getFone().getPlaceholder())
+					&& !contador.getFone1().equals(Mascara.getFoneVazio())) {
+				predicateList.add(criteriaBuilder.like(rootContador.get("fone1"), "%" + contador.getFone1() + "%"));
+			}
+			if (contador.getFone2() != null && !contador.getFone2().equals(Mascara.getFone().getPlaceholder())
+					&& !contador.getFone2().equals(Mascara.getFoneVazio())) {
+				predicateList.add(criteriaBuilder.like(rootContador.get("fone2"), "%" + contador.getFone2() + "%"));
+			}
+			if (contador.getNome() != null && contador.getNome().length() > 0) {
+				predicateList.add(criteriaBuilder.like(rootContador.get("nome"), "%" + contador.getNome() + "%"));
+			}
+			if (contador.getSite() != null && contador.getSite().length() > 0) {
+				predicateList.add(criteriaBuilder.like(rootContador.get("site"), "%" + contador.getSite() + "%"));
+			}
 
-		List<Predicate> predicates = new ArrayList<Predicate>();
-
-		if (contador.getId() != null) {
-			predicates.add(criteriaBuilder.equal(rootContador.get("id"), contador.getId()));
+			criteriaQuery.select(rootContador).where(predicateList.toArray(new Predicate[] {}));
+			contadorList = entityManager.createQuery(criteriaQuery).getResultList();
+		} catch (Exception exception) {
+			exception.printStackTrace();
+			throw exception;
+		} finally {
+			if (entityManager.isOpen()) {
+				entityManager.close();
+			}
 		}
-		if (contador.getCnpj() != null && !contador.getCnpj().equals(Mascara.getCnpj().getPlaceholder())
-				&& !contador.getCnpj().equals(Mascara.getCnpjVazio())) {
-			predicates.add(criteriaBuilder.like(rootContador.get("cnpj"), "%" + contador.getCnpj() + "%"));
-		}
-		if (contador.getCpf() != null && !contador.getCpf().equals(Mascara.getCpf().getPlaceholder())
-				&& !contador.getCpf().equals(Mascara.getCpfVazio())) {
-			predicates.add(criteriaBuilder.like(rootContador.get("cpf"), "%" + contador.getCpf() + "%"));
-		}
-		if (contador.getCrc() != null && contador.getCrc().length() > 0) {
-			predicates.add(criteriaBuilder.like(rootContador.get("crc"), "%" + contador.getCrc() + "%"));
-		}
-		if (contador.getEmail() != null && contador.getEmail().length() > 0) {
-			predicates.add(criteriaBuilder.like(rootContador.get("email"), "%" + contador.getEmail() + "%"));
-		}
-		if (contador.getFax() != null && !contador.getFax().equals(Mascara.getFax().getPlaceholder())
-				&& !contador.getFax().equals(Mascara.getFaxVazio())) {
-			predicates.add(criteriaBuilder.like(rootContador.get("fax"), "%" + contador.getFax() + "%"));
-		}
-		if (contador.getFone1() != null && !contador.getFone1().equals(Mascara.getFone().getPlaceholder())
-				&& !contador.getFone1().equals(Mascara.getFoneVazio())) {
-			predicates.add(criteriaBuilder.like(rootContador.get("fone1"), "%" + contador.getFone1() + "%"));
-		}
-		if (contador.getFone2() != null && !contador.getFone2().equals(Mascara.getFone().getPlaceholder())
-				&& !contador.getFone2().equals(Mascara.getFoneVazio())) {
-			predicates.add(criteriaBuilder.like(rootContador.get("fone2"), "%" + contador.getFone2() + "%"));
-		}
-		if (contador.getNome() != null && contador.getNome().length() > 0) {
-			predicates.add(criteriaBuilder.like(rootContador.get("nome"), "%" + contador.getNome() + "%"));
-		}
-		if (contador.getSite() != null && contador.getSite().length() > 0) {
-			predicates.add(criteriaBuilder.like(rootContador.get("site"), "%" + contador.getSite() + "%"));
-		}
-
-		criteriaQuery.select(rootContador).where(predicates.toArray(new Predicate[] {}));
-
-		List<Contador> list = entityManager.createQuery(criteriaQuery).getResultList();
-		entityTransaction.commit();
-		entityManager.close();
-		return list;
+		return contadorList;
 	}
 
 	@Override
 	public void salvarRegistro(Contador contador) {
-		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction entityTransaction = entityManager.getTransaction();
-		entityTransaction.begin();
-		entityManager.merge(contador);
-		entityTransaction.commit();
-		entityManager.close();
+		EntityManager entityManager = null;
+		EntityTransaction entityTransaction = null;
+		try {
+			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityTransaction = entityManager.getTransaction();
+			entityTransaction.begin();
+			entityManager.merge(contador);
+			entityTransaction.commit();
+		} catch (Exception exception) {
+			entityTransaction.rollback();
+			exception.printStackTrace();
+			throw exception;
+		} finally {
+			if (entityManager.isOpen()) {
+				entityManager.close();
+			}
+		}
 	}
 }

@@ -152,7 +152,7 @@ public final class Msg {
 		JOptionPane.showMessageDialog(null, "Foi encontrado um erro !", "Erro", JOptionPane.ERROR_MESSAGE);
 	}
 
-	public static final void erroInserirRegistro() {
+	public static final void erroSalvarRegistro() {
 		JOptionPane.showMessageDialog(null, "Não foi possível inserir o registro !", "Erro", JOptionPane.ERROR_MESSAGE);
 	}
 

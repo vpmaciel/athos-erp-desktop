@@ -7,10 +7,10 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Index;
 import javax.persistence.ManyToOne;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
 
 import erp.centrocusto.CentroCusto;
 import erp.veiculo.marca.VeiculoMarca;
@@ -19,7 +19,9 @@ import erp.veiculo.modelo.VeiculoModelo;
 @SuppressWarnings("serial")
 @PersistenceContext(unitName = "erp")
 @Entity
-@Table(uniqueConstraints = { @UniqueConstraint(columnNames = { "placa", "renavam", "chassi" }) })
+@Table(indexes = { @Index(name = "INDEX_VEICULO_PLACA", columnList = "placa", unique = true),
+		@Index(name = "INDEX_VEICULO_RENAVAM", columnList = "renavam", unique = true),
+		@Index(name = "INDEX_VEICULO_CHASSI", columnList = "chassi", unique = true)})
 public class Veiculo implements Serializable {
 
 	@Column(length = 3)

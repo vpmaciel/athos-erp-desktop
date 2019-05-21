@@ -174,7 +174,6 @@ final class ClienteCont {
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
 			try {
-
 				int mensagem = Msg.confirmarSalvarRegistro();
 
 				if (mensagem != JOptionPane.YES_OPTION) {
@@ -187,55 +186,6 @@ final class ClienteCont {
 					Msg.avisoCampoObrigatorio("NOME");
 					return;
 				}
-
-				Cliente clientePesquisa = new Cliente();
-				clientePesquisa.setCpf(getClientePc().getGuiCpf().getText());
-				Cliente clientePesquisaRetornado = ClienteFac.consultarRegistro(clientePesquisa);
-
-				if (cliente.getId() == null && clientePesquisa.getCpf() != null
-						&& clientePesquisaRetornado.getCpf() != null) {
-					if (clientePesquisa.getCpf().equals(clientePesquisaRetornado.getCpf())) {
-						Msg.avisoCampoDuplicado("CPF", clientePesquisa.getCpf());
-						getClientePc().getGuiCpf().requestFocus();
-						return;
-					}
-				}
-
-				if (cliente.getId() != null && clientePesquisa.getCpf() != null
-						&& clientePesquisaRetornado.getCpf() != null) {
-					if (!cliente.getCpf().equals(clientePesquisa.getCpf())) {
-						if (clientePesquisa.getCpf().equals(clientePesquisaRetornado.getCpf())) {
-							Msg.avisoCampoDuplicado("CPF", clientePesquisa.getCpf());
-							getClientePc().getGuiCpf().requestFocus();
-						}
-						return;
-					}
-				}
-
-				clientePesquisa = new Cliente();
-				clientePesquisa.setCnpj(getClientePc().getGuiCnpj().getText());
-				clientePesquisaRetornado = ClienteFac.consultarRegistro(clientePesquisa);
-
-				if (cliente.getId() == null && clientePesquisa.getCnpj() != null
-						&& clientePesquisaRetornado.getCnpj() != null) {
-					if (clientePesquisa.getCnpj().equals(clientePesquisaRetornado.getCnpj())) {
-						Msg.avisoCampoDuplicado("CNPJ", clientePesquisa.getCnpj());
-						getClientePc().getGuiCnpj().requestFocus();
-						return;
-					}
-				}
-
-				if (cliente.getId() != null && clientePesquisa.getCnpj() != null
-						&& clientePesquisaRetornado.getCnpj() != null) {
-					if (!cliente.getCnpj().equals(clientePesquisa.getCnpj())) {
-						if (clientePesquisa.getCnpj().equals(clientePesquisaRetornado.getCnpj())) {
-							Msg.avisoCampoDuplicado("CNPJ", clientePesquisa.getCnpj());
-							getClientePc().getGuiCnpj().requestFocus();
-						}
-						return;
-					}
-				}
-
 				if (mensagem == JOptionPane.YES_OPTION) {
 					atualizarObjeto();
 					ClienteFac.salvarRegistro(cliente);
@@ -245,7 +195,21 @@ final class ClienteCont {
 					Msg.sucessoSalvarRegistro();
 				}
 			} catch (Exception e) {
-				Msg.erroInserirRegistro();
+				Throwable throwable = e.getCause().getCause();
+				String mensagem = throwable.toString();
+				if (mensagem.contains("ConstraintViolationException")) {
+					if (mensagem.contains("INDEX_CLIENTE_CPF")) {
+						Msg.avisoCampoDuplicado("CPF");
+						getClientePc().getGuiCpf().requestFocus();
+					} else if (mensagem.contains("INDEX_CLIENTE_CNPJ")) {
+						Msg.avisoCampoDuplicado("CNPJ");
+						getClientePc().getGuiCnpj().requestFocus();
+					} else {
+						Msg.avisoCampoDuplicado();
+					}
+				}
+				e.printStackTrace();
+				Msg.erroSalvarRegistro();
 			}
 		}
 	}

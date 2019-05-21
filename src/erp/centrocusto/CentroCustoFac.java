@@ -6,10 +6,6 @@ public final class CentroCustoFac {
 
 	private static final CentroCustoDao centroCustoDao = new CentroCustoImp();
 
-	public static CentroCusto consultarRegistro(CentroCusto centroCusto) {
-		return centroCustoDao.consultarRegistro(centroCusto);
-	}
-
 	public static void deletarRegistro(CentroCusto centroCusto) {
 		centroCustoDao.deletarRegistro(centroCusto);
 	}

@@ -18,55 +18,24 @@ import arquitetura.validacao.Mascara;
 final class CartorioImp implements CartorioDao {
 
 	@Override
-	public Cartorio consultarRegistro(Cartorio cartorio) {
-		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction entityTransaction = entityManager.getTransaction();
-		entityTransaction.begin();
-
-		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
-		CriteriaQuery<Cartorio> criteriaQuery = criteriaBuilder.createQuery(Cartorio.class);
-		Root<Cartorio> rootCartorio = criteriaQuery.from(Cartorio.class);
-
-		List<Predicate> predicates = new ArrayList<Predicate>();
-
-		boolean naoTemCriterio = true;
-
-		if (cartorio.getNomeFantasia() != null && cartorio.getNomeFantasia().length() > 0) {
-			predicates.add(criteriaBuilder.equal(rootCartorio.get("nomeFantasia"), cartorio.getNomeFantasia()));
-			naoTemCriterio = false;
-
-		}
-		if (cartorio.getRazaoSocial() != null && cartorio.getRazaoSocial().length() > 0) {
-			predicates.add(criteriaBuilder.equal(rootCartorio.get("razaoSocial"), cartorio.getRazaoSocial()));
-			naoTemCriterio = false;
-
-		}
-		if (cartorio.getCnpj() != null && !cartorio.getCnpj().equals(Mascara.getCnpj().getPlaceholder())
-				&& !cartorio.getCnpj().equals(Mascara.getCnpjVazio())) {
-			predicates.add(criteriaBuilder.equal(rootCartorio.get("cnpj"), cartorio.getCnpj()));
-			naoTemCriterio = false;
-		}
-
-		if (naoTemCriterio) {
-			return new Cartorio();
-		}
-
-		criteriaQuery.select(rootCartorio).where(predicates.toArray(new Predicate[] {}));
-
-		List<Cartorio> list = entityManager.createQuery(criteriaQuery).getResultList();
-		entityTransaction.commit();
-		entityManager.close();
-		return list.size() > 0 ? list.get(0) : new Cartorio();
-	}
-
-	@Override
 	public void deletarRegistro(Cartorio cartorio) {
-		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction entityTransaction = entityManager.getTransaction();
-		entityTransaction.begin();
-		entityManager.remove(entityManager.find(Cartorio.class, cartorio.getId()));
-		entityTransaction.commit();
-		entityManager.close();
+		EntityManager entityManager = null;
+		EntityTransaction entityTransaction = null;
+
+		try {
+			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityTransaction = entityManager.getTransaction();
+			entityTransaction.begin();
+			entityManager.remove(entityManager.find(Cartorio.class, cartorio.getId()));
+			entityTransaction.commit();			
+		} catch (Exception exception) {
+			exception.printStackTrace();
+			throw  exception;
+		} finally {
+			if (entityManager.isOpen()) {
+				entityManager.close();	
+			}			
+		}
 	}
 
 	@Override
@@ -100,81 +69,81 @@ final class CartorioImp implements CartorioDao {
 		CriteriaQuery<Cartorio> criteriaQuery = criteriaBuilder.createQuery(Cartorio.class);
 		Root<Cartorio> rootCartorio = criteriaQuery.from(Cartorio.class);
 
-		List<Predicate> predicates = new ArrayList<Predicate>();
+		List<Predicate> predicateList = new ArrayList<Predicate>();
 
 		if (cartorio.getId() != null) {
-			predicates.add(criteriaBuilder.equal(rootCartorio.get("id"), cartorio.getId()));
+			predicateList.add(criteriaBuilder.equal(rootCartorio.get("id"), cartorio.getId()));
 		}
 		if (cartorio.getNomeFantasia() != null && cartorio.getNomeFantasia().length() > 0) {
-			predicates.add(
+			predicateList.add(
 					criteriaBuilder.like(rootCartorio.get("nomeFantasia"), "%" + cartorio.getNomeFantasia() + "%"));
 		}
 		if (cartorio.getRazaoSocial() != null && cartorio.getRazaoSocial().length() > 0) {
-			predicates
+			predicateList
 					.add(criteriaBuilder.like(rootCartorio.get("razaoSocial"), "%" + cartorio.getRazaoSocial() + "%"));
 		}
 		if (cartorio.getComarca() != null && cartorio.getComarca().length() > 0) {
-			predicates.add(criteriaBuilder.like(rootCartorio.get("comarca"), "%" + cartorio.getComarca() + "%"));
+			predicateList.add(criteriaBuilder.like(rootCartorio.get("comarca"), "%" + cartorio.getComarca() + "%"));
 		}
 		if (cartorio.getMunicipio() != null && cartorio.getMunicipio().length() > 0) {
-			predicates.add(criteriaBuilder.like(rootCartorio.get("municipio"), "%" + cartorio.getMunicipio() + "%"));
+			predicateList.add(criteriaBuilder.like(rootCartorio.get("municipio"), "%" + cartorio.getMunicipio() + "%"));
 		}
 		if (cartorio.getDistrito() != null && cartorio.getDistrito().length() > 0) {
-			predicates.add(criteriaBuilder.like(rootCartorio.get("distrito"), "%" + cartorio.getDistrito() + "%"));
+			predicateList.add(criteriaBuilder.like(rootCartorio.get("distrito"), "%" + cartorio.getDistrito() + "%"));
 		}
 		if (cartorio.getTitular() != null && cartorio.getTitular().length() > 0) {
-			predicates.add(criteriaBuilder.like(rootCartorio.get("titular"), "%" + cartorio.getTitular() + "%"));
+			predicateList.add(criteriaBuilder.like(rootCartorio.get("titular"), "%" + cartorio.getTitular() + "%"));
 		}
 		if (cartorio.getSubstituto() != null && cartorio.getSubstituto().length() > 0) {
-			predicates.add(criteriaBuilder.like(rootCartorio.get("substituto"), "%" + cartorio.getSubstituto() + "%"));
+			predicateList.add(criteriaBuilder.like(rootCartorio.get("substituto"), "%" + cartorio.getSubstituto() + "%"));
 		}
 		if (cartorio.getCnpj() != null && !cartorio.getCnpj().equals(Mascara.getCnpj().getPlaceholder())
 				&& !cartorio.getCnpj().equals(Mascara.getCnpjVazio())) {
-			predicates.add(criteriaBuilder.like(rootCartorio.get("cnpj"), "%" + cartorio.getCnpj() + "%"));
+			predicateList.add(criteriaBuilder.like(rootCartorio.get("cnpj"), "%" + cartorio.getCnpj() + "%"));
 		}
 		if (cartorio.getFone1() != null && !cartorio.getFone1().equals(Mascara.getFone().getPlaceholder())
 				&& !cartorio.getFone1().equals(Mascara.getFoneVazio())) {
-			predicates.add(criteriaBuilder.like(rootCartorio.get("fone1"), "%" + cartorio.getFone1() + "%"));
+			predicateList.add(criteriaBuilder.like(rootCartorio.get("fone1"), "%" + cartorio.getFone1() + "%"));
 		}
 		if (cartorio.getFone2() != null && !cartorio.getFone2().equals(Mascara.getFone().getPlaceholder())
 				&& !cartorio.getFone2().equals(Mascara.getFoneVazio())) {
-			predicates.add(criteriaBuilder.like(rootCartorio.get("fone2"), "%" + cartorio.getFone2() + "%"));
+			predicateList.add(criteriaBuilder.like(rootCartorio.get("fone2"), "%" + cartorio.getFone2() + "%"));
 		}
 		if (cartorio.getFax() != null && !cartorio.getFax().equals(Mascara.getFax().getPlaceholder())
 				&& !cartorio.getFax().equals(Mascara.getFaxVazio())) {
-			predicates.add(criteriaBuilder.like(rootCartorio.get("fax"), "%" + cartorio.getFax() + "%"));
+			predicateList.add(criteriaBuilder.like(rootCartorio.get("fax"), "%" + cartorio.getFax() + "%"));
 		}
 		if (cartorio.getEmail() != null && cartorio.getEmail().length() > 0) {
-			predicates.add(criteriaBuilder.like(rootCartorio.get("email"), "%" + cartorio.getEmail() + "%"));
+			predicateList.add(criteriaBuilder.like(rootCartorio.get("email"), "%" + cartorio.getEmail() + "%"));
 		}
 		if (cartorio.getSite() != null && cartorio.getSite().length() > 0) {
-			predicates.add(criteriaBuilder.like(rootCartorio.get("site"), "%" + cartorio.getSite() + "%"));
+			predicateList.add(criteriaBuilder.like(rootCartorio.get("site"), "%" + cartorio.getSite() + "%"));
 		}
 		if (cartorio.getPais() != null && cartorio.getPais().length() > 0) {
-			predicates.add(criteriaBuilder.like(rootCartorio.get("pais"), "%" + cartorio.getPais() + "%"));
+			predicateList.add(criteriaBuilder.like(rootCartorio.get("pais"), "%" + cartorio.getPais() + "%"));
 		}
 		if (cartorio.getEstado() != null && cartorio.getEstado().length() > 0) {
-			predicates.add(criteriaBuilder.like(rootCartorio.get("estado"), "%" + cartorio.getEstado() + "%"));
+			predicateList.add(criteriaBuilder.like(rootCartorio.get("estado"), "%" + cartorio.getEstado() + "%"));
 		}
 		if (cartorio.getCidade() != null && cartorio.getCidade().length() > 0) {
-			predicates.add(criteriaBuilder.like(rootCartorio.get("cidade"), "%" + cartorio.getCidade() + "%"));
+			predicateList.add(criteriaBuilder.like(rootCartorio.get("cidade"), "%" + cartorio.getCidade() + "%"));
 		}
 		if (cartorio.getBairro() != null && cartorio.getBairro().length() > 0) {
-			predicates.add(criteriaBuilder.like(rootCartorio.get("bairro"), "%" + cartorio.getBairro() + "%"));
+			predicateList.add(criteriaBuilder.like(rootCartorio.get("bairro"), "%" + cartorio.getBairro() + "%"));
 		}
 		if (cartorio.getLogradouro() != null && cartorio.getLogradouro().length() > 0) {
-			predicates.add(criteriaBuilder.like(rootCartorio.get("logradouro"), "%" + cartorio.getLogradouro() + "%"));
+			predicateList.add(criteriaBuilder.like(rootCartorio.get("logradouro"), "%" + cartorio.getLogradouro() + "%"));
 		}
 		if (cartorio.getComplemento() != null && cartorio.getComplemento().length() > 0) {
-			predicates
+			predicateList
 					.add(criteriaBuilder.like(rootCartorio.get("complemento"), "%" + cartorio.getComplemento() + "%"));
 		}
 		if (cartorio.getCep() != null && !cartorio.getCep().equals(Mascara.getCep().getPlaceholder())
 				&& !cartorio.getCep().equals(Mascara.getCepVazio())) {
-			predicates.add(criteriaBuilder.like(rootCartorio.get("cep"), "%" + cartorio.getCep() + "%"));
+			predicateList.add(criteriaBuilder.like(rootCartorio.get("cep"), "%" + cartorio.getCep() + "%"));
 		}
 
-		criteriaQuery.select(rootCartorio).where(predicates.toArray(new Predicate[] {}));
+		criteriaQuery.select(rootCartorio).where(predicateList.toArray(new Predicate[] {}));
 
 		List<Cartorio> list = entityManager.createQuery(criteriaQuery).getResultList();
 		entityTransaction.commit();

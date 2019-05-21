@@ -17,102 +17,128 @@ import arquitetura.JPA;
 final class VeiculoModeloImp implements VeiculoModeloDao {
 
 	@Override
-	public VeiculoModelo consultarRegistro(VeiculoModelo veiculoModelo) {
-		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction entityTransaction = entityManager.getTransaction();
-		entityTransaction.begin();
-
-		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
-		CriteriaQuery<VeiculoModelo> criteriaQuery = criteriaBuilder.createQuery(VeiculoModelo.class);
-		Root<VeiculoModelo> rootVeiculoModelo = criteriaQuery.from(VeiculoModelo.class);
-
-		List<Predicate> predicates = new ArrayList<Predicate>();
-
-		boolean naoTemCriterio = true;
-
-		if (veiculoModelo.getModelo() != null && veiculoModelo.getModelo().length() > 0) {
-			predicates.add(criteriaBuilder.equal(rootVeiculoModelo.get("modelo"), veiculoModelo.getModelo()));
-			naoTemCriterio = false;
-		}
-
-		if (naoTemCriterio) {
-			return new VeiculoModelo();
-		}
-
-		criteriaQuery.select(rootVeiculoModelo).where(predicates.toArray(new Predicate[] {}));
-
-		List<VeiculoModelo> list = entityManager.createQuery(criteriaQuery).getResultList();
-		entityTransaction.commit();
-		entityManager.close();
-		return list.size() > 0 ? list.get(0) : new VeiculoModelo();
-	}
-
-	@Override
 	public void deletarRegistro(VeiculoModelo veiculoModelo) {
-		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction entityTransaction = entityManager.getTransaction();
-		entityTransaction.begin();
-		entityManager.remove(entityManager.find(VeiculoModelo.class, veiculoModelo.getId()));
-		entityTransaction.commit();
-		entityManager.close();
+		EntityManager entityManager = null;
+		EntityTransaction entityTransaction = null;
+		try {
+			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityTransaction = entityManager.getTransaction();
+
+			entityTransaction.begin();
+			entityManager.remove(entityManager.find(VeiculoModelo.class, veiculoModelo.getId()));
+			entityTransaction.commit();
+		} catch (Exception exception) {
+			exception.printStackTrace();
+			entityTransaction.rollback();
+			throw exception;
+		} finally {
+			if (entityManager.isOpen()) {
+				entityManager.close();
+			}
+		}
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public Collection<VeiculoModelo> getRegistro() {
-		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction entityTransaction = entityManager.getTransaction();
-		entityTransaction.begin();
-		Query query = entityManager.createQuery("select T from VeiculoModelo T order by T.modelo", VeiculoModelo.class);
-		@SuppressWarnings("unchecked")
-		List<VeiculoModelo> list = query.getResultList();
-		entityTransaction.commit();
-		entityManager.close();
-		return list;
+		EntityManager entityManager = null;
+		EntityTransaction entityTransaction = null;
+		List<VeiculoModelo> veiculoModeloList = null;
+		try {
+			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityTransaction = entityManager.getTransaction();
+			entityTransaction.begin();
+			Query query = entityManager.createQuery("select T from VeiculoModelo T order by T.modelo",
+					VeiculoModelo.class);
+			veiculoModeloList = query.getResultList();
+		} catch (Exception exception) {
+			exception.printStackTrace();
+			throw exception;
+		} finally {
+			if (entityManager.isOpen()) {
+				entityManager.close();
+			}
+		}
+		return veiculoModeloList;
 	}
 
 	@Override
 	public VeiculoModelo getRegistro(VeiculoModelo veiculoModelo) {
-		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction entityTransaction = entityManager.getTransaction();
-		entityTransaction.begin();
-		return entityManager.find(VeiculoModelo.class, veiculoModelo.getId());
+		EntityManager entityManager = null;
+		EntityTransaction entityTransaction = null;
+		try {
+			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityTransaction = entityManager.getTransaction();
+			entityTransaction.begin();
+			veiculoModelo = entityManager.find(VeiculoModelo.class, veiculoModelo.getId());
+		} catch (Exception exception) {
+			exception.printStackTrace();
+			throw exception;
+		} finally {
+			if (entityManager.isOpen()) {
+				entityManager.close();
+			}
+		}
+		return veiculoModelo;
 	}
 
 	@Override
 	public Collection<VeiculoModelo> pesquisarRegistro(VeiculoModelo veiculoModelo) {
-		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction entityTransaction = entityManager.getTransaction();
-		entityTransaction.begin();
+		EntityManager entityManager = null;
+		EntityTransaction entityTransaction = null;
+		List<VeiculoModelo> veiculoModeloList = null;
 
-		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
-		CriteriaQuery<VeiculoModelo> criteriaQuery = criteriaBuilder.createQuery(VeiculoModelo.class);
-		Root<VeiculoModelo> rootVeiculoModelo = criteriaQuery.from(VeiculoModelo.class);
+		try {
+			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityTransaction = entityManager.getTransaction();
+			entityTransaction.begin();
 
-		List<Predicate> predicates = new ArrayList<Predicate>();
+			CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+			CriteriaQuery<VeiculoModelo> criteriaQuery = criteriaBuilder.createQuery(VeiculoModelo.class);
+			Root<VeiculoModelo> rootVeiculoModelo = criteriaQuery.from(VeiculoModelo.class);
 
-		if (veiculoModelo.getId() != null) {
-			predicates.add(criteriaBuilder.equal(rootVeiculoModelo.get("id"), veiculoModelo.getId()));
+			List<Predicate> predicateList = new ArrayList<Predicate>();
+
+			if (veiculoModelo.getId() != null) {
+				predicateList.add(criteriaBuilder.equal(rootVeiculoModelo.get("id"), veiculoModelo.getId()));
+			}
+			if (veiculoModelo.getModelo() != null && veiculoModelo.getModelo().length() > 0) {
+				predicateList.add(
+						criteriaBuilder.like(rootVeiculoModelo.get("modelo"), "%" + veiculoModelo.getModelo() + "%"));
+			}
+			criteriaQuery.select(rootVeiculoModelo).where(predicateList.toArray(new Predicate[] {}));
+			veiculoModeloList = entityManager.createQuery(criteriaQuery).getResultList();
+
+		} catch (Exception exception) {
+			exception.printStackTrace();
+			throw exception;
+		} finally {
+			if (entityManager.isOpen()) {
+				entityManager.close();
+			}
 		}
-		if (veiculoModelo.getModelo() != null && veiculoModelo.getModelo().length() > 0) {
-			predicates
-					.add(criteriaBuilder.like(rootVeiculoModelo.get("modelo"), "%" + veiculoModelo.getModelo() + "%"));
-		}
-
-		criteriaQuery.select(rootVeiculoModelo).where(predicates.toArray(new Predicate[] {}));
-
-		List<VeiculoModelo> list = entityManager.createQuery(criteriaQuery).getResultList();
-		entityTransaction.commit();
-		entityManager.close();
-		return list;
+		return veiculoModeloList;
 	}
 
 	@Override
 	public void salvarRegistro(VeiculoModelo veiculoModelo) {
-		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction entityTransaction = entityManager.getTransaction();
-		entityTransaction.begin();
-		entityManager.merge(veiculoModelo);
-		entityTransaction.commit();
-		entityManager.close();
+		EntityManager entityManager = null;
+		EntityTransaction entityTransaction = null;
+		try {
+			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityTransaction = entityManager.getTransaction();
+			entityTransaction.begin();
+			entityManager.merge(veiculoModelo);
+			entityTransaction.commit();
+		} catch (Exception exception) {
+			entityTransaction.rollback();
+			exception.printStackTrace();
+			throw exception;
+		} finally {
+			if (entityManager.isOpen()) {
+				entityManager.close();
+			}
+		}
 	}
+
 }

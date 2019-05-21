@@ -7,14 +7,17 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Index;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
 
 @SuppressWarnings("serial")
 @PersistenceContext(unitName = "erp")
 @Entity
-@Table(uniqueConstraints = { @UniqueConstraint(columnNames = { "crc", "cpf", "cnpj" }) })
+@Table(indexes = { @Index(name = "INDEX_CONTADOR_CPF", columnList = "cpf", unique = true),
+		@Index(name = "INDEX_CONTADOR_CNPJ", columnList = "cnpj", unique = true),
+		@Index(name = "INDEX_CONTADOR_CRC", columnList = "crc", unique = true)})
+
 public class Contador implements Serializable {
 
 	@Column(length = 19)

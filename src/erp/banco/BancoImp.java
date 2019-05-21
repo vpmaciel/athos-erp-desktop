@@ -13,7 +13,6 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
 import arquitetura.JPA;
-import arquitetura.gui.Msg;
 
 final class BancoImp implements BancoDao {
 
@@ -25,9 +24,10 @@ final class BancoImp implements BancoDao {
 			entityTransaction.begin();
 			entityManager.remove(entityManager.find(Banco.class, banco.getId()));
 			entityTransaction.commit();
-		} catch (Exception e) {
-			e.printStackTrace();
+		} catch (Exception exception) {
 			entityTransaction.rollback();
+			exception.printStackTrace();
+			throw  exception;
 		} finally {
 			entityManager.close();
 		}
@@ -66,8 +66,9 @@ final class BancoImp implements BancoDao {
 			entityTransaction.begin();
 			banco = entityManager.find(Banco.class, banco.getId());
 
-		} catch (Exception e) {
-			e.printStackTrace();
+		} catch (Exception exception) {
+			exception.printStackTrace();
+			throw  exception;
 		} finally {
 			entityManager.close();
 		}
@@ -104,8 +105,9 @@ final class BancoImp implements BancoDao {
 			bancoList = entityManager.createQuery(criteriaQuery).getResultList();
 			entityTransaction.commit();
 
-		} catch (Exception e) {
-			e.printStackTrace();
+		} catch (Exception exception) {
+			exception.printStackTrace();
+			throw exception;
 		} finally {
 			entityManager.close();
 		}
@@ -122,21 +124,10 @@ final class BancoImp implements BancoDao {
 			entityTransaction.begin();
 			entityManager.merge(banco);
 			entityTransaction.commit();
-		} catch (Exception e) {
-			Throwable throwable = e.getCause().getCause();
-			String mensagem = throwable.toString();
-			if (mensagem.contains("ConstraintViolationException")) {
-				if (mensagem.contains("INDEX_NOME")) {
-					Msg.avisoCampoDuplicado("NOME");
-				} else if (mensagem.contains("INDEX_CODIGO")) {
-					Msg.avisoCampoDuplicado("CÓDIGO");
-				} else {
-					Msg.avisoCampoDuplicado();
-				}
-			}
-			e.printStackTrace();
+		} catch (Exception exception) {
+			exception.printStackTrace();
 			entityTransaction.rollback();
-			throw e;
+			throw exception;
 		} finally {
 			entityManager.close();
 		}

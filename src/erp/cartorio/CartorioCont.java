@@ -171,79 +171,6 @@ final class CartorioCont {
 					Msg.avisoCampoObrigatorio("NOME FANTASIA");
 					return;
 				}
-
-				Cartorio cartorioPesquisa = new Cartorio();
-				cartorioPesquisa.setNomeFantasia(getCartorioPc().getNomeGuiFantasia().getText());
-				Cartorio cartorioPesquisaRetornado = CartorioFac.consultarRegistro(cartorioPesquisa);
-
-				if (cartorio.getId() == null && cartorioPesquisa.getNomeFantasia() != null
-						&& cartorioPesquisaRetornado.getNomeFantasia() != null) {
-					if (cartorioPesquisa.getNomeFantasia().equals(cartorioPesquisaRetornado.getNomeFantasia())) {
-						Msg.avisoCampoDuplicado("NOME FANTASIA", cartorioPesquisa.getNomeFantasia());
-						getCartorioPc().getNomeGuiFantasia().requestFocus();
-						return;
-					}
-				}
-
-				if (cartorio.getId() != null && cartorioPesquisa.getNomeFantasia() != null
-						&& cartorioPesquisaRetornado.getNomeFantasia() != null) {
-					if (!cartorio.getNomeFantasia().equals(cartorioPesquisa.getNomeFantasia())) {
-						if (cartorioPesquisa.getNomeFantasia().equals(cartorioPesquisaRetornado.getNomeFantasia())) {
-							Msg.avisoCampoDuplicado("NOME FANTASIA", cartorioPesquisa.getNomeFantasia());
-							getCartorioPc().getNomeGuiFantasia().requestFocus();
-						}
-						return;
-					}
-				}
-
-				cartorioPesquisa = new Cartorio();
-				cartorioPesquisa.setRazaoSocial(getCartorioPc().getGuiRazaoSocial().getText());
-				cartorioPesquisaRetornado = CartorioFac.consultarRegistro(cartorioPesquisa);
-
-				if (cartorio.getId() == null && cartorioPesquisa.getRazaoSocial() != null
-						&& cartorioPesquisaRetornado.getRazaoSocial() != null) {
-					if (cartorioPesquisa.getRazaoSocial().equals(cartorioPesquisaRetornado.getRazaoSocial())) {
-						Msg.avisoCampoDuplicado("RAZÃO SOCIAL", cartorioPesquisa.getRazaoSocial());
-						getCartorioPc().getGuiRazaoSocial().requestFocus();
-						return;
-					}
-				}
-
-				if (cartorio.getId() != null && cartorioPesquisa.getRazaoSocial() != null
-						&& cartorioPesquisaRetornado.getRazaoSocial() != null) {
-					if (!cartorio.getRazaoSocial().equals(cartorioPesquisa.getRazaoSocial())) {
-						if (cartorioPesquisa.getRazaoSocial().equals(cartorioPesquisaRetornado.getRazaoSocial())) {
-							Msg.avisoCampoDuplicado("RAZÃO SOCIAL", cartorioPesquisa.getRazaoSocial());
-							getCartorioPc().getGuiRazaoSocial().requestFocus();
-						}
-						return;
-					}
-				}
-
-				cartorioPesquisa = new Cartorio();
-				cartorioPesquisa.setCnpj(getCartorioPc().getGuiCnpj().getText());
-				cartorioPesquisaRetornado = CartorioFac.consultarRegistro(cartorioPesquisa);
-
-				if (cartorio.getId() == null && cartorioPesquisa.getCnpj() != null
-						&& cartorioPesquisaRetornado.getCnpj() != null) {
-					if (cartorioPesquisa.getCnpj().equals(cartorioPesquisaRetornado.getCnpj())) {
-						Msg.avisoCampoDuplicado("CNPJ", cartorioPesquisa.getCnpj());
-						getCartorioPc().getGuiCnpj().requestFocus();
-						return;
-					}
-				}
-
-				if (cartorio.getId() != null && cartorioPesquisa.getCnpj() != null
-						&& cartorioPesquisaRetornado.getCnpj() != null) {
-					if (!cartorio.getCnpj().equals(cartorioPesquisa.getCnpj())) {
-						if (cartorioPesquisa.getCnpj().equals(cartorioPesquisaRetornado.getCnpj())) {
-							Msg.avisoCampoDuplicado("CNPJ", cartorioPesquisa.getCnpj());
-							getCartorioPc().getGuiCnpj().requestFocus();
-						}
-						return;
-					}
-				}
-
 				if (mensagem == JOptionPane.YES_OPTION) {
 					atualizarObjeto();
 					CartorioFac.salvarRegistro(cartorio);
@@ -253,7 +180,18 @@ final class CartorioCont {
 					Msg.sucessoSalvarRegistro();
 				}
 			} catch (Exception e) {
-				Msg.erroInserirRegistro();
+				Throwable throwable = e.getCause().getCause();
+				String mensagem = throwable.toString();
+				if (mensagem.contains("ConstraintViolationException")) {
+					if (mensagem.contains("INDEX_CARTORIO_CNPJ")) {
+						Msg.avisoCampoDuplicado("CNPJ");
+						getCartorioPc().getGuiCnpj().requestFocus();
+					} else {
+						Msg.avisoCampoDuplicado();
+					}
+				}
+				e.printStackTrace();
+				Msg.erroSalvarRegistro();
 			}
 		}
 	}

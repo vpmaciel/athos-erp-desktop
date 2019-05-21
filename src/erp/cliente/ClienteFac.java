@@ -6,10 +6,6 @@ public final class ClienteFac {
 
 	private static final ClienteDao clienteDao = new ClienteImp();
 
-	public static Cliente consultarRegistro(Cliente cliente) {
-		return clienteDao.consultarRegistro(cliente);
-	}
-
 	public static void deletarRegistro(Cliente cliente) {
 		clienteDao.deletarRegistro(cliente);
 	}

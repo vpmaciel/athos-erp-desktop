@@ -10,7 +10,11 @@ public final class UsuarioUtil {
 		int usuarioRegTotal = UsuarioFac.getRegistro().size();
 
 		if (usuarioRegTotal < 1) {
-			UsuarioFac.salvarRegistro(usuario);
+			try {
+				UsuarioFac.salvarRegistro(usuario);	
+			}catch (Exception exception) {
+				exception.printStackTrace();
+			}
 		}
 	}
 }

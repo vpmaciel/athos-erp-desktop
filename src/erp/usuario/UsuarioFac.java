@@ -6,10 +6,6 @@ public final class UsuarioFac {
 
 	private static final UsuarioDao usuarioDao = new UsuarioImp();
 
-	public static Usuario consultarRegistro(Usuario usuario) {
-		return usuarioDao.consultarRegistro(usuario);
-	}
-
 	public static void deletarRegistro(Usuario usuario) {
 		usuarioDao.deletarRegistro(usuario);
 	}

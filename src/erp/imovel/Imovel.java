@@ -152,7 +152,7 @@ public class Imovel implements Serializable {
 		return this.suite;
 	}
 
-	public String getTerracao() {
+	public String getTerraco() {
 		return this.terraco;
 	}
 

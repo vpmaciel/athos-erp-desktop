@@ -193,79 +193,6 @@ final class ContadorCont {
 					Msg.avisoCampoObrigatorio("Contador");
 					return;
 				}
-
-				Contador contadorPesquisa = new Contador();
-				contadorPesquisa.setCrc(getContadorPc().getGuiCrc().getText());
-				Contador contadorPesquisaRetornado = ContadorFac.consultarRegistro(contadorPesquisa);
-
-				if (contador.getId() == null && contadorPesquisa.getCrc() != null
-						&& contadorPesquisaRetornado.getCrc() != null) {
-					if (contadorPesquisa.getCrc().equals(contadorPesquisaRetornado.getCrc())) {
-						Msg.avisoCampoDuplicado("CRC", contadorPesquisa.getCrc());
-						getContadorPc().getGuiCrc().requestFocus();
-						return;
-					}
-				}
-
-				if (contador.getId() != null && contadorPesquisa.getCrc() != null
-						&& contadorPesquisaRetornado.getCrc() != null) {
-					if (!contador.getCrc().equals(contadorPesquisa.getCrc())) {
-						if (contadorPesquisa.getCrc().equals(contadorPesquisaRetornado.getCrc())) {
-							Msg.avisoCampoDuplicado("CRC", contadorPesquisa.getCrc());
-							getContadorPc().getGuiCrc().requestFocus();
-						}
-						return;
-					}
-				}
-
-				contadorPesquisa = new Contador();
-				contadorPesquisa.setCpf(getContadorPc().getGuiCpf().getText());
-				contadorPesquisaRetornado = ContadorFac.consultarRegistro(contadorPesquisa);
-
-				if (contador.getId() == null && contadorPesquisa.getCpf() != null
-						&& contadorPesquisaRetornado.getCpf() != null) {
-					if (contadorPesquisa.getCpf().equals(contadorPesquisaRetornado.getCpf())) {
-						Msg.avisoCampoDuplicado("CPF", contadorPesquisa.getCpf());
-						getContadorPc().getGuiCpf().requestFocus();
-						return;
-					}
-				}
-
-				if (contador.getId() != null && contadorPesquisa.getCpf() != null
-						&& contadorPesquisaRetornado.getCpf() != null) {
-					if (!contador.getCpf().equals(contadorPesquisa.getCpf())) {
-						if (contadorPesquisa.getCpf().equals(contadorPesquisaRetornado.getCpf())) {
-							Msg.avisoCampoDuplicado("CPF", contadorPesquisa.getCpf());
-							getContadorPc().getGuiCpf().requestFocus();
-						}
-						return;
-					}
-				}
-
-				contadorPesquisa = new Contador();
-				contadorPesquisa.setCnpj(getContadorPc().getGuiCnpj().getText());
-				contadorPesquisaRetornado = ContadorFac.consultarRegistro(contadorPesquisa);
-
-				if (contador.getId() == null && contadorPesquisa.getCnpj() != null
-						&& contadorPesquisaRetornado.getCnpj() != null) {
-					if (contadorPesquisa.getCnpj().equals(contadorPesquisaRetornado.getCnpj())) {
-						Msg.avisoCampoDuplicado("CNPJ", contadorPesquisa.getCnpj());
-						getContadorPc().getGuiCnpj().requestFocus();
-						return;
-					}
-				}
-
-				if (contador.getId() != null && contadorPesquisa.getCnpj() != null
-						&& contadorPesquisaRetornado.getCnpj() != null) {
-					if (!contador.getCnpj().equals(contadorPesquisa.getCnpj())) {
-						if (contadorPesquisa.getCnpj().equals(contadorPesquisaRetornado.getCnpj())) {
-							Msg.avisoCampoDuplicado("CNPJ", contadorPesquisa.getCnpj());
-							getContadorPc().getGuiCnpj().requestFocus();
-						}
-						return;
-					}
-				}
-
 				if (mensagem == JOptionPane.YES_OPTION) {
 					atualizarObjeto();
 					ContadorFac.salvarRegistro(contador);
@@ -275,8 +202,24 @@ final class ContadorCont {
 					Msg.sucessoSalvarRegistro();
 				}
 			} catch (Exception e) {
+				Throwable throwable = e.getCause().getCause();
+				String mensagem = throwable.toString();
+				if (mensagem.contains("ConstraintViolationException")) {
+					if (mensagem.contains("INDEX_CONTADOR_CRC")) {
+						Msg.avisoCampoDuplicado("CRC");
+						getContadorPc().getGuiCrc().requestFocus();
+					} else if (mensagem.contains("INDEX_CONTADOR_CPF")) {
+						Msg.avisoCampoDuplicado("CPF");
+						getContadorPc().getGuiCpf().requestFocus();
+					} else if (mensagem.contains("INDEX_CONTADOR_CNPJ")) {
+						Msg.avisoCampoDuplicado("CNPJ");
+						getContadorPc().getGuiCnpj().requestFocus();
+					} else {
+						Msg.avisoCampoDuplicado();
+					}
+				}
 				e.printStackTrace();
-				Msg.erroInserirRegistro();
+				Msg.erroSalvarRegistro();
 			}
 		}
 	}

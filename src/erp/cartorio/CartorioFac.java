@@ -6,10 +6,6 @@ public final class CartorioFac {
 
 	private static final CartorioDao cartorioDao = new CartorioImp();
 
-	public static Cartorio consultarRegistro(Cartorio cartorio) {
-		return cartorioDao.consultarRegistro(cartorio);
-	}
-
 	public static void deletarRegistro(Cartorio cartorio) {
 		cartorioDao.deletarRegistro(cartorio);
 	}

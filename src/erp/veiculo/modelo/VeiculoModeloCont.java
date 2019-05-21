@@ -175,34 +175,9 @@ final class VeiculoModeloCont {
 				String placa = getVeiculoModeloPc().getGuiModelo().getText();
 				if (placa == null || placa.length() == 0) {
 					getVeiculoModeloPc().getGuiModelo().requestFocus();
-					Msg.avisoCampoObrigatorio("Data");
+					Msg.avisoCampoObrigatorio("MODELO");
 					return;
 				}
-				VeiculoModelo veiculoModeloPesquisa = new VeiculoModelo();
-				veiculoModeloPesquisa.setModelo(getVeiculoModeloPc().getGuiModelo().getText());
-				VeiculoModelo veiculoModeloPesquisaRetornado = VeiculoModeloFac
-						.consultarRegistro(veiculoModeloPesquisa);
-
-				if (veiculoModelo.getId() == null && veiculoModeloPesquisa.getModelo() != null
-						&& veiculoModeloPesquisaRetornado.getModelo() != null) {
-					if (veiculoModeloPesquisa.getModelo().equals(veiculoModeloPesquisaRetornado.getModelo())) {
-						Msg.avisoCampoDuplicado("NOME", veiculoModeloPesquisa.getModelo());
-						getVeiculoModeloPc().getGuiModelo().requestFocus();
-						return;
-					}
-				}
-
-				if (veiculoModelo.getId() != null && veiculoModeloPesquisa.getModelo() != null
-						&& veiculoModeloPesquisaRetornado.getModelo() != null) {
-					if (!veiculoModelo.getModelo().equals(veiculoModeloPesquisa.getModelo())) {
-						if (veiculoModeloPesquisa.getModelo().equals(veiculoModeloPesquisaRetornado.getModelo())) {
-							Msg.avisoCampoDuplicado("NOME", veiculoModeloPesquisa.getModelo());
-							getVeiculoModeloPc().getGuiModelo().requestFocus();
-						}
-						return;
-					}
-				}
-
 				if (mensagem == JOptionPane.YES_OPTION) {
 					atualizarObjeto();
 					VeiculoModeloFac.salvarRegistro(veiculoModelo);
@@ -212,7 +187,18 @@ final class VeiculoModeloCont {
 					Msg.sucessoSalvarRegistro();
 				}
 			} catch (Exception e) {
-				Msg.erroInserirRegistro();
+				Throwable throwable = e.getCause().getCause();
+				String mensagem = throwable.toString();
+				if (mensagem.contains("ConstraintViolationException")) {
+					if (mensagem.contains("INDEX_VEICULO_MODELO_MODELO")) {
+						Msg.avisoCampoDuplicado("MODELO");
+						getVeiculoModeloPc().getGuiModelo().requestFocus();
+					} else {
+						Msg.avisoCampoDuplicado();
+					}
+				}
+				e.printStackTrace();
+				Msg.erroSalvarRegistro();
 			}
 		}
 	}

@@ -6,10 +6,6 @@ public final class ContatoFac {
 
 	private static final ContatoDao contatoDao = new ContatoImp();
 
-	public static Contato consultarRegistro(Contato contato) {
-		return contatoDao.consultarRegistro(contato);
-	}
-
 	public static void deletarRegistro(Contato contato) {
 		contatoDao.deletarRegistro(contato);
 	}

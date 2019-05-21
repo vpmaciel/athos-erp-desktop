@@ -6,10 +6,6 @@ public final class SindicatoFac {
 
 	private static final SindicatoDao sindicatoDao = new SindicatoImp();
 
-	public static Sindicato consultarRegistro(Sindicato sindicato) {
-		return sindicatoDao.consultarRegistro(sindicato);
-	}
-
 	public static void deletarRegistro(Sindicato sindicato) {
 		sindicatoDao.deletarRegistro(sindicato);
 	}

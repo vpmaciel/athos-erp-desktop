@@ -201,7 +201,7 @@ final class ImovelCont {
 					Msg.sucessoSalvarRegistro();
 				}
 			} catch (Exception e) {
-				Msg.erroInserirRegistro();
+				Msg.erroSalvarRegistro();
 			}
 		}
 	}
@@ -223,7 +223,7 @@ final class ImovelCont {
 		getImovelPc().getGuiBanheiro().setText(imovel.getBanheiro());
 		getImovelPc().getGuiSuite().setText(imovel.getSuite());
 		getImovelPc().getGuiVaranda().setText(imovel.getVaranda());
-		getImovelPc().getGuiTerraco().setSelectedItem(imovel.getTerracao());
+		getImovelPc().getGuiTerraco().setSelectedItem(imovel.getTerraco());
 		getImovelPc().getGuiBairro().setText(imovel.getBairro());
 		getImovelPc().getGuiCep().setText(imovel.getCep());
 		getImovelPc().getGuiCidade().setText(imovel.getCidade());

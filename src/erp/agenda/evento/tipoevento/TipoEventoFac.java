@@ -6,10 +6,6 @@ public final class TipoEventoFac {
 
 	private static final TipoEventoDao tipoEventoDao = new TipoEventoImp();
 
-	public static TipoEvento consultarRegistro(TipoEvento tipoEvento) {
-		return tipoEventoDao.consultarRegistro(tipoEvento);
-	}
-
 	public static void deletarRegistro(TipoEvento tipoEvento) {
 		tipoEventoDao.deletarRegistro(tipoEvento);
 	}

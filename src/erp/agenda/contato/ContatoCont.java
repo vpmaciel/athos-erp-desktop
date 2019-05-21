@@ -206,55 +206,6 @@ final class ContatoCont {
 					Msg.avisoCampoObrigatorio("NOME");
 					return;
 				}
-
-				Contato contatoPesquisa = new Contato();
-				contatoPesquisa.setCnpj(getContatoPc().getGuiCnpj().getText());
-				Contato contatoPesquisaRetornado = ContatoFac.consultarRegistro(contatoPesquisa);
-
-				if (contato.getId() == null && contatoPesquisa.getCnpj() != null
-						&& contatoPesquisaRetornado.getCnpj() != null) {
-					if (contatoPesquisa.getCnpj().equals(contatoPesquisaRetornado.getCnpj())) {
-						Msg.avisoCampoDuplicado("CNPJ", contatoPesquisa.getCnpj());
-						getContatoPc().getGuiCnpj().requestFocus();
-						return;
-					}
-				}
-
-				if (contato.getId() != null && contatoPesquisa.getCnpj() != null
-						&& contatoPesquisaRetornado.getCnpj() != null) {
-					if (!contato.getCnpj().equals(contatoPesquisa.getCnpj())) {
-						if (contatoPesquisa.getCnpj().equals(contatoPesquisaRetornado.getCnpj())) {
-							Msg.avisoCampoDuplicado("CNPJ", contatoPesquisa.getCnpj());
-							getContatoPc().getGuiCnpj().requestFocus();
-						}
-						return;
-					}
-				}
-
-				contatoPesquisa = new Contato();
-				contatoPesquisa.setCpf(getContatoPc().getGuiCpf().getText());
-				contatoPesquisaRetornado = ContatoFac.consultarRegistro(contatoPesquisa);
-
-				if (contato.getId() == null && contatoPesquisa.getCpf() != null
-						&& contatoPesquisaRetornado.getCpf() != null) {
-					if (contatoPesquisa.getCpf().equals(contatoPesquisaRetornado.getCpf())) {
-						Msg.avisoCampoDuplicado("CPF", contatoPesquisa.getCpf());
-						getContatoPc().getGuiCpf().requestFocus();
-						return;
-					}
-				}
-
-				if (contato.getId() != null && contatoPesquisa.getCpf() != null
-						&& contatoPesquisaRetornado.getCpf() != null) {
-					if (!contato.getCpf().equals(contatoPesquisa.getCpf())) {
-						if (contatoPesquisa.getCpf().equals(contatoPesquisaRetornado.getCpf())) {
-							Msg.avisoCampoDuplicado("CPF", contatoPesquisa.getCpf());
-							getContatoPc().getGuiCpf().requestFocus();
-						}
-						return;
-					}
-				}
-
 				if (mensagem == JOptionPane.YES_OPTION) {
 					atualizarObjeto();
 					ContatoFac.salvarRegistro(contato);
@@ -264,8 +215,21 @@ final class ContatoCont {
 					Msg.sucessoSalvarRegistro();
 				}
 			} catch (Exception e) {
+				Throwable throwable = e.getCause().getCause();
+				String mensagem = throwable.toString();
+				if (mensagem.contains("ConstraintViolationException")) {
+					if (mensagem.contains("INDEX_CONTATO_CPF")) {
+						Msg.avisoCampoDuplicado("CPF");
+						getContatoPc().getGuiCpf().requestFocus();
+					} else if (mensagem.contains("INDEX_CONTATO_CNPJ")) {
+						Msg.avisoCampoDuplicado("CNPJ");
+						getContatoPc().getGuiCnpj().requestFocus();
+					} else {
+						Msg.avisoCampoDuplicado();
+					}
+				}
 				e.printStackTrace();
-				Msg.erroInserirRegistro();
+				Msg.erroSalvarRegistro();
 			}
 		}
 	}

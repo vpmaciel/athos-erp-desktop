@@ -18,71 +18,123 @@ final class IdiomaImp implements IdiomaDao {
 
 	@Override
 	public void deletarRegistro(Idioma idioma) {
-		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction entityTransaction = entityManager.getTransaction();
-		entityTransaction.begin();
-		entityManager.remove(entityManager.find(Idioma.class, idioma.getId()));
-		entityTransaction.commit();
-		entityManager.close();
+		EntityManager entityManager = null;
+		EntityTransaction entityTransaction = null;
+		try {
+			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityTransaction = entityManager.getTransaction();
+			entityTransaction.begin();
+			entityManager.remove(entityManager.find(Idioma.class, idioma.getId()));
+			entityTransaction.commit();
+		} catch (Exception exception) {
+			exception.printStackTrace();
+			entityTransaction.rollback();
+			throw exception;
+		} finally {
+			if (entityManager.isOpen()) {
+				entityManager.close();
+			}
+		}
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public Collection<Idioma> getRegistro() {
-		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction entityTransaction = entityManager.getTransaction();
-		entityTransaction.begin();
-		Query query = entityManager.createQuery("select T from Idioma T order by T.id", Idioma.class);
-		@SuppressWarnings("unchecked")
-		List<Idioma> list = query.getResultList();
-		entityTransaction.commit();
-		entityManager.close();
-		return list;
+		EntityManager entityManager = null;
+		EntityTransaction entityTransaction = null;
+		List<Idioma> idiomaList = null;
+
+		try {
+			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityTransaction = entityManager.getTransaction();
+			entityTransaction.begin();
+			Query query = entityManager.createQuery("select T from Idioma T order by T.funcionario", Idioma.class);
+			idiomaList = query.getResultList();
+		} catch (Exception exception) {
+			exception.printStackTrace();
+			throw exception;
+		} finally {
+			if (entityManager.isOpen()) {
+				entityManager.close();
+			}
+		}
+		return idiomaList;
 	}
 
 	@Override
 	public Idioma getRegistro(Idioma idioma) {
-		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction entityTransaction = entityManager.getTransaction();
-		entityTransaction.begin();
-		return entityManager.find(Idioma.class, idioma.getId());
+		EntityManager entityManager = null;
+		EntityTransaction entityTransaction = null;
+		try {
+			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityTransaction = entityManager.getTransaction();
+			entityTransaction.begin();
+			idioma = entityManager.find(Idioma.class, idioma.getId());
+		} catch (Exception exception) {
+			exception.printStackTrace();
+			throw exception;
+		} finally {
+			if (entityManager.isOpen()) {
+				entityManager.close();
+			}
+		}
+		return idioma;
 	}
 
 	@Override
 	public Collection<Idioma> pesquisarRegistro(Idioma idioma) {
-		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction entityTransaction = entityManager.getTransaction();
-		entityTransaction.begin();
+		EntityManager entityManager = null;
+		EntityTransaction entityTransaction = null;
+		List<Idioma> idiomaList = null;
+		try {
+			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityTransaction = entityManager.getTransaction();
+			entityTransaction.begin();
+			CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+			CriteriaQuery<Idioma> criteriaQuery = criteriaBuilder.createQuery(Idioma.class);
+			Root<Idioma> rootIdioma = criteriaQuery.from(Idioma.class);
+			List<Predicate> predicateList = new ArrayList<Predicate>();
 
-		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
-		CriteriaQuery<Idioma> criteriaQuery = criteriaBuilder.createQuery(Idioma.class);
-		Root<Idioma> rootCliente = criteriaQuery.from(Idioma.class);
-
-		List<Predicate> predicates = new ArrayList<Predicate>();
-
-		if (idioma.getFuncionario() != null && idioma.getFuncionario().getId() != null) {
-			predicates.add(criteriaBuilder.equal(rootCliente.get("funcionario"), idioma.getFuncionario()));
+			if (idioma.getFuncionario() != null && idioma.getFuncionario().getId() != null) {
+				predicateList.add(criteriaBuilder.equal(rootIdioma.get("funcionario"), idioma.getFuncionario()));
+			}
+			if (idioma.getConhecimento() != null && idioma.getConhecimento().length() > 0) {
+				predicateList.add(criteriaBuilder.like(rootIdioma.get("conhecimento"), "%" + idioma.getConhecimento() + "%"));
+			}
+			if (idioma.getNivelConhecimento() != null && idioma.getNivelConhecimento().length() > 0) {
+				predicateList.add(criteriaBuilder.like(rootIdioma.get("nivelConhecimento"), "%" + idioma.getNivelConhecimento() + "%"));
+			}
+			criteriaQuery.select(rootIdioma).where(predicateList.toArray(new Predicate[] {}));
+			idiomaList = entityManager.createQuery(criteriaQuery).getResultList();
+		} catch (Exception exception) {
+			exception.printStackTrace();
+			throw exception;
+		} finally {
+			if (entityManager.isOpen()) {
+				entityManager.close();
+			}
 		}
-		if (idioma.getConhecimento() != null && idioma.getConhecimento().length() > 0) {
-			predicates.add(criteriaBuilder.like(rootCliente.get("conhecimento"), "%" + idioma.getConhecimento() + "%"));
-		}
-		if (idioma.getNivelConhecimento() != null && idioma.getNivelConhecimento().length() > 0) {
-			predicates.add(criteriaBuilder.like(rootCliente.get("nivelConhecimento"), "%" + idioma.getNivelConhecimento() + "%"));
-		}
-		criteriaQuery.select(rootCliente).where(predicates.toArray(new Predicate[] {}));
-
-		List<Idioma> list = entityManager.createQuery(criteriaQuery).getResultList();
-		entityTransaction.commit();
-		entityManager.close();
-		return list;
+		return idiomaList;
 	}
 
 	@Override
-	public void salvarRegistro(Idioma Idioma) {
-		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
-		EntityTransaction entityTransaction = entityManager.getTransaction();
-		entityTransaction.begin();
-		entityManager.merge(Idioma);
-		entityTransaction.commit();
-		entityManager.close();
+	public void salvarRegistro(Idioma idioma) {
+		EntityManager entityManager = null;
+		EntityTransaction entityTransaction = null;
+		try {
+			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityTransaction = entityManager.getTransaction();
+			entityTransaction.begin();
+			entityManager.merge(idioma);
+			entityTransaction.commit();
+		} catch (Exception exception) {
+			entityTransaction.rollback();
+			exception.printStackTrace();
+			throw exception;
+		} finally {
+			if (entityManager.isOpen()) {
+				entityManager.close();
+			}
+		}
 	}
 }

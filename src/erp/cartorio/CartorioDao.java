@@ -4,8 +4,6 @@ import java.util.Collection;
 
 interface CartorioDao {
 
-	Cartorio consultarRegistro(Cartorio cartorio);
-
 	void deletarRegistro(Cartorio cartorio);
 
 	Collection<Cartorio> getRegistro();

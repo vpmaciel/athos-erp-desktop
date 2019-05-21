@@ -158,43 +158,16 @@ final class CentroCustoCont {
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
 			try {
-
 				int mensagem = Msg.confirmarSalvarRegistro();
 				if (mensagem != JOptionPane.YES_OPTION) {
 					return;
 				}
-
 				if ((getCentroCustoPc().getGuiNome().getText()) == null
 						|| getCentroCustoPc().getGuiNome().getText().length() == 0) {
 					getCentroCustoPc().getGuiNome().requestFocus();
 					Msg.avisoCampoObrigatorio("NOME");
 					return;
 				}
-
-				CentroCusto centroCustoPesquisa = new CentroCusto();
-				centroCustoPesquisa.setNome(getCentroCustoPc().getGuiNome().getText());
-				CentroCusto centroCustoPesquisaRetornado = CentroCustoFac.consultarRegistro(centroCustoPesquisa);
-
-				if (centroCusto.getId() == null && centroCustoPesquisa.getNome() != null
-						&& centroCustoPesquisaRetornado.getNome() != null) {
-					if (centroCustoPesquisa.getNome().equals(centroCustoPesquisaRetornado.getNome())) {
-						Msg.avisoCampoDuplicado("NOME", centroCustoPesquisa.getNome());
-						getCentroCustoPc().getGuiNome().requestFocus();
-						return;
-					}
-				}
-
-				if (centroCusto.getId() != null && centroCustoPesquisa.getNome() != null
-						&& centroCustoPesquisaRetornado.getNome() != null) {
-					if (!centroCusto.getNome().equals(centroCustoPesquisa.getNome())) {
-						if (centroCustoPesquisa.getNome().equals(centroCustoPesquisaRetornado.getNome())) {
-							Msg.avisoCampoDuplicado("NOME", centroCustoPesquisa.getNome());
-							getCentroCustoPc().getGuiNome().requestFocus();
-						}
-						return;
-					}
-				}
-
 				if (mensagem == JOptionPane.YES_OPTION) {
 					atualizarObjeto();
 					CentroCustoFac.salvarRegistro(centroCusto);
@@ -204,7 +177,18 @@ final class CentroCustoCont {
 					Msg.sucessoSalvarRegistro();
 				}
 			} catch (Exception e) {
-				Msg.erroInserirRegistro();
+				Throwable throwable = e.getCause().getCause();
+				String mensagem = throwable.toString();
+				if (mensagem.contains("ConstraintViolationException")) {
+					if (mensagem.contains("INDEX_CENTRO_CUSTO_NOME")) {
+						Msg.avisoCampoDuplicado("NOME");
+						getCentroCustoPc().getGuiNome().requestFocus();
+					} else {
+						Msg.avisoCampoDuplicado();
+					}
+				}
+				e.printStackTrace();
+				Msg.erroSalvarRegistro();
 			}
 		}
 	}

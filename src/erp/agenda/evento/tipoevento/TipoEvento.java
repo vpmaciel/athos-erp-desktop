@@ -6,14 +6,15 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Index;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
 
 @SuppressWarnings("serial")
 @PersistenceContext(unitName = "erp")
 @Entity
-@Table(uniqueConstraints = { @UniqueConstraint(columnNames = { "nome" }) })
+@Table(indexes = { @Index(name = "INDEX_TIPO_EVENTO_NOME", columnList = "nome", unique = true) })
+
 public class TipoEvento implements Serializable {
 	@Id
 	@GeneratedValue

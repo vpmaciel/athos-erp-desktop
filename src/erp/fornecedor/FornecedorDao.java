@@ -4,8 +4,6 @@ import java.util.Collection;
 
 public interface FornecedorDao {
 
-	Fornecedor consultarRegistro(Fornecedor fornecedor);
-
 	void deletarRegistro(Fornecedor fornecedor);
 
 	Collection<Fornecedor> getRegistro();

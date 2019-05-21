@@ -68,25 +68,25 @@ final class RecadoImp implements RecadoDao {
 		CriteriaQuery<Recado> criteriaQuery = criteriaBuilder.createQuery(Recado.class);
 		Root<Recado> rootRecado = criteriaQuery.from(Recado.class);
 
-		List<Predicate> predicates = new ArrayList<Predicate>();
+		List<Predicate> predicateList = new ArrayList<Predicate>();
 
 		if (naoEstaVazio(recado.getId())) {
-			predicates.add(criteriaBuilder.equal(rootRecado.get("id"), recado.getId()));
+			predicateList.add(criteriaBuilder.equal(rootRecado.get("id"), recado.getId()));
 		}
 		if (recado.getData() != null && !recado.getData().equals(Mascara.getData().getPlaceholder())
 				&& !recado.getData().equals(Mascara.getDataVazio())) {
-			predicates.add(criteriaBuilder.like(rootRecado.get("data"), "%" + recado.getData() + "%"));
+			predicateList.add(criteriaBuilder.like(rootRecado.get("data"), "%" + recado.getData() + "%"));
 		}
 		if (naoEstaVazio(recado.getDestinatario())) {
-			predicates.add(criteriaBuilder.like(rootRecado.get("destinatario"), "%" + recado.getDestinatario() + "%"));
+			predicateList.add(criteriaBuilder.like(rootRecado.get("destinatario"), "%" + recado.getDestinatario() + "%"));
 		}
 		if (naoEstaVazio(recado.getRecado())) {
-			predicates.add(criteriaBuilder.like(rootRecado.get("recado"), "%" + recado.getRecado() + "%"));
+			predicateList.add(criteriaBuilder.like(rootRecado.get("recado"), "%" + recado.getRecado() + "%"));
 		}
 		if (naoEstaVazio(recado.getRemetente())) {
-			predicates.add(criteriaBuilder.like(rootRecado.get("remetente"), "%" + recado.getRemetente() + "%"));
+			predicateList.add(criteriaBuilder.like(rootRecado.get("remetente"), "%" + recado.getRemetente() + "%"));
 		}
-		criteriaQuery.select(rootRecado).where(predicates.toArray(new Predicate[] {}));
+		criteriaQuery.select(rootRecado).where(predicateList.toArray(new Predicate[] {}));
 
 		List<Recado> list = entityManager.createQuery(criteriaQuery).getResultList();
 		entityTransaction.commit();

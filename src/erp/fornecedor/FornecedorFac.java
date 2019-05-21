@@ -6,10 +6,6 @@ public final class FornecedorFac {
 
 	private static final FornecedorDao fornecedorDao = new FornecedorImp();
 
-	public static Fornecedor consultarRegistro(Fornecedor fornecedor) {
-		return fornecedorDao.consultarRegistro(fornecedor);
-	}
-
 	public static void deletarRegistro(Fornecedor fornecedor) {
 		fornecedorDao.deletarRegistro(fornecedor);
 	}
