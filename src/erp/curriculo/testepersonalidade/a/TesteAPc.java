@@ -457,7 +457,7 @@ public final class TesteAPc extends JPanel implements Gui {
 
 	@Override
 	public void iniciarLayout() {
-		setBorder(BorderFactory.createTitledBorder("CARACTERÍSTICAS"));
+		setBorder(BorderFactory.createTitledBorder("TESTE DE PREFERÊNCIA CEREBRAL"));
 		setLayout(new SpringLayout());
 	}
 

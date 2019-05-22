@@ -17,7 +17,7 @@ public class TesteARel {
 	private String arquivo = "testeA.pdf";
 	private Document document = new Document();
 	private Relatorio relatorio = new Relatorio();
-	private String titulo = "CARACTERÍSTICAS";
+	private String titulo = "TESTE - AVALIAÇÃO DE PREFERÊNCIA CEREBRAL";
 	private PdfWriter writer = null;
 
 	public TesteARel(List<TesteA> testeAs) {

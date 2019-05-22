@@ -182,12 +182,6 @@ final class TesteACont {
 
 				if (mensagem == JOptionPane.YES_OPTION) {
 					atualizarObjeto();
-					System.out.println(testeA.getTotalOpcaoA());
-					System.out.println(testeA.getTotalOpcaoI());
-					System.out.println(testeA.getTotalOpcaoO());
-					System.out.println(testeA.getTotalOpcaoC());
-					System.out.println(testeA.getFuncionario());
-			
 					TesteAFac.salvarRegistro(testeA);
 					testeA = new TesteA();
 					getTesteAFc().limparGui();

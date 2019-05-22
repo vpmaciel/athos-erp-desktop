@@ -101,16 +101,16 @@ final class TesteAImp implements TesteADao {
 				predicateList.add(criteriaBuilder.equal(rootTesteA.get("funcionario"), testeA.getFuncionario()));
 			}
 			if (testeA.getTotalOpcaoA() != null) {
-				predicateList.add(criteriaBuilder.equal(rootTesteA.get("totalOpcaoA"), testeA.getTotalOpcaoA()));
+				predicateList.add(criteriaBuilder.greaterThanOrEqualTo(rootTesteA.get("totalOpcaoA"), testeA.getTotalOpcaoA()));
 			}
 			if (testeA.getTotalOpcaoC() != null) {
-				predicateList.add(criteriaBuilder.equal(rootTesteA.get("totalOpcaoC"), testeA.getTotalOpcaoC()));
+				predicateList.add(criteriaBuilder.greaterThanOrEqualTo(rootTesteA.get("totalOpcaoC"), testeA.getTotalOpcaoC()));
 			}
 			if (testeA.getTotalOpcaoI() != null) {
-				predicateList.add(criteriaBuilder.equal(rootTesteA.get("totalOpcaoI"), testeA.getTotalOpcaoI()));
+				predicateList.add(criteriaBuilder.greaterThanOrEqualTo(rootTesteA.get("totalOpcaoI"), testeA.getTotalOpcaoI()));
 			}
 			if (testeA.getTotalOpcaoO() != null) {
-				predicateList.add(criteriaBuilder.equal(rootTesteA.get("totalOpcaoO"), testeA.getTotalOpcaoO()));
+				predicateList.add(criteriaBuilder.greaterThanOrEqualTo(rootTesteA.get("totalOpcaoO"), testeA.getTotalOpcaoO()));
 			}
 			criteriaQuery.select(rootTesteA).where(predicateList.toArray(new Predicate[] {}));
 			testeAList = entityManager.createQuery(criteriaQuery).getResultList();

@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.List;
 
 import javax.swing.BorderFactory;
+import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -23,119 +24,120 @@ import erp.main.MainCont;
 @SuppressWarnings("serial")
 public final class TesteCPc extends JPanel implements Gui {
 
-	private JComboBox<String> boxAdequado;
-	private JComboBox<String> boxAgil;
-	private JComboBox<String> boxAgitado;
-	private JComboBox<String> boxAlegre;
-	private JComboBox<String> boxAmavel;
-	private JComboBox<String> boxAnalitico;
-	private JComboBox<String> boxAnimado;
-	private JComboBox<String> boxAnsioso;
-	private JComboBox<String> boxApatico;
-	private JComboBox<String> boxArticulado;
-	private JComboBox<String> boxAssumeRiscosCalculados;
-	private JComboBox<String> boxAtencioso;
-	private JComboBox<String> boxAtivo;
-	private JComboBox<String> boxAutoconfiante;
-	private JComboBox<String> boxAventureiro;
-	private JComboBox<String> boxBemHumorado;
-	private JComboBox<String> boxCalmo;
-	private JComboBox<String> boxCarismatico;
-	private JComboBox<String> boxCauteloso;
-	private JComboBox<String> boxCompetitivo;
-	private JComboBox<String> boxCompreensivo;
-	private JComboBox<String> boxConciliador;
-	private JComboBox<String> boxContido;
-	private JComboBox<String> boxConvencional;
-	private JComboBox<String> boxConvincente;
-	private JComboBox<String> boxCortes;
-	private JComboBox<String> boxCuidadoso;
-	private JComboBox<String> boxDecidido;
-	private JComboBox<String> boxDedicado;
-	private JComboBox<String> boxDependente;
-	private JComboBox<String> boxDesconfiado;
-	private JComboBox<String> boxDescrente;
-	private JComboBox<String> boxDesencanado;
-	private JComboBox<String> boxDesligado;
-	private JComboBox<String> boxDesprendido;
-	private JComboBox<String> boxDespretensioso;
-	private JComboBox<String> boxDestemido;
-	private JComboBox<String> boxDeterminado;
-	private JComboBox<String> boxDiplomatico;
-	private JComboBox<String> boxDireto;
-	private JComboBox<String> boxDisciplinado;
-	private JComboBox<String> boxDiscreto;
-	private JComboBox<String> boxDisponivel;
-	private JComboBox<String> boxDivertido;
-	private JComboBox<String> boxDominador;
-	private JComboBox<String> boxEgocentrico;
-	private JComboBox<String> boxEmpolgado;
-	private JComboBox<String> boxEncantador;
-	private JComboBox<String> boxEnergico;
-	private JComboBox<String> boxEspontaneo;
-	private JComboBox<String> boxEstavel;
-	private JComboBox<String> boxExigente;
-	private JComboBox<String> boxExpansivo;
-	private JComboBox<String> boxExpressivo;
-	private JComboBox<String> boxExtrovertido;
-	private JComboBox<String> boxFechado;
-	private JComboBox<String> boxFirme;
 	private JComboBox<Funcionario> boxFuncionario;
-	private JComboBox<String> boxGostaDeSeArriscar;
-	private JComboBox<String> boxHumilde;
-	private JComboBox<String> boxImpulsivo;
-	private JComboBox<String> boxIncerto;
-	private JComboBox<String> boxIndependente;
-	private JComboBox<String> boxIndiferente;
-	private JComboBox<String> boxInfluente;
-	private JComboBox<String> boxInquieto;
-	private JComboBox<String> boxInspirador;
-	private JComboBox<String> boxInteressado;
-	private JComboBox<String> boxIntrospectivo;
-	private JComboBox<String> boxJusto;
-	private JComboBox<String> boxLeal;
-	private JComboBox<String> boxLiberal;
-	private JComboBox<String> boxLivre;
-	private JComboBox<String> boxLogico;
-	private JComboBox<String> boxMaleavel;
-	private JComboBox<String> boxMenteAberta;
-	private JComboBox<String> boxMeticuloso;
-	private JComboBox<String> boxObediente;
-	private JComboBox<String> boxObjetivo;
-	private JComboBox<String> boxObservador;
-	private JComboBox<String> boxObstinado;
-	private JComboBox<String> boxOriginal;
-	private JComboBox<String> boxOusado;
-	private JComboBox<String> boxPaciente;
-	private JComboBox<String> boxPacifico;
-	private JComboBox<String> boxPassivo;
-	private JComboBox<String> boxPerfeccionista;
-	private JComboBox<String> boxPersistente;
-	private JComboBox<String> boxPersuasivo;
-	private JComboBox<String> boxPessimista;
-	private JComboBox<String> boxPonderado;
-	private JComboBox<String> boxPratico;
-	private JComboBox<String> boxPrecavido;
-	private JComboBox<String> boxPreciso;
-	private JComboBox<String> boxPreocupado;
-	private JComboBox<String> boxPrevenido;
-	private JComboBox<String> boxPrevisivel;
-	private JComboBox<String> boxRealista;
-	private JComboBox<String> boxRebelde;
-	private JComboBox<String> boxReceoso;
-	private JComboBox<String> boxReservado;
-	private JComboBox<String> boxRespeitoso;
-	private JComboBox<String> boxSarcastico;
-	private JComboBox<String> boxSeguro;
-	private JComboBox<String> boxSemLimites;
-	private JComboBox<String> boxSensato;
-	private JComboBox<String> boxSereno;
-	private JComboBox<String> boxSerio;
-	private JComboBox<String> boxSimpatico;
-	private JComboBox<String> boxSistematico;
-	private JComboBox<String> boxSociavel;
-	private JComboBox<String> boxTeimoso;
-	private JComboBox<String> boxVersatil;
+	private JCheckBox boxQuestaoD1;
+	private JCheckBox boxQuestaoD2;
+	private JCheckBox boxQuestaoD3;
+	private JCheckBox boxQuestaoD4;
+	private JCheckBox boxQuestaoD5;
+	private JCheckBox boxQuestaoD6;
+	private JCheckBox boxQuestaoD7;
+	private JCheckBox boxQuestaoD8;
+	private JCheckBox boxQuestaoD9;
+	private JCheckBox boxQuestaoD10;
+	private JCheckBox boxQuestaoD11;
+	private JCheckBox boxQuestaoD12;
+	private JCheckBox boxQuestaoD13;
+	private JCheckBox boxQuestaoD14;
+	private JCheckBox boxQuestaoD15;
+	private JCheckBox boxQuestaoD16;
+	private JCheckBox boxQuestaoD17;
+	private JCheckBox boxQuestaoD18;
+	private JCheckBox boxQuestaoD19;
+	private JCheckBox boxQuestaoD20;
+	private JCheckBox boxQuestaoD21;
+	private JCheckBox boxQuestaoD22;
+	private JCheckBox boxQuestaoD23;
+	private JCheckBox boxQuestaoD24;
+	private JCheckBox boxQuestaoD25;
+	private JCheckBox boxQuestaoD26;
+	private JCheckBox boxQuestaoD27;
+	private JCheckBox boxQuestaoD28;
+	private JCheckBox boxQuestaoI1;
+	private JCheckBox boxQuestaoI2;
+	private JCheckBox boxQuestaoI3;
+	private JCheckBox boxQuestaoI4;
+	private JCheckBox boxQuestaoI5;
+	private JCheckBox boxQuestaoI6;
+	private JCheckBox boxQuestaoI7;
+	private JCheckBox boxQuestaoI8;
+	private JCheckBox boxQuestaoI9;
+	private JCheckBox boxQuestaoI10;
+	private JCheckBox boxQuestaoI11;
+	private JCheckBox boxQuestaoI12;
+	private JCheckBox boxQuestaoI13;
+	private JCheckBox boxQuestaoI14;
+	private JCheckBox boxQuestaoI15;
+	private JCheckBox boxQuestaoI16;
+	private JCheckBox boxQuestaoI17;
+	private JCheckBox boxQuestaoI18;
+	private JCheckBox boxQuestaoI19;
+	private JCheckBox boxQuestaoI20;
+	private JCheckBox boxQuestaoI21;
+	private JCheckBox boxQuestaoI22;
+	private JCheckBox boxQuestaoI23;
+	private JCheckBox boxQuestaoI24;
+	private JCheckBox boxQuestaoI25;
+	private JCheckBox boxQuestaoI26;
+	private JCheckBox boxQuestaoI27;
+	private JCheckBox boxQuestaoI28;
+	private JCheckBox boxQuestaoS1;
+	private JCheckBox boxQuestaoS2;
+	private JCheckBox boxQuestaoS3;
+	private JCheckBox boxQuestaoS4;
+	private JCheckBox boxQuestaoS5;
+	private JCheckBox boxQuestaoS6;
+	private JCheckBox boxQuestaoS7;
+	private JCheckBox boxQuestaoS8;
+	private JCheckBox boxQuestaoS9;
+	private JCheckBox boxQuestaoS10;
+	private JCheckBox boxQuestaoS11;
+	private JCheckBox boxQuestaoS12;
+	private JCheckBox boxQuestaoS13;
+	private JCheckBox boxQuestaoS14;
+	private JCheckBox boxQuestaoS15;
+	private JCheckBox boxQuestaoS16;
+	private JCheckBox boxQuestaoS17;
+	private JCheckBox boxQuestaoS18;
+	private JCheckBox boxQuestaoS19;
+	private JCheckBox boxQuestaoS20;
+	private JCheckBox boxQuestaoS21;
+	private JCheckBox boxQuestaoS22;
+	private JCheckBox boxQuestaoS23;
+	private JCheckBox boxQuestaoS24;
+	private JCheckBox boxQuestaoS25;
+	private JCheckBox boxQuestaoS26;
+	private JCheckBox boxQuestaoS27;
+	private JCheckBox boxQuestaoS28;
+	private JCheckBox boxQuestaoC1;
+	private JCheckBox boxQuestaoC2;
+	private JCheckBox boxQuestaoC3;
+	private JCheckBox boxQuestaoC4;
+	private JCheckBox boxQuestaoC5;
+	private JCheckBox boxQuestaoC6;
+	private JCheckBox boxQuestaoC7;
+	private JCheckBox boxQuestaoC8;
+	private JCheckBox boxQuestaoC9;
+	private JCheckBox boxQuestaoC10;
+	private JCheckBox boxQuestaoC11;
+	private JCheckBox boxQuestaoC12;
+	private JCheckBox boxQuestaoC13;
+	private JCheckBox boxQuestaoC14;
+	private JCheckBox boxQuestaoC15;
+	private JCheckBox boxQuestaoC16;
+	private JCheckBox boxQuestaoC17;
+	private JCheckBox boxQuestaoC18;
+	private JCheckBox boxQuestaoC19;
+	private JCheckBox boxQuestaoC20;
+	private JCheckBox boxQuestaoC21;
+	private JCheckBox boxQuestaoC22;
+	private JCheckBox boxQuestaoC23;
+	private JCheckBox boxQuestaoC24;
+	private JCheckBox boxQuestaoC25;
+	private JCheckBox boxQuestaoC26;
+	private JCheckBox boxQuestaoC27;
+	private JCheckBox boxQuestaoC28;
+
 	private ConfiguracaoGui configuracaoGui;
 	private JLabel labelFuncionario;
 	private ToolBar toolBar;
@@ -152,465 +154,461 @@ public final class TesteCPc extends JPanel implements Gui {
 
 	}
 
-	public JComboBox<String> getBancoGui() {
-		return boxSimpatico;
-	}
-
 	@Override
 	public ConfiguracaoGui getConfiguracaoGui() {
 		return configuracaoGui;
-	}
-
-	public JComboBox<String> getGuiAdequado() {
-		return boxAdequado;
-	}
-
-	public JComboBox<String> getGuiAgil() {
-		return boxAgil;
-	}
-
-	public JComboBox<String> getGuiAgitado() {
-		return boxAgitado;
-	}
-
-	public JComboBox<String> getGuiAlegre() {
-		return boxAlegre;
-	}
-
-	public JComboBox<String> getGuiAmavel() {
-		return boxAmavel;
-	}
-
-	public JComboBox<String> getGuiAnalitico() {
-		return boxAnalitico;
-	}
-
-	public JComboBox<String> getGuiAnimado() {
-		return boxAnimado;
-	}
-
-	public JComboBox<String> getGuiAnsioso() {
-		return boxAnsioso;
-	}
-
-	public JComboBox<String> getGuiApatico() {
-		return boxApatico;
-	}
-
-	public JComboBox<String> getGuiArticulado() {
-		return boxArticulado;
-	}
-
-	public JComboBox<String> getGuiAssumeRiscosCalculados() {
-		return boxAssumeRiscosCalculados;
-	}
-
-	public JComboBox<String> getGuiAtencioso() {
-		return boxAtencioso;
-	}
-
-	public JComboBox<String> getGuiAtivo() {
-		return boxAtivo;
-	}
-
-	public JComboBox<String> getGuiAutoConfiante() {
-		return boxAutoconfiante;
-	}
-
-	public JComboBox<String> getGuiAventureiro() {
-		return boxAventureiro;
-	}
-
-	public JComboBox<String> getGuiBemHumorado() {
-		return boxBemHumorado;
-	}
-
-	public JComboBox<String> getGuiCalmo() {
-		return boxCalmo;
-	}
-
-	public JComboBox<String> getGuiCarismatico() {
-		return boxCarismatico;
-	}
-
-	public JComboBox<String> getGuiCauteloso() {
-		return boxCauteloso;
-	}
-
-	public JComboBox<String> getGuiCompetitivo() {
-		return boxCompetitivo;
-	}
-
-	public JComboBox<String> getGuiCompreensivo() {
-		return boxCompreensivo;
-	}
-
-	public JComboBox<String> getGuiConciliador() {
-		return boxConciliador;
-	}
-
-	public JComboBox<String> getGuiContido() {
-		return boxContido;
-	}
-
-	public JComboBox<String> getGuiConvencional() {
-		return boxConvencional;
-	}
-
-	public JComboBox<String> getGuiConvincente() {
-		return boxConvincente;
-	}
-
-	public JComboBox<String> getGuiCortes() {
-		return boxCortes;
-	}
-
-	public JComboBox<String> getGuiCuidadoso() {
-		return boxCuidadoso;
-	}
-
-	public JComboBox<String> getGuiDecidido() {
-		return boxDecidido;
-	}
-
-	public JComboBox<String> getGuiDedicado() {
-		return boxDedicado;
-	}
-
-	public JComboBox<String> getGuiDependente() {
-		return boxDependente;
-	}
-
-	public JComboBox<String> getGuiDesconfiado() {
-		return boxDesconfiado;
-	}
-
-	public JComboBox<String> getGuiDescrente() {
-		return boxDescrente;
-	}
-
-	public JComboBox<String> getGuiDesencanado() {
-		return boxDesencanado;
-	}
-
-	public JComboBox<String> getGuiDesligado() {
-		return boxDesligado;
-	}
-
-	public JComboBox<String> getGuiDesprendido() {
-		return boxDesprendido;
-	}
-
-	public JComboBox<String> getGuiDespretensioso() {
-		return boxDespretensioso;
-	}
-
-	public JComboBox<String> getGuiDestemido() {
-		return boxDestemido;
-	}
-
-	public JComboBox<String> getGuiDeterminado() {
-		return boxDeterminado;
-	}
-
-	public JComboBox<String> getGuiDiplomatico() {
-		return boxDiplomatico;
-	}
-
-	public JComboBox<String> getGuiDireto() {
-		return boxDireto;
-	}
-
-	public JComboBox<String> getGuiDisciplinado() {
-		return boxDisciplinado;
-	}
-
-	public JComboBox<String> getGuiDiscreto() {
-		return boxDiscreto;
-	}
-
-	public JComboBox<String> getGuiDisponivel() {
-		return boxDisponivel;
-	}
-
-	public JComboBox<String> getGuiDivertido() {
-		return boxDivertido;
-	}
-
-	public JComboBox<String> getGuiDominador() {
-		return boxDominador;
-	}
-
-	public JComboBox<String> getGuiEgocentrico() {
-		return boxEgocentrico;
-	}
-
-	public JComboBox<String> getGuiEmpolgado() {
-		return boxEmpolgado;
-	}
-
-	public JComboBox<String> getGuiEncantador() {
-		return boxEncantador;
-	}
-
-	public JComboBox<String> getGuiEnergico() {
-		return boxEnergico;
-	}
-
-	public JComboBox<String> getGuiEspontaneo() {
-		return boxEspontaneo;
-	}
-
-	public JComboBox<String> getGuiEstavel() {
-		return boxEstavel;
-	}
-
-	public JComboBox<String> getGuiExigente() {
-		return boxExigente;
-	}
-
-	public JComboBox<String> getGuiExpansivo() {
-		return boxExpansivo;
-	}
-
-	public JComboBox<String> getGuiExpressivo() {
-		return boxExpressivo;
-	}
-
-	public JComboBox<String> getGuiExtrovertido() {
-		return boxExtrovertido;
-	}
-
-	public JComboBox<String> getGuiFechado() {
-		return boxFechado;
-	}
-
-	public JComboBox<String> getGuiFirme() {
-		return boxFirme;
 	}
 
 	public JComboBox<Funcionario> getGuiFuncionario() {
 		return boxFuncionario;
 	}
 
-	public JComboBox<String> getGuiGostaDeSeArriscar() {
-		return boxGostaDeSeArriscar;
+	public JCheckBox getGuiQuestaoD1() {
+		return boxQuestaoD1;
 	}
 
-	public JComboBox<String> getGuiHumilde() {
-		return boxHumilde;
+	public JCheckBox getGuiQuestaoD2() {
+		return boxQuestaoD2;
 	}
 
-	public JComboBox<String> getGuiImpulsivo() {
-		return boxImpulsivo;
+	public JCheckBox getGuiQuestaoD3() {
+		return boxQuestaoD3;
 	}
 
-	public JComboBox<String> getGuiIncerto() {
-		return boxIncerto;
+	public JCheckBox getGuiQuestaoD4() {
+		return boxQuestaoD4;
 	}
 
-	public JComboBox<String> getGuiIndependente() {
-		return boxIndependente;
+	public JCheckBox getGuiQuestaoD5() {
+		return boxQuestaoD5;
 	}
 
-	public JComboBox<String> getGuiIndiferente() {
-		return boxIndiferente;
+	public JCheckBox getGuiQuestaoD6() {
+		return boxQuestaoD6;
 	}
 
-	public JComboBox<String> getGuiInfluente() {
-		return boxInfluente;
+	public JCheckBox getGuiQuestaoD7() {
+		return boxQuestaoD7;
 	}
 
-	public JComboBox<String> getGuiInquieto() {
-		return boxInquieto;
+	public JCheckBox getGuiQuestaoD8() {
+		return boxQuestaoD8;
 	}
 
-	public JComboBox<String> getGuiInspirador() {
-		return boxInspirador;
+	public JCheckBox getGuiQuestaoD9() {
+		return boxQuestaoD9;
 	}
 
-	public JComboBox<String> getGuiInteressado() {
-		return boxInteressado;
+	public JCheckBox getGuiQuestaoD10() {
+		return boxQuestaoD10;
 	}
 
-	public JComboBox<String> getGuiIntrospectivo() {
-		return boxIntrospectivo;
+	public JCheckBox getGuiQuestaoD11() {
+		return boxQuestaoD11;
 	}
 
-	public JComboBox<String> getGuiJusto() {
-		return boxJusto;
+	public JCheckBox getGuiQuestaoD12() {
+		return boxQuestaoD12;
 	}
 
-	public JComboBox<String> getGuiLeal() {
-		return boxLeal;
+	public JCheckBox getGuiQuestaoD13() {
+		return boxQuestaoD13;
 	}
 
-	public JComboBox<String> getGuiLiberal() {
-		return boxLiberal;
+	public JCheckBox getGuiQuestaoD14() {
+		return boxQuestaoD14;
 	}
 
-	public JComboBox<String> getGuiLivre() {
-		return boxLivre;
+	public JCheckBox getGuiQuestaoD15() {
+		return boxQuestaoD15;
 	}
 
-	public JComboBox<String> getGuiLogico() {
-		return boxLogico;
+	public JCheckBox getGuiQuestaoD16() {
+		return boxQuestaoD16;
 	}
 
-	public JComboBox<String> getGuiMaleavel() {
-		return boxMaleavel;
+	public JCheckBox getGuiQuestaoD17() {
+		return boxQuestaoD17;
 	}
 
-	public JComboBox<String> getGuiMenteAberta() {
-		return boxMenteAberta;
+	public JCheckBox getGuiQuestaoD18() {
+		return boxQuestaoD18;
 	}
 
-	public JComboBox<String> getGuiMeticuloso() {
-		return boxMeticuloso;
+	public JCheckBox getGuiQuestaoD19() {
+		return boxQuestaoD19;
 	}
 
-	public JComboBox<String> getGuiObediente() {
-		return boxObediente;
+	public JCheckBox getGuiQuestaoD20() {
+		return boxQuestaoD20;
 	}
 
-	public JComboBox<String> getGuiObjetivo() {
-		return boxObjetivo;
+	public JCheckBox getGuiQuestaoD21() {
+		return boxQuestaoD21;
 	}
 
-	public JComboBox<String> getGuiObservador() {
-		return boxObservador;
+	public JCheckBox getGuiQuestaoD22() {
+		return boxQuestaoD22;
 	}
 
-	public JComboBox<String> getGuiObstinado() {
-		return boxObstinado;
+	public JCheckBox getGuiQuestaoD23() {
+		return boxQuestaoD23;
 	}
 
-	public JComboBox<String> getGuiOriginal() {
-		return boxOriginal;
+	public JCheckBox getGuiQuestaoD24() {
+		return boxQuestaoD24;
 	}
 
-	public JComboBox<String> getGuiOusado() {
-		return boxOusado;
+	public JCheckBox getGuiQuestaoD25() {
+		return boxQuestaoD25;
 	}
 
-	public JComboBox<String> getGuiPaciente() {
-		return boxPaciente;
+	public JCheckBox getGuiQuestaoD26() {
+		return boxQuestaoD26;
 	}
 
-	public JComboBox<String> getGuiPacifico() {
-		return boxPacifico;
+	public JCheckBox getGuiQuestaoD27() {
+		return boxQuestaoD27;
 	}
 
-	public JComboBox<String> getGuiPassivo() {
-		return boxPassivo;
+	public JCheckBox getGuiQuestaoD28() {
+		return boxQuestaoD28;
 	}
 
-	public JComboBox<String> getGuiPerfeccionista() {
-		return boxPerfeccionista;
+	public JCheckBox getGuiQuestaoI1() {
+		return boxQuestaoI1;
 	}
 
-	public JComboBox<String> getGuiPersistente() {
-		return boxPersistente;
+	public JCheckBox getGuiQuestaoI2() {
+		return boxQuestaoI2;
 	}
 
-	public JComboBox<String> getGuiPersuasivo() {
-		return boxPersuasivo;
+	public JCheckBox getGuiQuestaoI3() {
+		return boxQuestaoI3;
 	}
 
-	public JComboBox<String> getGuiPessimista() {
-		return boxPessimista;
+	public JCheckBox getGuiQuestaoI4() {
+		return boxQuestaoI4;
 	}
 
-	public JComboBox<String> getGuiPonderado() {
-		return boxPonderado;
+	public JCheckBox getGuiQuestaoI5() {
+		return boxQuestaoI5;
 	}
 
-	public JComboBox<String> getGuiPratico() {
-		return boxPratico;
+	public JCheckBox getGuiQuestaoI6() {
+		return boxQuestaoI6;
 	}
 
-	public JComboBox<String> getGuiPrecavido() {
-		return boxPrecavido;
+	public JCheckBox getGuiQuestaoI7() {
+		return boxQuestaoI7;
 	}
 
-	public JComboBox<String> getGuiPreciso() {
-		return boxPreciso;
+	public JCheckBox getGuiQuestaoI8() {
+		return boxQuestaoI8;
 	}
 
-	public JComboBox<String> getGuiPreocupado() {
-		return boxPreocupado;
+	public JCheckBox getGuiQuestaoI9() {
+		return boxQuestaoI9;
 	}
 
-	public JComboBox<String> getGuiPrevenido() {
-		return boxPrevenido;
+	public JCheckBox getGuiQuestaoI10() {
+		return boxQuestaoI10;
 	}
 
-	public JComboBox<String> getGuiPrevisivel() {
-		return boxPrevisivel;
+	public JCheckBox getGuiQuestaoI11() {
+		return boxQuestaoI11;
 	}
 
-	public JComboBox<String> getGuiRealista() {
-		return boxRealista;
+	public JCheckBox getGuiQuestaoI12() {
+		return boxQuestaoI12;
 	}
 
-	public JComboBox<String> getGuiRebelde() {
-		return boxRebelde;
+	public JCheckBox getGuiQuestaoI13() {
+		return boxQuestaoI13;
 	}
 
-	public JComboBox<String> getGuiReceoso() {
-		return boxReceoso;
+	public JCheckBox getGuiQuestaoI14() {
+		return boxQuestaoI14;
 	}
 
-	public JComboBox<String> getGuiReservado() {
-		return boxReservado;
+	public JCheckBox getGuiQuestaoI15() {
+		return boxQuestaoI15;
 	}
 
-	public JComboBox<String> getGuiRespeitoso() {
-		return boxRespeitoso;
+	public JCheckBox getGuiQuestaoI16() {
+		return boxQuestaoI16;
 	}
 
-	public JComboBox<String> getGuiSarcastico() {
-		return boxSarcastico;
+	public JCheckBox getGuiQuestaoI17() {
+		return boxQuestaoI17;
 	}
 
-	public JComboBox<String> getGuiSeguro() {
-		return boxSeguro;
+	public JCheckBox getGuiQuestaoI18() {
+		return boxQuestaoI18;
 	}
 
-	public JComboBox<String> getGuiSemLimites() {
-		return boxSemLimites;
+	public JCheckBox getGuiQuestaoI19() {
+		return boxQuestaoI19;
 	}
 
-	public JComboBox<String> getGuiSensato() {
-		return boxSensato;
+	public JCheckBox getGuiQuestaoI20() {
+		return boxQuestaoI20;
 	}
 
-	public JComboBox<String> getGuiSereno() {
-		return boxSereno;
+	public JCheckBox getGuiQuestaoI21() {
+		return boxQuestaoI21;
 	}
 
-	public JComboBox<String> getGuiSerio() {
-		return boxSerio;
+	public JCheckBox getGuiQuestaoI22() {
+		return boxQuestaoI22;
 	}
 
-	public JComboBox<String> getGuiSimpatico() {
-		return boxSimpatico;
+	public JCheckBox getGuiQuestaoI23() {
+		return boxQuestaoI23;
 	}
 
-	public JComboBox<String> getGuiSistematico() {
-		return boxSistematico;
+	public JCheckBox getGuiQuestaoI24() {
+		return boxQuestaoI24;
 	}
 
-	public JComboBox<String> getGuiSociavel() {
-		return boxSociavel;
+	public JCheckBox getGuiQuestaoI25() {
+		return boxQuestaoI25;
 	}
 
-	public JComboBox<String> getGuiTeimoso() {
-		return boxTeimoso;
+	public JCheckBox getGuiQuestaoI26() {
+		return boxQuestaoI26;
 	}
 
-	public JComboBox<String> getGuiVersatil() {
-		return boxVersatil;
+	public JCheckBox getGuiQuestaoI27() {
+		return boxQuestaoI27;
+	}
+
+	public JCheckBox getGuiQuestaoI28() {
+		return boxQuestaoI28;
+	}
+
+	public JCheckBox getGuiQuestaoS1() {
+		return boxQuestaoS1;
+	}
+
+	public JCheckBox getGuiQuestaoS2() {
+		return boxQuestaoS2;
+	}
+
+	public JCheckBox getGuiQuestaoS3() {
+		return boxQuestaoS3;
+	}
+
+	public JCheckBox getGuiQuestaoS4() {
+		return boxQuestaoS4;
+	}
+
+	public JCheckBox getGuiQuestaoS5() {
+		return boxQuestaoS5;
+	}
+
+	public JCheckBox getGuiQuestaoS6() {
+		return boxQuestaoS6;
+	}
+
+	public JCheckBox getGuiQuestaoS7() {
+		return boxQuestaoS7;
+	}
+
+	public JCheckBox getGuiQuestaoS8() {
+		return boxQuestaoS8;
+	}
+
+	public JCheckBox getGuiQuestaoS9() {
+		return boxQuestaoS9;
+	}
+
+	public JCheckBox getGuiQuestaoS10() {
+		return boxQuestaoS10;
+	}
+
+	public JCheckBox getGuiQuestaoS11() {
+		return boxQuestaoS11;
+	}
+
+	public JCheckBox getGuiQuestaoS12() {
+		return boxQuestaoS12;
+	}
+
+	public JCheckBox getGuiQuestaoS13() {
+		return boxQuestaoS13;
+	}
+
+	public JCheckBox getGuiQuestaoS14() {
+		return boxQuestaoS14;
+	}
+
+	public JCheckBox getGuiQuestaoS15() {
+		return boxQuestaoS15;
+	}
+
+	public JCheckBox getGuiQuestaoS16() {
+		return boxQuestaoS16;
+	}
+
+	public JCheckBox getGuiQuestaoS17() {
+		return boxQuestaoS17;
+	}
+
+	public JCheckBox getGuiQuestaoS18() {
+		return boxQuestaoS18;
+	}
+
+	public JCheckBox getGuiQuestaoS19() {
+		return boxQuestaoS19;
+	}
+
+	public JCheckBox getGuiQuestaoS20() {
+		return boxQuestaoS20;
+	}
+
+	public JCheckBox getGuiQuestaoS21() {
+		return boxQuestaoS21;
+	}
+
+	public JCheckBox getGuiQuestaoS22() {
+		return boxQuestaoS22;
+	}
+
+	public JCheckBox getGuiQuestaoS23() {
+		return boxQuestaoS23;
+	}
+
+	public JCheckBox getGuiQuestaoS24() {
+		return boxQuestaoS24;
+	}
+
+	public JCheckBox getGuiQuestaoS25() {
+		return boxQuestaoS25;
+	}
+
+	public JCheckBox getGuiQuestaoS26() {
+		return boxQuestaoS26;
+	}
+
+	public JCheckBox getGuiQuestaoS27() {
+		return boxQuestaoS27;
+	}
+
+	public JCheckBox getGuiQuestaoS28() {
+		return boxQuestaoS28;
+	}
+
+	public JCheckBox getGuiQuestaoC1() {
+		return boxQuestaoC1;
+	}
+
+	public JCheckBox getGuiQuestaoC2() {
+		return boxQuestaoC2;
+	}
+
+	public JCheckBox getGuiQuestaoC3() {
+		return boxQuestaoC3;
+	}
+
+	public JCheckBox getGuiQuestaoC4() {
+		return boxQuestaoC4;
+	}
+
+	public JCheckBox getGuiQuestaoC5() {
+		return boxQuestaoC5;
+	}
+
+	public JCheckBox getGuiQuestaoC6() {
+		return boxQuestaoC6;
+	}
+
+	public JCheckBox getGuiQuestaoC7() {
+		return boxQuestaoC7;
+	}
+
+	public JCheckBox getGuiQuestaoC8() {
+		return boxQuestaoC8;
+	}
+
+	public JCheckBox getGuiQuestaoC9() {
+		return boxQuestaoC9;
+	}
+
+	public JCheckBox getGuiQuestaoC10() {
+		return boxQuestaoC10;
+	}
+
+	public JCheckBox getGuiQuestaoC11() {
+		return boxQuestaoC11;
+	}
+
+	public JCheckBox getGuiQuestaoC12() {
+		return boxQuestaoC12;
+	}
+
+	public JCheckBox getGuiQuestaoC13() {
+		return boxQuestaoC13;
+	}
+
+	public JCheckBox getGuiQuestaoC14() {
+		return boxQuestaoC14;
+	}
+
+	public JCheckBox getGuiQuestaoC15() {
+		return boxQuestaoC15;
+	}
+
+	public JCheckBox getGuiQuestaoC16() {
+		return boxQuestaoC16;
+	}
+
+	public JCheckBox getGuiQuestaoC17() {
+		return boxQuestaoC17;
+	}
+
+	public JCheckBox getGuiQuestaoC18() {
+		return boxQuestaoC18;
+	}
+
+	public JCheckBox getGuiQuestaoC19() {
+		return boxQuestaoC19;
+	}
+
+	public JCheckBox getGuiQuestaoC20() {
+		return boxQuestaoC20;
+	}
+
+	public JCheckBox getGuiQuestaoC21() {
+		return boxQuestaoC21;
+	}
+
+	public JCheckBox getGuiQuestaoC22() {
+		return boxQuestaoC22;
+	}
+
+	public JCheckBox getGuiQuestaoC23() {
+		return boxQuestaoC23;
+	}
+
+	public JCheckBox getGuiQuestaoC24() {
+		return boxQuestaoC24;
+	}
+
+	public JCheckBox getGuiQuestaoC25() {
+		return boxQuestaoC25;
+	}
+
+	public JCheckBox getGuiQuestaoC26() {
+		return boxQuestaoC26;
+	}
+
+	public JCheckBox getGuiQuestaoC27() {
+		return boxQuestaoC27;
+	}
+
+	public JCheckBox getGuiQuestaoC28() {
+		return boxQuestaoC28;
 	}
 
 	public JLabel getLabelFuncionario() {
@@ -653,904 +651,346 @@ public final class TesteCPc extends JPanel implements Gui {
 
 		add(boxFuncionario);
 
-		add(new JLabel("ADEQUADO"));
-
-		boxAdequado = new JComboBox<String>();
-		boxAdequado.addItem("");
-		boxAdequado.addItem("SIM");
-		boxAdequado.addItem("NÃO");
-		add(boxAdequado);
+		add(new JLabel("QUAIS PALAVRAS MELHOR SE ENCAIXA A SUA CARACTERÍSTICA PESSOAL"));
 
-		add(new JLabel("ÁGIL"));
-
-		boxAgil = new JComboBox<String>();
-		boxAgil.addItem("");
-		boxAgil.addItem("SIM");
-		boxAgil.addItem("NÃO");
-		add(boxAgil);
+		boxQuestaoD1 = new JCheckBox("MODESTO");
+		add(boxQuestaoD1);
 
-		add(new JLabel("AGITADO"));
-
-		boxAgitado = new JComboBox<String>();
-		boxAgitado.addItem("");
-		boxAgitado.addItem("SIM");
-		boxAgitado.addItem("NÃO");
-		add(boxAgitado);
+		boxQuestaoD2 = new JCheckBox("DEPENDENTES");
+		add(boxQuestaoD2);
 
-		add(new JLabel("ALEGRE"));
-
-		boxAlegre = new JComboBox<String>();
-		boxAlegre.addItem("");
-		boxAlegre.addItem("SIM");
-		boxAlegre.addItem("NÃO");
-		add(boxAlegre);
+		boxQuestaoD3 = new JCheckBox("INSEGURO");
+		add(boxQuestaoD3);
 
-		add(new JLabel("AMÁVEL"));
-
-		boxAmavel = new JComboBox<String>();
-		boxAmavel.addItem("");
-		boxAmavel.addItem("SIM");
-		boxAmavel.addItem("NÃO");
-		add(boxAmavel);
+		boxQuestaoD4 = new JCheckBox("QUIET");
+		add(boxQuestaoD4);
 
-		add(new JLabel("ANALÍTICO"));
-
-		boxAnalitico = new JComboBox<String>();
-		boxAnalitico.addItem("");
-		boxAnalitico.addItem("SIM");
-		boxAnalitico.addItem("NÃO");
-		add(boxAnalitico);
+		boxQuestaoD5 = new JCheckBox("SUAVE");
+		add(boxQuestaoD5);
 
-		add(new JLabel("ANIMADO"));
-
-		boxAnimado = new JComboBox<String>();
-		boxAnimado.addItem("");
-		boxAnimado.addItem("SIM");
-		boxAnimado.addItem("NÃO");
-		add(boxAnimado);
+		boxQuestaoD6 = new JCheckBox("PACÍFICOS");
+		add(boxQuestaoD6);
 
-		add(new JLabel("ANSIOSO"));
-
-		boxAnsioso = new JComboBox<String>();
-		boxAnsioso.addItem("");
-		boxAnsioso.addItem("SIM");
-		boxAnsioso.addItem("NÃO");
-		add(boxAnsioso);
+		boxQuestaoD7 = new JCheckBox("CONSERVADOR");
+		add(boxQuestaoD7);
 
-		add(new JLabel("APÁTICO"));
-
-		boxApatico = new JComboBox<String>();
-		boxApatico.addItem("");
-		boxApatico.addItem("SIM");
-		boxApatico.addItem("NÃO");
-		add(boxApatico);
+		boxQuestaoD8 = new JCheckBox("MANSO");
+		add(boxQuestaoD8);
 
-		add(new JLabel("ARTICULADO"));
-
-		boxArticulado = new JComboBox<String>();
-		boxArticulado.addItem("");
-		boxArticulado.addItem("SIM");
-		boxArticulado.addItem("NÃO");
-		add(boxArticulado);
+		boxQuestaoD9 = new JCheckBox("PESA PRÓS E CONTRAS");
+		add(boxQuestaoD9);
 
-		add(new JLabel("ASSUME RISCOS CALCULADOS"));
-
-		boxAssumeRiscosCalculados = new JComboBox<String>();
-		boxAssumeRiscosCalculados.addItem("");
-		boxAssumeRiscosCalculados.addItem("SIM");
-		boxAssumeRiscosCalculados.addItem("NÃO");
-		add(boxAssumeRiscosCalculados);
+		boxQuestaoD10 = new JCheckBox("REALISTAS");
+		add(boxQuestaoD10);
+		
+		boxQuestaoD11 = new JCheckBox("AUTO-APAGADOR");
+		add(boxQuestaoD11);
 
-		add(new JLabel("ATENCIOSO"));
-
-		boxAtencioso = new JComboBox<String>();
-		boxAtencioso.addItem("");
-		boxAtencioso.addItem("SIM");
-		boxAtencioso.addItem("NÃO");
-		add(boxAtencioso);
+		boxQuestaoD12 = new JCheckBox("DESPRETENSIOSO");
+		add(boxQuestaoD12);
 
-		add(new JLabel("ATIVO"));
-
-		boxAtivo = new JComboBox<String>();
-		boxAtivo.addItem("");
-		boxAtivo.addItem("SIM");
-		boxAtivo.addItem("NÃO");
-		add(boxAtivo);
+		boxQuestaoD13 = new JCheckBox("AUTOCRÍTICO");
+		add(boxQuestaoD13);
 
-		add(new JLabel("AUTO CONFIANTE"));
-
-		boxAutoconfiante = new JComboBox<String>();
-		boxAutoconfiante.addItem("");
-		boxAutoconfiante.addItem("SIM");
-		boxAutoconfiante.addItem("NÃO");
-		add(boxAutoconfiante);
+		boxQuestaoD14 = new JCheckBox("CALCULISTA TOMADOR DE RISCO");
+		add(boxQuestaoD14);
 
-		add(new JLabel("AVENTUREIRO"));
-
-		boxAventureiro = new JComboBox<String>();
-		boxAventureiro.addItem("");
-		boxAventureiro.addItem("SIM");
-		boxAventureiro.addItem("NÃO");
-		add(boxAventureiro);
+		boxQuestaoD15 = new JCheckBox("AUTOCONFIANTE");
+		add(boxQuestaoD15);
 
-		add(new JLabel("BEM HUMORADO"));
-
-		boxBemHumorado = new JComboBox<String>();
-		boxBemHumorado.addItem("");
-		boxBemHumorado.addItem("SIM");
-		boxBemHumorado.addItem("NÃO");
-		add(boxBemHumorado);
+		boxQuestaoD16 = new JCheckBox("RÁPIDO");
+		add(boxQuestaoD16);
 
-		add(new JLabel("CALMO"));
-
-		boxCalmo = new JComboBox<String>();
-		boxCalmo.addItem("");
-		boxCalmo.addItem("SIM");
-		boxCalmo.addItem("NÃO");
-		add(boxCalmo);
+		boxQuestaoD17 = new JCheckBox("COMPETITIVA");
+		add(boxQuestaoD17);
 
-		add(new JLabel("CARISMÁTICO"));
-
-		boxCarismatico = new JComboBox<String>();
-		boxCarismatico.addItem("");
-		boxCarismatico.addItem("SIM");
-		boxCarismatico.addItem("NÃO");
-		add(boxCarismatico);
+		boxQuestaoD18 = new JCheckBox("AUTO-CONFIANTE");
+		add(boxQuestaoD18);
 
-		add(new JLabel("CAUTELOSO"));
-
-		boxCauteloso = new JComboBox<String>();
-		boxCauteloso.addItem("");
-		boxCauteloso.addItem("SIM");
-		boxCauteloso.addItem("NÃO");
-		add(boxCauteloso);
+		boxQuestaoD19 = new JCheckBox("INQUISITIVO");
+		add(boxQuestaoD19);
 
-		add(new JLabel("COMPETITIVO"));
-
-		boxCompetitivo = new JComboBox<String>();
-		boxCompetitivo.addItem("");
-		boxCompetitivo.addItem("SIM");
-		boxCompetitivo.addItem("NÃO");
-		add(boxCompetitivo);
+		boxQuestaoD20 = new JCheckBox("DECISIVOS");
+		add(boxQuestaoD20);
 
-		add(new JLabel("COMPREENSIVO"));
-
-		boxCompreensivo = new JComboBox<String>();
-		boxCompreensivo.addItem("");
-		boxCompreensivo.addItem("SIM");
-		boxCompreensivo.addItem("NÃO");
-		add(boxCompreensivo);
+		boxQuestaoD21 = new JCheckBox("AVENTUREIRO");
+		add(boxQuestaoD21);
 
-		add(new JLabel("CONCILIADOR"));
-
-		boxConciliador = new JComboBox<String>();
-		boxConciliador.addItem("");
-		boxConciliador.addItem("SIM");
-		boxConciliador.addItem("NÃO");
-		add(boxConciliador);
+		boxQuestaoD22 = new JCheckBox("TOMADOR DE RISCO");
+		add(boxQuestaoD22);
 
-		add(new JLabel("CONTIDO"));
-
-		boxContido = new JComboBox<String>();
-		boxContido.addItem("");
-		boxContido.addItem("SIM");
-		boxContido.addItem("NÃO");
-		add(boxContido);
+		boxQuestaoD23 = new JCheckBox("VIGOROSO");
+		add(boxQuestaoD23);
 
-		add(new JLabel("CONVENCIONAL"));
-
-		boxConvencional = new JComboBox<String>();
-		boxConvencional.addItem("");
-		boxConvencional.addItem("SIM");
-		boxConvencional.addItem("NÃO");
-		add(boxConvencional);
+		boxQuestaoD24 = new JCheckBox("EXIGINDO");
+		add(boxQuestaoD24);
 
-		add(new JLabel("CONVINCENTE"));
-
-		boxConvincente = new JComboBox<String>();
-		boxConvincente.addItem("");
-		boxConvincente.addItem("SIM");
-		boxConvincente.addItem("NÃO");
-		add(boxConvincente);
+		boxQuestaoD25 = new JCheckBox("DOMINADOR");
+		add(boxQuestaoD25);
 
-		add(new JLabel("CORTÊS"));
-
-		boxCortes = new JComboBox<String>();
-		boxCortes.addItem("");
-		boxCortes.addItem("SIM");
-		boxCortes.addItem("NÃO");
-		add(boxCortes);
+		boxQuestaoD26 = new JCheckBox("OUSADOS");
+		add(boxQuestaoD26);
 
-		add(new JLabel("CUIDADOSO"));
-
-		boxCuidadoso = new JComboBox<String>();
-		boxCuidadoso.addItem("");
-		boxCuidadoso.addItem("SIM");
-		boxCuidadoso.addItem("NÃO");
-		add(boxCuidadoso);
+		boxQuestaoD27 = new JCheckBox("DIRETA");
+		add(boxQuestaoD27);
 
-		add(new JLabel("DECIDIDO"));
-
-		boxDecidido = new JComboBox<String>();
-		boxDecidido.addItem("");
-		boxDecidido.addItem("SIM");
-		boxDecidido.addItem("NÃO");
-		add(boxDecidido);
+		boxQuestaoD28 = new JCheckBox("EGOCÊNTRICO");
+		add(boxQuestaoD28);
 
-		add(new JLabel("DEDICADO"));
-
-		boxDedicado = new JComboBox<String>();
-		boxDedicado.addItem("");
-		boxDedicado.addItem("SIM");
-		boxDedicado.addItem("NÃO");
-		add(boxDedicado);
+		boxQuestaoI1 = new JCheckBox("RETICENTE");
+		add(boxQuestaoI1);
 
-		add(new JLabel("DEPENDENTE"));
-
-		boxDependente = new JComboBox<String>();
-		boxDependente.addItem("");
-		boxDependente.addItem("SIM");
-		boxDependente.addItem("NÃO");
-		add(boxDependente);
+		boxQuestaoI2 = new JCheckBox("AUTOCONSCIENTES");
+		add(boxQuestaoI2);
 
-		add(new JLabel("DESCONFIADO"));
-
-		boxDesconfiado = new JComboBox<String>();
-		boxDesconfiado.addItem("");
-		boxDesconfiado.addItem("SIM");
-		boxDesconfiado.addItem("NÃO");
-		add(boxDesconfiado);
+		boxQuestaoI3 = new JCheckBox("RETIRADO");
+		add(boxQuestaoI3);
 
-		add(new JLabel("DESCRENTE"));
-
-		boxDescrente = new JComboBox<String>();
-		boxDescrente.addItem("");
-		boxDescrente.addItem("SIM");
-		boxDescrente.addItem("NÃO");
-		add(boxDescrente);
+		boxQuestaoI4 = new JCheckBox("ALOOF");
+		add(boxQuestaoI4);
 
-		add(new JLabel("DESENCANADO"));
-
-		boxDesencanado = new JComboBox<String>();
-		boxDesencanado.addItem("");
-		boxDesencanado.addItem("SIM");
-		boxDesencanado.addItem("NÃO");
-		add(boxDesencanado);
+		boxQuestaoI5 = new JCheckBox("PESSIMISTA");
+		add(boxQuestaoI5);
 
-		add(new JLabel("DESLIGADO"));
-
-		boxDesligado = new JComboBox<String>();
-		boxDesligado.addItem("");
-		boxDesligado.addItem("SIM");
-		boxDesligado.addItem("NÃO");
-		add(boxDesligado);
+		boxQuestaoI6 = new JCheckBox("SUSPEITOS");
+		add(boxQuestaoI6);
 
-		add(new JLabel("DESPRENDIDO"));
-
-		boxDesprendido = new JComboBox<String>();
-		boxDesprendido.addItem("");
-		boxDesprendido.addItem("SIM");
-		boxDesprendido.addItem("NÃO");
-		add(boxDesprendido);
+		boxQuestaoI7 = new JCheckBox("APOSENTAR");
+		add(boxQuestaoI7);
 
-		add(new JLabel("DESPRETENSIOSO"));
-
-		boxDespretensioso = new JComboBox<String>();
-		boxDespretensioso.addItem("");
-		boxDespretensioso.addItem("SIM");
-		boxDespretensioso.addItem("NÃO");
-		add(boxDespretensioso);
+		boxQuestaoI8 = new JCheckBox("CONTROLADO");
+		add(boxQuestaoI8);
 
-		add(new JLabel("DESTEMIDO"));
-
-		boxDestemido = new JComboBox<String>();
-		boxDestemido.addItem("");
-		boxDestemido.addItem("SIM");
-		boxDestemido.addItem("NÃO");
-		add(boxDestemido);
+		boxQuestaoI9 = new JCheckBox("LOGICA");
+		add(boxQuestaoI9);
 
-		add(new JLabel("DETERMINADO"));
-
-		boxDeterminado = new JComboBox<String>();
-		boxDeterminado.addItem("");
-		boxDeterminado.addItem("SIM");
-		boxDeterminado.addItem("NÃO");
-		add(boxDeterminado);
+		boxQuestaoI10 = new JCheckBox("FACTUAIS");
+		add(boxQuestaoI10);
+		
+		boxQuestaoI11 = new JCheckBox("REFLEXIVO");
+		add(boxQuestaoI11);
 
-		add(new JLabel("DIPLOMÁTICO"));
-
-		boxDiplomatico = new JComboBox<String>();
-		boxDiplomatico.addItem("");
-		boxDiplomatico.addItem("SIM");
-		boxDiplomatico.addItem("NÃO");
-		add(boxDiplomatico);
+		boxQuestaoI12 = new JCheckBox("DISCRIMINANDO");
+		add(boxQuestaoI12);
 
-		add(new JLabel("DIRETO"));
-
-		boxDireto = new JComboBox<String>();
-		boxDireto.addItem("");
-		boxDireto.addItem("SIM");
-		boxDireto.addItem("NÃO");
-		add(boxDireto);
+		boxQuestaoI13 = new JCheckBox("OBSERVANDO");
+		add(boxQuestaoI13);
 
-		add(new JLabel("DISCIPLINADO"));
-
-		boxDisciplinado = new JComboBox<String>();
-		boxDisciplinado.addItem("");
-		boxDisciplinado.addItem("SIM");
-		boxDisciplinado.addItem("NÃO");
-		add(boxDisciplinado);
+		boxQuestaoI14 = new JCheckBox("CONVENCENDO");
+		add(boxQuestaoI14);
 
-		add(new JLabel("DISCRETO"));
-
-		boxDiscreto = new JComboBox<String>();
-		boxDiscreto.addItem("");
-		boxDiscreto.addItem("SIM");
-		boxDiscreto.addItem("NÃO");
-		add(boxDiscreto);
+		boxQuestaoI15 = new JCheckBox("CONFIANTE");
+		add(boxQuestaoI15);
 
-		add(new JLabel("DISPONÍVEL"));
-
-		boxDisponivel = new JComboBox<String>();
-		boxDisponivel.addItem("");
-		boxDisponivel.addItem("SIM");
-		boxDisponivel.addItem("NÃO");
-		add(boxDisponivel);
+		boxQuestaoI16 = new JCheckBox("ENCANTADOR");
+		add(boxQuestaoI16);
 
-		add(new JLabel("DIVERTIDO"));
-
-		boxDivertido = new JComboBox<String>();
-		boxDivertido.addItem("");
-		boxDivertido.addItem("SIM");
-		boxDivertido.addItem("NÃO");
-		add(boxDivertido);
+		boxQuestaoI17 = new JCheckBox("PREPARADA");
+		add(boxQuestaoI17);
 
-		add(new JLabel("DOMINADOR"));
-
-		boxDominador = new JComboBox<String>();
-		boxDominador.addItem("");
-		boxDominador.addItem("SIM");
-		boxDominador.addItem("NÃO");
-		add(boxDominador);
+		boxQuestaoI18 = new JCheckBox("GENEROSO");
+		add(boxQuestaoI18);
 
-		add(new JLabel("EGOCÊNTRICO"));
-
-		boxEgocentrico = new JComboBox<String>();
-		boxEgocentrico.addItem("");
-		boxEgocentrico.addItem("SIM");
-		boxEgocentrico.addItem("NÃO");
-		add(boxEgocentrico);
+		boxQuestaoI19 = new JCheckBox("SOCIÁVEL");
+		add(boxQuestaoI19);
 
-		add(new JLabel("EMPOLGADO"));
-
-		boxEmpolgado = new JComboBox<String>();
-		boxEmpolgado.addItem("");
-		boxEmpolgado.addItem("SIM");
-		boxEmpolgado.addItem("NÃO");
-		add(boxEmpolgado);
+		boxQuestaoI20 = new JCheckBox("AGRADÁVEIS");
+		add(boxQuestaoI20);
 
-		add(new JLabel("ENCANTADOR"));
-
-		boxEncantador = new JComboBox<String>();
-		boxEncantador.addItem("");
-		boxEncantador.addItem("SIM");
-		boxEncantador.addItem("NÃO");
-		add(boxEncantador);
+		boxQuestaoI21 = new JCheckBox("INFLUENTE");
+		add(boxQuestaoI21);
 
-		add(new JLabel("ENÉRGICO"));
-
-		boxEnergico = new JComboBox<String>();
-		boxEnergico.addItem("");
-		boxEnergico.addItem("SIM");
-		boxEnergico.addItem("NÃO");
-		add(boxEnergico);
+		boxQuestaoI22 = new JCheckBox("CONFIANDO");
+		add(boxQuestaoI22);
 
-		add(new JLabel("ESPONTÂNEO"));
-
-		boxEspontaneo = new JComboBox<String>();
-		boxEspontaneo.addItem("");
-		boxEspontaneo.addItem("SIM");
-		boxEspontaneo.addItem("NÃO");
-		add(boxEspontaneo);
+		boxQuestaoI23 = new JCheckBox("AUTO-PROMOÇÃO");
+		add(boxQuestaoI23);
 
-		add(new JLabel("ESTÁVEL"));
-
-		boxEstavel = new JComboBox<String>();
-		boxEstavel.addItem("");
-		boxEstavel.addItem("SIM");
-		boxEstavel.addItem("NÃO");
-		add(boxEstavel);
+		boxQuestaoI24 = new JCheckBox("EMOCIONAL");
+		add(boxQuestaoI24);
 
-		add(new JLabel("EXIGENTE"));
-
-		boxExigente = new JComboBox<String>();
-		boxExigente.addItem("");
-		boxExigente.addItem("SIM");
-		boxExigente.addItem("NÃO");
-		add(boxExigente);
+		boxQuestaoI25 = new JCheckBox("IMPULSIVO");
+		add(boxQuestaoI25);
 
-		add(new JLabel("EXPANSIVO"));
-
-		boxExpansivo = new JComboBox<String>();
-		boxExpansivo.addItem("");
-		boxExpansivo.addItem("SIM");
-		boxExpansivo.addItem("NÃO");
-		add(boxExpansivo);
+		boxQuestaoI26 = new JCheckBox("PERSUASIVOS");
+		add(boxQuestaoI26);
 
-		add(new JLabel("EXPRESSIVO"));
-
-		boxExpressivo = new JComboBox<String>();
-		boxExpressivo.addItem("");
-		boxExpressivo.addItem("SIM");
-		boxExpressivo.addItem("NÃO");
-		add(boxExpressivo);
+		boxQuestaoI27 = new JCheckBox("GREGÁRIA");
+		add(boxQuestaoI27);
 
-		add(new JLabel("EXTROVERTIDO"));
-
-		boxExtrovertido = new JComboBox<String>();
-		boxExtrovertido.addItem("");
-		boxExtrovertido.addItem("SIM");
-		boxExtrovertido.addItem("NÃO");
-		add(boxExtrovertido);
+		boxQuestaoI28 = new JCheckBox("ENTUSIASMADO");
+		add(boxQuestaoI28);
 
-		add(new JLabel("FECHADO"));
-
-		boxFechado = new JComboBox<String>();
-		boxFechado.addItem("");
-		boxFechado.addItem("SIM");
-		boxFechado.addItem("NÃO");
-		add(boxFechado);
+		boxQuestaoS1 = new JCheckBox("ATIVO");
+		add(boxQuestaoS1);
 
-		add(new JLabel("FIRME"));
-
-		boxFirme = new JComboBox<String>();
-		boxFirme.addItem("");
-		boxFirme.addItem("SIM");
-		boxFirme.addItem("NÃO");
-		add(boxFirme);
+		boxQuestaoS2 = new JCheckBox("FRUSTRADOS PELO STATUS QUO");
+		add(boxQuestaoS2);
 
-		add(new JLabel("GOSTA DE SE ARRRISCAR"));
-
-		boxGostaDeSeArriscar = new JComboBox<String>();
-		boxGostaDeSeArriscar.addItem("");
-		boxGostaDeSeArriscar.addItem("SIM");
-		boxGostaDeSeArriscar.addItem("NÃO");
-		add(boxGostaDeSeArriscar);
+		boxQuestaoS3 = new JCheckBox("ESPONTÂNEO");
+		add(boxQuestaoS3);
 
-		add(new JLabel("HUMILDE"));
-
-		boxHumilde = new JComboBox<String>();
-		boxHumilde.addItem("");
-		boxHumilde.addItem("SIM");
-		boxHumilde.addItem("NÃO");
-		add(boxHumilde);
+		boxQuestaoS4 = new JCheckBox("FAULT-FINDING");
+		add(boxQuestaoS4);
 
-		add(new JLabel("IMPULSIVO"));
-
-		boxImpulsivo = new JComboBox<String>();
-		boxImpulsivo.addItem("");
-		boxImpulsivo.addItem("SIM");
-		boxImpulsivo.addItem("NÃO");
-		add(boxImpulsivo);
+		boxQuestaoS5 = new JCheckBox("ORIENTADA POR MUDANÇA");
+		add(boxQuestaoS5);
 
-		add(new JLabel("INCERTO"));
-
-		boxIncerto = new JComboBox<String>();
-		boxIncerto.addItem("");
-		boxIncerto.addItem("SIM");
-		boxIncerto.addItem("NÃO");
-		add(boxIncerto);
+		boxQuestaoS6 = new JCheckBox("INQUIETOS");
+		add(boxQuestaoS6);
 
-		add(new JLabel("INDEPENDENTE"));
-
-		boxIndependente = new JComboBox<String>();
-		boxIndependente.addItem("");
-		boxIndependente.addItem("SIM");
-		boxIndependente.addItem("NÃO");
-		add(boxIndependente);
+		boxQuestaoS7 = new JCheckBox("IMPETUOSO");
+		add(boxQuestaoS7);
 
-		add(new JLabel("INDIFERENTE"));
-
-		boxIndiferente = new JComboBox<String>();
-		boxIndiferente.addItem("");
-		boxIndiferente.addItem("SIM");
-		boxIndiferente.addItem("NÃO");
-		add(boxIndiferente);
+		boxQuestaoS8 = new JCheckBox("INQUIETO");
+		add(boxQuestaoS8);
 
-		add(new JLabel("INFLUENTE"));
-
-		boxInfluente = new JComboBox<String>();
-		boxInfluente.addItem("");
-		boxInfluente.addItem("SIM");
-		boxInfluente.addItem("NÃO");
-		add(boxInfluente);
+		boxQuestaoS9 = new JCheckBox("DESCONTENTE");
+		add(boxQuestaoS9);
 
-		add(new JLabel("INQUIETO"));
-
-		boxInquieto = new JComboBox<String>();
-		boxInquieto.addItem("");
-		boxInquieto.addItem("SIM");
-		boxInquieto.addItem("NÃO");
-		add(boxInquieto);
+		boxQuestaoS10 = new JCheckBox("CRÍTICOS");
+		add(boxQuestaoS10);
+		
+		boxQuestaoS11 = new JCheckBox("ANSIOSO");
+		add(boxQuestaoS11);
 
-		add(new JLabel("INSPIRADOR"));
-
-		boxInspirador = new JComboBox<String>();
-		boxInspirador.addItem("");
-		boxInspirador.addItem("SIM");
-		boxInspirador.addItem("NÃO");
-		add(boxInspirador);
+		boxQuestaoS12 = new JCheckBox("ALERTA");
+		add(boxQuestaoS12);
 
-		add(new JLabel("INTERESSADO"));
-
-		boxInteressado = new JComboBox<String>();
-		boxInteressado.addItem("");
-		boxInteressado.addItem("SIM");
-		boxInteressado.addItem("NÃO");
-		add(boxInteressado);
+		boxQuestaoS13 = new JCheckBox("EXTROVERTIDO");
+		add(boxQuestaoS13);
 
-		add(new JLabel("INTROSPECTIVO"));
-
-		boxIntrospectivo = new JComboBox<String>();
-		boxIntrospectivo.addItem("");
-		boxIntrospectivo.addItem("SIM");
-		boxIntrospectivo.addItem("NÃO");
-		add(boxIntrospectivo);
+		boxQuestaoS14 = new JCheckBox("MÓVEL");
+		add(boxQuestaoS14);
 
-		add(new JLabel("JUSTO"));
-
-		boxJusto = new JComboBox<String>();
-		boxJusto.addItem("");
-		boxJusto.addItem("SIM");
-		boxJusto.addItem("NÃO");
-		add(boxJusto);
+		boxQuestaoS15 = new JCheckBox("ESTÁVEL");
+		add(boxQuestaoS15);
 
-		add(new JLabel("LEAL"));
-
-		boxLeal = new JComboBox<String>();
-		boxLeal.addItem("");
-		boxLeal.addItem("SIM");
-		boxLeal.addItem("NÃO");
-		add(boxLeal);
+		boxQuestaoS16 = new JCheckBox("AMÁVEL");
+		add(boxQuestaoS16);
 
-		add(new JLabel("LIBERAL"));
-
-		boxLiberal = new JComboBox<String>();
-		boxLiberal.addItem("");
-		boxLiberal.addItem("SIM");
-		boxLiberal.addItem("NÃO");
-		add(boxLiberal);
+		boxQuestaoS17 = new JCheckBox("DELIBERADA");
+		add(boxQuestaoS17);
 
-		add(new JLabel("LIVRE"));
-
-		boxLivre = new JComboBox<String>();
-		boxLivre.addItem("");
-		boxLivre.addItem("SIM");
-		boxLivre.addItem("NÃO");
-		add(boxLivre);
+		boxQuestaoS18 = new JCheckBox("NÃO DEMONSTRATIVO");
+		add(boxQuestaoS18);
 
-		add(new JLabel("LÓGICO"));
-
-		boxLogico = new JComboBox<String>();
-		boxLogico.addItem("");
-		boxLogico.addItem("SIM");
-		boxLogico.addItem("NÃO");
-		add(boxLogico);
+		boxQuestaoS19 = new JCheckBox("DESCONTRAÍDO");
+		add(boxQuestaoS19);
 
-		add(new JLabel("MALEÁVEL"));
-
-		boxMaleavel = new JComboBox<String>();
-		boxMaleavel.addItem("");
-		boxMaleavel.addItem("SIM");
-		boxMaleavel.addItem("NÃO");
-		add(boxMaleavel);
+		boxQuestaoS20 = new JCheckBox("INATIVOS");
+		add(boxQuestaoS20);
 
-		add(new JLabel("MENTE ABERTA"));
-
-		boxMenteAberta = new JComboBox<String>();
-		boxMenteAberta.addItem("");
-		boxMenteAberta.addItem("SIM");
-		boxMenteAberta.addItem("NÃO");
-		add(boxMenteAberta);
+		boxQuestaoS21 = new JCheckBox("COMPLACENTE");
+		add(boxQuestaoS21);
 
-		add(new JLabel("METICULOSO"));
-
-		boxMeticuloso = new JComboBox<String>();
-		boxMeticuloso.addItem("");
-		boxMeticuloso.addItem("SIM");
-		boxMeticuloso.addItem("NÃO");
-		add(boxMeticuloso);
+		boxQuestaoS22 = new JCheckBox("POSSESSIVO");
+		add(boxQuestaoS22);
 
-		add(new JLabel("OBEDIENTE"));
-
-		boxObediente = new JComboBox<String>();
-		boxObediente.addItem("");
-		boxObediente.addItem("SIM");
-		boxObediente.addItem("NÃO");
-		add(boxObediente);
+		boxQuestaoS23 = new JCheckBox("SERENO");
+		add(boxQuestaoS23);
 
-		add(new JLabel("OBJETIVO"));
-
-		boxObjetivo = new JComboBox<String>();
-		boxObjetivo.addItem("");
-		boxObjetivo.addItem("SIM");
-		boxObjetivo.addItem("NÃO");
-		add(boxObjetivo);
+		boxQuestaoS24 = new JCheckBox("EQUIPE-PESSOA");
+		add(boxQuestaoS24);
 
-		add(new JLabel("OBSERVADOR"));
-
-		boxObservador = new JComboBox<String>();
-		boxObservador.addItem("");
-		boxObservador.addItem("SIM");
-		boxObservador.addItem("NÃO");
-		add(boxObservador);
+		boxQuestaoS25 = new JCheckBox("PREVISÍVEL");
+		add(boxQuestaoS25);
 
-		add(new JLabel("OBSTINADO"));
-
-		boxObstinado = new JComboBox<String>();
-		boxObstinado.addItem("");
-		boxObstinado.addItem("SIM");
-		boxObstinado.addItem("NÃO");
-		add(boxObstinado);
+		boxQuestaoS26 = new JCheckBox("LEAIS");
+		add(boxQuestaoS26);
 
-		add(new JLabel("ORIGINAL"));
-
-		boxOriginal = new JComboBox<String>();
-		boxOriginal.addItem("");
-		boxOriginal.addItem("SIM");
-		boxOriginal.addItem("NÃO");
-		add(boxOriginal);
+		boxQuestaoS27 = new JCheckBox("PACIENTE");
+		add(boxQuestaoS27);
 
-		add(new JLabel("OUSADO"));
-
-		boxOusado = new JComboBox<String>();
-		boxOusado.addItem("");
-		boxOusado.addItem("SIM");
-		boxOusado.addItem("NÃO");
-		add(boxOusado);
+		boxQuestaoS28 = new JCheckBox("PASSIVO");
+		add(boxQuestaoS28);
 
-		add(new JLabel("PACIENTE"));
-
-		boxPaciente = new JComboBox<String>();
-		boxPaciente.addItem("");
-		boxPaciente.addItem("SIM");
-		boxPaciente.addItem("NÃO");
-		add(boxPaciente);
+		boxQuestaoC1 = new JCheckBox("SARCÁSTICO");
+		add(boxQuestaoC1);
 
-		add(new JLabel("PACÍFICO"));
-
-		boxPacifico = new JComboBox<String>();
-		boxPacifico.addItem("");
-		boxPacifico.addItem("SIM");
-		boxPacifico.addItem("NÃO");
-		add(boxPacifico);
+		boxQuestaoC2 = new JCheckBox("SEM TATO");
+		add(boxQuestaoC2);
 
-		add(new JLabel("PASSIVO"));
-
-		boxPassivo = new JComboBox<String>();
-		boxPassivo.addItem("");
-		boxPassivo.addItem("SIM");
-		boxPassivo.addItem("NÃO");
-		add(boxPassivo);
+		boxQuestaoC3 = new JCheckBox("OBSTINADO");
+		add(boxQuestaoC3);
 
-		add(new JLabel("PERFECCIONISTA"));
-
-		boxPerfeccionista = new JComboBox<String>();
-		boxPerfeccionista.addItem("");
-		boxPerfeccionista.addItem("SIM");
-		boxPerfeccionista.addItem("NÃO");
-		add(boxPerfeccionista);
+		boxQuestaoC4 = new JCheckBox("DESAFIADOR");
+		add(boxQuestaoC4);
 
-		add(new JLabel("PERSISTENTE"));
-
-		boxPersistente = new JComboBox<String>();
-		boxPersistente.addItem("");
-		boxPersistente.addItem("SIM");
-		boxPersistente.addItem("NÃO");
-		add(boxPersistente);
+		boxQuestaoC5 = new JCheckBox("REBELDE");
+		add(boxQuestaoC5);
 
-		add(new JLabel("PERSUASIVO"));
-
-		boxPersuasivo = new JComboBox<String>();
-		boxPersuasivo.addItem("");
-		boxPersuasivo.addItem("SIM");
-		boxPersuasivo.addItem("NÃO");
-		add(boxPersuasivo);
+		boxQuestaoC6 = new JCheckBox("ARBITRÁRIOS");
+		add(boxQuestaoC6);
 
-		add(new JLabel("PERSUASIVO"));
-
-		boxPessimista = new JComboBox<String>();
-		boxPessimista.addItem("");
-		boxPessimista.addItem("SIM");
-		boxPessimista.addItem("NÃO");
-		add(boxPessimista);
+		boxQuestaoC7 = new JCheckBox("TEIMOSO");
+		add(boxQuestaoC7);
 
-		add(new JLabel("PONDERADO"));
-
-		boxPonderado = new JComboBox<String>();
-		boxPonderado.addItem("");
-		boxPonderado.addItem("SIM");
-		boxPonderado.addItem("NÃO");
-		add(boxPonderado);
+		boxQuestaoC8 = new JCheckBox("FIRME");
+		add(boxQuestaoC8);
 
-		add(new JLabel("PRÁTICO"));
-
-		boxPratico = new JComboBox<String>();
-		boxPratico.addItem("");
-		boxPratico.addItem("SIM");
-		boxPratico.addItem("NÃO");
-		add(boxPratico);
+		boxQuestaoC9 = new JCheckBox("RÍGIDO");
+		add(boxQuestaoC9);
 
-		add(new JLabel("PRECAVIDO"));
-
-		boxPrecavido = new JComboBox<String>();
-		boxPrecavido.addItem("");
-		boxPrecavido.addItem("SIM");
-		boxPrecavido.addItem("NÃO");
-		add(boxPrecavido);
+		boxQuestaoC10 = new JCheckBox("INDEPENDENTES");
+		add(boxQuestaoC10);
+		
+		boxQuestaoC11 = new JCheckBox("PERSISTENTE");
+		add(boxQuestaoC11);
 
-		add(new JLabel("PRECISO"));
-
-		boxPreciso = new JComboBox<String>();
-		boxPreciso.addItem("");
-		boxPreciso.addItem("SIM");
-		boxPreciso.addItem("NÃO");
-		add(boxPreciso);
+		boxQuestaoC12 = new JCheckBox("OPINATIVO");
+		add(boxQuestaoC12);
 
-		add(new JLabel("PREOCUPADO"));
-
-		boxPreocupado = new JComboBox<String>();
-		boxPreocupado.addItem("");
-		boxPreocupado.addItem("SIM");
-		boxPreocupado.addItem("NÃO");
-		add(boxPreocupado);
+		boxQuestaoC13 = new JCheckBox("HIPÓCRITA");
+		add(boxQuestaoC13);
 
-		add(new JLabel("PREVENIDO"));
-
-		boxPrevenido = new JComboBox<String>();
-		boxPrevenido.addItem("");
-		boxPrevenido.addItem("SIM");
-		boxPrevenido.addItem("NÃO");
-		add(boxPrevenido);
+		boxQuestaoC14 = new JCheckBox("PESSOA PRÓPRIA");
+		add(boxQuestaoC14);
 
-		add(new JLabel("PREVISÍVEL"));
-
-		boxPrevisivel = new JComboBox<String>();
-		boxPrevisivel.addItem("");
-		boxPrevisivel.addItem("SIM");
-		boxPrevisivel.addItem("NÃO");
-		add(boxPrevisivel);
+		boxQuestaoC15 = new JCheckBox("EVASIVO");
+		add(boxQuestaoC15);
 
-		add(new JLabel("REALISTA"));
-
-		boxRealista = new JComboBox<String>();
-		boxRealista.addItem("");
-		boxRealista.addItem("SIM");
-		boxRealista.addItem("NÃO");
-		add(boxRealista);
+		boxQuestaoC16 = new JCheckBox("MADURO");
+		add(boxQuestaoC16);
 
-		add(new JLabel("REBELDE"));
-
-		boxRebelde = new JComboBox<String>();
-		boxRebelde.addItem("");
-		boxRebelde.addItem("SIM");
-		boxRebelde.addItem("NÃO");
-		add(boxRebelde);
+		boxQuestaoC17 = new JCheckBox("SENSÍVEL");
+		add(boxQuestaoC17);
 
-		add(new JLabel("RECEOSO"));
-
-		boxReceoso = new JComboBox<String>();
-		boxReceoso.addItem("");
-		boxReceoso.addItem("SIM");
-		boxReceoso.addItem("NÃO");
-		add(boxReceoso);
+		boxQuestaoC18 = new JCheckBox("ANALÍTICO");
+		add(boxQuestaoC18);
 
-		add(new JLabel("RESERVADO"));
-
-		boxReservado = new JComboBox<String>();
-		boxReservado.addItem("");
-		boxReservado.addItem("SIM");
-		boxReservado.addItem("NÃO");
-		add(boxReservado);
-
-		add(new JLabel("RESPEITOSO"));
-
-		boxRespeitoso = new JComboBox<String>();
-		boxRespeitoso.addItem("");
-		boxRespeitoso.addItem("SIM");
-		boxRespeitoso.addItem("NÃO");
-		add(boxRespeitoso);
-
-		add(new JLabel("SARCÁSTICO"));
-
-		boxSarcastico = new JComboBox<String>();
-		boxSarcastico.addItem("");
-		boxSarcastico.addItem("SIM");
-		boxSarcastico.addItem("NÃO");
-		add(boxSarcastico);
-
-		add(new JLabel("SEGURO"));
-
-		boxSeguro = new JComboBox<String>();
-		boxSeguro.addItem("");
-		boxSeguro.addItem("SIM");
-		boxSeguro.addItem("NÃO");
-		add(boxSeguro);
-
-		add(new JLabel("SEM LIMITES"));
-
-		boxSemLimites = new JComboBox<String>();
-		boxSemLimites.addItem("");
-		boxSemLimites.addItem("SIM");
-		boxSemLimites.addItem("NÃO");
-		add(boxSemLimites);
-
-		add(new JLabel("SENSATO"));
-
-		boxSensato = new JComboBox<String>();
-		boxSensato.addItem("");
-		boxSensato.addItem("SIM");
-		boxSensato.addItem("NÃO");
-		add(boxSensato);
-
-		add(new JLabel("SERENO"));
-
-		boxSereno = new JComboBox<String>();
-		boxSereno.addItem("");
-		boxSereno.addItem("SIM");
-		boxSereno.addItem("NÃO");
-		add(boxSereno);
-
-		add(new JLabel("SÉRIO"));
-
-		boxSerio = new JComboBox<String>();
-		boxSerio.addItem("");
-		boxSerio.addItem("SIM");
-		boxSerio.addItem("NÃO");
-		add(boxSerio);
-
-		add(new JLabel("SIMPÁTICO"));
-
-		boxSimpatico = new JComboBox<String>();
-		boxSimpatico.addItem("");
-		boxSimpatico.addItem("SIM");
-		boxSimpatico.addItem("NÃO");
-		add(boxSimpatico);
-
-		add(new JLabel("SISTEMÁTICO"));
-
-		boxSistematico = new JComboBox<String>();
-		boxSistematico.addItem("");
-		boxSistematico.addItem("SIM");
-		boxSistematico.addItem("NÃO");
-		add(boxSistematico);
-
-		add(new JLabel("SOCIÁVEL"));
-
-		boxSociavel = new JComboBox<String>();
-		boxSociavel.addItem("");
-		boxSociavel.addItem("SIM");
-		boxSociavel.addItem("NÃO");
-		add(boxSociavel);
-
-		add(new JLabel("TEIMOSO"));
-
-		boxTeimoso = new JComboBox<String>();
-		boxTeimoso.addItem("");
-		boxTeimoso.addItem("SIM");
-		boxTeimoso.addItem("NÃO");
-		add(boxTeimoso);
-
-		add(new JLabel("VERSÁTIL"));
-
-		boxVersatil = new JComboBox<String>();
-		boxVersatil.addItem("");
-		boxVersatil.addItem("SIM");
-		boxVersatil.addItem("NÃO");
-		add(boxVersatil);
+		boxQuestaoC19 = new JCheckBox("PADRÕES ELEVADOS");
+		add(boxQuestaoC19);
+
+		boxQuestaoC20 = new JCheckBox("CONTIDOS");
+		add(boxQuestaoC20);
+
+		boxQuestaoC21 = new JCheckBox("CUIDADO");
+		add(boxQuestaoC21);
+
+		boxQuestaoC22 = new JCheckBox("CORTÊS");
+		add(boxQuestaoC22);
+
+		boxQuestaoC23 = new JCheckBox("CONVENCIONAL");
+		add(boxQuestaoC23);
+
+		boxQuestaoC24 = new JCheckBox("SISTEMÁTICO");
+		add(boxQuestaoC24);
+
+		boxQuestaoC25 = new JCheckBox("DIPLOMÁTICO");
+		add(boxQuestaoC25);
+
+		boxQuestaoC26 = new JCheckBox("DESCOBRIDORES DE FATOS");
+		add(boxQuestaoC26);
+
+		boxQuestaoC27 = new JCheckBox("PRECISAS");
+		add(boxQuestaoC27);
+
+		boxQuestaoC28 = new JCheckBox("PERFECCIONISTA");
+		add(boxQuestaoC28);
 
 		// Lay out the panel.
-		SpringUtilities.makeCompactGrid(this, 227, 1, // rows, cols
+		SpringUtilities.makeCompactGrid(this, 116, 1, // rows, cols
 				5, 5, // initX, initY
 				5, 5); // xPad, yPad
 		setOpaque(true); // content panes must be opaque
@@ -1563,7 +1003,7 @@ public final class TesteCPc extends JPanel implements Gui {
 
 	@Override
 	public void iniciarLayout() {
-		setBorder(BorderFactory.createTitledBorder("CARACTERÍSTICAS"));
+		setBorder(BorderFactory.createTitledBorder("TESTE DE PERSONALIDADE D.I.S.C."));
 		setLayout(new SpringLayout());
 	}
 
@@ -1588,8 +1028,7 @@ public final class TesteCPc extends JPanel implements Gui {
 		}
 		if (!MainCont.getCurriculoTesteCFc().isShowing()
 				&& MainCont.getCurriculoTesteCFc().getTesteCCont().getTesteC() != null) {
-			funcionario = MainCont.getCurriculoTesteCFc().getTesteCCont().getTesteC()
-					.getFuncionario();
+			funcionario = MainCont.getCurriculoTesteCFc().getTesteCCont().getTesteC().getFuncionario();
 			boxFuncionario.setSelectedItem(funcionario);
 		}
 	}

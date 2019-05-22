@@ -397,6 +397,8 @@ public class MainFc extends JFrame {
 		setIconImage(Imagem.getLogoTipoImage());
 		setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
 		setMinimumSize(new Dimension(1200, 600));
+		setSize(new Dimension(1200, 600));
+		setPreferredSize(new Dimension(1200, 600));
 		
 		menuArquivo = new JMenu("Arquivo");
 		menuArquivo.setMnemonic('A');
@@ -458,13 +460,13 @@ public class MainFc extends JFrame {
 		menuItemCadastroCurriculoObjetivoProfissional = new JMenuItem("Objetivo Profissional");
 		menuCadastroCurriculo.add(menuItemCadastroCurriculoObjetivoProfissional);
 
-		menuItemCadastroCurriculoTestePersonalidadeA = new JMenuItem("Teste de Personalidade A");
+		menuItemCadastroCurriculoTestePersonalidadeA = new JMenuItem("Teste de Preferência Cerebral");
 		menuCadastroCurriculo.add(menuItemCadastroCurriculoTestePersonalidadeA);
 
-		menuItemCadastroCurriculoTestePersonalidadeB = new JMenuItem("Teste de Personalidade B");
+		menuItemCadastroCurriculoTestePersonalidadeB = new JMenuItem("Teste de Perfil Comportamental");
 		menuCadastroCurriculo.add(menuItemCadastroCurriculoTestePersonalidadeB);
 
-		menuItemCadastroCurriculoTestePersonalidadeC = new JMenuItem("Teste de Personalidade C");
+		menuItemCadastroCurriculoTestePersonalidadeC = new JMenuItem("Teste de Personalidade D.I.S.C.");
 		menuCadastroCurriculo.add(menuItemCadastroCurriculoTestePersonalidadeC);
 
 		menuItemCadastroDocumento = new JMenuItem("Documentos");

@@ -70,7 +70,7 @@ final class TesteBCont {
 		@Override
 		public void windowOpened(WindowEvent e) {
 			testeB = new TesteB();
-			getTesteBPc().getGuiAdequado().requestFocus();
+			getTesteBPc().getGuiFuncionario().requestFocus();
 		}
 	}
 
@@ -115,7 +115,7 @@ final class TesteBCont {
 		public void actionPerformed(ActionEvent actionEvent) {
 			testeB = new TesteB();
 			getTesteBFc().limparGui();
-			getTesteBPc().getGuiAdequado().requestFocus();
+			getTesteBPc().getGuiFuncionario().requestFocus();
 		}
 	}
 
@@ -140,7 +140,6 @@ final class TesteBCont {
 
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
-
 			List<TesteB> testeBs = new LinkedList<>();
 
 			try {
@@ -186,7 +185,7 @@ final class TesteBCont {
 					TesteBFac.salvarRegistro(testeB);
 					testeB = new TesteB();
 					getTesteBFc().limparGui();
-					getTesteBPc().getGuiAdequado().requestFocus();
+					getTesteBPc().getGuiFuncionario().requestFocus();
 					Msg.sucessoSalvarRegistro();
 				}
 			} catch (Exception e) {
@@ -202,238 +201,414 @@ final class TesteBCont {
 			return;
 		}
 		getTesteBPc().getGuiFuncionario().setSelectedItem(testeB.getFuncionario());
-		getTesteBPc().getGuiAdequado().setSelectedItem(testeB.getAdequado());
-		getTesteBPc().getGuiAgil().setSelectedItem(testeB.getAgil());
-		getTesteBPc().getGuiAgitado().setSelectedItem(testeB.getAgitado());
-		getTesteBPc().getGuiAlegre().setSelectedItem(testeB.getAlegre());
-		getTesteBPc().getGuiAmavel().setSelectedItem(testeB.getAmavel());
-		getTesteBPc().getGuiAnalitico().setSelectedItem(testeB.getAnalitico());
-		getTesteBPc().getGuiAnimado().setSelectedItem(testeB.getAnimado());
-		getTesteBPc().getGuiAnsioso().setSelectedItem(testeB.getAnsioso());
-		getTesteBPc().getGuiApatico().setSelectedItem(testeB.getApatico());
-		getTesteBPc().getGuiArticulado().setSelectedItem(testeB.getArticulado());
-		getTesteBPc().getGuiAssumeRiscosCalculados()
-				.setSelectedItem(testeB.getAssumeRiscosCalculados());
-		getTesteBPc().getGuiAtencioso().setSelectedItem(testeB.getAtencioso());
-		getTesteBPc().getGuiAtivo().setSelectedItem(testeB.getAtivo());
-		getTesteBPc().getGuiAutoConfiante().setSelectedItem(testeB.getAutoConfiante());
-		getTesteBPc().getGuiAventureiro().setSelectedItem(testeB.getAventureiro());
-		getTesteBPc().getGuiBemHumorado().setSelectedItem(testeB.getBemHumorado());
-		getTesteBPc().getGuiCalmo().setSelectedItem(testeB.getCalmo());
-		getTesteBPc().getGuiCarismatico().setSelectedItem(testeB.getCarismatico());
-		getTesteBPc().getGuiCauteloso().setSelectedItem(testeB.getCauteloso());
-		getTesteBPc().getGuiCompetitivo().setSelectedItem(testeB.getCompetitivo());
-		getTesteBPc().getGuiCompreensivo().setSelectedItem(testeB.getCompreensivo());
-		getTesteBPc().getGuiConciliador().setSelectedItem(testeB.getConciliador());
-		getTesteBPc().getGuiContido().setSelectedItem(testeB.getContido());
-		getTesteBPc().getGuiConvencional().setSelectedItem(testeB.getConvencional());
-		getTesteBPc().getGuiConvincente().setSelectedItem(testeB.getConvincente());
-		getTesteBPc().getGuiCortes().setSelectedItem(testeB.getCortes());
-		getTesteBPc().getGuiCuidadoso().setSelectedItem(testeB.getCuidadoso());
-		getTesteBPc().getGuiDecidido().setSelectedItem(testeB.getDecidido());
-		getTesteBPc().getGuiDedicado().setSelectedItem(testeB.getDedicado());
-		getTesteBPc().getGuiDependente().setSelectedItem(testeB.getDependente());
-		getTesteBPc().getGuiDesconfiado().setSelectedItem(testeB.getDesconfiado());
-		getTesteBPc().getGuiDescrente().setSelectedItem(testeB.getDescrente());
-		getTesteBPc().getGuiDesencanado().setSelectedItem(testeB.getDesencanado());
-		getTesteBPc().getGuiDesligado().setSelectedItem(testeB.getDesligado());
-		getTesteBPc().getGuiDespretensioso().setSelectedItem(testeB.getDespretensioso());
-		getTesteBPc().getGuiDesprendido().setSelectedItem(testeB.getDesprendido());
-		getTesteBPc().getGuiDestemido().setSelectedItem(testeB.getDestemido());
-		getTesteBPc().getGuiDeterminado().setSelectedItem(testeB.getDeterminado());
-		getTesteBPc().getGuiDiplomatico().setSelectedItem(testeB.getDiplomatico());
-		getTesteBPc().getGuiDireto().setSelectedItem(testeB.getDireto());
-		getTesteBPc().getGuiDisciplinado().setSelectedItem(testeB.getDisciplinado());
-		getTesteBPc().getGuiDiscreto().setSelectedItem(testeB.getDiscreto());
-		getTesteBPc().getGuiDisponivel().setSelectedItem(testeB.getDisponivel());
-		getTesteBPc().getGuiDivertido().setSelectedItem(testeB.getDivertido());
-		getTesteBPc().getGuiDominador().setSelectedItem(testeB.getDominador());
-		getTesteBPc().getGuiEgocentrico().setSelectedItem(testeB.getEgocentrico());
-		getTesteBPc().getGuiEmpolgado().setSelectedItem(testeB.getEmpolgado());
-		getTesteBPc().getGuiEncantador().setSelectedItem(testeB.getEncantador());
-		getTesteBPc().getGuiEnergico().setSelectedItem(testeB.getEnergico());
-		getTesteBPc().getGuiEspontaneo().setSelectedItem(testeB.getEspontaneo());
-		getTesteBPc().getGuiEstavel().setSelectedItem(testeB.getEstavel());
-		getTesteBPc().getGuiExigente().setSelectedItem(testeB.getExigente());
-		getTesteBPc().getGuiExpansivo().setSelectedItem(testeB.getExpansivo());
-		getTesteBPc().getGuiExpressivo().setSelectedItem(testeB.getExpressivo());
-		getTesteBPc().getGuiExtrovertido().setSelectedItem(testeB.getExtrovertido());
-		getTesteBPc().getGuiFechado().setSelectedItem(testeB.getFechado());
-		getTesteBPc().getGuiFirme().setSelectedItem(testeB.getFirme());
-		getTesteBPc().getGuiFuncionario().setSelectedItem(testeB.getFuncionario());
-		getTesteBPc().getGuiGostaDeSeArriscar().setSelectedItem(testeB.getGostaDeSeArriscar());
-		getTesteBPc().getGuiHumilde().setSelectedItem(testeB.getHumilde());
-		getTesteBPc().getGuiImpulsivo().setSelectedItem(testeB.getImpulsivo());
-		getTesteBPc().getGuiIncerto().setSelectedItem(testeB.getIncerto());
-		getTesteBPc().getGuiIndependente().setSelectedItem(testeB.getIndependente());
-		getTesteBPc().getGuiIndiferente().setSelectedItem(testeB.getIndiferente());
-		getTesteBPc().getGuiInfluente().setSelectedItem(testeB.getInfluente());
-		getTesteBPc().getGuiInquieto().setSelectedItem(testeB.getInquieto());
-		getTesteBPc().getGuiInspirador().setSelectedItem(testeB.getInspirador());
-		getTesteBPc().getGuiInteressado().setSelectedItem(testeB.getInteressado());
-		getTesteBPc().getGuiIntrospectivo().setSelectedItem(testeB.getIntrospectivo());
-		getTesteBPc().getGuiJusto().setSelectedItem(testeB.getJusto());
-		getTesteBPc().getGuiLeal().setSelectedItem(testeB.getLeal());
-		getTesteBPc().getGuiLiberal().setSelectedItem(testeB.getLiberal());
-		getTesteBPc().getGuiLivre().setSelectedItem(testeB.getLivre());
-		getTesteBPc().getGuiLogico().setSelectedItem(testeB.getLogico());
-		getTesteBPc().getGuiMaleavel().setSelectedItem(testeB.getMaleavel());
-		getTesteBPc().getGuiMenteAberta().setSelectedItem(testeB.getMenteAberta());
-		getTesteBPc().getGuiMeticuloso().setSelectedItem(testeB.getMeticuloso());
-		getTesteBPc().getGuiObediente().setSelectedItem(testeB.getObediente());
-		getTesteBPc().getGuiObjetivo().setSelectedItem(testeB.getObjetivo());
-		getTesteBPc().getGuiObservador().setSelectedItem(testeB.getObservador());
-		getTesteBPc().getGuiObstinado().setSelectedItem(testeB.getObstinado());
-		getTesteBPc().getGuiOriginal().setSelectedItem(testeB.getOriginal());
-		getTesteBPc().getGuiOusado().setSelectedItem(testeB.getOusado());
-		getTesteBPc().getGuiPaciente().setSelectedItem(testeB.getPaciente());
-		getTesteBPc().getGuiPacifico().setSelectedItem(testeB.getPacifico());
-		getTesteBPc().getGuiPassivo().setSelectedItem(testeB.getPassivo());
-		getTesteBPc().getGuiPerfeccionista().setSelectedItem(testeB.getPerfeccionista());
-		getTesteBPc().getGuiPersistente().setSelectedItem(testeB.getPersistente());
-		getTesteBPc().getGuiPersuasivo().setSelectedItem(testeB.getPersuasivo());
-		getTesteBPc().getGuiPessimista().setSelectedItem(testeB.getPessimista());
-		getTesteBPc().getGuiPonderado().setSelectedItem(testeB.getPonderado());
-		getTesteBPc().getGuiPratico().setSelectedItem(testeB.getPratico());
-		getTesteBPc().getGuiPrecavido().setSelectedItem(testeB.getPrecavido());
-		getTesteBPc().getGuiPreciso().setSelectedItem(testeB.getPreciso());
-		getTesteBPc().getGuiPreocupado().setSelectedItem(testeB.getPreocupado());
-		getTesteBPc().getGuiPrevenido().setSelectedItem(testeB.getPrevenido());
-		getTesteBPc().getGuiPrevisivel().setSelectedItem(testeB.getPrevisivel());
-		getTesteBPc().getGuiRealista().setSelectedItem(testeB.getRealista());
-		getTesteBPc().getGuiRebelde().setSelectedItem(testeB.getRebelde());
-		getTesteBPc().getGuiReceoso().setSelectedItem(testeB.getReceoso());
-		getTesteBPc().getGuiReservado().setSelectedItem(testeB.getReservado());
-		getTesteBPc().getGuiRespeitoso().setSelectedItem(testeB.getRespeitoso());
-		getTesteBPc().getGuiSarcastico().setSelectedItem(testeB.getSarcastico());
-		getTesteBPc().getGuiSeguro().setSelectedItem(testeB.getSeguro());
-		getTesteBPc().getGuiSemLimites().setSelectedItem(testeB.getSemLimites());
-		getTesteBPc().getGuiSensato().setSelectedItem(testeB.getSensato());
-		getTesteBPc().getGuiSereno().setSelectedItem(testeB.getSereno());
-		getTesteBPc().getGuiSerio().setSelectedItem(testeB.getSerio());
-		getTesteBPc().getGuiSimpatico().setSelectedItem(testeB.getSimpatico());
-		getTesteBPc().getGuiSistematico().setSelectedItem(testeB.getSistematico());
-		getTesteBPc().getGuiSociavel().setSelectedItem(testeB.getSociavel());
-		getTesteBPc().getGuiTeimoso().setSelectedItem(testeB.getTeimoso());
-		getTesteBPc().getGuiVersatil().setSelectedItem(testeB.getVersatil());
 	}
 
 	public void atualizarObjeto() {
 		testeB.setFuncionario((Funcionario) getTesteBPc().getGuiFuncionario().getSelectedItem());
-		testeB.setAdequado((String) getTesteBPc().getGuiAdequado().getSelectedItem());
-		testeB.setAgil((String) getTesteBPc().getGuiAgil().getSelectedItem());
-		testeB.setAgitado((String) getTesteBPc().getGuiAgitado().getSelectedItem());
-		testeB.setAlegre((String) getTesteBPc().getGuiAlegre().getSelectedItem());
-		testeB.setAmavel((String) getTesteBPc().getGuiAmavel().getSelectedItem());
-		testeB.setAnalitico((String) getTesteBPc().getGuiAnalitico().getSelectedItem());
-		testeB.setAnimado((String) getTesteBPc().getGuiAnimado().getSelectedItem());
-		testeB.setAnsioso((String) getTesteBPc().getGuiAnsioso().getSelectedItem());
-		testeB.setApatico((String) getTesteBPc().getGuiApatico().getSelectedItem());
-		testeB.setArticulado((String) getTesteBPc().getGuiArticulado().getSelectedItem());
-		testeB.setAssumeRiscosCalculados(
-				(String) getTesteBPc().getGuiAssumeRiscosCalculados().getSelectedItem());
-		testeB.setAtencioso((String) getTesteBPc().getGuiAtencioso().getSelectedItem());
-		testeB.setAtivo((String) getTesteBPc().getGuiAtivo().getSelectedItem());
-		testeB.setAutoconfiante((String) getTesteBPc().getGuiAutoConfiante().getSelectedItem());
-		testeB.setAventureiro((String) getTesteBPc().getGuiAventureiro().getSelectedItem());
-		testeB.setBemHumorado((String) getTesteBPc().getGuiBemHumorado().getSelectedItem());
-		testeB.setCalmo((String) getTesteBPc().getGuiCalmo().getSelectedItem());
-		testeB.setCarismatico((String) getTesteBPc().getGuiCarismatico().getSelectedItem());
-		testeB.setCauteloso((String) getTesteBPc().getGuiCauteloso().getSelectedItem());
-		testeB.setCompetitivo((String) getTesteBPc().getGuiCompetitivo().getSelectedItem());
-		testeB.setCompreensivo((String) getTesteBPc().getGuiCompreensivo().getSelectedItem());
-		testeB.setConciliador((String) getTesteBPc().getGuiConciliador().getSelectedItem());
-		testeB.setContido((String) getTesteBPc().getGuiContido().getSelectedItem());
-		testeB.setConvencional((String) getTesteBPc().getGuiConvencional().getSelectedItem());
-		testeB.setConvincente((String) getTesteBPc().getGuiConvincente().getSelectedItem());
-		testeB.setCortes((String) getTesteBPc().getGuiCortes().getSelectedItem());
-		testeB.setCuidadoso((String) getTesteBPc().getGuiCuidadoso().getSelectedItem());
-		testeB.setDecidido((String) getTesteBPc().getGuiDecidido().getSelectedItem());
-		testeB.setDedicado((String) getTesteBPc().getGuiDedicado().getSelectedItem());
-		testeB.setDependente((String) getTesteBPc().getGuiDependente().getSelectedItem());
-		testeB.setDesconfiado((String) getTesteBPc().getGuiDesconfiado().getSelectedItem());
-		testeB.setDescrente((String) getTesteBPc().getGuiDescrente().getSelectedItem());
-		testeB.setDesencanado((String) getTesteBPc().getGuiDesencanado().getSelectedItem());
-		testeB.setDesligado((String) getTesteBPc().getGuiDesligado().getSelectedItem());
-		testeB.setDespretensioso((String) getTesteBPc().getGuiDespretensioso().getSelectedItem());
-		testeB.setDesprendido((String) getTesteBPc().getGuiDesprendido().getSelectedItem());
-		testeB.setDestemido((String) getTesteBPc().getGuiDestemido().getSelectedItem());
-		testeB.setDeterminado((String) getTesteBPc().getGuiDeterminado().getSelectedItem());
-		testeB.setDiplomatico((String) getTesteBPc().getGuiDiplomatico().getSelectedItem());
-		testeB.setDireto((String) getTesteBPc().getGuiDireto().getSelectedItem());
-		testeB.setDisciplinado((String) getTesteBPc().getGuiDisciplinado().getSelectedItem());
-		testeB.setDiscreto((String) getTesteBPc().getGuiDiscreto().getSelectedItem());
-		testeB.setDisponivel((String) getTesteBPc().getGuiDisponivel().getSelectedItem());
-		testeB.setDivertido((String) getTesteBPc().getGuiDivertido().getSelectedItem());
-		testeB.setDominador((String) getTesteBPc().getGuiDominador().getSelectedItem());
-		testeB.setEgocentrico((String) getTesteBPc().getGuiEgocentrico().getSelectedItem());
-		testeB.setEmpolgado((String) getTesteBPc().getGuiEmpolgado().getSelectedItem());
-		testeB.setEncantador((String) getTesteBPc().getGuiEncantador().getSelectedItem());
-		testeB.setEnergico((String) getTesteBPc().getGuiEnergico().getSelectedItem());
-		testeB.setEspontaneo((String) getTesteBPc().getGuiEspontaneo().getSelectedItem());
-		testeB.setEstavel((String) getTesteBPc().getGuiEstavel().getSelectedItem());
-		testeB.setExigente((String) getTesteBPc().getGuiExigente().getSelectedItem());
-		testeB.setExpansivo((String) getTesteBPc().getGuiExpansivo().getSelectedItem());
-		testeB.setExpressivo((String) getTesteBPc().getGuiExpressivo().getSelectedItem());
-		testeB.setExtrovertido((String) getTesteBPc().getGuiExtrovertido().getSelectedItem());
-		testeB.setFechado((String) getTesteBPc().getGuiFechado().getSelectedItem());
-		testeB.setFirme((String) getTesteBPc().getGuiFirme().getSelectedItem());
-		testeB.setFuncionario((Funcionario) getTesteBPc().getGuiFuncionario().getSelectedItem());
-		testeB.setGostaDeSeArriscar((String) getTesteBPc().getGuiGostaDeSeArriscar().getSelectedItem());
-		testeB.setHumilde((String) getTesteBPc().getGuiHumilde().getSelectedItem());
-		testeB.setImpulsivo((String) getTesteBPc().getGuiImpulsivo().getSelectedItem());
-		testeB.setIncerto((String) getTesteBPc().getGuiIncerto().getSelectedItem());
-		testeB.setIndependente((String) getTesteBPc().getGuiIndependente().getSelectedItem());
-		testeB.setIndiferente((String) getTesteBPc().getGuiIndiferente().getSelectedItem());
-		testeB.setInfluente((String) getTesteBPc().getGuiInfluente().getSelectedItem());
-		testeB.setInquieto((String) getTesteBPc().getGuiInquieto().getSelectedItem());
-		testeB.setInspirador((String) getTesteBPc().getGuiInspirador().getSelectedItem());
-		testeB.setInteressado((String) getTesteBPc().getGuiInteressado().getSelectedItem());
-		testeB.setIntrospectivo((String) getTesteBPc().getGuiIntrospectivo().getSelectedItem());
-		testeB.setJusto((String) getTesteBPc().getGuiJusto().getSelectedItem());
-		testeB.setLeal((String) getTesteBPc().getGuiLeal().getSelectedItem());
-		testeB.setLiberal((String) getTesteBPc().getGuiLiberal().getSelectedItem());
-		testeB.setLivre((String) getTesteBPc().getGuiLivre().getSelectedItem());
-		testeB.setLogico((String) getTesteBPc().getGuiLogico().getSelectedItem());
-		testeB.setMaleavel((String) getTesteBPc().getGuiMaleavel().getSelectedItem());
-		testeB.setMenteAberta((String) getTesteBPc().getGuiMenteAberta().getSelectedItem());
-		testeB.setMeticuloso((String) getTesteBPc().getGuiMeticuloso().getSelectedItem());
-		testeB.setObediente((String) getTesteBPc().getGuiObediente().getSelectedItem());
-		testeB.setObjetivo((String) getTesteBPc().getGuiObjetivo().getSelectedItem());
-		testeB.setObservador((String) getTesteBPc().getGuiObservador().getSelectedItem());
-		testeB.setObstinado((String) getTesteBPc().getGuiObstinado().getSelectedItem());
-		testeB.setOriginal((String) getTesteBPc().getGuiOriginal().getSelectedItem());
-		testeB.setOusado((String) getTesteBPc().getGuiOusado().getSelectedItem());
-		testeB.setPaciente((String) getTesteBPc().getGuiPaciente().getSelectedItem());
-		testeB.setPacifico((String) getTesteBPc().getGuiPacifico().getSelectedItem());
-		testeB.setPassivo((String) getTesteBPc().getGuiPassivo().getSelectedItem());
-		testeB.setPerfeccionista((String) getTesteBPc().getGuiPerfeccionista().getSelectedItem());
-		testeB.setPersistente((String) getTesteBPc().getGuiPersistente().getSelectedItem());
-		testeB.setPersuasivo((String) getTesteBPc().getGuiPersuasivo().getSelectedItem());
-		testeB.setPessimista((String) getTesteBPc().getGuiPessimista().getSelectedItem());
-		testeB.setPonderado((String) getTesteBPc().getGuiPonderado().getSelectedItem());
-		testeB.setPratico((String) getTesteBPc().getGuiPratico().getSelectedItem());
-		testeB.setPrecavido((String) getTesteBPc().getGuiPrecavido().getSelectedItem());
-		testeB.setPreciso((String) getTesteBPc().getGuiPreciso().getSelectedItem());
-		testeB.setPreocupado((String) getTesteBPc().getGuiPreocupado().getSelectedItem());
-		testeB.setPrevenido((String) getTesteBPc().getGuiPrevenido().getSelectedItem());
-		testeB.setPrevisivel((String) getTesteBPc().getGuiPrevisivel().getSelectedItem());
-		testeB.setRealista((String) getTesteBPc().getGuiRealista().getSelectedItem());
-		testeB.setRebelde((String) getTesteBPc().getGuiRebelde().getSelectedItem());
-		testeB.setReceoso((String) getTesteBPc().getGuiReceoso().getSelectedItem());
-		testeB.setReservado((String) getTesteBPc().getGuiReservado().getSelectedItem());
-		testeB.setRespeitoso((String) getTesteBPc().getGuiRespeitoso().getSelectedItem());
-		testeB.setSarcastico((String) getTesteBPc().getGuiSarcastico().getSelectedItem());
-		testeB.setSeguro((String) getTesteBPc().getGuiSeguro().getSelectedItem());
-		testeB.setSemLimites((String) getTesteBPc().getGuiSemLimites().getSelectedItem());
-		testeB.setSensato((String) getTesteBPc().getGuiSensato().getSelectedItem());
-		testeB.setSereno((String) getTesteBPc().getGuiSereno().getSelectedItem());
-		testeB.setSerio((String) getTesteBPc().getGuiSerio().getSelectedItem());
-		testeB.setSimpatico((String) getTesteBPc().getGuiSimpatico().getSelectedItem());
-		testeB.setSistematico((String) getTesteBPc().getGuiSistematico().getSelectedItem());
-		testeB.setSociavel((String) getTesteBPc().getGuiSociavel().getSelectedItem());
-		testeB.setTeimoso((String) getTesteBPc().getGuiTeimoso().getSelectedItem());
-		testeB.setVersatil((String) getTesteBPc().getGuiVersatil().getSelectedItem());
+		calcularResultado();
+	}
+
+	public void calcularResultado() {
+		// QUESTÃO 1
+		if (getTesteBPc().getGuiQuestao1().getSelectedIndex() == 0) {
+			testeB.setTotalOpcaoA();
+		} else if (getTesteBPc().getGuiQuestao1().getSelectedIndex() == 1) {
+			testeB.setTotalOpcaoB();
+		} else if (getTesteBPc().getGuiQuestao1().getSelectedIndex() == 2) {
+			testeB.setTotalOpcaoC();
+		} else if (getTesteBPc().getGuiQuestao1().getSelectedIndex() == 3) {
+			testeB.setTotalOpcaoD();
+		}
+		// QUESTÃO 2
+		if (getTesteBPc().getGuiQuestao2().getSelectedIndex() == 0) {
+			testeB.setTotalOpcaoA();
+		} else if (getTesteBPc().getGuiQuestao2().getSelectedIndex() == 1) {
+			testeB.setTotalOpcaoB();
+		} else if (getTesteBPc().getGuiQuestao2().getSelectedIndex() == 2) {
+			testeB.setTotalOpcaoC();
+		} else if (getTesteBPc().getGuiQuestao2().getSelectedIndex() == 3) {
+			testeB.setTotalOpcaoD();
+		}
+		// QUESTÃO 3
+		if (getTesteBPc().getGuiQuestao3().getSelectedIndex() == 0) {
+			testeB.setTotalOpcaoA();
+		} else if (getTesteBPc().getGuiQuestao3().getSelectedIndex() == 1) {
+			testeB.setTotalOpcaoB();
+		} else if (getTesteBPc().getGuiQuestao3().getSelectedIndex() == 2) {
+			testeB.setTotalOpcaoC();
+		} else if (getTesteBPc().getGuiQuestao3().getSelectedIndex() == 3) {
+			testeB.setTotalOpcaoD();
+		}
+		// QUESTÃO 4
+		if (getTesteBPc().getGuiQuestao4().getSelectedIndex() == 0) {
+			testeB.setTotalOpcaoA();
+		} else if (getTesteBPc().getGuiQuestao4().getSelectedIndex() == 1) {
+			testeB.setTotalOpcaoB();
+		} else if (getTesteBPc().getGuiQuestao4().getSelectedIndex() == 2) {
+			testeB.setTotalOpcaoC();
+		} else if (getTesteBPc().getGuiQuestao4().getSelectedIndex() == 3) {
+			testeB.setTotalOpcaoD();
+		}
+		// QUESTÃO 5
+		if (getTesteBPc().getGuiQuestao5().getSelectedIndex() == 0) {
+			testeB.setTotalOpcaoA();
+		} else if (getTesteBPc().getGuiQuestao5().getSelectedIndex() == 1) {
+			testeB.setTotalOpcaoB();
+		} else if (getTesteBPc().getGuiQuestao5().getSelectedIndex() == 2) {
+			testeB.setTotalOpcaoC();
+		} else if (getTesteBPc().getGuiQuestao5().getSelectedIndex() == 3) {
+			testeB.setTotalOpcaoD();
+		}
+		// QUESTÃO 6
+		if (getTesteBPc().getGuiQuestao6().getSelectedIndex() == 0) {
+			testeB.setTotalOpcaoA();
+		} else if (getTesteBPc().getGuiQuestao6().getSelectedIndex() == 1) {
+			testeB.setTotalOpcaoB();
+		} else if (getTesteBPc().getGuiQuestao6().getSelectedIndex() == 2) {
+			testeB.setTotalOpcaoC();
+		} else if (getTesteBPc().getGuiQuestao6().getSelectedIndex() == 3) {
+			testeB.setTotalOpcaoD();
+		}
+		// QUESTÃO 7
+		if (getTesteBPc().getGuiQuestao7().getSelectedIndex() == 0) {
+			testeB.setTotalOpcaoA();
+		} else if (getTesteBPc().getGuiQuestao7().getSelectedIndex() == 1) {
+			testeB.setTotalOpcaoB();
+		} else if (getTesteBPc().getGuiQuestao7().getSelectedIndex() == 2) {
+			testeB.setTotalOpcaoC();
+		} else if (getTesteBPc().getGuiQuestao7().getSelectedIndex() == 3) {
+			testeB.setTotalOpcaoD();
+		}
+		// QUESTÃO 8
+		if (getTesteBPc().getGuiQuestao8().getSelectedIndex() == 0) {
+			testeB.setTotalOpcaoA();
+		} else if (getTesteBPc().getGuiQuestao8().getSelectedIndex() == 1) {
+			testeB.setTotalOpcaoB();
+		} else if (getTesteBPc().getGuiQuestao8().getSelectedIndex() == 2) {
+			testeB.setTotalOpcaoC();
+		} else if (getTesteBPc().getGuiQuestao8().getSelectedIndex() == 3) {
+			testeB.setTotalOpcaoD();
+		}
+		// QUESTÃO 9
+		if (getTesteBPc().getGuiQuestao9().getSelectedIndex() == 0) {
+			testeB.setTotalOpcaoA();
+		} else if (getTesteBPc().getGuiQuestao9().getSelectedIndex() == 1) {
+			testeB.setTotalOpcaoB();
+		} else if (getTesteBPc().getGuiQuestao9().getSelectedIndex() == 2) {
+			testeB.setTotalOpcaoC();
+		} else if (getTesteBPc().getGuiQuestao9().getSelectedIndex() == 3) {
+			testeB.setTotalOpcaoD();
+		}
+		// QUESTÃO 10
+		if (getTesteBPc().getGuiQuestao10().getSelectedIndex() == 0) {
+			testeB.setTotalOpcaoA();
+		} else if (getTesteBPc().getGuiQuestao10().getSelectedIndex() == 1) {
+			testeB.setTotalOpcaoB();
+		} else if (getTesteBPc().getGuiQuestao10().getSelectedIndex() == 2) {
+			testeB.setTotalOpcaoC();
+		} else if (getTesteBPc().getGuiQuestao10().getSelectedIndex() == 3) {
+			testeB.setTotalOpcaoD();
+		}
+		// QUESTÃO 11
+		if (getTesteBPc().getGuiQuestao11().getSelectedIndex() == 0) {
+			testeB.setTotalOpcaoA();
+		} else if (getTesteBPc().getGuiQuestao11().getSelectedIndex() == 1) {
+			testeB.setTotalOpcaoB();
+		} else if (getTesteBPc().getGuiQuestao11().getSelectedIndex() == 2) {
+			testeB.setTotalOpcaoC();
+		} else if (getTesteBPc().getGuiQuestao11().getSelectedIndex() == 3) {
+			testeB.setTotalOpcaoD();
+		}
+		// QUESTÃO 12
+		if (getTesteBPc().getGuiQuestao12().getSelectedIndex() == 0) {
+			testeB.setTotalOpcaoA();
+		} else if (getTesteBPc().getGuiQuestao12().getSelectedIndex() == 1) {
+			testeB.setTotalOpcaoB();
+		} else if (getTesteBPc().getGuiQuestao12().getSelectedIndex() == 2) {
+			testeB.setTotalOpcaoC();
+		} else if (getTesteBPc().getGuiQuestao12().getSelectedIndex() == 3) {
+			testeB.setTotalOpcaoD();
+		}
+		// QUESTÃO 13
+		if (getTesteBPc().getGuiQuestao13().getSelectedIndex() == 0) {
+			testeB.setTotalOpcaoA();
+		} else if (getTesteBPc().getGuiQuestao13().getSelectedIndex() == 1) {
+			testeB.setTotalOpcaoB();
+		} else if (getTesteBPc().getGuiQuestao13().getSelectedIndex() == 2) {
+			testeB.setTotalOpcaoC();
+		} else if (getTesteBPc().getGuiQuestao13().getSelectedIndex() == 3) {
+			testeB.setTotalOpcaoD();
+		}
+		// QUESTÃO 14
+		if (getTesteBPc().getGuiQuestao14().getSelectedIndex() == 0) {
+			testeB.setTotalOpcaoA();
+		} else if (getTesteBPc().getGuiQuestao14().getSelectedIndex() == 1) {
+			testeB.setTotalOpcaoB();
+		} else if (getTesteBPc().getGuiQuestao14().getSelectedIndex() == 2) {
+			testeB.setTotalOpcaoC();
+		} else if (getTesteBPc().getGuiQuestao14().getSelectedIndex() == 3) {
+			testeB.setTotalOpcaoD();
+		}
+		// QUESTÃO 15
+		if (getTesteBPc().getGuiQuestao15().getSelectedIndex() == 0) {
+			testeB.setTotalOpcaoA();
+		} else if (getTesteBPc().getGuiQuestao15().getSelectedIndex() == 1) {
+			testeB.setTotalOpcaoB();
+		} else if (getTesteBPc().getGuiQuestao15().getSelectedIndex() == 2) {
+			testeB.setTotalOpcaoC();
+		} else if (getTesteBPc().getGuiQuestao15().getSelectedIndex() == 3) {
+			testeB.setTotalOpcaoD();
+		}
+		// QUESTÃO 16
+		if (getTesteBPc().getGuiQuestao16().getSelectedIndex() == 0) {
+			testeB.setTotalOpcaoA();
+		} else if (getTesteBPc().getGuiQuestao16().getSelectedIndex() == 1) {
+			testeB.setTotalOpcaoB();
+		} else if (getTesteBPc().getGuiQuestao16().getSelectedIndex() == 2) {
+			testeB.setTotalOpcaoC();
+		} else if (getTesteBPc().getGuiQuestao16().getSelectedIndex() == 3) {
+			testeB.setTotalOpcaoD();
+		}
+		// QUESTÃO 17
+		if (getTesteBPc().getGuiQuestao17().getSelectedIndex() == 0) {
+			testeB.setTotalOpcaoA();
+		} else if (getTesteBPc().getGuiQuestao17().getSelectedIndex() == 1) {
+			testeB.setTotalOpcaoB();
+		} else if (getTesteBPc().getGuiQuestao17().getSelectedIndex() == 2) {
+			testeB.setTotalOpcaoC();
+		} else if (getTesteBPc().getGuiQuestao17().getSelectedIndex() == 3) {
+			testeB.setTotalOpcaoD();
+		}
+		// QUESTÃO 18
+		if (getTesteBPc().getGuiQuestao18().getSelectedIndex() == 0) {
+			testeB.setTotalOpcaoA();
+		} else if (getTesteBPc().getGuiQuestao18().getSelectedIndex() == 1) {
+			testeB.setTotalOpcaoB();
+		} else if (getTesteBPc().getGuiQuestao18().getSelectedIndex() == 2) {
+			testeB.setTotalOpcaoC();
+		} else if (getTesteBPc().getGuiQuestao18().getSelectedIndex() == 3) {
+			testeB.setTotalOpcaoD();
+		}
+		// QUESTÃO 19
+		if (getTesteBPc().getGuiQuestao19().getSelectedIndex() == 0) {
+			testeB.setTotalOpcaoA();
+		} else if (getTesteBPc().getGuiQuestao19().getSelectedIndex() == 1) {
+			testeB.setTotalOpcaoB();
+		} else if (getTesteBPc().getGuiQuestao19().getSelectedIndex() == 2) {
+			testeB.setTotalOpcaoC();
+		} else if (getTesteBPc().getGuiQuestao19().getSelectedIndex() == 3) {
+			testeB.setTotalOpcaoD();
+		}
+		// QUESTÃO 20
+		if (getTesteBPc().getGuiQuestao20().getSelectedIndex() == 0) {
+			testeB.setTotalOpcaoA();
+		} else if (getTesteBPc().getGuiQuestao20().getSelectedIndex() == 1) {
+			testeB.setTotalOpcaoB();
+		} else if (getTesteBPc().getGuiQuestao20().getSelectedIndex() == 2) {
+			testeB.setTotalOpcaoC();
+		} else if (getTesteBPc().getGuiQuestao20().getSelectedIndex() == 3) {
+			testeB.setTotalOpcaoD();
+		}
+		// QUESTÃO 21
+		if (getTesteBPc().getGuiQuestao21().getSelectedIndex() == 0) {
+			testeB.setTotalOpcaoA();
+		} else if (getTesteBPc().getGuiQuestao21().getSelectedIndex() == 1) {
+			testeB.setTotalOpcaoB();
+		} else if (getTesteBPc().getGuiQuestao21().getSelectedIndex() == 2) {
+			testeB.setTotalOpcaoC();
+		} else if (getTesteBPc().getGuiQuestao21().getSelectedIndex() == 3) {
+			testeB.setTotalOpcaoD();
+		}
+		// QUESTÃO 22
+		if (getTesteBPc().getGuiQuestao22().getSelectedIndex() == 0) {
+			testeB.setTotalOpcaoA();
+		} else if (getTesteBPc().getGuiQuestao22().getSelectedIndex() == 1) {
+			testeB.setTotalOpcaoB();
+		} else if (getTesteBPc().getGuiQuestao22().getSelectedIndex() == 2) {
+			testeB.setTotalOpcaoC();
+		} else if (getTesteBPc().getGuiQuestao22().getSelectedIndex() == 3) {
+			testeB.setTotalOpcaoD();
+		}
+		// QUESTÃO 23
+		if (getTesteBPc().getGuiQuestao23().getSelectedIndex() == 0) {
+			testeB.setTotalOpcaoA();
+		} else if (getTesteBPc().getGuiQuestao23().getSelectedIndex() == 1) {
+			testeB.setTotalOpcaoB();
+		} else if (getTesteBPc().getGuiQuestao23().getSelectedIndex() == 2) {
+			testeB.setTotalOpcaoC();
+		} else if (getTesteBPc().getGuiQuestao23().getSelectedIndex() == 3) {
+			testeB.setTotalOpcaoD();
+		}
+		// QUESTÃO 24
+		if (getTesteBPc().getGuiQuestao24().getSelectedIndex() == 0) {
+			testeB.setTotalOpcaoA();
+		} else if (getTesteBPc().getGuiQuestao24().getSelectedIndex() == 1) {
+			testeB.setTotalOpcaoB();
+		} else if (getTesteBPc().getGuiQuestao24().getSelectedIndex() == 2) {
+			testeB.setTotalOpcaoC();
+		} else if (getTesteBPc().getGuiQuestao24().getSelectedIndex() == 3) {
+			testeB.setTotalOpcaoD();
+		}
+		// QUESTÃO 25
+		if (getTesteBPc().getGuiQuestao25().getSelectedIndex() == 0) {
+			testeB.setTotalOpcaoA();
+		} else if (getTesteBPc().getGuiQuestao25().getSelectedIndex() == 1) {
+			testeB.setTotalOpcaoB();
+		} else if (getTesteBPc().getGuiQuestao25().getSelectedIndex() == 2) {
+			testeB.setTotalOpcaoC();
+		} else if (getTesteBPc().getGuiQuestao25().getSelectedIndex() == 3) {
+			testeB.setTotalOpcaoD();
+		}
+		// QUESTÃO 26
+		if (getTesteBPc().getGuiQuestao26().getSelectedIndex() == 0) {
+			testeB.setTotalOpcaoA();
+		} else if (getTesteBPc().getGuiQuestao26().getSelectedIndex() == 1) {
+			testeB.setTotalOpcaoB();
+		} else if (getTesteBPc().getGuiQuestao26().getSelectedIndex() == 2) {
+			testeB.setTotalOpcaoC();
+		} else if (getTesteBPc().getGuiQuestao26().getSelectedIndex() == 3) {
+			testeB.setTotalOpcaoD();
+		}
+		// QUESTÃO 27
+		if (getTesteBPc().getGuiQuestao27().getSelectedIndex() == 0) {
+			testeB.setTotalOpcaoA();
+		} else if (getTesteBPc().getGuiQuestao27().getSelectedIndex() == 1) {
+			testeB.setTotalOpcaoB();
+		} else if (getTesteBPc().getGuiQuestao27().getSelectedIndex() == 2) {
+			testeB.setTotalOpcaoC();
+		} else if (getTesteBPc().getGuiQuestao27().getSelectedIndex() == 3) {
+			testeB.setTotalOpcaoD();
+		}
+		// QUESTÃO 28
+		if (getTesteBPc().getGuiQuestao28().getSelectedIndex() == 0) {
+			testeB.setTotalOpcaoA();
+		} else if (getTesteBPc().getGuiQuestao28().getSelectedIndex() == 1) {
+			testeB.setTotalOpcaoB();
+		} else if (getTesteBPc().getGuiQuestao28().getSelectedIndex() == 2) {
+			testeB.setTotalOpcaoC();
+		} else if (getTesteBPc().getGuiQuestao28().getSelectedIndex() == 3) {
+			testeB.setTotalOpcaoD();
+		}
+		// QUESTÃO 29
+		if (getTesteBPc().getGuiQuestao29().getSelectedIndex() == 0) {
+			testeB.setTotalOpcaoA();
+		} else if (getTesteBPc().getGuiQuestao29().getSelectedIndex() == 1) {
+			testeB.setTotalOpcaoB();
+		} else if (getTesteBPc().getGuiQuestao29().getSelectedIndex() == 2) {
+			testeB.setTotalOpcaoC();
+		} else if (getTesteBPc().getGuiQuestao29().getSelectedIndex() == 3) {
+			testeB.setTotalOpcaoD();
+		}
+		// QUESTÃO 30
+		if (getTesteBPc().getGuiQuestao30().getSelectedIndex() == 0) {
+			testeB.setTotalOpcaoA();
+		} else if (getTesteBPc().getGuiQuestao30().getSelectedIndex() == 1) {
+			testeB.setTotalOpcaoB();
+		} else if (getTesteBPc().getGuiQuestao30().getSelectedIndex() == 2) {
+			testeB.setTotalOpcaoC();
+		} else if (getTesteBPc().getGuiQuestao30().getSelectedIndex() == 3) {
+			testeB.setTotalOpcaoD();
+		}
+		// QUESTÃO 31
+		if (getTesteBPc().getGuiQuestao31().getSelectedIndex() == 0) {
+			testeB.setTotalOpcaoA();
+		} else if (getTesteBPc().getGuiQuestao31().getSelectedIndex() == 1) {
+			testeB.setTotalOpcaoB();
+		} else if (getTesteBPc().getGuiQuestao31().getSelectedIndex() == 2) {
+			testeB.setTotalOpcaoC();
+		} else if (getTesteBPc().getGuiQuestao31().getSelectedIndex() == 3) {
+			testeB.setTotalOpcaoD();
+		}
+		// QUESTÃO 32
+		if (getTesteBPc().getGuiQuestao32().getSelectedIndex() == 0) {
+			testeB.setTotalOpcaoA();
+		} else if (getTesteBPc().getGuiQuestao32().getSelectedIndex() == 1) {
+			testeB.setTotalOpcaoB();
+		} else if (getTesteBPc().getGuiQuestao32().getSelectedIndex() == 2) {
+			testeB.setTotalOpcaoC();
+		} else if (getTesteBPc().getGuiQuestao32().getSelectedIndex() == 3) {
+			testeB.setTotalOpcaoD();
+		}
+		// QUESTÃO 33
+		if (getTesteBPc().getGuiQuestao33().getSelectedIndex() == 0) {
+			testeB.setTotalOpcaoA();
+		} else if (getTesteBPc().getGuiQuestao33().getSelectedIndex() == 1) {
+			testeB.setTotalOpcaoB();
+		} else if (getTesteBPc().getGuiQuestao33().getSelectedIndex() == 2) {
+			testeB.setTotalOpcaoC();
+		} else if (getTesteBPc().getGuiQuestao33().getSelectedIndex() == 3) {
+			testeB.setTotalOpcaoD();
+		}
+		// QUESTÃO 34
+		if (getTesteBPc().getGuiQuestao34().getSelectedIndex() == 0) {
+			testeB.setTotalOpcaoA();
+		} else if (getTesteBPc().getGuiQuestao34().getSelectedIndex() == 1) {
+			testeB.setTotalOpcaoB();
+		} else if (getTesteBPc().getGuiQuestao34().getSelectedIndex() == 2) {
+			testeB.setTotalOpcaoC();
+		} else if (getTesteBPc().getGuiQuestao34().getSelectedIndex() == 3) {
+			testeB.setTotalOpcaoD();
+		}
+		// QUESTÃO 35
+		if (getTesteBPc().getGuiQuestao35().getSelectedIndex() == 0) {
+			testeB.setTotalOpcaoA();
+		} else if (getTesteBPc().getGuiQuestao35().getSelectedIndex() == 1) {
+			testeB.setTotalOpcaoB();
+		} else if (getTesteBPc().getGuiQuestao35().getSelectedIndex() == 2) {
+			testeB.setTotalOpcaoC();
+		} else if (getTesteBPc().getGuiQuestao35().getSelectedIndex() == 3) {
+			testeB.setTotalOpcaoD();
+		}
+		// QUESTÃO 36
+		if (getTesteBPc().getGuiQuestao36().getSelectedIndex() == 0) {
+			testeB.setTotalOpcaoA();
+		} else if (getTesteBPc().getGuiQuestao36().getSelectedIndex() == 1) {
+			testeB.setTotalOpcaoB();
+		} else if (getTesteBPc().getGuiQuestao36().getSelectedIndex() == 2) {
+			testeB.setTotalOpcaoC();
+		} else if (getTesteBPc().getGuiQuestao36().getSelectedIndex() == 3) {
+			testeB.setTotalOpcaoD();
+		}
+		// QUESTÃO 37
+		if (getTesteBPc().getGuiQuestao37().getSelectedIndex() == 0) {
+			testeB.setTotalOpcaoA();
+		} else if (getTesteBPc().getGuiQuestao37().getSelectedIndex() == 1) {
+			testeB.setTotalOpcaoB();
+		} else if (getTesteBPc().getGuiQuestao37().getSelectedIndex() == 2) {
+			testeB.setTotalOpcaoC();
+		} else if (getTesteBPc().getGuiQuestao37().getSelectedIndex() == 3) {
+			testeB.setTotalOpcaoD();
+		}
+		// QUESTÃO 38
+		if (getTesteBPc().getGuiQuestao38().getSelectedIndex() == 0) {
+			testeB.setTotalOpcaoA();
+		} else if (getTesteBPc().getGuiQuestao38().getSelectedIndex() == 1) {
+			testeB.setTotalOpcaoB();
+		} else if (getTesteBPc().getGuiQuestao38().getSelectedIndex() == 2) {
+			testeB.setTotalOpcaoC();
+		} else if (getTesteBPc().getGuiQuestao38().getSelectedIndex() == 3) {
+			testeB.setTotalOpcaoD();
+		}
+		// QUESTÃO 39
+		if (getTesteBPc().getGuiQuestao39().getSelectedIndex() == 0) {
+			testeB.setTotalOpcaoA();
+		} else if (getTesteBPc().getGuiQuestao39().getSelectedIndex() == 1) {
+			testeB.setTotalOpcaoB();
+		} else if (getTesteBPc().getGuiQuestao39().getSelectedIndex() == 2) {
+			testeB.setTotalOpcaoC();
+		} else if (getTesteBPc().getGuiQuestao39().getSelectedIndex() == 3) {
+			testeB.setTotalOpcaoD();
+		}
+		// QUESTÃO 40
+		if (getTesteBPc().getGuiQuestao40().getSelectedIndex() == 0) {
+			testeB.setTotalOpcaoA();
+		} else if (getTesteBPc().getGuiQuestao40().getSelectedIndex() == 1) {
+			testeB.setTotalOpcaoB();
+		} else if (getTesteBPc().getGuiQuestao40().getSelectedIndex() == 2) {
+			testeB.setTotalOpcaoC();
+		} else if (getTesteBPc().getGuiQuestao40().getSelectedIndex() == 3) {
+			testeB.setTotalOpcaoD();
+		}
 	}
 
 	public TesteB getTesteB() {

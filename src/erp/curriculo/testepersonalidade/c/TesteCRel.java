@@ -17,7 +17,7 @@ public class TesteCRel {
 	private String arquivo = "testeC.pdf";
 	private Document document = new Document();
 	private Relatorio relatorio = new Relatorio();
-	private String titulo = "CARACTERÍSTICAS";
+	private String titulo = "TESTE D.I.S.C.";
 	private PdfWriter writer = null;
 
 	public TesteCRel(List<TesteC> testeCs) {
@@ -29,7 +29,10 @@ public class TesteCRel {
 			for (TesteC testeC : testeCs) {
 				document.newPage();
 				document.add(new Paragraph("FUNCIONÁRIO: " + testeC.getFuncionario()));
-				document.add(new Paragraph("ADEQUADO: " + testeC.getAdequado()));
+				document.add(new Paragraph("DOMINÂNCIA: " + testeC.getTotalOpcaoD()));
+				document.add(new Paragraph("INFLUÊNCIA: " + testeC.getTotalOpcaoI()));
+				document.add(new Paragraph("ESTABILIDADE: " + testeC.getTotalOpcaoS()));
+				document.add(new Paragraph("CONFORMIDADE: " + testeC.getTotalOpcaoC()));
 			}
 		} catch (DocumentException | FileNotFoundException e) {
 			System.err.println(e.getMessage());

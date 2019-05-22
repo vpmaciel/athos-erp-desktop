@@ -17,7 +17,7 @@ public class TesteBRel {
 	private String arquivo = "testeB.pdf";
 	private Document document = new Document();
 	private Relatorio relatorio = new Relatorio();
-	private String titulo = "CARACTERÍSTICAS";
+	private String titulo = "TESTE PERFIL COMPORTAMENTAL";
 	private PdfWriter writer = null;
 
 	public TesteBRel(List<TesteB> testeBs) {
@@ -29,7 +29,10 @@ public class TesteBRel {
 			for (TesteB testeB : testeBs) {
 				document.newPage();
 				document.add(new Paragraph("FUNCIONÁRIO: " + testeB.getFuncionario()));
-				document.add(new Paragraph("ADEQUADO: " + testeB.getAdequado()));
+				document.add(new Paragraph("INFLUENTE: " + testeB.getTotalOpcaoA()));
+				document.add(new Paragraph("GUERREIRO: " + testeB.getTotalOpcaoB()));
+				document.add(new Paragraph("PERFECCIONISTA: " + testeB.getTotalOpcaoC()));
+				document.add(new Paragraph("HARMONIOSO: " + testeB.getTotalOpcaoD()));
 			}
 		} catch (DocumentException | FileNotFoundException e) {
 			System.err.println(e.getMessage());

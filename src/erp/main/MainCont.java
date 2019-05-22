@@ -363,6 +363,18 @@ public final class MainCont {
 					AOP.getNomeSistema() + " - OBJETIVO PROFISSIONAL " + Data.getData() + AOP.getUsuarioFormatado());
 			MainCont.getCurriculoObjetivoProfissionalFp().setTitle(
 					AOP.getNomeSistema() + " - OBJETIVO PROFISSIONAL " + Data.getData() + AOP.getUsuarioFormatado());
+			MainCont.getCurriculoTesteAFc().setTitle(
+					AOP.getNomeSistema() + " - TESTE DE PREFERÊNCIA CEREBRAL " + Data.getData() + AOP.getUsuarioFormatado());
+			MainCont.getCurriculoTesteAFp().setTitle(
+					AOP.getNomeSistema() + " - TESTE DE PREFERÊNCIA CEREBRAL " + Data.getData() + AOP.getUsuarioFormatado());
+			MainCont.getCurriculoTesteBFc().setTitle(
+					AOP.getNomeSistema() + " - TESTE DE PERFIL COMPORTAMENTAL " + Data.getData() + AOP.getUsuarioFormatado());
+			MainCont.getCurriculoTesteBFp().setTitle(
+					AOP.getNomeSistema() + " - TESTE DE PERFIL COMPORTAMENTAL " + Data.getData() + AOP.getUsuarioFormatado());
+			MainCont.getCurriculoTesteCFc().setTitle(
+					AOP.getNomeSistema() + " - TESTE DE PERSONALIDADE D.I.S.C. " + Data.getData() + AOP.getUsuarioFormatado());
+			MainCont.getCurriculoTesteCFp().setTitle(
+					AOP.getNomeSistema() + " - TESTE DE PERSONALIDADE D.I.S.C. " + Data.getData() + AOP.getUsuarioFormatado());
 		}
 	}
 

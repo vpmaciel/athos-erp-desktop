@@ -70,7 +70,7 @@ final class TesteCCont {
 		@Override
 		public void windowOpened(WindowEvent e) {
 			testeC = new TesteC();
-			getTesteCPc().getGuiAdequado().requestFocus();
+			getTesteCPc().getGuiFuncionario().requestFocus();
 		}
 	}
 
@@ -115,7 +115,7 @@ final class TesteCCont {
 		public void actionPerformed(ActionEvent actionEvent) {
 			testeC = new TesteC();
 			getTesteCFc().limparGui();
-			getTesteCPc().getGuiAdequado().requestFocus();
+			getTesteCPc().getGuiFuncionario().requestFocus();
 		}
 	}
 
@@ -186,7 +186,7 @@ final class TesteCCont {
 					TesteCFac.salvarRegistro(testeC);
 					testeC = new TesteC();
 					getTesteCFc().limparGui();
-					getTesteCPc().getGuiAdequado().requestFocus();
+					getTesteCPc().getGuiFuncionario().requestFocus();
 					Msg.sucessoSalvarRegistro();
 				}
 			} catch (Exception e) {
@@ -202,238 +202,354 @@ final class TesteCCont {
 			return;
 		}
 		getTesteCPc().getGuiFuncionario().setSelectedItem(testeC.getFuncionario());
-		getTesteCPc().getGuiAdequado().setSelectedItem(testeC.getAdequado());
-		getTesteCPc().getGuiAgil().setSelectedItem(testeC.getAgil());
-		getTesteCPc().getGuiAgitado().setSelectedItem(testeC.getAgitado());
-		getTesteCPc().getGuiAlegre().setSelectedItem(testeC.getAlegre());
-		getTesteCPc().getGuiAmavel().setSelectedItem(testeC.getAmavel());
-		getTesteCPc().getGuiAnalitico().setSelectedItem(testeC.getAnalitico());
-		getTesteCPc().getGuiAnimado().setSelectedItem(testeC.getAnimado());
-		getTesteCPc().getGuiAnsioso().setSelectedItem(testeC.getAnsioso());
-		getTesteCPc().getGuiApatico().setSelectedItem(testeC.getApatico());
-		getTesteCPc().getGuiArticulado().setSelectedItem(testeC.getArticulado());
-		getTesteCPc().getGuiAssumeRiscosCalculados()
-				.setSelectedItem(testeC.getAssumeRiscosCalculados());
-		getTesteCPc().getGuiAtencioso().setSelectedItem(testeC.getAtencioso());
-		getTesteCPc().getGuiAtivo().setSelectedItem(testeC.getAtivo());
-		getTesteCPc().getGuiAutoConfiante().setSelectedItem(testeC.getAutoConfiante());
-		getTesteCPc().getGuiAventureiro().setSelectedItem(testeC.getAventureiro());
-		getTesteCPc().getGuiBemHumorado().setSelectedItem(testeC.getBemHumorado());
-		getTesteCPc().getGuiCalmo().setSelectedItem(testeC.getCalmo());
-		getTesteCPc().getGuiCarismatico().setSelectedItem(testeC.getCarismatico());
-		getTesteCPc().getGuiCauteloso().setSelectedItem(testeC.getCauteloso());
-		getTesteCPc().getGuiCompetitivo().setSelectedItem(testeC.getCompetitivo());
-		getTesteCPc().getGuiCompreensivo().setSelectedItem(testeC.getCompreensivo());
-		getTesteCPc().getGuiConciliador().setSelectedItem(testeC.getConciliador());
-		getTesteCPc().getGuiContido().setSelectedItem(testeC.getContido());
-		getTesteCPc().getGuiConvencional().setSelectedItem(testeC.getConvencional());
-		getTesteCPc().getGuiConvincente().setSelectedItem(testeC.getConvincente());
-		getTesteCPc().getGuiCortes().setSelectedItem(testeC.getCortes());
-		getTesteCPc().getGuiCuidadoso().setSelectedItem(testeC.getCuidadoso());
-		getTesteCPc().getGuiDecidido().setSelectedItem(testeC.getDecidido());
-		getTesteCPc().getGuiDedicado().setSelectedItem(testeC.getDedicado());
-		getTesteCPc().getGuiDependente().setSelectedItem(testeC.getDependente());
-		getTesteCPc().getGuiDesconfiado().setSelectedItem(testeC.getDesconfiado());
-		getTesteCPc().getGuiDescrente().setSelectedItem(testeC.getDescrente());
-		getTesteCPc().getGuiDesencanado().setSelectedItem(testeC.getDesencanado());
-		getTesteCPc().getGuiDesligado().setSelectedItem(testeC.getDesligado());
-		getTesteCPc().getGuiDespretensioso().setSelectedItem(testeC.getDespretensioso());
-		getTesteCPc().getGuiDesprendido().setSelectedItem(testeC.getDesprendido());
-		getTesteCPc().getGuiDestemido().setSelectedItem(testeC.getDestemido());
-		getTesteCPc().getGuiDeterminado().setSelectedItem(testeC.getDeterminado());
-		getTesteCPc().getGuiDiplomatico().setSelectedItem(testeC.getDiplomatico());
-		getTesteCPc().getGuiDireto().setSelectedItem(testeC.getDireto());
-		getTesteCPc().getGuiDisciplinado().setSelectedItem(testeC.getDisciplinado());
-		getTesteCPc().getGuiDiscreto().setSelectedItem(testeC.getDiscreto());
-		getTesteCPc().getGuiDisponivel().setSelectedItem(testeC.getDisponivel());
-		getTesteCPc().getGuiDivertido().setSelectedItem(testeC.getDivertido());
-		getTesteCPc().getGuiDominador().setSelectedItem(testeC.getDominador());
-		getTesteCPc().getGuiEgocentrico().setSelectedItem(testeC.getEgocentrico());
-		getTesteCPc().getGuiEmpolgado().setSelectedItem(testeC.getEmpolgado());
-		getTesteCPc().getGuiEncantador().setSelectedItem(testeC.getEncantador());
-		getTesteCPc().getGuiEnergico().setSelectedItem(testeC.getEnergico());
-		getTesteCPc().getGuiEspontaneo().setSelectedItem(testeC.getEspontaneo());
-		getTesteCPc().getGuiEstavel().setSelectedItem(testeC.getEstavel());
-		getTesteCPc().getGuiExigente().setSelectedItem(testeC.getExigente());
-		getTesteCPc().getGuiExpansivo().setSelectedItem(testeC.getExpansivo());
-		getTesteCPc().getGuiExpressivo().setSelectedItem(testeC.getExpressivo());
-		getTesteCPc().getGuiExtrovertido().setSelectedItem(testeC.getExtrovertido());
-		getTesteCPc().getGuiFechado().setSelectedItem(testeC.getFechado());
-		getTesteCPc().getGuiFirme().setSelectedItem(testeC.getFirme());
-		getTesteCPc().getGuiFuncionario().setSelectedItem(testeC.getFuncionario());
-		getTesteCPc().getGuiGostaDeSeArriscar().setSelectedItem(testeC.getGostaDeSeArriscar());
-		getTesteCPc().getGuiHumilde().setSelectedItem(testeC.getHumilde());
-		getTesteCPc().getGuiImpulsivo().setSelectedItem(testeC.getImpulsivo());
-		getTesteCPc().getGuiIncerto().setSelectedItem(testeC.getIncerto());
-		getTesteCPc().getGuiIndependente().setSelectedItem(testeC.getIndependente());
-		getTesteCPc().getGuiIndiferente().setSelectedItem(testeC.getIndiferente());
-		getTesteCPc().getGuiInfluente().setSelectedItem(testeC.getInfluente());
-		getTesteCPc().getGuiInquieto().setSelectedItem(testeC.getInquieto());
-		getTesteCPc().getGuiInspirador().setSelectedItem(testeC.getInspirador());
-		getTesteCPc().getGuiInteressado().setSelectedItem(testeC.getInteressado());
-		getTesteCPc().getGuiIntrospectivo().setSelectedItem(testeC.getIntrospectivo());
-		getTesteCPc().getGuiJusto().setSelectedItem(testeC.getJusto());
-		getTesteCPc().getGuiLeal().setSelectedItem(testeC.getLeal());
-		getTesteCPc().getGuiLiberal().setSelectedItem(testeC.getLiberal());
-		getTesteCPc().getGuiLivre().setSelectedItem(testeC.getLivre());
-		getTesteCPc().getGuiLogico().setSelectedItem(testeC.getLogico());
-		getTesteCPc().getGuiMaleavel().setSelectedItem(testeC.getMaleavel());
-		getTesteCPc().getGuiMenteAberta().setSelectedItem(testeC.getMenteAberta());
-		getTesteCPc().getGuiMeticuloso().setSelectedItem(testeC.getMeticuloso());
-		getTesteCPc().getGuiObediente().setSelectedItem(testeC.getObediente());
-		getTesteCPc().getGuiObjetivo().setSelectedItem(testeC.getObjetivo());
-		getTesteCPc().getGuiObservador().setSelectedItem(testeC.getObservador());
-		getTesteCPc().getGuiObstinado().setSelectedItem(testeC.getObstinado());
-		getTesteCPc().getGuiOriginal().setSelectedItem(testeC.getOriginal());
-		getTesteCPc().getGuiOusado().setSelectedItem(testeC.getOusado());
-		getTesteCPc().getGuiPaciente().setSelectedItem(testeC.getPaciente());
-		getTesteCPc().getGuiPacifico().setSelectedItem(testeC.getPacifico());
-		getTesteCPc().getGuiPassivo().setSelectedItem(testeC.getPassivo());
-		getTesteCPc().getGuiPerfeccionista().setSelectedItem(testeC.getPerfeccionista());
-		getTesteCPc().getGuiPersistente().setSelectedItem(testeC.getPersistente());
-		getTesteCPc().getGuiPersuasivo().setSelectedItem(testeC.getPersuasivo());
-		getTesteCPc().getGuiPessimista().setSelectedItem(testeC.getPessimista());
-		getTesteCPc().getGuiPonderado().setSelectedItem(testeC.getPonderado());
-		getTesteCPc().getGuiPratico().setSelectedItem(testeC.getPratico());
-		getTesteCPc().getGuiPrecavido().setSelectedItem(testeC.getPrecavido());
-		getTesteCPc().getGuiPreciso().setSelectedItem(testeC.getPreciso());
-		getTesteCPc().getGuiPreocupado().setSelectedItem(testeC.getPreocupado());
-		getTesteCPc().getGuiPrevenido().setSelectedItem(testeC.getPrevenido());
-		getTesteCPc().getGuiPrevisivel().setSelectedItem(testeC.getPrevisivel());
-		getTesteCPc().getGuiRealista().setSelectedItem(testeC.getRealista());
-		getTesteCPc().getGuiRebelde().setSelectedItem(testeC.getRebelde());
-		getTesteCPc().getGuiReceoso().setSelectedItem(testeC.getReceoso());
-		getTesteCPc().getGuiReservado().setSelectedItem(testeC.getReservado());
-		getTesteCPc().getGuiRespeitoso().setSelectedItem(testeC.getRespeitoso());
-		getTesteCPc().getGuiSarcastico().setSelectedItem(testeC.getSarcastico());
-		getTesteCPc().getGuiSeguro().setSelectedItem(testeC.getSeguro());
-		getTesteCPc().getGuiSemLimites().setSelectedItem(testeC.getSemLimites());
-		getTesteCPc().getGuiSensato().setSelectedItem(testeC.getSensato());
-		getTesteCPc().getGuiSereno().setSelectedItem(testeC.getSereno());
-		getTesteCPc().getGuiSerio().setSelectedItem(testeC.getSerio());
-		getTesteCPc().getGuiSimpatico().setSelectedItem(testeC.getSimpatico());
-		getTesteCPc().getGuiSistematico().setSelectedItem(testeC.getSistematico());
-		getTesteCPc().getGuiSociavel().setSelectedItem(testeC.getSociavel());
-		getTesteCPc().getGuiTeimoso().setSelectedItem(testeC.getTeimoso());
-		getTesteCPc().getGuiVersatil().setSelectedItem(testeC.getVersatil());
 	}
 
 	public void atualizarObjeto() {
 		testeC.setFuncionario((Funcionario) getTesteCPc().getGuiFuncionario().getSelectedItem());
-		testeC.setAdequado((String) getTesteCPc().getGuiAdequado().getSelectedItem());
-		testeC.setAgil((String) getTesteCPc().getGuiAgil().getSelectedItem());
-		testeC.setAgitado((String) getTesteCPc().getGuiAgitado().getSelectedItem());
-		testeC.setAlegre((String) getTesteCPc().getGuiAlegre().getSelectedItem());
-		testeC.setAmavel((String) getTesteCPc().getGuiAmavel().getSelectedItem());
-		testeC.setAnalitico((String) getTesteCPc().getGuiAnalitico().getSelectedItem());
-		testeC.setAnimado((String) getTesteCPc().getGuiAnimado().getSelectedItem());
-		testeC.setAnsioso((String) getTesteCPc().getGuiAnsioso().getSelectedItem());
-		testeC.setApatico((String) getTesteCPc().getGuiApatico().getSelectedItem());
-		testeC.setArticulado((String) getTesteCPc().getGuiArticulado().getSelectedItem());
-		testeC.setAssumeRiscosCalculados(
-				(String) getTesteCPc().getGuiAssumeRiscosCalculados().getSelectedItem());
-		testeC.setAtencioso((String) getTesteCPc().getGuiAtencioso().getSelectedItem());
-		testeC.setAtivo((String) getTesteCPc().getGuiAtivo().getSelectedItem());
-		testeC.setAutoconfiante((String) getTesteCPc().getGuiAutoConfiante().getSelectedItem());
-		testeC.setAventureiro((String) getTesteCPc().getGuiAventureiro().getSelectedItem());
-		testeC.setBemHumorado((String) getTesteCPc().getGuiBemHumorado().getSelectedItem());
-		testeC.setCalmo((String) getTesteCPc().getGuiCalmo().getSelectedItem());
-		testeC.setCarismatico((String) getTesteCPc().getGuiCarismatico().getSelectedItem());
-		testeC.setCauteloso((String) getTesteCPc().getGuiCauteloso().getSelectedItem());
-		testeC.setCompetitivo((String) getTesteCPc().getGuiCompetitivo().getSelectedItem());
-		testeC.setCompreensivo((String) getTesteCPc().getGuiCompreensivo().getSelectedItem());
-		testeC.setConciliador((String) getTesteCPc().getGuiConciliador().getSelectedItem());
-		testeC.setContido((String) getTesteCPc().getGuiContido().getSelectedItem());
-		testeC.setConvencional((String) getTesteCPc().getGuiConvencional().getSelectedItem());
-		testeC.setConvincente((String) getTesteCPc().getGuiConvincente().getSelectedItem());
-		testeC.setCortes((String) getTesteCPc().getGuiCortes().getSelectedItem());
-		testeC.setCuidadoso((String) getTesteCPc().getGuiCuidadoso().getSelectedItem());
-		testeC.setDecidido((String) getTesteCPc().getGuiDecidido().getSelectedItem());
-		testeC.setDedicado((String) getTesteCPc().getGuiDedicado().getSelectedItem());
-		testeC.setDependente((String) getTesteCPc().getGuiDependente().getSelectedItem());
-		testeC.setDesconfiado((String) getTesteCPc().getGuiDesconfiado().getSelectedItem());
-		testeC.setDescrente((String) getTesteCPc().getGuiDescrente().getSelectedItem());
-		testeC.setDesencanado((String) getTesteCPc().getGuiDesencanado().getSelectedItem());
-		testeC.setDesligado((String) getTesteCPc().getGuiDesligado().getSelectedItem());
-		testeC.setDespretensioso((String) getTesteCPc().getGuiDespretensioso().getSelectedItem());
-		testeC.setDesprendido((String) getTesteCPc().getGuiDesprendido().getSelectedItem());
-		testeC.setDestemido((String) getTesteCPc().getGuiDestemido().getSelectedItem());
-		testeC.setDeterminado((String) getTesteCPc().getGuiDeterminado().getSelectedItem());
-		testeC.setDiplomatico((String) getTesteCPc().getGuiDiplomatico().getSelectedItem());
-		testeC.setDireto((String) getTesteCPc().getGuiDireto().getSelectedItem());
-		testeC.setDisciplinado((String) getTesteCPc().getGuiDisciplinado().getSelectedItem());
-		testeC.setDiscreto((String) getTesteCPc().getGuiDiscreto().getSelectedItem());
-		testeC.setDisponivel((String) getTesteCPc().getGuiDisponivel().getSelectedItem());
-		testeC.setDivertido((String) getTesteCPc().getGuiDivertido().getSelectedItem());
-		testeC.setDominador((String) getTesteCPc().getGuiDominador().getSelectedItem());
-		testeC.setEgocentrico((String) getTesteCPc().getGuiEgocentrico().getSelectedItem());
-		testeC.setEmpolgado((String) getTesteCPc().getGuiEmpolgado().getSelectedItem());
-		testeC.setEncantador((String) getTesteCPc().getGuiEncantador().getSelectedItem());
-		testeC.setEnergico((String) getTesteCPc().getGuiEnergico().getSelectedItem());
-		testeC.setEspontaneo((String) getTesteCPc().getGuiEspontaneo().getSelectedItem());
-		testeC.setEstavel((String) getTesteCPc().getGuiEstavel().getSelectedItem());
-		testeC.setExigente((String) getTesteCPc().getGuiExigente().getSelectedItem());
-		testeC.setExpansivo((String) getTesteCPc().getGuiExpansivo().getSelectedItem());
-		testeC.setExpressivo((String) getTesteCPc().getGuiExpressivo().getSelectedItem());
-		testeC.setExtrovertido((String) getTesteCPc().getGuiExtrovertido().getSelectedItem());
-		testeC.setFechado((String) getTesteCPc().getGuiFechado().getSelectedItem());
-		testeC.setFirme((String) getTesteCPc().getGuiFirme().getSelectedItem());
-		testeC.setFuncionario((Funcionario) getTesteCPc().getGuiFuncionario().getSelectedItem());
-		testeC.setGostaDeSeArriscar((String) getTesteCPc().getGuiGostaDeSeArriscar().getSelectedItem());
-		testeC.setHumilde((String) getTesteCPc().getGuiHumilde().getSelectedItem());
-		testeC.setImpulsivo((String) getTesteCPc().getGuiImpulsivo().getSelectedItem());
-		testeC.setIncerto((String) getTesteCPc().getGuiIncerto().getSelectedItem());
-		testeC.setIndependente((String) getTesteCPc().getGuiIndependente().getSelectedItem());
-		testeC.setIndiferente((String) getTesteCPc().getGuiIndiferente().getSelectedItem());
-		testeC.setInfluente((String) getTesteCPc().getGuiInfluente().getSelectedItem());
-		testeC.setInquieto((String) getTesteCPc().getGuiInquieto().getSelectedItem());
-		testeC.setInspirador((String) getTesteCPc().getGuiInspirador().getSelectedItem());
-		testeC.setInteressado((String) getTesteCPc().getGuiInteressado().getSelectedItem());
-		testeC.setIntrospectivo((String) getTesteCPc().getGuiIntrospectivo().getSelectedItem());
-		testeC.setJusto((String) getTesteCPc().getGuiJusto().getSelectedItem());
-		testeC.setLeal((String) getTesteCPc().getGuiLeal().getSelectedItem());
-		testeC.setLiberal((String) getTesteCPc().getGuiLiberal().getSelectedItem());
-		testeC.setLivre((String) getTesteCPc().getGuiLivre().getSelectedItem());
-		testeC.setLogico((String) getTesteCPc().getGuiLogico().getSelectedItem());
-		testeC.setMaleavel((String) getTesteCPc().getGuiMaleavel().getSelectedItem());
-		testeC.setMenteAberta((String) getTesteCPc().getGuiMenteAberta().getSelectedItem());
-		testeC.setMeticuloso((String) getTesteCPc().getGuiMeticuloso().getSelectedItem());
-		testeC.setObediente((String) getTesteCPc().getGuiObediente().getSelectedItem());
-		testeC.setObjetivo((String) getTesteCPc().getGuiObjetivo().getSelectedItem());
-		testeC.setObservador((String) getTesteCPc().getGuiObservador().getSelectedItem());
-		testeC.setObstinado((String) getTesteCPc().getGuiObstinado().getSelectedItem());
-		testeC.setOriginal((String) getTesteCPc().getGuiOriginal().getSelectedItem());
-		testeC.setOusado((String) getTesteCPc().getGuiOusado().getSelectedItem());
-		testeC.setPaciente((String) getTesteCPc().getGuiPaciente().getSelectedItem());
-		testeC.setPacifico((String) getTesteCPc().getGuiPacifico().getSelectedItem());
-		testeC.setPassivo((String) getTesteCPc().getGuiPassivo().getSelectedItem());
-		testeC.setPerfeccionista((String) getTesteCPc().getGuiPerfeccionista().getSelectedItem());
-		testeC.setPersistente((String) getTesteCPc().getGuiPersistente().getSelectedItem());
-		testeC.setPersuasivo((String) getTesteCPc().getGuiPersuasivo().getSelectedItem());
-		testeC.setPessimista((String) getTesteCPc().getGuiPessimista().getSelectedItem());
-		testeC.setPonderado((String) getTesteCPc().getGuiPonderado().getSelectedItem());
-		testeC.setPratico((String) getTesteCPc().getGuiPratico().getSelectedItem());
-		testeC.setPrecavido((String) getTesteCPc().getGuiPrecavido().getSelectedItem());
-		testeC.setPreciso((String) getTesteCPc().getGuiPreciso().getSelectedItem());
-		testeC.setPreocupado((String) getTesteCPc().getGuiPreocupado().getSelectedItem());
-		testeC.setPrevenido((String) getTesteCPc().getGuiPrevenido().getSelectedItem());
-		testeC.setPrevisivel((String) getTesteCPc().getGuiPrevisivel().getSelectedItem());
-		testeC.setRealista((String) getTesteCPc().getGuiRealista().getSelectedItem());
-		testeC.setRebelde((String) getTesteCPc().getGuiRebelde().getSelectedItem());
-		testeC.setReceoso((String) getTesteCPc().getGuiReceoso().getSelectedItem());
-		testeC.setReservado((String) getTesteCPc().getGuiReservado().getSelectedItem());
-		testeC.setRespeitoso((String) getTesteCPc().getGuiRespeitoso().getSelectedItem());
-		testeC.setSarcastico((String) getTesteCPc().getGuiSarcastico().getSelectedItem());
-		testeC.setSeguro((String) getTesteCPc().getGuiSeguro().getSelectedItem());
-		testeC.setSemLimites((String) getTesteCPc().getGuiSemLimites().getSelectedItem());
-		testeC.setSensato((String) getTesteCPc().getGuiSensato().getSelectedItem());
-		testeC.setSereno((String) getTesteCPc().getGuiSereno().getSelectedItem());
-		testeC.setSerio((String) getTesteCPc().getGuiSerio().getSelectedItem());
-		testeC.setSimpatico((String) getTesteCPc().getGuiSimpatico().getSelectedItem());
-		testeC.setSistematico((String) getTesteCPc().getGuiSistematico().getSelectedItem());
-		testeC.setSociavel((String) getTesteCPc().getGuiSociavel().getSelectedItem());
-		testeC.setTeimoso((String) getTesteCPc().getGuiTeimoso().getSelectedItem());
-		testeC.setVersatil((String) getTesteCPc().getGuiVersatil().getSelectedItem());
+		calcularResultado();
+	}
+
+	public void calcularResultado() {
+		// PERFIL D
+		if (getTesteCPc().getGuiQuestaoD1().isSelected()) {
+			testeC.setTotalOpcaoD();
+		}
+		if (getTesteCPc().getGuiQuestaoD2().isSelected()) {
+			testeC.setTotalOpcaoD();
+		}
+		if (getTesteCPc().getGuiQuestaoD3().isSelected()) {
+			testeC.setTotalOpcaoD();
+		}
+		if (getTesteCPc().getGuiQuestaoD4().isSelected()) {
+			testeC.setTotalOpcaoD();
+		}
+		if (getTesteCPc().getGuiQuestaoD5().isSelected()) {
+			testeC.setTotalOpcaoD();
+		}
+		if (getTesteCPc().getGuiQuestaoD6().isSelected()) {
+			testeC.setTotalOpcaoD();
+		}
+		if (getTesteCPc().getGuiQuestaoD7().isSelected()) {
+			testeC.setTotalOpcaoD();
+		}
+		if (getTesteCPc().getGuiQuestaoD8().isSelected()) {
+			testeC.setTotalOpcaoD();
+		}
+		if (getTesteCPc().getGuiQuestaoD9().isSelected()) {
+			testeC.setTotalOpcaoD();
+		}
+		if (getTesteCPc().getGuiQuestaoD10().isSelected()) {
+			testeC.setTotalOpcaoD();
+		}
+		if (getTesteCPc().getGuiQuestaoD11().isSelected()) {
+			testeC.setTotalOpcaoD();
+		}
+		if (getTesteCPc().getGuiQuestaoD12().isSelected()) {
+			testeC.setTotalOpcaoD();
+		}
+		if (getTesteCPc().getGuiQuestaoD13().isSelected()) {
+			testeC.setTotalOpcaoD();
+		}
+		if (getTesteCPc().getGuiQuestaoD14().isSelected()) {
+			testeC.setTotalOpcaoD();
+		}
+		if (getTesteCPc().getGuiQuestaoD15().isSelected()) {
+			testeC.setTotalOpcaoD();
+		}
+		if (getTesteCPc().getGuiQuestaoD16().isSelected()) {
+			testeC.setTotalOpcaoD();
+		}
+		if (getTesteCPc().getGuiQuestaoD17().isSelected()) {
+			testeC.setTotalOpcaoD();
+		}
+		if (getTesteCPc().getGuiQuestaoD18().isSelected()) {
+			testeC.setTotalOpcaoD();
+		}
+		if (getTesteCPc().getGuiQuestaoD19().isSelected()) {
+			testeC.setTotalOpcaoD();
+		}
+		if (getTesteCPc().getGuiQuestaoD20().isSelected()) {
+			testeC.setTotalOpcaoD();
+		}
+		if (getTesteCPc().getGuiQuestaoD21().isSelected()) {
+			testeC.setTotalOpcaoD();
+		}
+		if (getTesteCPc().getGuiQuestaoD22().isSelected()) {
+			testeC.setTotalOpcaoD();
+		}
+		if (getTesteCPc().getGuiQuestaoD23().isSelected()) {
+			testeC.setTotalOpcaoD();
+		}
+		if (getTesteCPc().getGuiQuestaoD24().isSelected()) {
+			testeC.setTotalOpcaoD();
+		}
+		if (getTesteCPc().getGuiQuestaoD25().isSelected()) {
+			testeC.setTotalOpcaoD();
+		}
+		if (getTesteCPc().getGuiQuestaoD26().isSelected()) {
+			testeC.setTotalOpcaoD();
+		}
+		if (getTesteCPc().getGuiQuestaoD27().isSelected()) {
+			testeC.setTotalOpcaoD();
+		}
+		if (getTesteCPc().getGuiQuestaoD28().isSelected()) {
+			testeC.setTotalOpcaoD();
+		}
+		// PERFIL I
+		if (getTesteCPc().getGuiQuestaoI1().isSelected()) {
+			testeC.setTotalOpcaoI();
+		}
+		if (getTesteCPc().getGuiQuestaoI2().isSelected()) {
+			testeC.setTotalOpcaoI();
+		}
+		if (getTesteCPc().getGuiQuestaoI3().isSelected()) {
+			testeC.setTotalOpcaoI();
+		}
+		if (getTesteCPc().getGuiQuestaoI4().isSelected()) {
+			testeC.setTotalOpcaoI();
+		}
+		if (getTesteCPc().getGuiQuestaoI5().isSelected()) {
+			testeC.setTotalOpcaoI();
+		}
+		if (getTesteCPc().getGuiQuestaoI6().isSelected()) {
+			testeC.setTotalOpcaoI();
+		}
+		if (getTesteCPc().getGuiQuestaoI7().isSelected()) {
+			testeC.setTotalOpcaoI();
+		}
+		if (getTesteCPc().getGuiQuestaoI8().isSelected()) {
+			testeC.setTotalOpcaoI();
+		}
+		if (getTesteCPc().getGuiQuestaoI9().isSelected()) {
+			testeC.setTotalOpcaoI();
+		}
+		if (getTesteCPc().getGuiQuestaoI10().isSelected()) {
+			testeC.setTotalOpcaoI();
+		}
+		if (getTesteCPc().getGuiQuestaoI11().isSelected()) {
+			testeC.setTotalOpcaoI();
+		}
+		if (getTesteCPc().getGuiQuestaoI12().isSelected()) {
+			testeC.setTotalOpcaoI();
+		}
+		if (getTesteCPc().getGuiQuestaoI13().isSelected()) {
+			testeC.setTotalOpcaoI();
+		}
+		if (getTesteCPc().getGuiQuestaoI14().isSelected()) {
+			testeC.setTotalOpcaoI();
+		}
+		if (getTesteCPc().getGuiQuestaoI15().isSelected()) {
+			testeC.setTotalOpcaoI();
+		}
+		if (getTesteCPc().getGuiQuestaoI16().isSelected()) {
+			testeC.setTotalOpcaoI();
+		}
+		if (getTesteCPc().getGuiQuestaoI17().isSelected()) {
+			testeC.setTotalOpcaoI();
+		}
+		if (getTesteCPc().getGuiQuestaoI18().isSelected()) {
+			testeC.setTotalOpcaoI();
+		}
+		if (getTesteCPc().getGuiQuestaoI19().isSelected()) {
+			testeC.setTotalOpcaoI();
+		}
+		if (getTesteCPc().getGuiQuestaoI20().isSelected()) {
+			testeC.setTotalOpcaoI();
+		}
+		if (getTesteCPc().getGuiQuestaoI21().isSelected()) {
+			testeC.setTotalOpcaoI();
+		}
+		if (getTesteCPc().getGuiQuestaoI22().isSelected()) {
+			testeC.setTotalOpcaoI();
+		}
+		if (getTesteCPc().getGuiQuestaoI23().isSelected()) {
+			testeC.setTotalOpcaoI();
+		}
+		if (getTesteCPc().getGuiQuestaoI24().isSelected()) {
+			testeC.setTotalOpcaoI();
+		}
+		if (getTesteCPc().getGuiQuestaoI25().isSelected()) {
+			testeC.setTotalOpcaoI();
+		}
+		if (getTesteCPc().getGuiQuestaoI26().isSelected()) {
+			testeC.setTotalOpcaoI();
+		}
+		if (getTesteCPc().getGuiQuestaoI27().isSelected()) {
+			testeC.setTotalOpcaoI();
+		}
+		if (getTesteCPc().getGuiQuestaoI28().isSelected()) {
+			testeC.setTotalOpcaoI();
+		}
+		// PERFIL S
+		if (getTesteCPc().getGuiQuestaoS1().isSelected()) {
+			testeC.setTotalOpcaoS();
+		}
+		if (getTesteCPc().getGuiQuestaoS2().isSelected()) {
+			testeC.setTotalOpcaoS();
+		}
+		if (getTesteCPc().getGuiQuestaoS3().isSelected()) {
+			testeC.setTotalOpcaoS();
+		}
+		if (getTesteCPc().getGuiQuestaoS4().isSelected()) {
+			testeC.setTotalOpcaoS();
+		}
+		if (getTesteCPc().getGuiQuestaoS5().isSelected()) {
+			testeC.setTotalOpcaoS();
+		}
+		if (getTesteCPc().getGuiQuestaoS6().isSelected()) {
+			testeC.setTotalOpcaoS();
+		}
+		if (getTesteCPc().getGuiQuestaoS7().isSelected()) {
+			testeC.setTotalOpcaoS();
+		}
+		if (getTesteCPc().getGuiQuestaoS8().isSelected()) {
+			testeC.setTotalOpcaoS();
+		}
+		if (getTesteCPc().getGuiQuestaoS9().isSelected()) {
+			testeC.setTotalOpcaoS();
+		}
+		if (getTesteCPc().getGuiQuestaoS10().isSelected()) {
+			testeC.setTotalOpcaoS();
+		}
+		if (getTesteCPc().getGuiQuestaoS11().isSelected()) {
+			testeC.setTotalOpcaoS();
+		}
+		if (getTesteCPc().getGuiQuestaoS12().isSelected()) {
+			testeC.setTotalOpcaoS();
+		}
+		if (getTesteCPc().getGuiQuestaoS13().isSelected()) {
+			testeC.setTotalOpcaoS();
+		}
+		if (getTesteCPc().getGuiQuestaoS14().isSelected()) {
+			testeC.setTotalOpcaoS();
+		}
+		if (getTesteCPc().getGuiQuestaoS15().isSelected()) {
+			testeC.setTotalOpcaoS();
+		}
+		if (getTesteCPc().getGuiQuestaoS16().isSelected()) {
+			testeC.setTotalOpcaoS();
+		}
+		if (getTesteCPc().getGuiQuestaoS17().isSelected()) {
+			testeC.setTotalOpcaoS();
+		}
+		if (getTesteCPc().getGuiQuestaoS18().isSelected()) {
+			testeC.setTotalOpcaoS();
+		}
+		if (getTesteCPc().getGuiQuestaoS19().isSelected()) {
+			testeC.setTotalOpcaoS();
+		}
+		if (getTesteCPc().getGuiQuestaoS20().isSelected()) {
+			testeC.setTotalOpcaoS();
+		}
+		if (getTesteCPc().getGuiQuestaoS21().isSelected()) {
+			testeC.setTotalOpcaoS();
+		}
+		if (getTesteCPc().getGuiQuestaoS22().isSelected()) {
+			testeC.setTotalOpcaoS();
+		}
+		if (getTesteCPc().getGuiQuestaoS23().isSelected()) {
+			testeC.setTotalOpcaoS();
+		}
+		if (getTesteCPc().getGuiQuestaoS24().isSelected()) {
+			testeC.setTotalOpcaoS();
+		}
+		if (getTesteCPc().getGuiQuestaoS25().isSelected()) {
+			testeC.setTotalOpcaoS();
+		}
+		if (getTesteCPc().getGuiQuestaoS26().isSelected()) {
+			testeC.setTotalOpcaoS();
+		}
+		if (getTesteCPc().getGuiQuestaoS27().isSelected()) {
+			testeC.setTotalOpcaoS();
+		}
+		if (getTesteCPc().getGuiQuestaoS28().isSelected()) {
+			testeC.setTotalOpcaoS();
+		}
+		// PERFIL C
+		if (getTesteCPc().getGuiQuestaoC1().isSelected()) {
+			testeC.setTotalOpcaoC();
+		}
+		if (getTesteCPc().getGuiQuestaoC2().isSelected()) {
+			testeC.setTotalOpcaoC();
+		}
+		if (getTesteCPc().getGuiQuestaoC3().isSelected()) {
+			testeC.setTotalOpcaoC();
+		}
+		if (getTesteCPc().getGuiQuestaoC4().isSelected()) {
+			testeC.setTotalOpcaoC();
+		}
+		if (getTesteCPc().getGuiQuestaoC5().isSelected()) {
+			testeC.setTotalOpcaoC();
+		}
+		if (getTesteCPc().getGuiQuestaoC6().isSelected()) {
+			testeC.setTotalOpcaoC();
+		}
+		if (getTesteCPc().getGuiQuestaoC7().isSelected()) {
+			testeC.setTotalOpcaoC();
+		}
+		if (getTesteCPc().getGuiQuestaoC8().isSelected()) {
+			testeC.setTotalOpcaoC();
+		}
+		if (getTesteCPc().getGuiQuestaoC9().isSelected()) {
+			testeC.setTotalOpcaoC();
+		}
+		if (getTesteCPc().getGuiQuestaoC10().isSelected()) {
+			testeC.setTotalOpcaoC();
+		}
+		if (getTesteCPc().getGuiQuestaoC11().isSelected()) {
+			testeC.setTotalOpcaoC();
+		}
+		if (getTesteCPc().getGuiQuestaoC12().isSelected()) {
+			testeC.setTotalOpcaoC();
+		}
+		if (getTesteCPc().getGuiQuestaoC13().isSelected()) {
+			testeC.setTotalOpcaoC();
+		}
+		if (getTesteCPc().getGuiQuestaoC14().isSelected()) {
+			testeC.setTotalOpcaoC();
+		}
+		if (getTesteCPc().getGuiQuestaoC15().isSelected()) {
+			testeC.setTotalOpcaoC();
+		}
+		if (getTesteCPc().getGuiQuestaoC16().isSelected()) {
+			testeC.setTotalOpcaoC();
+		}
+		if (getTesteCPc().getGuiQuestaoC17().isSelected()) {
+			testeC.setTotalOpcaoC();
+		}
+		if (getTesteCPc().getGuiQuestaoC18().isSelected()) {
+			testeC.setTotalOpcaoC();
+		}
+		if (getTesteCPc().getGuiQuestaoC19().isSelected()) {
+			testeC.setTotalOpcaoC();
+		}
+		if (getTesteCPc().getGuiQuestaoC20().isSelected()) {
+			testeC.setTotalOpcaoC();
+		}
+		if (getTesteCPc().getGuiQuestaoC21().isSelected()) {
+			testeC.setTotalOpcaoC();
+		}
+		if (getTesteCPc().getGuiQuestaoC22().isSelected()) {
+			testeC.setTotalOpcaoC();
+		}
+		if (getTesteCPc().getGuiQuestaoC23().isSelected()) {
+			testeC.setTotalOpcaoC();
+		}
+		if (getTesteCPc().getGuiQuestaoC24().isSelected()) {
+			testeC.setTotalOpcaoC();
+		}
+		if (getTesteCPc().getGuiQuestaoC25().isSelected()) {
+			testeC.setTotalOpcaoC();
+		}
+		if (getTesteCPc().getGuiQuestaoC26().isSelected()) {
+			testeC.setTotalOpcaoC();
+		}
+		if (getTesteCPc().getGuiQuestaoC27().isSelected()) {
+			testeC.setTotalOpcaoC();
+		}
+		if (getTesteCPc().getGuiQuestaoC28().isSelected()) {
+			testeC.setTotalOpcaoC();
+		}
 	}
 
 	public TesteC getTesteC() {

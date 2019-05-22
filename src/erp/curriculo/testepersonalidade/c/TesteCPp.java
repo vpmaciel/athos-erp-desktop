@@ -24,7 +24,7 @@ public final class TesteCPp extends JPanel {
 	private final JTable table;
 
 	public TesteCPp() {
-		setBorder(BorderFactory.createTitledBorder("CARACTERÍSTICAS"));
+		setBorder(BorderFactory.createTitledBorder("TESTE DE PERSONALIDADE D.I.S.C."));
 
 		testeCs = new LinkedList<>();
 		testeCTm = new TesteCTm(testeCs);

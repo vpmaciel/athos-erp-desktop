@@ -20,7 +20,7 @@
 			<property name="javax.persistence.jdbc.user" value="sa" />
 			<property name="javax.persistence.jdbc.password" value="" />
 			<property name="javax.persistence.jdbc.url"
-				value="jdbc:hsqldb:file:target/db_athos" />
+				value="jdbc:hsqldb:file:/opt/db_athos" />
 			<property name="hibernate.connection.CharSet" value="utf8" />
 			<property name="hibernate.connection.characterEncoding"
 				value="utf8" />

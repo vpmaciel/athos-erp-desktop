@@ -27,6 +27,12 @@ public class TesteA implements Serializable {
 	private Integer totalOpcaoO;
 	private Integer totalOpcaoI;
 
+	public TesteA() {
+		this.totalOpcaoA = 0;
+		this.totalOpcaoC = 0;
+		this.totalOpcaoO = 0;
+		this.totalOpcaoI = 0;
+	}
 	public Long getId() {
 		return id;
 	}
