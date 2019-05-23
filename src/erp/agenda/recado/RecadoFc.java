@@ -65,7 +65,7 @@ public final class RecadoFc extends JFrame implements Gui {
 		pcRecado.getToolBar().getSairBtn().addActionListener(recadoCont.new SaidaSistema());
 		pcRecado.getToolBar().getAjudaBtn().addActionListener(recadoCont.new Ajuda());
 		pcRecado.getToolBar().getHomeBtn().addActionListener(recadoCont.new Home());
-
+		pcRecado.getToolBar().getRegistrosBtn().addActionListener(recadoCont.new Registro());
 	}
 
 	@Override

@@ -65,7 +65,7 @@ public final class TipoEventoFc extends JFrame implements Gui {
 		tipoEventoPc.getToolBar().getSairBtn().addActionListener(tipoEventoCont.new SaidaSistema());
 		tipoEventoPc.getToolBar().getAjudaBtn().addActionListener(tipoEventoCont.new Ajuda());
 		tipoEventoPc.getToolBar().getHomeBtn().addActionListener(tipoEventoCont.new Home());
-
+		tipoEventoPc.getToolBar().getRegistrosBtn().addActionListener(tipoEventoCont.new Registro());
 	}
 
 	@Override

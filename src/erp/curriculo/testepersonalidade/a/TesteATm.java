@@ -38,17 +38,6 @@ public class TesteATm extends AbstractTableModel {
 		testeAList.addAll(lista);
 	}
 
-	public TesteA getTesteA(int linha) {
-		if (testeAList.size() > 0) {
-			return testeAList.get(linha);
-		}
-		return null;
-	}
-
-	public List<TesteA> gettesteAList() {
-		return testeAList;
-	}
-
 	@Override
 	public Class<?> getColumnClass(int columnIndex) {
 
@@ -74,6 +63,17 @@ public class TesteATm extends AbstractTableModel {
 	@Override
 	public int getRowCount() {
 		return testeAList.size();
+	}
+
+	public TesteA getTesteA(int linha) {
+		if (testeAList.size() > 0) {
+			return testeAList.get(linha);
+		}
+		return null;
+	}
+
+	public List<TesteA> gettesteAList() {
+		return testeAList;
 	}
 
 	@Override

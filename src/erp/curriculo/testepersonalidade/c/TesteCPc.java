@@ -25,99 +25,7 @@ import erp.main.MainCont;
 public final class TesteCPc extends JPanel implements Gui {
 
 	private JComboBox<Funcionario> boxFuncionario;
-	private JCheckBox boxQuestaoD1;
-	private JCheckBox boxQuestaoD2;
-	private JCheckBox boxQuestaoD3;
-	private JCheckBox boxQuestaoD4;
-	private JCheckBox boxQuestaoD5;
-	private JCheckBox boxQuestaoD6;
-	private JCheckBox boxQuestaoD7;
-	private JCheckBox boxQuestaoD8;
-	private JCheckBox boxQuestaoD9;
-	private JCheckBox boxQuestaoD10;
-	private JCheckBox boxQuestaoD11;
-	private JCheckBox boxQuestaoD12;
-	private JCheckBox boxQuestaoD13;
-	private JCheckBox boxQuestaoD14;
-	private JCheckBox boxQuestaoD15;
-	private JCheckBox boxQuestaoD16;
-	private JCheckBox boxQuestaoD17;
-	private JCheckBox boxQuestaoD18;
-	private JCheckBox boxQuestaoD19;
-	private JCheckBox boxQuestaoD20;
-	private JCheckBox boxQuestaoD21;
-	private JCheckBox boxQuestaoD22;
-	private JCheckBox boxQuestaoD23;
-	private JCheckBox boxQuestaoD24;
-	private JCheckBox boxQuestaoD25;
-	private JCheckBox boxQuestaoD26;
-	private JCheckBox boxQuestaoD27;
-	private JCheckBox boxQuestaoD28;
-	private JCheckBox boxQuestaoI1;
-	private JCheckBox boxQuestaoI2;
-	private JCheckBox boxQuestaoI3;
-	private JCheckBox boxQuestaoI4;
-	private JCheckBox boxQuestaoI5;
-	private JCheckBox boxQuestaoI6;
-	private JCheckBox boxQuestaoI7;
-	private JCheckBox boxQuestaoI8;
-	private JCheckBox boxQuestaoI9;
-	private JCheckBox boxQuestaoI10;
-	private JCheckBox boxQuestaoI11;
-	private JCheckBox boxQuestaoI12;
-	private JCheckBox boxQuestaoI13;
-	private JCheckBox boxQuestaoI14;
-	private JCheckBox boxQuestaoI15;
-	private JCheckBox boxQuestaoI16;
-	private JCheckBox boxQuestaoI17;
-	private JCheckBox boxQuestaoI18;
-	private JCheckBox boxQuestaoI19;
-	private JCheckBox boxQuestaoI20;
-	private JCheckBox boxQuestaoI21;
-	private JCheckBox boxQuestaoI22;
-	private JCheckBox boxQuestaoI23;
-	private JCheckBox boxQuestaoI24;
-	private JCheckBox boxQuestaoI25;
-	private JCheckBox boxQuestaoI26;
-	private JCheckBox boxQuestaoI27;
-	private JCheckBox boxQuestaoI28;
-	private JCheckBox boxQuestaoS1;
-	private JCheckBox boxQuestaoS2;
-	private JCheckBox boxQuestaoS3;
-	private JCheckBox boxQuestaoS4;
-	private JCheckBox boxQuestaoS5;
-	private JCheckBox boxQuestaoS6;
-	private JCheckBox boxQuestaoS7;
-	private JCheckBox boxQuestaoS8;
-	private JCheckBox boxQuestaoS9;
-	private JCheckBox boxQuestaoS10;
-	private JCheckBox boxQuestaoS11;
-	private JCheckBox boxQuestaoS12;
-	private JCheckBox boxQuestaoS13;
-	private JCheckBox boxQuestaoS14;
-	private JCheckBox boxQuestaoS15;
-	private JCheckBox boxQuestaoS16;
-	private JCheckBox boxQuestaoS17;
-	private JCheckBox boxQuestaoS18;
-	private JCheckBox boxQuestaoS19;
-	private JCheckBox boxQuestaoS20;
-	private JCheckBox boxQuestaoS21;
-	private JCheckBox boxQuestaoS22;
-	private JCheckBox boxQuestaoS23;
-	private JCheckBox boxQuestaoS24;
-	private JCheckBox boxQuestaoS25;
-	private JCheckBox boxQuestaoS26;
-	private JCheckBox boxQuestaoS27;
-	private JCheckBox boxQuestaoS28;
 	private JCheckBox boxQuestaoC1;
-	private JCheckBox boxQuestaoC2;
-	private JCheckBox boxQuestaoC3;
-	private JCheckBox boxQuestaoC4;
-	private JCheckBox boxQuestaoC5;
-	private JCheckBox boxQuestaoC6;
-	private JCheckBox boxQuestaoC7;
-	private JCheckBox boxQuestaoC8;
-	private JCheckBox boxQuestaoC9;
 	private JCheckBox boxQuestaoC10;
 	private JCheckBox boxQuestaoC11;
 	private JCheckBox boxQuestaoC12;
@@ -128,6 +36,7 @@ public final class TesteCPc extends JPanel implements Gui {
 	private JCheckBox boxQuestaoC17;
 	private JCheckBox boxQuestaoC18;
 	private JCheckBox boxQuestaoC19;
+	private JCheckBox boxQuestaoC2;
 	private JCheckBox boxQuestaoC20;
 	private JCheckBox boxQuestaoC21;
 	private JCheckBox boxQuestaoC22;
@@ -137,6 +46,97 @@ public final class TesteCPc extends JPanel implements Gui {
 	private JCheckBox boxQuestaoC26;
 	private JCheckBox boxQuestaoC27;
 	private JCheckBox boxQuestaoC28;
+	private JCheckBox boxQuestaoC3;
+	private JCheckBox boxQuestaoC4;
+	private JCheckBox boxQuestaoC5;
+	private JCheckBox boxQuestaoC6;
+	private JCheckBox boxQuestaoC7;
+	private JCheckBox boxQuestaoC8;
+	private JCheckBox boxQuestaoC9;
+	private JCheckBox boxQuestaoD1;
+	private JCheckBox boxQuestaoD10;
+	private JCheckBox boxQuestaoD11;
+	private JCheckBox boxQuestaoD12;
+	private JCheckBox boxQuestaoD13;
+	private JCheckBox boxQuestaoD14;
+	private JCheckBox boxQuestaoD15;
+	private JCheckBox boxQuestaoD16;
+	private JCheckBox boxQuestaoD17;
+	private JCheckBox boxQuestaoD18;
+	private JCheckBox boxQuestaoD19;
+	private JCheckBox boxQuestaoD2;
+	private JCheckBox boxQuestaoD20;
+	private JCheckBox boxQuestaoD21;
+	private JCheckBox boxQuestaoD22;
+	private JCheckBox boxQuestaoD23;
+	private JCheckBox boxQuestaoD24;
+	private JCheckBox boxQuestaoD25;
+	private JCheckBox boxQuestaoD26;
+	private JCheckBox boxQuestaoD27;
+	private JCheckBox boxQuestaoD28;
+	private JCheckBox boxQuestaoD3;
+	private JCheckBox boxQuestaoD4;
+	private JCheckBox boxQuestaoD5;
+	private JCheckBox boxQuestaoD6;
+	private JCheckBox boxQuestaoD7;
+	private JCheckBox boxQuestaoD8;
+	private JCheckBox boxQuestaoD9;
+	private JCheckBox boxQuestaoI1;
+	private JCheckBox boxQuestaoI10;
+	private JCheckBox boxQuestaoI11;
+	private JCheckBox boxQuestaoI12;
+	private JCheckBox boxQuestaoI13;
+	private JCheckBox boxQuestaoI14;
+	private JCheckBox boxQuestaoI15;
+	private JCheckBox boxQuestaoI16;
+	private JCheckBox boxQuestaoI17;
+	private JCheckBox boxQuestaoI18;
+	private JCheckBox boxQuestaoI19;
+	private JCheckBox boxQuestaoI2;
+	private JCheckBox boxQuestaoI20;
+	private JCheckBox boxQuestaoI21;
+	private JCheckBox boxQuestaoI22;
+	private JCheckBox boxQuestaoI23;
+	private JCheckBox boxQuestaoI24;
+	private JCheckBox boxQuestaoI25;
+	private JCheckBox boxQuestaoI26;
+	private JCheckBox boxQuestaoI27;
+	private JCheckBox boxQuestaoI28;
+	private JCheckBox boxQuestaoI3;
+	private JCheckBox boxQuestaoI4;
+	private JCheckBox boxQuestaoI5;
+	private JCheckBox boxQuestaoI6;
+	private JCheckBox boxQuestaoI7;
+	private JCheckBox boxQuestaoI8;
+	private JCheckBox boxQuestaoI9;
+	private JCheckBox boxQuestaoS1;
+	private JCheckBox boxQuestaoS10;
+	private JCheckBox boxQuestaoS11;
+	private JCheckBox boxQuestaoS12;
+	private JCheckBox boxQuestaoS13;
+	private JCheckBox boxQuestaoS14;
+	private JCheckBox boxQuestaoS15;
+	private JCheckBox boxQuestaoS16;
+	private JCheckBox boxQuestaoS17;
+	private JCheckBox boxQuestaoS18;
+	private JCheckBox boxQuestaoS19;
+	private JCheckBox boxQuestaoS2;
+	private JCheckBox boxQuestaoS20;
+	private JCheckBox boxQuestaoS21;
+	private JCheckBox boxQuestaoS22;
+	private JCheckBox boxQuestaoS23;
+	private JCheckBox boxQuestaoS24;
+	private JCheckBox boxQuestaoS25;
+	private JCheckBox boxQuestaoS26;
+	private JCheckBox boxQuestaoS27;
+	private JCheckBox boxQuestaoS28;
+	private JCheckBox boxQuestaoS3;
+	private JCheckBox boxQuestaoS4;
+	private JCheckBox boxQuestaoS5;
+	private JCheckBox boxQuestaoS6;
+	private JCheckBox boxQuestaoS7;
+	private JCheckBox boxQuestaoS8;
+	private JCheckBox boxQuestaoS9;
 
 	private ConfiguracaoGui configuracaoGui;
 	private JLabel labelFuncionario;
@@ -163,376 +163,8 @@ public final class TesteCPc extends JPanel implements Gui {
 		return boxFuncionario;
 	}
 
-	public JCheckBox getGuiQuestaoD1() {
-		return boxQuestaoD1;
-	}
-
-	public JCheckBox getGuiQuestaoD2() {
-		return boxQuestaoD2;
-	}
-
-	public JCheckBox getGuiQuestaoD3() {
-		return boxQuestaoD3;
-	}
-
-	public JCheckBox getGuiQuestaoD4() {
-		return boxQuestaoD4;
-	}
-
-	public JCheckBox getGuiQuestaoD5() {
-		return boxQuestaoD5;
-	}
-
-	public JCheckBox getGuiQuestaoD6() {
-		return boxQuestaoD6;
-	}
-
-	public JCheckBox getGuiQuestaoD7() {
-		return boxQuestaoD7;
-	}
-
-	public JCheckBox getGuiQuestaoD8() {
-		return boxQuestaoD8;
-	}
-
-	public JCheckBox getGuiQuestaoD9() {
-		return boxQuestaoD9;
-	}
-
-	public JCheckBox getGuiQuestaoD10() {
-		return boxQuestaoD10;
-	}
-
-	public JCheckBox getGuiQuestaoD11() {
-		return boxQuestaoD11;
-	}
-
-	public JCheckBox getGuiQuestaoD12() {
-		return boxQuestaoD12;
-	}
-
-	public JCheckBox getGuiQuestaoD13() {
-		return boxQuestaoD13;
-	}
-
-	public JCheckBox getGuiQuestaoD14() {
-		return boxQuestaoD14;
-	}
-
-	public JCheckBox getGuiQuestaoD15() {
-		return boxQuestaoD15;
-	}
-
-	public JCheckBox getGuiQuestaoD16() {
-		return boxQuestaoD16;
-	}
-
-	public JCheckBox getGuiQuestaoD17() {
-		return boxQuestaoD17;
-	}
-
-	public JCheckBox getGuiQuestaoD18() {
-		return boxQuestaoD18;
-	}
-
-	public JCheckBox getGuiQuestaoD19() {
-		return boxQuestaoD19;
-	}
-
-	public JCheckBox getGuiQuestaoD20() {
-		return boxQuestaoD20;
-	}
-
-	public JCheckBox getGuiQuestaoD21() {
-		return boxQuestaoD21;
-	}
-
-	public JCheckBox getGuiQuestaoD22() {
-		return boxQuestaoD22;
-	}
-
-	public JCheckBox getGuiQuestaoD23() {
-		return boxQuestaoD23;
-	}
-
-	public JCheckBox getGuiQuestaoD24() {
-		return boxQuestaoD24;
-	}
-
-	public JCheckBox getGuiQuestaoD25() {
-		return boxQuestaoD25;
-	}
-
-	public JCheckBox getGuiQuestaoD26() {
-		return boxQuestaoD26;
-	}
-
-	public JCheckBox getGuiQuestaoD27() {
-		return boxQuestaoD27;
-	}
-
-	public JCheckBox getGuiQuestaoD28() {
-		return boxQuestaoD28;
-	}
-
-	public JCheckBox getGuiQuestaoI1() {
-		return boxQuestaoI1;
-	}
-
-	public JCheckBox getGuiQuestaoI2() {
-		return boxQuestaoI2;
-	}
-
-	public JCheckBox getGuiQuestaoI3() {
-		return boxQuestaoI3;
-	}
-
-	public JCheckBox getGuiQuestaoI4() {
-		return boxQuestaoI4;
-	}
-
-	public JCheckBox getGuiQuestaoI5() {
-		return boxQuestaoI5;
-	}
-
-	public JCheckBox getGuiQuestaoI6() {
-		return boxQuestaoI6;
-	}
-
-	public JCheckBox getGuiQuestaoI7() {
-		return boxQuestaoI7;
-	}
-
-	public JCheckBox getGuiQuestaoI8() {
-		return boxQuestaoI8;
-	}
-
-	public JCheckBox getGuiQuestaoI9() {
-		return boxQuestaoI9;
-	}
-
-	public JCheckBox getGuiQuestaoI10() {
-		return boxQuestaoI10;
-	}
-
-	public JCheckBox getGuiQuestaoI11() {
-		return boxQuestaoI11;
-	}
-
-	public JCheckBox getGuiQuestaoI12() {
-		return boxQuestaoI12;
-	}
-
-	public JCheckBox getGuiQuestaoI13() {
-		return boxQuestaoI13;
-	}
-
-	public JCheckBox getGuiQuestaoI14() {
-		return boxQuestaoI14;
-	}
-
-	public JCheckBox getGuiQuestaoI15() {
-		return boxQuestaoI15;
-	}
-
-	public JCheckBox getGuiQuestaoI16() {
-		return boxQuestaoI16;
-	}
-
-	public JCheckBox getGuiQuestaoI17() {
-		return boxQuestaoI17;
-	}
-
-	public JCheckBox getGuiQuestaoI18() {
-		return boxQuestaoI18;
-	}
-
-	public JCheckBox getGuiQuestaoI19() {
-		return boxQuestaoI19;
-	}
-
-	public JCheckBox getGuiQuestaoI20() {
-		return boxQuestaoI20;
-	}
-
-	public JCheckBox getGuiQuestaoI21() {
-		return boxQuestaoI21;
-	}
-
-	public JCheckBox getGuiQuestaoI22() {
-		return boxQuestaoI22;
-	}
-
-	public JCheckBox getGuiQuestaoI23() {
-		return boxQuestaoI23;
-	}
-
-	public JCheckBox getGuiQuestaoI24() {
-		return boxQuestaoI24;
-	}
-
-	public JCheckBox getGuiQuestaoI25() {
-		return boxQuestaoI25;
-	}
-
-	public JCheckBox getGuiQuestaoI26() {
-		return boxQuestaoI26;
-	}
-
-	public JCheckBox getGuiQuestaoI27() {
-		return boxQuestaoI27;
-	}
-
-	public JCheckBox getGuiQuestaoI28() {
-		return boxQuestaoI28;
-	}
-
-	public JCheckBox getGuiQuestaoS1() {
-		return boxQuestaoS1;
-	}
-
-	public JCheckBox getGuiQuestaoS2() {
-		return boxQuestaoS2;
-	}
-
-	public JCheckBox getGuiQuestaoS3() {
-		return boxQuestaoS3;
-	}
-
-	public JCheckBox getGuiQuestaoS4() {
-		return boxQuestaoS4;
-	}
-
-	public JCheckBox getGuiQuestaoS5() {
-		return boxQuestaoS5;
-	}
-
-	public JCheckBox getGuiQuestaoS6() {
-		return boxQuestaoS6;
-	}
-
-	public JCheckBox getGuiQuestaoS7() {
-		return boxQuestaoS7;
-	}
-
-	public JCheckBox getGuiQuestaoS8() {
-		return boxQuestaoS8;
-	}
-
-	public JCheckBox getGuiQuestaoS9() {
-		return boxQuestaoS9;
-	}
-
-	public JCheckBox getGuiQuestaoS10() {
-		return boxQuestaoS10;
-	}
-
-	public JCheckBox getGuiQuestaoS11() {
-		return boxQuestaoS11;
-	}
-
-	public JCheckBox getGuiQuestaoS12() {
-		return boxQuestaoS12;
-	}
-
-	public JCheckBox getGuiQuestaoS13() {
-		return boxQuestaoS13;
-	}
-
-	public JCheckBox getGuiQuestaoS14() {
-		return boxQuestaoS14;
-	}
-
-	public JCheckBox getGuiQuestaoS15() {
-		return boxQuestaoS15;
-	}
-
-	public JCheckBox getGuiQuestaoS16() {
-		return boxQuestaoS16;
-	}
-
-	public JCheckBox getGuiQuestaoS17() {
-		return boxQuestaoS17;
-	}
-
-	public JCheckBox getGuiQuestaoS18() {
-		return boxQuestaoS18;
-	}
-
-	public JCheckBox getGuiQuestaoS19() {
-		return boxQuestaoS19;
-	}
-
-	public JCheckBox getGuiQuestaoS20() {
-		return boxQuestaoS20;
-	}
-
-	public JCheckBox getGuiQuestaoS21() {
-		return boxQuestaoS21;
-	}
-
-	public JCheckBox getGuiQuestaoS22() {
-		return boxQuestaoS22;
-	}
-
-	public JCheckBox getGuiQuestaoS23() {
-		return boxQuestaoS23;
-	}
-
-	public JCheckBox getGuiQuestaoS24() {
-		return boxQuestaoS24;
-	}
-
-	public JCheckBox getGuiQuestaoS25() {
-		return boxQuestaoS25;
-	}
-
-	public JCheckBox getGuiQuestaoS26() {
-		return boxQuestaoS26;
-	}
-
-	public JCheckBox getGuiQuestaoS27() {
-		return boxQuestaoS27;
-	}
-
-	public JCheckBox getGuiQuestaoS28() {
-		return boxQuestaoS28;
-	}
-
 	public JCheckBox getGuiQuestaoC1() {
 		return boxQuestaoC1;
-	}
-
-	public JCheckBox getGuiQuestaoC2() {
-		return boxQuestaoC2;
-	}
-
-	public JCheckBox getGuiQuestaoC3() {
-		return boxQuestaoC3;
-	}
-
-	public JCheckBox getGuiQuestaoC4() {
-		return boxQuestaoC4;
-	}
-
-	public JCheckBox getGuiQuestaoC5() {
-		return boxQuestaoC5;
-	}
-
-	public JCheckBox getGuiQuestaoC6() {
-		return boxQuestaoC6;
-	}
-
-	public JCheckBox getGuiQuestaoC7() {
-		return boxQuestaoC7;
-	}
-
-	public JCheckBox getGuiQuestaoC8() {
-		return boxQuestaoC8;
-	}
-
-	public JCheckBox getGuiQuestaoC9() {
-		return boxQuestaoC9;
 	}
 
 	public JCheckBox getGuiQuestaoC10() {
@@ -575,6 +207,10 @@ public final class TesteCPc extends JPanel implements Gui {
 		return boxQuestaoC19;
 	}
 
+	public JCheckBox getGuiQuestaoC2() {
+		return boxQuestaoC2;
+	}
+
 	public JCheckBox getGuiQuestaoC20() {
 		return boxQuestaoC20;
 	}
@@ -609,6 +245,370 @@ public final class TesteCPc extends JPanel implements Gui {
 
 	public JCheckBox getGuiQuestaoC28() {
 		return boxQuestaoC28;
+	}
+
+	public JCheckBox getGuiQuestaoC3() {
+		return boxQuestaoC3;
+	}
+
+	public JCheckBox getGuiQuestaoC4() {
+		return boxQuestaoC4;
+	}
+
+	public JCheckBox getGuiQuestaoC5() {
+		return boxQuestaoC5;
+	}
+
+	public JCheckBox getGuiQuestaoC6() {
+		return boxQuestaoC6;
+	}
+
+	public JCheckBox getGuiQuestaoC7() {
+		return boxQuestaoC7;
+	}
+
+	public JCheckBox getGuiQuestaoC8() {
+		return boxQuestaoC8;
+	}
+
+	public JCheckBox getGuiQuestaoC9() {
+		return boxQuestaoC9;
+	}
+
+	public JCheckBox getGuiQuestaoD1() {
+		return boxQuestaoD1;
+	}
+
+	public JCheckBox getGuiQuestaoD10() {
+		return boxQuestaoD10;
+	}
+
+	public JCheckBox getGuiQuestaoD11() {
+		return boxQuestaoD11;
+	}
+
+	public JCheckBox getGuiQuestaoD12() {
+		return boxQuestaoD12;
+	}
+
+	public JCheckBox getGuiQuestaoD13() {
+		return boxQuestaoD13;
+	}
+
+	public JCheckBox getGuiQuestaoD14() {
+		return boxQuestaoD14;
+	}
+
+	public JCheckBox getGuiQuestaoD15() {
+		return boxQuestaoD15;
+	}
+
+	public JCheckBox getGuiQuestaoD16() {
+		return boxQuestaoD16;
+	}
+
+	public JCheckBox getGuiQuestaoD17() {
+		return boxQuestaoD17;
+	}
+
+	public JCheckBox getGuiQuestaoD18() {
+		return boxQuestaoD18;
+	}
+
+	public JCheckBox getGuiQuestaoD19() {
+		return boxQuestaoD19;
+	}
+
+	public JCheckBox getGuiQuestaoD2() {
+		return boxQuestaoD2;
+	}
+
+	public JCheckBox getGuiQuestaoD20() {
+		return boxQuestaoD20;
+	}
+
+	public JCheckBox getGuiQuestaoD21() {
+		return boxQuestaoD21;
+	}
+
+	public JCheckBox getGuiQuestaoD22() {
+		return boxQuestaoD22;
+	}
+
+	public JCheckBox getGuiQuestaoD23() {
+		return boxQuestaoD23;
+	}
+
+	public JCheckBox getGuiQuestaoD24() {
+		return boxQuestaoD24;
+	}
+
+	public JCheckBox getGuiQuestaoD25() {
+		return boxQuestaoD25;
+	}
+
+	public JCheckBox getGuiQuestaoD26() {
+		return boxQuestaoD26;
+	}
+
+	public JCheckBox getGuiQuestaoD27() {
+		return boxQuestaoD27;
+	}
+
+	public JCheckBox getGuiQuestaoD28() {
+		return boxQuestaoD28;
+	}
+
+	public JCheckBox getGuiQuestaoD3() {
+		return boxQuestaoD3;
+	}
+
+	public JCheckBox getGuiQuestaoD4() {
+		return boxQuestaoD4;
+	}
+
+	public JCheckBox getGuiQuestaoD5() {
+		return boxQuestaoD5;
+	}
+
+	public JCheckBox getGuiQuestaoD6() {
+		return boxQuestaoD6;
+	}
+
+	public JCheckBox getGuiQuestaoD7() {
+		return boxQuestaoD7;
+	}
+
+	public JCheckBox getGuiQuestaoD8() {
+		return boxQuestaoD8;
+	}
+
+	public JCheckBox getGuiQuestaoD9() {
+		return boxQuestaoD9;
+	}
+
+	public JCheckBox getGuiQuestaoI1() {
+		return boxQuestaoI1;
+	}
+
+	public JCheckBox getGuiQuestaoI10() {
+		return boxQuestaoI10;
+	}
+
+	public JCheckBox getGuiQuestaoI11() {
+		return boxQuestaoI11;
+	}
+
+	public JCheckBox getGuiQuestaoI12() {
+		return boxQuestaoI12;
+	}
+
+	public JCheckBox getGuiQuestaoI13() {
+		return boxQuestaoI13;
+	}
+
+	public JCheckBox getGuiQuestaoI14() {
+		return boxQuestaoI14;
+	}
+
+	public JCheckBox getGuiQuestaoI15() {
+		return boxQuestaoI15;
+	}
+
+	public JCheckBox getGuiQuestaoI16() {
+		return boxQuestaoI16;
+	}
+
+	public JCheckBox getGuiQuestaoI17() {
+		return boxQuestaoI17;
+	}
+
+	public JCheckBox getGuiQuestaoI18() {
+		return boxQuestaoI18;
+	}
+
+	public JCheckBox getGuiQuestaoI19() {
+		return boxQuestaoI19;
+	}
+
+	public JCheckBox getGuiQuestaoI2() {
+		return boxQuestaoI2;
+	}
+
+	public JCheckBox getGuiQuestaoI20() {
+		return boxQuestaoI20;
+	}
+
+	public JCheckBox getGuiQuestaoI21() {
+		return boxQuestaoI21;
+	}
+
+	public JCheckBox getGuiQuestaoI22() {
+		return boxQuestaoI22;
+	}
+
+	public JCheckBox getGuiQuestaoI23() {
+		return boxQuestaoI23;
+	}
+
+	public JCheckBox getGuiQuestaoI24() {
+		return boxQuestaoI24;
+	}
+
+	public JCheckBox getGuiQuestaoI25() {
+		return boxQuestaoI25;
+	}
+
+	public JCheckBox getGuiQuestaoI26() {
+		return boxQuestaoI26;
+	}
+
+	public JCheckBox getGuiQuestaoI27() {
+		return boxQuestaoI27;
+	}
+
+	public JCheckBox getGuiQuestaoI28() {
+		return boxQuestaoI28;
+	}
+
+	public JCheckBox getGuiQuestaoI3() {
+		return boxQuestaoI3;
+	}
+
+	public JCheckBox getGuiQuestaoI4() {
+		return boxQuestaoI4;
+	}
+
+	public JCheckBox getGuiQuestaoI5() {
+		return boxQuestaoI5;
+	}
+
+	public JCheckBox getGuiQuestaoI6() {
+		return boxQuestaoI6;
+	}
+
+	public JCheckBox getGuiQuestaoI7() {
+		return boxQuestaoI7;
+	}
+
+	public JCheckBox getGuiQuestaoI8() {
+		return boxQuestaoI8;
+	}
+
+	public JCheckBox getGuiQuestaoI9() {
+		return boxQuestaoI9;
+	}
+
+	public JCheckBox getGuiQuestaoS1() {
+		return boxQuestaoS1;
+	}
+
+	public JCheckBox getGuiQuestaoS10() {
+		return boxQuestaoS10;
+	}
+
+	public JCheckBox getGuiQuestaoS11() {
+		return boxQuestaoS11;
+	}
+
+	public JCheckBox getGuiQuestaoS12() {
+		return boxQuestaoS12;
+	}
+
+	public JCheckBox getGuiQuestaoS13() {
+		return boxQuestaoS13;
+	}
+
+	public JCheckBox getGuiQuestaoS14() {
+		return boxQuestaoS14;
+	}
+
+	public JCheckBox getGuiQuestaoS15() {
+		return boxQuestaoS15;
+	}
+
+	public JCheckBox getGuiQuestaoS16() {
+		return boxQuestaoS16;
+	}
+
+	public JCheckBox getGuiQuestaoS17() {
+		return boxQuestaoS17;
+	}
+
+	public JCheckBox getGuiQuestaoS18() {
+		return boxQuestaoS18;
+	}
+
+	public JCheckBox getGuiQuestaoS19() {
+		return boxQuestaoS19;
+	}
+
+	public JCheckBox getGuiQuestaoS2() {
+		return boxQuestaoS2;
+	}
+
+	public JCheckBox getGuiQuestaoS20() {
+		return boxQuestaoS20;
+	}
+
+	public JCheckBox getGuiQuestaoS21() {
+		return boxQuestaoS21;
+	}
+
+	public JCheckBox getGuiQuestaoS22() {
+		return boxQuestaoS22;
+	}
+
+	public JCheckBox getGuiQuestaoS23() {
+		return boxQuestaoS23;
+	}
+
+	public JCheckBox getGuiQuestaoS24() {
+		return boxQuestaoS24;
+	}
+
+	public JCheckBox getGuiQuestaoS25() {
+		return boxQuestaoS25;
+	}
+
+	public JCheckBox getGuiQuestaoS26() {
+		return boxQuestaoS26;
+	}
+
+	public JCheckBox getGuiQuestaoS27() {
+		return boxQuestaoS27;
+	}
+
+	public JCheckBox getGuiQuestaoS28() {
+		return boxQuestaoS28;
+	}
+
+	public JCheckBox getGuiQuestaoS3() {
+		return boxQuestaoS3;
+	}
+
+	public JCheckBox getGuiQuestaoS4() {
+		return boxQuestaoS4;
+	}
+
+	public JCheckBox getGuiQuestaoS5() {
+		return boxQuestaoS5;
+	}
+
+	public JCheckBox getGuiQuestaoS6() {
+		return boxQuestaoS6;
+	}
+
+	public JCheckBox getGuiQuestaoS7() {
+		return boxQuestaoS7;
+	}
+
+	public JCheckBox getGuiQuestaoS8() {
+		return boxQuestaoS8;
+	}
+
+	public JCheckBox getGuiQuestaoS9() {
+		return boxQuestaoS9;
 	}
 
 	public JLabel getLabelFuncionario() {
@@ -682,7 +682,7 @@ public final class TesteCPc extends JPanel implements Gui {
 
 		boxQuestaoD10 = new JCheckBox("REALISTAS");
 		add(boxQuestaoD10);
-		
+
 		boxQuestaoD11 = new JCheckBox("AUTO-APAGADOR");
 		add(boxQuestaoD11);
 
@@ -766,7 +766,7 @@ public final class TesteCPc extends JPanel implements Gui {
 
 		boxQuestaoI10 = new JCheckBox("FACTUAIS");
 		add(boxQuestaoI10);
-		
+
 		boxQuestaoI11 = new JCheckBox("REFLEXIVO");
 		add(boxQuestaoI11);
 
@@ -850,7 +850,7 @@ public final class TesteCPc extends JPanel implements Gui {
 
 		boxQuestaoS10 = new JCheckBox("CRÍTICOS");
 		add(boxQuestaoS10);
-		
+
 		boxQuestaoS11 = new JCheckBox("ANSIOSO");
 		add(boxQuestaoS11);
 
@@ -934,7 +934,7 @@ public final class TesteCPc extends JPanel implements Gui {
 
 		boxQuestaoC10 = new JCheckBox("INDEPENDENTES");
 		add(boxQuestaoC10);
-		
+
 		boxQuestaoC11 = new JCheckBox("PERSISTENTE");
 		add(boxQuestaoC11);
 

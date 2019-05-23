@@ -114,7 +114,22 @@ final class CentroCustoCont {
 
 			atualizarObjeto();
 			long totalPesquisaRegistro = 0;
-			totalPesquisaRegistro = getCentroCustoPp().pesquisarRegistroCentroCusto(centroCusto);
+			totalPesquisaRegistro = getCentroCustoPp().pesquisarRegistro(centroCusto);
+			Msg.avisoRegistroEncontrado(totalPesquisaRegistro);
+
+			if (totalPesquisaRegistro > 0) {
+				MainCont.mostrarFrame(getCentroCustoFp());
+				getCentroCustoFp().setExtendedState(java.awt.Frame.MAXIMIZED_BOTH);
+			}
+		}
+	}
+
+	public class Registro implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent actionEvent) {
+			long totalPesquisaRegistro = 0;
+			totalPesquisaRegistro = getCentroCustoPp().pesquisarRegistro(new CentroCusto());
 			Msg.avisoRegistroEncontrado(totalPesquisaRegistro);
 
 			if (totalPesquisaRegistro > 0) {

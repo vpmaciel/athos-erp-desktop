@@ -135,7 +135,22 @@ final class FuncionarioCont {
 		public void actionPerformed(ActionEvent actionEvent) {
 			atualizarObjeto();
 			long totalPesquisaRegistro = 0;
-			totalPesquisaRegistro = getFuncionarioPp().pesquisarRegistroFuncionario(funcionario);
+			totalPesquisaRegistro = getFuncionarioPp().pesquisarRegistro(funcionario);
+			Msg.avisoRegistroEncontrado(totalPesquisaRegistro);
+
+			if (totalPesquisaRegistro > 0) {
+				MainCont.mostrarFrame(getFuncionarioFp());
+				getFuncionarioFp().setExtendedState(java.awt.Frame.MAXIMIZED_BOTH);
+			}
+		}
+	}
+
+	public class Registro implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent actionEvent) {
+			long totalPesquisaRegistro = 0;
+			totalPesquisaRegistro = getFuncionarioPp().pesquisarRegistro(new Funcionario());
 			Msg.avisoRegistroEncontrado(totalPesquisaRegistro);
 
 			if (totalPesquisaRegistro > 0) {
@@ -193,7 +208,7 @@ final class FuncionarioCont {
 					getFuncionarioPc().getGuiNome().requestFocus();
 					Msg.avisoCampoObrigatorio("NOME");
 					return;
-				}				
+				}
 				if (mensagem == JOptionPane.YES_OPTION) {
 					atualizarObjeto();
 					FuncionarioFac.salvarRegistro(funcionario);

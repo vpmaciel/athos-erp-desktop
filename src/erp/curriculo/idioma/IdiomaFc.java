@@ -66,6 +66,7 @@ public final class IdiomaFc extends JFrame implements Gui {
 		idiomaPc.getTB().getSairBtn().addActionListener(idiomaCont.new SaidaSistema());
 		idiomaPc.getTB().getAjudaBtn().addActionListener(idiomaCont.new Ajuda());
 		idiomaPc.getTB().getHomeBtn().addActionListener(idiomaCont.new Home());
+		idiomaPc.getTB().getRegistrosBtn().addActionListener(idiomaCont.new Registro());
 	}
 
 	@Override

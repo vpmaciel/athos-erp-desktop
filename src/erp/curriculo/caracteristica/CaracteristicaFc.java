@@ -66,6 +66,7 @@ public final class CaracteristicaFc extends JFrame implements Gui {
 		caracteristicaPc.getTB().getSairBtn().addActionListener(caracteristicaCont.new SaidaSistema());
 		caracteristicaPc.getTB().getAjudaBtn().addActionListener(caracteristicaCont.new Ajuda());
 		caracteristicaPc.getTB().getHomeBtn().addActionListener(caracteristicaCont.new Home());
+		caracteristicaPc.getTB().getRegistrosBtn().addActionListener(caracteristicaCont.new Registro());
 	}
 
 	@Override

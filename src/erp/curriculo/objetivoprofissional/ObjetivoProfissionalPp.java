@@ -68,7 +68,7 @@ public final class ObjetivoProfissionalPp extends JPanel {
 		table.getSelectionModel().addListSelectionListener(listener);
 	}
 
-	public int pesquisarRegistroCaracteristica(ObjetivoProfissional ObjetivoProfissional) {
+	public int pesquisarRegistro(ObjetivoProfissional ObjetivoProfissional) {
 		objetivoProfissionals = new LinkedList<>();
 		try {
 			objetivoProfissionals = new LinkedList<>(ObjetivoProfissionalFac.pesquisarRegistro(ObjetivoProfissional));

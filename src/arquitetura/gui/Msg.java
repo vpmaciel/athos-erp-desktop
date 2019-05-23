@@ -21,23 +21,20 @@ public final class Msg {
 				"Informação", JOptionPane.INFORMATION_MESSAGE);
 	}
 
+	public static final void avisoCampoDuplicado() {
+		JOptionPane.showMessageDialog(null, "Já está cadastrado em outro registro !", "Informação",
+				JOptionPane.INFORMATION_MESSAGE);
+	}
+
+	public static final void avisoCampoDuplicado(String campo) {
+		JOptionPane.showMessageDialog(null, campo + " : " + "\nJá está cadastrado em outro registro !", "Informação",
+				JOptionPane.INFORMATION_MESSAGE);
+	}
+
 	public static final void avisoCampoDuplicado(String campo, String valor) {
 		JOptionPane.showMessageDialog(null, campo + " : " + valor + "\nJá está cadastrado em outro registro !",
 				"Informação", JOptionPane.INFORMATION_MESSAGE);
 	}
-	
-	public static final void avisoCampoDuplicado(String campo) {
-		JOptionPane.showMessageDialog(null, campo + " : " + "\nJá está cadastrado em outro registro !",
-				"Informação", JOptionPane.INFORMATION_MESSAGE);
-	}
-	
-	public static final void avisoCampoDuplicado() {
-		JOptionPane.showMessageDialog(null, "Já está cadastrado em outro registro !",
-				"Informação", JOptionPane.INFORMATION_MESSAGE);
-	}
-	
-	
-	
 
 	public static final void avisoCampoInvalido(Object campo) {
 		JOptionPane.showMessageDialog(null, campo.toString().toUpperCase() + " inválido !", "Informação",
@@ -152,10 +149,6 @@ public final class Msg {
 		JOptionPane.showMessageDialog(null, "Foi encontrado um erro !", "Erro", JOptionPane.ERROR_MESSAGE);
 	}
 
-	public static final void erroSalvarRegistro() {
-		JOptionPane.showMessageDialog(null, "Não foi possível inserir o registro !", "Erro", JOptionPane.ERROR_MESSAGE);
-	}
-
 	public static final void erroLookAndFeel() {
 		JOptionPane.showMessageDialog(null, "Não foi possível utilizar Look and Feel !", "Erro",
 				JOptionPane.ERROR_MESSAGE);
@@ -163,6 +156,10 @@ public final class Msg {
 
 	public static final void erroPesquisarRegistro() {
 		JOptionPane.showMessageDialog(null, "Não foi possível pesquisar registro !", "Erro", JOptionPane.ERROR_MESSAGE);
+	}
+
+	public static final void erroSalvarRegistro() {
+		JOptionPane.showMessageDialog(null, "Não foi possível inserir o registro !", "Erro", JOptionPane.ERROR_MESSAGE);
 	}
 
 	public static final void erroTeclaNaoPermitida() {

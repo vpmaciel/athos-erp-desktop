@@ -11,7 +11,6 @@ import javax.swing.JOptionPane;
 
 import arquitetura.gui.Msg;
 import erp.main.MainCont;
-import erp.main.MainFc;
 
 final class VeiculoMarcaCont {
 
@@ -119,11 +118,26 @@ final class VeiculoMarcaCont {
 		public void actionPerformed(ActionEvent actionEvent) {
 			atualizarObjeto();
 			long totalPesquisaRegistro = 0;
-			totalPesquisaRegistro = getVeiculoMarcaPp().pesquisarRegistroVeiculoMarca(veiculoMarca);
+			totalPesquisaRegistro = getVeiculoMarcaPp().pesquisarRegistro(veiculoMarca);
 			Msg.avisoRegistroEncontrado(totalPesquisaRegistro);
 
 			if (totalPesquisaRegistro > 0) {
-				MainFc.mostrarFrame(getVeiculoMarcaFp());
+				MainCont.mostrarFrame(getVeiculoMarcaFp());
+				getVeiculoMarcaFp().setExtendedState(java.awt.Frame.MAXIMIZED_BOTH);
+			}
+		}
+	}
+
+	public class Registro implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent actionEvent) {
+			long totalPesquisaRegistro = 0;
+			totalPesquisaRegistro = getVeiculoMarcaPp().pesquisarRegistro(new VeiculoMarca());
+			Msg.avisoRegistroEncontrado(totalPesquisaRegistro);
+
+			if (totalPesquisaRegistro > 0) {
+				MainCont.mostrarFrame(getVeiculoMarcaFp());
 				getVeiculoMarcaFp().setExtendedState(java.awt.Frame.MAXIMIZED_BOTH);
 			}
 		}

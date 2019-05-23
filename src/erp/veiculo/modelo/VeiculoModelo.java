@@ -13,7 +13,7 @@ import javax.persistence.Table;
 @SuppressWarnings("serial")
 @PersistenceContext(unitName = "erp")
 @Entity
-@Table(indexes = { @Index(name = "INDEX_VEICULO_MODELO_MODELO", columnList = "modelo", unique = true)})
+@Table(indexes = { @Index(name = "INDEX_VEICULO_MODELO_MODELO", columnList = "modelo", unique = true) })
 public class VeiculoModelo implements Serializable {
 
 	@Id

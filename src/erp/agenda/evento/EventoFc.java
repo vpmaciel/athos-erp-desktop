@@ -55,7 +55,6 @@ public final class EventoFc extends JFrame implements Gui {
 		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		eventoCont = new EventoCont();
 		addWindowListener(eventoCont.new Frame());
-		// eventoPc.getLabelTipoEvento().addMouseListener(eventoCont.new MostraFrame());
 		eventoPc.getToolBar().getExcluirBtn().addActionListener(eventoCont.new Exclui());
 		eventoPc.getToolBar().getNovoBtn().addActionListener(eventoCont.new Novo());
 		eventoPc.getToolBar().getPesquisarBtn().addActionListener(eventoCont.new Pesquisa());
@@ -66,7 +65,7 @@ public final class EventoFc extends JFrame implements Gui {
 		eventoPc.getToolBar().getSairBtn().addActionListener(eventoCont.new SaidaSistema());
 		eventoPc.getToolBar().getAjudaBtn().addActionListener(eventoCont.new Ajuda());
 		eventoPc.getToolBar().getHomeBtn().addActionListener(eventoCont.new Home());
-
+		eventoPc.getToolBar().getRegistrosBtn().addActionListener(eventoCont.new Registro());
 	}
 
 	@Override

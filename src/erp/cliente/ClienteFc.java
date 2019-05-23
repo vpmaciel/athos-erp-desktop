@@ -67,6 +67,7 @@ public final class ClienteFc extends JFrame implements Gui {
 		clientePc.getTB().getSairBtn().addActionListener(clienteCont.new SaidaSistema());
 		clientePc.getTB().getAjudaBtn().addActionListener(clienteCont.new Ajuda());
 		clientePc.getTB().getHomeBtn().addActionListener(clienteCont.new Home());
+		clientePc.getTB().getRegistrosBtn().addActionListener(clienteCont.new Registro());
 	}
 
 	@Override

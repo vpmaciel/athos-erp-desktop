@@ -94,7 +94,8 @@ final class ExperienciaProfissionalCont {
 				return;
 			}
 			if (experienciaProfissionals.add(ExperienciaProfissionalFac.getRegistro(experienciaProfissional))) {
-				ExperienciaProfissionalRel experienciaProfissionalRel = new ExperienciaProfissionalRel(experienciaProfissionals);
+				ExperienciaProfissionalRel experienciaProfissionalRel = new ExperienciaProfissionalRel(
+						experienciaProfissionals);
 				experienciaProfissionalRel.retornarRelatorio(true);
 			}
 		}
@@ -127,7 +128,22 @@ final class ExperienciaProfissionalCont {
 
 			atualizarObjeto();
 			long totalPesquisaRegistro = 0;
-			totalPesquisaRegistro = getExperienciaProfissionalPp().pesquisarRegistroCaracteristica(experienciaProfissional);
+			totalPesquisaRegistro = getExperienciaProfissionalPp().pesquisarRegistro(experienciaProfissional);
+			Msg.avisoRegistroEncontrado(totalPesquisaRegistro);
+
+			if (totalPesquisaRegistro > 0) {
+				MainCont.mostrarFrame(getExperienciaProfissionalFp());
+				getExperienciaProfissionalFp().setExtendedState(java.awt.Frame.MAXIMIZED_BOTH);
+			}
+		}
+	}
+
+	public class Registro implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent actionEvent) {
+			long totalPesquisaRegistro = 0;
+			totalPesquisaRegistro = getExperienciaProfissionalPp().pesquisarRegistro(new ExperienciaProfissional());
 			Msg.avisoRegistroEncontrado(totalPesquisaRegistro);
 
 			if (totalPesquisaRegistro > 0) {
@@ -145,12 +161,14 @@ final class ExperienciaProfissionalCont {
 			List<ExperienciaProfissional> experienciaProfissionals = new LinkedList<>();
 
 			try {
-				experienciaProfissionals = new LinkedList<>(ExperienciaProfissionalFac.pesquisarRegistro(new ExperienciaProfissional()));
+				experienciaProfissionals = new LinkedList<>(
+						ExperienciaProfissionalFac.pesquisarRegistro(new ExperienciaProfissional()));
 			} catch (Exception e) {
 				System.out.println(e);
 			}
 
-			ExperienciaProfissionalRel experienciaProfissionalRel = new ExperienciaProfissionalRel(experienciaProfissionals);
+			ExperienciaProfissionalRel experienciaProfissionalRel = new ExperienciaProfissionalRel(
+					experienciaProfissionals);
 			experienciaProfissionalRel.retornarRelatorio(true);
 
 		}
@@ -211,17 +229,20 @@ final class ExperienciaProfissionalCont {
 		getExperienciaProfissionalPc().getGuiEmpresa().setText(experienciaProfissional.getEmpresa());
 		getExperienciaProfissionalPc().getGuiDataAdmissao().setText(experienciaProfissional.getDataAdmissao());
 		getExperienciaProfissionalPc().getGuiFuncoes().setText(experienciaProfissional.getFuncoes());
-		getExperienciaProfissionalPc().getGuiNivelHierarquico().setSelectedItem(experienciaProfissional.getNivelHierarquico());
+		getExperienciaProfissionalPc().getGuiNivelHierarquico()
+				.setSelectedItem(experienciaProfissional.getNivelHierarquico());
 
 	}
 
 	public void atualizarObjeto() {
-		experienciaProfissional.setFuncionario((Funcionario) getExperienciaProfissionalPc().getGuiFuncionario().getSelectedItem());
+		experienciaProfissional
+				.setFuncionario((Funcionario) getExperienciaProfissionalPc().getGuiFuncionario().getSelectedItem());
 		experienciaProfissional.setCargo(getExperienciaProfissionalPc().getGuiCargo().getText());
 		experienciaProfissional.setEmpresa(getExperienciaProfissionalPc().getGuiEmpresa().getText());
 		experienciaProfissional.setDataAdmissao(getExperienciaProfissionalPc().getGuiDataAdmissao().getText());
 		experienciaProfissional.setDataSaida(getExperienciaProfissionalPc().getGuiDataSaida().getText());
-		experienciaProfissional.setNivelHierarquico((String) getExperienciaProfissionalPc().getGuiNivelHierarquico().getSelectedItem());
+		experienciaProfissional.setNivelHierarquico(
+				(String) getExperienciaProfissionalPc().getGuiNivelHierarquico().getSelectedItem());
 		experienciaProfissional.setFuncoes(getExperienciaProfissionalPc().getGuiFuncoes().getText());
 
 		if (experienciaProfissional.getDataAdmissao().equals(Mascara.getDataVazio())) {

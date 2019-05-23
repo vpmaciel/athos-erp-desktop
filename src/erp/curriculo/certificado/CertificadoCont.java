@@ -126,7 +126,22 @@ final class CertificadoCont {
 
 			atualizarObjeto();
 			long totalPesquisaRegistro = 0;
-			totalPesquisaRegistro = getCertificadoPp().pesquisarRegistroCaracteristica(certificado);
+			totalPesquisaRegistro = getCertificadoPp().pesquisarRegistro(certificado);
+			Msg.avisoRegistroEncontrado(totalPesquisaRegistro);
+
+			if (totalPesquisaRegistro > 0) {
+				MainCont.mostrarFrame(getCertificadoFp());
+				getCertificadoFp().setExtendedState(java.awt.Frame.MAXIMIZED_BOTH);
+			}
+		}
+	}
+
+	public class Registro implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent actionEvent) {
+			long totalPesquisaRegistro = 0;
+			totalPesquisaRegistro = getCertificadoPp().pesquisarRegistro(new Certificado());
 			Msg.avisoRegistroEncontrado(totalPesquisaRegistro);
 
 			if (totalPesquisaRegistro > 0) {

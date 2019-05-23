@@ -68,7 +68,7 @@ public final class SindicatoPp extends JPanel {
 		table.getSelectionModel().addListSelectionListener(listener);
 	}
 
-	public int pesquisarRegistroSindicato(Sindicato sindicato) {
+	public int pesquisarRegistro(Sindicato sindicato) {
 		sindicatoList = new LinkedList<>();
 		try {
 			sindicatoList = new LinkedList<>(SindicatoFac.pesquisarRegistro(sindicato));

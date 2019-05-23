@@ -22,8 +22,6 @@ public class Curso implements Serializable {
 	private String anoConclusao;
 	@Column(length = 4)
 	private String anoInicio;
-	@Column(length = 50)
-	private String nome;
 	@ManyToOne(cascade = CascadeType.ALL)
 	private Funcionario funcionario;
 	@Id
@@ -35,6 +33,8 @@ public class Curso implements Serializable {
 	private String modalidade;
 	@Column(length = 50)
 	private String nivel;
+	@Column(length = 50)
+	private String nome;
 	@Column(length = 50)
 	private String situacao;
 
@@ -82,10 +82,6 @@ public class Curso implements Serializable {
 		this.anoInicio = anoInicio;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
 	public void setFuncionario(Funcionario funcionario) {
 		this.funcionario = funcionario;
 	}
@@ -104,6 +100,10 @@ public class Curso implements Serializable {
 
 	public void setNivel(String nivel) {
 		this.nivel = nivel;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 
 	public void setSituacao(String situacao) {

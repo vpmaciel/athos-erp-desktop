@@ -25,14 +25,6 @@ public final class TesteBPc extends JPanel implements Gui {
 
 	private JComboBox<Funcionario> boxFuncionario;
 	private JComboBox<String> boxQuestao1;
-	private JComboBox<String> boxQuestao2;
-	private JComboBox<String> boxQuestao3;
-	private JComboBox<String> boxQuestao4;
-	private JComboBox<String> boxQuestao5;
-	private JComboBox<String> boxQuestao6;
-	private JComboBox<String> boxQuestao7;
-	private JComboBox<String> boxQuestao8;
-	private JComboBox<String> boxQuestao9;
 	private JComboBox<String> boxQuestao10;
 	private JComboBox<String> boxQuestao11;
 	private JComboBox<String> boxQuestao12;
@@ -43,6 +35,7 @@ public final class TesteBPc extends JPanel implements Gui {
 	private JComboBox<String> boxQuestao17;
 	private JComboBox<String> boxQuestao18;
 	private JComboBox<String> boxQuestao19;
+	private JComboBox<String> boxQuestao2;
 	private JComboBox<String> boxQuestao20;
 	private JComboBox<String> boxQuestao21;
 	private JComboBox<String> boxQuestao22;
@@ -53,6 +46,7 @@ public final class TesteBPc extends JPanel implements Gui {
 	private JComboBox<String> boxQuestao27;
 	private JComboBox<String> boxQuestao28;
 	private JComboBox<String> boxQuestao29;
+	private JComboBox<String> boxQuestao3;
 	private JComboBox<String> boxQuestao30;
 	private JComboBox<String> boxQuestao31;
 	private JComboBox<String> boxQuestao32;
@@ -63,7 +57,13 @@ public final class TesteBPc extends JPanel implements Gui {
 	private JComboBox<String> boxQuestao37;
 	private JComboBox<String> boxQuestao38;
 	private JComboBox<String> boxQuestao39;
+	private JComboBox<String> boxQuestao4;
 	private JComboBox<String> boxQuestao40;
+	private JComboBox<String> boxQuestao5;
+	private JComboBox<String> boxQuestao6;
+	private JComboBox<String> boxQuestao7;
+	private JComboBox<String> boxQuestao8;
+	private JComboBox<String> boxQuestao9;
 
 	private ConfiguracaoGui configuracaoGui;
 	private JLabel labelFuncionario;
@@ -92,38 +92,6 @@ public final class TesteBPc extends JPanel implements Gui {
 
 	public JComboBox<String> getGuiQuestao1() {
 		return boxQuestao1;
-	}
-
-	public JComboBox<String> getGuiQuestao2() {
-		return boxQuestao2;
-	}
-
-	public JComboBox<String> getGuiQuestao3() {
-		return boxQuestao3;
-	}
-
-	public JComboBox<String> getGuiQuestao4() {
-		return boxQuestao4;
-	}
-
-	public JComboBox<String> getGuiQuestao5() {
-		return boxQuestao5;
-	}
-
-	public JComboBox<String> getGuiQuestao6() {
-		return boxQuestao6;
-	}
-
-	public JComboBox<String> getGuiQuestao7() {
-		return boxQuestao7;
-	}
-
-	public JComboBox<String> getGuiQuestao8() {
-		return boxQuestao8;
-	}
-
-	public JComboBox<String> getGuiQuestao9() {
-		return boxQuestao9;
 	}
 
 	public JComboBox<String> getGuiQuestao10() {
@@ -166,6 +134,10 @@ public final class TesteBPc extends JPanel implements Gui {
 		return boxQuestao19;
 	}
 
+	public JComboBox<String> getGuiQuestao2() {
+		return boxQuestao2;
+	}
+
 	public JComboBox<String> getGuiQuestao20() {
 		return boxQuestao20;
 	}
@@ -206,10 +178,14 @@ public final class TesteBPc extends JPanel implements Gui {
 		return boxQuestao29;
 	}
 
+	public JComboBox<String> getGuiQuestao3() {
+		return boxQuestao3;
+	}
+
 	public JComboBox<String> getGuiQuestao30() {
 		return boxQuestao30;
 	}
-	
+
 	public JComboBox<String> getGuiQuestao31() {
 		return boxQuestao31;
 	}
@@ -246,10 +222,34 @@ public final class TesteBPc extends JPanel implements Gui {
 		return boxQuestao39;
 	}
 
+	public JComboBox<String> getGuiQuestao4() {
+		return boxQuestao4;
+	}
+
 	public JComboBox<String> getGuiQuestao40() {
 		return boxQuestao40;
 	}
-	
+
+	public JComboBox<String> getGuiQuestao5() {
+		return boxQuestao5;
+	}
+
+	public JComboBox<String> getGuiQuestao6() {
+		return boxQuestao6;
+	}
+
+	public JComboBox<String> getGuiQuestao7() {
+		return boxQuestao7;
+	}
+
+	public JComboBox<String> getGuiQuestao8() {
+		return boxQuestao8;
+	}
+
+	public JComboBox<String> getGuiQuestao9() {
+		return boxQuestao9;
+	}
+
 	public JLabel getLabelFuncionario() {
 		return labelFuncionario;
 	}
@@ -379,11 +379,11 @@ public final class TesteBPc extends JPanel implements Gui {
 		boxQuestao10.addItem("ENCANTADOR");
 		boxQuestao10.addItem("AUDACIOSO");
 		boxQuestao10.addItem("MINUCIOSO");
-		boxQuestao10.addItem("DIPLOMÁTICO");		
+		boxQuestao10.addItem("DIPLOMÁTICO");
 		add(boxQuestao10);
 
 		add(new JLabel("11. QUAL PALAVRA MELOR SE ENCAIXA A SUA CARACTERÍSTICA PESSOAL"));
-		
+
 		boxQuestao11 = new JComboBox<String>();
 		boxQuestao11.addItem("INSPIRADO");
 		boxQuestao11.addItem("INDEPENDENTE");
@@ -559,11 +559,11 @@ public final class TesteBPc extends JPanel implements Gui {
 		boxQuestao30.addItem("PERMISSIVO");
 		boxQuestao30.addItem("ORGULHOSO");
 		boxQuestao30.addItem("CAUTELOSO");
-		boxQuestao30.addItem("SIMPLES");		
+		boxQuestao30.addItem("SIMPLES");
 		add(boxQuestao30);
 
 		add(new JLabel("31. QUAL PALAVRA MELOR SE ENCAIXA A SUA CARACTERÍSTICA PESSOAL"));
-		
+
 		boxQuestao31 = new JComboBox<String>();
 		boxQuestao31.addItem("INGÊNUO");
 		boxQuestao31.addItem("OUSADO");

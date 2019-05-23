@@ -68,7 +68,7 @@ public final class CertificadoPp extends JPanel {
 		table.getSelectionModel().addListSelectionListener(listener);
 	}
 
-	public int pesquisarRegistroCaracteristica(Certificado certificado) {
+	public int pesquisarRegistro(Certificado certificado) {
 		certificados = new LinkedList<>();
 		try {
 			certificados = new LinkedList<>(CertificadoFac.pesquisarRegistro(certificado));

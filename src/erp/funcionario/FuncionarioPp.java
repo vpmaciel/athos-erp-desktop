@@ -68,7 +68,7 @@ public final class FuncionarioPp extends JPanel {
 		table.getSelectionModel().addListSelectionListener(listener);
 	}
 
-	public int pesquisarRegistroFuncionario(Funcionario funcionario) {
+	public int pesquisarRegistro(Funcionario funcionario) {
 		funcionarioList = new LinkedList<>();
 		try {
 			funcionarioList = new LinkedList<>(FuncionarioFac.pesquisarRegistro(funcionario));

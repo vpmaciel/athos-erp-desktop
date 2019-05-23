@@ -20,9 +20,9 @@ import arquitetura.gui.Imagem;
 @SuppressWarnings("serial")
 public final class TesteBFc extends JFrame implements Gui {
 
+	private ConfiguracaoGui configuracaoGui;
 	private TesteBCont testeBCont;
 	private TesteBPc testeBPc;
-	private ConfiguracaoGui configuracaoGui;
 
 	public TesteBFc() {
 		iniciarLayout();
@@ -37,17 +37,17 @@ public final class TesteBFc extends JFrame implements Gui {
 
 	}
 
+	@Override
+	public ConfiguracaoGui getConfiguracaoGui() {
+		return configuracaoGui;
+	}
+
 	public TesteBCont getTesteBCont() {
 		return testeBCont;
 	}
 
 	public TesteBPc getTesteBPc() {
 		return testeBPc;
-	}
-
-	@Override
-	public ConfiguracaoGui getConfiguracaoGui() {
-		return configuracaoGui;
 	}
 
 	@Override
@@ -66,6 +66,7 @@ public final class TesteBFc extends JFrame implements Gui {
 		testeBPc.getTB().getSairBtn().addActionListener(testeBCont.new SaidaSistema());
 		testeBPc.getTB().getAjudaBtn().addActionListener(testeBCont.new Ajuda());
 		testeBPc.getTB().getHomeBtn().addActionListener(testeBCont.new Home());
+		testeBPc.getTB().getRegistrosBtn().addActionListener(testeBCont.new Registro());
 	}
 
 	@Override

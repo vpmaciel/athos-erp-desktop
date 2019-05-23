@@ -31,7 +31,7 @@ public class HabilidadeRel {
 				document.add(new Paragraph("FUNCIONÁRIO: " + Habilidade.getFuncionario()));
 				document.add(new Paragraph("CONHECIMENTO: " + Habilidade.getConhecimento()));
 				document.add(new Paragraph("NÍVEL DE CONHECIMENTO: " + Habilidade.getNivelConhecimento()));
-				
+
 			}
 		} catch (DocumentException | FileNotFoundException e) {
 			System.err.println(e.getMessage());

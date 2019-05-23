@@ -65,6 +65,7 @@ public final class ImovelFc extends JFrame implements Gui {
 		imovelPc.getTB().getSairBtn().addActionListener(imovelCont.new SaidaSistema());
 		imovelPc.getTB().getAjudaBtn().addActionListener(imovelCont.new Ajuda());
 		imovelPc.getTB().getHomeBtn().addActionListener(imovelCont.new Home());
+		imovelPc.getTB().getRegistrosBtn().addActionListener(imovelCont.new Registro());
 	}
 
 	@Override

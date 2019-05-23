@@ -126,7 +126,22 @@ final class ObjetivoProfissionalCont {
 
 			atualizarObjeto();
 			long totalPesquisaRegistro = 0;
-			totalPesquisaRegistro = getObjetivoProfissionalPp().pesquisarRegistroCaracteristica(objetivoProfissional);
+			totalPesquisaRegistro = getObjetivoProfissionalPp().pesquisarRegistro(objetivoProfissional);
+			Msg.avisoRegistroEncontrado(totalPesquisaRegistro);
+
+			if (totalPesquisaRegistro > 0) {
+				MainCont.mostrarFrame(getObjetivoProfissionalFp());
+				getObjetivoProfissionalFp().setExtendedState(java.awt.Frame.MAXIMIZED_BOTH);
+			}
+		}
+	}
+
+	public class Registro implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent actionEvent) {
+			long totalPesquisaRegistro = 0;
+			totalPesquisaRegistro = getObjetivoProfissionalPp().pesquisarRegistro(new ObjetivoProfissional());
 			Msg.avisoRegistroEncontrado(totalPesquisaRegistro);
 
 			if (totalPesquisaRegistro > 0) {

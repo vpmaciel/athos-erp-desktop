@@ -38,17 +38,6 @@ public class TesteBTm extends AbstractTableModel {
 		testeBList.addAll(lista);
 	}
 
-	public TesteB getTesteB(int linha) {
-		if (testeBList.size() > 0) {
-			return testeBList.get(linha);
-		}
-		return null;
-	}
-
-	public List<TesteB> gettesteBList() {
-		return testeBList;
-	}
-
 	@Override
 	public Class<?> getColumnClass(int columnIndex) {
 
@@ -74,6 +63,17 @@ public class TesteBTm extends AbstractTableModel {
 	@Override
 	public int getRowCount() {
 		return testeBList.size();
+	}
+
+	public TesteB getTesteB(int linha) {
+		if (testeBList.size() > 0) {
+			return testeBList.get(linha);
+		}
+		return null;
+	}
+
+	public List<TesteB> gettesteBList() {
+		return testeBList;
 	}
 
 	@Override

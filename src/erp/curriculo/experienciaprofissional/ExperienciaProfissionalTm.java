@@ -94,7 +94,7 @@ public class ExperienciaProfissionalTm extends AbstractTableModel {
 		if (tabelaModelo.getNome(columnIndex).equals("CARGO")) {
 			return ExperienciaProfissional.getCargo();
 		}
-		
+
 		return ExperienciaProfissional;
 	}
 

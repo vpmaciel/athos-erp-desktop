@@ -11,8 +11,8 @@ public final class UsuarioUtil {
 
 		if (usuarioRegTotal < 1) {
 			try {
-				UsuarioFac.salvarRegistro(usuario);	
-			}catch (Exception exception) {
+				UsuarioFac.salvarRegistro(usuario);
+			} catch (Exception exception) {
 				exception.printStackTrace();
 			}
 		}

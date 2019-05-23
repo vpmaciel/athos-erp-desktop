@@ -27,14 +27,13 @@ public class JPA {
 	public static EntityManagerFactory getEntityManagerFactory() {
 		return emf;
 	}
-	
+
 	public static Session getHibernateSession() {
 
-	    final SessionFactory sf = new Configuration()
-	        .configure("persistence.xml").buildSessionFactory();
+		final SessionFactory sf = new Configuration().configure("persistence.xml").buildSessionFactory();
 
-	    // factory = new Configuration().configure().buildSessionFactory();
-	    final Session session = sf.openSession();
-	    return session;
-	    }
+		// factory = new Configuration().configure().buildSessionFactory();
+		final Session session = sf.openSession();
+		return session;
+	}
 }

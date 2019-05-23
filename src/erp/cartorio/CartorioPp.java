@@ -68,7 +68,7 @@ public final class CartorioPp extends JPanel {
 		table.getSelectionModel().addListSelectionListener(listener);
 	}
 
-	public int pesquisarRegistroCartorio(Cartorio cartorio) {
+	public int pesquisarRegistro(Cartorio cartorio) {
 		cartorioList = new LinkedList<>();
 		try {
 			cartorioList = new LinkedList<>(CartorioFac.pesquisarRegistro(cartorio));

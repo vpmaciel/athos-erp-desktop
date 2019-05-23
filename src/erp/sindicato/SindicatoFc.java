@@ -65,6 +65,7 @@ public final class SindicatoFc extends JFrame implements Gui {
 		sindicatoPc.getTB().getSairBtn().addActionListener(sindicatoCont.new SaidaSistema());
 		sindicatoPc.getTB().getAjudaBtn().addActionListener(sindicatoCont.new Ajuda());
 		sindicatoPc.getTB().getHomeBtn().addActionListener(sindicatoCont.new Home());
+		sindicatoPc.getTB().getRegistrosBtn().addActionListener(sindicatoCont.new Registro());
 	}
 
 	@Override

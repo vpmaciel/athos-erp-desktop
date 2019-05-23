@@ -126,7 +126,22 @@ final class HabilidadeCont {
 
 			atualizarObjeto();
 			long totalPesquisaRegistro = 0;
-			totalPesquisaRegistro = getHabilidadePp().pesquisarRegistroCaracteristica(habilidade);
+			totalPesquisaRegistro = getHabilidadePp().pesquisarRegistro(habilidade);
+			Msg.avisoRegistroEncontrado(totalPesquisaRegistro);
+
+			if (totalPesquisaRegistro > 0) {
+				MainCont.mostrarFrame(getHabilidadeFp());
+				getHabilidadeFp().setExtendedState(java.awt.Frame.MAXIMIZED_BOTH);
+			}
+		}
+	}
+
+	public class Registro implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent actionEvent) {
+			long totalPesquisaRegistro = 0;
+			totalPesquisaRegistro = getHabilidadePp().pesquisarRegistro(new Habilidade());
 			Msg.avisoRegistroEncontrado(totalPesquisaRegistro);
 
 			if (totalPesquisaRegistro > 0) {

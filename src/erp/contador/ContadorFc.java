@@ -65,6 +65,7 @@ public final class ContadorFc extends JFrame implements Gui {
 		contadorPc.getTB().getSairBtn().addActionListener(contadorCont.new SaidaSistema());
 		contadorPc.getTB().getAjudaBtn().addActionListener(contadorCont.new Ajuda());
 		contadorPc.getTB().getHomeBtn().addActionListener(contadorCont.new Home());
+		contadorPc.getTB().getRegistrosBtn().addActionListener(contadorCont.new Registro());
 	}
 
 	@Override

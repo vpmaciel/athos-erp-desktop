@@ -3,7 +3,7 @@ package erp.sindicato;
 import java.util.Collection;
 
 public interface SindicatoDao {
-	
+
 	void deletarRegistro(Sindicato sindicato);
 
 	Collection<Sindicato> getRegistro();

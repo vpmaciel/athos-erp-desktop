@@ -14,7 +14,6 @@ import javax.swing.JOptionPane;
 import arquitetura.gui.Msg;
 import arquitetura.validacao.Mascara;
 import erp.main.MainCont;
-import erp.main.MainFc;
 
 final class FornecedorCont {
 
@@ -134,11 +133,26 @@ final class FornecedorCont {
 		public void actionPerformed(ActionEvent actionEvent) {
 			atualizarObjeto();
 			long totalPesquisaRegistro = 0;
-			totalPesquisaRegistro = getFornecedorPp().pesquisarRegistroFornecedor(fornecedor);
+			totalPesquisaRegistro = getFornecedorPp().pesquisarRegistro(fornecedor);
 			Msg.avisoRegistroEncontrado(totalPesquisaRegistro);
 
 			if (totalPesquisaRegistro > 0) {
-				MainFc.mostrarFrame(getFornecedorFp());
+				MainCont.mostrarFrame(getFornecedorFp());
+				getFornecedorFp().setExtendedState(java.awt.Frame.MAXIMIZED_BOTH);
+			}
+		}
+	}
+
+	public class Registro implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent actionEvent) {
+			long totalPesquisaRegistro = 0;
+			totalPesquisaRegistro = getFornecedorPp().pesquisarRegistro(new Fornecedor());
+			Msg.avisoRegistroEncontrado(totalPesquisaRegistro);
+
+			if (totalPesquisaRegistro > 0) {
+				MainCont.mostrarFrame(getFornecedorFp());
 				getFornecedorFp().setExtendedState(java.awt.Frame.MAXIMIZED_BOTH);
 			}
 		}

@@ -49,7 +49,8 @@ final class SindicatoImp implements SindicatoDao {
 			entityManager = JPA.getEntityManagerFactory().createEntityManager();
 			entityTransaction = entityManager.getTransaction();
 			entityTransaction.begin();
-			Query query = entityManager.createQuery("select T from Sindicato T order by T.nomeFantasia", Sindicato.class);
+			Query query = entityManager.createQuery("select T from Sindicato T order by T.nomeFantasia",
+					Sindicato.class);
 			sindicatoList = query.getResultList();
 		} catch (Exception exception) {
 			exception.printStackTrace();
@@ -102,8 +103,8 @@ final class SindicatoImp implements SindicatoDao {
 				predicateList.add(criteriaBuilder.like(rootSindicato.get("bairro"), "%" + sindicato.getBairro() + "%"));
 			}
 			if (sindicato.getCapitalSocial() != null && sindicato.getCapitalSocial().length() > 0) {
-				predicateList.add(
-						criteriaBuilder.like(rootSindicato.get("capitalSocial"), "%" + sindicato.getCapitalSocial() + "%"));
+				predicateList.add(criteriaBuilder.like(rootSindicato.get("capitalSocial"),
+						"%" + sindicato.getCapitalSocial() + "%"));
 			}
 			if (sindicato.getCep() != null && !sindicato.getCep().equals(Mascara.getCep().getPlaceholder())
 					&& !sindicato.getCep().equals(Mascara.getCepVazio())) {
@@ -123,8 +124,8 @@ final class SindicatoImp implements SindicatoDao {
 			if (sindicato.getDataFundacao() != null
 					&& !sindicato.getDataFundacao().equals(Mascara.getData().getPlaceholder())
 					&& !sindicato.getDataFundacao().equals(Mascara.getDataVazio())) {
-				predicateList.add(
-						criteriaBuilder.like(rootSindicato.get("dataFundacao"), "%" + sindicato.getDataFundacao() + "%"));
+				predicateList.add(criteriaBuilder.like(rootSindicato.get("dataFundacao"),
+						"%" + sindicato.getDataFundacao() + "%"));
 			}
 			if (sindicato.getEmail() != null && sindicato.getEmail().length() > 0) {
 				predicateList.add(criteriaBuilder.like(rootSindicato.get("email"), "%" + sindicato.getEmail() + "%"));
@@ -157,12 +158,12 @@ final class SindicatoImp implements SindicatoDao {
 						"%" + sindicato.getInscricaoMunicipal() + "%"));
 			}
 			if (sindicato.getLogradouro() != null && sindicato.getLogradouro().length() > 0) {
-				predicateList
-						.add(criteriaBuilder.like(rootSindicato.get("logradouro"), "%" + sindicato.getLogradouro() + "%"));
+				predicateList.add(
+						criteriaBuilder.like(rootSindicato.get("logradouro"), "%" + sindicato.getLogradouro() + "%"));
 			}
 			if (sindicato.getNomeFantasia() != null && sindicato.getNomeFantasia().length() > 0) {
-				predicateList.add(
-						criteriaBuilder.like(rootSindicato.get("nomeFantasia"), "%" + sindicato.getNomeFantasia() + "%"));
+				predicateList.add(criteriaBuilder.like(rootSindicato.get("nomeFantasia"),
+						"%" + sindicato.getNomeFantasia() + "%"));
 			}
 			if (sindicato.getNumeroFuncionarios() != null && sindicato.getNumeroFuncionarios().length() > 0) {
 				predicateList.add(criteriaBuilder.like(rootSindicato.get("numeroFuncionarios"),
@@ -172,16 +173,16 @@ final class SindicatoImp implements SindicatoDao {
 				predicateList.add(criteriaBuilder.like(rootSindicato.get("pais"), "%" + sindicato.getPais() + "%"));
 			}
 			if (sindicato.getRamoAtividade() != null && sindicato.getRamoAtividade().length() > 0) {
-				predicateList.add(
-						criteriaBuilder.like(rootSindicato.get("ramoAtividade"), "%" + sindicato.getRamoAtividade() + "%"));
+				predicateList.add(criteriaBuilder.like(rootSindicato.get("ramoAtividade"),
+						"%" + sindicato.getRamoAtividade() + "%"));
 			}
 			if (sindicato.getRazaoSocial() != null && sindicato.getRazaoSocial().length() > 0) {
 				predicateList.add(
 						criteriaBuilder.like(rootSindicato.get("razaoSocial"), "%" + sindicato.getRazaoSocial() + "%"));
 			}
 			if (sindicato.getTipoSindicato() != null && sindicato.getTipoSindicato().length() > 0) {
-				predicateList.add(
-						criteriaBuilder.like(rootSindicato.get("tipoSindicato"), "%" + sindicato.getTipoSindicato() + "%"));
+				predicateList.add(criteriaBuilder.like(rootSindicato.get("tipoSindicato"),
+						"%" + sindicato.getTipoSindicato() + "%"));
 			}
 			criteriaQuery.select(rootSindicato).where(predicateList.toArray(new Predicate[] {}));
 			sindicatoList = entityManager.createQuery(criteriaQuery).getResultList();

@@ -78,7 +78,8 @@ final class RecadoImp implements RecadoDao {
 			predicateList.add(criteriaBuilder.like(rootRecado.get("data"), "%" + recado.getData() + "%"));
 		}
 		if (naoEstaVazio(recado.getDestinatario())) {
-			predicateList.add(criteriaBuilder.like(rootRecado.get("destinatario"), "%" + recado.getDestinatario() + "%"));
+			predicateList
+					.add(criteriaBuilder.like(rootRecado.get("destinatario"), "%" + recado.getDestinatario() + "%"));
 		}
 		if (naoEstaVazio(recado.getRecado())) {
 			predicateList.add(criteriaBuilder.like(rootRecado.get("recado"), "%" + recado.getRecado() + "%"));

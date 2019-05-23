@@ -14,7 +14,6 @@ import javax.swing.JOptionPane;
 import arquitetura.gui.Msg;
 import arquitetura.validacao.Mascara;
 import erp.main.MainCont;
-import erp.main.MainFc;
 
 final class EmpresaCont {
 
@@ -134,11 +133,26 @@ final class EmpresaCont {
 		public void actionPerformed(ActionEvent actionEvent) {
 			atualizarObjeto();
 			long totalPesquisaRegistro = 0;
-			totalPesquisaRegistro = getEmpresaPp().pesquisarRegistroEmpresa(empresa);
+			totalPesquisaRegistro = getEmpresaPp().pesquisarRegistro(empresa);
 			Msg.avisoRegistroEncontrado(totalPesquisaRegistro);
 
 			if (totalPesquisaRegistro > 0) {
-				MainFc.mostrarFrame(getEmpresaFp());
+				MainCont.mostrarFrame(getEmpresaFp());
+				getEmpresaFp().setExtendedState(java.awt.Frame.MAXIMIZED_BOTH);
+			}
+		}
+	}
+
+	public class Registro implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent actionEvent) {
+			long totalPesquisaRegistro = 0;
+			totalPesquisaRegistro = getEmpresaPp().pesquisarRegistro(new Empresa());
+			Msg.avisoRegistroEncontrado(totalPesquisaRegistro);
+
+			if (totalPesquisaRegistro > 0) {
+				MainCont.mostrarFrame(getEmpresaFp());
 				getEmpresaFp().setExtendedState(java.awt.Frame.MAXIMIZED_BOTH);
 			}
 		}

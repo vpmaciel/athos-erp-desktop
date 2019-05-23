@@ -71,6 +71,7 @@ public final class CentroCustoFc extends JFrame implements Gui {
 		centroCustoPc.getTB().getSairBtn().addActionListener(centroCustoCont.new SaidaSistema());
 		centroCustoPc.getTB().getAjudaBtn().addActionListener(centroCustoCont.new Ajuda());
 		centroCustoPc.getTB().getHomeBtn().addActionListener(centroCustoCont.new Home());
+		centroCustoPc.getTB().getRegistrosBtn().addActionListener(centroCustoCont.new Registro());
 	}
 
 	@Override

@@ -58,14 +58,20 @@ public final class ExperienciaProfissionalFc extends JFrame implements Gui {
 		experienciaProfissionalPc.getLabelFuncionario().addMouseListener(experienciaProfissionalCont.new MostraFrame());
 		experienciaProfissionalPc.getTB().getExcluirBtn().addActionListener(experienciaProfissionalCont.new Exclui());
 		experienciaProfissionalPc.getTB().getNovoBtn().addActionListener(experienciaProfissionalCont.new Novo());
-		experienciaProfissionalPc.getTB().getPesquisarBtn().addActionListener(experienciaProfissionalCont.new Pesquisa());
+		experienciaProfissionalPc.getTB().getPesquisarBtn()
+				.addActionListener(experienciaProfissionalCont.new Pesquisa());
 		experienciaProfissionalPc.getTB().getImprimirBtn().addActionListener(experienciaProfissionalCont.new Imprime());
-		experienciaProfissionalPc.getTB().getRelatorioBtn().addActionListener(experienciaProfissionalCont.new Relatorio());
+		experienciaProfissionalPc.getTB().getRelatorioBtn()
+				.addActionListener(experienciaProfissionalCont.new Relatorio());
 		experienciaProfissionalPc.getTB().getSalvarBtn().addActionListener(experienciaProfissionalCont.new Salva());
-		experienciaProfissionalPc.getTB().getFecharBtn().addActionListener(experienciaProfissionalCont.new FechaJanela());
-		experienciaProfissionalPc.getTB().getSairBtn().addActionListener(experienciaProfissionalCont.new SaidaSistema());
+		experienciaProfissionalPc.getTB().getFecharBtn()
+				.addActionListener(experienciaProfissionalCont.new FechaJanela());
+		experienciaProfissionalPc.getTB().getSairBtn()
+				.addActionListener(experienciaProfissionalCont.new SaidaSistema());
 		experienciaProfissionalPc.getTB().getAjudaBtn().addActionListener(experienciaProfissionalCont.new Ajuda());
 		experienciaProfissionalPc.getTB().getHomeBtn().addActionListener(experienciaProfissionalCont.new Home());
+		experienciaProfissionalPc.getTB().getRegistrosBtn()
+				.addActionListener(experienciaProfissionalCont.new Registro());
 	}
 
 	@Override

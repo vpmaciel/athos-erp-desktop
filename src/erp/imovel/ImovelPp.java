@@ -68,7 +68,7 @@ public final class ImovelPp extends JPanel {
 		table.getSelectionModel().addListSelectionListener(listener);
 	}
 
-	public int pesquisarRegistroImovel(Imovel imovel) {
+	public int pesquisarRegistro(Imovel imovel) {
 		imovelList = new LinkedList<>();
 		try {
 			imovelList = new LinkedList<>(ImovelFac.pesquisarRegistro(imovel));

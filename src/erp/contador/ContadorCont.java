@@ -14,7 +14,6 @@ import javax.swing.JOptionPane;
 import arquitetura.gui.Msg;
 import arquitetura.validacao.Mascara;
 import erp.main.MainCont;
-import erp.main.MainFc;
 
 final class ContadorCont {
 
@@ -134,11 +133,26 @@ final class ContadorCont {
 		public void actionPerformed(ActionEvent actionEvent) {
 			atualizarObjeto();
 			long totalPesquisaRegistro = 0;
-			totalPesquisaRegistro = getContadorPp().pesquisarRegistroContador(contador);
+			totalPesquisaRegistro = getContadorPp().pesquisarRegistro(contador);
 			Msg.avisoRegistroEncontrado(totalPesquisaRegistro);
 
 			if (totalPesquisaRegistro > 0) {
-				MainFc.mostrarFrame(getContadorFp());
+				MainCont.mostrarFrame(getContadorFp());
+				getContadorFp().setExtendedState(java.awt.Frame.MAXIMIZED_BOTH);
+			}
+		}
+	}
+
+	public class Registro implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent actionEvent) {
+			long totalPesquisaRegistro = 0;
+			totalPesquisaRegistro = getContadorPp().pesquisarRegistro(new Contador());
+			Msg.avisoRegistroEncontrado(totalPesquisaRegistro);
+
+			if (totalPesquisaRegistro > 0) {
+				MainCont.mostrarFrame(getContadorFp());
 				getContadorFp().setExtendedState(java.awt.Frame.MAXIMIZED_BOTH);
 			}
 		}

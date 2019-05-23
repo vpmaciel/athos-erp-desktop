@@ -68,7 +68,7 @@ public final class IdiomaPp extends JPanel {
 		table.getSelectionModel().addListSelectionListener(listener);
 	}
 
-	public int pesquisarRegistroCaracteristica(Idioma Idioma) {
+	public int pesquisarRegistro(Idioma Idioma) {
 		idiomas = new LinkedList<>();
 		try {
 			idiomas = new LinkedList<>(IdiomaFac.pesquisarRegistro(Idioma));

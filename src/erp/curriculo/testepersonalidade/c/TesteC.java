@@ -7,25 +7,30 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Index;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Table;
 
 import erp.funcionario.Funcionario;
 
 @SuppressWarnings("serial")
 @PersistenceContext(unitName = "erp")
 @Entity
+@Table(indexes = { @Index(name = "INDEX_TESTE_C_FUNCIONARIO", columnList = "funcionario_id", unique = true) })
 public class TesteC implements Serializable {
 
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "funcionario_id", referencedColumnName = "id")
+	private Funcionario funcionario;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	@OneToOne(cascade = CascadeType.ALL)
-	private Funcionario funcionario;
+	private Integer totalOpcaoC;
 	private Integer totalOpcaoD;
 	private Integer totalOpcaoI;
 	private Integer totalOpcaoS;
-	private Integer totalOpcaoC;
 
 	public TesteC() {
 		this.totalOpcaoD = 0;
@@ -33,57 +38,37 @@ public class TesteC implements Serializable {
 		this.totalOpcaoS = 0;
 		this.totalOpcaoC = 0;
 	}
-	
+
+	public Funcionario getFuncionario() {
+		return funcionario;
+	}
+
 	public Long getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public Funcionario getFuncionario() {
-		return funcionario;
+	public Integer getTotalOpcaoC() {
+		return totalOpcaoC;
 	}
 
 	public Integer getTotalOpcaoD() {
 		return totalOpcaoD;
 	}
 
-	public void setTotalOpcaoD() {
-		if (this.totalOpcaoD == null) {
-			this.totalOpcaoD = 1;
-		} else {
-			this.totalOpcaoD++;
-		}
-	}
-
 	public Integer getTotalOpcaoI() {
 		return totalOpcaoI;
-	}
-
-	public void setTotalOpcaoI() {
-		if (this.totalOpcaoI == null) {
-			this.totalOpcaoI = 1;
-		} else {
-			this.totalOpcaoI++;
-		}
 	}
 
 	public Integer getTotalOpcaoS() {
 		return totalOpcaoS;
 	}
 
-	public void setTotalOpcaoS() {
-		if (this.totalOpcaoS == null) {
-			this.totalOpcaoS = 1;
-		} else {
-			this.totalOpcaoS++;
-		}
+	public void setFuncionario(Funcionario funcionario) {
+		this.funcionario = funcionario;
 	}
 
-	public Integer getTotalOpcaoC() {
-		return totalOpcaoC;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public void setTotalOpcaoC() {
@@ -94,7 +79,27 @@ public class TesteC implements Serializable {
 		}
 	}
 
-	public void setFuncionario(Funcionario funcionario) {
-		this.funcionario = funcionario;
+	public void setTotalOpcaoD() {
+		if (this.totalOpcaoD == null) {
+			this.totalOpcaoD = 1;
+		} else {
+			this.totalOpcaoD++;
+		}
+	}
+
+	public void setTotalOpcaoI() {
+		if (this.totalOpcaoI == null) {
+			this.totalOpcaoI = 1;
+		} else {
+			this.totalOpcaoI++;
+		}
+	}
+
+	public void setTotalOpcaoS() {
+		if (this.totalOpcaoS == null) {
+			this.totalOpcaoS = 1;
+		} else {
+			this.totalOpcaoS++;
+		}
 	}
 }

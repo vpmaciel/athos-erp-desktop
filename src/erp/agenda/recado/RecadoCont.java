@@ -11,7 +11,6 @@ import javax.swing.JOptionPane;
 
 import arquitetura.gui.Msg;
 import erp.main.MainCont;
-import erp.main.MainFc;
 
 final class RecadoCont {
 
@@ -122,7 +121,22 @@ final class RecadoCont {
 			Msg.avisoRegistroEncontrado(totalPesquisaRegistro);
 
 			if (totalPesquisaRegistro > 0) {
-				MainFc.mostrarFrame(getRecadoFp());
+				MainCont.mostrarFrame(getRecadoFp());
+				getRecadoFp().setExtendedState(java.awt.Frame.MAXIMIZED_BOTH);
+			}
+		}
+	}
+
+	public class Registro implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent actionEvent) {
+			long totalPesquisaRegistro = 0;
+			totalPesquisaRegistro = getRecadoPp().pesquisarRegistro(new Recado());
+			Msg.avisoRegistroEncontrado(totalPesquisaRegistro);
+
+			if (totalPesquisaRegistro > 0) {
+				MainCont.mostrarFrame(getRecadoFp());
 				getRecadoFp().setExtendedState(java.awt.Frame.MAXIMIZED_BOTH);
 			}
 		}

@@ -66,7 +66,7 @@ public final class ContatoFc extends JFrame implements Gui {
 		contatoPc.getToolBar().getSairBtn().addActionListener(contatoCont.new SaidaSistema());
 		contatoPc.getToolBar().getAjudaBtn().addActionListener(contatoCont.new Ajuda());
 		contatoPc.getToolBar().getHomeBtn().addActionListener(contatoCont.new Home());
-
+		contatoPc.getToolBar().getRegistrosBtn().addActionListener(contatoCont.new Registro());
 	}
 
 	@Override

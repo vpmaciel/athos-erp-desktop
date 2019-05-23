@@ -68,7 +68,7 @@ public final class HabilidadePp extends JPanel {
 		table.getSelectionModel().addListSelectionListener(listener);
 	}
 
-	public int pesquisarRegistroCaracteristica(Habilidade Habilidade) {
+	public int pesquisarRegistro(Habilidade Habilidade) {
 		habilidades = new LinkedList<>();
 		try {
 			habilidades = new LinkedList<>(HabilidadeFac.pesquisarRegistro(Habilidade));

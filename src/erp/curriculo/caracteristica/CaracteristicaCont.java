@@ -126,7 +126,22 @@ final class CaracteristicaCont {
 
 			atualizarObjeto();
 			long totalPesquisaRegistro = 0;
-			totalPesquisaRegistro = getCaracteristicaPp().pesquisarRegistroCaracteristica(caracteristica);
+			totalPesquisaRegistro = getCaracteristicaPp().pesquisarRegistro(caracteristica);
+			Msg.avisoRegistroEncontrado(totalPesquisaRegistro);
+
+			if (totalPesquisaRegistro > 0) {
+				MainCont.mostrarFrame(getCaracteristicaFp());
+				getCaracteristicaFp().setExtendedState(java.awt.Frame.MAXIMIZED_BOTH);
+			}
+		}
+	}
+
+	public class Registro implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent actionEvent) {
+			long totalPesquisaRegistro = 0;
+			totalPesquisaRegistro = getCaracteristicaPp().pesquisarRegistro(new Caracteristica());
 			Msg.avisoRegistroEncontrado(totalPesquisaRegistro);
 
 			if (totalPesquisaRegistro > 0) {

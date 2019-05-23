@@ -68,7 +68,7 @@ public final class FornecedorPp extends JPanel {
 		table.getSelectionModel().addListSelectionListener(listener);
 	}
 
-	public int pesquisarRegistroFornecedor(Fornecedor fornecedor) {
+	public int pesquisarRegistro(Fornecedor fornecedor) {
 		fornecedorList = new LinkedList<>();
 		try {
 			fornecedorList = new LinkedList<>(FornecedorFac.pesquisarRegistro(fornecedor));

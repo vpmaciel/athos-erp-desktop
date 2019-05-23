@@ -15,7 +15,6 @@ import erp.agenda.evento.tipoevento.TipoEvento;
 import erp.agenda.evento.tipoevento.TipoEventoComp;
 import erp.agenda.evento.tipoevento.TipoEventoFac;
 import erp.main.MainCont;
-import erp.main.MainFc;
 
 final class EventoCont {
 
@@ -139,7 +138,22 @@ final class EventoCont {
 			Msg.avisoRegistroEncontrado(totalPesquisaRegistro);
 
 			if (totalPesquisaRegistro > 0) {
-				MainFc.mostrarFrame(getEventoFp());
+				MainCont.mostrarFrame(getEventoFp());
+				getEventoFp().setExtendedState(java.awt.Frame.MAXIMIZED_BOTH);
+			}
+		}
+	}
+
+	public class Registro implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent actionEvent) {
+			long totalPesquisaRegistro = 0;
+			totalPesquisaRegistro = getEventoPp().pesquisarRegistro(new Evento());
+			Msg.avisoRegistroEncontrado(totalPesquisaRegistro);
+
+			if (totalPesquisaRegistro > 0) {
+				MainCont.mostrarFrame(getEventoFp());
 				getEventoFp().setExtendedState(java.awt.Frame.MAXIMIZED_BOTH);
 			}
 		}

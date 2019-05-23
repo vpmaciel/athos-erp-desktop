@@ -126,7 +126,22 @@ final class TesteBCont {
 
 			atualizarObjeto();
 			long totalPesquisaRegistro = 0;
-			totalPesquisaRegistro = getTesteBPp().pesquisarRegistroTesteB(testeB);
+			totalPesquisaRegistro = getTesteBPp().pesquisarRegistro(testeB);
+			Msg.avisoRegistroEncontrado(totalPesquisaRegistro);
+
+			if (totalPesquisaRegistro > 0) {
+				MainCont.mostrarFrame(getTesteBFp());
+				getTesteBFp().setExtendedState(java.awt.Frame.MAXIMIZED_BOTH);
+			}
+		}
+	}
+
+	public class Registro implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent actionEvent) {
+			long totalPesquisaRegistro = 0;
+			totalPesquisaRegistro = getTesteBPp().pesquisarRegistro(new TesteB());
 			Msg.avisoRegistroEncontrado(totalPesquisaRegistro);
 
 			if (totalPesquisaRegistro > 0) {
@@ -189,6 +204,17 @@ final class TesteBCont {
 					Msg.sucessoSalvarRegistro();
 				}
 			} catch (Exception e) {
+				Throwable throwable = e.getCause().getCause();
+				String mensagem = throwable.toString();
+				if (mensagem.contains("ConstraintViolationException")) {
+					if (mensagem.contains("INDEX_TESTE_B_FUNCIONARIO")) {
+						Msg.avisoCampoDuplicado("NOME");
+						getTesteBPc().getGuiFuncionario().requestFocus();
+					} else {
+						Msg.avisoCampoDuplicado();
+					}
+				}
+				e.printStackTrace();
 				Msg.erroSalvarRegistro();
 			}
 		}

@@ -66,6 +66,7 @@ public final class HabilidadeFc extends JFrame implements Gui {
 		habilidadePc.getTB().getSairBtn().addActionListener(habilidadeCont.new SaidaSistema());
 		habilidadePc.getTB().getAjudaBtn().addActionListener(habilidadeCont.new Ajuda());
 		habilidadePc.getTB().getHomeBtn().addActionListener(habilidadeCont.new Home());
+		habilidadePc.getTB().getRegistrosBtn().addActionListener(habilidadeCont.new Registro());
 	}
 
 	@Override

@@ -49,12 +49,12 @@ public final class HabilidadePc extends JPanel implements Gui {
 		return configuracaoGui;
 	}
 
-	public JComboBox<Funcionario> getGuiFuncionario() {
-		return boxFuncionario;
-	}
-
 	public JTextField getGuiConhecimento() {
 		return fieldConhecimento;
+	}
+
+	public JComboBox<Funcionario> getGuiFuncionario() {
+		return boxFuncionario;
 	}
 
 	public JComboBox<String> getGuiNivelConhecimento() {

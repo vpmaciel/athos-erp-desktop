@@ -14,7 +14,7 @@ import javax.persistence.Table;
 @SuppressWarnings("serial")
 @PersistenceContext(unitName = "erp")
 @Entity
-@Table(indexes = { @Index(name = "INDEX_SINDICATO_CNPJ", columnList = "cnpj", unique = true)})
+@Table(indexes = { @Index(name = "INDEX_SINDICATO_CNPJ", columnList = "cnpj", unique = true) })
 
 public class Sindicato implements Serializable {
 

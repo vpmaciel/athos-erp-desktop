@@ -18,7 +18,8 @@ public final class ExperienciaProfissionalFac {
 		return experienciaProfissionalDao.getRegistro(experienciaProfissional);
 	}
 
-	public static Collection<ExperienciaProfissional> pesquisarRegistro(ExperienciaProfissional experienciaProfissional) {
+	public static Collection<ExperienciaProfissional> pesquisarRegistro(
+			ExperienciaProfissional experienciaProfissional) {
 		return experienciaProfissionalDao.pesquisarRegistro(experienciaProfissional);
 	}
 

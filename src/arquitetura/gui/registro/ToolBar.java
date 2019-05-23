@@ -18,10 +18,10 @@ public class ToolBar {
 	JButton buttonImprime = new JButton(Imagem.getImprime());
 	JButton buttonNovo = new JButton(Imagem.getNovo());
 	JButton buttonPesquisa = new JButton(Imagem.getpesquisar());
+	JButton buttonRegistros = new JButton(Imagem.getRegistros());
 	JButton buttonRelatorio = new JButton(Imagem.getRelatorio());
 	JButton buttonSair = new JButton(Imagem.getSair());
 	JButton buttonSalvar = new JButton(Imagem.getSalva());
-	JButton buttonRegistros = new JButton(Imagem.getRegistros());
 	JToolBar toolBar = new JToolBar();
 
 	public ToolBar() {
@@ -50,7 +50,7 @@ public class ToolBar {
 
 		buttonRegistros.setToolTipText("Registros");
 		toolBar.add(buttonRegistros);
-		
+
 		buttonImprime.setToolTipText("Imprimir");
 		toolBar.add(buttonImprime);
 
@@ -93,6 +93,10 @@ public class ToolBar {
 
 	public JButton getPesquisarBtn() {
 		return this.buttonPesquisa;
+	}
+
+	public JButton getRegistrosBtn() {
+		return this.buttonRegistros;
 	}
 
 	public JButton getRelatorioBtn() {

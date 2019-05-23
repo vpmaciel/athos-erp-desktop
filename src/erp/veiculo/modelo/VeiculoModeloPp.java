@@ -68,7 +68,7 @@ public final class VeiculoModeloPp extends JPanel {
 		table.getSelectionModel().addListSelectionListener(listener);
 	}
 
-	public int pesquisarRegistroVeiculoModelo(VeiculoModelo veiculoModelo) {
+	public int pesquisarRegistro(VeiculoModelo veiculoModelo) {
 		veiculoList = new LinkedList<>();
 		try {
 			veiculoList = new LinkedList<>(VeiculoModeloFac.pesquisarRegistro(veiculoModelo));

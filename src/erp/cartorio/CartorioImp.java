@@ -27,14 +27,14 @@ final class CartorioImp implements CartorioDao {
 			entityTransaction = entityManager.getTransaction();
 			entityTransaction.begin();
 			entityManager.remove(entityManager.find(Cartorio.class, cartorio.getId()));
-			entityTransaction.commit();			
+			entityTransaction.commit();
 		} catch (Exception exception) {
 			exception.printStackTrace();
-			throw  exception;
+			throw exception;
 		} finally {
 			if (entityManager.isOpen()) {
-				entityManager.close();	
-			}			
+				entityManager.close();
+			}
 		}
 	}
 
@@ -43,7 +43,8 @@ final class CartorioImp implements CartorioDao {
 		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
 		EntityTransaction entityTransaction = entityManager.getTransaction();
 		entityTransaction.begin();
-		Query query = entityManager.createQuery("select T from Cartorio T order by T.nomeFantasia, T.razaoSocial", Cartorio.class);
+		Query query = entityManager.createQuery("select T from Cartorio T order by T.nomeFantasia, T.razaoSocial",
+				Cartorio.class);
 		@SuppressWarnings("unchecked")
 		List<Cartorio> list = query.getResultList();
 		entityTransaction.commit();
@@ -95,7 +96,8 @@ final class CartorioImp implements CartorioDao {
 			predicateList.add(criteriaBuilder.like(rootCartorio.get("titular"), "%" + cartorio.getTitular() + "%"));
 		}
 		if (cartorio.getSubstituto() != null && cartorio.getSubstituto().length() > 0) {
-			predicateList.add(criteriaBuilder.like(rootCartorio.get("substituto"), "%" + cartorio.getSubstituto() + "%"));
+			predicateList
+					.add(criteriaBuilder.like(rootCartorio.get("substituto"), "%" + cartorio.getSubstituto() + "%"));
 		}
 		if (cartorio.getCnpj() != null && !cartorio.getCnpj().equals(Mascara.getCnpj().getPlaceholder())
 				&& !cartorio.getCnpj().equals(Mascara.getCnpjVazio())) {
@@ -132,7 +134,8 @@ final class CartorioImp implements CartorioDao {
 			predicateList.add(criteriaBuilder.like(rootCartorio.get("bairro"), "%" + cartorio.getBairro() + "%"));
 		}
 		if (cartorio.getLogradouro() != null && cartorio.getLogradouro().length() > 0) {
-			predicateList.add(criteriaBuilder.like(rootCartorio.get("logradouro"), "%" + cartorio.getLogradouro() + "%"));
+			predicateList
+					.add(criteriaBuilder.like(rootCartorio.get("logradouro"), "%" + cartorio.getLogradouro() + "%"));
 		}
 		if (cartorio.getComplemento() != null && cartorio.getComplemento().length() > 0) {
 			predicateList

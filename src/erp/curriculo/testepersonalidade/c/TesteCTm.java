@@ -38,17 +38,6 @@ public class TesteCTm extends AbstractTableModel {
 		testeCList.addAll(lista);
 	}
 
-	public TesteC getTesteC(int linha) {
-		if (testeCList.size() > 0) {
-			return testeCList.get(linha);
-		}
-		return null;
-	}
-
-	public List<TesteC> gettesteCList() {
-		return testeCList;
-	}
-
 	@Override
 	public Class<?> getColumnClass(int columnIndex) {
 
@@ -74,6 +63,17 @@ public class TesteCTm extends AbstractTableModel {
 	@Override
 	public int getRowCount() {
 		return testeCList.size();
+	}
+
+	public TesteC getTesteC(int linha) {
+		if (testeCList.size() > 0) {
+			return testeCList.get(linha);
+		}
+		return null;
+	}
+
+	public List<TesteC> gettesteCList() {
+		return testeCList;
 	}
 
 	@Override

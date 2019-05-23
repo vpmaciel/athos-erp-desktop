@@ -65,6 +65,7 @@ public final class EmpresaFc extends JFrame implements Gui {
 		empresaPc.getTB().getSairBtn().addActionListener(empresaCont.new SaidaSistema());
 		empresaPc.getTB().getAjudaBtn().addActionListener(empresaCont.new Ajuda());
 		empresaPc.getTB().getHomeBtn().addActionListener(empresaCont.new Home());
+		empresaPc.getTB().getRegistrosBtn().addActionListener(empresaCont.new Registro());
 	}
 
 	@Override

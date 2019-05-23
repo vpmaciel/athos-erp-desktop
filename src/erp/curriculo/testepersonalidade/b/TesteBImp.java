@@ -101,16 +101,20 @@ final class TesteBImp implements TesteBDao {
 				predicateList.add(criteriaBuilder.equal(rootTesteB.get("funcionario"), testeB.getFuncionario()));
 			}
 			if (testeB.getTotalOpcaoA() != null) {
-				predicateList.add(criteriaBuilder.greaterThanOrEqualTo(rootTesteB.get("totalOpcaoA"), testeB.getTotalOpcaoA()));
+				predicateList.add(
+						criteriaBuilder.greaterThanOrEqualTo(rootTesteB.get("totalOpcaoA"), testeB.getTotalOpcaoA()));
 			}
 			if (testeB.getTotalOpcaoB() != null) {
-				predicateList.add(criteriaBuilder.greaterThanOrEqualTo(rootTesteB.get("totalOpcaoB"), testeB.getTotalOpcaoB()));
+				predicateList.add(
+						criteriaBuilder.greaterThanOrEqualTo(rootTesteB.get("totalOpcaoB"), testeB.getTotalOpcaoB()));
 			}
 			if (testeB.getTotalOpcaoC() != null) {
-				predicateList.add(criteriaBuilder.greaterThanOrEqualTo(rootTesteB.get("totalOpcaoC"), testeB.getTotalOpcaoC()));
+				predicateList.add(
+						criteriaBuilder.greaterThanOrEqualTo(rootTesteB.get("totalOpcaoC"), testeB.getTotalOpcaoC()));
 			}
 			if (testeB.getTotalOpcaoD() != null) {
-				predicateList.add(criteriaBuilder.greaterThanOrEqualTo(rootTesteB.get("totalOpcaoD"), testeB.getTotalOpcaoD()));
+				predicateList.add(
+						criteriaBuilder.greaterThanOrEqualTo(rootTesteB.get("totalOpcaoD"), testeB.getTotalOpcaoD()));
 			}
 			criteriaQuery.select(rootTesteB).where(predicateList.toArray(new Predicate[] {}));
 			testeBList = entityManager.createQuery(criteriaQuery).getResultList();

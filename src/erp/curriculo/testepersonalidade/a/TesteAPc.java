@@ -25,14 +25,6 @@ public final class TesteAPc extends JPanel implements Gui {
 
 	private JComboBox<Funcionario> boxFuncionario;
 	private JComboBox<String> boxQuestao1;
-	private JComboBox<String> boxQuestao2;
-	private JComboBox<String> boxQuestao3;
-	private JComboBox<String> boxQuestao4;
-	private JComboBox<String> boxQuestao5;
-	private JComboBox<String> boxQuestao6;
-	private JComboBox<String> boxQuestao7;
-	private JComboBox<String> boxQuestao8;
-	private JComboBox<String> boxQuestao9;
 	private JComboBox<String> boxQuestao10;
 	private JComboBox<String> boxQuestao11;
 	private JComboBox<String> boxQuestao12;
@@ -43,12 +35,20 @@ public final class TesteAPc extends JPanel implements Gui {
 	private JComboBox<String> boxQuestao17;
 	private JComboBox<String> boxQuestao18;
 	private JComboBox<String> boxQuestao19;
+	private JComboBox<String> boxQuestao2;
 	private JComboBox<String> boxQuestao20;
 	private JComboBox<String> boxQuestao21;
 	private JComboBox<String> boxQuestao22;
 	private JComboBox<String> boxQuestao23;
 	private JComboBox<String> boxQuestao24;
 	private JComboBox<String> boxQuestao25;
+	private JComboBox<String> boxQuestao3;
+	private JComboBox<String> boxQuestao4;
+	private JComboBox<String> boxQuestao5;
+	private JComboBox<String> boxQuestao6;
+	private JComboBox<String> boxQuestao7;
+	private JComboBox<String> boxQuestao8;
+	private JComboBox<String> boxQuestao9;
 
 	private ConfiguracaoGui configuracaoGui;
 	private JLabel labelFuncionario;
@@ -77,38 +77,6 @@ public final class TesteAPc extends JPanel implements Gui {
 
 	public JComboBox<String> getGuiQuestao1() {
 		return boxQuestao1;
-	}
-
-	public JComboBox<String> getGuiQuestao2() {
-		return boxQuestao2;
-	}
-
-	public JComboBox<String> getGuiQuestao3() {
-		return boxQuestao3;
-	}
-
-	public JComboBox<String> getGuiQuestao4() {
-		return boxQuestao4;
-	}
-
-	public JComboBox<String> getGuiQuestao5() {
-		return boxQuestao5;
-	}
-
-	public JComboBox<String> getGuiQuestao6() {
-		return boxQuestao6;
-	}
-
-	public JComboBox<String> getGuiQuestao7() {
-		return boxQuestao7;
-	}
-
-	public JComboBox<String> getGuiQuestao8() {
-		return boxQuestao8;
-	}
-
-	public JComboBox<String> getGuiQuestao9() {
-		return boxQuestao9;
 	}
 
 	public JComboBox<String> getGuiQuestao10() {
@@ -151,6 +119,10 @@ public final class TesteAPc extends JPanel implements Gui {
 		return boxQuestao19;
 	}
 
+	public JComboBox<String> getGuiQuestao2() {
+		return boxQuestao2;
+	}
+
 	public JComboBox<String> getGuiQuestao20() {
 		return boxQuestao20;
 	}
@@ -173,6 +145,34 @@ public final class TesteAPc extends JPanel implements Gui {
 
 	public JComboBox<String> getGuiQuestao25() {
 		return boxQuestao25;
+	}
+
+	public JComboBox<String> getGuiQuestao3() {
+		return boxQuestao3;
+	}
+
+	public JComboBox<String> getGuiQuestao4() {
+		return boxQuestao4;
+	}
+
+	public JComboBox<String> getGuiQuestao5() {
+		return boxQuestao5;
+	}
+
+	public JComboBox<String> getGuiQuestao6() {
+		return boxQuestao6;
+	}
+
+	public JComboBox<String> getGuiQuestao7() {
+		return boxQuestao7;
+	}
+
+	public JComboBox<String> getGuiQuestao8() {
+		return boxQuestao8;
+	}
+
+	public JComboBox<String> getGuiQuestao9() {
+		return boxQuestao9;
 	}
 
 	public JLabel getLabelFuncionario() {
@@ -314,7 +314,7 @@ public final class TesteAPc extends JPanel implements Gui {
 		boxQuestao11.addItem("ME DIVIRTO COM MEUS AMIGOS");
 		boxQuestao11.addItem("TUDO SEGUE CONFORME PLANEJADO");
 		boxQuestao11.addItem("DESFRUTO DE COISAS NOVAS E ESTIMULANTES");
-		
+
 		add(boxQuestao11);
 
 		add(new JLabel("12. EU VEJO A MORTE COMO..."));

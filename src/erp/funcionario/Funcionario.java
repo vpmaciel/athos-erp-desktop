@@ -19,7 +19,7 @@ import erp.centrocusto.CentroCusto;
 @PersistenceContext(unitName = "erp")
 @Entity
 @Table(indexes = { @Index(name = "INDEX_FUNCIONARIO_CPF", columnList = "cpf", unique = true),
-		@Index(name = "INDEX_FUNCIONARIO_CNPJ", columnList = "cnpj", unique = true)})
+		@Index(name = "INDEX_FUNCIONARIO_CNPJ", columnList = "cnpj", unique = true) })
 
 public class Funcionario implements Serializable {
 

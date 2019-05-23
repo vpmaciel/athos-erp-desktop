@@ -96,7 +96,6 @@ final class ClienteImp implements ClienteDao {
 			Root<Cliente> rootCliente = criteriaQuery.from(Cliente.class);
 			List<Predicate> predicateList = new ArrayList<Predicate>();
 
-
 			if (cliente.getId() != null) {
 				predicateList.add(criteriaBuilder.equal(rootCliente.get("id"), cliente.getId()));
 			}
@@ -107,13 +106,14 @@ final class ClienteImp implements ClienteDao {
 				predicateList.add(criteriaBuilder.like(rootCliente.get("cargo"), "%" + cliente.getCargo() + "%"));
 			}
 			if (cliente.getClasseEconomica() != null && cliente.getClasseEconomica().length() > 0) {
-				predicateList.add(
-						criteriaBuilder.like(rootCliente.get("classeEconomica"), "%" + cliente.getClasseEconomica() + "%"));
+				predicateList.add(criteriaBuilder.like(rootCliente.get("classeEconomica"),
+						"%" + cliente.getClasseEconomica() + "%"));
 			}
-			if (cliente.getDataCadastro() != null && !cliente.getDataCadastro().equals(Mascara.getData().getPlaceholder())
+			if (cliente.getDataCadastro() != null
+					&& !cliente.getDataCadastro().equals(Mascara.getData().getPlaceholder())
 					&& !cliente.getDataCadastro().equals(Mascara.getDataVazio() != null)) {
-				predicateList
-						.add(criteriaBuilder.like(rootCliente.get("dataCadastro"), "%" + cliente.getDataCadastro() + "%"));
+				predicateList.add(
+						criteriaBuilder.like(rootCliente.get("dataCadastro"), "%" + cliente.getDataCadastro() + "%"));
 			}
 			if (cliente.getCep() != null && !cliente.getCep().equals(Mascara.getCep().getPlaceholder())
 					&& !cliente.getCep().equals(Mascara.getCepVazio())) {
@@ -123,7 +123,8 @@ final class ClienteImp implements ClienteDao {
 				predicateList.add(criteriaBuilder.like(rootCliente.get("cidade"), "%" + cliente.getCidade() + "%"));
 			}
 			if (cliente.getComplemento() != null && cliente.getComplemento().length() > 0) {
-				predicateList.add(criteriaBuilder.like(rootCliente.get("complemento"), "%" + cliente.getComplemento() + "%"));
+				predicateList.add(
+						criteriaBuilder.like(rootCliente.get("complemento"), "%" + cliente.getComplemento() + "%"));
 			}
 			if (cliente.getCpf() != null && !cliente.getCpf().equals(Mascara.getCpf().getPlaceholder())
 					&& !cliente.getCpf().equals(Mascara.getCpfVazio())) {
@@ -136,7 +137,8 @@ final class ClienteImp implements ClienteDao {
 				predicateList.add(criteriaBuilder.like(rootCliente.get("estado"), "%" + cliente.getEstado() + "%"));
 			}
 			if (cliente.getEstadoCivil() != null && cliente.getEstadoCivil().length() > 0) {
-				predicateList.add(criteriaBuilder.like(rootCliente.get("estadoCivil"), "%" + cliente.getEstadoCivil() + "%"));
+				predicateList.add(
+						criteriaBuilder.like(rootCliente.get("estadoCivil"), "%" + cliente.getEstadoCivil() + "%"));
 			}
 			if (cliente.getFax() != null && !cliente.getFax().equals(Mascara.getFax().getPlaceholder())
 					&& !cliente.getFax().equals(Mascara.getFaxVazio())) {
@@ -151,7 +153,8 @@ final class ClienteImp implements ClienteDao {
 				predicateList.add(criteriaBuilder.like(rootCliente.get("fone2"), "%" + cliente.getFone2() + "%"));
 			}
 			if (cliente.getLogradouro() != null && cliente.getLogradouro().length() > 0) {
-				predicateList.add(criteriaBuilder.like(rootCliente.get("logradouro"), "%" + cliente.getLogradouro() + "%"));
+				predicateList
+						.add(criteriaBuilder.like(rootCliente.get("logradouro"), "%" + cliente.getLogradouro() + "%"));
 			}
 			if (cliente.getNome() != null && cliente.getNome().length() > 0) {
 				predicateList.add(criteriaBuilder.like(rootCliente.get("nome"), "%" + cliente.getNome() + "%"));
@@ -167,8 +170,8 @@ final class ClienteImp implements ClienteDao {
 				predicateList.add(criteriaBuilder.like(rootCliente.get("rgNumero"), "%" + cliente.getRgNumero() + "%"));
 			}
 			if (cliente.getRgOrgaoEmissor() != null && cliente.getRgOrgaoEmissor().length() > 0) {
-				predicateList.add(
-						criteriaBuilder.like(rootCliente.get("rgOrgaoEmissor"), "%" + cliente.getRgOrgaoEmissor() + "%"));
+				predicateList.add(criteriaBuilder.like(rootCliente.get("rgOrgaoEmissor"),
+						"%" + cliente.getRgOrgaoEmissor() + "%"));
 			}
 			if (cliente.getSalario() != null && cliente.getSalario().length() > 0) {
 				predicateList.add(criteriaBuilder.like(rootCliente.get("salario"), "%" + cliente.getSalario() + "%"));
@@ -194,34 +197,34 @@ final class ClienteImp implements ClienteDao {
 						"%" + cliente.getNumeroContaBancaria() + "%"));
 			}
 			if (cliente.getNomeReferencia1() != null && cliente.getNomeReferencia1().length() > 0) {
-				predicateList.add(
-						criteriaBuilder.like(rootCliente.get("nomeReferencia1"), "%" + cliente.getNomeReferencia1() + "%"));
+				predicateList.add(criteriaBuilder.like(rootCliente.get("nomeReferencia1"),
+						"%" + cliente.getNomeReferencia1() + "%"));
 			}
 			if (cliente.getNomeReferencia2() != null && cliente.getNomeReferencia2().length() > 0) {
-				predicateList.add(
-						criteriaBuilder.like(rootCliente.get("nomeReferencia2"), "%" + cliente.getNomeReferencia2() + "%"));
+				predicateList.add(criteriaBuilder.like(rootCliente.get("nomeReferencia2"),
+						"%" + cliente.getNomeReferencia2() + "%"));
 			}
 			if (cliente.getNomeReferencia3() != null && cliente.getNomeReferencia3().length() > 0) {
-				predicateList.add(
-						criteriaBuilder.like(rootCliente.get("nomeReferencia3"), "%" + cliente.getNomeReferencia3() + "%"));
+				predicateList.add(criteriaBuilder.like(rootCliente.get("nomeReferencia3"),
+						"%" + cliente.getNomeReferencia3() + "%"));
 			}
 			if (cliente.getFoneReferencia1() != null
 					&& !cliente.getFoneReferencia1().equals(Mascara.getFone().getPlaceholder())
 					&& !cliente.getFoneReferencia1().equals(Mascara.getFoneVazio())) {
-				predicateList.add(
-						criteriaBuilder.like(rootCliente.get("foneReferencia1"), "%" + cliente.getFoneReferencia1() + "%"));
+				predicateList.add(criteriaBuilder.like(rootCliente.get("foneReferencia1"),
+						"%" + cliente.getFoneReferencia1() + "%"));
 			}
 			if (cliente.getFoneReferencia2() != null
 					&& !cliente.getFoneReferencia2().equals(Mascara.getFone().getPlaceholder())
 					&& !cliente.getFoneReferencia2().equals(Mascara.getFoneVazio())) {
-				predicateList.add(
-						criteriaBuilder.like(rootCliente.get("foneReferencia2"), "%" + cliente.getFoneReferencia2() + "%"));
+				predicateList.add(criteriaBuilder.like(rootCliente.get("foneReferencia2"),
+						"%" + cliente.getFoneReferencia2() + "%"));
 			}
 			if (cliente.getFoneReferencia3() != null
 					&& !cliente.getFoneReferencia3().equals(Mascara.getFone().getPlaceholder())
 					&& !cliente.getFoneReferencia3().equals(Mascara.getFoneVazio())) {
-				predicateList.add(
-						criteriaBuilder.like(rootCliente.get("foneReferencia3"), "%" + cliente.getFoneReferencia3() + "%"));
+				predicateList.add(criteriaBuilder.like(rootCliente.get("foneReferencia3"),
+						"%" + cliente.getFoneReferencia3() + "%"));
 			}
 			if (cliente.getRelacionamentoReferencia1() != null && cliente.getRelacionamentoReferencia1().length() > 0) {
 				predicateList.add(criteriaBuilder.like(rootCliente.get("relacionamentoReferencia1"),

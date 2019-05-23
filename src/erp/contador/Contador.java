@@ -16,7 +16,7 @@ import javax.persistence.Table;
 @Entity
 @Table(indexes = { @Index(name = "INDEX_CONTADOR_CPF", columnList = "cpf", unique = true),
 		@Index(name = "INDEX_CONTADOR_CNPJ", columnList = "cnpj", unique = true),
-		@Index(name = "INDEX_CONTADOR_CRC", columnList = "crc", unique = true)})
+		@Index(name = "INDEX_CONTADOR_CRC", columnList = "crc", unique = true) })
 
 public class Contador implements Serializable {
 

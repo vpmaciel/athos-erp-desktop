@@ -114,7 +114,8 @@ final class EventoImp implements EventoDao {
 			}
 			if (evento.getHoraInicio() != null && !evento.getHoraInicio().equals(Mascara.getHora().getPlaceholder())
 					&& !evento.getHoraInicio().equals(Mascara.getHoraVazio())) {
-				predicateList.add(criteriaBuilder.like(rootEvento.get("horaInicio"), "%" + evento.getHoraInicio() + "%"));
+				predicateList
+						.add(criteriaBuilder.like(rootEvento.get("horaInicio"), "%" + evento.getHoraInicio() + "%"));
 			}
 			if (evento.getHoraTermino() != null && !evento.getHoraTermino().equals(Mascara.getHora().getPlaceholder())
 					&& !evento.getHoraTermino().equals(Mascara.getHoraVazio())) {

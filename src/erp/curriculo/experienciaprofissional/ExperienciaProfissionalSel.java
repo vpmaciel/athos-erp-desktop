@@ -22,14 +22,17 @@ final class ExperienciaProfissionalSel implements ListSelectionListener {
 			TableModel tm = table.getModel();
 			if (selRows.length > 0) {
 				ExperienciaProfissional experienciaProfissionalPesquisaRegistro = new ExperienciaProfissional();
-				experienciaProfissionalPesquisaRegistro.setId((Long) tm.getValueAt(selRows[0], ExperienciaProfissionalTm.ID));
+				experienciaProfissionalPesquisaRegistro
+						.setId((Long) tm.getValueAt(selRows[0], ExperienciaProfissionalTm.ID));
 
 				if (table.getSelectedRow() != -1) {
-					ExperienciaProfissional experienciaProfissional = ExperienciaProfissionalFac.getRegistro(experienciaProfissionalPesquisaRegistro);
+					ExperienciaProfissional experienciaProfissional = ExperienciaProfissionalFac
+							.getRegistro(experienciaProfissionalPesquisaRegistro);
 					ExperienciaProfissionalTm ExperienciaProfissionalTm = (ExperienciaProfissionalTm) table.getModel();
 					ExperienciaProfissionalTm.getExperienciaProfissional(table.getSelectedRow());
 					MainCont.mostrarFrame(MainCont.getCurriculoExperienciaProfissionalFc());
-					MainCont.getCurriculoExperienciaProfissionalFc().getExperienciaProfissionalCont().setExperienciaProfissional(experienciaProfissional);
+					MainCont.getCurriculoExperienciaProfissionalFc().getExperienciaProfissionalCont()
+							.setExperienciaProfissional(experienciaProfissional);
 					MainCont.getCurriculoExperienciaProfissionalFc().getExperienciaProfissionalCont().atualizarGui();
 					MainCont.getCurriculoExperienciaProfissionalFc().setFocusable(true);
 					MainCont.getCurriculoExperienciaProfissionalFp().setVisible(false);

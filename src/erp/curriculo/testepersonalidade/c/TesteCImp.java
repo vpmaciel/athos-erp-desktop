@@ -95,7 +95,6 @@ final class TesteCImp implements TesteCDao {
 			Root<TesteC> rootTesteC = criteriaQuery.from(TesteC.class);
 			List<Predicate> predicateList = new ArrayList<Predicate>();
 
-
 			if (testeC.getId() != null) {
 				predicateList.add(criteriaBuilder.equal(rootTesteC.get("id"), testeC.getId()));
 			}
@@ -103,16 +102,20 @@ final class TesteCImp implements TesteCDao {
 				predicateList.add(criteriaBuilder.equal(rootTesteC.get("funcionario"), testeC.getFuncionario()));
 			}
 			if (testeC.getTotalOpcaoD() != null) {
-				predicateList.add(criteriaBuilder.greaterThanOrEqualTo(rootTesteC.get("totalOpcaoD"), testeC.getTotalOpcaoD()));
+				predicateList.add(
+						criteriaBuilder.greaterThanOrEqualTo(rootTesteC.get("totalOpcaoD"), testeC.getTotalOpcaoD()));
 			}
 			if (testeC.getTotalOpcaoI() != null) {
-				predicateList.add(criteriaBuilder.greaterThanOrEqualTo(rootTesteC.get("totalOpcaoI"), testeC.getTotalOpcaoI()));
+				predicateList.add(
+						criteriaBuilder.greaterThanOrEqualTo(rootTesteC.get("totalOpcaoI"), testeC.getTotalOpcaoI()));
 			}
 			if (testeC.getTotalOpcaoS() != null) {
-				predicateList.add(criteriaBuilder.greaterThanOrEqualTo(rootTesteC.get("totalOpcaoS"), testeC.getTotalOpcaoS()));
+				predicateList.add(
+						criteriaBuilder.greaterThanOrEqualTo(rootTesteC.get("totalOpcaoS"), testeC.getTotalOpcaoS()));
 			}
 			if (testeC.getTotalOpcaoC() != null) {
-				predicateList.add(criteriaBuilder.greaterThanOrEqualTo(rootTesteC.get("totalOpcaoC"), testeC.getTotalOpcaoC()));
+				predicateList.add(
+						criteriaBuilder.greaterThanOrEqualTo(rootTesteC.get("totalOpcaoC"), testeC.getTotalOpcaoC()));
 			}
 
 			criteriaQuery.select(rootTesteC).where(predicateList.toArray(new Predicate[] {}));

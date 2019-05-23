@@ -68,7 +68,7 @@ public final class CursoPp extends JPanel {
 		table.getSelectionModel().addListSelectionListener(listener);
 	}
 
-	public int pesquisarRegistroCaracteristica(Curso Curso) {
+	public int pesquisarRegistro(Curso Curso) {
 		cursos = new LinkedList<>();
 		try {
 			cursos = new LinkedList<>(CursoFac.pesquisarRegistro(Curso));

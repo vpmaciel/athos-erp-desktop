@@ -20,7 +20,7 @@ import erp.empresa.Empresa;
 @PersistenceContext(unitName = "erp")
 @Entity
 @Table(indexes = { @Index(name = "INDEX_CLIENTE_CPF", columnList = "cpf", unique = true),
-		@Index(name = "INDEX_CLIENTE_CNPJ", columnList = "cnpj", unique = true)})
+		@Index(name = "INDEX_CLIENTE_CNPJ", columnList = "cnpj", unique = true) })
 
 public class Cliente implements Serializable {
 

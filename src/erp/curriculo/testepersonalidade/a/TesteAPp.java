@@ -19,9 +19,9 @@ import arquitetura.gui.Tabela;
 @SuppressWarnings("serial")
 public final class TesteAPp extends JPanel {
 
+	private final JTable table;
 	List<TesteA> testeAs = null;
 	private final TesteATm testeATm;
-	private final JTable table;
 
 	public TesteAPp() {
 		setBorder(BorderFactory.createTitledBorder("TESTE DE PREFERÊNCIA CEREBRAL"));
@@ -68,7 +68,7 @@ public final class TesteAPp extends JPanel {
 		table.getSelectionModel().addListSelectionListener(listener);
 	}
 
-	public int pesquisarRegistroTesteA(TesteA testeA) {
+	public int pesquisarRegistro(TesteA testeA) {
 		testeAs = new LinkedList<>();
 		try {
 			testeAs = new LinkedList<>(TesteAFac.pesquisarRegistro(testeA));

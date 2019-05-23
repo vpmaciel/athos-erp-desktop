@@ -48,7 +48,8 @@ final class HabilidadeImp implements HabilidadeDao {
 			entityManager = JPA.getEntityManagerFactory().createEntityManager();
 			entityTransaction = entityManager.getTransaction();
 			entityTransaction.begin();
-			Query query = entityManager.createQuery("select T from Habilidade T order by T.funcionario", Habilidade.class);
+			Query query = entityManager.createQuery("select T from Habilidade T order by T.funcionario",
+					Habilidade.class);
 			habilidadeList = query.getResultList();
 		} catch (Exception exception) {
 			exception.printStackTrace();
@@ -95,13 +96,16 @@ final class HabilidadeImp implements HabilidadeDao {
 			Root<Habilidade> rootHabilidade = criteriaQuery.from(Habilidade.class);
 			List<Predicate> predicateList = new ArrayList<Predicate>();
 			if (habilidade.getFuncionario() != null && habilidade.getFuncionario().getId() != null) {
-				predicateList.add(criteriaBuilder.equal(rootHabilidade.get("funcionario"), habilidade.getFuncionario()));
+				predicateList
+						.add(criteriaBuilder.equal(rootHabilidade.get("funcionario"), habilidade.getFuncionario()));
 			}
 			if (habilidade.getConhecimento() != null && habilidade.getConhecimento().length() > 0) {
-				predicateList.add(criteriaBuilder.like(rootHabilidade.get("conhecimento"), "%" + habilidade.getConhecimento() + "%"));
+				predicateList.add(criteriaBuilder.like(rootHabilidade.get("conhecimento"),
+						"%" + habilidade.getConhecimento() + "%"));
 			}
 			if (habilidade.getNivelConhecimento() != null && habilidade.getNivelConhecimento().length() > 0) {
-				predicateList.add(criteriaBuilder.like(rootHabilidade.get("nivelConhecimento"), "%" + habilidade.getNivelConhecimento() + "%"));
+				predicateList.add(criteriaBuilder.like(rootHabilidade.get("nivelConhecimento"),
+						"%" + habilidade.getNivelConhecimento() + "%"));
 			}
 
 			criteriaQuery.select(rootHabilidade).where(predicateList.toArray(new Predicate[] {}));

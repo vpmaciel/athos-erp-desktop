@@ -24,7 +24,7 @@ public class MainFc extends JFrame {
 		return mainCont;
 	}
 
-	public static void mostrarFrame(JFrame frame) {
+	static void mostrarFrame(JFrame frame) {
 		MainCont.mostrarFrame(frame);
 	}
 
@@ -191,11 +191,11 @@ public class MainFc extends JFrame {
 	public JMenuItem getMenuItemCadastroCurriculoTestePersonalidadeA() {
 		return menuItemCadastroCurriculoTestePersonalidadeA;
 	}
-	
+
 	public JMenuItem getMenuItemCadastroCurriculoTestePersonalidadeB() {
 		return menuItemCadastroCurriculoTestePersonalidadeB;
 	}
-	
+
 	public JMenuItem getMenuItemCadastroCurriculoTestePersonalidadeC() {
 		return menuItemCadastroCurriculoTestePersonalidadeC;
 	}
@@ -399,7 +399,7 @@ public class MainFc extends JFrame {
 		setMinimumSize(new Dimension(1200, 600));
 		setSize(new Dimension(1200, 600));
 		setPreferredSize(new Dimension(1200, 600));
-		
+
 		menuArquivo = new JMenu("Arquivo");
 		menuArquivo.setMnemonic('A');
 
@@ -610,6 +610,6 @@ public class MainFc extends JFrame {
 
 		menuBar.add(menuAjuda);
 
-		setJMenuBar(menuBar);		
+		setJMenuBar(menuBar);
 	}
 }

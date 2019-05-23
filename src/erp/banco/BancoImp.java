@@ -27,7 +27,7 @@ final class BancoImp implements BancoDao {
 		} catch (Exception exception) {
 			entityTransaction.rollback();
 			exception.printStackTrace();
-			throw  exception;
+			throw exception;
 		} finally {
 			entityManager.close();
 		}
@@ -68,7 +68,7 @@ final class BancoImp implements BancoDao {
 
 		} catch (Exception exception) {
 			exception.printStackTrace();
-			throw  exception;
+			throw exception;
 		} finally {
 			entityManager.close();
 		}

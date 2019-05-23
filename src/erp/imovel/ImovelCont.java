@@ -13,7 +13,6 @@ import javax.swing.JOptionPane;
 
 import arquitetura.gui.Msg;
 import erp.main.MainCont;
-import erp.main.MainFc;
 
 final class ImovelCont {
 
@@ -133,11 +132,26 @@ final class ImovelCont {
 		public void actionPerformed(ActionEvent actionEvent) {
 			atualizarObjeto();
 			long totalPesquisaRegistro = 0;
-			totalPesquisaRegistro = getImovelPp().pesquisarRegistroImovel(imovel);
+			totalPesquisaRegistro = getImovelPp().pesquisarRegistro(imovel);
 			Msg.avisoRegistroEncontrado(totalPesquisaRegistro);
 
 			if (totalPesquisaRegistro > 0) {
-				MainFc.mostrarFrame(getImovelFp());
+				MainCont.mostrarFrame(getImovelFp());
+				getImovelFp().setExtendedState(java.awt.Frame.MAXIMIZED_BOTH);
+			}
+		}
+	}
+
+	public class Registro implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent actionEvent) {
+			long totalPesquisaRegistro = 0;
+			totalPesquisaRegistro = getImovelPp().pesquisarRegistro(new Imovel());
+			Msg.avisoRegistroEncontrado(totalPesquisaRegistro);
+
+			if (totalPesquisaRegistro > 0) {
+				MainCont.mostrarFrame(getImovelFp());
 				getImovelFp().setExtendedState(java.awt.Frame.MAXIMIZED_BOTH);
 			}
 		}

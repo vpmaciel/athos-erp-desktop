@@ -68,7 +68,7 @@ public final class ClientePp extends JPanel {
 		table.getSelectionModel().addListSelectionListener(listener);
 	}
 
-	public int pesquisarRegistroCliente(Cliente cliente) {
+	public int pesquisarRegistro(Cliente cliente) {
 		clientes = new LinkedList<>();
 		try {
 			clientes = new LinkedList<>(ClienteFac.pesquisarRegistro(cliente));

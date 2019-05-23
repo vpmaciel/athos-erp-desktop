@@ -65,6 +65,7 @@ public final class VeiculoMarcaFc extends JFrame implements Gui {
 		veiculoMarcaPc.getToolBar().getSairBtn().addActionListener(veiculoMarcaCont.new SaidaSistema());
 		veiculoMarcaPc.getToolBar().getAjudaBtn().addActionListener(veiculoMarcaCont.new Ajuda());
 		veiculoMarcaPc.getToolBar().getHomeBtn().addActionListener(veiculoMarcaCont.new Home());
+		veiculoMarcaPc.getToolBar().getRegistrosBtn().addActionListener(veiculoMarcaCont.new Registro());
 	}
 
 	@Override

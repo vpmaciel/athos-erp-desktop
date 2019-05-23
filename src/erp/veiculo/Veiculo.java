@@ -21,7 +21,7 @@ import erp.veiculo.modelo.VeiculoModelo;
 @Entity
 @Table(indexes = { @Index(name = "INDEX_VEICULO_PLACA", columnList = "placa", unique = true),
 		@Index(name = "INDEX_VEICULO_RENAVAM", columnList = "renavam", unique = true),
-		@Index(name = "INDEX_VEICULO_CHASSI", columnList = "chassi", unique = true)})
+		@Index(name = "INDEX_VEICULO_CHASSI", columnList = "chassi", unique = true) })
 public class Veiculo implements Serializable {
 
 	@Column(length = 3)

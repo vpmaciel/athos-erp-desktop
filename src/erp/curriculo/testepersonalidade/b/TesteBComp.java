@@ -8,8 +8,7 @@ public class TesteBComp {
 
 		@Override
 		public int compare(Object o1, Object o2) {
-			return ((TesteB) o1).getFuncionario().getId()
-					.compareTo(((TesteB) o2).getFuncionario().getId());
+			return ((TesteB) o1).getFuncionario().getId().compareTo(((TesteB) o2).getFuncionario().getId());
 		}
 	}
 

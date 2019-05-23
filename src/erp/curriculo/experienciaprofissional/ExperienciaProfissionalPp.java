@@ -68,10 +68,11 @@ public final class ExperienciaProfissionalPp extends JPanel {
 		table.getSelectionModel().addListSelectionListener(listener);
 	}
 
-	public int pesquisarRegistroCaracteristica(ExperienciaProfissional ExperienciaProfissional) {
+	public int pesquisarRegistro(ExperienciaProfissional ExperienciaProfissional) {
 		experienciaProfissionals = new LinkedList<>();
 		try {
-			experienciaProfissionals = new LinkedList<>(ExperienciaProfissionalFac.pesquisarRegistro(ExperienciaProfissional));
+			experienciaProfissionals = new LinkedList<>(
+					ExperienciaProfissionalFac.pesquisarRegistro(ExperienciaProfissional));
 		} catch (Exception e) {
 			System.out.println(e);
 		}

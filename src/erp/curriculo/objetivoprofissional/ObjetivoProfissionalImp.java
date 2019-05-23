@@ -48,7 +48,8 @@ final class ObjetivoProfissionalImp implements ObjetivoProfissionalDao {
 			entityManager = JPA.getEntityManagerFactory().createEntityManager();
 			entityTransaction = entityManager.getTransaction();
 			entityTransaction.begin();
-			Query query = entityManager.createQuery("select T from ObjetivoProfissional T order by T.cargo", ObjetivoProfissional.class);
+			Query query = entityManager.createQuery("select T from ObjetivoProfissional T order by T.cargo",
+					ObjetivoProfissional.class);
 			objetivoProfissionalList = query.getResultList();
 		} catch (Exception exception) {
 			exception.printStackTrace();
@@ -95,23 +96,33 @@ final class ObjetivoProfissionalImp implements ObjetivoProfissionalDao {
 			Root<ObjetivoProfissional> rootObjetivoProfissional = criteriaQuery.from(ObjetivoProfissional.class);
 			List<Predicate> predicateList = new ArrayList<Predicate>();
 
-			if (objetivoProfissional.getFuncionario() != null && objetivoProfissional.getFuncionario().getId() != null) {
-				predicateList.add(criteriaBuilder.equal(rootObjetivoProfissional.get("funcionario"), objetivoProfissional.getFuncionario()));
+			if (objetivoProfissional.getFuncionario() != null
+					&& objetivoProfissional.getFuncionario().getId() != null) {
+				predicateList.add(criteriaBuilder.equal(rootObjetivoProfissional.get("funcionario"),
+						objetivoProfissional.getFuncionario()));
 			}
-			if (objetivoProfissional.getAreaInteresse() != null && objetivoProfissional.getAreaInteresse().length() > 0) {
-				predicateList.add(criteriaBuilder.like(rootObjetivoProfissional.get("areaInteresse"), "%" + objetivoProfissional.getAreaInteresse() + "%"));
+			if (objetivoProfissional.getAreaInteresse() != null
+					&& objetivoProfissional.getAreaInteresse().length() > 0) {
+				predicateList.add(criteriaBuilder.like(rootObjetivoProfissional.get("areaInteresse"),
+						"%" + objetivoProfissional.getAreaInteresse() + "%"));
 			}
 			if (objetivoProfissional.getCargo() != null && objetivoProfissional.getCargo().length() > 0) {
-				predicateList.add(criteriaBuilder.like(rootObjetivoProfissional.get("cargo"), "%" + objetivoProfissional.getCargo() + "%"));
+				predicateList.add(criteriaBuilder.like(rootObjetivoProfissional.get("cargo"),
+						"%" + objetivoProfissional.getCargo() + "%"));
 			}
 			if (objetivoProfissional.getContrato() != null && objetivoProfissional.getContrato().length() > 0) {
-				predicateList.add(criteriaBuilder.like(rootObjetivoProfissional.get("contrato"), "%" + objetivoProfissional.getContrato() + "%"));
+				predicateList.add(criteriaBuilder.like(rootObjetivoProfissional.get("contrato"),
+						"%" + objetivoProfissional.getContrato() + "%"));
 			}
-			if (objetivoProfissional.getNivelHierarquico() != null && objetivoProfissional.getNivelHierarquico().length() > 0) {
-				predicateList.add(criteriaBuilder.like(rootObjetivoProfissional.get("nivelHierarquico"), "%" + objetivoProfissional.getNivelHierarquico() + "%"));
+			if (objetivoProfissional.getNivelHierarquico() != null
+					&& objetivoProfissional.getNivelHierarquico().length() > 0) {
+				predicateList.add(criteriaBuilder.like(rootObjetivoProfissional.get("nivelHierarquico"),
+						"%" + objetivoProfissional.getNivelHierarquico() + "%"));
 			}
-			if (objetivoProfissional.getPretensaoSalarial() != null && objetivoProfissional.getPretensaoSalarial().length() > 0) {
-				predicateList.add(criteriaBuilder.like(rootObjetivoProfissional.get("pretensaoSalarial"), "%" + objetivoProfissional.getPretensaoSalarial() + "%"));
+			if (objetivoProfissional.getPretensaoSalarial() != null
+					&& objetivoProfissional.getPretensaoSalarial().length() > 0) {
+				predicateList.add(criteriaBuilder.like(rootObjetivoProfissional.get("pretensaoSalarial"),
+						"%" + objetivoProfissional.getPretensaoSalarial() + "%"));
 			}
 			criteriaQuery.select(rootObjetivoProfissional).where(predicateList.toArray(new Predicate[] {}));
 			objetivoProfissionalList = entityManager.createQuery(criteriaQuery).getResultList();

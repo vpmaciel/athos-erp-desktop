@@ -25,11 +25,11 @@ import erp.main.MainCont;
 @SuppressWarnings("serial")
 public final class ObjetivoProfissionalPc extends JPanel implements Gui {
 
-	private JComboBox<Funcionario> boxFuncionario;
-	private JComboBox<String> boxPretensaoSalarial;
-	private JComboBox<String> boxNivelHierarquico;
-	private JComboBox<String> boxContrato;
 	private JComboBox<String> boxAreaInteresse;
+	private JComboBox<String> boxContrato;
+	private JComboBox<Funcionario> boxFuncionario;
+	private JComboBox<String> boxNivelHierarquico;
+	private JComboBox<String> boxPretensaoSalarial;
 	private ConfiguracaoGui configuracaoGui;
 	private JTextField fieldCargo;
 
@@ -53,28 +53,28 @@ public final class ObjetivoProfissionalPc extends JPanel implements Gui {
 		return configuracaoGui;
 	}
 
+	public JComboBox<String> getGuiAreaInteresse() {
+		return boxAreaInteresse;
+	}
+
 	public JTextField getGuiCargo() {
 		return fieldCargo;
-	}
-
-	public JComboBox<Funcionario> getGuiFuncionario() {
-		return boxFuncionario;
-	}
-
-	public JComboBox<String> getGuiPretensaoSalarial() {
-		return boxPretensaoSalarial;
-	}
-
-	public JComboBox<String> getGuiNivelHierarquico() {
-		return boxNivelHierarquico;
 	}
 
 	public JComboBox<String> getGuiContrato() {
 		return boxContrato;
 	}
 
-	public JComboBox<String> getGuiAreaInteresse() {
-		return boxAreaInteresse;
+	public JComboBox<Funcionario> getGuiFuncionario() {
+		return boxFuncionario;
+	}
+
+	public JComboBox<String> getGuiNivelHierarquico() {
+		return boxNivelHierarquico;
+	}
+
+	public JComboBox<String> getGuiPretensaoSalarial() {
+		return boxPretensaoSalarial;
 	}
 
 	public JLabel getLabelFuncionario() {

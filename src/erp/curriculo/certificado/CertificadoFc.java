@@ -66,6 +66,7 @@ public final class CertificadoFc extends JFrame implements Gui {
 		certificadoPc.getTB().getSairBtn().addActionListener(certificadoCont.new SaidaSistema());
 		certificadoPc.getTB().getAjudaBtn().addActionListener(certificadoCont.new Ajuda());
 		certificadoPc.getTB().getHomeBtn().addActionListener(certificadoCont.new Home());
+		certificadoPc.getTB().getRegistrosBtn().addActionListener(certificadoCont.new Registro());
 	}
 
 	@Override

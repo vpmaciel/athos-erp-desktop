@@ -68,7 +68,7 @@ public final class BancoPp extends JPanel {
 		table.getSelectionModel().addListSelectionListener(listener);
 	}
 
-	public long pesquisarRegistroBanco(Banco banco) {
+	public long pesquisarRegistro(Banco banco) {
 		bancos = new LinkedList<>();
 		try {
 			bancos = new LinkedList<>(BancoFac.pesquisarRegistro(banco));

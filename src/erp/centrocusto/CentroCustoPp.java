@@ -68,7 +68,7 @@ public final class CentroCustoPp extends JPanel {
 		table.getSelectionModel().addListSelectionListener(listener);
 	}
 
-	public int pesquisarRegistroCentroCusto(CentroCusto centroCusto) {
+	public int pesquisarRegistro(CentroCusto centroCusto) {
 		centroCustos = new LinkedList<>();
 		try {
 			centroCustos = new LinkedList<>(CentroCustoFac.pesquisarRegistro(centroCusto));

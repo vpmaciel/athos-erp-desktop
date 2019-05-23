@@ -68,7 +68,7 @@ public final class EmpresaPp extends JPanel {
 		table.getSelectionModel().addListSelectionListener(listener);
 	}
 
-	public int pesquisarRegistroEmpresa(Empresa empresa) {
+	public int pesquisarRegistro(Empresa empresa) {
 		empresaList = new LinkedList<>();
 		try {
 			empresaList = new LinkedList<>(EmpresaFac.pesquisarRegistro(empresa));

@@ -3,7 +3,7 @@ package erp.funcionario;
 import java.util.Collection;
 
 public interface FuncionarioDao {
-	
+
 	void deletarRegistro(Funcionario funcionario);
 
 	Collection<Funcionario> getRegistro();

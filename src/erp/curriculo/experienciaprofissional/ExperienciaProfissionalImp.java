@@ -49,7 +49,8 @@ final class ExperienciaProfissionalImp implements ExperienciaProfissionalDao {
 			entityManager = JPA.getEntityManagerFactory().createEntityManager();
 			entityTransaction = entityManager.getTransaction();
 			entityTransaction.begin();
-			Query query = entityManager.createQuery("select T from ExperienciaProfissional T order by T.funcionario", ExperienciaProfissional.class);
+			Query query = entityManager.createQuery("select T from ExperienciaProfissional T order by T.funcionario",
+					ExperienciaProfissional.class);
 			experienciaProfissionalList = query.getResultList();
 		} catch (Exception exception) {
 			exception.printStackTrace();
@@ -70,7 +71,8 @@ final class ExperienciaProfissionalImp implements ExperienciaProfissionalDao {
 			entityManager = JPA.getEntityManagerFactory().createEntityManager();
 			entityTransaction = entityManager.getTransaction();
 			entityTransaction.begin();
-			experienciaProfissional = entityManager.find(ExperienciaProfissional.class, experienciaProfissional.getId());
+			experienciaProfissional = entityManager.find(ExperienciaProfissional.class,
+					experienciaProfissional.getId());
 		} catch (Exception exception) {
 			exception.printStackTrace();
 			throw exception;
@@ -92,31 +94,43 @@ final class ExperienciaProfissionalImp implements ExperienciaProfissionalDao {
 			entityTransaction = entityManager.getTransaction();
 			entityTransaction.begin();
 			CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
-			CriteriaQuery<ExperienciaProfissional> criteriaQuery = criteriaBuilder.createQuery(ExperienciaProfissional.class);
-			Root<ExperienciaProfissional> rootExperienciaProfissional = criteriaQuery.from(ExperienciaProfissional.class);
+			CriteriaQuery<ExperienciaProfissional> criteriaQuery = criteriaBuilder
+					.createQuery(ExperienciaProfissional.class);
+			Root<ExperienciaProfissional> rootExperienciaProfissional = criteriaQuery
+					.from(ExperienciaProfissional.class);
 			List<Predicate> predicateList = new ArrayList<Predicate>();
-			if (experienciaProfissional.getFuncionario() != null && experienciaProfissional.getFuncionario().getId() != null) {
-				predicateList.add(criteriaBuilder.equal(rootExperienciaProfissional.get("funcionario"), experienciaProfissional.getFuncionario()));
+			if (experienciaProfissional.getFuncionario() != null
+					&& experienciaProfissional.getFuncionario().getId() != null) {
+				predicateList.add(criteriaBuilder.equal(rootExperienciaProfissional.get("funcionario"),
+						experienciaProfissional.getFuncionario()));
 			}
 			if (experienciaProfissional.getCargo() != null && experienciaProfissional.getCargo().length() > 0) {
-				predicateList.add(criteriaBuilder.like(rootExperienciaProfissional.get("cargo"), "%" + experienciaProfissional.getCargo() + "%"));
+				predicateList.add(criteriaBuilder.like(rootExperienciaProfissional.get("cargo"),
+						"%" + experienciaProfissional.getCargo() + "%"));
 			}
-			if (experienciaProfissional.getDataAdmissao() != null && !experienciaProfissional.getDataAdmissao().equals(Mascara.getAno().getPlaceholder())) {
-				predicateList.add(criteriaBuilder.like(rootExperienciaProfissional.get("dataAdmissao"), "%" + experienciaProfissional.getDataAdmissao() + "%"));
+			if (experienciaProfissional.getDataAdmissao() != null
+					&& !experienciaProfissional.getDataAdmissao().equals(Mascara.getAno().getPlaceholder())) {
+				predicateList.add(criteriaBuilder.like(rootExperienciaProfissional.get("dataAdmissao"),
+						"%" + experienciaProfissional.getDataAdmissao() + "%"));
 			}
-			if (experienciaProfissional.getDataSaida() != null && !experienciaProfissional.getDataSaida().equals(Mascara.getAno().getPlaceholder())) {
-				predicateList.add(criteriaBuilder.like(rootExperienciaProfissional.get("dataSaida"), "%" + experienciaProfissional.getDataSaida() + "%"));
+			if (experienciaProfissional.getDataSaida() != null
+					&& !experienciaProfissional.getDataSaida().equals(Mascara.getAno().getPlaceholder())) {
+				predicateList.add(criteriaBuilder.like(rootExperienciaProfissional.get("dataSaida"),
+						"%" + experienciaProfissional.getDataSaida() + "%"));
 			}
 			if (experienciaProfissional.getEmpresa() != null && experienciaProfissional.getEmpresa().length() > 0) {
-				predicateList.add(criteriaBuilder.like(rootExperienciaProfissional.get("empresa"), "%" + experienciaProfissional.getEmpresa() + "%"));
+				predicateList.add(criteriaBuilder.like(rootExperienciaProfissional.get("empresa"),
+						"%" + experienciaProfissional.getEmpresa() + "%"));
 			}
 			if (experienciaProfissional.getFuncoes() != null && experienciaProfissional.getFuncoes().length() > 0) {
-				predicateList.add(criteriaBuilder.like(rootExperienciaProfissional.get("funcoes"), "%" + experienciaProfissional.getFuncoes() + "%"));
+				predicateList.add(criteriaBuilder.like(rootExperienciaProfissional.get("funcoes"),
+						"%" + experienciaProfissional.getFuncoes() + "%"));
 			}
-			if (experienciaProfissional.getNivelHierarquico() != null && experienciaProfissional.getNivelHierarquico().length() > 0) {
-				predicateList.add(criteriaBuilder.like(rootExperienciaProfissional.get("nivelHierarquico"), "%" + experienciaProfissional.getNivelHierarquico() + "%"));
+			if (experienciaProfissional.getNivelHierarquico() != null
+					&& experienciaProfissional.getNivelHierarquico().length() > 0) {
+				predicateList.add(criteriaBuilder.like(rootExperienciaProfissional.get("nivelHierarquico"),
+						"%" + experienciaProfissional.getNivelHierarquico() + "%"));
 			}
-
 
 			criteriaQuery.select(rootExperienciaProfissional).where(predicateList.toArray(new Predicate[] {}));
 			experienciaProfissionalList = entityManager.createQuery(criteriaQuery).getResultList();

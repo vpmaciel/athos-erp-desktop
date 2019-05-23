@@ -76,7 +76,7 @@ final class BancoCont {
 
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
-			MainFc.mostrarFrame(MainFc.getFrameMain());
+			MainCont.mostrarFrame(MainFc.getFrameMain());
 		}
 	}
 
@@ -115,11 +115,26 @@ final class BancoCont {
 
 			atualizarObjeto();
 			long totalPesquisaRegistro = 0;
-			totalPesquisaRegistro = getBancoPp().pesquisarRegistroBanco(banco);
+			totalPesquisaRegistro = getBancoPp().pesquisarRegistro(banco);
 			Msg.avisoRegistroEncontrado(totalPesquisaRegistro);
 
 			if (totalPesquisaRegistro > 0) {
-				MainFc.mostrarFrame(getBancoFp());
+				MainCont.mostrarFrame(getBancoFp());
+				getBancoFp().setExtendedState(java.awt.Frame.MAXIMIZED_BOTH);
+			}
+		}
+	}
+
+	public class Registro implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent actionEvent) {
+			long totalPesquisaRegistro = 0;
+			totalPesquisaRegistro = getBancoPp().pesquisarRegistro(new Banco());
+			Msg.avisoRegistroEncontrado(totalPesquisaRegistro);
+
+			if (totalPesquisaRegistro > 0) {
+				MainCont.mostrarFrame(getBancoFp());
 				getBancoFp().setExtendedState(java.awt.Frame.MAXIMIZED_BOTH);
 			}
 		}

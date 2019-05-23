@@ -15,7 +15,7 @@ import javax.persistence.Table;
 @PersistenceContext(unitName = "erp")
 @Entity
 @Table(indexes = { @Index(name = "INDEX_FORNECEDOR_CPF", columnList = "cpf", unique = true),
-		@Index(name = "INDEX_FORNECEDOR_CNPJ", columnList = "cnpj", unique = true)})
+		@Index(name = "INDEX_FORNECEDOR_CNPJ", columnList = "cnpj", unique = true) })
 
 public class Fornecedor implements Serializable {
 

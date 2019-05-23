@@ -73,6 +73,7 @@ public final class UsuarioFc extends JFrame implements Gui {
 		usuarioPc.getTB().getSairBtn().addActionListener(usuarioCont.new SaidaSistema());
 		usuarioPc.getTB().getAjudaBtn().addActionListener(usuarioCont.new Ajuda());
 		usuarioPc.getTB().getHomeBtn().addActionListener(usuarioCont.new Home());
+		usuarioPc.getTB().getRegistrosBtn().addActionListener(usuarioCont.new Registro());
 	}
 
 	@Override

@@ -65,7 +65,7 @@ public final class CartorioFc extends JFrame implements Gui {
 		cartorioPc.getTB().getSairBtn().addActionListener(cartorioCont.new SaidaSistema());
 		cartorioPc.getTB().getAjudaBtn().addActionListener(cartorioCont.new Ajuda());
 		cartorioPc.getTB().getHomeBtn().addActionListener(cartorioCont.new Home());
-
+		cartorioPc.getTB().getRegistrosBtn().addActionListener(cartorioCont.new Registro());
 	}
 
 	@Override

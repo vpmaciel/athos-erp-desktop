@@ -48,7 +48,8 @@ final class VeiculoMarcaImp implements VeiculoMarcaDao {
 			entityManager = JPA.getEntityManagerFactory().createEntityManager();
 			entityTransaction = entityManager.getTransaction();
 			entityTransaction.begin();
-			Query query = entityManager.createQuery("select T from VeiculoMarca T order by T.marca", VeiculoMarca.class);
+			Query query = entityManager.createQuery("select T from VeiculoMarca T order by T.marca",
+					VeiculoMarca.class);
 			veiculoMarcaList = query.getResultList();
 		} catch (Exception exception) {
 			exception.printStackTrace();

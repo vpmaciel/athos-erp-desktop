@@ -18,7 +18,6 @@ import erp.empresa.Empresa;
 import erp.empresa.EmpresaComp;
 import erp.empresa.EmpresaFac;
 import erp.main.MainCont;
-import erp.main.MainFc;
 
 final class ContatoCont {
 
@@ -151,7 +150,22 @@ final class ContatoCont {
 			Msg.avisoRegistroEncontrado(totalPesquisaRegistro);
 
 			if (totalPesquisaRegistro > 0) {
-				MainFc.mostrarFrame(getContatoFp());
+				MainCont.mostrarFrame(getContatoFp());
+				getContatoFp().setExtendedState(java.awt.Frame.MAXIMIZED_BOTH);
+			}
+		}
+	}
+
+	public class Registro implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent actionEvent) {
+			long totalPesquisaRegistro = 0;
+			totalPesquisaRegistro = getContatoPp().pesquisarRegistro(new Contato());
+			Msg.avisoRegistroEncontrado(totalPesquisaRegistro);
+
+			if (totalPesquisaRegistro > 0) {
+				MainCont.mostrarFrame(getContatoFp());
 				getContatoFp().setExtendedState(java.awt.Frame.MAXIMIZED_BOTH);
 			}
 		}

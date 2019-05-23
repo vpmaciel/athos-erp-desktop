@@ -99,10 +99,12 @@ final class IdiomaImp implements IdiomaDao {
 				predicateList.add(criteriaBuilder.equal(rootIdioma.get("funcionario"), idioma.getFuncionario()));
 			}
 			if (idioma.getConhecimento() != null && idioma.getConhecimento().length() > 0) {
-				predicateList.add(criteriaBuilder.like(rootIdioma.get("conhecimento"), "%" + idioma.getConhecimento() + "%"));
+				predicateList.add(
+						criteriaBuilder.like(rootIdioma.get("conhecimento"), "%" + idioma.getConhecimento() + "%"));
 			}
 			if (idioma.getNivelConhecimento() != null && idioma.getNivelConhecimento().length() > 0) {
-				predicateList.add(criteriaBuilder.like(rootIdioma.get("nivelConhecimento"), "%" + idioma.getNivelConhecimento() + "%"));
+				predicateList.add(criteriaBuilder.like(rootIdioma.get("nivelConhecimento"),
+						"%" + idioma.getNivelConhecimento() + "%"));
 			}
 			criteriaQuery.select(rootIdioma).where(predicateList.toArray(new Predicate[] {}));
 			idiomaList = entityManager.createQuery(criteriaQuery).getResultList();

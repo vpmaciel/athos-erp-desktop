@@ -66,6 +66,7 @@ public final class CursoFc extends JFrame implements Gui {
 		cursoPc.getTB().getSairBtn().addActionListener(cursoCont.new SaidaSistema());
 		cursoPc.getTB().getAjudaBtn().addActionListener(cursoCont.new Ajuda());
 		cursoPc.getTB().getHomeBtn().addActionListener(cursoCont.new Home());
+		cursoPc.getTB().getRegistrosBtn().addActionListener(cursoCont.new Registro());
 	}
 
 	@Override

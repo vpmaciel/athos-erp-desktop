@@ -65,6 +65,7 @@ public final class FornecedorFc extends JFrame implements Gui {
 		fornecedorPc.getTB().getSairBtn().addActionListener(fornecedorCont.new SaidaSistema());
 		fornecedorPc.getTB().getAjudaBtn().addActionListener(fornecedorCont.new Ajuda());
 		fornecedorPc.getTB().getHomeBtn().addActionListener(fornecedorCont.new Home());
+		fornecedorPc.getTB().getRegistrosBtn().addActionListener(fornecedorCont.new Registro());
 	}
 
 	@Override

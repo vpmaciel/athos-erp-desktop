@@ -93,7 +93,7 @@ public final class MainCont {
 
 		@Override
 		public void windowOpened(WindowEvent e) {
-			MainFc.mostrarFrame(loginFc);
+			MainCont.mostrarFrame(loginFc);
 		}
 	}
 
@@ -363,18 +363,18 @@ public final class MainCont {
 					AOP.getNomeSistema() + " - OBJETIVO PROFISSIONAL " + Data.getData() + AOP.getUsuarioFormatado());
 			MainCont.getCurriculoObjetivoProfissionalFp().setTitle(
 					AOP.getNomeSistema() + " - OBJETIVO PROFISSIONAL " + Data.getData() + AOP.getUsuarioFormatado());
-			MainCont.getCurriculoTesteAFc().setTitle(
-					AOP.getNomeSistema() + " - TESTE DE PREFERÊNCIA CEREBRAL " + Data.getData() + AOP.getUsuarioFormatado());
-			MainCont.getCurriculoTesteAFp().setTitle(
-					AOP.getNomeSistema() + " - TESTE DE PREFERÊNCIA CEREBRAL " + Data.getData() + AOP.getUsuarioFormatado());
-			MainCont.getCurriculoTesteBFc().setTitle(
-					AOP.getNomeSistema() + " - TESTE DE PERFIL COMPORTAMENTAL " + Data.getData() + AOP.getUsuarioFormatado());
-			MainCont.getCurriculoTesteBFp().setTitle(
-					AOP.getNomeSistema() + " - TESTE DE PERFIL COMPORTAMENTAL " + Data.getData() + AOP.getUsuarioFormatado());
-			MainCont.getCurriculoTesteCFc().setTitle(
-					AOP.getNomeSistema() + " - TESTE DE PERSONALIDADE D.I.S.C. " + Data.getData() + AOP.getUsuarioFormatado());
-			MainCont.getCurriculoTesteCFp().setTitle(
-					AOP.getNomeSistema() + " - TESTE DE PERSONALIDADE D.I.S.C. " + Data.getData() + AOP.getUsuarioFormatado());
+			MainCont.getCurriculoTesteAFc().setTitle(AOP.getNomeSistema() + " - TESTE DE PREFERÊNCIA CEREBRAL "
+					+ Data.getData() + AOP.getUsuarioFormatado());
+			MainCont.getCurriculoTesteAFp().setTitle(AOP.getNomeSistema() + " - TESTE DE PREFERÊNCIA CEREBRAL "
+					+ Data.getData() + AOP.getUsuarioFormatado());
+			MainCont.getCurriculoTesteBFc().setTitle(AOP.getNomeSistema() + " - TESTE DE PERFIL COMPORTAMENTAL "
+					+ Data.getData() + AOP.getUsuarioFormatado());
+			MainCont.getCurriculoTesteBFp().setTitle(AOP.getNomeSistema() + " - TESTE DE PERFIL COMPORTAMENTAL "
+					+ Data.getData() + AOP.getUsuarioFormatado());
+			MainCont.getCurriculoTesteCFc().setTitle(AOP.getNomeSistema() + " - TESTE DE PERSONALIDADE D.I.S.C. "
+					+ Data.getData() + AOP.getUsuarioFormatado());
+			MainCont.getCurriculoTesteCFp().setTitle(AOP.getNomeSistema() + " - TESTE DE PERSONALIDADE D.I.S.C. "
+					+ Data.getData() + AOP.getUsuarioFormatado());
 		}
 	}
 
@@ -395,10 +395,10 @@ public final class MainCont {
 	private static CaracteristicaFp curriculoCaracteristicaFp;
 	private static CertificadoFc curriculoCertificadoFc;
 	private static CertificadoFp curriculoCertificadoFp;
-	private static ExperienciaProfissionalFc curriculoExperienciaProfissionalFc;
-	private static ExperienciaProfissionalFp curriculoExperienciaProfissionalFp;
 	private static CursoFc curriculoCursoFc;
 	private static CursoFp curriculoCursoFp;
+	private static ExperienciaProfissionalFc curriculoExperienciaProfissionalFc;
+	private static ExperienciaProfissionalFp curriculoExperienciaProfissionalFp;
 	private static HabilidadeFc curriculoHabilidadeFc;
 	private static HabilidadeFp curriculoHabilidadeFp;
 	private static IdiomaFc curriculoIdiomaFc;
@@ -592,7 +592,7 @@ public final class MainCont {
 	public static TesteBFp getCurriculoTesteBFp() {
 		return curriculoTesteBFp;
 	}
-	
+
 	public static TesteCFc getCurriculoTesteCFc() {
 		return curriculoTesteCFc;
 	}
@@ -600,7 +600,7 @@ public final class MainCont {
 	public static TesteCFp getCurriculoTesteCFp() {
 		return curriculoTesteCFp;
 	}
-	
+
 	public static EditorTextoFc getEditorTextoFc() {
 		return editorTextoFc;
 	}
@@ -882,7 +882,6 @@ public final class MainCont {
 		curriculoTesteBFp = new TesteBFp();
 		criarFrame(curriculoTesteBFp);
 
-		
 		curriculoTesteCFc = new TesteCFc();
 		criarFrame(curriculoTesteCFc);
 

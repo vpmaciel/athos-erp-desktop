@@ -66,6 +66,7 @@ public final class ObjetivoProfissionalFc extends JFrame implements Gui {
 		objetivoProfissionalPc.getTB().getSairBtn().addActionListener(objetivoProfissionalCont.new SaidaSistema());
 		objetivoProfissionalPc.getTB().getAjudaBtn().addActionListener(objetivoProfissionalCont.new Ajuda());
 		objetivoProfissionalPc.getTB().getHomeBtn().addActionListener(objetivoProfissionalCont.new Home());
+		objetivoProfissionalPc.getTB().getRegistrosBtn().addActionListener(objetivoProfissionalCont.new Registro());
 	}
 
 	@Override

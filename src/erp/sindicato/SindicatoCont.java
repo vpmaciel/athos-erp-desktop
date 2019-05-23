@@ -14,7 +14,6 @@ import javax.swing.JOptionPane;
 import arquitetura.gui.Msg;
 import arquitetura.validacao.Mascara;
 import erp.main.MainCont;
-import erp.main.MainFc;
 
 final class SindicatoCont {
 
@@ -134,11 +133,26 @@ final class SindicatoCont {
 		public void actionPerformed(ActionEvent actionEvent) {
 			atualizarObjeto();
 			long totalPesquisaRegistro = 0;
-			totalPesquisaRegistro = getSindicatoPp().pesquisarRegistroSindicato(sindicato);
+			totalPesquisaRegistro = getSindicatoPp().pesquisarRegistro(sindicato);
 			Msg.avisoRegistroEncontrado(totalPesquisaRegistro);
 
 			if (totalPesquisaRegistro > 0) {
-				MainFc.mostrarFrame(getSindicatoFp());
+				MainCont.mostrarFrame(getSindicatoFp());
+				getSindicatoFp().setExtendedState(java.awt.Frame.MAXIMIZED_BOTH);
+			}
+		}
+	}
+
+	public class Registro implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent actionEvent) {
+			long totalPesquisaRegistro = 0;
+			totalPesquisaRegistro = getSindicatoPp().pesquisarRegistro(new Sindicato());
+			Msg.avisoRegistroEncontrado(totalPesquisaRegistro);
+
+			if (totalPesquisaRegistro > 0) {
+				MainCont.mostrarFrame(getSindicatoFp());
 				getSindicatoFp().setExtendedState(java.awt.Frame.MAXIMIZED_BOTH);
 			}
 		}

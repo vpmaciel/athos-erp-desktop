@@ -65,7 +65,7 @@ public final class FuncionarioFc extends JFrame implements Gui {
 		funcionarioPc.getTB().getSairBtn().addActionListener(funcionarioCont.new SaidaSistema());
 		funcionarioPc.getTB().getAjudaBtn().addActionListener(funcionarioCont.new Ajuda());
 		funcionarioPc.getTB().getHomeBtn().addActionListener(funcionarioCont.new Home());
-
+		funcionarioPc.getTB().getRegistrosBtn().addActionListener(funcionarioCont.new Registro());
 	}
 
 	@Override

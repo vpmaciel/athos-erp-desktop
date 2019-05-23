@@ -31,7 +31,7 @@ public class IdiomaRel {
 				document.add(new Paragraph("FUNCIONÁRIO: " + Idioma.getFuncionario()));
 				document.add(new Paragraph("CONHECIMENTO: " + Idioma.getConhecimento()));
 				document.add(new Paragraph("NÍVEL DE CONHECIMENTO: " + Idioma.getNivelConhecimento()));
-				
+
 			}
 		} catch (DocumentException | FileNotFoundException e) {
 			System.err.println(e.getMessage());

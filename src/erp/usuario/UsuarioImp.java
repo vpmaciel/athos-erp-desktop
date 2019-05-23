@@ -82,6 +82,44 @@ final class UsuarioImp implements UsuarioDao {
 	}
 
 	@Override
+	public boolean isRegistroValido(Usuario usuario) {
+		EntityManager entityManager = null;
+		EntityTransaction entityTransaction = null;
+		List<Usuario> usuarioList = null;
+		try {
+			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityTransaction = entityManager.getTransaction();
+			entityTransaction.begin();
+
+			CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+			CriteriaQuery<Usuario> criteriaQuery = criteriaBuilder.createQuery(Usuario.class);
+			Root<Usuario> rootUsuario = criteriaQuery.from(Usuario.class);
+
+			List<Predicate> predicateList = new ArrayList<Predicate>();
+
+			if (usuario.getNome() != null && !usuario.getNome().equals("")) {
+				predicateList.add(criteriaBuilder.equal(rootUsuario.get("nome"), usuario.getNome()));
+			}
+			if (usuario.getSenha() != null && !usuario.getSenha().equals("")) {
+				predicateList.add(criteriaBuilder.equal(rootUsuario.get("senha"), usuario.getSenha()));
+			}
+			criteriaQuery.select(rootUsuario).where(predicateList.toArray(new Predicate[] {}));
+
+			usuarioList = entityManager.createQuery(criteriaQuery).getResultList();
+
+		} catch (Exception exception) {
+			exception.printStackTrace();
+			throw exception;
+		} finally {
+			if (entityManager.isOpen()) {
+				entityManager.close();
+			}
+		}
+
+		return usuarioList.size() == 1;
+	}
+
+	@Override
 	public Collection<Usuario> pesquisarRegistro(Usuario usuario) {
 		EntityManager entityManager = null;
 		EntityTransaction entityTransaction = null;
@@ -114,44 +152,6 @@ final class UsuarioImp implements UsuarioDao {
 			}
 		}
 		return usuarioList;
-	}
-
-	@Override
-	public boolean isRegistroValido(Usuario usuario) {
-		EntityManager entityManager = null;
-		EntityTransaction entityTransaction = null;
-		List<Usuario> usuarioList = null;
-		try {
-			entityManager = JPA.getEntityManagerFactory().createEntityManager();
-			entityTransaction = entityManager.getTransaction();
-			entityTransaction.begin();
-
-			CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
-			CriteriaQuery<Usuario> criteriaQuery = criteriaBuilder.createQuery(Usuario.class);
-			Root<Usuario> rootUsuario = criteriaQuery.from(Usuario.class);
-
-			List<Predicate> predicateList = new ArrayList<Predicate>();
-			
-			if (usuario.getNome() != null && !usuario.getNome().equals("")) {
-				predicateList.add(criteriaBuilder.equal(rootUsuario.get("nome"), usuario.getNome()));
-			}
-			if (usuario.getSenha() != null && !usuario.getSenha().equals("")) {
-				predicateList.add(criteriaBuilder.equal(rootUsuario.get("senha"), usuario.getSenha()));
-			}
-			criteriaQuery.select(rootUsuario).where(predicateList.toArray(new Predicate[] {}));
-
-			usuarioList = entityManager.createQuery(criteriaQuery).getResultList();
-
-		} catch (Exception exception) {
-			exception.printStackTrace();
-			throw exception;
-		} finally {
-			if (entityManager.isOpen()) {
-				entityManager.close();
-			}
-		}
-
-		return usuarioList.size() == 1;
 	}
 
 	@Override

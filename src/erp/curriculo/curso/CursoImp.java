@@ -103,13 +103,15 @@ final class CursoImp implements CursoDao {
 				predicateList.add(criteriaBuilder.like(rootCurso.get("curso"), "%" + curso.getCurso() + "%"));
 			}
 			if (curso.getInstituicao() != null && curso.getInstituicao().length() > 0) {
-				predicateList.add(criteriaBuilder.like(rootCurso.get("instituicao"), "%" + curso.getInstituicao() + "%"));
+				predicateList
+						.add(criteriaBuilder.like(rootCurso.get("instituicao"), "%" + curso.getInstituicao() + "%"));
 			}
 			if (curso.getAnoInicio() != null && !curso.getAnoInicio().equals(Mascara.getAno().getPlaceholder())) {
 				predicateList.add(criteriaBuilder.like(rootCurso.get("anoInicio"), "%" + curso.getAnoInicio() + "%"));
 			}
 			if (curso.getAnoConclusao() != null && !curso.getAnoConclusao().equals(Mascara.getAno().getPlaceholder())) {
-				predicateList.add(criteriaBuilder.like(rootCurso.get("anoConclusao"), "%" + curso.getAnoConclusao() + "%"));
+				predicateList
+						.add(criteriaBuilder.like(rootCurso.get("anoConclusao"), "%" + curso.getAnoConclusao() + "%"));
 			}
 			if (curso.getSituacao() != null && curso.getSituacao().length() > 0) {
 				predicateList.add(criteriaBuilder.like(rootCurso.get("situacao"), "%" + curso.getInstituicao() + "%"));

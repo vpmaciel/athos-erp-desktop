@@ -30,12 +30,12 @@ public final class ExperienciaProfissionalPc extends JPanel implements Gui {
 
 	private JComboBox<Funcionario> boxFuncionario;
 	private JComboBox<String> boxNiveHierarquico;
-	private JTextArea fieldFuncoes;
 	private ConfiguracaoGui configuracaoGui;
-	private JFormattedTextField fieldDataSaida;
-	private JFormattedTextField fieldDataAdmissao;
 	private JTextField fieldCargo;
+	private JFormattedTextField fieldDataAdmissao;
+	private JFormattedTextField fieldDataSaida;
 	private JTextField fieldEmpresa;
+	private JTextArea fieldFuncoes;
 	private JLabel labelFuncionario;
 	private ToolBar toolBar;
 
@@ -56,32 +56,32 @@ public final class ExperienciaProfissionalPc extends JPanel implements Gui {
 		return configuracaoGui;
 	}
 
-	public JFormattedTextField getGuiDataSaida() {
-		return fieldDataSaida;
+	public JTextField getGuiCargo() {
+		return fieldCargo;
 	}
 
 	public JFormattedTextField getGuiDataAdmissao() {
 		return fieldDataAdmissao;
 	}
 
-	public JTextField getGuiCargo() {
-		return fieldCargo;
-	}
-
-	public JComboBox<Funcionario> getGuiFuncionario() {
-		return boxFuncionario;
+	public JFormattedTextField getGuiDataSaida() {
+		return fieldDataSaida;
 	}
 
 	public JTextField getGuiEmpresa() {
 		return fieldEmpresa;
 	}
 
-	public JComboBox<String> getGuiNivelHierarquico() {
-		return boxNiveHierarquico;
+	public JComboBox<Funcionario> getGuiFuncionario() {
+		return boxFuncionario;
 	}
 
 	public JTextArea getGuiFuncoes() {
 		return fieldFuncoes;
+	}
+
+	public JComboBox<String> getGuiNivelHierarquico() {
+		return boxNiveHierarquico;
 	}
 
 	public JLabel getLabelFuncionario() {

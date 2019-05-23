@@ -125,7 +125,7 @@ public final class ConfiguracaoGui extends Container {
 	public List<Component> getAllComponents(Container c) {
 
 		Component[] component = c.getComponents();
-		ArrayList<Component> componentArrayList  = new ArrayList<Component>();
+		ArrayList<Component> componentArrayList = new ArrayList<Component>();
 		try {
 			for (Component comp : component) {
 				componentArrayList.add(comp);

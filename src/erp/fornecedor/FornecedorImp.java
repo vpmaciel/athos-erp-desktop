@@ -49,7 +49,8 @@ final class FornecedorImp implements FornecedorDao {
 			entityManager = JPA.getEntityManagerFactory().createEntityManager();
 			entityTransaction = entityManager.getTransaction();
 			entityTransaction.begin();
-			Query query = entityManager.createQuery("select T from Fornecedor T order by C.nomeFantasia", Fornecedor.class);
+			Query query = entityManager.createQuery("select T from Fornecedor T order by C.nomeFantasia",
+					Fornecedor.class);
 			fornecedorList = query.getResultList();
 		} catch (Exception exception) {
 			exception.printStackTrace();
@@ -99,7 +100,8 @@ final class FornecedorImp implements FornecedorDao {
 				predicateList.add(criteriaBuilder.equal(rootFornecedor.get("id"), fornecedor.getId()));
 			}
 			if (fornecedor.getBairro() != null && fornecedor.getBairro().length() > 0) {
-				predicateList.add(criteriaBuilder.like(rootFornecedor.get("bairro"), "%" + fornecedor.getBairro() + "%"));
+				predicateList
+						.add(criteriaBuilder.like(rootFornecedor.get("bairro"), "%" + fornecedor.getBairro() + "%"));
 			}
 			if (fornecedor.getCapitalSocial() != null && fornecedor.getCapitalSocial().length() > 0) {
 				predicateList.add(criteriaBuilder.like(rootFornecedor.get("capitalSocial"),
@@ -110,7 +112,8 @@ final class FornecedorImp implements FornecedorDao {
 				predicateList.add(criteriaBuilder.like(rootFornecedor.get("cep"), "%" + fornecedor.getCep() + "%"));
 			}
 			if (fornecedor.getCidade() != null && fornecedor.getCidade().length() > 0) {
-				predicateList.add(criteriaBuilder.like(rootFornecedor.get("cidade"), "%" + fornecedor.getCidade() + "%"));
+				predicateList
+						.add(criteriaBuilder.like(rootFornecedor.get("cidade"), "%" + fornecedor.getCidade() + "%"));
 			}
 			if (fornecedor.getCpf() != null && !fornecedor.getCpf().equals(Mascara.getCpf().getPlaceholder())
 					&& !fornecedor.getCpf().equals(Mascara.getCpfVazio())) {
@@ -121,20 +124,21 @@ final class FornecedorImp implements FornecedorDao {
 				predicateList.add(criteriaBuilder.like(rootFornecedor.get("cnpj"), "%" + fornecedor.getCnpj() + "%"));
 			}
 			if (fornecedor.getComplemento() != null && fornecedor.getComplemento().length() > 0) {
-				predicateList.add(
-						criteriaBuilder.like(rootFornecedor.get("complemento"), "%" + fornecedor.getComplemento() + "%"));
+				predicateList.add(criteriaBuilder.like(rootFornecedor.get("complemento"),
+						"%" + fornecedor.getComplemento() + "%"));
 			}
 			if (fornecedor.getDataFundacao() != null
 					&& !fornecedor.getDataFundacao().equals(Mascara.getData().getPlaceholder())
 					&& !fornecedor.getDataFundacao().equals(Mascara.getDataVazio())) {
-				predicateList.add(
-						criteriaBuilder.like(rootFornecedor.get("dataFundacao"), "%" + fornecedor.getDataFundacao() + "%"));
+				predicateList.add(criteriaBuilder.like(rootFornecedor.get("dataFundacao"),
+						"%" + fornecedor.getDataFundacao() + "%"));
 			}
 			if (fornecedor.getEmail() != null && fornecedor.getEmail().length() > 0) {
 				predicateList.add(criteriaBuilder.like(rootFornecedor.get("email"), "%" + fornecedor.getEmail() + "%"));
 			}
 			if (fornecedor.getEstado() != null && fornecedor.getEstado().length() > 0) {
-				predicateList.add(criteriaBuilder.like(rootFornecedor.get("estado"), "%" + fornecedor.getEstado() + "%"));
+				predicateList
+						.add(criteriaBuilder.like(rootFornecedor.get("estado"), "%" + fornecedor.getEstado() + "%"));
 			}
 			if (fornecedor.getFaturamentoMensal() != null && fornecedor.getFaturamentoMensal().length() > 0) {
 				predicateList.add(criteriaBuilder.like(rootFornecedor.get("faturamentoMensal"),
@@ -165,8 +169,8 @@ final class FornecedorImp implements FornecedorDao {
 						criteriaBuilder.like(rootFornecedor.get("logradouro"), "%" + fornecedor.getLogradouro() + "%"));
 			}
 			if (fornecedor.getNomeFantasia() != null && fornecedor.getNomeFantasia().length() > 0) {
-				predicateList.add(
-						criteriaBuilder.like(rootFornecedor.get("nomeFantasia"), "%" + fornecedor.getNomeFantasia() + "%"));
+				predicateList.add(criteriaBuilder.like(rootFornecedor.get("nomeFantasia"),
+						"%" + fornecedor.getNomeFantasia() + "%"));
 			}
 			if (fornecedor.getNumeroFuncionarios() != null && fornecedor.getNumeroFuncionarios().length() > 0) {
 				predicateList.add(criteriaBuilder.like(rootFornecedor.get("numeroFuncionarios"),
@@ -180,12 +184,12 @@ final class FornecedorImp implements FornecedorDao {
 						"%" + fornecedor.getRamoAtividade() + "%"));
 			}
 			if (fornecedor.getRazaoSocial() != null && fornecedor.getRazaoSocial().length() > 0) {
-				predicateList.add(
-						criteriaBuilder.like(rootFornecedor.get("razaoSocial"), "%" + fornecedor.getRazaoSocial() + "%"));
+				predicateList.add(criteriaBuilder.like(rootFornecedor.get("razaoSocial"),
+						"%" + fornecedor.getRazaoSocial() + "%"));
 			}
 			if (fornecedor.getTipoEmpresa() != null && fornecedor.getTipoEmpresa().length() > 0) {
-				predicateList.add(
-						criteriaBuilder.like(rootFornecedor.get("tipoEmpresa"), "%" + fornecedor.getTipoEmpresa() + "%"));
+				predicateList.add(criteriaBuilder.like(rootFornecedor.get("tipoEmpresa"),
+						"%" + fornecedor.getTipoEmpresa() + "%"));
 			}
 			criteriaQuery.select(rootFornecedor).where(predicateList.toArray(new Predicate[] {}));
 			fornecedorList = entityManager.createQuery(criteriaQuery).getResultList();

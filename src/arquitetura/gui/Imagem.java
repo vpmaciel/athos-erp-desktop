@@ -52,11 +52,6 @@ public class Imagem {
 		return imageIcon;
 	}
 
-	public static ImageIcon getRegistros() {
-		imageIcon = new ImageIcon(recursos.getResource("toolbarButtonGraphics/media/Movie24.gif"));
-		return imageIcon;
-	}
-
 	public static Image getLogoTipoImage() {
 
 		caminhoImagem = recursos.getResource("arquitetura/gui/logo.png");
@@ -76,6 +71,11 @@ public class Imagem {
 
 	public static ImageIcon getpesquisar() {
 		imageIcon = new ImageIcon(recursos.getResource("toolbarButtonGraphics/general/Find24.gif"));
+		return imageIcon;
+	}
+
+	public static ImageIcon getRegistros() {
+		imageIcon = new ImageIcon(recursos.getResource("toolbarButtonGraphics/media/Movie24.gif"));
 		return imageIcon;
 	}
 

@@ -11,7 +11,6 @@ import javax.swing.JOptionPane;
 
 import arquitetura.gui.Msg;
 import erp.main.MainCont;
-import erp.main.MainFc;
 
 final class TipoEventoCont {
 
@@ -125,7 +124,22 @@ final class TipoEventoCont {
 			Msg.avisoRegistroEncontrado(totalPesquisaRegistro);
 
 			if (totalPesquisaRegistro > 0) {
-				MainFc.mostrarFrame(getTipoEventoFp());
+				MainCont.mostrarFrame(getTipoEventoFp());
+				getTipoEventoFp().setExtendedState(java.awt.Frame.MAXIMIZED_BOTH);
+			}
+		}
+	}
+
+	public class Registro implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent actionEvent) {
+			long totalPesquisaRegistro = 0;
+			totalPesquisaRegistro = getTipoEventoPp().pesquisarRegistro(new TipoEvento());
+			Msg.avisoRegistroEncontrado(totalPesquisaRegistro);
+
+			if (totalPesquisaRegistro > 0) {
+				MainCont.mostrarFrame(getTipoEventoFp());
 				getTipoEventoFp().setExtendedState(java.awt.Frame.MAXIMIZED_BOTH);
 			}
 		}
