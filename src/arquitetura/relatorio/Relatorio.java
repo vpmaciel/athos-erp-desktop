@@ -2,14 +2,11 @@ package arquitetura.relatorio;
 
 import java.awt.Desktop;
 import java.io.File;
-import java.io.IOException;
 
 import javax.swing.JOptionPane;
 
 import com.itextpdf.text.Document;
-import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Element;
-import com.itextpdf.text.ExceptionConverter;
 import com.itextpdf.text.Font;
 import com.itextpdf.text.PageSize;
 import com.itextpdf.text.Paragraph;
@@ -28,33 +25,35 @@ public class Relatorio {
 			document.open();
 			document.setPageSize(PageSize.A4);
 
-			Font f = new Font(Font.FontFamily.COURIER, 20, Font.BOLD);
-			Paragraph paragraph = new Paragraph(titulo, f);
+			Font font = new Font(Font.FontFamily.COURIER, 20, Font.BOLD);
+			Paragraph paragraph = new Paragraph(titulo, font);
 
 			paragraph.setAlignment(Element.ALIGN_CENTER);
 			document.add(paragraph);
 			document.newPage();
 			paragraph.setAlignment(Element.ALIGN_JUSTIFIED);
 
-		} catch (DocumentException e) {
-			System.err.println(e.getMessage());
+		} catch (Exception exception) {
+			exception.printStackTrace();
+			JOptionPane.showMessageDialog(null, exception, "Erro", 0);
 		}
 	}
 
 	public void getRodape(PdfWriter writer, Document document) {
 		try {
-			Font f = new Font(Font.FontFamily.COURIER, 8, Font.BOLD);
+			Font font = new Font(Font.FontFamily.COURIER, 8, Font.BOLD);
 			Rectangle page = document.getPageSize();
 			PdfPTable foot = new PdfPTable(1);
-			PdfPCell cell = new PdfPCell(new Paragraph(Data.getDataTempo(), f));
+			PdfPCell cell = new PdfPCell(new Paragraph(Data.getDataHora(), font));
 			cell.setHorizontalAlignment(Element.ALIGN_CENTER);
 			cell.setVerticalAlignment(Element.ALIGN_BOTTOM);
 			cell.setBorder(0);
 			foot.addCell(cell);
 			foot.setTotalWidth(page.getWidth() - document.leftMargin() - document.rightMargin());
 			foot.writeSelectedRows(0, -1, document.leftMargin(), document.bottomMargin(), writer.getDirectContent());
-		} catch (Exception e) {
-			throw new ExceptionConverter(e);
+		} catch (Exception exception) {
+			exception.printStackTrace();
+			JOptionPane.showMessageDialog(null, exception, "Erro", 0);
 		}
 	}
 
@@ -68,8 +67,9 @@ public class Relatorio {
 
 		try {
 			Desktop.getDesktop().open(arquivo);
-		} catch (IOException ex) {
-			JOptionPane.showMessageDialog(null, ex, "Erro", 0);
+		} catch (Exception exception) {
+			exception.printStackTrace();
+			JOptionPane.showMessageDialog(null, exception, "Erro", 0);
 		}
 
 		return arquivo;

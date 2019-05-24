@@ -53,7 +53,6 @@ public class Imagem {
 	}
 
 	public static Image getLogoTipoImage() {
-
 		caminhoImagem = recursos.getResource("arquitetura/gui/logo.png");
 		iconeTitulo = Toolkit.getDefaultToolkit().getImage(caminhoImagem);
 		return iconeTitulo;
@@ -61,6 +60,11 @@ public class Imagem {
 
 	public static ImageIcon getLogoTipoImageIcon() {
 		imageIcon = new ImageIcon(recursos.getResource("arquitetura/gui/logo.png"));
+		return imageIcon;
+	}
+
+	public static ImageIcon getLogoTelaInicialImageIcon() {
+		imageIcon = new ImageIcon(recursos.getResource("arquitetura/gui/inicial.png"));
 		return imageIcon;
 	}
 

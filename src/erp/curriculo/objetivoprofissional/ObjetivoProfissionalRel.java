@@ -15,7 +15,7 @@ import arquitetura.relatorio.Relatorio;
 
 public class ObjetivoProfissionalRel {
 
-	private String arquivo = Data.getTempo() + "-objetivoProfissional.pdf";
+	private String arquivo = Data.getHora() + "-objetivoProfissional.pdf";
 	private Document document = new Document();
 	private Relatorio relatorio = new Relatorio();
 	private String titulo = "OBJETIVO PROFISSIONAL";

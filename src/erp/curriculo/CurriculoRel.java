@@ -34,7 +34,7 @@ import erp.funcionario.Funcionario;
 
 public class CurriculoRel {
 
-	private String arquivo = Data.getTempo() +"-curriculo.pdf";
+	private String arquivo = Data.getHora() +"-curriculo.pdf";
 	private Document document = new Document();
 	private Relatorio relatorio = new Relatorio();
 	private String titulo = "CURRÍCULO";

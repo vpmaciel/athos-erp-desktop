@@ -16,19 +16,28 @@ public class ERP {
 
 		try {
 			String separador = System.getProperty("file.separator");
-			String caminhoArquivo = "C:" + separador + "athos" + separador + "mensagens_de_log";
+			String caminhoArquivo = "C:" + separador + "opt" + separador + "athos" + separador + "logs";
 			File arquivo = new File(caminhoArquivo);
 			arquivo.mkdir();
-		} catch (Exception e) {
+			caminhoArquivo = "C:" + separador + "opt" + separador + "athos" + separador + "videos";
+			arquivo = new File(caminhoArquivo);
+			arquivo.mkdir();
+		} catch (Exception exception) {
+			exception.printStackTrace();
 			Msg.erroCriarPasta();
 		}
 
 		try {
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 		} catch (ClassNotFoundException | IllegalAccessException | InstantiationException
-				| UnsupportedLookAndFeelException e) {
+				| UnsupportedLookAndFeelException exception) {
+			exception.printStackTrace();
 			Msg.erroLookAndFeel();
 		}
+
+		// Mostra uma imagem com o título da aplicação
+		SplashScreen splash = new SplashScreen(10000);
+		splash.toFront();
 
 		EventQueue.invokeLater(new Runnable() {
 

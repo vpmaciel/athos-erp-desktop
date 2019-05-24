@@ -15,7 +15,7 @@ import arquitetura.relatorio.Relatorio;
 
 public class TesteAvalPrefCerRel {
 
-	private String arquivo = Data.getTempo() +"-teste-aval-pref-cer.pdf";
+	private String arquivo = Data.getHora() +"-teste-aval-pref-cer.pdf";
 	private Document document = new Document();
 	private Relatorio relatorio = new Relatorio();
 	private String titulo = "TESTE - AVALIAÇÃO DE PREFERÊNCIA CEREBRAL";

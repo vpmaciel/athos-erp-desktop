@@ -15,7 +15,7 @@ import arquitetura.relatorio.Relatorio;
 
 public class ExperienciaProfissionalRel {
 
-	private String arquivo = Data.getTempo() +"-experiencia-profissional.pdf";
+	private String arquivo = Data.getHora() +"-experiencia-profissional.pdf";
 	private Document document = new Document();
 	private Relatorio relatorio = new Relatorio();
 	private String titulo = "EXPERIÊNCIA PROFISSIONAL";

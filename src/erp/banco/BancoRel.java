@@ -15,7 +15,7 @@ import arquitetura.relatorio.Relatorio;
 
 public final class BancoRel {
 
-	private final String arquivo = Data.getTempo() + "-banco.pdf";
+	private final String arquivo = Data.getHora() + "-banco.pdf";
 	private final Document document = new Document();
 	private final Relatorio relatorio = new Relatorio();
 	private final String titulo = "BANCOS";

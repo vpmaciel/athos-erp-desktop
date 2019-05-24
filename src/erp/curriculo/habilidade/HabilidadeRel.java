@@ -15,7 +15,7 @@ import arquitetura.relatorio.Relatorio;
 
 public class HabilidadeRel {
 
-	private String arquivo = Data.getTempo() +"-habilidade.pdf";
+	private String arquivo = Data.getHora() +"-habilidade.pdf";
 	private Document document = new Document();
 	private Relatorio relatorio = new Relatorio();
 	private String titulo = "HABILIDADES";

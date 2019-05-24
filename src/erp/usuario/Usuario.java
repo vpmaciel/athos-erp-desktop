@@ -22,7 +22,7 @@ public class Usuario implements Serializable {
 	private Long id;
 	@Column(length = 15)
 	private String nome;
-	@Column(length = 15)
+	@Column(length = 100)
 	private String senha;
 
 	public Long getId() {

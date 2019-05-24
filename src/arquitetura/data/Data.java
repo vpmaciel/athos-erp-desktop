@@ -19,11 +19,11 @@ public class Data {
 		return data;
 	}
 
-	public static String getDataTempo() {
+	public static String getDataHora() {
 		Locale locale = AOP.getLocale();
 		Calendar calendar = new GregorianCalendar();
 
-		String data = "DATA E HORA DE EMISSÃO: ";
+		String data = "DATA E HORA: ";
 		data += getDia(calendar.get(Calendar.DAY_OF_WEEK));
 		DateFormat dateFormat = new SimpleDateFormat("- [ dd/MM/yyyy ] - [ HH:mm:ss.SSSS ]", locale);
 		data += dateFormat.format(calendar.getTime());
@@ -31,7 +31,7 @@ public class Data {
 		return data;
 	}
 
-	public static String getTempo() {
+	public static String getHora() {
 		Locale locale = AOP.getLocale();
 		Calendar calendar = new GregorianCalendar();
 
@@ -72,7 +72,7 @@ public class Data {
 		return nome;
 	}
 
-	public Data() {
-
+	private Data() {
+		
 	}
 }

@@ -13,20 +13,19 @@
 			<property name="hibernate.autocommit" value="true" />
 			<property name="hibernate.connection.autocommit"
 				value="true" />
-			
 			<property name="hibernate.hbm2ddl.auto" value="update" />
 			<property name="javax.persistence.jdbc.driver"
 				value="org.hsqldb.jdbcDriver" />
 			<property name="javax.persistence.jdbc.user" value="sa" />
 			<property name="javax.persistence.jdbc.password" value="" />
 			<property name="javax.persistence.jdbc.url"
-				value="jdbc:hsqldb:file:/opt/db_athos" />
+				value="jdbc:hsqldb:file:/opt/athos/db/db_athos" />
 			<property name="hibernate.connection.CharSet" value="utf8" />
 			<property name="hibernate.connection.characterEncoding"
 				value="utf8" />
 			<property name="hibernate.connection.useUnicode"
 				value="true" />
-			<property name="hibernate.show_sql" value="false" />
+			<property name="hibernate.show_sql" value="true" />
 			<property name="hibernate.format_sql" value="false" />
 			<property name="hibernate.use_sql_comments" value="true" />
 			<property name="hibernate.connection.provider_class"
