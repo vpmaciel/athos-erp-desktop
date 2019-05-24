@@ -46,7 +46,7 @@ public class Relatorio {
 			Font f = new Font(Font.FontFamily.COURIER, 8, Font.BOLD);
 			Rectangle page = document.getPageSize();
 			PdfPTable foot = new PdfPTable(1);
-			PdfPCell cell = new PdfPCell(new Paragraph(Data.getDateTime(), f));
+			PdfPCell cell = new PdfPCell(new Paragraph(Data.getDataTempo(), f));
 			cell.setHorizontalAlignment(Element.ALIGN_CENTER);
 			cell.setVerticalAlignment(Element.ALIGN_BOTTOM);
 			cell.setBorder(0);

@@ -21,7 +21,7 @@ public final class FuncionarioFc extends JFrame implements Gui {
 
 	private ConfiguracaoGui configuracaoGui;
 	private FuncionarioCont funcionarioCont;
-	private FuncionarioPc funcionarioPc;
+	private FuncionarioPc curriculoPc;
 
 	public FuncionarioFc() {
 		iniciarLayout();
@@ -46,26 +46,26 @@ public final class FuncionarioFc extends JFrame implements Gui {
 	}
 
 	public FuncionarioPc getFuncionarioPc() {
-		return funcionarioPc;
+		return curriculoPc;
 	}
 
 	@Override
 	public void iniciarControlador() {
 		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		funcionarioCont = new FuncionarioCont();
-		funcionarioPc.getLabelCentroCusto().addMouseListener(funcionarioCont.new MostraFrame());
+		curriculoPc.getLabelCentroCusto().addMouseListener(funcionarioCont.new MostraFrame());
 		addWindowListener(funcionarioCont.new Frame());
-		funcionarioPc.getTB().getExcluirBtn().addActionListener(funcionarioCont.new Exclui());
-		funcionarioPc.getTB().getNovoBtn().addActionListener(funcionarioCont.new Novo());
-		funcionarioPc.getTB().getPesquisarBtn().addActionListener(funcionarioCont.new Pesquisa());
-		funcionarioPc.getTB().getImprimirBtn().addActionListener(funcionarioCont.new Imprime());
-		funcionarioPc.getTB().getRelatorioBtn().addActionListener(funcionarioCont.new Relatorio());
-		funcionarioPc.getTB().getSalvarBtn().addActionListener(funcionarioCont.new Salva());
-		funcionarioPc.getTB().getFecharBtn().addActionListener(funcionarioCont.new FechaJanela());
-		funcionarioPc.getTB().getSairBtn().addActionListener(funcionarioCont.new SaidaSistema());
-		funcionarioPc.getTB().getAjudaBtn().addActionListener(funcionarioCont.new Ajuda());
-		funcionarioPc.getTB().getHomeBtn().addActionListener(funcionarioCont.new Home());
-		funcionarioPc.getTB().getRegistrosBtn().addActionListener(funcionarioCont.new Registro());
+		curriculoPc.getTB().getExcluirBtn().addActionListener(funcionarioCont.new Exclui());
+		curriculoPc.getTB().getNovoBtn().addActionListener(funcionarioCont.new Novo());
+		curriculoPc.getTB().getPesquisarBtn().addActionListener(funcionarioCont.new Pesquisa());
+		curriculoPc.getTB().getImprimirBtn().addActionListener(funcionarioCont.new Imprime());
+		curriculoPc.getTB().getRelatorioBtn().addActionListener(funcionarioCont.new Relatorio());
+		curriculoPc.getTB().getSalvarBtn().addActionListener(funcionarioCont.new Salva());
+		curriculoPc.getTB().getFecharBtn().addActionListener(funcionarioCont.new FechaJanela());
+		curriculoPc.getTB().getSairBtn().addActionListener(funcionarioCont.new SaidaSistema());
+		curriculoPc.getTB().getAjudaBtn().addActionListener(funcionarioCont.new Ajuda());
+		curriculoPc.getTB().getHomeBtn().addActionListener(funcionarioCont.new Home());
+		curriculoPc.getTB().getRegistrosBtn().addActionListener(funcionarioCont.new Registro());
 	}
 
 	@Override
@@ -77,10 +77,10 @@ public final class FuncionarioFc extends JFrame implements Gui {
 	@Override
 	public void iniciarGui() {
 		setIconImage(arquitetura.gui.Imagem.getLogoTipoImage());
-		funcionarioPc = new FuncionarioPc();
-		funcionarioPc.setOpaque(true); // content panes must be opaque
+		curriculoPc = new FuncionarioPc();
+		curriculoPc.setOpaque(true); // content panes must be opaque
 
-		final JScrollPane scrollPane = new JScrollPane(funcionarioPc);
+		final JScrollPane scrollPane = new JScrollPane(curriculoPc);
 
 		KeyboardFocusManager.getCurrentKeyboardFocusManager().addPropertyChangeListener("focusOwner",
 				new PropertyChangeListener() {
@@ -91,8 +91,8 @@ public final class FuncionarioFc extends JFrame implements Gui {
 							return;
 						}
 						JComponent focused = (JComponent) evt.getNewValue();
-						if (funcionarioPc.isAncestorOf(focused)) {
-							funcionarioPc.scrollRectToVisible(focused.getBounds());
+						if (curriculoPc.isAncestorOf(focused)) {
+							curriculoPc.scrollRectToVisible(focused.getBounds());
 						}
 					}
 				});
@@ -128,6 +128,6 @@ public final class FuncionarioFc extends JFrame implements Gui {
 
 	@Override
 	public void reiniciarGui() {
-		funcionarioPc.reiniciarGui();
+		curriculoPc.reiniciarGui();
 	}
 }

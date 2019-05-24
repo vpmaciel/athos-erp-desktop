@@ -34,8 +34,8 @@ import erp.cliente.ClienteFc;
 import erp.cliente.ClienteFp;
 import erp.contador.ContadorFc;
 import erp.contador.ContadorFp;
-import erp.curriculo.caracteristica.CaracteristicaFc;
-import erp.curriculo.caracteristica.CaracteristicaFp;
+import erp.curriculo.CurriculoFc;
+import erp.curriculo.CurriculoFp;
 import erp.curriculo.certificado.CertificadoFc;
 import erp.curriculo.certificado.CertificadoFp;
 import erp.curriculo.curso.CursoFc;
@@ -48,12 +48,12 @@ import erp.curriculo.idioma.IdiomaFc;
 import erp.curriculo.idioma.IdiomaFp;
 import erp.curriculo.objetivoprofissional.ObjetivoProfissionalFc;
 import erp.curriculo.objetivoprofissional.ObjetivoProfissionalFp;
-import erp.curriculo.testepersonalidade.a.TesteAFc;
-import erp.curriculo.testepersonalidade.a.TesteAFp;
-import erp.curriculo.testepersonalidade.b.TesteBFc;
-import erp.curriculo.testepersonalidade.b.TesteBFp;
-import erp.curriculo.testepersonalidade.c.TesteCFc;
-import erp.curriculo.testepersonalidade.c.TesteCFp;
+import erp.curriculo.teste.avaliacaodepreferenciacerebral.TesteAvalPrefCerFc;
+import erp.curriculo.teste.avaliacaodepreferenciacerebral.TesteAvalPrefCerFp;
+import erp.curriculo.teste.perfilcomportmental.TestePerfilCompFc;
+import erp.curriculo.teste.perfilcomportmental.TestePerfilCompFp;
+import erp.curriculo.teste.testedisc.TesteDISCFc;
+import erp.curriculo.teste.testedisc.TesteDISCFp;
 import erp.editor.EditorTextoFc;
 import erp.empresa.EmpresaFc;
 import erp.empresa.EmpresaFp;
@@ -184,8 +184,8 @@ public final class MainCont {
 				mostrarFrame(veiculoMarcaFc);
 			} else if (actionEvent.getSource() == mainFc.getMenuItemCadastroImovel()) {
 				mostrarFrame(imovelFc);
-			} else if (actionEvent.getSource() == mainFc.getMenuItemCadastroCurriculoCaracteristica()) {
-				mostrarFrame(curriculoCaracteristicaFc);
+			} else if (actionEvent.getSource() == mainFc.getMenuItemCadastroCurriculoCurriculo()) {
+				mostrarFrame(curriculoFc);
 			} else if (actionEvent.getSource() == mainFc.getMenuItemCadastroCurriculoCertificado()) {
 				mostrarFrame(curriculoCertificadoFc);
 			} else if (actionEvent.getSource() == mainFc.getMenuItemCadastroCurriculoCurso()) {
@@ -199,11 +199,11 @@ public final class MainCont {
 			} else if (actionEvent.getSource() == mainFc.getMenuItemCadastroCurriculoObjetivoProfissional()) {
 				mostrarFrame(curriculoObjetivoProfissionalFc);
 			} else if (actionEvent.getSource() == mainFc.getMenuItemCadastroCurriculoTestePersonalidadeA()) {
-				mostrarFrame(curriculoTesteAFc);
+				mostrarFrame(curriculoTesteAvalPrefCerFc);
 			} else if (actionEvent.getSource() == mainFc.getMenuItemCadastroCurriculoTestePersonalidadeB()) {
-				mostrarFrame(curriculoTesteBFc);
+				mostrarFrame(curriculoTestePerfilCompFc);
 			} else if (actionEvent.getSource() == mainFc.getMenuItemCadastroCurriculoTestePersonalidadeC()) {
-				mostrarFrame(curriculoTesteCFc);
+				mostrarFrame(curriculoTesteDISCFc);
 			}
 
 		}
@@ -303,9 +303,9 @@ public final class MainCont {
 					.setTitle(AOP.getNomeSistema() + " - FORNECEDOR " + Data.getData() + AOP.getUsuarioFormatado());
 			MainCont.getFornecedorFp()
 					.setTitle(AOP.getNomeSistema() + " - FORNECEDOR " + Data.getData() + AOP.getUsuarioFormatado());
-			MainCont.getFuncionarioFc()
+			MainCont.getCurriculoFc()
 					.setTitle(AOP.getNomeSistema() + " - FUNCIONÁRIO " + Data.getData() + AOP.getUsuarioFormatado());
-			MainCont.getFuncionarioFp()
+			MainCont.getCurriculoFp()
 					.setTitle(AOP.getNomeSistema() + " - FUNCIONÁRIO " + Data.getData() + AOP.getUsuarioFormatado());
 			MainCont.getImovelFc()
 					.setTitle(AOP.getNomeSistema() + " - IMÓVEL " + Data.getData() + AOP.getUsuarioFormatado());
@@ -335,10 +335,10 @@ public final class MainCont {
 					AOP.getNomeSistema() + " - MODELO DE VEÍCULO " + Data.getData() + AOP.getUsuarioFormatado());
 			MainCont.getVeiculoModeloFp().setTitle(
 					AOP.getNomeSistema() + " - MODELO DE VEÍCULO " + Data.getData() + AOP.getUsuarioFormatado());
-			MainCont.getCurriculoCaracteristicaFc()
-					.setTitle(AOP.getNomeSistema() + " - CARACTERÍSTICA " + Data.getData() + AOP.getUsuarioFormatado());
-			MainCont.getCurriculoCaracteristicaFp()
-					.setTitle(AOP.getNomeSistema() + " - CARACTERÍSTICA " + Data.getData() + AOP.getUsuarioFormatado());
+			MainCont.getCurriculoFc()
+					.setTitle(AOP.getNomeSistema() + " - CURRÍCULO " + Data.getData() + AOP.getUsuarioFormatado());
+			MainCont.getCurriculoFp()
+					.setTitle(AOP.getNomeSistema() + " - CURRÍCULO " + Data.getData() + AOP.getUsuarioFormatado());
 			MainCont.getCurriculoCertificadoFc()
 					.setTitle(AOP.getNomeSistema() + " - CERTIFICADO " + Data.getData() + AOP.getUsuarioFormatado());
 			MainCont.getCurriculoCertificadoFp()
@@ -363,17 +363,17 @@ public final class MainCont {
 					AOP.getNomeSistema() + " - OBJETIVO PROFISSIONAL " + Data.getData() + AOP.getUsuarioFormatado());
 			MainCont.getCurriculoObjetivoProfissionalFp().setTitle(
 					AOP.getNomeSistema() + " - OBJETIVO PROFISSIONAL " + Data.getData() + AOP.getUsuarioFormatado());
-			MainCont.getCurriculoTesteAFc().setTitle(AOP.getNomeSistema() + " - TESTE DE PREFERÊNCIA CEREBRAL "
+			MainCont.getCurriculoTesteAvalPrefCerFc().setTitle(AOP.getNomeSistema() + " - TESTE DE PREFERÊNCIA CEREBRAL "
 					+ Data.getData() + AOP.getUsuarioFormatado());
-			MainCont.getCurriculoTesteAFp().setTitle(AOP.getNomeSistema() + " - TESTE DE PREFERÊNCIA CEREBRAL "
+			MainCont.getCurriculoTesteAvalPrefCerFp().setTitle(AOP.getNomeSistema() + " - TESTE DE PREFERÊNCIA CEREBRAL "
 					+ Data.getData() + AOP.getUsuarioFormatado());
-			MainCont.getCurriculoTesteBFc().setTitle(AOP.getNomeSistema() + " - TESTE DE PERFIL COMPORTAMENTAL "
+			MainCont.getCurriculoTestePerfilCompFc().setTitle(AOP.getNomeSistema() + " - TESTE DE PERFIL COMPORTAMENTAL "
 					+ Data.getData() + AOP.getUsuarioFormatado());
-			MainCont.getCurriculoTesteBFp().setTitle(AOP.getNomeSistema() + " - TESTE DE PERFIL COMPORTAMENTAL "
+			MainCont.getCurriculoTestePerfilCompFp().setTitle(AOP.getNomeSistema() + " - TESTE DE PERFIL COMPORTAMENTAL "
 					+ Data.getData() + AOP.getUsuarioFormatado());
-			MainCont.getCurriculoTesteCFc().setTitle(AOP.getNomeSistema() + " - TESTE DE PERSONALIDADE D.I.S.C. "
+			MainCont.getCurriculoTesteDISCFc().setTitle(AOP.getNomeSistema() + " - TESTE DE PERSONALIDADE D.I.S.C. "
 					+ Data.getData() + AOP.getUsuarioFormatado());
-			MainCont.getCurriculoTesteCFp().setTitle(AOP.getNomeSistema() + " - TESTE DE PERSONALIDADE D.I.S.C. "
+			MainCont.getCurriculoTesteDISCFp().setTitle(AOP.getNomeSistema() + " - TESTE DE PERSONALIDADE D.I.S.C. "
 					+ Data.getData() + AOP.getUsuarioFormatado());
 		}
 	}
@@ -391,8 +391,6 @@ public final class MainCont {
 	private static ContadorFp contadorFp;
 	private static ContatoFc contatoFc;
 	private static ContatoFp contatoFp;
-	private static CaracteristicaFc curriculoCaracteristicaFc;
-	private static CaracteristicaFp curriculoCaracteristicaFp;
 	private static CertificadoFc curriculoCertificadoFc;
 	private static CertificadoFp curriculoCertificadoFp;
 	private static CursoFc curriculoCursoFc;
@@ -405,12 +403,12 @@ public final class MainCont {
 	private static IdiomaFp curriculoIdiomaFp;
 	private static ObjetivoProfissionalFc curriculoObjetivoProfissionalFc;
 	private static ObjetivoProfissionalFp curriculoObjetivoProfissionalFp;
-	private static TesteAFc curriculoTesteAFc;
-	private static TesteAFp curriculoTesteAFp;
-	private static TesteBFc curriculoTesteBFc;
-	private static TesteBFp curriculoTesteBFp;
-	private static TesteCFc curriculoTesteCFc;
-	private static TesteCFp curriculoTesteCFp;
+	private static TesteAvalPrefCerFc curriculoTesteAvalPrefCerFc;
+	private static TesteAvalPrefCerFp curriculoTesteAvalPrefCerFp;
+	private static TestePerfilCompFc curriculoTestePerfilCompFc;
+	private static TestePerfilCompFp curriculoTestePerfilCompFp;
+	private static TesteDISCFc curriculoTesteDISCFc;
+	private static TesteDISCFp curriculoTesteDISCFp;
 	private static EditorTextoFc editorTextoFc;
 	private static EmpresaFc empresaFc;
 	private static EmpresaFp empresaFp;
@@ -420,6 +418,8 @@ public final class MainCont {
 	private static FornecedorFp fornecedorFp;
 	private static FuncionarioFc funcionarioFc;
 	private static FuncionarioFp funcionarioFp;
+	private static CurriculoFc curriculoFc;
+	private static CurriculoFp curriculoFp;
 	private static ImovelFc imovelFc;
 	private static ImovelFp imovelFp;
 	private static LoginFc loginFc;
@@ -521,14 +521,6 @@ public final class MainCont {
 		return contadorFp;
 	}
 
-	public static CaracteristicaFc getCurriculoCaracteristicaFc() {
-		return curriculoCaracteristicaFc;
-	}
-
-	public static CaracteristicaFp getCurriculoCaracteristicaFp() {
-		return curriculoCaracteristicaFp;
-	}
-
 	public static CertificadoFc getCurriculoCertificadoFc() {
 		return curriculoCertificadoFc;
 	}
@@ -577,28 +569,28 @@ public final class MainCont {
 		return curriculoObjetivoProfissionalFp;
 	}
 
-	public static TesteAFc getCurriculoTesteAFc() {
-		return curriculoTesteAFc;
+	public static TesteAvalPrefCerFc getCurriculoTesteAvalPrefCerFc() {
+		return curriculoTesteAvalPrefCerFc;
 	}
 
-	public static TesteAFp getCurriculoTesteAFp() {
-		return curriculoTesteAFp;
+	public static TesteAvalPrefCerFp getCurriculoTesteAvalPrefCerFp() {
+		return curriculoTesteAvalPrefCerFp;
 	}
 
-	public static TesteBFc getCurriculoTesteBFc() {
-		return curriculoTesteBFc;
+	public static TestePerfilCompFc getCurriculoTestePerfilCompFc() {
+		return curriculoTestePerfilCompFc;
 	}
 
-	public static TesteBFp getCurriculoTesteBFp() {
-		return curriculoTesteBFp;
+	public static TestePerfilCompFp getCurriculoTestePerfilCompFp() {
+		return curriculoTestePerfilCompFp;
 	}
 
-	public static TesteCFc getCurriculoTesteCFc() {
-		return curriculoTesteCFc;
+	public static TesteDISCFc getCurriculoTesteDISCFc() {
+		return curriculoTesteDISCFc;
 	}
 
-	public static TesteCFp getCurriculoTesteCFp() {
-		return curriculoTesteCFp;
+	public static TesteDISCFp getCurriculoTesteDISCFp() {
+		return curriculoTesteDISCFp;
 	}
 
 	public static EditorTextoFc getEditorTextoFc() {
@@ -627,6 +619,13 @@ public final class MainCont {
 
 	public static FuncionarioFp getFuncionarioFp() {
 		return funcionarioFp;
+	}
+	public static CurriculoFc getCurriculoFc() {
+		return curriculoFc;
+	}
+
+	public static CurriculoFp getCurriculoFp() {
+		return curriculoFp;
 	}
 
 	public static ImovelFc getImovelFc() {
@@ -762,11 +761,11 @@ public final class MainCont {
 		contadorFp = new ContadorFp();
 		criarFrame(contadorFp);
 
-		funcionarioFc = new FuncionarioFc();
-		criarFrame(funcionarioFc);
+		curriculoFc = new CurriculoFc();
+		criarFrame(curriculoFc);
 
-		funcionarioFp = new FuncionarioFp();
-		criarFrame(funcionarioFp);
+		curriculoFp = new CurriculoFp();
+		criarFrame(curriculoFp);
 
 		sindicatoFc = new SindicatoFc();
 		criarFrame(sindicatoFc);
@@ -779,6 +778,12 @@ public final class MainCont {
 
 		fornecedorFp = new FornecedorFp();
 		criarFrame(fornecedorFp);
+
+		funcionarioFc = new FuncionarioFc();
+		criarFrame(funcionarioFc);
+
+		funcionarioFp = new FuncionarioFp();
+		criarFrame(funcionarioFp);
 
 		veiculoFc = new VeiculoFc();
 		criarFrame(veiculoFc);
@@ -828,12 +833,6 @@ public final class MainCont {
 		veiculoModeloFp = new VeiculoModeloFp();
 		criarFrame(veiculoModeloFp);
 
-		curriculoCaracteristicaFc = new CaracteristicaFc();
-		criarFrame(curriculoCaracteristicaFc);
-
-		curriculoCaracteristicaFp = new CaracteristicaFp();
-		criarFrame(curriculoCaracteristicaFp);
-
 		curriculoCertificadoFc = new CertificadoFc();
 		criarFrame(curriculoCertificadoFc);
 
@@ -870,23 +869,23 @@ public final class MainCont {
 		curriculoObjetivoProfissionalFp = new ObjetivoProfissionalFp();
 		criarFrame(curriculoObjetivoProfissionalFp);
 
-		curriculoTesteAFc = new TesteAFc();
-		criarFrame(curriculoTesteAFc);
+		curriculoTesteAvalPrefCerFc = new TesteAvalPrefCerFc();
+		criarFrame(curriculoTesteAvalPrefCerFc);
 
-		curriculoTesteAFp = new TesteAFp();
-		criarFrame(curriculoTesteAFp);
+		curriculoTesteAvalPrefCerFp = new TesteAvalPrefCerFp();
+		criarFrame(curriculoTesteAvalPrefCerFp);
 
-		curriculoTesteBFc = new TesteBFc();
-		criarFrame(curriculoTesteBFc);
+		curriculoTestePerfilCompFc = new TestePerfilCompFc();
+		criarFrame(curriculoTestePerfilCompFc);
 
-		curriculoTesteBFp = new TesteBFp();
-		criarFrame(curriculoTesteBFp);
+		curriculoTestePerfilCompFp = new TestePerfilCompFp();
+		criarFrame(curriculoTestePerfilCompFp);
 
-		curriculoTesteCFc = new TesteCFc();
-		criarFrame(curriculoTesteCFc);
+		curriculoTesteDISCFc = new TesteDISCFc();
+		criarFrame(curriculoTesteDISCFc);
 
-		curriculoTesteCFp = new TesteCFp();
-		criarFrame(curriculoTesteCFp);
+		curriculoTesteDISCFp = new TesteDISCFp();
+		criarFrame(curriculoTesteDISCFp);
 
 		calculadoraFc = new CalculadoraFc();
 		criarFrame(calculadoraFc);

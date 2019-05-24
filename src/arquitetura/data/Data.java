@@ -19,7 +19,7 @@ public class Data {
 		return data;
 	}
 
-	public static String getDateTime() {
+	public static String getDataTempo() {
 		Locale locale = AOP.getLocale();
 		Calendar calendar = new GregorianCalendar();
 
@@ -31,6 +31,17 @@ public class Data {
 		return data;
 	}
 
+	public static String getTempo() {
+		Locale locale = AOP.getLocale();
+		Calendar calendar = new GregorianCalendar();
+
+		String data = "";
+		DateFormat dateFormat = new SimpleDateFormat("HH-mm-ss-SSSS", locale);
+		data += dateFormat.format(calendar.getTime());
+		return data;
+	}
+
+	
 	public static String getDia(int dia) {
 		String nome = "";
 

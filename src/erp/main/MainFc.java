@@ -49,7 +49,7 @@ public class MainFc extends JFrame {
 	private JMenuItem menuItemCadastroCentroCusto;
 	private JMenuItem menuItemCadastroCliente;
 	private JMenuItem menuItemCadastroContador;
-	private JMenuItem menuItemCadastroCurriculoCaracteristica;
+	private JMenuItem menuItemCadastroCurriculoCurriculo;
 	private JMenuItem menuItemCadastroCurriculoCertificado;
 	private JMenuItem menuItemCadastroCurriculoCurso;
 	private JMenuItem menuItemCadastroCurriculoExperienciaProfissional;
@@ -160,8 +160,8 @@ public class MainFc extends JFrame {
 		return menuItemCadastroContador;
 	}
 
-	public JMenuItem getMenuItemCadastroCurriculoCaracteristica() {
-		return menuItemCadastroCurriculoCaracteristica;
+	public JMenuItem getMenuItemCadastroCurriculoCurriculo() {
+		return menuItemCadastroCurriculoCurriculo;
 	}
 
 	public JMenuItem getMenuItemCadastroCurriculoCertificado() {
@@ -365,7 +365,7 @@ public class MainFc extends JFrame {
 		menuItemCadastroContador.addActionListener(mainCont.new MenuCadastroGerenteEventos());
 		menuItemCadastroFuncionario.addActionListener(mainCont.new MenuCadastroGerenteEventos());
 		menuItemCadastroCliente.addActionListener(mainCont.new MenuCadastroGerenteEventos());
-		menuItemCadastroCurriculoCaracteristica.addActionListener(mainCont.new MenuCadastroGerenteEventos());
+		menuItemCadastroCurriculoCurriculo.addActionListener(mainCont.new MenuCadastroGerenteEventos());
 		menuItemCadastroCurriculoCertificado.addActionListener(mainCont.new MenuCadastroGerenteEventos());
 		menuItemCadastroCurriculoCurso.addActionListener(mainCont.new MenuCadastroGerenteEventos());
 		menuItemCadastroCurriculoExperienciaProfissional.addActionListener(mainCont.new MenuCadastroGerenteEventos());
@@ -439,9 +439,6 @@ public class MainFc extends JFrame {
 		menuCadastroCurriculo = new JMenu("Currículo");
 		menuCadastro.add(menuCadastroCurriculo);
 
-		menuItemCadastroCurriculoCaracteristica = new JMenuItem("Características");
-		menuCadastroCurriculo.add(menuItemCadastroCurriculoCaracteristica);
-
 		menuItemCadastroCurriculoCertificado = new JMenuItem("Certificados");
 		menuCadastroCurriculo.add(menuItemCadastroCurriculoCertificado);
 
@@ -468,6 +465,9 @@ public class MainFc extends JFrame {
 
 		menuItemCadastroCurriculoTestePersonalidadeC = new JMenuItem("Teste de Personalidade D.I.S.C.");
 		menuCadastroCurriculo.add(menuItemCadastroCurriculoTestePersonalidadeC);
+
+		menuItemCadastroCurriculoCurriculo = new JMenuItem("Currículo");
+		menuCadastroCurriculo.add(menuItemCadastroCurriculoCurriculo);
 
 		menuItemCadastroDocumento = new JMenuItem("Documentos");
 		menuCadastro.add(menuItemCadastroDocumento);

@@ -10,11 +10,12 @@ import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
 
+import arquitetura.data.Data;
 import arquitetura.relatorio.Relatorio;
 
 public class CartorioRel {
 
-	private String arquivo = "cartorio.pdf";
+	private String arquivo = Data.getTempo() +"-cartorio.pdf";
 	private Document document = new Document();
 	private Relatorio relatorio = new Relatorio();
 	private String titulo = "CARTÓRIOS";

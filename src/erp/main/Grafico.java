@@ -69,7 +69,7 @@ public class Grafico {
 			document.add(image);
 
 			document.add(new Paragraph("\n"));
-			document.add(new Paragraph(Data.getDateTime()));
+			document.add(new Paragraph(Data.getDataTempo()));
 
 			// release resources
 			document.close();

@@ -12,7 +12,7 @@ import arquitetura.gui.Gui;
 @SuppressWarnings("serial")
 public final class FuncionarioFp extends JFrame implements Gui {
 
-	private FuncionarioPp FuncionarioPp;
+	private FuncionarioPp funcionarioPp;
 
 	public FuncionarioFp() {
 		iniciarLayout();
@@ -31,13 +31,13 @@ public final class FuncionarioFp extends JFrame implements Gui {
 	}
 
 	public FuncionarioPp getFuncionarioPp() {
-		return FuncionarioPp;
+		return funcionarioPp;
 	}
 
 	@Override
 	public void iniciarControlador() {
 		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
-		FuncionarioPp.iniciarControlador();
+		funcionarioPp.iniciarControlador();
 	}
 
 	@Override
@@ -48,8 +48,8 @@ public final class FuncionarioFp extends JFrame implements Gui {
 	@Override
 	public void iniciarGui() {
 		setIconImage(arquitetura.gui.Imagem.getLogoTipoImage());
-		FuncionarioPp = new FuncionarioPp();
-		setContentPane(FuncionarioPp);
+		funcionarioPp = new FuncionarioPp();
+		setContentPane(funcionarioPp);
 	}
 
 	@Override

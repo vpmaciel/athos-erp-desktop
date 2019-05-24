@@ -10,11 +10,12 @@ import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
 
+import arquitetura.data.Data;
 import arquitetura.relatorio.Relatorio;
 
 public class ObjetivoProfissionalRel {
 
-	private String arquivo = "objetivoProfissional.pdf";
+	private String arquivo = Data.getTempo() + "-objetivoProfissional.pdf";
 	private Document document = new Document();
 	private Relatorio relatorio = new Relatorio();
 	private String titulo = "OBJETIVO PROFISSIONAL";
