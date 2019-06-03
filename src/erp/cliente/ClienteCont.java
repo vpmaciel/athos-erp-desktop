@@ -264,7 +264,6 @@ final class ClienteCont {
 		getClientePc().getGuiDeficiencia().setSelectedItem(cliente.getDeficiencia());
 		getClientePc().getGuiEscolaridade().setSelectedItem(cliente.getEscolaridade());
 		getClientePc().getGuiNacionalidade().setSelectedItem(cliente.getNacionalidade());
-		getClientePc().getGuiCor().setSelectedItem(cliente.getCor());
 		getClientePc().getGuiBanco().setSelectedItem(cliente.getBanco());
 		getClientePc().getGuiNumeroContaBancaria().setText(cliente.getNumeroContaBancaria());
 		getClientePc().getGuiClasseEconomica().setSelectedItem(cliente.getClasseEconomica());
@@ -310,7 +309,6 @@ final class ClienteCont {
 		cliente.setDeficiencia((String) getClientePc().getGuiDeficiencia().getSelectedItem());
 		cliente.setEscolaridade((String) getClientePc().getGuiEscolaridade().getSelectedItem());
 		cliente.setNacionalidade((String) getClientePc().getGuiNacionalidade().getSelectedItem());
-		cliente.setCor((String) getClientePc().getGuiCor().getSelectedItem());
 		cliente.setBanco((Banco) getClientePc().getGuiBanco().getSelectedItem());
 		cliente.setNumeroContaBancaria(getClientePc().getGuiNumeroContaBancaria().getText());
 		cliente.setClasseEconomica((String) getClientePc().getGuiClasseEconomica().getSelectedItem());

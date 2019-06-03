@@ -1,4 +1,4 @@
-package erp.veiculo;
+package erp.veiculo.documento;
 
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -18,13 +18,13 @@ import arquitetura.gui.Gui;
 import arquitetura.gui.Imagem;
 
 @SuppressWarnings("serial")
-public final class VeiculoFc extends JFrame implements Gui {
+public final class DocumentoFc extends JFrame implements Gui {
 
+	private DocumentoCont documentoCont;
+	private DocumentoPc documentoPc;
 	private ConfiguracaoGui configuracaoGui;
-	private VeiculoCont veiculoCont;
-	private VeiculoPc veiculoPc;
 
-	public VeiculoFc() {
+	public DocumentoFc() {
 		iniciarLayout();
 		iniciarGui();
 		iniciarFocoControlador();
@@ -37,38 +37,36 @@ public final class VeiculoFc extends JFrame implements Gui {
 
 	}
 
+	public DocumentoCont getDocumentoCont() {
+		return documentoCont;
+	}
+
+	public DocumentoPc getDocumentoPc() {
+		return documentoPc;
+	}
+
 	@Override
 	public ConfiguracaoGui getConfiguracaoGui() {
 		return configuracaoGui;
 	}
 
-	public VeiculoCont getVeiculoCont() {
-		return veiculoCont;
-	}
-
-	public VeiculoPc getVeiculoPc() {
-		return veiculoPc;
-	}
-
 	@Override
 	public void iniciarControlador() {
 		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
-		veiculoCont = new VeiculoCont();
-		addWindowListener(veiculoCont.new Frame());
-		veiculoPc.getLabelCentroCusto().addMouseListener(veiculoCont.new MostraFrame());
-		veiculoPc.getLabelVeiculoMarca().addMouseListener(veiculoCont.new MostraFrame());
-		veiculoPc.getLabelVeiculoModelo().addMouseListener(veiculoCont.new MostraFrame());
-		veiculoPc.getToolBar().getExcluirBtn().addActionListener(veiculoCont.new Exclui());
-		veiculoPc.getToolBar().getNovoBtn().addActionListener(veiculoCont.new Novo());
-		veiculoPc.getToolBar().getPesquisarBtn().addActionListener(veiculoCont.new Pesquisa());
-		veiculoPc.getToolBar().getImprimirBtn().addActionListener(veiculoCont.new Imprime());
-		veiculoPc.getToolBar().getRelatorioBtn().addActionListener(veiculoCont.new Relatorio());
-		veiculoPc.getToolBar().getSalvarBtn().addActionListener(veiculoCont.new Salva());
-		veiculoPc.getToolBar().getFecharBtn().addActionListener(veiculoCont.new FechaJanela());
-		veiculoPc.getToolBar().getSairBtn().addActionListener(veiculoCont.new SaidaSistema());
-		veiculoPc.getToolBar().getAjudaBtn().addActionListener(veiculoCont.new Ajuda());
-		veiculoPc.getToolBar().getHomeBtn().addActionListener(veiculoCont.new Home());
-		veiculoPc.getToolBar().getRegistrosBtn().addActionListener(veiculoCont.new Registro());
+		documentoCont = new DocumentoCont();
+		addWindowListener(documentoCont.new Frame());
+		documentoPc.getLabelVeiculo().addMouseListener(documentoCont.new MostraFrame());
+		documentoPc.getTB().getExcluirBtn().addActionListener(documentoCont.new Exclui());
+		documentoPc.getTB().getNovoBtn().addActionListener(documentoCont.new Novo());
+		documentoPc.getTB().getPesquisarBtn().addActionListener(documentoCont.new Pesquisa());
+		documentoPc.getTB().getImprimirBtn().addActionListener(documentoCont.new Imprime());
+		documentoPc.getTB().getRelatorioBtn().addActionListener(documentoCont.new Relatorio());
+		documentoPc.getTB().getSalvarBtn().addActionListener(documentoCont.new Salva());
+		documentoPc.getTB().getFecharBtn().addActionListener(documentoCont.new FechaJanela());
+		documentoPc.getTB().getSairBtn().addActionListener(documentoCont.new SaidaSistema());
+		documentoPc.getTB().getAjudaBtn().addActionListener(documentoCont.new Ajuda());
+		documentoPc.getTB().getHomeBtn().addActionListener(documentoCont.new Home());
+		documentoPc.getTB().getRegistrosBtn().addActionListener(documentoCont.new Registro());
 	}
 
 	@Override
@@ -80,10 +78,11 @@ public final class VeiculoFc extends JFrame implements Gui {
 	@Override
 	public void iniciarGui() {
 		setIconImage(Imagem.getLogoTipoImage());
-		veiculoPc = new VeiculoPc();
-		veiculoPc.setOpaque(true); // content panes must be opaque
 
-		final JScrollPane scrollPane = new JScrollPane(veiculoPc);
+		documentoPc = new DocumentoPc();
+		documentoPc.setOpaque(true); // content panes must be opaque
+
+		final JScrollPane scrollPane = new JScrollPane(documentoPc);
 
 		KeyboardFocusManager.getCurrentKeyboardFocusManager().addPropertyChangeListener("focusOwner",
 				new PropertyChangeListener() {
@@ -94,8 +93,8 @@ public final class VeiculoFc extends JFrame implements Gui {
 							return;
 						}
 						JComponent focused = (JComponent) evt.getNewValue();
-						if (veiculoPc.isAncestorOf(focused)) {
-							veiculoPc.scrollRectToVisible(focused.getBounds());
+						if (documentoPc.isAncestorOf(focused)) {
+							documentoPc.scrollRectToVisible(focused.getBounds());
 						}
 					}
 				});
@@ -104,7 +103,6 @@ public final class VeiculoFc extends JFrame implements Gui {
 		add(scrollPane);
 		setContentPane(scrollPane);
 		pack();
-
 	}
 
 	@Override
@@ -132,6 +130,6 @@ public final class VeiculoFc extends JFrame implements Gui {
 
 	@Override
 	public void reiniciarGui() {
-		veiculoPc.reiniciarGui();
+		documentoPc.reiniciarGui();
 	}
 }

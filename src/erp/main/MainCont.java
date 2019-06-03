@@ -70,6 +70,8 @@ import erp.usuario.UsuarioFc;
 import erp.usuario.UsuarioFp;
 import erp.veiculo.VeiculoFc;
 import erp.veiculo.VeiculoFp;
+import erp.veiculo.documento.DocumentoFc;
+import erp.veiculo.documento.DocumentoFp;
 import erp.veiculo.marca.VeiculoMarcaFc;
 import erp.veiculo.marca.VeiculoMarcaFp;
 import erp.veiculo.modelo.VeiculoModeloFc;
@@ -182,6 +184,8 @@ public final class MainCont {
 				mostrarFrame(veiculoModeloFc);
 			} else if (actionEvent.getSource() == mainFc.getMenuItemCadastroVeiculoMarca()) {
 				mostrarFrame(veiculoMarcaFc);
+			} else if (actionEvent.getSource() == mainFc.getMenuItemCadastroVeiculoDocumento()) {
+				mostrarFrame(veiculoDocumentoFc);
 			} else if (actionEvent.getSource() == mainFc.getMenuItemCadastroImovel()) {
 				mostrarFrame(imovelFc);
 			} else if (actionEvent.getSource() == mainFc.getMenuItemCadastroCurriculoCurriculo()) {
@@ -335,6 +339,10 @@ public final class MainCont {
 					AOP.getNomeSistema() + " - MODELO DE VEÍCULO " + Data.getData() + AOP.getUsuarioFormatado());
 			MainCont.getVeiculoModeloFp().setTitle(
 					AOP.getNomeSistema() + " - MODELO DE VEÍCULO " + Data.getData() + AOP.getUsuarioFormatado());
+			MainCont.getVeiculoDocumentoFc().setTitle(
+					AOP.getNomeSistema() + " - DOCUMENTO DE VEÍCULO " + Data.getData() + AOP.getUsuarioFormatado());
+			MainCont.getVeiculoDocumentoFp().setTitle(
+					AOP.getNomeSistema() + " - DOCUMENTO DE VEÍCULO " + Data.getData() + AOP.getUsuarioFormatado());
 			MainCont.getCurriculoFc()
 					.setTitle(AOP.getNomeSistema() + " - CURRÍCULO " + Data.getData() + AOP.getUsuarioFormatado());
 			MainCont.getCurriculoFp()
@@ -440,7 +448,9 @@ public final class MainCont {
 	private static VeiculoMarcaFp veiculoMarcaFp;
 	private static VeiculoModeloFc veiculoModeloFc;
 	private static VeiculoModeloFp veiculoModeloFp;
-
+	private static DocumentoFc veiculoDocumentoFc;
+	private static DocumentoFp veiculoDocumentoFp;
+	
 	static {
 		totalPrincipalCont = 0;
 	}
@@ -696,6 +706,13 @@ public final class MainCont {
 		return veiculoModeloFp;
 	}
 
+	public static DocumentoFc getVeiculoDocumentoFc() {
+		return veiculoDocumentoFc;
+	}
+	
+	public static DocumentoFp getVeiculoDocumentoFp() {
+		return veiculoDocumentoFp;
+	}
 	public static void mostrarFrame(JFrame frame) {
 		frame.setVisible(true);
 		frame.setResizable(false);
@@ -832,6 +849,12 @@ public final class MainCont {
 
 		veiculoModeloFp = new VeiculoModeloFp();
 		criarFrame(veiculoModeloFp);
+		
+		veiculoDocumentoFc = new DocumentoFc();
+		criarFrame(veiculoDocumentoFc);
+
+		veiculoDocumentoFp = new DocumentoFp();
+		criarFrame(veiculoDocumentoFp);
 
 		curriculoCertificadoFc = new CertificadoFc();
 		criarFrame(curriculoCertificadoFc);

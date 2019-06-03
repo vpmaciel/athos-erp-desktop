@@ -43,8 +43,6 @@ public class Funcionario implements Serializable {
 	private String complemento;
 	@Column(length = 50)
 	private String conjuge;
-	@Column(length = 12)
-	private String cor;
 	@Column(length = 14, nullable = true)
 	private String cpf;
 	@Column(length = 19)
@@ -137,10 +135,6 @@ public class Funcionario implements Serializable {
 
 	public String getConjuge() {
 		return this.conjuge;
-	}
-
-	public String getCor() {
-		return cor;
 	}
 
 	public String getCpf() {
@@ -285,10 +279,6 @@ public class Funcionario implements Serializable {
 
 	public void setConjuge(String conjuge) {
 		this.conjuge = conjuge;
-	}
-
-	public void setCor(String cor) {
-		this.cor = cor;
 	}
 
 	public void setCpf(String cpf) {

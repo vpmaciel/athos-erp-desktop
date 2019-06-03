@@ -20,4 +20,12 @@ public class VeiculoComp {
 		}
 	}
 
+	public class Placa implements Comparator<Object> {
+
+		@Override
+		public int compare(Object o1, Object o2) {
+			return ((Veiculo) o1).getPlaca().compareTo(((Veiculo) o2).getPlaca());
+		}
+	}
+
 }

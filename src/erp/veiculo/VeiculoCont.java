@@ -2,6 +2,8 @@ package erp.veiculo;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.LinkedList;
@@ -22,6 +24,22 @@ final class VeiculoCont {
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
 			Msg.ajuda();
+		}
+	}
+	
+	public class MostraFrame extends MouseAdapter {
+
+		@Override
+		public void mouseClicked(MouseEvent event) {
+			if (event.getSource() == getVeiculoPc().getLabelCentroCusto()) {
+				MainCont.mostrarFrame(MainCont.getCentroCustoFc());
+			} else if (event.getSource() == getVeiculoPc().getLabelVeiculoMarca()) {
+				MainCont.mostrarFrame(MainCont.getVeiculoMarcaFc());
+			} else if (event.getSource() == getVeiculoPc().getLabelVeiculoModelo()) {
+				MainCont.mostrarFrame(MainCont.getVeiculoModeloFc());
+			} else {
+				MainCont.getCentroCustoFc().reiniciarGui();
+			}
 		}
 	}
 
@@ -73,6 +91,7 @@ final class VeiculoCont {
 		@Override
 		public void windowOpened(WindowEvent e) {
 			veiculo = new Veiculo();
+			getVeiculoPc().getGuiPlaca().requestFocus();
 		}
 	}
 
@@ -204,8 +223,15 @@ final class VeiculoCont {
 					Msg.sucessoSalvarRegistro();
 				}
 			} catch (Exception e) {
-				Throwable throwable = e.getCause().getCause();
-				String mensagem = throwable.toString();
+				Throwable throwable = e.getCause();
+				if(throwable != null) {
+					throwable = e.getCause().getCause();
+				}
+				String mensagem = "";
+				if(throwable != null) {
+					mensagem = throwable.toString();
+				}
+				
 				if (mensagem.contains("ConstraintViolationException")) {
 					if (mensagem.contains("INDEX_VEICULO_PLACA")) {
 						Msg.avisoCampoDuplicado("PLACA");
@@ -366,8 +392,16 @@ final class VeiculoCont {
 		veiculo.setRenavam(getVeiculoPc().getGuiRenavam().getText());
 		veiculo.setRestricoes((String) getVeiculoPc().getGuiRestricoes().getSelectedItem());
 		veiculo.setTipo((String) getVeiculoPc().getGuiTipo().getSelectedItem());
-		veiculo.setValorCompra(Double.parseDouble(getVeiculoPc().getGuiValorCompra().getText()));
-		veiculo.setValorVenda(Double.parseDouble(getVeiculoPc().getGuiValorVenda().getText()));
+		try {
+			veiculo.setValorCompra(Double.parseDouble(getVeiculoPc().getGuiValorCompra().getText()));	
+		}catch (Exception e) {
+			veiculo.setValorCompra(0);
+		}
+		try {
+			veiculo.setValorVenda(Double.parseDouble(getVeiculoPc().getGuiValorVenda().getText()));	
+		}catch (Exception e) {
+			veiculo.setValorVenda(0);
+		}
 		veiculo.setNumeroMotor(getVeiculoPc().getGuiNumeroMotor().getText());
 		veiculo.setMesReferenciaCompra((String) getVeiculoPc().getGuiMesReferenciaCompra().getSelectedItem());
 		veiculo.setMesReferenciaVenda((String) getVeiculoPc().getGuiMesReferenciaVenda().getSelectedItem());
@@ -377,7 +411,11 @@ final class VeiculoCont {
 		veiculo.setMarchas(getVeiculoPc().getGuiMarchas().getText());
 		veiculo.setZeroKm((String) getVeiculoPc().getGuiZeroKm().getSelectedItem());
 		veiculo.setPneus((String) getVeiculoPc().getGuiPneus().getSelectedItem());
-		veiculo.setDesconto(Double.parseDouble(getVeiculoPc().getGuiDesconto().getText()));
+		try {
+			veiculo.setDesconto(Double.parseDouble(getVeiculoPc().getGuiDesconto().getText()));
+		}catch (Exception e) {
+			veiculo.setDesconto(0);
+		}
 		veiculo.setRodas((String) getVeiculoPc().getGuiRodas().getSelectedItem());
 		veiculo.setCambio((String) getVeiculoPc().getGuiCambio().getSelectedItem());
 		veiculo.setRodas((String) getVeiculoPc().getGuiRodas().getSelectedItem());
@@ -388,7 +426,11 @@ final class VeiculoCont {
 		veiculo.setLucro(getVeiculoPc().getGuiLucro().getText());
 		veiculo.setPrejuizo(getVeiculoPc().getGuiPrejuizo().getText());
 		veiculo.setDepreciacao(getVeiculoPc().getGuiDepreciacao().getText());
-		veiculo.setNumeroPortas(Integer.parseInt(getVeiculoPc().getGuiNumeroPortas().getText()));
+		try {
+			veiculo.setNumeroPortas(Integer.parseInt(getVeiculoPc().getGuiNumeroPortas().getText()));
+		}catch (Exception e) {
+			veiculo.setNumeroPortas(0);
+		}
 	}
 
 	public Veiculo getVeiculo() {

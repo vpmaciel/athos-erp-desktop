@@ -56,9 +56,9 @@ public class MainFc extends JFrame {
 	private JMenuItem menuItemCadastroCurriculoHabilidade;
 	private JMenuItem menuItemCadastroCurriculoIdioma;
 	private JMenuItem menuItemCadastroCurriculoObjetivoProfissional;
-	private JMenuItem menuItemCadastroCurriculoTestePersonalidadeA;
-	private JMenuItem menuItemCadastroCurriculoTestePersonalidadeB;
-	private JMenuItem menuItemCadastroCurriculoTestePersonalidadeC;
+	private JMenuItem menuItemCadastroCurriculoTestePreferenciaCerebral;
+	private JMenuItem menuItemCadastroCurriculoTestePerfilComportamental;
+	private JMenuItem menuItemCadastroCurriculoTestePersonalidadeDisc;
 	private JMenuItem menuItemCadastroDocumento;
 	private JMenuItem menuItemCadastroEmpresa;
 	private JMenuItem menuItemCadastroEscolaridade;
@@ -73,6 +73,7 @@ public class MainFc extends JFrame {
 	private JMenuItem menuItemCadastroVeiculoMarca;
 	private JMenuItem menuItemCadastroVeiculoModelo;
 	private JMenuItem menuItemCadastroVeiculoVeiculo;
+	private JMenuItem menuItemCadastroVeiculoDocumento;
 	private JMenuItem menuItemCadastroVenda;
 	private JMenuItem menuItemEstatisticaGrafico;
 	private JMenuItem menuItemEstatisticaRelatorio;
@@ -189,15 +190,15 @@ public class MainFc extends JFrame {
 	}
 
 	public JMenuItem getMenuItemCadastroCurriculoTestePersonalidadeA() {
-		return menuItemCadastroCurriculoTestePersonalidadeA;
+		return menuItemCadastroCurriculoTestePreferenciaCerebral;
 	}
 
 	public JMenuItem getMenuItemCadastroCurriculoTestePersonalidadeB() {
-		return menuItemCadastroCurriculoTestePersonalidadeB;
+		return menuItemCadastroCurriculoTestePerfilComportamental;
 	}
 
 	public JMenuItem getMenuItemCadastroCurriculoTestePersonalidadeC() {
-		return menuItemCadastroCurriculoTestePersonalidadeC;
+		return menuItemCadastroCurriculoTestePersonalidadeDisc;
 	}
 
 	public JMenuItem getMenuItemCadastroDocumento() {
@@ -259,7 +260,11 @@ public class MainFc extends JFrame {
 	public JMenuItem getMenuItemCadastroVeiculoVeiculo() {
 		return menuItemCadastroVeiculoVeiculo;
 	}
-
+	
+	public JMenuItem getMenuItemCadastroVeiculoDocumento() {
+		return menuItemCadastroVeiculoDocumento;
+	}
+	
 	public JMenuItem getMenuItemCadastroVenda() {
 		return menuItemCadastroVenda;
 	}
@@ -372,9 +377,9 @@ public class MainFc extends JFrame {
 		menuItemCadastroCurriculoHabilidade.addActionListener(mainCont.new MenuCadastroGerenteEventos());
 		menuItemCadastroCurriculoIdioma.addActionListener(mainCont.new MenuCadastroGerenteEventos());
 		menuItemCadastroCurriculoObjetivoProfissional.addActionListener(mainCont.new MenuCadastroGerenteEventos());
-		menuItemCadastroCurriculoTestePersonalidadeA.addActionListener(mainCont.new MenuCadastroGerenteEventos());
-		menuItemCadastroCurriculoTestePersonalidadeB.addActionListener(mainCont.new MenuCadastroGerenteEventos());
-		menuItemCadastroCurriculoTestePersonalidadeC.addActionListener(mainCont.new MenuCadastroGerenteEventos());
+		menuItemCadastroCurriculoTestePreferenciaCerebral.addActionListener(mainCont.new MenuCadastroGerenteEventos());
+		menuItemCadastroCurriculoTestePerfilComportamental.addActionListener(mainCont.new MenuCadastroGerenteEventos());
+		menuItemCadastroCurriculoTestePersonalidadeDisc.addActionListener(mainCont.new MenuCadastroGerenteEventos());
 		menuItemCadastroEmpresa.addActionListener(mainCont.new MenuCadastroGerenteEventos());
 		menuItemCadastroSindicato.addActionListener(mainCont.new MenuCadastroGerenteEventos());
 		menuItemCadastroServico.addActionListener(mainCont.new MenuCadastroGerenteEventos());
@@ -382,6 +387,7 @@ public class MainFc extends JFrame {
 		menuItemCadastroVeiculoVeiculo.addActionListener(mainCont.new MenuCadastroGerenteEventos());
 		menuItemCadastroVeiculoModelo.addActionListener(mainCont.new MenuCadastroGerenteEventos());
 		menuItemCadastroVeiculoMarca.addActionListener(mainCont.new MenuCadastroGerenteEventos());
+		menuItemCadastroVeiculoDocumento.addActionListener(mainCont.new MenuCadastroGerenteEventos());
 		menuItemCadastroImovel.addActionListener(mainCont.new MenuCadastroGerenteEventos());
 		menuItemAjudaSobreSistema.addActionListener(mainCont.new MenuAjudaGerenteEventos());
 		menuItemSistemaUsuario.addActionListener(mainCont.new MenuSistemaGerenteEventos());
@@ -457,14 +463,14 @@ public class MainFc extends JFrame {
 		menuItemCadastroCurriculoObjetivoProfissional = new JMenuItem("Objetivo Profissional");
 		menuCadastroCurriculo.add(menuItemCadastroCurriculoObjetivoProfissional);
 
-		menuItemCadastroCurriculoTestePersonalidadeA = new JMenuItem("Teste de Preferência Cerebral");
-		menuCadastroCurriculo.add(menuItemCadastroCurriculoTestePersonalidadeA);
+		menuItemCadastroCurriculoTestePreferenciaCerebral = new JMenuItem("Teste de Preferência Cerebral");
+		menuCadastroCurriculo.add(menuItemCadastroCurriculoTestePreferenciaCerebral);
 
-		menuItemCadastroCurriculoTestePersonalidadeB = new JMenuItem("Teste de Perfil Comportamental");
-		menuCadastroCurriculo.add(menuItemCadastroCurriculoTestePersonalidadeB);
+		menuItemCadastroCurriculoTestePerfilComportamental = new JMenuItem("Teste de Perfil Comportamental");
+		menuCadastroCurriculo.add(menuItemCadastroCurriculoTestePerfilComportamental);
 
-		menuItemCadastroCurriculoTestePersonalidadeC = new JMenuItem("Teste de Personalidade D.I.S.C.");
-		menuCadastroCurriculo.add(menuItemCadastroCurriculoTestePersonalidadeC);
+		menuItemCadastroCurriculoTestePersonalidadeDisc = new JMenuItem("Teste de Personalidade D.I.S.C.");
+		menuCadastroCurriculo.add(menuItemCadastroCurriculoTestePersonalidadeDisc);
 
 		menuItemCadastroCurriculoCurriculo = new JMenuItem("Currículo");
 		menuCadastroCurriculo.add(menuItemCadastroCurriculoCurriculo);
@@ -504,6 +510,9 @@ public class MainFc extends JFrame {
 
 		menuCadastroVeiculo = new JMenu("Veículos");
 		menuCadastro.add(menuCadastroVeiculo);
+
+		menuItemCadastroVeiculoDocumento = new JMenuItem("Documentos");
+		menuCadastroVeiculo.add(menuItemCadastroVeiculoDocumento);
 
 		menuItemCadastroVeiculoMarca = new JMenuItem("Marca");
 		menuCadastroVeiculo.add(menuItemCadastroVeiculoMarca);

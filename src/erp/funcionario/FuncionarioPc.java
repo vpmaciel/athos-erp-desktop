@@ -29,7 +29,6 @@ import erp.main.MainCont;
 public final class FuncionarioPc extends JPanel implements Gui {
 
 	private JComboBox<CentroCusto> boxCentroCusto;
-	private JComboBox<String> boxCor;
 	private JComboBox<String> boxDeficiencia;
 	private JComboBox<String> boxEscolaridade;
 	private JComboBox<String> boxEstadoCivil;
@@ -123,10 +122,6 @@ public final class FuncionarioPc extends JPanel implements Gui {
 
 	public JTextField getGuiConjuge() {
 		return fieldConjuge;
-	}
-
-	public JComboBox<String> getGuiCor() {
-		return boxCor;
 	}
 
 	public JFormattedTextField getGuiCpf() {
@@ -311,17 +306,6 @@ public final class FuncionarioPc extends JPanel implements Gui {
 		boxNacionalidade.addItem("BRASILEIRO (A) NATURALIZADO (A)");
 		boxNacionalidade.addItem("ESTRANGEIRO (A)");
 		add(boxNacionalidade);
-
-		add(new JLabel("COR"));
-
-		boxCor = new JComboBox<String>();
-		boxCor.addItem("");
-		boxCor.addItem("BRANCO (A)");
-		boxCor.addItem("PRETO (A)");
-		boxCor.addItem("PARDO (A)");
-		boxCor.addItem("AMARELO (A)");
-		boxCor.addItem("INDÍGENA");
-		add(boxCor);
 
 		add(new JLabel("SEXO"));
 
@@ -508,7 +492,7 @@ public final class FuncionarioPc extends JPanel implements Gui {
 		add(fieldCNPJ);
 
 		// Lay out the panel.
-		SpringUtilities.makeCompactGrid(this, 73, 1, // rows, cols
+		SpringUtilities.makeCompactGrid(this, 71, 1, // rows, cols
 				5, 5, // initX, initY
 				5, 5); // xPad, yPad
 		setOpaque(true); // content panes must be opaque

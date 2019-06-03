@@ -248,7 +248,6 @@ final class FuncionarioCont {
 		getFuncionarioPc().getGuiFilhos().setText(funcionario.getFilhos());
 		getFuncionarioPc().getGuiMatricula().setText(funcionario.getMatricula());
 		getFuncionarioPc().getGuiSexo().setSelectedItem(funcionario.getSexo());
-		getFuncionarioPc().getGuiCor().setSelectedItem(funcionario.getCor());
 		getFuncionarioPc().getGuiDeficiencia().setSelectedItem(funcionario.getDeficiencia());
 		getFuncionarioPc().getGuiEscolaridade().setSelectedItem(funcionario.getEscolaridade());
 		getFuncionarioPc().getGuiNacionalidade().setSelectedItem(funcionario.getNacionalidade());
@@ -288,7 +287,6 @@ final class FuncionarioCont {
 		funcionario.setMatricula(getFuncionarioPc().getGuiMatricula().getText());
 		funcionario.setSexo((String) getFuncionarioPc().getGuiSexo().getSelectedItem());
 		funcionario.setEstadoCivil((String) getFuncionarioPc().getGuiEstadoCivil().getSelectedItem());
-		funcionario.setCor((String) getFuncionarioPc().getGuiCor().getSelectedItem());
 		funcionario.setDeficiencia((String) getFuncionarioPc().getGuiDeficiencia().getSelectedItem());
 		funcionario.setEscolaridade((String) getFuncionarioPc().getGuiEscolaridade().getSelectedItem());
 		funcionario.setNacionalidade((String) getFuncionarioPc().getGuiNacionalidade().getSelectedItem());

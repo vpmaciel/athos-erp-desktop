@@ -33,7 +33,6 @@ public final class ClientePc extends JPanel implements Gui {
 
 	private JComboBox<Banco> boxBanco;
 	private JComboBox<String> boxClasseEconomica;
-	private JComboBox<String> boxCor;
 	private JComboBox<String> boxDeficiencia;
 	private JComboBox<Empresa> boxEmpresa;
 	private JComboBox<String> boxEscolaridade;
@@ -125,10 +124,6 @@ public final class ClientePc extends JPanel implements Gui {
 
 	public JTextField getGuiComplemento() {
 		return fieldComplemento;
-	}
-
-	public JComboBox<String> getGuiCor() {
-		return boxCor;
 	}
 
 	public JFormattedTextField getGuiCpf() {
@@ -362,17 +357,6 @@ public final class ClientePc extends JPanel implements Gui {
 		boxNacionalidade.addItem("BRASILEIRO (A) NATURALIZADO (A)");
 		boxNacionalidade.addItem("ESTRANGEIRO (A)");
 		add(boxNacionalidade);
-
-		add(new JLabel("COR"));
-
-		boxCor = new JComboBox<String>();
-		boxCor.addItem("");
-		boxCor.addItem("BRANCO (A)");
-		boxCor.addItem("PRETO (A)");
-		boxCor.addItem("PARDO (A)");
-		boxCor.addItem("AMARELO (A)");
-		boxCor.addItem("INDÍGENA");
-		add(boxCor);
 
 		add(new JLabel("DATA DE NASCIMENTO"));
 
@@ -677,7 +661,7 @@ public final class ClientePc extends JPanel implements Gui {
 		add(boxRelacionamentoReferencia3);
 
 		// Lay out the panel.
-		SpringUtilities.makeCompactGrid(this, 85, 1, // rows, cols
+		SpringUtilities.makeCompactGrid(this, 83, 1, // rows, cols
 				5, 5, // initX, initY
 				5, 5); // xPad, yPad
 		setOpaque(true); // content panes must be opaque

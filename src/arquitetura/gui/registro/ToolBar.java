@@ -11,7 +11,6 @@ import arquitetura.gui.Imagem;
 public class ToolBar {
 
 	JButton buttonAjuda = new JButton(Imagem.getAjudar());
-
 	JButton buttonExclui = new JButton(Imagem.getExclui());
 	JButton buttonFechar = new JButton(Imagem.getFechar());
 	JButton buttonHome = new JButton(Imagem.getHome());
@@ -32,7 +31,6 @@ public class ToolBar {
 		toolBar.setFloatable(false);
 		toolBar.setOpaque(false);
 		toolBar.setBorder(BorderFactory.createEtchedBorder());
-
 		buttonHome.setToolTipText("Home");
 		toolBar.add(buttonHome);
 

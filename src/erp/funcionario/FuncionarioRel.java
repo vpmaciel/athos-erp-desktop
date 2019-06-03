@@ -41,7 +41,6 @@ public class FuncionarioRel {
 				document.add(new Paragraph("CNH: " + funcionario.getCnhCategoria()));
 				document.add(new Paragraph("ESCOLARIDADE: " + funcionario.getEscolaridade()));
 				document.add(new Paragraph("DEFICIÊNCIA: " + funcionario.getDeficiencia()));
-				document.add(new Paragraph("COR: " + funcionario.getCor()));
 				document.add(new Paragraph("NACIONALIDADE: " + funcionario.getNacionalidade()));
 				document.add(new Paragraph("CARGO: " + funcionario.getCargo()));
 				document.add(new Paragraph("SALÁRIO: " + funcionario.getSalario()));

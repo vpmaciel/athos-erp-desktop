@@ -18,37 +18,37 @@ public class Imagem {
 	}
 
 	public static ImageIcon getAjudar() {
-		imageIcon = new ImageIcon(recursos.getResource("toolbarButtonGraphics/general/Help24.gif"));
+		imageIcon = new ImageIcon(recursos.getResource("arquitetura/gui/help_32px.png"));
 		return imageIcon;
 	}
 
 	public static ImageIcon getDeletar() {
-		imageIcon = new ImageIcon(recursos.getResource("toolbarButtonGraphics/general/Delete24.gif"));
+		imageIcon = new ImageIcon(recursos.getResource("arquitetura/gui/delete_32px.png"));
 		return imageIcon;
 	}
 
 	public static ImageIcon getEditar() {
-		imageIcon = new ImageIcon(recursos.getResource("toolbarButtonGraphics/general/Edit24.gif"));
+		imageIcon = new ImageIcon(recursos.getResource("arquitetura/gui/edit_32px.png"));
 		return imageIcon;
 	}
 
 	public static ImageIcon getExclui() {
-		imageIcon = new ImageIcon(recursos.getResource("toolbarButtonGraphics/general/Delete24.gif"));
+		imageIcon = new ImageIcon(recursos.getResource("arquitetura/gui/delete_32px.png"));
 		return imageIcon;
 	}
 
 	public static ImageIcon getFechar() {
-		imageIcon = new ImageIcon(recursos.getResource("toolbarButtonGraphics/media/Stop24.gif"));
+		imageIcon = new ImageIcon(recursos.getResource("arquitetura/gui/close_window_32px.png"));
 		return imageIcon;
 	}
 
 	public static ImageIcon getHome() {
-		imageIcon = new ImageIcon(recursos.getResource("toolbarButtonGraphics/navigation/Up24.gif"));
+		imageIcon = new ImageIcon(recursos.getResource("arquitetura/gui/home_32px.png"));
 		return imageIcon;
 	}
 
 	public static ImageIcon getImprime() {
-		imageIcon = new ImageIcon(recursos.getResource("toolbarButtonGraphics/general/Print24.gif"));
+		imageIcon = new ImageIcon(recursos.getResource("arquitetura/gui/print_32px.png"));
 		return imageIcon;
 	}
 
@@ -69,42 +69,37 @@ public class Imagem {
 	}
 
 	public static ImageIcon getNovo() {
-		imageIcon = new ImageIcon(recursos.getResource("toolbarButtonGraphics/general/New24.gif"));
+		imageIcon = new ImageIcon(recursos.getResource("arquitetura/gui/add_32px.png"));
 		return imageIcon;
 	}
 
 	public static ImageIcon getpesquisar() {
-		imageIcon = new ImageIcon(recursos.getResource("toolbarButtonGraphics/general/Find24.gif"));
+		imageIcon = new ImageIcon(recursos.getResource("arquitetura/gui/search_32px.png"));
 		return imageIcon;
 	}
 
 	public static ImageIcon getRegistros() {
-		imageIcon = new ImageIcon(recursos.getResource("toolbarButtonGraphics/media/Movie24.gif"));
+		imageIcon = new ImageIcon(recursos.getResource("arquitetura/gui/database_32px.png"));
 		return imageIcon;
 	}
 
 	public static ImageIcon getRelatorio() {
-		imageIcon = new ImageIcon(recursos.getResource("toolbarButtonGraphics/development/J2EEServer24.gif"));
+		imageIcon = new ImageIcon(recursos.getResource("arquitetura/gui/pdf_32px.png"));
 		return imageIcon;
 	}
 
 	public static ImageIcon getSair() {
-		imageIcon = new ImageIcon(recursos.getResource("toolbarButtonGraphics/general/Stop24.gif"));
+		imageIcon = new ImageIcon(recursos.getResource("arquitetura/gui/shutdown_32px.png"));
 		return imageIcon;
 	}
 
 	public static ImageIcon getSalva() {
-		imageIcon = new ImageIcon(recursos.getResource("toolbarButtonGraphics/general/Save24.gif"));
+		imageIcon = new ImageIcon(recursos.getResource("arquitetura/gui/save_32px.png"));
 		return imageIcon;
 	}
 
 	public static ImageIcon getSobre() {
-		imageIcon = new ImageIcon(recursos.getResource("toolbarButtonGraphics/general/About24.gif"));
+		imageIcon = new ImageIcon(recursos.getResource("arquitetura/gui/info_32px.png"));
 		return imageIcon;
-	}
-
-	public static ImageIcon getVisualizarImpressao() {
-		imageIcon = new ImageIcon(recursos.getResource("toolbarButtonGraphics/general/PrintPreview24.gif"));
-		return imageIcon;
-	}
+	}	
 }

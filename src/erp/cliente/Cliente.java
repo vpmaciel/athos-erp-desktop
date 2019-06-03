@@ -42,8 +42,6 @@ public class Cliente implements Serializable {
 	private String cnpj;
 	@Column(length = 20)
 	private String complemento;
-	@Column(length = 11)
-	private String cor;
 	@Column(length = 14)
 	private String cpf;
 	@Column(length = 10)
@@ -154,10 +152,6 @@ public class Cliente implements Serializable {
 
 	public String getComplemento() {
 		return this.complemento;
-	}
-
-	public String getCor() {
-		return cor;
 	}
 
 	public String getCpf() {
@@ -334,10 +328,6 @@ public class Cliente implements Serializable {
 
 	public void setComplemento(String complemento) {
 		this.complemento = complemento;
-	}
-
-	public void setCor(String cor) {
-		this.cor = cor;
 	}
 
 	public void setCpf(String cpf) {

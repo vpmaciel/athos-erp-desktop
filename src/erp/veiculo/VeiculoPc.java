@@ -1,5 +1,6 @@
 package erp.veiculo;
 
+import java.awt.Cursor;
 import java.util.Collections;
 import java.util.List;
 
@@ -133,6 +134,18 @@ public final class VeiculoPc extends JPanel implements Gui {
 	@Override
 	public ConfiguracaoGui getConfiguracaoGui() {
 		return configuracaoGui;
+	}
+	
+	public JLabel getLabelCentroCusto() {
+		return labelCentroCusto;
+	}
+
+	public JLabel getLabelVeiculoMarca() {
+		return labelVeiculoMarca;
+	}
+
+	public JLabel getLabelVeiculoModelo() {
+		return labelVeiculoModelo;
 	}
 
 	public JComboBox<String> getGuiAdaptadoDeficiente() {
@@ -475,6 +488,8 @@ public final class VeiculoPc extends JPanel implements Gui {
 		toolBar = new ToolBar();
 
 		this.add(toolBar.getToolBar());
+		
+		final Cursor cursor = Cursor.getPredefinedCursor(Cursor.HAND_CURSOR);
 
 		add(new JLabel("PLACA"));
 
@@ -483,6 +498,7 @@ public final class VeiculoPc extends JPanel implements Gui {
 		add(fieldPlaca);
 
 		labelVeiculoMarca = new JLabel("MARCA DO VEÍCULO");
+		labelVeiculoMarca.setCursor(cursor);
 		add(labelVeiculoMarca);
 
 		boxVeiculoMarca = new JComboBox<VeiculoMarca>();
@@ -497,6 +513,7 @@ public final class VeiculoPc extends JPanel implements Gui {
 		add(boxVeiculoMarca);
 
 		labelVeiculoModelo = new JLabel("MODELO DO VEÍCULO");
+		labelVeiculoModelo.setCursor(cursor);
 		add(labelVeiculoModelo);
 
 		boxVeiculoModelo = new JComboBox<VeiculoModelo>();
