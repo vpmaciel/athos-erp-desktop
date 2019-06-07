@@ -1,6 +1,5 @@
 package erp.veiculo;
 
-import java.awt.Cursor;
 import java.util.Collections;
 import java.util.List;
 
@@ -12,6 +11,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 
+import arquitetura.AOP;
 import arquitetura.gui.ConfiguracaoGui;
 import arquitetura.gui.EntradaMaiuscula;
 import arquitetura.gui.EntradaMinuscula;
@@ -489,7 +489,7 @@ public final class VeiculoPc extends JPanel implements Gui {
 
 		this.add(toolBar.getToolBar());
 		
-		final Cursor cursor = Cursor.getPredefinedCursor(Cursor.HAND_CURSOR);
+		
 
 		add(new JLabel("PLACA"));
 
@@ -498,7 +498,7 @@ public final class VeiculoPc extends JPanel implements Gui {
 		add(fieldPlaca);
 
 		labelVeiculoMarca = new JLabel("MARCA DO VEÍCULO");
-		labelVeiculoMarca.setCursor(cursor);
+		labelVeiculoMarca.setCursor(AOP.getNovaJanelaCursor());
 		add(labelVeiculoMarca);
 
 		boxVeiculoMarca = new JComboBox<VeiculoMarca>();
@@ -513,7 +513,7 @@ public final class VeiculoPc extends JPanel implements Gui {
 		add(boxVeiculoMarca);
 
 		labelVeiculoModelo = new JLabel("MODELO DO VEÍCULO");
-		labelVeiculoModelo.setCursor(cursor);
+		labelVeiculoModelo.setCursor(AOP.getNovaJanelaCursor());
 		add(labelVeiculoModelo);
 
 		boxVeiculoModelo = new JComboBox<VeiculoModelo>();

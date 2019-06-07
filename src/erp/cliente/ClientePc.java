@@ -1,6 +1,5 @@
 package erp.cliente;
 
-import java.awt.Cursor;
 import java.util.Collections;
 import java.util.List;
 
@@ -12,6 +11,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 
+import arquitetura.AOP;
 import arquitetura.gui.ConfiguracaoGui;
 import arquitetura.gui.EntradaMaiuscula;
 import arquitetura.gui.EntradaMinuscula;
@@ -284,7 +284,7 @@ public final class ClientePc extends JPanel implements Gui {
 	@Override
 	public void iniciarGui() {
 
-		final Cursor cursor = Cursor.getPredefinedCursor(Cursor.HAND_CURSOR);
+		
 
 		toolBar = new ToolBar();
 
@@ -449,7 +449,7 @@ public final class ClientePc extends JPanel implements Gui {
 		add(boxClasseEconomica);
 
 		labelEmpresa = new JLabel("EMPRESA");
-		labelEmpresa.setCursor(cursor);
+		labelEmpresa.setCursor(AOP.getNovaJanelaCursor());
 		add(labelEmpresa);
 
 		boxEmpresa = new JComboBox<Empresa>();
@@ -498,7 +498,7 @@ public final class ClientePc extends JPanel implements Gui {
 		add(boxStatus);
 
 		labelBanco = new JLabel("BANCO");
-		labelBanco.setCursor(cursor);
+		labelBanco.setCursor(AOP.getNovaJanelaCursor());
 		add(labelBanco);
 
 		boxBanco = new JComboBox<Banco>();

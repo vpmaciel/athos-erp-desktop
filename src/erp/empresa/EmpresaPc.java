@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 
+import arquitetura.AOP;
 import arquitetura.gui.ConfiguracaoGui;
 import arquitetura.gui.EntradaMaiuscula;
 import arquitetura.gui.EntradaMinuscula;
@@ -32,7 +33,7 @@ public final class EmpresaPc extends JPanel implements Gui {
 	private JFormattedTextField fieldDataFundacao;
 	private JTextField fieldEmail;
 	private JTextField fieldEstado;
-	private JTextField fieldFaturamentoMensal;
+	private JFormattedTextField fieldFaturamentoMensal;
 	private JTextField fieldFax;
 	private JTextField fieldFone1;
 	private JTextField fieldFone2;
@@ -103,7 +104,7 @@ public final class EmpresaPc extends JPanel implements Gui {
 		return fieldEstado;
 	}
 
-	public JTextField getGuiFaturamentoMensal() {
+	public JFormattedTextField getGuiFaturamentoMensal() {
 		return fieldFaturamentoMensal;
 	}
 
@@ -249,8 +250,7 @@ public final class EmpresaPc extends JPanel implements Gui {
 
 		add(new JLabel("FATURAMENTO MENSAL"));
 
-		fieldFaturamentoMensal = new JTextField();
-		fieldFaturamentoMensal.setDocument(new EntradaMaiuscula(10));
+		fieldFaturamentoMensal = new JFormattedTextField(AOP.getNumeroFormatado());
 		add(fieldFaturamentoMensal);
 
 		add(new JLabel("DATA DE FUNDAÇÃO"));

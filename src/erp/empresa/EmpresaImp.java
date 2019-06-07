@@ -132,9 +132,9 @@ final class EmpresaImp implements EmpresaDao {
 			if (empresa.getEstado() != null && empresa.getEstado().length() > 0) {
 				predicateList.add(criteriaBuilder.like(rootEmpresa.get("estado"), "%" + empresa.getEstado() + "%"));
 			}
-			if (empresa.getFaturamentoMensal() != null && empresa.getFaturamentoMensal().length() > 0) {
-				predicateList.add(criteriaBuilder.like(rootEmpresa.get("faturamentoMensal"),
-						"%" + empresa.getFaturamentoMensal() + "%"));
+			if (empresa.getFaturamentoMensal() != null) {
+				predicateList.add(
+						criteriaBuilder.equal(rootEmpresa.get("faturamentoMensal"), empresa.getFaturamentoMensal()));
 			}
 			if (empresa.getFax() != null && !empresa.getFax().equals(Mascara.getFax().getPlaceholder())
 					&& !empresa.getFax().equals(Mascara.getFaxVazio())) {

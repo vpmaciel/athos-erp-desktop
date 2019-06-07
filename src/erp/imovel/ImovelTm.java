@@ -16,9 +16,9 @@ public class ImovelTm extends AbstractTableModel {
 	private static TabelaModelo tabelaModelo = new TabelaModelo();
 	static {
 		tabelaModelo.adicionar("ID", 0, 100);
-		tabelaModelo.adicionar("NOME PROPRIETÁRIO", 1, 400);
-		tabelaModelo.adicionar("CIDADE", 2, 400);
-		tabelaModelo.adicionar("BAIRRO", 3, 400);
+		tabelaModelo.adicionar("NOME PROPRIETÁRIO", 1, 500);
+		tabelaModelo.adicionar("CIDADE", 2, 500);
+		tabelaModelo.adicionar("BAIRRO", 3, 500);
 
 		largura = new int[tabelaModelo.getTotalColunas()];
 		podeEditar = new boolean[tabelaModelo.getTotalColunas()];

@@ -1,6 +1,5 @@
 package erp.funcionario;
 
-import java.awt.Cursor;
 import java.util.Collections;
 import java.util.List;
 
@@ -12,6 +11,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 
+import arquitetura.AOP;
 import arquitetura.gui.ConfiguracaoGui;
 import arquitetura.gui.EntradaMaiuscula;
 import arquitetura.gui.EntradaMinuscula;
@@ -246,7 +246,7 @@ public final class FuncionarioPc extends JPanel implements Gui {
 	@Override
 	public void iniciarGui() {
 
-		final Cursor cursor = Cursor.getPredefinedCursor(Cursor.HAND_CURSOR);
+		
 
 		toolBar = new ToolBar();
 
@@ -441,7 +441,7 @@ public final class FuncionarioPc extends JPanel implements Gui {
 		add(fieldTurno);
 
 		labelCentroCusto = new JLabel("CENTRO DE CUSTO");
-		labelCentroCusto.setCursor(cursor);
+		labelCentroCusto.setCursor(AOP.getNovaJanelaCursor());
 		add(labelCentroCusto);
 
 		boxCentroCusto = new JComboBox<CentroCusto>();

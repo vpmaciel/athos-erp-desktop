@@ -39,6 +39,7 @@ import javax.swing.text.Document;
 import javax.swing.undo.CannotUndoException;
 import javax.swing.undo.UndoManager;
 
+import arquitetura.gui.Imagem;
 import arquitetura.gui.Msg;
 
 @SuppressWarnings("serial")
@@ -369,7 +370,7 @@ public class EditorTextoFc extends JFrame {
 
 	public EditorTextoFc() {
 		super("ATHOS - EDITOR DE TEXTO");
-
+		setIconImage(Imagem.getLogoTipoImage());
 		initComponents();
 	}
 

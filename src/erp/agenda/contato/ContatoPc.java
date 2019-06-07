@@ -1,6 +1,5 @@
 package erp.agenda.contato;
 
-import java.awt.Cursor;
 import java.util.Collections;
 import java.util.List;
 
@@ -12,6 +11,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 
+import arquitetura.AOP;
 import arquitetura.gui.ConfiguracaoGui;
 import arquitetura.gui.EntradaMaiuscula;
 import arquitetura.gui.EntradaMinuscula;
@@ -151,7 +151,7 @@ public final class ContatoPc extends JPanel implements Gui {
 	@Override
 	public void iniciarGui() {
 
-		final Cursor cursor = Cursor.getPredefinedCursor(Cursor.HAND_CURSOR);
+		
 
 		toolBar = new ToolBar();
 
@@ -235,7 +235,7 @@ public final class ContatoPc extends JPanel implements Gui {
 		add(fieldCep);
 
 		labelEmpresa = new JLabel("TRABALHA NA EMPRESA");
-		labelEmpresa.setCursor(cursor);
+		labelEmpresa.setCursor(AOP.getNovaJanelaCursor());
 		add(labelEmpresa);
 
 		boxEmpresa = new JComboBox<Empresa>();

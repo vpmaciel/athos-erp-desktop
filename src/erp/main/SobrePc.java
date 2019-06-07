@@ -1,6 +1,5 @@
 package erp.main;
 
-import java.awt.Cursor;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -9,6 +8,7 @@ import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import arquitetura.AOP;
 import arquitetura.internet.Internet;
 
 @SuppressWarnings("serial")
@@ -29,17 +29,15 @@ public class SobrePc extends JPanel {
 		setLayout(new GridBagLayout());
 		setBorder(BorderFactory.createEtchedBorder());
 
-		final Cursor cursor = Cursor.getPredefinedCursor(Cursor.HAND_CURSOR);
-
-		labelTitulo.setText("ERP - ERP 1.0");
+		labelTitulo.setText("ATHOS - ERP 1.0");
 
 		labelAutor.setText("<html>Vicente Paulo Maciel - <a href=\"vpmaciel@gmail.com\">vpmaciel@gmail.com</a><html>");
-		labelAutor.setCursor(cursor);
+		labelAutor.setCursor(AOP.getNovaJanelaCursor());
 		labelAutor.addMouseListener(new Internet().new MailSistema("vpmaciel@gmail.com"));
 		labelCopyright.setText("Copyright 2017. Todos os direitos reservados.");
 		labelEmpresa
 				.setText("<html>Sathos - <a href=\"http://www.sathos.com.br/\">http://www.sathos.com.br/</a><html>");
-		labelEmpresa.setCursor(cursor);
+		labelEmpresa.setCursor(AOP.getNovaJanelaCursor());
 		labelEmpresa.addMouseListener(new Internet().new LinkSistema("www.sathos.com.br"));
 		this.add(labelTitulo, new GridBagConstraints(0, 0, 1, 1, 0.0, 0.0, GridBagConstraints.WEST,
 				GridBagConstraints.NONE, new Insets(5, 15, 0, 15), 0, 0));

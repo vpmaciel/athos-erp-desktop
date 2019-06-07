@@ -262,7 +262,7 @@ final class EmpresaCont {
 		getEmpresaPc().getGuiPais().setText(empresa.getPais());
 		getEmpresaPc().getGuiCnpj().setText(empresa.getCnpj());
 		getEmpresaPc().getGuiEmpresa().setSelectedItem(empresa.getTipoEmpresa());
-		getEmpresaPc().getGuiFaturamentoMensal().setText(empresa.getFaturamentoMensal());
+		getEmpresaPc().getGuiFaturamentoMensal().setValue(empresa.getFaturamentoMensal());
 	}
 
 	public void atualizarObjeto() {
@@ -287,8 +287,12 @@ final class EmpresaCont {
 		empresa.setPais(getEmpresaPc().getGuiPais().getText());
 		empresa.setCnpj(getEmpresaPc().getGuiCnpj().getText());
 		empresa.setTipoEmpresa((String) getEmpresaPc().getGuiEmpresa().getSelectedItem());
-		empresa.setFaturamentoMensal(getEmpresaPc().getGuiFaturamentoMensal().getText());
-
+		try {
+			empresa.setFaturamentoMensal((Double)getEmpresaPc().getGuiFaturamentoMensal().getValue());	
+		}catch (Exception exception) {
+			empresa.setFaturamentoMensal(null);
+		}
+		
 		if (getEmpresaPc().getGuiCnpj().getText().equals(Mascara.getCnpjVazio())) {
 			empresa.setCnpj(null);
 		}

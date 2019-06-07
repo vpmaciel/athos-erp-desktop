@@ -1,6 +1,5 @@
 package erp.curriculo.teste.avaliacaodepreferenciacerebral;
 
-import java.awt.Cursor;
 import java.util.Collections;
 import java.util.List;
 
@@ -10,6 +9,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SpringLayout;
 
+import arquitetura.AOP;
 import arquitetura.gui.ConfiguracaoGui;
 import arquitetura.gui.FocoEvento;
 import arquitetura.gui.Gui;
@@ -197,13 +197,13 @@ public final class TesteAvalPrefCerPc extends JPanel implements Gui {
 	@Override
 	public void iniciarGui() {
 
-		final Cursor cursor = Cursor.getPredefinedCursor(Cursor.HAND_CURSOR);
+		
 
 		toolBar = new ToolBar();
 		add(toolBar.getToolBar());
 
 		labelFuncionario = new JLabel("FUNCIONÁRIO");
-		labelFuncionario.setCursor(cursor);
+		labelFuncionario.setCursor(AOP.getNovaJanelaCursor());
 		add(labelFuncionario);
 
 		boxFuncionario = new JComboBox<Funcionario>();

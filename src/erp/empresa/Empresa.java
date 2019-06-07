@@ -36,8 +36,7 @@ public class Empresa implements Serializable {
 	private String email;
 	@Column(length = 50)
 	private String estado;
-	@Column(length = 10)
-	private String faturamentoMensal;
+	private Double faturamentoMensal;
 	@Column(length = 20)
 	private String fax;
 	@Column(length = 20)
@@ -102,7 +101,7 @@ public class Empresa implements Serializable {
 		return this.estado;
 	}
 
-	public String getFaturamentoMensal() {
+	public Double getFaturamentoMensal() {
 		return this.faturamentoMensal;
 	}
 
@@ -194,7 +193,7 @@ public class Empresa implements Serializable {
 		this.estado = estado;
 	}
 
-	public void setFaturamentoMensal(String faturamentoMensal) {
+	public void setFaturamentoMensal(Double faturamentoMensal) {
 		this.faturamentoMensal = faturamentoMensal;
 	}
 

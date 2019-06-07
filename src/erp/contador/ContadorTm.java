@@ -18,7 +18,7 @@ public class ContadorTm extends AbstractTableModel {
 		tabelaModelo.adicionar("ID", 0, 100);
 		tabelaModelo.adicionar("CNPJ", 1, 100);
 		tabelaModelo.adicionar("CPF", 2, 100);
-		tabelaModelo.adicionar("NOME", 3, 400);
+		tabelaModelo.adicionar("NOME", 3, 500);
 		tabelaModelo.adicionar("CRC", 4, 100);
 
 		largura = new int[tabelaModelo.getTotalColunas()];

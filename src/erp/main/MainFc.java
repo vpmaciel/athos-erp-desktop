@@ -32,14 +32,19 @@ public class MainFc extends JFrame {
 	private JMenu menuArquivo;
 	private final JMenuBar menuBar = new JMenuBar();
 	private JMenu menuCadastro;
-	private JMenu menuCadastroCurriculo;
+	private JMenu menuRhCurriculo;
 	private JMenu menuCadastroProduto;
 	private JMenu menuCadastroVeiculo;
+	private JMenu menuRh;
+	private JMenu menuCadastroOculos;
 	private JMenu menuContabilidade;
+	private JMenu menuControle;
 	private JMenu menuEscritorio;
+	private JMenu menuEconomia;
 	private JMenu menuEstatistica;
 	private JMenu menuFinanceiro;
-	private JMenuItem menuItemAjudaSobreSistema;
+	private JMenu menuSegurancaTrabalho;
+	private JMenu menuMedicina;
 	private JMenuItem menuItemArquivoLogin;
 	private JMenuItem menuItemArquivoLogoff;
 	private JMenuItem menuItemArquivoReiniciar;
@@ -49,38 +54,56 @@ public class MainFc extends JFrame {
 	private JMenuItem menuItemCadastroCentroCusto;
 	private JMenuItem menuItemCadastroCliente;
 	private JMenuItem menuItemCadastroContador;
-	private JMenuItem menuItemCadastroCurriculoCurriculo;
-	private JMenuItem menuItemCadastroCurriculoCertificado;
-	private JMenuItem menuItemCadastroCurriculoCurso;
-	private JMenuItem menuItemCadastroCurriculoExperienciaProfissional;
-	private JMenuItem menuItemCadastroCurriculoHabilidade;
-	private JMenuItem menuItemCadastroCurriculoIdioma;
-	private JMenuItem menuItemCadastroCurriculoObjetivoProfissional;
-	private JMenuItem menuItemCadastroCurriculoTestePreferenciaCerebral;
-	private JMenuItem menuItemCadastroCurriculoTestePerfilComportamental;
-	private JMenuItem menuItemCadastroCurriculoTestePersonalidadeDisc;
+	private JMenuItem menuItemRhCestaBasica;
+	private JMenuItem menuItemRhCurriculoCurriculo;
+	private JMenuItem menuItemRhCurriculoCertificado;
+	private JMenuItem menuItemRhCurriculoCurso;
+	private JMenuItem menuItemRhCurriculoExperienciaProfissional;
+	private JMenuItem menuItemRhCurriculoHabilidade;
+	private JMenuItem menuItemRhCurriculoIdioma;
+	private JMenuItem menuItemRhCurriculoObjetivoProfissional;
+	private JMenuItem menuItemRhCurriculoTestePreferenciaCerebral;
+	private JMenuItem menuItemRhCurriculoTestePerfilComportamental;
+	private JMenuItem menuItemRhCurriculoTestePersonalidadeDisc;
+	private JMenuItem menuItemRhFuncionario;
+	private JMenuItem menuItemRhTreinamento;
 	private JMenuItem menuItemCadastroDocumento;
+	private JMenuItem menuItemCadastroSeguradora;
 	private JMenuItem menuItemCadastroEmpresa;
 	private JMenuItem menuItemCadastroEscolaridade;
 	private JMenuItem menuItemCadastroFornecedor;
-	private JMenuItem menuItemCadastroFuncionario;
 	private JMenuItem menuItemCadastroImovel;
+	private JMenuItem menuItemCadastroOculosOculos;
+	private JMenuItem menuItemCadastroOculosLente;
+	private JMenuItem menuItemCadastroOculosTratamento;
+	private JMenuItem menuItemCadastroOculosArmacao;
 	private JMenuItem menuItemCadastroProdutoCategoria;
 	private JMenuItem menuItemCadastroProdutoMarca;
+	private JMenuItem menuItemCadastroProdutoListaCompras;
 	private JMenuItem menuItemCadastroProdutoProduto;
+	private JMenuItem menuItemCadastroProdutoUnidade;
+	private JMenuItem menuItemCadastroQuarto;
 	private JMenuItem menuItemCadastroServico;
 	private JMenuItem menuItemCadastroSindicato;
 	private JMenuItem menuItemCadastroVeiculoMarca;
 	private JMenuItem menuItemCadastroVeiculoModelo;
 	private JMenuItem menuItemCadastroVeiculoVeiculo;
 	private JMenuItem menuItemCadastroVeiculoDocumento;
-	private JMenuItem menuItemCadastroVenda;
+	private JMenuItem menuItemGerenciamentoContacaoPreco;
+	private JMenuItem menuItemGerenciamentoEntradaSaidaVeiculo;
+	private JMenuItem menuItemGerenciamentoEstacionamento;
+	private JMenuItem menuItemGerenciamentoResiduos;
 	private JMenuItem menuItemEstatisticaGrafico;
 	private JMenuItem menuItemEstatisticaRelatorio;
 	private JMenuItem menuItemFinanceiroBoletoBancario;
 	private JMenuItem menuItemFinanceiroCaixa;
+	private JMenuItem menuItemFinanceiroCarne;
+	private JMenuItem menuItemFinanceiroCheque;
 	private JMenuItem menuItemFinanceiroContasPagar;
 	private JMenuItem menuItemFinanceiroContasReceber;
+	private JMenu menuFinanceiroVenda;
+	private JMenuItem menuItemFinanceiroVendaProduto;
+	private JMenuItem menuItemFinanceiroVendaServico;
 	private JMenuItem menuItemSistemaBackup;
 	private JMenuItem menuItemSistemaDados;
 	private JMenuItem menuItemSistemaRestaurar;
@@ -92,6 +115,17 @@ public class MainFc extends JFrame {
 	private JMenuItem menuItemUtilitarioCalculadora;
 	private JMenuItem menuItemUtilitarioEditorTexto;
 	private JMenuItem menuItemUtilitarioMalaDireta;
+	private JMenuItem menuItemUtilitarioCalculoData;
+	private JMenuItem menuItemUtilitarioCalculoIMC;
+	private JMenuItem menuItemAjudaSobreSistema;
+	private JMenuItem menuItemAjudaAjudaSistema;
+	private JMenuItem menuItemAjudaGuiaUsuario;
+	private JMenuItem menuItemAjudaAjudaOnLine;
+	private JMenuItem menuItemAjudaEnviarComentarios;
+	private JMenuItem menuItemAjudaInformacoesSobreLicenca;
+	private JMenuItem menuItemAjudaVerificarAtualizacao;
+	private JMenuItem menuItemAjudaRelatarProblema;
+	private JMenuItem menuItemAjudaDesenvolvedores;
 	private JMenu menuSistema;
 	private JMenu menuUtilitario;
 	private JMenu menuUtilitarioAgenda;
@@ -161,44 +195,44 @@ public class MainFc extends JFrame {
 		return menuItemCadastroContador;
 	}
 
-	public JMenuItem getMenuItemCadastroCurriculoCurriculo() {
-		return menuItemCadastroCurriculoCurriculo;
+	public JMenuItem getMenuItemCadastroRhCurriculo() {
+		return menuItemRhCurriculoCurriculo;
 	}
 
-	public JMenuItem getMenuItemCadastroCurriculoCertificado() {
-		return menuItemCadastroCurriculoCertificado;
+	public JMenuItem getMenuItemCadastroRhCertificado() {
+		return menuItemRhCurriculoCertificado;
 	}
 
-	public JMenuItem getMenuItemCadastroCurriculoCurso() {
-		return menuItemCadastroCurriculoCurso;
+	public JMenuItem getMenuItemCadastroRhCurso() {
+		return menuItemRhCurriculoCurso;
 	}
 
-	public JMenuItem getMenuItemCadastroCurriculoExperienciaProfissional() {
-		return menuItemCadastroCurriculoExperienciaProfissional;
+	public JMenuItem getMenuItemCadastroRhExperienciaProfissional() {
+		return menuItemRhCurriculoExperienciaProfissional;
 	}
 
-	public JMenuItem getMenuItemCadastroCurriculoHabilidade() {
-		return menuItemCadastroCurriculoHabilidade;
+	public JMenuItem getMenuItemCadastroRhHabilidade() {
+		return menuItemRhCurriculoHabilidade;
 	}
 
-	public JMenuItem getMenuItemCadastroCurriculoIdioma() {
-		return menuItemCadastroCurriculoIdioma;
+	public JMenuItem getMenuItemCadastroRhIdioma() {
+		return menuItemRhCurriculoIdioma;
 	}
 
-	public JMenuItem getMenuItemCadastroCurriculoObjetivoProfissional() {
-		return menuItemCadastroCurriculoObjetivoProfissional;
+	public JMenuItem getMenuItemCadastroRhObjetivoProfissional() {
+		return menuItemRhCurriculoObjetivoProfissional;
 	}
 
-	public JMenuItem getMenuItemCadastroCurriculoTestePersonalidadeA() {
-		return menuItemCadastroCurriculoTestePreferenciaCerebral;
+	public JMenuItem getMenuItemCadastroRhTestePersonalidadeA() {
+		return menuItemRhCurriculoTestePreferenciaCerebral;
 	}
 
-	public JMenuItem getMenuItemCadastroCurriculoTestePersonalidadeB() {
-		return menuItemCadastroCurriculoTestePerfilComportamental;
+	public JMenuItem getMenuItemCadastroRhTestePersonalidadeB() {
+		return menuItemRhCurriculoTestePerfilComportamental;
 	}
 
-	public JMenuItem getMenuItemCadastroCurriculoTestePersonalidadeC() {
-		return menuItemCadastroCurriculoTestePersonalidadeDisc;
+	public JMenuItem getMenuItemCadastroRhTestePersonalidadeC() {
+		return menuItemRhCurriculoTestePersonalidadeDisc;
 	}
 
 	public JMenuItem getMenuItemCadastroDocumento() {
@@ -225,8 +259,8 @@ public class MainFc extends JFrame {
 		return menuItemCadastroFornecedor;
 	}
 
-	public JMenuItem getMenuItemCadastroFuncionario() {
-		return menuItemCadastroFuncionario;
+	public JMenuItem getMenuItemRhFuncionario() {
+		return menuItemRhFuncionario;
 	}
 
 	public JMenuItem getMenuItemCadastroImovel() {
@@ -260,13 +294,21 @@ public class MainFc extends JFrame {
 	public JMenuItem getMenuItemCadastroVeiculoVeiculo() {
 		return menuItemCadastroVeiculoVeiculo;
 	}
-	
+
 	public JMenuItem getMenuItemCadastroVeiculoDocumento() {
 		return menuItemCadastroVeiculoDocumento;
 	}
-	
-	public JMenuItem getMenuItemCadastroVenda() {
-		return menuItemCadastroVenda;
+
+	public JMenuItem getMenuFinanceiroVenda() {
+		return menuFinanceiroVenda;
+	}
+
+	public JMenuItem getMenuItemFinanceiroVendaProduto() {
+		return menuItemFinanceiroVendaProduto;
+	}
+
+	public JMenuItem getMenuItemFinanceiroVendaServico() {
+		return menuItemFinanceiroVendaServico;
 	}
 
 	public JMenuItem getMenuItemEstatisticaGrafico() {
@@ -368,18 +410,18 @@ public class MainFc extends JFrame {
 		menuItemCadastroCentroCusto.addActionListener(mainCont.new MenuCadastroGerenteEventos());
 		menuItemCadastroCartorio.addActionListener(mainCont.new MenuCadastroGerenteEventos());
 		menuItemCadastroContador.addActionListener(mainCont.new MenuCadastroGerenteEventos());
-		menuItemCadastroFuncionario.addActionListener(mainCont.new MenuCadastroGerenteEventos());
+		menuItemRhFuncionario.addActionListener(mainCont.new MenuCadastroGerenteEventos());
 		menuItemCadastroCliente.addActionListener(mainCont.new MenuCadastroGerenteEventos());
-		menuItemCadastroCurriculoCurriculo.addActionListener(mainCont.new MenuCadastroGerenteEventos());
-		menuItemCadastroCurriculoCertificado.addActionListener(mainCont.new MenuCadastroGerenteEventos());
-		menuItemCadastroCurriculoCurso.addActionListener(mainCont.new MenuCadastroGerenteEventos());
-		menuItemCadastroCurriculoExperienciaProfissional.addActionListener(mainCont.new MenuCadastroGerenteEventos());
-		menuItemCadastroCurriculoHabilidade.addActionListener(mainCont.new MenuCadastroGerenteEventos());
-		menuItemCadastroCurriculoIdioma.addActionListener(mainCont.new MenuCadastroGerenteEventos());
-		menuItemCadastroCurriculoObjetivoProfissional.addActionListener(mainCont.new MenuCadastroGerenteEventos());
-		menuItemCadastroCurriculoTestePreferenciaCerebral.addActionListener(mainCont.new MenuCadastroGerenteEventos());
-		menuItemCadastroCurriculoTestePerfilComportamental.addActionListener(mainCont.new MenuCadastroGerenteEventos());
-		menuItemCadastroCurriculoTestePersonalidadeDisc.addActionListener(mainCont.new MenuCadastroGerenteEventos());
+		menuItemRhCurriculoCurriculo.addActionListener(mainCont.new MenuCadastroGerenteEventos());
+		menuItemRhCurriculoCertificado.addActionListener(mainCont.new MenuCadastroGerenteEventos());
+		menuItemRhCurriculoCurso.addActionListener(mainCont.new MenuCadastroGerenteEventos());
+		menuItemRhCurriculoExperienciaProfissional.addActionListener(mainCont.new MenuCadastroGerenteEventos());
+		menuItemRhCurriculoHabilidade.addActionListener(mainCont.new MenuCadastroGerenteEventos());
+		menuItemRhCurriculoIdioma.addActionListener(mainCont.new MenuCadastroGerenteEventos());
+		menuItemRhCurriculoObjetivoProfissional.addActionListener(mainCont.new MenuCadastroGerenteEventos());
+		menuItemRhCurriculoTestePreferenciaCerebral.addActionListener(mainCont.new MenuCadastroGerenteEventos());
+		menuItemRhCurriculoTestePerfilComportamental.addActionListener(mainCont.new MenuCadastroGerenteEventos());
+		menuItemRhCurriculoTestePersonalidadeDisc.addActionListener(mainCont.new MenuCadastroGerenteEventos());
 		menuItemCadastroEmpresa.addActionListener(mainCont.new MenuCadastroGerenteEventos());
 		menuItemCadastroSindicato.addActionListener(mainCont.new MenuCadastroGerenteEventos());
 		menuItemCadastroServico.addActionListener(mainCont.new MenuCadastroGerenteEventos());
@@ -442,92 +484,104 @@ public class MainFc extends JFrame {
 		menuItemCadastroCliente = new JMenuItem("Clientes");
 		menuCadastro.add(menuItemCadastroCliente);
 
-		menuCadastroCurriculo = new JMenu("Currículo");
-		menuCadastro.add(menuCadastroCurriculo);
-
-		menuItemCadastroCurriculoCertificado = new JMenuItem("Certificados");
-		menuCadastroCurriculo.add(menuItemCadastroCurriculoCertificado);
-
-		menuItemCadastroCurriculoCurso = new JMenuItem("Cursos");
-		menuCadastroCurriculo.add(menuItemCadastroCurriculoCurso);
-
-		menuItemCadastroCurriculoExperienciaProfissional = new JMenuItem("Experiência Profissional");
-		menuCadastroCurriculo.add(menuItemCadastroCurriculoExperienciaProfissional);
-
-		menuItemCadastroCurriculoHabilidade = new JMenuItem("Habilidades");
-		menuCadastroCurriculo.add(menuItemCadastroCurriculoHabilidade);
-
-		menuItemCadastroCurriculoIdioma = new JMenuItem("Idiomas");
-		menuCadastroCurriculo.add(menuItemCadastroCurriculoIdioma);
-
-		menuItemCadastroCurriculoObjetivoProfissional = new JMenuItem("Objetivo Profissional");
-		menuCadastroCurriculo.add(menuItemCadastroCurriculoObjetivoProfissional);
-
-		menuItemCadastroCurriculoTestePreferenciaCerebral = new JMenuItem("Teste de Preferência Cerebral");
-		menuCadastroCurriculo.add(menuItemCadastroCurriculoTestePreferenciaCerebral);
-
-		menuItemCadastroCurriculoTestePerfilComportamental = new JMenuItem("Teste de Perfil Comportamental");
-		menuCadastroCurriculo.add(menuItemCadastroCurriculoTestePerfilComportamental);
-
-		menuItemCadastroCurriculoTestePersonalidadeDisc = new JMenuItem("Teste de Personalidade D.I.S.C.");
-		menuCadastroCurriculo.add(menuItemCadastroCurriculoTestePersonalidadeDisc);
-
-		menuItemCadastroCurriculoCurriculo = new JMenuItem("Currículo");
-		menuCadastroCurriculo.add(menuItemCadastroCurriculoCurriculo);
-
 		menuItemCadastroDocumento = new JMenuItem("Documentos");
 		menuCadastro.add(menuItemCadastroDocumento);
 
 		menuItemCadastroEmpresa = new JMenuItem("Empresas");
 		menuCadastro.add(menuItemCadastroEmpresa);
 
-		menuItemCadastroFuncionario = new JMenuItem("Funcionários");
-		menuCadastro.add(menuItemCadastroFuncionario);
-
 		menuItemCadastroFornecedor = new JMenuItem("Fornecedores");
 		menuCadastro.add(menuItemCadastroFornecedor);
 
 		menuItemCadastroImovel = new JMenuItem("Imóveis");
 		menuCadastro.add(menuItemCadastroImovel);
+		
+		menuCadastroOculos = new JMenu("Óculos");
+		menuCadastro.add(menuCadastroOculos);
+
+		menuItemCadastroOculosOculos = new JMenuItem("Óculos");
+		menuCadastroOculos.add(menuItemCadastroOculosOculos);
+
+		menuCadastroOculos.addSeparator();
+		
+		menuItemCadastroOculosLente = new JMenuItem("Lentes");
+		menuCadastroOculos.add(menuItemCadastroOculosLente);
+
+		menuItemCadastroOculosTratamento = new JMenuItem("Tratamento");
+		menuCadastroOculos.add(menuItemCadastroOculosTratamento);
+
+		menuItemCadastroOculosArmacao = new JMenuItem("Armação");
+		menuCadastroOculos.add(menuItemCadastroOculosArmacao);
 
 		menuCadastroProduto = new JMenu("Produtos");
-		menuCadastro.add(menuCadastroProduto);
 
 		menuItemCadastroProdutoProduto = new JMenuItem("Produtos");
 		menuCadastroProduto.add(menuItemCadastroProdutoProduto);
 
-		menuItemCadastroProdutoMarca = new JMenuItem("Marcas");
-		menuCadastroProduto.add(menuItemCadastroProdutoMarca);
+		menuCadastroProduto.addSeparator();
 
 		menuItemCadastroProdutoCategoria = new JMenuItem("Categorias");
 		menuCadastroProduto.add(menuItemCadastroProdutoCategoria);
+		
+		menuItemCadastroProdutoMarca = new JMenuItem("Marcas");
+		menuCadastroProduto.add(menuItemCadastroProdutoMarca);
+		
+		menuItemCadastroProdutoUnidade = new JMenuItem("Unidade");
+		menuCadastroProduto.add(menuItemCadastroProdutoUnidade);
 
+		menuCadastroProduto.addSeparator();
+		
+		menuItemCadastroProdutoListaCompras = new JMenuItem("Lista de Compras");
+		menuCadastroProduto.add(menuItemCadastroProdutoListaCompras);
+
+		menuItemCadastroQuarto = new JMenuItem("Quartos");
+		menuCadastro.add(menuItemCadastroQuarto);
+	
 		menuItemCadastroServico = new JMenuItem("Serviços");
 		menuCadastro.add(menuItemCadastroServico);
-
+		
+		menuItemCadastroSeguradora = new JMenuItem("Seguradora");
+		menuCadastro.add(menuItemCadastroSeguradora);
+		
 		menuItemCadastroSindicato = new JMenuItem("Sindicatos");
 		menuCadastro.add(menuItemCadastroSindicato);
 
 		menuCadastroVeiculo = new JMenu("Veículos");
 		menuCadastro.add(menuCadastroVeiculo);
 
-		menuItemCadastroVeiculoDocumento = new JMenuItem("Documentos");
-		menuCadastroVeiculo.add(menuItemCadastroVeiculoDocumento);
-
+		menuItemCadastroVeiculoVeiculo = new JMenuItem("Veículos");
+		menuCadastroVeiculo.add(menuItemCadastroVeiculoVeiculo);
+		menuCadastroVeiculo.addSeparator();
+		
 		menuItemCadastroVeiculoMarca = new JMenuItem("Marca");
 		menuCadastroVeiculo.add(menuItemCadastroVeiculoMarca);
 
 		menuItemCadastroVeiculoModelo = new JMenuItem("Modelos");
 		menuCadastroVeiculo.add(menuItemCadastroVeiculoModelo);
+		menuCadastroVeiculo.addSeparator();
 
-		menuItemCadastroVeiculoVeiculo = new JMenuItem("Veículos");
-		menuCadastroVeiculo.add(menuItemCadastroVeiculoVeiculo);
-
-		menuItemCadastroVenda = new JMenuItem("Vendas");
-		menuCadastro.add(menuItemCadastroVenda);
+		menuItemCadastroVeiculoDocumento = new JMenuItem("Documentos");
+		menuCadastroVeiculo.add(menuItemCadastroVeiculoDocumento);
 
 		menuBar.add(menuCadastro);
 
+		menuControle = new JMenu("Gerenciamento");
+		menuControle.setMnemonic('G');
+
+		menuBar.add(menuControle);
+		
+		menuItemGerenciamentoEntradaSaidaVeiculo = new JMenuItem("Entrada e Saída de Veículo");
+		menuControle.add(menuItemGerenciamentoEntradaSaidaVeiculo);
+
+		menuItemGerenciamentoEstacionamento= new JMenuItem("Estacionamento");
+		menuControle.add(menuItemGerenciamentoEstacionamento);
+
+		menuItemGerenciamentoContacaoPreco = new JMenuItem("Cotação de Preço");
+		menuControle.add(menuItemGerenciamentoContacaoPreco);
+		
+		menuItemGerenciamentoResiduos = new JMenuItem("Resíduos");
+		menuControle.add(menuItemGerenciamentoResiduos);
+		
 		menuEscritorio = new JMenu("Escritório");
 		menuEscritorio.setMnemonic('E');
 
@@ -535,19 +589,36 @@ public class MainFc extends JFrame {
 
 		menuFinanceiro = new JMenu("Financeiro");
 		menuFinanceiro.setMnemonic('F');
-		menuCadastro.add(menuFinanceiro);
+		
+		menuItemFinanceiroCaixa = new JMenuItem("Caixa");
+		menuFinanceiro.add(menuItemFinanceiroCaixa);
+		menuFinanceiro.addSeparator();
 
 		menuItemFinanceiroBoletoBancario = new JMenuItem("Boleto Bancário");
 		menuFinanceiro.add(menuItemFinanceiroBoletoBancario);
+		
+		menuItemFinanceiroCarne = new JMenuItem("Carnê");
+		menuFinanceiro.add(menuItemFinanceiroCarne);
 
-		menuItemFinanceiroCaixa = new JMenuItem("Caixa");
-		menuFinanceiro.add(menuItemFinanceiroCaixa);
+		menuItemFinanceiroCheque = new JMenuItem("Cheque");
+		menuFinanceiro.add(menuItemFinanceiroCheque);
+		menuFinanceiro.addSeparator();
 
 		menuItemFinanceiroContasPagar = new JMenuItem("Contas a Pagar");
 		menuFinanceiro.add(menuItemFinanceiroContasPagar);
 
 		menuItemFinanceiroContasReceber = new JMenuItem("Contas a Receber");
 		menuFinanceiro.add(menuItemFinanceiroContasReceber);
+		menuFinanceiro.addSeparator();
+
+		menuFinanceiroVenda = new JMenu("Vendas");
+		menuFinanceiro.add(menuFinanceiroVenda);
+
+		menuItemFinanceiroVendaProduto = new JMenuItem("Produtos");
+		menuFinanceiroVenda.add(menuItemFinanceiroVendaProduto);
+
+		menuItemFinanceiroVendaServico = new JMenuItem("Serviços");
+		menuFinanceiroVenda.add(menuItemFinanceiroVendaServico);
 
 		menuBar.add(menuFinanceiro);
 
@@ -555,6 +626,11 @@ public class MainFc extends JFrame {
 		menuContabilidade.setMnemonic('o');
 		menuBar.add(menuContabilidade);
 
+		menuEconomia = new JMenu("Economia");
+		menuEconomia.setMnemonic('c');
+		
+		menuBar.add(menuEconomia);
+		
 		menuEstatistica = new JMenu("Estatística");
 		menuEstatistica.setMnemonic('E');
 
@@ -566,9 +642,68 @@ public class MainFc extends JFrame {
 
 		menuBar.add(menuEstatistica);
 
+		menuRh = new JMenu("RH");
+		menuRh.setMnemonic('R');
+
+		menuItemRhCestaBasica = new JMenuItem("Cesta Básica");
+		menuRh.add(menuItemRhCestaBasica);
+
+		menuRhCurriculo = new JMenu("Currículo");
+		menuRh.add(menuRhCurriculo);
+
+		menuItemRhCurriculoCertificado = new JMenuItem("Certificados");
+		menuRhCurriculo.add(menuItemRhCurriculoCertificado);
+
+		menuItemRhCurriculoCurso = new JMenuItem("Cursos");
+		menuRhCurriculo.add(menuItemRhCurriculoCurso);
+
+		menuItemRhCurriculoExperienciaProfissional = new JMenuItem("Experiência Profissional");
+		menuRhCurriculo.add(menuItemRhCurriculoExperienciaProfissional);
+
+		menuItemRhCurriculoHabilidade = new JMenuItem("Habilidades");
+		menuRhCurriculo.add(menuItemRhCurriculoHabilidade);
+
+		menuItemRhCurriculoIdioma = new JMenuItem("Idiomas");
+		menuRhCurriculo.add(menuItemRhCurriculoIdioma);
+
+		menuItemRhCurriculoObjetivoProfissional = new JMenuItem("Objetivo Profissional");
+		menuRhCurriculo.add(menuItemRhCurriculoObjetivoProfissional);
+
+		menuItemRhCurriculoTestePreferenciaCerebral = new JMenuItem("Teste de Preferência Cerebral");
+		menuRhCurriculo.add(menuItemRhCurriculoTestePreferenciaCerebral);
+
+		menuItemRhCurriculoTestePerfilComportamental = new JMenuItem("Teste de Perfil Comportamental");
+		menuRhCurriculo.add(menuItemRhCurriculoTestePerfilComportamental);
+
+		menuItemRhCurriculoTestePersonalidadeDisc = new JMenuItem("Teste de Personalidade D.I.S.C.");
+		menuRhCurriculo.add(menuItemRhCurriculoTestePersonalidadeDisc);
+		
+		menuRhCurriculo.addSeparator();
+		
+		menuItemRhCurriculoCurriculo = new JMenuItem("Currículo");
+		menuRhCurriculo.add(menuItemRhCurriculoCurriculo);
+		
+		menuItemRhTreinamento = new JMenuItem("Treinamentos");
+		menuRh.add(menuItemRhTreinamento);
+
+		menuItemRhFuncionario = new JMenuItem("Funcionários");
+		menuRh.add(menuItemRhFuncionario);
+
+		menuBar.add(menuRh);
+		
+		menuSegurancaTrabalho = new JMenu("Segurança no Trabalho");
+		menuSegurancaTrabalho.setMnemonic('S');
+		
+		menuBar.add(menuSegurancaTrabalho);
+		
+		menuMedicina = new JMenu("Medicina");
+		menuMedicina.setMnemonic('M');
+		
+		menuBar.add(menuMedicina);
+		
 		menuUtilitario = new JMenu("Utilitários");
 		menuUtilitario.setMnemonic('U');
-
+		
 		menuUtilitarioAgenda = new JMenu("Agenda");
 		menuUtilitario.add(menuUtilitarioAgenda);
 
@@ -593,6 +728,12 @@ public class MainFc extends JFrame {
 		menuItemUtilitarioEditorTexto = new JMenuItem("Editor de Texto");
 		menuUtilitario.add(menuItemUtilitarioEditorTexto);
 
+		menuItemUtilitarioCalculoData = new JMenuItem("Cálculo de Datas");
+		menuUtilitario.add(menuItemUtilitarioCalculoData);
+
+		menuItemUtilitarioCalculoIMC = new JMenuItem("Cálculo IMC");
+		menuUtilitario.add(menuItemUtilitarioCalculoIMC);
+		
 		menuBar.add(menuUtilitario);
 
 		menuSistema = new JMenu("Sistema");
@@ -601,10 +742,10 @@ public class MainFc extends JFrame {
 		menuItemSistemaDados = new JMenuItem("Dados do Sistema");
 		menuSistema.add(menuItemSistemaDados);
 
-		menuItemSistemaBackup = new JMenuItem("Database Backup");
+		menuItemSistemaBackup = new JMenuItem("Backup do Banco de Dados");
 		menuSistema.add(menuItemSistemaBackup);
 
-		menuItemSistemaRestaurar = new JMenuItem("Database Restaurar");
+		menuItemSistemaRestaurar = new JMenuItem("Restaurar Banco de Dados");
 		menuSistema.add(menuItemSistemaRestaurar);
 
 		menuItemSistemaUsuario = new JMenuItem("Usuários");
@@ -613,7 +754,35 @@ public class MainFc extends JFrame {
 
 		menuAjuda = new JMenu("Ajuda");
 		menuAjuda.setMnemonic('u');
-
+		
+		menuItemAjudaAjudaSistema = new JMenuItem("Ajuda do Sistema");
+		menuAjuda.add(menuItemAjudaAjudaSistema);
+		
+		menuItemAjudaGuiaUsuario = new JMenuItem("Guias do Usuário");
+		menuAjuda.add(menuItemAjudaGuiaUsuario);
+		menuAjuda.addSeparator();
+		
+		menuItemAjudaAjudaOnLine = new JMenuItem("Obter Ajuda On-Line");
+		menuAjuda.add(menuItemAjudaAjudaOnLine);
+		
+		menuItemAjudaEnviarComentarios = new JMenuItem("Enviar Comentários");
+		menuAjuda.add(menuItemAjudaEnviarComentarios);
+		menuAjuda.addSeparator();
+		
+		menuItemAjudaInformacoesSobreLicenca = new JMenuItem("Informações Sobre a Licença");
+		menuAjuda.add(menuItemAjudaInformacoesSobreLicenca);
+		
+		menuItemAjudaVerificarAtualizacao = new JMenuItem("Verificar Atualizações");
+		menuAjuda.add(menuItemAjudaVerificarAtualizacao);
+		menuAjuda.addSeparator();
+		
+		menuItemAjudaRelatarProblema = new JMenuItem("Relatar Problema");
+		menuAjuda.add(menuItemAjudaRelatarProblema);
+		
+		menuItemAjudaDesenvolvedores = new JMenuItem("Desenvolvedores");
+		menuAjuda.add(menuItemAjudaDesenvolvedores);
+		menuAjuda.addSeparator();
+		
 		menuItemAjudaSobreSistema = new JMenuItem("Sobre o Sistema");
 		menuAjuda.add(menuItemAjudaSobreSistema);
 

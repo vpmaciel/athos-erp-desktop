@@ -27,6 +27,8 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.WindowConstants;
 
+import arquitetura.gui.Imagem;
+
 @SuppressWarnings("serial")
 public class CalculadoraFc extends JFrame {
 
@@ -334,6 +336,7 @@ public class CalculadoraFc extends JFrame {
 
 	public CalculadoraFc() {
 		super("ATHOS - CALCULADORA");
+		setIconImage(Imagem.getLogoTipoImage());
 		setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
 		addWindowListener(janelaContr);
 		setSize(new Dimension(800, 600));

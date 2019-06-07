@@ -166,7 +166,7 @@ public final class MainCont {
 				mostrarFrame(bancoFc);
 			} else if (actionEvent.getSource() == mainFc.getMenuItemCadastroCartorio()) {
 				mostrarFrame(cartorioFc);
-			} else if (actionEvent.getSource() == mainFc.getMenuItemCadastroFuncionario()) {
+			} else if (actionEvent.getSource() == mainFc.getMenuItemRhFuncionario()) {
 				mostrarFrame(funcionarioFc);
 			} else if (actionEvent.getSource() == mainFc.getMenuItemCadastroContador()) {
 				mostrarFrame(contadorFc);
@@ -188,25 +188,25 @@ public final class MainCont {
 				mostrarFrame(veiculoDocumentoFc);
 			} else if (actionEvent.getSource() == mainFc.getMenuItemCadastroImovel()) {
 				mostrarFrame(imovelFc);
-			} else if (actionEvent.getSource() == mainFc.getMenuItemCadastroCurriculoCurriculo()) {
+			} else if (actionEvent.getSource() == mainFc.getMenuItemCadastroRhCurriculo()) {
 				mostrarFrame(curriculoFc);
-			} else if (actionEvent.getSource() == mainFc.getMenuItemCadastroCurriculoCertificado()) {
+			} else if (actionEvent.getSource() == mainFc.getMenuItemCadastroRhCertificado()) {
 				mostrarFrame(curriculoCertificadoFc);
-			} else if (actionEvent.getSource() == mainFc.getMenuItemCadastroCurriculoCurso()) {
+			} else if (actionEvent.getSource() == mainFc.getMenuItemCadastroRhCurso()) {
 				mostrarFrame(curriculoCursoFc);
-			} else if (actionEvent.getSource() == mainFc.getMenuItemCadastroCurriculoExperienciaProfissional()) {
+			} else if (actionEvent.getSource() == mainFc.getMenuItemCadastroRhExperienciaProfissional()) {
 				mostrarFrame(curriculoExperienciaProfissionalFc);
-			} else if (actionEvent.getSource() == mainFc.getMenuItemCadastroCurriculoHabilidade()) {
+			} else if (actionEvent.getSource() == mainFc.getMenuItemCadastroRhHabilidade()) {
 				mostrarFrame(curriculoHabilidadeFc);
-			} else if (actionEvent.getSource() == mainFc.getMenuItemCadastroCurriculoIdioma()) {
+			} else if (actionEvent.getSource() == mainFc.getMenuItemCadastroRhIdioma()) {
 				mostrarFrame(curriculoIdiomaFc);
-			} else if (actionEvent.getSource() == mainFc.getMenuItemCadastroCurriculoObjetivoProfissional()) {
+			} else if (actionEvent.getSource() == mainFc.getMenuItemCadastroRhObjetivoProfissional()) {
 				mostrarFrame(curriculoObjetivoProfissionalFc);
-			} else if (actionEvent.getSource() == mainFc.getMenuItemCadastroCurriculoTestePersonalidadeA()) {
+			} else if (actionEvent.getSource() == mainFc.getMenuItemCadastroRhTestePersonalidadeA()) {
 				mostrarFrame(curriculoTesteAvalPrefCerFc);
-			} else if (actionEvent.getSource() == mainFc.getMenuItemCadastroCurriculoTestePersonalidadeB()) {
+			} else if (actionEvent.getSource() == mainFc.getMenuItemCadastroRhTestePersonalidadeB()) {
 				mostrarFrame(curriculoTestePerfilCompFc);
-			} else if (actionEvent.getSource() == mainFc.getMenuItemCadastroCurriculoTestePersonalidadeC()) {
+			} else if (actionEvent.getSource() == mainFc.getMenuItemCadastroRhTestePersonalidadeC()) {
 				mostrarFrame(curriculoTesteDISCFc);
 			}
 

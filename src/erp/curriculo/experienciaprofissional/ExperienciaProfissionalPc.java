@@ -1,6 +1,5 @@
 package erp.curriculo.experienciaprofissional;
 
-import java.awt.Cursor;
 import java.util.Collections;
 import java.util.List;
 
@@ -13,6 +12,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 
+import arquitetura.AOP;
 import arquitetura.gui.ConfiguracaoGui;
 import arquitetura.gui.EntradaMaiuscula;
 import arquitetura.gui.FocoEvento;
@@ -106,13 +106,13 @@ public final class ExperienciaProfissionalPc extends JPanel implements Gui {
 	@Override
 	public void iniciarGui() {
 
-		final Cursor cursor = Cursor.getPredefinedCursor(Cursor.HAND_CURSOR);
+		
 
 		toolBar = new ToolBar();
 		add(toolBar.getToolBar());
 
 		labelFuncionario = new JLabel("FUNCIONÁRIO");
-		labelFuncionario.setCursor(cursor);
+		labelFuncionario.setCursor(AOP.getNovaJanelaCursor());
 		add(labelFuncionario);
 
 		boxFuncionario = new JComboBox<Funcionario>();

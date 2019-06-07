@@ -1,6 +1,5 @@
 package erp.agenda.evento;
 
-import java.awt.Cursor;
 import java.util.Collections;
 import java.util.List;
 
@@ -12,6 +11,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 
+import arquitetura.AOP;
 import arquitetura.gui.ConfiguracaoGui;
 import arquitetura.gui.EntradaMaiuscula;
 import arquitetura.gui.FocoEvento;
@@ -95,14 +95,14 @@ public final class EventoPc extends JPanel implements Gui {
 	@Override
 	public void iniciarGui() {
 
-		final Cursor cursor = Cursor.getPredefinedCursor(Cursor.HAND_CURSOR);
+		
 
 		toolBar = new ToolBar();
 
 		add(toolBar.getToolBar());
 
 		labelTipoEvento = new JLabel("EVENTO");
-		labelTipoEvento.setCursor(cursor);
+		labelTipoEvento.setCursor(AOP.getNovaJanelaCursor());
 		add(labelTipoEvento);
 
 		boxTipoEvento = new JComboBox<TipoEvento>();
