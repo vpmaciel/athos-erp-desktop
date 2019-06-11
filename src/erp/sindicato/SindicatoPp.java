@@ -73,7 +73,7 @@ public final class SindicatoPp extends JPanel {
 		try {
 			sindicatoList = new LinkedList<>(SindicatoFac.pesquisarRegistro(sindicato));
 		} catch (Exception e) {
-			System.out.println(e);
+			e.printStackTrace();
 		}
 		atualizarGui(sindicatoList);
 		return sindicatoList.size();

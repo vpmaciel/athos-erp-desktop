@@ -150,7 +150,7 @@ final class CartorioCont {
 			try {
 				cartorios = new LinkedList<>(CartorioFac.pesquisarRegistro(new Cartorio()));
 			} catch (Exception e) {
-				System.out.println(e);
+				e.printStackTrace();
 			}
 
 			CartorioRel cartorioRel = new CartorioRel(cartorios);

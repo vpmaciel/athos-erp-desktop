@@ -15,9 +15,9 @@ public class EmpresaTm extends AbstractTableModel {
 	private static boolean[] podeEditar;
 	private static TabelaModelo tabelaModelo = new TabelaModelo();
 	static {
-		tabelaModelo.adicionar("ID", 0, 100);
-		tabelaModelo.adicionar("CNPJ", 1, 200);
-		tabelaModelo.adicionar("NOME", 2, 500);
+		tabelaModelo.adicionarColuna("ID", 0, 100);
+		tabelaModelo.adicionarColuna("CNPJ", 1, 200);
+		tabelaModelo.adicionarColuna("NOME", 2, 500);
 
 		largura = new int[tabelaModelo.getTotalColunas()];
 		podeEditar = new boolean[tabelaModelo.getTotalColunas()];
@@ -28,14 +28,14 @@ public class EmpresaTm extends AbstractTableModel {
 	}
 	private Empresa empresa;
 
-	private List<Empresa> empresaList = new LinkedList<>();
+	private List<Empresa> listEmpresa = new LinkedList<>();
 
 	public EmpresaTm() {
 
 	}
 
 	public EmpresaTm(List<Empresa> lista) {
-		empresaList.addAll(lista);
+		listEmpresa.addAll(lista);
 	}
 
 	@Override
@@ -58,24 +58,24 @@ public class EmpresaTm extends AbstractTableModel {
 	}
 
 	public Empresa getEmpresa(int linha) {
-		if (empresaList.size() > 0) {
-			return empresaList.get(linha);
+		if (listEmpresa.size() > 0) {
+			return listEmpresa.get(linha);
 		}
 		return null;
 	}
 
-	public List<Empresa> getEmpresaList() {
-		return empresaList;
+	public List<Empresa> getListEmpresa() {
+		return listEmpresa;
 	}
 
 	@Override
 	public int getRowCount() {
-		return empresaList.size();
+		return listEmpresa.size();
 	}
 
 	@Override
 	public Object getValueAt(int rowIndex, int columnIndex) {
-		Empresa empresa = empresaList.get(rowIndex);
+		Empresa empresa = listEmpresa.get(rowIndex);
 
 		if (tabelaModelo.getNome(columnIndex).equals("ID")) {
 			return empresa.getId();
@@ -95,13 +95,13 @@ public class EmpresaTm extends AbstractTableModel {
 		return podeEditar[columnIndex];
 	}
 
-	public void setEmpresaList(List<Empresa> empresa) {
-		empresaList = empresa;
+	public void setEmpresaList(List<Empresa> listEmpresa) {
+		this.listEmpresa = listEmpresa;
 	}
 
 	@Override
 	public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
-		empresa = empresaList.get(rowIndex);
+		empresa = listEmpresa.get(rowIndex);
 
 		if (tabelaModelo.getNome(columnIndex).equals("ID")) {
 			empresa.setId(Long.parseLong(aValue.toString()));

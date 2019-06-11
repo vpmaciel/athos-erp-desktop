@@ -73,7 +73,7 @@ public final class VeiculoModeloPp extends JPanel {
 		try {
 			veiculoList = new LinkedList<>(VeiculoModeloFac.pesquisarRegistro(veiculoModelo));
 		} catch (Exception e) {
-			System.out.println(e);
+			e.printStackTrace();
 		}
 		atualizarGui(veiculoList);
 		return veiculoList.size();

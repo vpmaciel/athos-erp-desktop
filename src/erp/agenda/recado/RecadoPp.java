@@ -73,7 +73,7 @@ public final class RecadoPp extends JPanel {
 		try {
 			recadoList = new LinkedList<>(RecadoFac.pesquisarRegistro(recado));
 		} catch (Exception e) {
-			System.out.println(e);
+			e.printStackTrace();
 		}
 		atualizarGui(recadoList);
 		return recadoList.size();

@@ -35,7 +35,7 @@ public class Relatorio {
 
 		} catch (Exception exception) {
 			exception.printStackTrace();
-			JOptionPane.showMessageDialog(null, exception, "Erro", 0);
+			JOptionPane.showMessageDialog(null, "Erro ao criar o relatório", "Erro", JOptionPane.ERROR_MESSAGE);
 		}
 	}
 
@@ -44,7 +44,7 @@ public class Relatorio {
 			Font font = new Font(Font.FontFamily.COURIER, 8, Font.BOLD);
 			Rectangle page = document.getPageSize();
 			PdfPTable foot = new PdfPTable(1);
-			PdfPCell cell = new PdfPCell(new Paragraph(Data.getDataHora(), font));
+			PdfPCell cell = new PdfPCell(new Paragraph(Data.getDataHoraCompleta(), font));
 			cell.setHorizontalAlignment(Element.ALIGN_CENTER);
 			cell.setVerticalAlignment(Element.ALIGN_BOTTOM);
 			cell.setBorder(0);
@@ -53,7 +53,8 @@ public class Relatorio {
 			foot.writeSelectedRows(0, -1, document.leftMargin(), document.bottomMargin(), writer.getDirectContent());
 		} catch (Exception exception) {
 			exception.printStackTrace();
-			JOptionPane.showMessageDialog(null, exception, "Erro", 0);
+			JOptionPane.showMessageDialog(null, "Erro ao definir o rodapé do relatório", "Erro",
+					JOptionPane.ERROR_MESSAGE);
 		}
 	}
 
@@ -69,7 +70,7 @@ public class Relatorio {
 			Desktop.getDesktop().open(arquivo);
 		} catch (Exception exception) {
 			exception.printStackTrace();
-			JOptionPane.showMessageDialog(null, exception, "Erro", 0);
+			JOptionPane.showMessageDialog(null, "Erro ao abrir o arquivo", "Erro", JOptionPane.ERROR_MESSAGE);
 		}
 
 		return arquivo;

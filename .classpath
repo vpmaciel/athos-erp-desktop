@@ -31,5 +31,6 @@
 	<classpathentry kind="lib" path="lib/c3p0-0.9.5.2.jar"/>
 	<classpathentry kind="lib" path="lib/slf4j-api-1.7.26.jar"/>
 	<classpathentry kind="lib" path="lib/slf4j-simple-1.7.26.jar"/>
+	<classpathentry kind="lib" path="lib/jOpenDocument-1.2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

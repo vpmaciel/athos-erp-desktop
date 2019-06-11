@@ -15,10 +15,10 @@ public class RecadoTm extends AbstractTableModel {
 	private static boolean[] podeEditar;
 	private static TabelaModelo tabelaModelo = new TabelaModelo();
 	static {
-		tabelaModelo.adicionar("ID", 0, 100);
-		tabelaModelo.adicionar("DATA", 1, 100);
-		tabelaModelo.adicionar("REMETENTE", 2, 500);
-		tabelaModelo.adicionar("DESTINATÁRIO", 3, 500);
+		tabelaModelo.adicionarColuna("ID", 0, 100);
+		tabelaModelo.adicionarColuna("DATA", 1, 100);
+		tabelaModelo.adicionarColuna("REMETENTE", 2, 500);
+		tabelaModelo.adicionarColuna("DESTINATÁRIO", 3, 500);
 
 		largura = new int[tabelaModelo.getTotalColunas()];
 		podeEditar = new boolean[tabelaModelo.getTotalColunas()];

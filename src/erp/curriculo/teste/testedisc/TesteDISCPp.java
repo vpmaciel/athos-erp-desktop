@@ -73,7 +73,7 @@ public final class TesteDISCPp extends JPanel {
 		try {
 			testeDISCs = new LinkedList<>(TesteDISCFac.pesquisarRegistro(testeDISC));
 		} catch (Exception e) {
-			System.out.println(e);
+			e.printStackTrace();
 		}
 		atualizarGui(testeDISCs);
 		return testeDISCs.size();

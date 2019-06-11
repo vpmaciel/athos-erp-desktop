@@ -68,6 +68,7 @@ public final class BancoFc extends JFrame implements Gui {
 		bancoPc.getTB().getAjudaBtn().addActionListener(bancoCont.new Ajuda());
 		bancoPc.getTB().getHomeBtn().addActionListener(bancoCont.new Home());
 		bancoPc.getTB().getRegistrosBtn().addActionListener(bancoCont.new Registro());
+		bancoPc.getTB().getPlanilhaBtn().addActionListener(bancoCont.new Planilha());
 	}
 
 	@Override

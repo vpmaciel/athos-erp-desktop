@@ -73,7 +73,7 @@ public final class FornecedorPp extends JPanel {
 		try {
 			fornecedorList = new LinkedList<>(FornecedorFac.pesquisarRegistro(fornecedor));
 		} catch (Exception e) {
-			System.out.println(e);
+			e.printStackTrace();
 		}
 		atualizarGui(fornecedorList);
 		return fornecedorList.size();

@@ -162,7 +162,7 @@ final class ObjetivoProfissionalCont {
 				objetivoProfissionals = new LinkedList<>(
 						ObjetivoProfissionalFac.pesquisarRegistro(new ObjetivoProfissional()));
 			} catch (Exception e) {
-				System.out.println(e);
+				e.printStackTrace();
 			}
 
 			ObjetivoProfissionalRel objetivoProfissionalRel = new ObjetivoProfissionalRel(objetivoProfissionals);

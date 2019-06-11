@@ -53,7 +53,7 @@ final class ContadorCont {
 			try {
 				MainCont.getContadorFc().setVisible(false);
 			} catch (Exception e) {
-				System.out.println(e);
+				e.printStackTrace();
 			}
 		}
 	}
@@ -83,7 +83,7 @@ final class ContadorCont {
 			try {
 				MainCont.mostrarFrame(MainCont.getMainFc());
 			} catch (Exception e) {
-				System.out.println(e);
+				e.printStackTrace();
 			}
 		}
 	}
@@ -168,7 +168,7 @@ final class ContadorCont {
 			try {
 				contadors = new LinkedList<>(ContadorFac.pesquisarRegistro(new Contador()));
 			} catch (Exception e) {
-				System.out.println(e);
+				e.printStackTrace();
 			}
 
 			ContadorRel contadorRel = new ContadorRel(contadors);
@@ -187,7 +187,7 @@ final class ContadorCont {
 					System.exit(0);
 				}
 			} catch (Exception e) {
-				System.out.println(e);
+				e.printStackTrace();
 			}
 		}
 	}

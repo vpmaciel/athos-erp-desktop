@@ -73,7 +73,7 @@ public final class EventoPp extends JPanel {
 		try {
 			eventoList = new LinkedList<>(EventoFac.pesquisarRegistro(evento));
 		} catch (Exception e) {
-			System.out.println(e);
+			e.printStackTrace();
 		}
 		atualizarGui(eventoList);
 		return eventoList.size();

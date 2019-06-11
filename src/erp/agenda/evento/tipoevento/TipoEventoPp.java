@@ -73,7 +73,7 @@ public final class TipoEventoPp extends JPanel {
 		try {
 			agendaList = new LinkedList<>(TipoEventoFac.pesquisarRegistro(tipoEvento));
 		} catch (Exception e) {
-			System.out.println(e);
+			e.printStackTrace();
 		}
 		atualizarGui(agendaList);
 		return agendaList.size();

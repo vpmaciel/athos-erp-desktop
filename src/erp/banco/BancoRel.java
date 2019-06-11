@@ -15,25 +15,25 @@ import arquitetura.relatorio.Relatorio;
 
 public final class BancoRel {
 
-	private final String arquivo = Data.getHora() + "-banco.pdf";
+	private final String arquivo = Data.getDataHoraCompleta()+ " - banco.pdf";
 	private final Document document = new Document();
 	private final Relatorio relatorio = new Relatorio();
 	private final String titulo = "BANCOS";
 	private PdfWriter writer = null;
 
-	public BancoRel(List<Banco> bancos) {
+	public BancoRel(List<Banco> listBanco) {
 
 		try {
 			writer = PdfWriter.getInstance(document, new FileOutputStream(arquivo));
 			relatorio.criarRelatorio(writer, document, titulo);
 
-			for (Banco banco : bancos) {
+			for (Banco banco : listBanco) {
 				document.add(new Paragraph("BANCO: " + banco.getNome()));
 				document.add(new Paragraph("CÓDIGO DO BANCO: " + banco.getCodigo()));
 				document.add(new Paragraph("\n"));
 			}
-		} catch (DocumentException | FileNotFoundException e) {
-			System.err.println(e.getMessage());
+		} catch (DocumentException | FileNotFoundException exception) {
+			exception.printStackTrace();
 		}
 		relatorio.getRodape(writer, document);
 		document.close();

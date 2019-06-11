@@ -53,7 +53,7 @@ final class FornecedorCont {
 			try {
 				getFornecedorFc().setVisible(false);
 			} catch (Exception e) {
-				System.out.println(e);
+				e.printStackTrace();
 			}
 		}
 	}
@@ -83,7 +83,7 @@ final class FornecedorCont {
 			try {
 				MainCont.mostrarFrame(MainCont.getMainFc());
 			} catch (Exception e) {
-				System.out.println(e);
+				e.printStackTrace();
 			}
 		}
 	}
@@ -168,7 +168,7 @@ final class FornecedorCont {
 			try {
 				fornecedors = new LinkedList<>(FornecedorFac.pesquisarRegistro(new Fornecedor()));
 			} catch (Exception e) {
-				System.out.println(e);
+				e.printStackTrace();
 			}
 
 			FornecedorRel fornecedorRel = new FornecedorRel(fornecedors);
@@ -187,7 +187,7 @@ final class FornecedorCont {
 					System.exit(0);
 				}
 			} catch (Exception e) {
-				System.out.println(e);
+				e.printStackTrace();
 			}
 		}
 	}

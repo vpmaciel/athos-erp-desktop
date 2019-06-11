@@ -52,7 +52,7 @@ final class ImovelCont {
 			try {
 				getImovelFc().setVisible(false);
 			} catch (Exception e) {
-				System.out.println(e);
+				e.printStackTrace();
 			}
 		}
 	}
@@ -82,7 +82,7 @@ final class ImovelCont {
 			try {
 				MainCont.mostrarFrame(MainCont.getMainFc());
 			} catch (Exception e) {
-				System.out.println(e);
+				e.printStackTrace();
 			}
 		}
 	}
@@ -167,7 +167,7 @@ final class ImovelCont {
 			try {
 				imovels = new LinkedList<>(ImovelFac.pesquisarRegistro(new Imovel()));
 			} catch (Exception e) {
-				System.out.println(e);
+				e.printStackTrace();
 			}
 
 			ImovelRel imovelRel = new ImovelRel(imovels);
@@ -186,7 +186,7 @@ final class ImovelCont {
 					System.exit(0);
 				}
 			} catch (Exception e) {
-				System.out.println(e);
+				e.printStackTrace();
 			}
 		}
 	}

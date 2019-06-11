@@ -84,14 +84,14 @@ final class BancoCont {
 
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
-			List<Banco> bancos = new LinkedList<>();
+			List<Banco> listBanco = new LinkedList<>();
 
 			if (banco.getId() == null) {
 				Msg.avisoImprimiRegistroNaoCadastrado();
 				return;
 			}
-			if (bancos.add(BancoFac.getRegistro(banco))) {
-				BancoRel bancoRel = new BancoRel(bancos);
+			if (listBanco.add(BancoFac.getRegistro(banco))) {
+				BancoRel bancoRel = new BancoRel(listBanco);
 				bancoRel.retornarRelatorio(true);
 			}
 
@@ -139,21 +139,39 @@ final class BancoCont {
 			}
 		}
 	}
+	public class Planilha implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent actionEvent) {
+
+			List<Banco> listBanco = new LinkedList<>();
+
+			try {
+				listBanco = new LinkedList<>(BancoFac.pesquisarRegistro(new Banco()));
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+			BancoPlan bancoPlan = new BancoPlan(listBanco);
+			bancoPlan.retornarPlanilha(true);
+
+		}
+	}
 
 	public class Relatorio implements ActionListener {
 
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
 
-			List<Banco> bancos = new LinkedList<>();
+			List<Banco> listBanco = new LinkedList<>();
 
 			try {
-				bancos = new LinkedList<>(BancoFac.pesquisarRegistro(new Banco()));
+				listBanco = new LinkedList<>(BancoFac.pesquisarRegistro(new Banco()));
 			} catch (Exception e) {
-				System.out.println(e);
+				e.printStackTrace();
 			}
 
-			BancoRel bancoRel = new BancoRel(bancos);
+			BancoRel bancoRel = new BancoRel(listBanco);
 			bancoRel.retornarRelatorio(true);
 
 		}

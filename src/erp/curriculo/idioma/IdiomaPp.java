@@ -73,7 +73,7 @@ public final class IdiomaPp extends JPanel {
 		try {
 			idiomas = new LinkedList<>(IdiomaFac.pesquisarRegistro(Idioma));
 		} catch (Exception e) {
-			System.out.println(e);
+			e.printStackTrace();
 		}
 		atualizarGui(idiomas);
 		return idiomas.size();

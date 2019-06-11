@@ -161,7 +161,7 @@ final class IdiomaCont {
 			try {
 				idiomas = new LinkedList<>(IdiomaFac.pesquisarRegistro(new Idioma()));
 			} catch (Exception e) {
-				System.out.println(e);
+				e.printStackTrace();
 			}
 
 			IdiomaRel idiomaRel = new IdiomaRel(idiomas);

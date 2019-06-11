@@ -73,7 +73,7 @@ public final class TesteAvalPrefCerPp extends JPanel {
 		try {
 			testeAvalPrefCers = new LinkedList<>(TesteAvalPrefCerFac.pesquisarRegistro(testeAvalPrefCer));
 		} catch (Exception e) {
-			System.out.println(e);
+			e.printStackTrace();
 		}
 		atualizarGui(testeAvalPrefCers);
 		return testeAvalPrefCers.size();

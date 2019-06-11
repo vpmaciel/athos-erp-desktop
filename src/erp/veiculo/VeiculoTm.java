@@ -17,9 +17,9 @@ public class VeiculoTm extends AbstractTableModel {
 	private static boolean[] podeEditar;
 	private static TabelaModelo tabelaModelo = new TabelaModelo();
 	static {
-		tabelaModelo.adicionar("ID", 0, 100);
-		tabelaModelo.adicionar("MARCA", 1, 500);
-		tabelaModelo.adicionar("MODELO", 2, 500);
+		tabelaModelo.adicionarColuna("ID", 0, 100);
+		tabelaModelo.adicionarColuna("MARCA", 1, 500);
+		tabelaModelo.adicionarColuna("MODELO", 2, 500);
 
 		largura = new int[tabelaModelo.getTotalColunas()];
 		podeEditar = new boolean[tabelaModelo.getTotalColunas()];

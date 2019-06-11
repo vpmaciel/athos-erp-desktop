@@ -50,7 +50,7 @@ final class TipoEventoCont {
 			try {
 				getTipoEventoFc().setVisible(false);
 			} catch (Exception e) {
-				System.out.println(e);
+				e.printStackTrace();
 			}
 		}
 	}
@@ -81,7 +81,7 @@ final class TipoEventoCont {
 			try {
 				MainCont.mostrarFrame(MainCont.getMainFc());
 			} catch (Exception e) {
-				System.out.println(e);
+				e.printStackTrace();
 			}
 		}
 	}
@@ -155,7 +155,7 @@ final class TipoEventoCont {
 			try {
 				tipoEventos = new LinkedList<>(TipoEventoFac.pesquisarRegistro(new TipoEvento()));
 			} catch (Exception e) {
-				System.out.println(e);
+				e.printStackTrace();
 			}
 
 			TipoEventoRel tipoEventoRel = new TipoEventoRel(tipoEventos);
@@ -174,7 +174,7 @@ final class TipoEventoCont {
 					System.exit(0);
 				}
 			} catch (Exception e) {
-				System.out.println(e);
+				e.printStackTrace();
 			}
 		}
 	}

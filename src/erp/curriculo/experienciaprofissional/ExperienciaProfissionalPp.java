@@ -74,7 +74,7 @@ public final class ExperienciaProfissionalPp extends JPanel {
 			experienciaProfissionals = new LinkedList<>(
 					ExperienciaProfissionalFac.pesquisarRegistro(ExperienciaProfissional));
 		} catch (Exception e) {
-			System.out.println(e);
+			e.printStackTrace();
 		}
 		atualizarGui(experienciaProfissionals);
 		return experienciaProfissionals.size();

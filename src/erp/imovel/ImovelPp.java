@@ -73,7 +73,7 @@ public final class ImovelPp extends JPanel {
 		try {
 			imovelList = new LinkedList<>(ImovelFac.pesquisarRegistro(imovel));
 		} catch (Exception e) {
-			System.out.println(e);
+			e.printStackTrace();
 		}
 		atualizarGui(imovelList);
 		return imovelList.size();

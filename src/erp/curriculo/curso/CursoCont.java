@@ -162,7 +162,7 @@ final class CursoCont {
 			try {
 				cursos = new LinkedList<>(CursoFac.pesquisarRegistro(new Curso()));
 			} catch (Exception e) {
-				System.out.println(e);
+				e.printStackTrace();
 			}
 
 			CursoRel cursoRel = new CursoRel(cursos);

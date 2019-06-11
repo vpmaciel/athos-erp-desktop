@@ -13,7 +13,6 @@ import erp.usuario.UsuarioUtil;
 public class ERP {
 
 	public static void main(String[] args) {
-
 		try {
 			String separador = System.getProperty("file.separator");
 			String caminhoArquivo = "C:" + separador + "opt" + separador + "athos" + separador + "logs";

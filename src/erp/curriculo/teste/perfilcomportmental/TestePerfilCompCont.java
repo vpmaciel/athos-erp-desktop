@@ -160,7 +160,7 @@ final class TestePerfilCompCont {
 			try {
 				testePerfilComps = new LinkedList<>(TestePerfilCompFac.pesquisarRegistro(new TestePerfilComp()));
 			} catch (Exception e) {
-				System.out.println(e);
+				e.printStackTrace();
 			}
 
 			TestePerfilCompRel testePerfilCompRel = new TestePerfilCompRel(testePerfilComps);

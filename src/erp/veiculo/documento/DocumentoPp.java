@@ -73,7 +73,7 @@ public final class DocumentoPp extends JPanel {
 		try {
 			documentos = new LinkedList<>(DocumentoFac.pesquisarRegistro(documento));
 		} catch (Exception e) {
-			System.out.println(e);
+			e.printStackTrace();
 		}
 		atualizarGui(documentos);
 		return documentos.size();

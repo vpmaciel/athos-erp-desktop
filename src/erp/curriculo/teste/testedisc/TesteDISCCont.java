@@ -161,7 +161,7 @@ final class TesteDISCCont {
 			try {
 				testeDISCs = new LinkedList<>(TesteDISCFac.pesquisarRegistro(new TesteDISC()));
 			} catch (Exception e) {
-				System.out.println(e);
+				e.printStackTrace();
 			}
 
 			TesteDISCRel testeDISCRel = new TesteDISCRel(testeDISCs);

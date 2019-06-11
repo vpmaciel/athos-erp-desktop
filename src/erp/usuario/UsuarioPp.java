@@ -73,7 +73,7 @@ public final class UsuarioPp extends JPanel {
 		try {
 			usuarioList = new LinkedList<>(UsuarioFac.pesquisarRegistro(usuario));
 		} catch (Exception e) {
-			System.out.println(e);
+			e.printStackTrace();
 		}
 		atualizarGui(usuarioList);
 		return usuarioList.size();

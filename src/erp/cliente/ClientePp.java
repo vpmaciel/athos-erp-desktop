@@ -73,7 +73,7 @@ public final class ClientePp extends JPanel {
 		try {
 			clientes = new LinkedList<>(ClienteFac.pesquisarRegistro(cliente));
 		} catch (Exception e) {
-			System.out.println(e);
+			e.printStackTrace();
 		}
 		atualizarGui(clientes);
 		return clientes.size();

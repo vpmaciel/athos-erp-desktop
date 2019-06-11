@@ -165,7 +165,7 @@ final class ClienteCont {
 			try {
 				clientes = new LinkedList<>(ClienteFac.pesquisarRegistro(new Cliente()));
 			} catch (Exception e) {
-				System.out.println(e);
+				e.printStackTrace();
 			}
 
 			ClienteRel clienteRel = new ClienteRel(clientes);

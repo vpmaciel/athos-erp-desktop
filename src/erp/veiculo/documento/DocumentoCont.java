@@ -165,7 +165,7 @@ final class DocumentoCont {
 			try {
 				documentos = new LinkedList<>(DocumentoFac.pesquisarRegistro(new Documento()));
 			} catch (Exception e) {
-				System.out.println(e);
+				e.printStackTrace();
 			}
 
 			DocumentoRel documentoRel = new DocumentoRel(documentos);

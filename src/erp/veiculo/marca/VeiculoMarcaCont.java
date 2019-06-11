@@ -50,7 +50,7 @@ final class VeiculoMarcaCont {
 			try {
 				getVeiculoMarcaFc().setVisible(false);
 			} catch (Exception e) {
-				System.out.println(e);
+				e.printStackTrace();
 			}
 		}
 	}
@@ -80,7 +80,7 @@ final class VeiculoMarcaCont {
 			try {
 				MainCont.mostrarFrame(MainCont.getMainFc());
 			} catch (Exception e) {
-				System.out.println(e);
+				e.printStackTrace();
 			}
 		}
 	}
@@ -153,7 +153,7 @@ final class VeiculoMarcaCont {
 			try {
 				veiculoMarcas = new LinkedList<>(VeiculoMarcaFac.pesquisarRegistro(new VeiculoMarca()));
 			} catch (Exception e) {
-				System.out.println(e);
+				e.printStackTrace();
 			}
 
 			VeiculoMarcaRel veiculoMarcaRel = new VeiculoMarcaRel(veiculoMarcas);
@@ -172,7 +172,7 @@ final class VeiculoMarcaCont {
 					System.exit(0);
 				}
 			} catch (Exception e) {
-				System.out.println(e);
+				e.printStackTrace();
 			}
 		}
 	}

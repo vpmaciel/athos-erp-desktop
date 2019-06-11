@@ -19,15 +19,15 @@ import arquitetura.gui.Tabela;
 @SuppressWarnings("serial")
 public final class BancoPp extends JPanel {
 
-	private List<Banco> bancos = null;
+	private List<Banco> listBanco = null;
 	private final BancoTm bancoTm;
 	private final JTable table;
 
 	public BancoPp() {
 		setBorder(BorderFactory.createTitledBorder("BANCO"));
 
-		bancos = new LinkedList<>();
-		bancoTm = new BancoTm(bancos);
+		listBanco = new LinkedList<>();
+		bancoTm = new BancoTm(listBanco);
 
 		table = new JTable();
 		table.setModel(bancoTm);
@@ -54,8 +54,8 @@ public final class BancoPp extends JPanel {
 		super.add(scrollPane, "Center");
 	}
 
-	public void atualizarGui(List<Banco> bancos) {
-		bancoTm.setBancoList(bancos);
+	public void atualizarGui(List<Banco> listBanco) {
+		bancoTm.setBancoList(listBanco);
 		bancoTm.fireTableDataChanged();
 	}
 
@@ -69,13 +69,13 @@ public final class BancoPp extends JPanel {
 	}
 
 	public long pesquisarRegistro(Banco banco) {
-		bancos = new LinkedList<>();
+		listBanco = new LinkedList<>();
 		try {
-			bancos = new LinkedList<>(BancoFac.pesquisarRegistro(banco));
+			listBanco = new LinkedList<>(BancoFac.pesquisarRegistro(banco));
 		} catch (Exception e) {
-			System.out.println(e);
+			e.printStackTrace();
 		}
-		atualizarGui(bancos);
-		return bancos.size();
+		atualizarGui(listBanco);
+		return listBanco.size();
 	}
 }

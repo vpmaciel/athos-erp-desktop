@@ -11,7 +11,7 @@ public class TabelaModelo {
 
 	}
 
-	public void adicionar(String nomeColuna, int numeroColuna, int larguraColuna) {
+	public void adicionarColuna(String nomeColuna, int numeroColuna, int larguraColuna) {
 		matrizList.add(new TabelaMatriz(nomeColuna, numeroColuna, larguraColuna));
 	}
 

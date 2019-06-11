@@ -73,7 +73,7 @@ public final class CartorioPp extends JPanel {
 		try {
 			cartorioList = new LinkedList<>(CartorioFac.pesquisarRegistro(cartorio));
 		} catch (Exception e) {
-			System.out.println(e);
+			e.printStackTrace();
 		}
 		atualizarGui(cartorioList);
 		return cartorioList.size();

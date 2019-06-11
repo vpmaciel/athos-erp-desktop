@@ -53,7 +53,7 @@ final class EmpresaCont {
 			try {
 				getEmpresaFc().setVisible(false);
 			} catch (Exception e) {
-				System.out.println(e);
+				e.printStackTrace();
 			}
 		}
 	}
@@ -83,7 +83,7 @@ final class EmpresaCont {
 			try {
 				MainCont.mostrarFrame(MainCont.getMainFc());
 			} catch (Exception e) {
-				System.out.println(e);
+				e.printStackTrace();
 			}
 		}
 	}
@@ -168,7 +168,7 @@ final class EmpresaCont {
 			try {
 				empresas = new LinkedList<>(EmpresaFac.pesquisarRegistro(new Empresa()));
 			} catch (Exception e) {
-				System.out.println(e);
+				e.printStackTrace();
 			}
 
 			EmpresaRel empresaRel = new EmpresaRel(empresas);
@@ -187,7 +187,7 @@ final class EmpresaCont {
 					System.exit(0);
 				}
 			} catch (Exception e) {
-				System.out.println(e);
+				e.printStackTrace();
 			}
 		}
 	}

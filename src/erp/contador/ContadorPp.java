@@ -73,7 +73,7 @@ public final class ContadorPp extends JPanel {
 		try {
 			contadorList = new LinkedList<>(ContadorFac.pesquisarRegistro(contador));
 		} catch (Exception e) {
-			System.out.println(e);
+			e.printStackTrace();
 		}
 		atualizarGui(contadorList);
 		return contadorList.size();

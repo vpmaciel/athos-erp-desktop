@@ -73,7 +73,7 @@ public final class EmpresaPp extends JPanel {
 		try {
 			empresaList = new LinkedList<>(EmpresaFac.pesquisarRegistro(empresa));
 		} catch (Exception e) {
-			System.out.println(e);
+			e.printStackTrace();
 		}
 		atualizarGui(empresaList);
 		return empresaList.size();

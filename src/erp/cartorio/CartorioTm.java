@@ -15,10 +15,10 @@ public class CartorioTm extends AbstractTableModel {
 	private static boolean[] podeEditar;
 	private static TabelaModelo tabelaModelo = new TabelaModelo();
 	static {
-		tabelaModelo.adicionar("ID", 0, 100);
-		tabelaModelo.adicionar("NOME FANTASIA", 1, 500);
-		tabelaModelo.adicionar("COMARCA", 2, 500);
-		tabelaModelo.adicionar("CIDADE", 3, 500);
+		tabelaModelo.adicionarColuna("ID", 0, 100);
+		tabelaModelo.adicionarColuna("NOME FANTASIA", 1, 500);
+		tabelaModelo.adicionarColuna("COMARCA", 2, 500);
+		tabelaModelo.adicionarColuna("CIDADE", 3, 500);
 
 		largura = new int[tabelaModelo.getTotalColunas()];
 		podeEditar = new boolean[tabelaModelo.getTotalColunas()];

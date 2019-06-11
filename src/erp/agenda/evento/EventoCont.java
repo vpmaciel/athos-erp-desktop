@@ -54,7 +54,7 @@ final class EventoCont {
 			try {
 				getEventoFc().setVisible(false);
 			} catch (Exception e) {
-				System.out.println(e);
+				e.printStackTrace();
 			}
 		}
 	}
@@ -84,7 +84,7 @@ final class EventoCont {
 			try {
 				MainCont.mostrarFrame(MainCont.getMainFc());
 			} catch (Exception e) {
-				System.out.println(e);
+				e.printStackTrace();
 			}
 		}
 	}
@@ -169,7 +169,7 @@ final class EventoCont {
 			try {
 				eventos = new LinkedList<>(EventoFac.pesquisarRegistro(new Evento()));
 			} catch (Exception e) {
-				System.out.println(e);
+				e.printStackTrace();
 			}
 
 			EventoRel eventoRel = new EventoRel(eventos);
@@ -188,7 +188,7 @@ final class EventoCont {
 					System.exit(0);
 				}
 			} catch (Exception e) {
-				System.out.println(e);
+				e.printStackTrace();
 			}
 		}
 	}

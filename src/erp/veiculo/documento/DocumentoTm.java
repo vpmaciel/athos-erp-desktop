@@ -17,15 +17,15 @@ public class DocumentoTm extends AbstractTableModel {
 	private static boolean[] podeEditar;
 	private static TabelaModelo tabelaModelo = new TabelaModelo();
 	static {
-		tabelaModelo.adicionar("ID", 0, 100);
-		tabelaModelo.adicionar("SITUAÇÃO", 1, 200);
-		tabelaModelo.adicionar("LOCAL", 2, 200);
-		tabelaModelo.adicionar("PLACA", 3, 100);
-		tabelaModelo.adicionar("MARCA", 4, 300);
-		tabelaModelo.adicionar("MODELO", 5, 300);
-		tabelaModelo.adicionar("NOME DO PROPRIETÁRIO", 6, 300);
-		tabelaModelo.adicionar("MÊS DE RECEBIMENTO DO DOCUMENTO", 7, 300);
-		tabelaModelo.adicionar("ANO DE RECEBIMENTO DO DOCUMENTO", 8, 300);
+		tabelaModelo.adicionarColuna("ID", 0, 100);
+		tabelaModelo.adicionarColuna("SITUAÇÃO", 1, 200);
+		tabelaModelo.adicionarColuna("LOCAL", 2, 200);
+		tabelaModelo.adicionarColuna("PLACA", 3, 100);
+		tabelaModelo.adicionarColuna("MARCA", 4, 300);
+		tabelaModelo.adicionarColuna("MODELO", 5, 300);
+		tabelaModelo.adicionarColuna("NOME DO PROPRIETÁRIO", 6, 300);
+		tabelaModelo.adicionarColuna("MÊS DE RECEBIMENTO DO DOCUMENTO", 7, 300);
+		tabelaModelo.adicionarColuna("ANO DE RECEBIMENTO DO DOCUMENTO", 8, 300);
 		
 
 		largura = new int[tabelaModelo.getTotalColunas()];

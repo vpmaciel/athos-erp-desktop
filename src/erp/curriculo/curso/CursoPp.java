@@ -73,7 +73,7 @@ public final class CursoPp extends JPanel {
 		try {
 			cursos = new LinkedList<>(CursoFac.pesquisarRegistro(Curso));
 		} catch (Exception e) {
-			System.out.println(e);
+			e.printStackTrace();
 		}
 		atualizarGui(cursos);
 		return cursos.size();

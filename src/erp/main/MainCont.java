@@ -260,129 +260,129 @@ public final class MainCont {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			MainCont.getAgendaContatoFc()
-					.setTitle(AOP.getNomeSistema() + " - CONTATO " + Data.getData() + AOP.getUsuarioFormatado());
+					.setTitle(AOP.getNomeSistema() + " - CONTATO " + Data.getDataHoraSimples() + AOP.getUsuarioFormatado());
 			MainCont.getAgendaContatoFp()
-					.setTitle(AOP.getNomeSistema() + " - CONTATO " + Data.getData() + AOP.getUsuarioFormatado());
+					.setTitle(AOP.getNomeSistema() + " - CONTATO " + Data.getDataHoraSimples() + AOP.getUsuarioFormatado());
 			MainCont.getAgendaEventoFc()
-					.setTitle(AOP.getNomeSistema() + " - EVENTO " + Data.getData() + AOP.getUsuarioFormatado());
+					.setTitle(AOP.getNomeSistema() + " - EVENTO " + Data.getDataHoraSimples() + AOP.getUsuarioFormatado());
 			MainCont.getAgendaEventoFp()
-					.setTitle(AOP.getNomeSistema() + " - EVENTO " + Data.getData() + AOP.getUsuarioFormatado());
+					.setTitle(AOP.getNomeSistema() + " - EVENTO " + Data.getDataHoraSimples() + AOP.getUsuarioFormatado());
 			MainCont.getAgendaTipoEventoFc()
-					.setTitle(AOP.getNomeSistema() + " - TIPO DE EVENTO " + Data.getData() + AOP.getUsuarioFormatado());
+					.setTitle(AOP.getNomeSistema() + " - TIPO DE EVENTO " + Data.getDataHoraSimples() + AOP.getUsuarioFormatado());
 			MainCont.getAgendaTipoEventoFp()
-					.setTitle(AOP.getNomeSistema() + " - TIPO DE EVENTO " + Data.getData() + AOP.getUsuarioFormatado());
+					.setTitle(AOP.getNomeSistema() + " - TIPO DE EVENTO " + Data.getDataHoraSimples() + AOP.getUsuarioFormatado());
 			MainCont.getAgendaRecadoFc()
-					.setTitle(AOP.getNomeSistema() + " - RECADO " + Data.getData() + AOP.getUsuarioFormatado());
+					.setTitle(AOP.getNomeSistema() + " - RECADO " + Data.getDataHoraSimples() + AOP.getUsuarioFormatado());
 			MainCont.getAgendaRecadoFp()
-					.setTitle(AOP.getNomeSistema() + " - RECADO " + Data.getData() + AOP.getUsuarioFormatado());
+					.setTitle(AOP.getNomeSistema() + " - RECADO " + Data.getDataHoraSimples() + AOP.getUsuarioFormatado());
 			MainCont.getBancoFc()
-					.setTitle(AOP.getNomeSistema() + " - BANCO " + Data.getData() + AOP.getUsuarioFormatado());
+					.setTitle(AOP.getNomeSistema() + " - BANCO " + Data.getDataHoraSimples() + AOP.getUsuarioFormatado());
 			MainCont.getBancoFp()
-					.setTitle(AOP.getNomeSistema() + " - BANCO " + Data.getData() + AOP.getUsuarioFormatado());
+					.setTitle(AOP.getNomeSistema() + " - BANCO " + Data.getDataHoraSimples() + AOP.getUsuarioFormatado());
 			MainCont.getCalculadoraFc()
-					.setTitle(AOP.getNomeSistema() + " - CALCULADORA " + Data.getData() + AOP.getUsuarioFormatado());
+					.setTitle(AOP.getNomeSistema() + " - CALCULADORA " + Data.getDataHoraSimples() + AOP.getUsuarioFormatado());
 			MainCont.getCartorioFc()
-					.setTitle(AOP.getNomeSistema() + " - CARTÓRIO " + Data.getData() + AOP.getUsuarioFormatado());
+					.setTitle(AOP.getNomeSistema() + " - CARTÓRIO " + Data.getDataHoraSimples() + AOP.getUsuarioFormatado());
 			MainCont.getCartorioFp()
-					.setTitle(AOP.getNomeSistema() + " - CARTÓRIO " + Data.getData() + AOP.getUsuarioFormatado());
+					.setTitle(AOP.getNomeSistema() + " - CARTÓRIO " + Data.getDataHoraSimples() + AOP.getUsuarioFormatado());
 			MainCont.getCentroCustoFc().setTitle(
-					AOP.getNomeSistema() + " - CENTRO DE CUSTO " + Data.getData() + AOP.getUsuarioFormatado());
+					AOP.getNomeSistema() + " - CENTRO DE CUSTO " + Data.getDataHoraSimples() + AOP.getUsuarioFormatado());
 			MainCont.getCentroCustoFp().setTitle(
-					AOP.getNomeSistema() + " - CENTRO DE CUSTO " + Data.getData() + AOP.getUsuarioFormatado());
+					AOP.getNomeSistema() + " - CENTRO DE CUSTO " + Data.getDataHoraSimples() + AOP.getUsuarioFormatado());
 			MainCont.getClienteFc()
-					.setTitle(AOP.getNomeSistema() + " - CLIENTE " + Data.getData() + AOP.getUsuarioFormatado());
+					.setTitle(AOP.getNomeSistema() + " - CLIENTE " + Data.getDataHoraSimples() + AOP.getUsuarioFormatado());
 			MainCont.getClienteFp()
-					.setTitle(AOP.getNomeSistema() + " - CLIENTE " + Data.getData() + AOP.getUsuarioFormatado());
+					.setTitle(AOP.getNomeSistema() + " - CLIENTE " + Data.getDataHoraSimples() + AOP.getUsuarioFormatado());
 			MainCont.getContadorFc()
-					.setTitle(AOP.getNomeSistema() + " - CONTADOR " + Data.getData() + AOP.getUsuarioFormatado());
+					.setTitle(AOP.getNomeSistema() + " - CONTADOR " + Data.getDataHoraSimples() + AOP.getUsuarioFormatado());
 			MainCont.getContadorFp()
-					.setTitle(AOP.getNomeSistema() + " - CONTADOR " + Data.getData() + AOP.getUsuarioFormatado());
+					.setTitle(AOP.getNomeSistema() + " - CONTADOR " + Data.getDataHoraSimples() + AOP.getUsuarioFormatado());
 			MainCont.getEditorTextoFc().setTitle(
-					AOP.getNomeSistema() + " - EDITOR DE TEXTO " + Data.getData() + AOP.getUsuarioFormatado());
+					AOP.getNomeSistema() + " - EDITOR DE TEXTO " + Data.getDataHoraSimples() + AOP.getUsuarioFormatado());
 			MainCont.getEmpresaFc()
-					.setTitle(AOP.getNomeSistema() + " - EMPRESA " + Data.getData() + AOP.getUsuarioFormatado());
+					.setTitle(AOP.getNomeSistema() + " - EMPRESA " + Data.getDataHoraSimples() + AOP.getUsuarioFormatado());
 			MainCont.getEmpresaFp()
-					.setTitle(AOP.getNomeSistema() + " - EMPRESA " + Data.getData() + AOP.getUsuarioFormatado());
+					.setTitle(AOP.getNomeSistema() + " - EMPRESA " + Data.getDataHoraSimples() + AOP.getUsuarioFormatado());
 			MainCont.getFornecedorFc()
-					.setTitle(AOP.getNomeSistema() + " - FORNECEDOR " + Data.getData() + AOP.getUsuarioFormatado());
+					.setTitle(AOP.getNomeSistema() + " - FORNECEDOR " + Data.getDataHoraSimples() + AOP.getUsuarioFormatado());
 			MainCont.getFornecedorFp()
-					.setTitle(AOP.getNomeSistema() + " - FORNECEDOR " + Data.getData() + AOP.getUsuarioFormatado());
+					.setTitle(AOP.getNomeSistema() + " - FORNECEDOR " + Data.getDataHoraSimples() + AOP.getUsuarioFormatado());
 			MainCont.getCurriculoFc()
-					.setTitle(AOP.getNomeSistema() + " - FUNCIONÁRIO " + Data.getData() + AOP.getUsuarioFormatado());
+					.setTitle(AOP.getNomeSistema() + " - FUNCIONÁRIO " + Data.getDataHoraSimples() + AOP.getUsuarioFormatado());
 			MainCont.getCurriculoFp()
-					.setTitle(AOP.getNomeSistema() + " - FUNCIONÁRIO " + Data.getData() + AOP.getUsuarioFormatado());
+					.setTitle(AOP.getNomeSistema() + " - FUNCIONÁRIO " + Data.getDataHoraSimples() + AOP.getUsuarioFormatado());
 			MainCont.getImovelFc()
-					.setTitle(AOP.getNomeSistema() + " - IMÓVEL " + Data.getData() + AOP.getUsuarioFormatado());
+					.setTitle(AOP.getNomeSistema() + " - IMÓVEL " + Data.getDataHoraSimples() + AOP.getUsuarioFormatado());
 			MainCont.getImovelFp()
-					.setTitle(AOP.getNomeSistema() + " - IMÓVEL " + Data.getData() + AOP.getUsuarioFormatado());
+					.setTitle(AOP.getNomeSistema() + " - IMÓVEL " + Data.getDataHoraSimples() + AOP.getUsuarioFormatado());
 			MainCont.getLoginFc()
-					.setTitle(AOP.getNomeSistema() + " - LOGIN " + Data.getData() + AOP.getUsuarioFormatado());
+					.setTitle(AOP.getNomeSistema() + " - LOGIN " + Data.getDataHoraSimples() + AOP.getUsuarioFormatado());
 			MainCont.getMainFc()
-					.setTitle(AOP.getNomeSistema() + " - PRINCIPAL " + Data.getData() + AOP.getUsuarioFormatado());
+					.setTitle(AOP.getNomeSistema() + " - PRINCIPAL " + Data.getDataHoraSimples() + AOP.getUsuarioFormatado());
 			MainCont.getSindicatoFc()
-					.setTitle(AOP.getNomeSistema() + " - SINDICATO " + Data.getData() + AOP.getUsuarioFormatado());
+					.setTitle(AOP.getNomeSistema() + " - SINDICATO " + Data.getDataHoraSimples() + AOP.getUsuarioFormatado());
 			MainCont.getSindicatoFp()
-					.setTitle(AOP.getNomeSistema() + " - SINDICATO " + Data.getData() + AOP.getUsuarioFormatado());
+					.setTitle(AOP.getNomeSistema() + " - SINDICATO " + Data.getDataHoraSimples() + AOP.getUsuarioFormatado());
 			MainCont.getUsuarioFc()
-					.setTitle(AOP.getNomeSistema() + " - USUÁRIO " + Data.getData() + AOP.getUsuarioFormatado());
+					.setTitle(AOP.getNomeSistema() + " - USUÁRIO " + Data.getDataHoraSimples() + AOP.getUsuarioFormatado());
 			MainCont.getUsuarioFp()
-					.setTitle(AOP.getNomeSistema() + " - USUÁRIO " + Data.getData() + AOP.getUsuarioFormatado());
+					.setTitle(AOP.getNomeSistema() + " - USUÁRIO " + Data.getDataHoraSimples() + AOP.getUsuarioFormatado());
 			MainCont.getVeiculoFc()
-					.setTitle(AOP.getNomeSistema() + " - VEÍCULO " + Data.getData() + AOP.getUsuarioFormatado());
+					.setTitle(AOP.getNomeSistema() + " - VEÍCULO " + Data.getDataHoraSimples() + AOP.getUsuarioFormatado());
 			MainCont.getVeiculoFp()
-					.setTitle(AOP.getNomeSistema() + " - VEÍCULO " + Data.getData() + AOP.getUsuarioFormatado());
+					.setTitle(AOP.getNomeSistema() + " - VEÍCULO " + Data.getDataHoraSimples() + AOP.getUsuarioFormatado());
 			MainCont.getVeiculoMarcaFc().setTitle(
-					AOP.getNomeSistema() + " - MARCA DE VEÍCULO " + Data.getData() + AOP.getUsuarioFormatado());
+					AOP.getNomeSistema() + " - MARCA DE VEÍCULO " + Data.getDataHoraSimples() + AOP.getUsuarioFormatado());
 			MainCont.getVeiculoMarcaFp().setTitle(
-					AOP.getNomeSistema() + " - MARCA DE VEÍCULO " + Data.getData() + AOP.getUsuarioFormatado());
+					AOP.getNomeSistema() + " - MARCA DE VEÍCULO " + Data.getDataHoraSimples() + AOP.getUsuarioFormatado());
 			MainCont.getVeiculoModeloFc().setTitle(
-					AOP.getNomeSistema() + " - MODELO DE VEÍCULO " + Data.getData() + AOP.getUsuarioFormatado());
+					AOP.getNomeSistema() + " - MODELO DE VEÍCULO " + Data.getDataHoraSimples() + AOP.getUsuarioFormatado());
 			MainCont.getVeiculoModeloFp().setTitle(
-					AOP.getNomeSistema() + " - MODELO DE VEÍCULO " + Data.getData() + AOP.getUsuarioFormatado());
+					AOP.getNomeSistema() + " - MODELO DE VEÍCULO " + Data.getDataHoraSimples() + AOP.getUsuarioFormatado());
 			MainCont.getVeiculoDocumentoFc().setTitle(
-					AOP.getNomeSistema() + " - DOCUMENTO DE VEÍCULO " + Data.getData() + AOP.getUsuarioFormatado());
+					AOP.getNomeSistema() + " - DOCUMENTO DE VEÍCULO " + Data.getDataHoraSimples() + AOP.getUsuarioFormatado());
 			MainCont.getVeiculoDocumentoFp().setTitle(
-					AOP.getNomeSistema() + " - DOCUMENTO DE VEÍCULO " + Data.getData() + AOP.getUsuarioFormatado());
+					AOP.getNomeSistema() + " - DOCUMENTO DE VEÍCULO " + Data.getDataHoraSimples() + AOP.getUsuarioFormatado());
 			MainCont.getCurriculoFc()
-					.setTitle(AOP.getNomeSistema() + " - CURRÍCULO " + Data.getData() + AOP.getUsuarioFormatado());
+					.setTitle(AOP.getNomeSistema() + " - CURRÍCULO " + Data.getDataHoraSimples() + AOP.getUsuarioFormatado());
 			MainCont.getCurriculoFp()
-					.setTitle(AOP.getNomeSistema() + " - CURRÍCULO " + Data.getData() + AOP.getUsuarioFormatado());
+					.setTitle(AOP.getNomeSistema() + " - CURRÍCULO " + Data.getDataHoraSimples() + AOP.getUsuarioFormatado());
 			MainCont.getCurriculoCertificadoFc()
-					.setTitle(AOP.getNomeSistema() + " - CERTIFICADO " + Data.getData() + AOP.getUsuarioFormatado());
+					.setTitle(AOP.getNomeSistema() + " - CERTIFICADO " + Data.getDataHoraSimples() + AOP.getUsuarioFormatado());
 			MainCont.getCurriculoCertificadoFp()
-					.setTitle(AOP.getNomeSistema() + " - CERTIFICADO " + Data.getData() + AOP.getUsuarioFormatado());
+					.setTitle(AOP.getNomeSistema() + " - CERTIFICADO " + Data.getDataHoraSimples() + AOP.getUsuarioFormatado());
 			MainCont.getCurriculoCursoFc()
-					.setTitle(AOP.getNomeSistema() + " - CURSO " + Data.getData() + AOP.getUsuarioFormatado());
+					.setTitle(AOP.getNomeSistema() + " - CURSO " + Data.getDataHoraSimples() + AOP.getUsuarioFormatado());
 			MainCont.getCurriculoCursoFp()
-					.setTitle(AOP.getNomeSistema() + " - CURSO " + Data.getData() + AOP.getUsuarioFormatado());
+					.setTitle(AOP.getNomeSistema() + " - CURSO " + Data.getDataHoraSimples() + AOP.getUsuarioFormatado());
 			MainCont.getCurriculoExperienciaProfissionalFc().setTitle(
-					AOP.getNomeSistema() + " - EXPERIÊNCIA PROFISSIONAL " + Data.getData() + AOP.getUsuarioFormatado());
+					AOP.getNomeSistema() + " - EXPERIÊNCIA PROFISSIONAL " + Data.getDataHoraSimples() + AOP.getUsuarioFormatado());
 			MainCont.getCurriculoExperienciaProfissionalFp().setTitle(
-					AOP.getNomeSistema() + " - EXPERIÊNCIA PROFISSIONAL " + Data.getData() + AOP.getUsuarioFormatado());
+					AOP.getNomeSistema() + " - EXPERIÊNCIA PROFISSIONAL " + Data.getDataHoraSimples() + AOP.getUsuarioFormatado());
 			MainCont.getCurriculoHabilidadeFc()
-					.setTitle(AOP.getNomeSistema() + " - HABILIDADE " + Data.getData() + AOP.getUsuarioFormatado());
+					.setTitle(AOP.getNomeSistema() + " - HABILIDADE " + Data.getDataHoraSimples() + AOP.getUsuarioFormatado());
 			MainCont.getCurriculoHabilidadeFp()
-					.setTitle(AOP.getNomeSistema() + " - HABILIDADE " + Data.getData() + AOP.getUsuarioFormatado());
+					.setTitle(AOP.getNomeSistema() + " - HABILIDADE " + Data.getDataHoraSimples() + AOP.getUsuarioFormatado());
 			MainCont.getCurriculoIdiomaFc()
-					.setTitle(AOP.getNomeSistema() + " - IDIOMA " + Data.getData() + AOP.getUsuarioFormatado());
+					.setTitle(AOP.getNomeSistema() + " - IDIOMA " + Data.getDataHoraSimples() + AOP.getUsuarioFormatado());
 			MainCont.getCurriculoIdiomaFp()
-					.setTitle(AOP.getNomeSistema() + " - IDIOMA " + Data.getData() + AOP.getUsuarioFormatado());
+					.setTitle(AOP.getNomeSistema() + " - IDIOMA " + Data.getDataHoraSimples() + AOP.getUsuarioFormatado());
 			MainCont.getCurriculoObjetivoProfissionalFc().setTitle(
-					AOP.getNomeSistema() + " - OBJETIVO PROFISSIONAL " + Data.getData() + AOP.getUsuarioFormatado());
+					AOP.getNomeSistema() + " - OBJETIVO PROFISSIONAL " + Data.getDataHoraSimples() + AOP.getUsuarioFormatado());
 			MainCont.getCurriculoObjetivoProfissionalFp().setTitle(
-					AOP.getNomeSistema() + " - OBJETIVO PROFISSIONAL " + Data.getData() + AOP.getUsuarioFormatado());
+					AOP.getNomeSistema() + " - OBJETIVO PROFISSIONAL " + Data.getDataHoraSimples() + AOP.getUsuarioFormatado());
 			MainCont.getCurriculoTesteAvalPrefCerFc().setTitle(AOP.getNomeSistema() + " - TESTE DE PREFERÊNCIA CEREBRAL "
-					+ Data.getData() + AOP.getUsuarioFormatado());
+					+ Data.getDataHoraSimples() + AOP.getUsuarioFormatado());
 			MainCont.getCurriculoTesteAvalPrefCerFp().setTitle(AOP.getNomeSistema() + " - TESTE DE PREFERÊNCIA CEREBRAL "
-					+ Data.getData() + AOP.getUsuarioFormatado());
+					+ Data.getDataHoraSimples() + AOP.getUsuarioFormatado());
 			MainCont.getCurriculoTestePerfilCompFc().setTitle(AOP.getNomeSistema() + " - TESTE DE PERFIL COMPORTAMENTAL "
-					+ Data.getData() + AOP.getUsuarioFormatado());
+					+ Data.getDataHoraSimples() + AOP.getUsuarioFormatado());
 			MainCont.getCurriculoTestePerfilCompFp().setTitle(AOP.getNomeSistema() + " - TESTE DE PERFIL COMPORTAMENTAL "
-					+ Data.getData() + AOP.getUsuarioFormatado());
+					+ Data.getDataHoraSimples() + AOP.getUsuarioFormatado());
 			MainCont.getCurriculoTesteDISCFc().setTitle(AOP.getNomeSistema() + " - TESTE DE PERSONALIDADE D.I.S.C. "
-					+ Data.getData() + AOP.getUsuarioFormatado());
+					+ Data.getDataHoraSimples() + AOP.getUsuarioFormatado());
 			MainCont.getCurriculoTesteDISCFp().setTitle(AOP.getNomeSistema() + " - TESTE DE PERSONALIDADE D.I.S.C. "
-					+ Data.getData() + AOP.getUsuarioFormatado());
+					+ Data.getDataHoraSimples() + AOP.getUsuarioFormatado());
 		}
 	}
 

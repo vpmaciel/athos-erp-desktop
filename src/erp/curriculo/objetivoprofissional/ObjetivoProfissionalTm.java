@@ -16,10 +16,10 @@ public class ObjetivoProfissionalTm extends AbstractTableModel {
 	private static boolean[] podeEditar;
 	private static TabelaModelo tabelaModelo = new TabelaModelo();
 	static {
-		tabelaModelo.adicionar("ID", 0, 100);
-		tabelaModelo.adicionar("FUNCIONÁRIO", 1, 500);
-		tabelaModelo.adicionar("CARGO", 2, 500);
-		tabelaModelo.adicionar("PRETENSÃO SALARIAL", 3, 500);
+		tabelaModelo.adicionarColuna("ID", 0, 100);
+		tabelaModelo.adicionarColuna("FUNCIONÁRIO", 1, 500);
+		tabelaModelo.adicionarColuna("CARGO", 2, 500);
+		tabelaModelo.adicionarColuna("PRETENSÃO SALARIAL", 3, 500);
 
 		largura = new int[tabelaModelo.getTotalColunas()];
 		podeEditar = new boolean[tabelaModelo.getTotalColunas()];

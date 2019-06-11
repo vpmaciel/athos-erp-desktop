@@ -54,7 +54,7 @@ public class LoginCont {
 				AOP.setUsuario(list.get(0));
 				MainCont.getLoginFc().setVisible(false);
 				MainCont.getMainFc().toFront();
-				logger.warn(Data.getDataHora());
+				logger.warn(Data.getDataHoraCompleta());
 
 			} else {
 				Msg.avisoUsuarioInvalido();

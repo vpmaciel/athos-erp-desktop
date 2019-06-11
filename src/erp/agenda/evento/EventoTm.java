@@ -16,12 +16,12 @@ public class EventoTm extends AbstractTableModel {
 	private static boolean[] podeEditar;
 	private static TabelaModelo tabelaModelo = new TabelaModelo();
 	static {
-		tabelaModelo.adicionar("ID", 0, 100);
-		tabelaModelo.adicionar("DESCRIÇÃO", 1, 500);
-		tabelaModelo.adicionar("TIPO DE EVENTO", 2, 500);
-		tabelaModelo.adicionar("DATA", 3, 100);
-		tabelaModelo.adicionar("HORA INÍCIO", 4, 100);
-		tabelaModelo.adicionar("HORA TÉRMINO", 5, 100);
+		tabelaModelo.adicionarColuna("ID", 0, 100);
+		tabelaModelo.adicionarColuna("DESCRIÇÃO", 1, 500);
+		tabelaModelo.adicionarColuna("TIPO DE EVENTO", 2, 500);
+		tabelaModelo.adicionarColuna("DATA", 3, 100);
+		tabelaModelo.adicionarColuna("HORA INÍCIO", 4, 100);
+		tabelaModelo.adicionarColuna("HORA TÉRMINO", 5, 100);
 
 		largura = new int[tabelaModelo.getTotalColunas()];
 		podeEditar = new boolean[tabelaModelo.getTotalColunas()];

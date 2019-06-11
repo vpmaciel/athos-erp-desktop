@@ -73,7 +73,7 @@ public final class HabilidadePp extends JPanel {
 		try {
 			habilidades = new LinkedList<>(HabilidadeFac.pesquisarRegistro(Habilidade));
 		} catch (Exception e) {
-			System.out.println(e);
+			e.printStackTrace();
 		}
 		atualizarGui(habilidades);
 		return habilidades.size();

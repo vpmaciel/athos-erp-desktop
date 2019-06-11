@@ -15,10 +15,10 @@ public class ImovelTm extends AbstractTableModel {
 	private static boolean[] podeEditar;
 	private static TabelaModelo tabelaModelo = new TabelaModelo();
 	static {
-		tabelaModelo.adicionar("ID", 0, 100);
-		tabelaModelo.adicionar("NOME PROPRIETÁRIO", 1, 500);
-		tabelaModelo.adicionar("CIDADE", 2, 500);
-		tabelaModelo.adicionar("BAIRRO", 3, 500);
+		tabelaModelo.adicionarColuna("ID", 0, 100);
+		tabelaModelo.adicionarColuna("NOME PROPRIETÁRIO", 1, 500);
+		tabelaModelo.adicionarColuna("CIDADE", 2, 500);
+		tabelaModelo.adicionarColuna("BAIRRO", 3, 500);
 
 		largura = new int[tabelaModelo.getTotalColunas()];
 		podeEditar = new boolean[tabelaModelo.getTotalColunas()];

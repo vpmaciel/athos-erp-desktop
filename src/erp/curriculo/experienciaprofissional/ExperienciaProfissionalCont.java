@@ -164,7 +164,7 @@ final class ExperienciaProfissionalCont {
 				experienciaProfissionals = new LinkedList<>(
 						ExperienciaProfissionalFac.pesquisarRegistro(new ExperienciaProfissional()));
 			} catch (Exception e) {
-				System.out.println(e);
+				e.printStackTrace();
 			}
 
 			ExperienciaProfissionalRel experienciaProfissionalRel = new ExperienciaProfissionalRel(

@@ -73,7 +73,7 @@ public final class TestePerfilCompPp extends JPanel {
 		try {
 			testePerfilComps = new LinkedList<>(TestePerfilCompFac.pesquisarRegistro(testePerfilComp));
 		} catch (Exception e) {
-			System.out.println(e);
+			e.printStackTrace();
 		}
 		atualizarGui(testePerfilComps);
 		return testePerfilComps.size();

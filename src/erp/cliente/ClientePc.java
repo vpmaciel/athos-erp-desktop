@@ -502,9 +502,9 @@ public final class ClientePc extends JPanel implements Gui {
 		add(labelBanco);
 
 		boxBanco = new JComboBox<Banco>();
-		List<Banco> bancos = (List<Banco>) BancoFac.getRegistro();
-		Collections.sort(bancos, new BancoComp().new Nome());
-		for (Banco b : bancos) {
+		List<Banco> listBanco = (List<Banco>) BancoFac.getRegistro();
+		Collections.sort(listBanco, new BancoComp().new Nome());
+		for (Banco b : listBanco) {
 			boxBanco.addItem(b);
 		}
 		boxBanco.setMaximumRowCount(5);
@@ -698,10 +698,10 @@ public final class ClientePc extends JPanel implements Gui {
 			boxEmpresa.addItem(b);
 		}
 		Banco banco = null;
-		List<Banco> bancos = (List<Banco>) BancoFac.getRegistro();
-		Collections.sort(bancos, new BancoComp().new Nome());
+		List<Banco> listBanco = (List<Banco>) BancoFac.getRegistro();
+		Collections.sort(listBanco, new BancoComp().new Nome());
 		boxBanco.removeAllItems();
-		for (Banco b : bancos) {
+		for (Banco b : listBanco) {
 			boxBanco.addItem(b);
 		}
 		if (!MainCont.getClienteFc().isShowing() && MainCont.getClienteFc().getClienteCont().getCliente() != null) {

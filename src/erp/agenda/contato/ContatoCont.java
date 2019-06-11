@@ -55,7 +55,7 @@ final class ContatoCont {
 			try {
 				getContatoFc().setVisible(false);
 			} catch (Exception e) {
-				System.out.println(e);
+				e.printStackTrace();
 			}
 		}
 	}
@@ -85,7 +85,7 @@ final class ContatoCont {
 			try {
 				MainCont.mostrarFrame(MainCont.getMainFc());
 			} catch (Exception e) {
-				System.out.println(e);
+				e.printStackTrace();
 			}
 		}
 	}
@@ -181,7 +181,7 @@ final class ContatoCont {
 			try {
 				contatos = new LinkedList<>(ContatoFac.pesquisarRegistro(new Contato()));
 			} catch (Exception e) {
-				System.out.println(e);
+				e.printStackTrace();
 			}
 
 			ContatoRel contatoRel = new ContatoRel(contatos);
@@ -200,7 +200,7 @@ final class ContatoCont {
 					System.exit(0);
 				}
 			} catch (Exception e) {
-				System.out.println(e);
+				e.printStackTrace();
 			}
 		}
 	}

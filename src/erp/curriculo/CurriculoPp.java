@@ -74,7 +74,7 @@ public final class CurriculoPp extends JPanel {
 		try {
 			funcionarioList = new LinkedList<>(CurriculoFac.pesquisarRegistro(funcionario));
 		} catch (Exception e) {
-			System.out.println(e);
+			e.printStackTrace();
 		}
 		atualizarGui(funcionarioList);
 		return funcionarioList.size();

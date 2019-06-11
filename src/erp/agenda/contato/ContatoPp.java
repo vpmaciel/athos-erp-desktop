@@ -72,7 +72,7 @@ public final class ContatoPp extends JPanel {
 		try {
 			contatoList = new LinkedList<>(ContatoFac.pesquisarRegistro(contato));
 		} catch (Exception e) {
-			System.out.println(e);
+			e.printStackTrace();
 		}
 		atualizarGui(contatoList);
 		return contatoList.size();

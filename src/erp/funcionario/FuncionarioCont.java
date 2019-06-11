@@ -54,7 +54,7 @@ final class FuncionarioCont {
 			try {
 				MainCont.getFuncionarioFc().setVisible(false);
 			} catch (Exception e) {
-				System.out.println(e);
+				e.printStackTrace();
 			}
 		}
 	}
@@ -85,7 +85,7 @@ final class FuncionarioCont {
 			try {
 				MainCont.mostrarFrame(MainCont.getMainFc());
 			} catch (Exception e) {
-				System.out.println(e);
+				e.printStackTrace();
 			}
 		}
 	}
@@ -170,7 +170,7 @@ final class FuncionarioCont {
 			try {
 				funcionarios = new LinkedList<>(FuncionarioFac.pesquisarRegistro(new Funcionario()));
 			} catch (Exception e) {
-				System.out.println(e);
+				e.printStackTrace();
 			}
 
 			FuncionarioRel funcionarioRel = new FuncionarioRel(funcionarios);
@@ -189,7 +189,7 @@ final class FuncionarioCont {
 					System.exit(0);
 				}
 			} catch (Exception e) {
-				System.out.println(e);
+				e.printStackTrace();
 			}
 		}
 	}

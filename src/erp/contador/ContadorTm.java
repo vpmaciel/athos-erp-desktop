@@ -15,11 +15,11 @@ public class ContadorTm extends AbstractTableModel {
 	private static boolean[] podeEditar;
 	private static TabelaModelo tabelaModelo = new TabelaModelo();
 	static {
-		tabelaModelo.adicionar("ID", 0, 100);
-		tabelaModelo.adicionar("CNPJ", 1, 100);
-		tabelaModelo.adicionar("CPF", 2, 100);
-		tabelaModelo.adicionar("NOME", 3, 500);
-		tabelaModelo.adicionar("CRC", 4, 100);
+		tabelaModelo.adicionarColuna("ID", 0, 100);
+		tabelaModelo.adicionarColuna("CNPJ", 1, 100);
+		tabelaModelo.adicionarColuna("CPF", 2, 100);
+		tabelaModelo.adicionarColuna("NOME", 3, 500);
+		tabelaModelo.adicionarColuna("CRC", 4, 100);
 
 		largura = new int[tabelaModelo.getTotalColunas()];
 		podeEditar = new boolean[tabelaModelo.getTotalColunas()];

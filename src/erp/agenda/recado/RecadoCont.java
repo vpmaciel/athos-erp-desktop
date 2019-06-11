@@ -48,7 +48,7 @@ final class RecadoCont {
 			try {
 				getRecadoFc().setVisible(false);
 			} catch (Exception e) {
-				System.out.println(e);
+				e.printStackTrace();
 			}
 		}
 	}
@@ -78,7 +78,7 @@ final class RecadoCont {
 			try {
 				MainCont.mostrarFrame(MainCont.getMainFc());
 			} catch (Exception e) {
-				System.out.println(e);
+				e.printStackTrace();
 			}
 		}
 	}
@@ -152,7 +152,7 @@ final class RecadoCont {
 			try {
 				recados = new LinkedList<>(RecadoFac.pesquisarRegistro(new Recado()));
 			} catch (Exception e) {
-				System.out.println(e);
+				e.printStackTrace();
 			}
 
 			RecadoRel recadoRel = new RecadoRel(recados);
@@ -171,7 +171,7 @@ final class RecadoCont {
 					System.exit(0);
 				}
 			} catch (Exception e) {
-				System.out.println(e);
+				e.printStackTrace();
 			}
 		}
 	}

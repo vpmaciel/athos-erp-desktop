@@ -16,10 +16,10 @@ public class IdiomaTm extends AbstractTableModel {
 	private static boolean[] podeEditar;
 	private static TabelaModelo tabelaModelo = new TabelaModelo();
 	static {
-		tabelaModelo.adicionar("ID", 0, 100);
-		tabelaModelo.adicionar("FUNCIONÁRIO", 1, 500);
-		tabelaModelo.adicionar("CONHECIMENTO", 2, 500);
-		tabelaModelo.adicionar("NÍVEL DE CONHECIMENTO", 3, 500);
+		tabelaModelo.adicionarColuna("ID", 0, 100);
+		tabelaModelo.adicionarColuna("FUNCIONÁRIO", 1, 500);
+		tabelaModelo.adicionarColuna("CONHECIMENTO", 2, 500);
+		tabelaModelo.adicionarColuna("NÍVEL DE CONHECIMENTO", 3, 500);
 
 		largura = new int[tabelaModelo.getTotalColunas()];
 		podeEditar = new boolean[tabelaModelo.getTotalColunas()];

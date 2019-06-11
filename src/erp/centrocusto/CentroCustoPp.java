@@ -73,7 +73,7 @@ public final class CentroCustoPp extends JPanel {
 		try {
 			centroCustos = new LinkedList<>(CentroCustoFac.pesquisarRegistro(centroCusto));
 		} catch (Exception e) {
-			System.out.println(e);
+			e.printStackTrace();
 		}
 		atualizarGui(centroCustos);
 		return centroCustos.size();

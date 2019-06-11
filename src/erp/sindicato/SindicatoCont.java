@@ -53,7 +53,7 @@ final class SindicatoCont {
 			try {
 				getSindicatoFc().setVisible(false);
 			} catch (Exception e) {
-				System.out.println(e);
+				e.printStackTrace();
 			}
 		}
 	}
@@ -83,7 +83,7 @@ final class SindicatoCont {
 			try {
 				MainCont.mostrarFrame(MainCont.getMainFc());
 			} catch (Exception e) {
-				System.out.println(e);
+				e.printStackTrace();
 			}
 		}
 	}
@@ -168,7 +168,7 @@ final class SindicatoCont {
 			try {
 				sindicatos = new LinkedList<>(SindicatoFac.pesquisarRegistro(new Sindicato()));
 			} catch (Exception e) {
-				System.out.println(e);
+				e.printStackTrace();
 			}
 
 			SindicatoRel sindicatoRel = new SindicatoRel(sindicatos);
@@ -187,7 +187,7 @@ final class SindicatoCont {
 					System.exit(0);
 				}
 			} catch (Exception e) {
-				System.out.println(e);
+				e.printStackTrace();
 			}
 		}
 	}

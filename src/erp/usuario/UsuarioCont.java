@@ -52,7 +52,7 @@ final class UsuarioCont {
 			try {
 				getUsuarioFc().setVisible(false);
 			} catch (Exception e) {
-				System.out.println(e);
+				e.printStackTrace();
 			}
 		}
 	}
@@ -82,7 +82,7 @@ final class UsuarioCont {
 			try {
 				MainCont.mostrarFrame(MainCont.getMainFc());
 			} catch (Exception e) {
-				System.out.println(e);
+				e.printStackTrace();
 			}
 		}
 	}
@@ -167,7 +167,7 @@ final class UsuarioCont {
 			try {
 				usuarios = new LinkedList<>(UsuarioFac.pesquisarRegistro(new Usuario()));
 			} catch (Exception e) {
-				System.out.println(e);
+				e.printStackTrace();
 			}
 
 			UsuarioRel usuarioRel = new UsuarioRel(usuarios);
@@ -186,7 +186,7 @@ final class UsuarioCont {
 					System.exit(0);
 				}
 			} catch (Exception e) {
-				System.out.println(e);
+				e.printStackTrace();
 			}
 		}
 	}

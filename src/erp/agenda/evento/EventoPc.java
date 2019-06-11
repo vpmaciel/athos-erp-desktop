@@ -95,8 +95,6 @@ public final class EventoPc extends JPanel implements Gui {
 	@Override
 	public void iniciarGui() {
 
-		
-
 		toolBar = new ToolBar();
 
 		add(toolBar.getToolBar());

@@ -161,7 +161,7 @@ final class CertificadoCont {
 			try {
 				certificados = new LinkedList<>(CertificadoFac.pesquisarRegistro(new Certificado()));
 			} catch (Exception e) {
-				System.out.println(e);
+				e.printStackTrace();
 			}
 
 			CertificadoRel certificadoRel = new CertificadoRel(certificados);

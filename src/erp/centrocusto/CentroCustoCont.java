@@ -149,7 +149,7 @@ final class CentroCustoCont {
 			try {
 				centroCustos = new LinkedList<>(CentroCustoFac.pesquisarRegistro(new CentroCusto()));
 			} catch (Exception e) {
-				System.out.println(e);
+				e.printStackTrace();
 			}
 
 			CentroCustoRel centroCustoRel = new CentroCustoRel(centroCustos);

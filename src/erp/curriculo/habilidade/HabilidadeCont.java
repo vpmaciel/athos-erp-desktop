@@ -161,7 +161,7 @@ final class HabilidadeCont {
 			try {
 				habilidades = new LinkedList<>(HabilidadeFac.pesquisarRegistro(new Habilidade()));
 			} catch (Exception e) {
-				System.out.println(e);
+				e.printStackTrace();
 			}
 
 			HabilidadeRel habilidadeRel = new HabilidadeRel(habilidades);

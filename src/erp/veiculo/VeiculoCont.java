@@ -71,7 +71,7 @@ final class VeiculoCont {
 			try {
 				getVeiculoFc().setVisible(false);
 			} catch (Exception e) {
-				System.out.println(e);
+				e.printStackTrace();
 			}
 		}
 	}
@@ -102,7 +102,7 @@ final class VeiculoCont {
 			try {
 				MainCont.mostrarFrame(MainCont.getMainFc());
 			} catch (Exception e) {
-				System.out.println(e);
+				e.printStackTrace();
 			}
 		}
 	}
@@ -175,7 +175,7 @@ final class VeiculoCont {
 			try {
 				veiculos = new LinkedList<>(VeiculoFac.pesquisarRegistro(new Veiculo()));
 			} catch (Exception e) {
-				System.out.println(e);
+				e.printStackTrace();
 			}
 
 			VeiculoRel veiculoRel = new VeiculoRel(veiculos);
@@ -194,7 +194,7 @@ final class VeiculoCont {
 					System.exit(0);
 				}
 			} catch (Exception e) {
-				System.out.println(e);
+				e.printStackTrace();
 			}
 		}
 	}

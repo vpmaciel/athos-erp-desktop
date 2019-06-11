@@ -73,7 +73,7 @@ public final class CertificadoPp extends JPanel {
 		try {
 			certificados = new LinkedList<>(CertificadoFac.pesquisarRegistro(certificado));
 		} catch (Exception e) {
-			System.out.println(e);
+			e.printStackTrace();
 		}
 		atualizarGui(certificados);
 		return certificados.size();

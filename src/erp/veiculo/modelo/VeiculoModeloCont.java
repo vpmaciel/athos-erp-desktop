@@ -50,7 +50,7 @@ final class VeiculoModeloCont {
 			try {
 				getVeiculoModeloFc().setVisible(false);
 			} catch (Exception e) {
-				System.out.println(e);
+				e.printStackTrace();
 			}
 		}
 	}
@@ -80,7 +80,7 @@ final class VeiculoModeloCont {
 			try {
 				MainCont.mostrarFrame(MainCont.getMainFc());
 			} catch (Exception e) {
-				System.out.println(e);
+				e.printStackTrace();
 			}
 		}
 	}
@@ -153,7 +153,7 @@ final class VeiculoModeloCont {
 			try {
 				veiculoModelos = new LinkedList<>(VeiculoModeloFac.pesquisarRegistro(new VeiculoModelo()));
 			} catch (Exception e) {
-				System.out.println(e);
+				e.printStackTrace();
 			}
 
 			VeiculoModeloRel veiculoModeloRel = new VeiculoModeloRel(veiculoModelos);
@@ -172,7 +172,7 @@ final class VeiculoModeloCont {
 					System.exit(0);
 				}
 			} catch (Exception e) {
-				System.out.println(e);
+				e.printStackTrace();
 			}
 		}
 	}

@@ -73,7 +73,7 @@ public final class ObjetivoProfissionalPp extends JPanel {
 		try {
 			objetivoProfissionals = new LinkedList<>(ObjetivoProfissionalFac.pesquisarRegistro(ObjetivoProfissional));
 		} catch (Exception e) {
-			System.out.println(e);
+			e.printStackTrace();
 		}
 		atualizarGui(objetivoProfissionals);
 		return objetivoProfissionals.size();

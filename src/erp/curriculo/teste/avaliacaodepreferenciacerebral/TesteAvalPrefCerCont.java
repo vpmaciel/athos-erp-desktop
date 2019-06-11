@@ -160,7 +160,7 @@ final class TesteAvalPrefCerCont {
 			try {
 				testeAvalPrefCers = new LinkedList<>(TesteAvalPrefCerFac.pesquisarRegistro(new TesteAvalPrefCer()));
 			} catch (Exception e) {
-				System.out.println(e);
+				e.printStackTrace();
 			}
 
 			TesteAvalPrefCerRel testeAvalPrefCerRel = new TesteAvalPrefCerRel(testeAvalPrefCers);
