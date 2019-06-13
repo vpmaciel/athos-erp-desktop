@@ -3,7 +3,6 @@ package erp.curriculo.certificado;
 import java.util.Collections;
 import java.util.List;
 
-import javax.swing.BorderFactory;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -93,8 +92,6 @@ public final class CertificadoPc extends JPanel implements Gui {
 	@Override
 	public void iniciarGui() {
 
-		
-
 		toolBar = new ToolBar();
 		add(toolBar.getToolBar());
 
@@ -148,7 +145,7 @@ public final class CertificadoPc extends JPanel implements Gui {
 
 	@Override
 	public void iniciarLayout() {
-		setBorder(BorderFactory.createTitledBorder("CERTIFICADO"));
+		setBorder(AOP.getBordaPainel());
 		setLayout(new SpringLayout());
 	}
 

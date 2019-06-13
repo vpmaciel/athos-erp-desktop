@@ -288,11 +288,11 @@ final class EmpresaCont {
 		empresa.setCnpj(getEmpresaPc().getGuiCnpj().getText());
 		empresa.setTipoEmpresa((String) getEmpresaPc().getGuiEmpresa().getSelectedItem());
 		try {
-			empresa.setFaturamentoMensal((Double)getEmpresaPc().getGuiFaturamentoMensal().getValue());	
-		}catch (Exception exception) {
+			empresa.setFaturamentoMensal((Double) getEmpresaPc().getGuiFaturamentoMensal().getValue());
+		} catch (Exception exception) {
 			empresa.setFaturamentoMensal(null);
 		}
-		
+
 		if (getEmpresaPc().getGuiCnpj().getText().equals(Mascara.getCnpjVazio())) {
 			empresa.setCnpj(null);
 		}

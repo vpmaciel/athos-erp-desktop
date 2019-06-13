@@ -25,11 +25,13 @@ final class TesteAvalPrefCerSel implements ListSelectionListener {
 				testeAvalPrefCerPesquisaRegistro.setId((Long) tm.getValueAt(selRows[0], TesteAvalPrefCerTm.ID));
 
 				if (table.getSelectedRow() != -1) {
-					TesteAvalPrefCer testeAvalPrefCer = TesteAvalPrefCerFac.getRegistro(testeAvalPrefCerPesquisaRegistro);
+					TesteAvalPrefCer testeAvalPrefCer = TesteAvalPrefCerFac
+							.getRegistro(testeAvalPrefCerPesquisaRegistro);
 					TesteAvalPrefCerTm TesteAvalPrefCerTm = (TesteAvalPrefCerTm) table.getModel();
 					TesteAvalPrefCerTm.getTesteAvalPrefCer(table.getSelectedRow());
 					MainCont.mostrarFrame(MainCont.getCurriculoTesteAvalPrefCerFc());
-					MainCont.getCurriculoTesteAvalPrefCerFc().getTesteAvalPrefCerCont().setTesteAvalPrefCer(testeAvalPrefCer);
+					MainCont.getCurriculoTesteAvalPrefCerFc().getTesteAvalPrefCerCont()
+							.setTesteAvalPrefCer(testeAvalPrefCer);
 					MainCont.getCurriculoTesteAvalPrefCerFc().getTesteAvalPrefCerCont().atualizarGui();
 					MainCont.getCurriculoTesteAvalPrefCerFc().setFocusable(true);
 					MainCont.getCurriculoTesteAvalPrefCerFp().setVisible(false);

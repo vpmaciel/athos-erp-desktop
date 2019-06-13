@@ -3,7 +3,6 @@ package erp.funcionario;
 import java.util.Collections;
 import java.util.List;
 
-import javax.swing.BorderFactory;
 import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
@@ -245,8 +244,6 @@ public final class FuncionarioPc extends JPanel implements Gui {
 
 	@Override
 	public void iniciarGui() {
-
-		
 
 		toolBar = new ToolBar();
 
@@ -505,7 +502,7 @@ public final class FuncionarioPc extends JPanel implements Gui {
 
 	@Override
 	public void iniciarLayout() {
-		setBorder(BorderFactory.createTitledBorder("FUNCIONÁRIO"));
+		setBorder(AOP.getBordaPainel());
 		setLayout(new SpringLayout());
 	}
 

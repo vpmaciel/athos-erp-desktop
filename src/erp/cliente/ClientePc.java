@@ -3,7 +3,6 @@ package erp.cliente;
 import java.util.Collections;
 import java.util.List;
 
-import javax.swing.BorderFactory;
 import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
@@ -283,8 +282,6 @@ public final class ClientePc extends JPanel implements Gui {
 
 	@Override
 	public void iniciarGui() {
-
-		
 
 		toolBar = new ToolBar();
 
@@ -674,7 +671,7 @@ public final class ClientePc extends JPanel implements Gui {
 
 	@Override
 	public void iniciarLayout() {
-		setBorder(BorderFactory.createTitledBorder("CLIENTE"));
+		setBorder(AOP.getBordaPainel());
 		setLayout(new SpringLayout());
 	}
 

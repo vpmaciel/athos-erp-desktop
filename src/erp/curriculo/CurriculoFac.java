@@ -8,7 +8,6 @@ public final class CurriculoFac {
 
 	private static final CurriculoDao curriculoDao = new CurriculoImp();
 
-
 	public static Collection<Funcionario> getRegistro() {
 		return curriculoDao.getRegistro();
 	}

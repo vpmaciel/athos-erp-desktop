@@ -15,7 +15,7 @@ import arquitetura.relatorio.Relatorio;
 
 public class TesteDISCRel {
 
-	private String arquivo = Data.getHora() +"-teste-disc.pdf";
+	private String arquivo = Data.getHora() + "-teste-disc.pdf";
 	private Document document = new Document();
 	private Relatorio relatorio = new Relatorio();
 	private String titulo = "TESTE D.I.S.C.";

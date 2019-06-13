@@ -444,9 +444,9 @@ public class MainFc extends JFrame {
 	private void iniciarGui() {
 		setIconImage(Imagem.getLogoTipoImage());
 		setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
-		setMinimumSize(new Dimension(1200, 600));
-		setSize(new Dimension(1200, 600));
-		setPreferredSize(new Dimension(1200, 600));
+		setMinimumSize(new Dimension(1200, 660));
+		setSize(new Dimension(1200, 660));
+		setPreferredSize(new Dimension(1200, 660));
 
 		menuArquivo = new JMenu("Arquivo");
 		menuArquivo.setMnemonic('A');
@@ -495,7 +495,7 @@ public class MainFc extends JFrame {
 
 		menuItemCadastroImovel = new JMenuItem("Imóveis");
 		menuCadastro.add(menuItemCadastroImovel);
-		
+
 		menuCadastroOculos = new JMenu("Óculos");
 		menuCadastro.add(menuCadastroOculos);
 
@@ -503,7 +503,7 @@ public class MainFc extends JFrame {
 		menuCadastroOculos.add(menuItemCadastroOculosOculos);
 
 		menuCadastroOculos.addSeparator();
-		
+
 		menuItemCadastroOculosLente = new JMenuItem("Lentes");
 		menuCadastroOculos.add(menuItemCadastroOculosLente);
 
@@ -522,27 +522,27 @@ public class MainFc extends JFrame {
 
 		menuItemCadastroProdutoCategoria = new JMenuItem("Categorias");
 		menuCadastroProduto.add(menuItemCadastroProdutoCategoria);
-		
+
 		menuItemCadastroProdutoMarca = new JMenuItem("Marcas");
 		menuCadastroProduto.add(menuItemCadastroProdutoMarca);
-		
+
 		menuItemCadastroProdutoUnidade = new JMenuItem("Unidade");
 		menuCadastroProduto.add(menuItemCadastroProdutoUnidade);
 
 		menuCadastroProduto.addSeparator();
-		
+
 		menuItemCadastroProdutoListaCompras = new JMenuItem("Lista de Compras");
 		menuCadastroProduto.add(menuItemCadastroProdutoListaCompras);
 
 		menuItemCadastroQuarto = new JMenuItem("Quartos");
 		menuCadastro.add(menuItemCadastroQuarto);
-	
+
 		menuItemCadastroServico = new JMenuItem("Serviços");
 		menuCadastro.add(menuItemCadastroServico);
-		
+
 		menuItemCadastroSeguradora = new JMenuItem("Seguradora");
 		menuCadastro.add(menuItemCadastroSeguradora);
-		
+
 		menuItemCadastroSindicato = new JMenuItem("Sindicatos");
 		menuCadastro.add(menuItemCadastroSindicato);
 
@@ -552,7 +552,7 @@ public class MainFc extends JFrame {
 		menuItemCadastroVeiculoVeiculo = new JMenuItem("Veículos");
 		menuCadastroVeiculo.add(menuItemCadastroVeiculoVeiculo);
 		menuCadastroVeiculo.addSeparator();
-		
+
 		menuItemCadastroVeiculoMarca = new JMenuItem("Marca");
 		menuCadastroVeiculo.add(menuItemCadastroVeiculoMarca);
 
@@ -569,19 +569,19 @@ public class MainFc extends JFrame {
 		menuControle.setMnemonic('G');
 
 		menuBar.add(menuControle);
-		
+
 		menuItemGerenciamentoEntradaSaidaVeiculo = new JMenuItem("Entrada e Saída de Veículo");
 		menuControle.add(menuItemGerenciamentoEntradaSaidaVeiculo);
 
-		menuItemGerenciamentoEstacionamento= new JMenuItem("Estacionamento");
+		menuItemGerenciamentoEstacionamento = new JMenuItem("Estacionamento");
 		menuControle.add(menuItemGerenciamentoEstacionamento);
 
 		menuItemGerenciamentoContacaoPreco = new JMenuItem("Cotação de Preço");
 		menuControle.add(menuItemGerenciamentoContacaoPreco);
-		
+
 		menuItemGerenciamentoResiduos = new JMenuItem("Resíduos");
 		menuControle.add(menuItemGerenciamentoResiduos);
-		
+
 		menuEscritorio = new JMenu("Escritório");
 		menuEscritorio.setMnemonic('E');
 
@@ -589,14 +589,14 @@ public class MainFc extends JFrame {
 
 		menuFinanceiro = new JMenu("Financeiro");
 		menuFinanceiro.setMnemonic('F');
-		
+
 		menuItemFinanceiroCaixa = new JMenuItem("Caixa");
 		menuFinanceiro.add(menuItemFinanceiroCaixa);
 		menuFinanceiro.addSeparator();
 
 		menuItemFinanceiroBoletoBancario = new JMenuItem("Boleto Bancário");
 		menuFinanceiro.add(menuItemFinanceiroBoletoBancario);
-		
+
 		menuItemFinanceiroCarne = new JMenuItem("Carnê");
 		menuFinanceiro.add(menuItemFinanceiroCarne);
 
@@ -628,9 +628,9 @@ public class MainFc extends JFrame {
 
 		menuEconomia = new JMenu("Economia");
 		menuEconomia.setMnemonic('c');
-		
+
 		menuBar.add(menuEconomia);
-		
+
 		menuEstatistica = new JMenu("Estatística");
 		menuEstatistica.setMnemonic('E');
 
@@ -677,12 +677,12 @@ public class MainFc extends JFrame {
 
 		menuItemRhCurriculoTestePersonalidadeDisc = new JMenuItem("Teste de Personalidade D.I.S.C.");
 		menuRhCurriculo.add(menuItemRhCurriculoTestePersonalidadeDisc);
-		
+
 		menuRhCurriculo.addSeparator();
-		
+
 		menuItemRhCurriculoCurriculo = new JMenuItem("Currículo");
 		menuRhCurriculo.add(menuItemRhCurriculoCurriculo);
-		
+
 		menuItemRhTreinamento = new JMenuItem("Treinamentos");
 		menuRh.add(menuItemRhTreinamento);
 
@@ -690,20 +690,20 @@ public class MainFc extends JFrame {
 		menuRh.add(menuItemRhFuncionario);
 
 		menuBar.add(menuRh);
-		
+
 		menuSegurancaTrabalho = new JMenu("Segurança no Trabalho");
 		menuSegurancaTrabalho.setMnemonic('S');
-		
+
 		menuBar.add(menuSegurancaTrabalho);
-		
+
 		menuMedicina = new JMenu("Medicina");
 		menuMedicina.setMnemonic('M');
-		
+
 		menuBar.add(menuMedicina);
-		
+
 		menuUtilitario = new JMenu("Utilitários");
 		menuUtilitario.setMnemonic('U');
-		
+
 		menuUtilitarioAgenda = new JMenu("Agenda");
 		menuUtilitario.add(menuUtilitarioAgenda);
 
@@ -733,7 +733,7 @@ public class MainFc extends JFrame {
 
 		menuItemUtilitarioCalculoIMC = new JMenuItem("Cálculo IMC");
 		menuUtilitario.add(menuItemUtilitarioCalculoIMC);
-		
+
 		menuBar.add(menuUtilitario);
 
 		menuSistema = new JMenu("Sistema");
@@ -754,35 +754,35 @@ public class MainFc extends JFrame {
 
 		menuAjuda = new JMenu("Ajuda");
 		menuAjuda.setMnemonic('u');
-		
+
 		menuItemAjudaAjudaSistema = new JMenuItem("Ajuda do Sistema");
 		menuAjuda.add(menuItemAjudaAjudaSistema);
-		
+
 		menuItemAjudaGuiaUsuario = new JMenuItem("Guias do Usuário");
 		menuAjuda.add(menuItemAjudaGuiaUsuario);
 		menuAjuda.addSeparator();
-		
+
 		menuItemAjudaAjudaOnLine = new JMenuItem("Obter Ajuda On-Line");
 		menuAjuda.add(menuItemAjudaAjudaOnLine);
-		
+
 		menuItemAjudaEnviarComentarios = new JMenuItem("Enviar Comentários");
 		menuAjuda.add(menuItemAjudaEnviarComentarios);
 		menuAjuda.addSeparator();
-		
+
 		menuItemAjudaInformacoesSobreLicenca = new JMenuItem("Informações Sobre a Licença");
 		menuAjuda.add(menuItemAjudaInformacoesSobreLicenca);
-		
+
 		menuItemAjudaVerificarAtualizacao = new JMenuItem("Verificar Atualizações");
 		menuAjuda.add(menuItemAjudaVerificarAtualizacao);
 		menuAjuda.addSeparator();
-		
+
 		menuItemAjudaRelatarProblema = new JMenuItem("Relatar Problema");
 		menuAjuda.add(menuItemAjudaRelatarProblema);
-		
+
 		menuItemAjudaDesenvolvedores = new JMenuItem("Desenvolvedores");
 		menuAjuda.add(menuItemAjudaDesenvolvedores);
 		menuAjuda.addSeparator();
-		
+
 		menuItemAjudaSobreSistema = new JMenuItem("Sobre o Sistema");
 		menuAjuda.add(menuItemAjudaSobreSistema);
 

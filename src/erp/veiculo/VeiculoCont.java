@@ -26,7 +26,7 @@ final class VeiculoCont {
 			Msg.ajuda();
 		}
 	}
-	
+
 	public class MostraFrame extends MouseAdapter {
 
 		@Override
@@ -224,14 +224,14 @@ final class VeiculoCont {
 				}
 			} catch (Exception e) {
 				Throwable throwable = e.getCause();
-				if(throwable != null) {
+				if (throwable != null) {
 					throwable = e.getCause().getCause();
 				}
 				String mensagem = "";
-				if(throwable != null) {
+				if (throwable != null) {
 					mensagem = throwable.toString();
 				}
-				
+
 				if (mensagem.contains("ConstraintViolationException")) {
 					if (mensagem.contains("INDEX_VEICULO_PLACA")) {
 						Msg.avisoCampoDuplicado("PLACA");
@@ -393,13 +393,13 @@ final class VeiculoCont {
 		veiculo.setRestricoes((String) getVeiculoPc().getGuiRestricoes().getSelectedItem());
 		veiculo.setTipo((String) getVeiculoPc().getGuiTipo().getSelectedItem());
 		try {
-			veiculo.setValorCompra(Double.parseDouble(getVeiculoPc().getGuiValorCompra().getText()));	
-		}catch (Exception e) {
+			veiculo.setValorCompra(Double.parseDouble(getVeiculoPc().getGuiValorCompra().getText()));
+		} catch (Exception e) {
 			veiculo.setValorCompra(0);
 		}
 		try {
-			veiculo.setValorVenda(Double.parseDouble(getVeiculoPc().getGuiValorVenda().getText()));	
-		}catch (Exception e) {
+			veiculo.setValorVenda(Double.parseDouble(getVeiculoPc().getGuiValorVenda().getText()));
+		} catch (Exception e) {
 			veiculo.setValorVenda(0);
 		}
 		veiculo.setNumeroMotor(getVeiculoPc().getGuiNumeroMotor().getText());
@@ -413,7 +413,7 @@ final class VeiculoCont {
 		veiculo.setPneus((String) getVeiculoPc().getGuiPneus().getSelectedItem());
 		try {
 			veiculo.setDesconto(Double.parseDouble(getVeiculoPc().getGuiDesconto().getText()));
-		}catch (Exception e) {
+		} catch (Exception e) {
 			veiculo.setDesconto(0);
 		}
 		veiculo.setRodas((String) getVeiculoPc().getGuiRodas().getSelectedItem());
@@ -428,7 +428,7 @@ final class VeiculoCont {
 		veiculo.setDepreciacao(getVeiculoPc().getGuiDepreciacao().getText());
 		try {
 			veiculo.setNumeroPortas(Integer.parseInt(getVeiculoPc().getGuiNumeroPortas().getText()));
-		}catch (Exception e) {
+		} catch (Exception e) {
 			veiculo.setNumeroPortas(0);
 		}
 	}

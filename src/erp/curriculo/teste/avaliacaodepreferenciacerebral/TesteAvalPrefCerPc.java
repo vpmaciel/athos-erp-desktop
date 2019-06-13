@@ -3,7 +3,6 @@ package erp.curriculo.teste.avaliacaodepreferenciacerebral;
 import java.util.Collections;
 import java.util.List;
 
-import javax.swing.BorderFactory;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -196,8 +195,6 @@ public final class TesteAvalPrefCerPc extends JPanel implements Gui {
 
 	@Override
 	public void iniciarGui() {
-
-		
 
 		toolBar = new ToolBar();
 		add(toolBar.getToolBar());
@@ -457,7 +454,7 @@ public final class TesteAvalPrefCerPc extends JPanel implements Gui {
 
 	@Override
 	public void iniciarLayout() {
-		setBorder(BorderFactory.createTitledBorder("TESTE DE PREFERÊNCIA CEREBRAL"));
+		setBorder(AOP.getBordaPainel());
 		setLayout(new SpringLayout());
 	}
 
@@ -482,7 +479,8 @@ public final class TesteAvalPrefCerPc extends JPanel implements Gui {
 		}
 		if (!MainCont.getCurriculoTesteAvalPrefCerFc().isShowing()
 				&& MainCont.getCurriculoTesteAvalPrefCerFc().getTesteAvalPrefCerCont().getTesteAvalPrefCer() != null) {
-			funcionario = MainCont.getCurriculoTesteAvalPrefCerFc().getTesteAvalPrefCerCont().getTesteAvalPrefCer().getFuncionario();
+			funcionario = MainCont.getCurriculoTesteAvalPrefCerFc().getTesteAvalPrefCerCont().getTesteAvalPrefCer()
+					.getFuncionario();
 			boxFuncionario.setSelectedItem(funcionario);
 		}
 	}

@@ -3,7 +3,6 @@ package erp.curriculo.teste.perfilcomportmental;
 import java.util.Collections;
 import java.util.List;
 
-import javax.swing.BorderFactory;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -271,8 +270,6 @@ public final class TestePerfilCompPc extends JPanel implements Gui {
 
 	@Override
 	public void iniciarGui() {
-
-		
 
 		toolBar = new ToolBar();
 		add(toolBar.getToolBar());
@@ -666,7 +663,7 @@ public final class TestePerfilCompPc extends JPanel implements Gui {
 
 	@Override
 	public void iniciarLayout() {
-		setBorder(BorderFactory.createTitledBorder("TESTE DE PERFIL COMPORTAMENTAL"));
+		setBorder(AOP.getBordaPainel());
 		setLayout(new SpringLayout());
 	}
 
@@ -691,7 +688,8 @@ public final class TestePerfilCompPc extends JPanel implements Gui {
 		}
 		if (!MainCont.getCurriculoTestePerfilCompFc().isShowing()
 				&& MainCont.getCurriculoTestePerfilCompFc().getTestePerfilCompCont().getTestePerfilComp() != null) {
-			funcionario = MainCont.getCurriculoTestePerfilCompFc().getTestePerfilCompCont().getTestePerfilComp().getFuncionario();
+			funcionario = MainCont.getCurriculoTestePerfilCompFc().getTestePerfilCompCont().getTestePerfilComp()
+					.getFuncionario();
 			boxFuncionario.setSelectedItem(funcionario);
 		}
 	}

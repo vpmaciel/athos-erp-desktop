@@ -10,12 +10,13 @@ import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
 
+import arquitetura.AOP;
 import arquitetura.data.Data;
 import arquitetura.relatorio.Relatorio;
 
 public final class BancoRel {
 
-	private final String arquivo = Data.getDataHoraCompleta()+ " - banco.pdf";
+	private final String arquivo = AOP.getCaminhoDadosPdf() + "[banco]-" + Data.getDataHoraArquivo() + ".pdf";
 	private final Document document = new Document();
 	private final Relatorio relatorio = new Relatorio();
 	private final String titulo = "BANCOS";

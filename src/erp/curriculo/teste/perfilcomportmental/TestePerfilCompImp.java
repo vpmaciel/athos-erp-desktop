@@ -47,7 +47,8 @@ final class TestePerfilCompImp implements TestePerfilCompDao {
 			entityManager = JPA.getEntityManagerFactory().createEntityManager();
 			entityTransaction = entityManager.getTransaction();
 			entityTransaction.begin();
-			Query query = entityManager.createQuery("select T from TestePerfilComp T order by T.funcionario", TestePerfilComp.class);
+			Query query = entityManager.createQuery("select T from TestePerfilComp T order by T.funcionario",
+					TestePerfilComp.class);
 			testePerfilCompList = query.getResultList();
 		} catch (Exception exception) {
 			exception.printStackTrace();
@@ -98,23 +99,24 @@ final class TestePerfilCompImp implements TestePerfilCompDao {
 				predicateList.add(criteriaBuilder.equal(rootTestePerfilComp.get("id"), testePerfilComp.getId()));
 			}
 			if (testePerfilComp.getFuncionario() != null && testePerfilComp.getFuncionario().getId() != null) {
-				predicateList.add(criteriaBuilder.equal(rootTestePerfilComp.get("funcionario"), testePerfilComp.getFuncionario()));
+				predicateList.add(criteriaBuilder.equal(rootTestePerfilComp.get("funcionario"),
+						testePerfilComp.getFuncionario()));
 			}
 			if (testePerfilComp.getTotalOpcaoA() != null) {
-				predicateList.add(
-						criteriaBuilder.greaterThanOrEqualTo(rootTestePerfilComp.get("totalOpcaoA"), testePerfilComp.getTotalOpcaoA()));
+				predicateList.add(criteriaBuilder.greaterThanOrEqualTo(rootTestePerfilComp.get("totalOpcaoA"),
+						testePerfilComp.getTotalOpcaoA()));
 			}
 			if (testePerfilComp.getTotalOpcaoB() != null) {
-				predicateList.add(
-						criteriaBuilder.greaterThanOrEqualTo(rootTestePerfilComp.get("totalOpcaoB"), testePerfilComp.getTotalOpcaoB()));
+				predicateList.add(criteriaBuilder.greaterThanOrEqualTo(rootTestePerfilComp.get("totalOpcaoB"),
+						testePerfilComp.getTotalOpcaoB()));
 			}
 			if (testePerfilComp.getTotalOpcaoC() != null) {
-				predicateList.add(
-						criteriaBuilder.greaterThanOrEqualTo(rootTestePerfilComp.get("totalOpcaoC"), testePerfilComp.getTotalOpcaoC()));
+				predicateList.add(criteriaBuilder.greaterThanOrEqualTo(rootTestePerfilComp.get("totalOpcaoC"),
+						testePerfilComp.getTotalOpcaoC()));
 			}
 			if (testePerfilComp.getTotalOpcaoD() != null) {
-				predicateList.add(
-						criteriaBuilder.greaterThanOrEqualTo(rootTestePerfilComp.get("totalOpcaoD"), testePerfilComp.getTotalOpcaoD()));
+				predicateList.add(criteriaBuilder.greaterThanOrEqualTo(rootTestePerfilComp.get("totalOpcaoD"),
+						testePerfilComp.getTotalOpcaoD()));
 			}
 			criteriaQuery.select(rootTestePerfilComp).where(predicateList.toArray(new Predicate[] {}));
 			testePerfilCompList = entityManager.createQuery(criteriaQuery).getResultList();

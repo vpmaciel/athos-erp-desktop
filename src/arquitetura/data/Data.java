@@ -25,9 +25,19 @@ public class Data {
 
 		String data = "DATA E HORA: ";
 		data += getDia(calendar.get(Calendar.DAY_OF_WEEK));
-		DateFormat dateFormat = new SimpleDateFormat("- [ dd-MM-yyyy ] - [ HH:mm:ss.SSSS ]", locale);
+		DateFormat dateFormat = new SimpleDateFormat(" - [ dd-MM-yyyy ] - [ HH:mm:ss.SSSS ]", locale);
 		data += dateFormat.format(calendar.getTime());
 		data += AOP.getUsuarioFormatado();
+		return data;
+	}
+
+	public static String getDataHoraArquivo() {
+		Locale locale = AOP.getLocale();
+		Calendar calendar = new GregorianCalendar();
+
+		String data = "";
+		DateFormat dateFormat = new SimpleDateFormat("[yyyy-MM-dd]-[HH-mm-ss]", locale);
+		data += dateFormat.format(calendar.getTime());
 		return data;
 	}
 
@@ -40,18 +50,16 @@ public class Data {
 		return data;
 	}
 
-	
 	public static String getHora() {
 		Locale locale = AOP.getLocale();
 		Calendar calendar = new GregorianCalendar();
 
 		String data = "";
-		DateFormat dateFormat = new SimpleDateFormat("HH-mm-ss-SSSS", locale);
+		DateFormat dateFormat = new SimpleDateFormat("HH:mm:ss.SSSS", locale);
 		data += dateFormat.format(calendar.getTime());
 		return data;
 	}
 
-	
 	public static String getDia(int dia) {
 		String nome = "";
 
@@ -83,6 +91,6 @@ public class Data {
 	}
 
 	private Data() {
-		
+
 	}
 }

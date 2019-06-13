@@ -15,7 +15,7 @@ import arquitetura.relatorio.Relatorio;
 
 public class ClienteRel {
 
-	private String arquivo = Data.getHora() +"-cliente.pdf";
+	private String arquivo = Data.getHora() + "-cliente.pdf";
 	private Document document = new Document();
 	private Relatorio relatorio = new Relatorio();
 	private String titulo = "CLIENTES";

@@ -47,7 +47,8 @@ final class TesteAvalPrefCerImp implements TesteAvalPrefCerDao {
 			entityManager = JPA.getEntityManagerFactory().createEntityManager();
 			entityTransaction = entityManager.getTransaction();
 			entityTransaction.begin();
-			Query query = entityManager.createQuery("select T from TesteAvalPrefCer T order by T.funcionario", TesteAvalPrefCer.class);
+			Query query = entityManager.createQuery("select T from TesteAvalPrefCer T order by T.funcionario",
+					TesteAvalPrefCer.class);
 			testeAvalPrefCerList = query.getResultList();
 		} catch (Exception exception) {
 			exception.printStackTrace();
@@ -98,23 +99,24 @@ final class TesteAvalPrefCerImp implements TesteAvalPrefCerDao {
 				predicateList.add(criteriaBuilder.equal(rootTesteAvalPrefCer.get("id"), testeAvalPrefCer.getId()));
 			}
 			if (testeAvalPrefCer.getFuncionario() != null && testeAvalPrefCer.getFuncionario().getId() != null) {
-				predicateList.add(criteriaBuilder.equal(rootTesteAvalPrefCer.get("funcionario"), testeAvalPrefCer.getFuncionario()));
+				predicateList.add(criteriaBuilder.equal(rootTesteAvalPrefCer.get("funcionario"),
+						testeAvalPrefCer.getFuncionario()));
 			}
 			if (testeAvalPrefCer.getTotalOpcaoA() != null) {
-				predicateList.add(
-						criteriaBuilder.greaterThanOrEqualTo(rootTesteAvalPrefCer.get("totalOpcaoA"), testeAvalPrefCer.getTotalOpcaoA()));
+				predicateList.add(criteriaBuilder.greaterThanOrEqualTo(rootTesteAvalPrefCer.get("totalOpcaoA"),
+						testeAvalPrefCer.getTotalOpcaoA()));
 			}
 			if (testeAvalPrefCer.getTotalOpcaoC() != null) {
-				predicateList.add(
-						criteriaBuilder.greaterThanOrEqualTo(rootTesteAvalPrefCer.get("totalOpcaoC"), testeAvalPrefCer.getTotalOpcaoC()));
+				predicateList.add(criteriaBuilder.greaterThanOrEqualTo(rootTesteAvalPrefCer.get("totalOpcaoC"),
+						testeAvalPrefCer.getTotalOpcaoC()));
 			}
 			if (testeAvalPrefCer.getTotalOpcaoI() != null) {
-				predicateList.add(
-						criteriaBuilder.greaterThanOrEqualTo(rootTesteAvalPrefCer.get("totalOpcaoI"), testeAvalPrefCer.getTotalOpcaoI()));
+				predicateList.add(criteriaBuilder.greaterThanOrEqualTo(rootTesteAvalPrefCer.get("totalOpcaoI"),
+						testeAvalPrefCer.getTotalOpcaoI()));
 			}
 			if (testeAvalPrefCer.getTotalOpcaoO() != null) {
-				predicateList.add(
-						criteriaBuilder.greaterThanOrEqualTo(rootTesteAvalPrefCer.get("totalOpcaoO"), testeAvalPrefCer.getTotalOpcaoO()));
+				predicateList.add(criteriaBuilder.greaterThanOrEqualTo(rootTesteAvalPrefCer.get("totalOpcaoO"),
+						testeAvalPrefCer.getTotalOpcaoO()));
 			}
 			criteriaQuery.select(rootTesteAvalPrefCer).where(predicateList.toArray(new Predicate[] {}));
 			testeAvalPrefCerList = entityManager.createQuery(criteriaQuery).getResultList();

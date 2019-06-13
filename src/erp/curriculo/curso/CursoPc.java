@@ -3,7 +3,6 @@ package erp.curriculo.curso;
 import java.util.Collections;
 import java.util.List;
 
-import javax.swing.BorderFactory;
 import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
@@ -110,8 +109,6 @@ public final class CursoPc extends JPanel implements Gui {
 	@Override
 	public void iniciarGui() {
 
-		
-
 		toolBar = new ToolBar();
 		add(toolBar.getToolBar());
 
@@ -201,7 +198,7 @@ public final class CursoPc extends JPanel implements Gui {
 
 	@Override
 	public void iniciarLayout() {
-		setBorder(BorderFactory.createTitledBorder("CURSO"));
+		setBorder(AOP.getBordaPainel());
 		setLayout(new SpringLayout());
 	}
 

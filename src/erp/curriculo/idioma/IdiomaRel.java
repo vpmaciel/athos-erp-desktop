@@ -15,7 +15,7 @@ import arquitetura.relatorio.Relatorio;
 
 public class IdiomaRel {
 
-	private String arquivo = Data.getHora() +"-idioma.pdf";
+	private String arquivo = Data.getHora() + "-idioma.pdf";
 	private Document document = new Document();
 	private Relatorio relatorio = new Relatorio();
 	private String titulo = "IDIOMAS";

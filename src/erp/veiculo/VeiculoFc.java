@@ -1,6 +1,5 @@
 package erp.veiculo;
 
-import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.KeyboardFocusManager;
 import java.beans.PropertyChangeEvent;
@@ -12,6 +11,7 @@ import javax.swing.JScrollPane;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.WindowConstants;
 
+import arquitetura.AOP;
 import arquitetura.gui.ConfiguracaoGui;
 import arquitetura.gui.FocoEvento;
 import arquitetura.gui.Gui;
@@ -115,10 +115,10 @@ public final class VeiculoFc extends JFrame implements Gui {
 	@Override
 	public void iniciarLayout() {
 		setLayout(new FlowLayout(FlowLayout.CENTER));
-		setPreferredSize(new Dimension(800, 600));
-		setMinimumSize(new Dimension(800, 600));
-		setSize(new Dimension(800, 600));
-		setMaximumSize(new Dimension(800, 600));
+		setPreferredSize(AOP.getTamanhoJanela());
+		setMinimumSize(AOP.getTamanhoJanela());
+		setSize(AOP.getTamanhoJanela());
+		setMaximumSize(AOP.getTamanhoJanela());
 	}
 
 	@Override

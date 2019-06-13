@@ -1,11 +1,11 @@
 package erp.cartorio;
 
-import java.awt.Dimension;
 import java.awt.FlowLayout;
 
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
 
+import arquitetura.AOP;
 import arquitetura.gui.ConfiguracaoGui;
 import arquitetura.gui.Gui;
 import arquitetura.gui.Imagem;
@@ -64,7 +64,7 @@ public final class CartorioFp extends JFrame implements Gui {
 	@Override
 	public void iniciarLayout() {
 		setLayout(new FlowLayout(FlowLayout.CENTER));
-		setMinimumSize(new Dimension(800, 600));
+		setMinimumSize(AOP.getTamanhoJanela());
 	}
 
 	@Override

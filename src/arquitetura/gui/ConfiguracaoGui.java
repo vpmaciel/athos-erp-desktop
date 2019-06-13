@@ -27,57 +27,57 @@ public final class ConfiguracaoGui extends Container {
 			for (Component comp : this.componentList) {
 				if (comp instanceof JLabel) {
 					JLabel label = (JLabel) comp;
-					label.setPreferredSize(new Dimension(740, 30));
-					label.setMinimumSize(new Dimension(740, 30));
-					label.setSize(new Dimension(740, 30));
-					label.setMaximumSize(new Dimension(740, 30));
+					label.setPreferredSize(new Dimension(840, 30));
+					label.setMinimumSize(new Dimension(840, 30));
+					label.setSize(new Dimension(840, 30));
+					label.setMaximumSize(new Dimension(840, 30));
 					continue;
 				}
 				if (comp instanceof JTextField) {
 					JTextField field = (JTextField) comp;
-					field.setPreferredSize(new Dimension(740, 30));
-					field.setMinimumSize(new Dimension(740, 30));
-					field.setSize(new Dimension(740, 30));
-					field.setMaximumSize(new Dimension(740, 30));
+					field.setPreferredSize(new Dimension(840, 30));
+					field.setMinimumSize(new Dimension(840, 30));
+					field.setSize(new Dimension(840, 30));
+					field.setMaximumSize(new Dimension(840, 30));
 					continue;
 				}
 				if (comp instanceof JFormattedTextField) {
 					JFormattedTextField formattedTextField = (JFormattedTextField) comp;
-					formattedTextField.setPreferredSize(new Dimension(740, 30));
-					formattedTextField.setMinimumSize(new Dimension(740, 30));
-					formattedTextField.setSize(new Dimension(740, 30));
-					formattedTextField.setMaximumSize(new Dimension(740, 30));
+					formattedTextField.setPreferredSize(new Dimension(840, 30));
+					formattedTextField.setMinimumSize(new Dimension(840, 30));
+					formattedTextField.setSize(new Dimension(840, 30));
+					formattedTextField.setMaximumSize(new Dimension(840, 30));
 					continue;
 				}
 				if (comp instanceof JPasswordField) {
 					JPasswordField passwordField = (JPasswordField) comp;
-					passwordField.setPreferredSize(new Dimension(740, 30));
-					passwordField.setMinimumSize(new Dimension(740, 30));
-					passwordField.setSize(new Dimension(740, 30));
-					passwordField.setMaximumSize(new Dimension(740, 30));
+					passwordField.setPreferredSize(new Dimension(840, 30));
+					passwordField.setMinimumSize(new Dimension(840, 30));
+					passwordField.setSize(new Dimension(840, 30));
+					passwordField.setMaximumSize(new Dimension(840, 30));
 					continue;
 				}
 				if (comp instanceof JComboBox<?>) {
 					JComboBox<?> comboBox = (JComboBox<?>) comp;
-					comboBox.setPreferredSize(new Dimension(740, 30));
-					comboBox.setMinimumSize(new Dimension(740, 30));
-					comboBox.setSize(new Dimension(740, 30));
-					comboBox.setMaximumSize(new Dimension(740, 30));
+					comboBox.setPreferredSize(new Dimension(840, 30));
+					comboBox.setMinimumSize(new Dimension(840, 30));
+					comboBox.setSize(new Dimension(840, 30));
+					comboBox.setMaximumSize(new Dimension(840, 30));
 					continue;
 				}
 				if (comp instanceof JScrollPane) {
 					JScrollPane scrollPane = (JScrollPane) comp;
-					scrollPane.setPreferredSize(new Dimension(740, 150));
-					scrollPane.setMinimumSize(new Dimension(740, 150));
-					scrollPane.setSize(new Dimension(740, 150));
-					scrollPane.setMaximumSize(new Dimension(740, 150));
+					scrollPane.setPreferredSize(new Dimension(840, 150));
+					scrollPane.setMinimumSize(new Dimension(840, 150));
+					scrollPane.setSize(new Dimension(840, 150));
+					scrollPane.setMaximumSize(new Dimension(840, 150));
 				}
 				if (comp instanceof JTextArea) {
 					JTextArea field = (JTextArea) comp;
-					field.setPreferredSize(new Dimension(740, 150));
-					field.setMinimumSize(new Dimension(740, 150));
-					field.setSize(new Dimension(740, 150));
-					field.setMaximumSize(new Dimension(740, 150));
+					field.setPreferredSize(new Dimension(840, 150));
+					field.setMinimumSize(new Dimension(840, 150));
+					field.setSize(new Dimension(840, 150));
+					field.setMaximumSize(new Dimension(840, 150));
 				}
 			}
 		} catch (Exception e) {

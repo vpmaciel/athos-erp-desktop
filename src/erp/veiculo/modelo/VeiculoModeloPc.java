@@ -1,11 +1,11 @@
 package erp.veiculo.modelo;
 
-import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 
+import arquitetura.AOP;
 import arquitetura.gui.ConfiguracaoGui;
 import arquitetura.gui.EntradaMaiuscula;
 import arquitetura.gui.FocoEvento;
@@ -82,7 +82,7 @@ public final class VeiculoModeloPc extends JPanel implements Gui {
 
 	@Override
 	public void iniciarLayout() {
-		setBorder(BorderFactory.createTitledBorder("MODELO DE VEÍCULO"));
+		setBorder(AOP.getBordaPainel());
 		setLayout(new SpringLayout());
 	}
 

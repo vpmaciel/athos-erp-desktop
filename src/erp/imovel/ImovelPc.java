@@ -1,6 +1,5 @@
 package erp.imovel;
 
-import javax.swing.BorderFactory;
 import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
@@ -8,6 +7,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 
+import arquitetura.AOP;
 import arquitetura.gui.ConfiguracaoGui;
 import arquitetura.gui.EntradaMaiuscula;
 import arquitetura.gui.EntradaMinuscula;
@@ -330,7 +330,7 @@ public final class ImovelPc extends JPanel implements Gui {
 
 	@Override
 	public void iniciarLayout() {
-		setBorder(BorderFactory.createTitledBorder("IMÓVEL"));
+		setBorder(AOP.getBordaPainel());
 		setLayout(new SpringLayout());
 	}
 

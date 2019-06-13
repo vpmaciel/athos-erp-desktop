@@ -26,7 +26,6 @@ public class DocumentoTm extends AbstractTableModel {
 		tabelaModelo.adicionarColuna("NOME DO PROPRIETÁRIO", 6, 300);
 		tabelaModelo.adicionarColuna("MÊS DE RECEBIMENTO DO DOCUMENTO", 7, 300);
 		tabelaModelo.adicionarColuna("ANO DE RECEBIMENTO DO DOCUMENTO", 8, 300);
-		
 
 		largura = new int[tabelaModelo.getTotalColunas()];
 		podeEditar = new boolean[tabelaModelo.getTotalColunas()];

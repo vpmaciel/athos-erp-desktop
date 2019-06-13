@@ -8,7 +8,7 @@ public final class UsuarioUtil {
 		Usuario usuario = new Usuario();
 		usuario.setNome("ADMIN");
 		usuario.setSenha("123");
-		
+
 		String original = usuario.getSenha();
 		MessageDigest algorithm = null;
 		byte messageDigest[] = null;
@@ -19,14 +19,13 @@ public final class UsuarioUtil {
 			// TODO Auto-generated catch block
 			exception.printStackTrace();
 		}
-		 
+
 		StringBuilder hexString = new StringBuilder();
 		for (byte b : messageDigest) {
-		  hexString.append(String.format("%02X", 0xFF & b));
+			hexString.append(String.format("%02X", 0xFF & b));
 		}
 		String senha = hexString.toString();
 		usuario.setSenha(senha);
-		
 
 		int usuarioRegTotal = UsuarioFac.getRegistro().size();
 

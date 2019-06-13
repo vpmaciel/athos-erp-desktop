@@ -3,7 +3,6 @@ package erp.veiculo.documento;
 import java.util.Collections;
 import java.util.List;
 
-import javax.swing.BorderFactory;
 import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
@@ -52,7 +51,7 @@ public final class DocumentoPc extends JPanel implements Gui {
 		iniciarFocoControlador();
 		iniciarGuiControlador();
 	}
-	
+
 	public JLabel getLabelVeiculo() {
 		return labelVeiculo;
 	}
@@ -147,10 +146,8 @@ public final class DocumentoPc extends JPanel implements Gui {
 
 		toolBar = new ToolBar();
 
-		
-		
 		add(toolBar.getToolBar());
-		
+
 		labelVeiculo = new JLabel("PLACA");
 		labelVeiculo.setCursor(AOP.getNovaJanelaCursor());
 		add(labelVeiculo);
@@ -288,7 +285,7 @@ public final class DocumentoPc extends JPanel implements Gui {
 
 	@Override
 	public void iniciarLayout() {
-		setBorder(BorderFactory.createTitledBorder("DOCUMENTO"));
+		setBorder(AOP.getBordaPainel());
 		setLayout(new SpringLayout());
 	}
 
@@ -313,7 +310,8 @@ public final class DocumentoPc extends JPanel implements Gui {
 			this.boxVeiculo.addItem(v);
 		}
 
-		if (!MainCont.getVeiculoDocumentoFc().isShowing() && MainCont.getVeiculoDocumentoFc().getDocumentoCont().getDocumento() != null) {
+		if (!MainCont.getVeiculoDocumentoFc().isShowing()
+				&& MainCont.getVeiculoDocumentoFc().getDocumentoCont().getDocumento() != null) {
 			veiculo = MainCont.getVeiculoDocumentoFc().getDocumentoCont().getDocumento().getVeiculo();
 			boxVeiculo.setSelectedItem(veiculo);
 		}

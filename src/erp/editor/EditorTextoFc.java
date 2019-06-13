@@ -2,7 +2,6 @@ package erp.editor;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GraphicsEnvironment;
 import java.awt.event.ActionEvent;
@@ -39,6 +38,7 @@ import javax.swing.text.Document;
 import javax.swing.undo.CannotUndoException;
 import javax.swing.undo.UndoManager;
 
+import arquitetura.AOP;
 import arquitetura.gui.Imagem;
 import arquitetura.gui.Msg;
 
@@ -382,8 +382,8 @@ public class EditorTextoFc extends JFrame {
 
 		setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
 
-		setSize(new Dimension(800, 600));
-		setPreferredSize(new Dimension(800, 600));
+		setSize(AOP.getTamanhoJanela());
+		setPreferredSize(AOP.getTamanhoJanela());
 
 		final EventosBlocoDeNotas eventosBlocoDeNotas = new EventosBlocoDeNotas();
 

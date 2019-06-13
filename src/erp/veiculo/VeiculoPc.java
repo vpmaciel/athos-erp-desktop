@@ -3,7 +3,6 @@ package erp.veiculo;
 import java.util.Collections;
 import java.util.List;
 
-import javax.swing.BorderFactory;
 import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
@@ -135,7 +134,7 @@ public final class VeiculoPc extends JPanel implements Gui {
 	public ConfiguracaoGui getConfiguracaoGui() {
 		return configuracaoGui;
 	}
-	
+
 	public JLabel getLabelCentroCusto() {
 		return labelCentroCusto;
 	}
@@ -488,8 +487,6 @@ public final class VeiculoPc extends JPanel implements Gui {
 		toolBar = new ToolBar();
 
 		this.add(toolBar.getToolBar());
-		
-		
 
 		add(new JLabel("PLACA"));
 
@@ -1349,7 +1346,7 @@ public final class VeiculoPc extends JPanel implements Gui {
 
 	@Override
 	public void iniciarLayout() {
-		setBorder(BorderFactory.createTitledBorder("VEÍCULO"));
+		setBorder(AOP.getBordaPainel());
 		setLayout(new SpringLayout());
 	}
 

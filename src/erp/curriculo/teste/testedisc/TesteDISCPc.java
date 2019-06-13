@@ -3,7 +3,6 @@ package erp.curriculo.teste.testedisc;
 import java.util.Collections;
 import java.util.List;
 
-import javax.swing.BorderFactory;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
@@ -633,8 +632,6 @@ public final class TesteDISCPc extends JPanel implements Gui {
 	@Override
 	public void iniciarGui() {
 
-		
-
 		toolBar = new ToolBar();
 		add(toolBar.getToolBar());
 
@@ -1003,7 +1000,7 @@ public final class TesteDISCPc extends JPanel implements Gui {
 
 	@Override
 	public void iniciarLayout() {
-		setBorder(BorderFactory.createTitledBorder("TESTE DE PERSONALIDADE D.I.S.C."));
+		setBorder(AOP.getBordaPainel());
 		setLayout(new SpringLayout());
 	}
 

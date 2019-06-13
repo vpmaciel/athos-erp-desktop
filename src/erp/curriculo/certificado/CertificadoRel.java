@@ -15,7 +15,7 @@ import arquitetura.relatorio.Relatorio;
 
 public class CertificadoRel {
 
-	private String arquivo = Data.getHora() +"-certificado.pdf";
+	private String arquivo = Data.getHora() + "-certificado.pdf";
 	private Document document = new Document();
 	private Relatorio relatorio = new Relatorio();
 	private String titulo = "CERTIFICADOS";

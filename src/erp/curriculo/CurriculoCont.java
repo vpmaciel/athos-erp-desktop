@@ -88,7 +88,6 @@ final class CurriculoCont {
 		}
 	}
 
-
 	public class Registro implements ActionListener {
 
 		@Override
@@ -113,7 +112,7 @@ final class CurriculoCont {
 			}
 		}
 	}
-	
+
 	private Funcionario funcionario;
 
 	public void atualizarGui() {

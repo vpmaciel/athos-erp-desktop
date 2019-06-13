@@ -10,7 +10,7 @@ import javax.swing.table.TableModel;
 
 import org.jopendocument.dom.spreadsheet.SpreadSheet;
 
-import arquitetura.data.Data;
+import arquitetura.AOP;
 
 public class BancoPlan {
 
@@ -18,7 +18,7 @@ public class BancoPlan {
 	String[] colunas = new String[] { "BANCO", "CÓDIGO" };
 	TableModel tableModel;
 	File file;
-	private final String arquivo = Data.getData() + Data.getHora() + "-banco.ods";
+	private final String arquivo = AOP.getCaminhoDiretorioPlanilhas() + "-banco.ods";
 
 	public BancoPlan(List<Banco> listBanco) {
 

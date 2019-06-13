@@ -41,14 +41,14 @@ public class LoginCont {
 				// TODO Auto-generated catch block
 				exception.printStackTrace();
 			}
-			 
+
 			StringBuilder hexString = new StringBuilder();
 			for (byte b : messageDigest) {
-			  hexString.append(String.format("%02X", 0xFF & b));
+				hexString.append(String.format("%02X", 0xFF & b));
 			}
 			String senha = hexString.toString();
 			usuario.setSenha(senha);
-			
+
 			if (UsuarioFac.isRegistroValido(usuario)) {
 				List<Usuario> list = (List<Usuario>) UsuarioFac.pesquisarRegistro(usuario);
 				AOP.setUsuario(list.get(0));

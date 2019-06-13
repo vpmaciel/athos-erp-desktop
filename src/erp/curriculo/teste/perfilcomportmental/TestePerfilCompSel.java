@@ -29,7 +29,8 @@ final class TestePerfilCompSel implements ListSelectionListener {
 					TestePerfilCompTm TestePerfilCompTm = (TestePerfilCompTm) table.getModel();
 					TestePerfilCompTm.getTestePerfilComp(table.getSelectedRow());
 					MainCont.mostrarFrame(MainCont.getCurriculoTestePerfilCompFc());
-					MainCont.getCurriculoTestePerfilCompFc().getTestePerfilCompCont().setTestePerfilComp(testePerfilComp);
+					MainCont.getCurriculoTestePerfilCompFc().getTestePerfilCompCont()
+							.setTestePerfilComp(testePerfilComp);
 					MainCont.getCurriculoTestePerfilCompFc().getTestePerfilCompCont().atualizarGui();
 					MainCont.getCurriculoTestePerfilCompFc().setFocusable(true);
 					MainCont.getCurriculoTestePerfilCompFp().setVisible(false);

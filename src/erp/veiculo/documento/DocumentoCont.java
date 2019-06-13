@@ -252,7 +252,7 @@ final class DocumentoCont {
 				(String) getDocumentoPc().getGuiMesRecebimentoDocumento().getSelectedItem());
 
 		Veiculo veiculo = new Veiculo();
-		veiculo.setPlaca(((Veiculo)getDocumentoPc().getGuiVeiculo().getSelectedItem()).getPlaca());
+		veiculo.setPlaca(((Veiculo) getDocumentoPc().getGuiVeiculo().getSelectedItem()).getPlaca());
 
 		List<Veiculo> listVeiculo = (List<Veiculo>) VeiculoFac.pesquisarRegistro(veiculo);
 		if (listVeiculo.size() > 0) {

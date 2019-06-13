@@ -15,7 +15,7 @@ import arquitetura.relatorio.Relatorio;
 
 public class TestePerfilCompRel {
 
-	private String arquivo = Data.getHora() +"teste-perfil-comp.pdf";
+	private String arquivo = Data.getHora() + "teste-perfil-comp.pdf";
 	private Document document = new Document();
 	private Relatorio relatorio = new Relatorio();
 	private String titulo = "TESTE PERFIL COMPORTAMENTAL";

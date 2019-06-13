@@ -15,7 +15,7 @@ import arquitetura.relatorio.Relatorio;
 
 public class ImovelRel {
 
-	private String arquivo = Data.getHora() +"-imovel.pdf";
+	private String arquivo = Data.getHora() + "-imovel.pdf";
 	private Document document = new Document();
 	private Relatorio relatorio = new Relatorio();
 	private String titulo = "IMÓVEIS";

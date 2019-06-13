@@ -5,7 +5,6 @@ import java.awt.Rectangle;
 import java.util.LinkedList;
 import java.util.List;
 
-import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -14,6 +13,7 @@ import javax.swing.ScrollPaneConstants;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
 
+import arquitetura.AOP;
 import arquitetura.gui.Tabela;
 
 @SuppressWarnings("serial")
@@ -24,7 +24,7 @@ public final class TesteDISCPp extends JPanel {
 	private final TesteDISCTm testeDISCTm;
 
 	public TesteDISCPp() {
-		setBorder(BorderFactory.createTitledBorder("TESTE DE PERSONALIDADE D.I.S.C."));
+		setBorder(AOP.getBordaPainel());
 
 		testeDISCs = new LinkedList<>();
 		testeDISCTm = new TesteDISCTm(testeDISCs);

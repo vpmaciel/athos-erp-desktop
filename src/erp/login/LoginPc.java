@@ -2,7 +2,6 @@ package erp.login;
 
 import java.awt.Dimension;
 
-import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -10,6 +9,7 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 
+import arquitetura.AOP;
 import arquitetura.gui.ConfiguracaoGui;
 import arquitetura.gui.EntradaMaiuscula;
 import arquitetura.gui.FocoEvento;
@@ -106,7 +106,7 @@ public final class LoginPc extends JPanel implements Gui {
 
 	@Override
 	public void iniciarLayout() {
-		setBorder(BorderFactory.createTitledBorder("LOGIN"));
+		setBorder(AOP.getBordaPainel());
 		setLayout(new SpringLayout());
 	}
 

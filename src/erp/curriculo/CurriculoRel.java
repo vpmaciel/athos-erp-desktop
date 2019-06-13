@@ -34,7 +34,7 @@ import erp.funcionario.Funcionario;
 
 public class CurriculoRel {
 
-	private String arquivo = Data.getHora() +"-curriculo.pdf";
+	private String arquivo = Data.getHora() + "-curriculo.pdf";
 	private Document document = new Document();
 	private Relatorio relatorio = new Relatorio();
 	private String titulo = "CURRÍCULO";
@@ -49,7 +49,7 @@ public class CurriculoRel {
 			relatorio.criarRelatorio(writer, document, titulo);
 
 			document.add(new Paragraph("DADOS PESSOAIS"));
-			document.add(new Paragraph(""));			
+			document.add(new Paragraph(""));
 			document.add(new Paragraph("NOME: " + funcionario.getNome()));
 			document.add(new Paragraph("SEXO: " + funcionario.getSexo()));
 			document.add(new Paragraph("CPF: " + funcionario.getCpf()));
@@ -64,8 +64,7 @@ public class CurriculoRel {
 			document.add(new Paragraph("ESCOLARIDADE: " + funcionario.getEscolaridade()));
 			document.add(new Paragraph("CNH: " + funcionario.getCnhCategoria()));
 			document.add(new Paragraph(""));
-		
-	
+
 			document.add(new Paragraph("CETIFICADO"));
 			document.add(new Paragraph(""));
 

@@ -7,6 +7,7 @@ import java.io.IOException;
 
 import com.google.gson.Gson;
 
+import arquitetura.AOP;
 import erp.banco.Banco;
 
 public class Json<Tipo> {
@@ -25,7 +26,7 @@ public class Json<Tipo> {
 
 	public Json(Tipo tipo) {
 		this.tipo = tipo;
-		local = "C:\\athos\\" + tipo.getClass().getName() + ".json";
+		local = AOP.getCaminhoDadosCsv() + tipo.getClass().getName() + ".json";
 	}
 
 	public void gravarArquivo() {

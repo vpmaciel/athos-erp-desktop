@@ -5,7 +5,6 @@ import java.awt.Rectangle;
 import java.util.LinkedList;
 import java.util.List;
 
-import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -14,6 +13,7 @@ import javax.swing.ScrollPaneConstants;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
 
+import arquitetura.AOP;
 import arquitetura.gui.Tabela;
 import erp.funcionario.Funcionario;
 
@@ -25,7 +25,7 @@ public final class CurriculoPp extends JPanel {
 	private final JTable table;
 
 	public CurriculoPp() {
-		setBorder(BorderFactory.createTitledBorder("CURRÍCULO"));
+		setBorder(AOP.getBordaPainel());
 
 		funcionarioList = new LinkedList<>();
 		curriculoTm = new CurriculoTm(funcionarioList);

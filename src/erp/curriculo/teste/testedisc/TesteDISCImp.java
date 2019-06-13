@@ -48,7 +48,8 @@ final class TesteDISCImp implements TesteDISCDao {
 			entityManager = JPA.getEntityManagerFactory().createEntityManager();
 			entityTransaction = entityManager.getTransaction();
 			entityTransaction.begin();
-			Query query = entityManager.createQuery("select T from TesteDISC T order by T.funcionario", TesteDISC.class);
+			Query query = entityManager.createQuery("select T from TesteDISC T order by T.funcionario",
+					TesteDISC.class);
 			testeDISCList = query.getResultList();
 		} catch (Exception exception) {
 			exception.printStackTrace();
@@ -102,20 +103,20 @@ final class TesteDISCImp implements TesteDISCDao {
 				predicateList.add(criteriaBuilder.equal(rootTesteDISC.get("funcionario"), testeDISC.getFuncionario()));
 			}
 			if (testeDISC.getTotalOpcaoD() != null) {
-				predicateList.add(
-						criteriaBuilder.greaterThanOrEqualTo(rootTesteDISC.get("totalOpcaoD"), testeDISC.getTotalOpcaoD()));
+				predicateList.add(criteriaBuilder.greaterThanOrEqualTo(rootTesteDISC.get("totalOpcaoD"),
+						testeDISC.getTotalOpcaoD()));
 			}
 			if (testeDISC.getTotalOpcaoI() != null) {
-				predicateList.add(
-						criteriaBuilder.greaterThanOrEqualTo(rootTesteDISC.get("totalOpcaoI"), testeDISC.getTotalOpcaoI()));
+				predicateList.add(criteriaBuilder.greaterThanOrEqualTo(rootTesteDISC.get("totalOpcaoI"),
+						testeDISC.getTotalOpcaoI()));
 			}
 			if (testeDISC.getTotalOpcaoS() != null) {
-				predicateList.add(
-						criteriaBuilder.greaterThanOrEqualTo(rootTesteDISC.get("totalOpcaoS"), testeDISC.getTotalOpcaoS()));
+				predicateList.add(criteriaBuilder.greaterThanOrEqualTo(rootTesteDISC.get("totalOpcaoS"),
+						testeDISC.getTotalOpcaoS()));
 			}
 			if (testeDISC.getTotalOpcaoC() != null) {
-				predicateList.add(
-						criteriaBuilder.greaterThanOrEqualTo(rootTesteDISC.get("totalOpcaoC"), testeDISC.getTotalOpcaoC()));
+				predicateList.add(criteriaBuilder.greaterThanOrEqualTo(rootTesteDISC.get("totalOpcaoC"),
+						testeDISC.getTotalOpcaoC()));
 			}
 
 			criteriaQuery.select(rootTesteDISC).where(predicateList.toArray(new Predicate[] {}));

@@ -77,8 +77,7 @@ final class CurriculoImp implements CurriculoDao {
 			List<Predicate> predicateList = new ArrayList<Predicate>();
 
 			if (funcionario != null && funcionario.getId() != null) {
-				predicateList.add(
-						criteriaBuilder.equal(rootFuncionario.get("funcionario"), funcionario));
+				predicateList.add(criteriaBuilder.equal(rootFuncionario.get("funcionario"), funcionario));
 			}
 
 			criteriaQuery.select(rootFuncionario).where(predicateList.toArray(new Predicate[] {}));

@@ -15,7 +15,7 @@ import arquitetura.relatorio.Relatorio;
 
 public class CentroCustoRel {
 
-	private String arquivo = Data.getHora() +"-centro-de-custo.pdf";
+	private String arquivo = Data.getHora() + "-centro-de-custo.pdf";
 	private Document document = new Document();
 	private Relatorio relatorio = new Relatorio();
 	private String titulo = "CENTROS DE CUSTO";

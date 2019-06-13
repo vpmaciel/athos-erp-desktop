@@ -16,7 +16,8 @@ public class DocumentoComp {
 
 		@Override
 		public int compare(Object o1, Object o2) {
-			return ((Documento) o1).getVeiculo().getPlaca().compareToIgnoreCase(((Documento) o2).getVeiculo().getPlaca());
+			return ((Documento) o1).getVeiculo().getPlaca()
+					.compareToIgnoreCase(((Documento) o2).getVeiculo().getPlaca());
 		}
 	}
 
