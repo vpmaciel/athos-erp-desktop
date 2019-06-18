@@ -13,7 +13,7 @@ import javax.swing.ScrollPaneConstants;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
 
-import arquitetura.AOP;
+import arquitetura.Sis;
 import arquitetura.gui.Tabela;
 
 @SuppressWarnings("serial")
@@ -24,7 +24,7 @@ public final class BancoPp extends JPanel {
 	private final JTable table;
 
 	public BancoPp() {
-		setBorder(AOP.getBordaPainel());
+		setBorder(Sis.getBordaPainel());
 
 		listBanco = new LinkedList<>();
 		bancoTm = new BancoTm(listBanco);

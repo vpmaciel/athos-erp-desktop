@@ -11,7 +11,7 @@ import javax.swing.JScrollPane;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.WindowConstants;
 
-import arquitetura.AOP;
+import arquitetura.Sis;
 import arquitetura.gui.ConfiguracaoGui;
 import arquitetura.gui.FocoEvento;
 import arquitetura.gui.Gui;
@@ -118,10 +118,10 @@ public final class ExperienciaProfissionalFc extends JFrame implements Gui {
 	@Override
 	public void iniciarLayout() {
 		setLayout(new FlowLayout(FlowLayout.CENTER));
-		setPreferredSize(AOP.getTamanhoJanela());
-		setMinimumSize(AOP.getTamanhoJanela());
-		setSize(AOP.getTamanhoJanela());
-		setMaximumSize(AOP.getTamanhoJanela());
+		setPreferredSize(Sis.getTamanhoJanela());
+		setMinimumSize(Sis.getTamanhoJanela());
+		setSize(Sis.getTamanhoJanela());
+		setMaximumSize(Sis.getTamanhoJanela());
 	}
 
 	@Override

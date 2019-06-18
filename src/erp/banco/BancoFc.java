@@ -11,7 +11,7 @@ import javax.swing.JScrollPane;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.WindowConstants;
 
-import arquitetura.AOP;
+import arquitetura.Sis;
 import arquitetura.gui.ConfiguracaoGui;
 import arquitetura.gui.FocoEvento;
 import arquitetura.gui.Gui;
@@ -68,7 +68,9 @@ public final class BancoFc extends JFrame implements Gui {
 		bancoPc.getTB().getAjudaBtn().addActionListener(bancoCont.new Ajuda());
 		bancoPc.getTB().getHomeBtn().addActionListener(bancoCont.new Home());
 		bancoPc.getTB().getRegistrosBtn().addActionListener(bancoCont.new Registro());
-		bancoPc.getTB().getPlanilhaBtn().addActionListener(bancoCont.new Planilha());
+		bancoPc.getTB().getOdsBtn().addActionListener(bancoCont.new FormatoOds());
+		bancoPc.getTB().getCsvBtn().addActionListener(bancoCont.new FormatoCsv());
+		bancoPc.getTB().getTxtBtn().addActionListener(bancoCont.new FormatoTxt());
 	}
 
 	@Override
@@ -114,10 +116,10 @@ public final class BancoFc extends JFrame implements Gui {
 	@Override
 	public void iniciarLayout() {
 		setLayout(new FlowLayout(FlowLayout.CENTER));
-		setPreferredSize(AOP.getTamanhoJanela());
-		setMinimumSize(AOP.getTamanhoJanela());
-		setSize(AOP.getTamanhoJanela());
-		setMaximumSize(AOP.getTamanhoJanela());
+		setPreferredSize(Sis.getTamanhoJanela());
+		setMinimumSize(Sis.getTamanhoJanela());
+		setSize(Sis.getTamanhoJanela());
+		setMaximumSize(Sis.getTamanhoJanela());
 	}
 
 	@Override

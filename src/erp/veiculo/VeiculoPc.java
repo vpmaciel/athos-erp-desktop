@@ -10,7 +10,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 
-import arquitetura.AOP;
+import arquitetura.Sis;
 import arquitetura.gui.ConfiguracaoGui;
 import arquitetura.gui.EntradaMaiuscula;
 import arquitetura.gui.EntradaMinuscula;
@@ -495,7 +495,7 @@ public final class VeiculoPc extends JPanel implements Gui {
 		add(fieldPlaca);
 
 		labelVeiculoMarca = new JLabel("MARCA DO VEÍCULO");
-		labelVeiculoMarca.setCursor(AOP.getNovaJanelaCursor());
+		labelVeiculoMarca.setCursor(Sis.getNovaJanelaCursor());
 		add(labelVeiculoMarca);
 
 		boxVeiculoMarca = new JComboBox<VeiculoMarca>();
@@ -510,7 +510,7 @@ public final class VeiculoPc extends JPanel implements Gui {
 		add(boxVeiculoMarca);
 
 		labelVeiculoModelo = new JLabel("MODELO DO VEÍCULO");
-		labelVeiculoModelo.setCursor(AOP.getNovaJanelaCursor());
+		labelVeiculoModelo.setCursor(Sis.getNovaJanelaCursor());
 		add(labelVeiculoModelo);
 
 		boxVeiculoModelo = new JComboBox<VeiculoModelo>();
@@ -1346,7 +1346,7 @@ public final class VeiculoPc extends JPanel implements Gui {
 
 	@Override
 	public void iniciarLayout() {
-		setBorder(AOP.getBordaPainel());
+		setBorder(Sis.getBordaPainel());
 		setLayout(new SpringLayout());
 	}
 

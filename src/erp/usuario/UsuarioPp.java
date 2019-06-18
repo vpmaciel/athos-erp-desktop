@@ -13,7 +13,7 @@ import javax.swing.ScrollPaneConstants;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
 
-import arquitetura.AOP;
+import arquitetura.Sis;
 import arquitetura.gui.Tabela;
 
 @SuppressWarnings("serial")
@@ -24,7 +24,7 @@ public final class UsuarioPp extends JPanel {
 	List<Usuario> usuarioList = null;
 
 	public UsuarioPp() {
-		setBorder(AOP.getBordaPainel());
+		setBorder(Sis.getBordaPainel());
 
 		usuarioList = new LinkedList<>();
 		agenciaTableModel = new UsuarioTm(usuarioList);

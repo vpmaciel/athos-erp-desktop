@@ -10,7 +10,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 
-import arquitetura.AOP;
+import arquitetura.Sis;
 import arquitetura.gui.ConfiguracaoGui;
 import arquitetura.gui.EntradaMaiuscula;
 import arquitetura.gui.EntradaMinuscula;
@@ -232,7 +232,7 @@ public final class ContatoPc extends JPanel implements Gui {
 		add(fieldCep);
 
 		labelEmpresa = new JLabel("TRABALHA NA EMPRESA");
-		labelEmpresa.setCursor(AOP.getNovaJanelaCursor());
+		labelEmpresa.setCursor(Sis.getNovaJanelaCursor());
 		add(labelEmpresa);
 
 		boxEmpresa = new JComboBox<Empresa>();
@@ -268,7 +268,7 @@ public final class ContatoPc extends JPanel implements Gui {
 
 	@Override
 	public void iniciarLayout() {
-		setBorder(AOP.getBordaPainel());
+		setBorder(Sis.getBordaPainel());
 		setLayout(new SpringLayout());
 	}
 

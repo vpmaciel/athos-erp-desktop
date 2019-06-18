@@ -43,7 +43,7 @@ final class BancoCont {
 				Msg.erroExcluiRegistro();
 			}
 		}
-	}
+	}	
 
 	public class FechaJanela implements ActionListener {
 
@@ -140,7 +140,7 @@ final class BancoCont {
 		}
 	}
 
-	public class Planilha implements ActionListener {
+	public class FormatoOds implements ActionListener {
 
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
@@ -153,9 +153,46 @@ final class BancoCont {
 				e.printStackTrace();
 			}
 
-			BancoPlan bancoPlan = new BancoPlan(listBanco);
-			bancoPlan.retornarPlanilha(true);
+			BancoArquivoOds bancoArquivoOds = new BancoArquivoOds(listBanco);
+			bancoArquivoOds.retornarArquivo(true);
 
+		}
+	}
+
+	public class FormatoCsv implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent actionEvent) {
+
+			List<Banco> listBanco = new LinkedList<>();
+
+			try {
+				listBanco = new LinkedList<>(BancoFac.pesquisarRegistro(new Banco()));
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+			BancoArquivoCsv bancoArquivoCsv = new BancoArquivoCsv(listBanco);
+			bancoArquivoCsv.retornarArquivo(true);
+
+		}
+	}
+
+	public class FormatoTxt implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent actionEvent) {
+
+			List<Banco> listBanco = new LinkedList<>();
+
+			try {
+				listBanco = new LinkedList<>(BancoFac.pesquisarRegistro(new Banco()));
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+			BancoArquivoTxt bancoArquivoTxt = new BancoArquivoTxt(listBanco);
+			bancoArquivoTxt.retornarArquivo(true);
 		}
 	}
 

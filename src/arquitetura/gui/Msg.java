@@ -135,7 +135,27 @@ public final class Msg {
 	public static final void erroCriarPasta() {
 		JOptionPane.showMessageDialog(null, "Não foi possível criar pasta !", "Erro", JOptionPane.ERROR_MESSAGE);
 	}
+	
+	public static final void erroCriarArquivo() {
+		JOptionPane.showMessageDialog(null, "Não foi possível criar arquivo !", "Erro", JOptionPane.ERROR_MESSAGE);
+	}
+	
+	public static final void erroAbrirArquivo() {
+		JOptionPane.showMessageDialog(null, "Não foi possível abrir arquivo !", "Erro", JOptionPane.ERROR_MESSAGE);
+	}
 
+	public static final void erroArquivoNaoEncontrado() {
+		JOptionPane.showMessageDialog(null, "Não foi possível encontrar arquivo !", "Erro", JOptionPane.ERROR_MESSAGE);
+	}
+
+	public static final void erroArquivo() {
+		JOptionPane.showMessageDialog(null, "Erro de arquivo !", "Erro", JOptionPane.ERROR_MESSAGE);
+	}
+	
+	public static final void erroCodificacao() {
+		JOptionPane.showMessageDialog(null, "Não foi possível codificar !", "Erro", JOptionPane.ERROR_MESSAGE);
+	}
+	
 	public static final void erroDesconectarDataBase() {
 		JOptionPane.showMessageDialog(null, "Não foi possível desconectar ao banco de dados !", "Erro",
 				JOptionPane.ERROR_MESSAGE);

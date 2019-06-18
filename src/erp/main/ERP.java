@@ -7,11 +7,15 @@ import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
 import arquitetura.gui.Msg;
+import arquitetura.json.Json;
+import erp.banco.Banco;
 import erp.usuario.UsuarioUtil;
 
 public class ERP {
 
 	public static void main(String[] args) {
+		Banco banco = new Banco();
+		Json<Banco> json = new Json<Banco>(banco);
 		try {
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 		} catch (ClassNotFoundException | IllegalAccessException | InstantiationException

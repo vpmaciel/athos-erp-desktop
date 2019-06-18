@@ -5,7 +5,7 @@ import java.awt.FlowLayout;
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
 
-import arquitetura.AOP;
+import arquitetura.Sis;
 import arquitetura.gui.ConfiguracaoGui;
 import arquitetura.gui.Gui;
 import arquitetura.gui.Imagem;
@@ -64,7 +64,7 @@ public final class CartorioFp extends JFrame implements Gui {
 	@Override
 	public void iniciarLayout() {
 		setLayout(new FlowLayout(FlowLayout.CENTER));
-		setMinimumSize(AOP.getTamanhoJanela());
+		setMinimumSize(Sis.getTamanhoJanela());
 	}
 
 	@Override

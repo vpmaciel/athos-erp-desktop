@@ -27,7 +27,7 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.WindowConstants;
 
-import arquitetura.AOP;
+import arquitetura.Sis;
 import arquitetura.gui.Imagem;
 
 @SuppressWarnings("serial")
@@ -340,8 +340,8 @@ public class CalculadoraFc extends JFrame {
 		setIconImage(Imagem.getLogoTipoImage());
 		setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
 		addWindowListener(janelaContr);
-		setSize(AOP.getTamanhoJanela());
-		setPreferredSize(AOP.getTamanhoJanela());
+		setSize(Sis.getTamanhoJanela());
+		setPreferredSize(Sis.getTamanhoJanela());
 
 		Font fonte = new Font("TimesRoman", Font.PLAIN, 20);
 

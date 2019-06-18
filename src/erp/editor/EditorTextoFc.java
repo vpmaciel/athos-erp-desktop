@@ -38,7 +38,7 @@ import javax.swing.text.Document;
 import javax.swing.undo.CannotUndoException;
 import javax.swing.undo.UndoManager;
 
-import arquitetura.AOP;
+import arquitetura.Sis;
 import arquitetura.gui.Imagem;
 import arquitetura.gui.Msg;
 
@@ -382,8 +382,8 @@ public class EditorTextoFc extends JFrame {
 
 		setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
 
-		setSize(AOP.getTamanhoJanela());
-		setPreferredSize(AOP.getTamanhoJanela());
+		setSize(Sis.getTamanhoJanela());
+		setPreferredSize(Sis.getTamanhoJanela());
 
 		final EventosBlocoDeNotas eventosBlocoDeNotas = new EventosBlocoDeNotas();
 

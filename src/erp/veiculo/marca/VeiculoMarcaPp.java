@@ -13,7 +13,7 @@ import javax.swing.ScrollPaneConstants;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
 
-import arquitetura.AOP;
+import arquitetura.Sis;
 import arquitetura.gui.Tabela;
 
 @SuppressWarnings("serial")
@@ -24,7 +24,7 @@ public final class VeiculoMarcaPp extends JPanel {
 	private final VeiculoMarcaTm veiculoMarcaTm;
 
 	public VeiculoMarcaPp() {
-		setBorder(AOP.getBordaPainel());
+		setBorder(Sis.getBordaPainel());
 
 		veiculoList = new LinkedList<>();
 		veiculoMarcaTm = new VeiculoMarcaTm(veiculoList);

@@ -1,6 +1,7 @@
 package erp.banco;
 
 import java.io.File;
+
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.util.List;
@@ -10,13 +11,13 @@ import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
 
-import arquitetura.AOP;
+import arquitetura.Sis;
 import arquitetura.data.Data;
 import arquitetura.relatorio.Relatorio;
 
 public final class BancoRel {
 
-	private final String arquivo = AOP.getCaminhoDadosPdf() + "[banco]-" + Data.getDataHoraArquivo() + ".pdf";
+	private final String arquivo = Sis.getCaminhoDadosPdf() + "[banco]-" + Data.getDataHoraArquivo() + ".pdf";
 	private final Document document = new Document();
 	private final Relatorio relatorio = new Relatorio();
 	private final String titulo = "BANCOS";
@@ -24,6 +25,7 @@ public final class BancoRel {
 
 	public BancoRel(List<Banco> listBanco) {
 
+		
 		try {
 			writer = PdfWriter.getInstance(document, new FileOutputStream(arquivo));
 			relatorio.criarRelatorio(writer, document, titulo);
@@ -38,10 +40,11 @@ public final class BancoRel {
 		}
 		relatorio.getRodape(writer, document);
 		document.close();
+		Sis.abrirDiretorio(Sis.getCaminhoDadosPdf());
 		relatorio.retornarRelatorio(arquivo, false);
 	}
 
-	public File retornarRelatorio(boolean abrirRelatorio) {
-		return relatorio.retornarRelatorio(arquivo, abrirRelatorio);
+	public File retornarRelatorio(boolean abrirArquivo) {
+		return relatorio.retornarRelatorio(arquivo, abrirArquivo);
 	}
 }

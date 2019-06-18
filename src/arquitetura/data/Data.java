@@ -6,12 +6,12 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.Locale;
 
-import arquitetura.AOP;
+import arquitetura.Sis;
 
 public class Data {
 
 	public static String getDataHoraSimples() {
-		Locale locale = AOP.getLocale();
+		Locale locale = Sis.getLocale();
 		Calendar calendar = new GregorianCalendar();
 		String data = getDia(calendar.get(Calendar.DAY_OF_WEEK));
 		DateFormat dateFormat = new SimpleDateFormat(" - [ dd-MM-yyyy ] - [ HH:mm:ss ]", locale);
@@ -20,19 +20,19 @@ public class Data {
 	}
 
 	public static String getDataHoraCompleta() {
-		Locale locale = AOP.getLocale();
+		Locale locale = Sis.getLocale();
 		Calendar calendar = new GregorianCalendar();
 
 		String data = "DATA E HORA: ";
 		data += getDia(calendar.get(Calendar.DAY_OF_WEEK));
 		DateFormat dateFormat = new SimpleDateFormat(" - [ dd-MM-yyyy ] - [ HH:mm:ss.SSSS ]", locale);
 		data += dateFormat.format(calendar.getTime());
-		data += AOP.getUsuarioFormatado();
+		data += Sis.getUsuarioFormatado();
 		return data;
 	}
 
 	public static String getDataHoraArquivo() {
-		Locale locale = AOP.getLocale();
+		Locale locale = Sis.getLocale();
 		Calendar calendar = new GregorianCalendar();
 
 		String data = "";
@@ -42,7 +42,7 @@ public class Data {
 	}
 
 	public static String getData() {
-		Locale locale = AOP.getLocale();
+		Locale locale = Sis.getLocale();
 		Calendar calendar = new GregorianCalendar();
 		String data = getDia(calendar.get(Calendar.DAY_OF_WEEK));
 		DateFormat dateFormat = new SimpleDateFormat("-dd-MM-yyyy", locale);
@@ -51,7 +51,7 @@ public class Data {
 	}
 
 	public static String getHora() {
-		Locale locale = AOP.getLocale();
+		Locale locale = Sis.getLocale();
 		Calendar calendar = new GregorianCalendar();
 
 		String data = "";

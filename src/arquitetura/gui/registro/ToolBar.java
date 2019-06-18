@@ -150,7 +150,7 @@ public class ToolBar {
 		return buttonSalvar;
 	}
 
-	public JButton getPlanilhaBtn() {
+	public JButton getOdsBtn() {
 		return buttonPlanilha;
 	}
 

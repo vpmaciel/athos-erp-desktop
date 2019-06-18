@@ -10,17 +10,18 @@ import javax.swing.table.TableModel;
 
 import org.jopendocument.dom.spreadsheet.SpreadSheet;
 
-import arquitetura.AOP;
+import arquitetura.Sis;
+import arquitetura.data.Data;
 
-public class BancoPlan {
+public class BancoArquivoOds {
 
 	Object[][] dados;
 	String[] colunas = new String[] { "BANCO", "CÓDIGO" };
 	TableModel tableModel;
 	File file;
-	private final String arquivo = AOP.getCaminhoDiretorioPlanilhas() + "-banco.ods";
+	private final String arquivo = Sis.getCaminhoDiretorioPlanilhas() + "[banco]-" + Data.getDataHoraArquivo() + ".ods";
 
-	public BancoPlan(List<Banco> listBanco) {
+	public BancoArquivoOds(List<Banco> listBanco) {
 
 		try {
 			dados = new Object[listBanco.size()][2];
@@ -32,6 +33,7 @@ public class BancoPlan {
 				dados[linha][1] = banco.getCodigo();
 				linha++;
 			}
+
 			tableModel = new DefaultTableModel(dados, colunas);
 			file = new File(arquivo);
 			SpreadSheet.createEmpty(tableModel).saveAs(file);
@@ -40,9 +42,10 @@ public class BancoPlan {
 		}
 	}
 
-	public File retornarPlanilha(boolean abrirRelatorio) {
-		if (abrirRelatorio) {
+	public File retornarArquivo(boolean abrirArquivo) {
+		if (abrirArquivo) {
 			try {
+				Sis.abrirDiretorio(Sis.getCaminhoDiretorioPlanilhas());
 				Desktop.getDesktop().open(file);
 			} catch (IOException e) {
 				e.printStackTrace();

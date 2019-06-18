@@ -8,7 +8,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SpringLayout;
 
-import arquitetura.AOP;
+import arquitetura.Sis;
 import arquitetura.gui.ConfiguracaoGui;
 import arquitetura.gui.FocoEvento;
 import arquitetura.gui.Gui;
@@ -275,7 +275,7 @@ public final class TestePerfilCompPc extends JPanel implements Gui {
 		add(toolBar.getToolBar());
 
 		labelFuncionario = new JLabel("FUNCIONÁRIO");
-		labelFuncionario.setCursor(AOP.getNovaJanelaCursor());
+		labelFuncionario.setCursor(Sis.getNovaJanelaCursor());
 		add(labelFuncionario);
 
 		boxFuncionario = new JComboBox<Funcionario>();
@@ -663,7 +663,7 @@ public final class TestePerfilCompPc extends JPanel implements Gui {
 
 	@Override
 	public void iniciarLayout() {
-		setBorder(AOP.getBordaPainel());
+		setBorder(Sis.getBordaPainel());
 		setLayout(new SpringLayout());
 	}
 

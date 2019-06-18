@@ -7,7 +7,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 
-import arquitetura.AOP;
+import arquitetura.Sis;
 import arquitetura.gui.ConfiguracaoGui;
 import arquitetura.gui.EntradaMaiuscula;
 import arquitetura.gui.EntradaMinuscula;
@@ -249,7 +249,7 @@ public final class EmpresaPc extends JPanel implements Gui {
 
 		add(new JLabel("FATURAMENTO MENSAL"));
 
-		fieldFaturamentoMensal = new JFormattedTextField(AOP.getNumeroFormatado());
+		fieldFaturamentoMensal = new JFormattedTextField(Sis.getNumeroFormatado());
 		add(fieldFaturamentoMensal);
 
 		add(new JLabel("DATA DE FUNDAÇÃO"));
@@ -322,7 +322,7 @@ public final class EmpresaPc extends JPanel implements Gui {
 
 	@Override
 	public void iniciarLayout() {
-		setBorder(AOP.getBordaPainel());
+		setBorder(Sis.getBordaPainel());
 		setLayout(new SpringLayout());
 	}
 

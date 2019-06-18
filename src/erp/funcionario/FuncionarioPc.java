@@ -10,7 +10,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 
-import arquitetura.AOP;
+import arquitetura.Sis;
 import arquitetura.gui.ConfiguracaoGui;
 import arquitetura.gui.EntradaMaiuscula;
 import arquitetura.gui.EntradaMinuscula;
@@ -438,7 +438,7 @@ public final class FuncionarioPc extends JPanel implements Gui {
 		add(fieldTurno);
 
 		labelCentroCusto = new JLabel("CENTRO DE CUSTO");
-		labelCentroCusto.setCursor(AOP.getNovaJanelaCursor());
+		labelCentroCusto.setCursor(Sis.getNovaJanelaCursor());
 		add(labelCentroCusto);
 
 		boxCentroCusto = new JComboBox<CentroCusto>();
@@ -502,7 +502,7 @@ public final class FuncionarioPc extends JPanel implements Gui {
 
 	@Override
 	public void iniciarLayout() {
-		setBorder(AOP.getBordaPainel());
+		setBorder(Sis.getBordaPainel());
 		setLayout(new SpringLayout());
 	}
 

@@ -20,7 +20,7 @@ class SplashScreen extends JWindow {
 		duration = d;
 
 		JPanel content = (JPanel) getContentPane();
-		content.setBackground(Color.DARK_GRAY);
+		content.setBackground(Color.BLUE);
 		int width = 450;
 		int height = 115;
 		Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
@@ -29,9 +29,9 @@ class SplashScreen extends JWindow {
 		setBounds(x, y, width, height);
 
 		JLabel labelSistema = new JLabel("ATHOS");
-		labelSistema.setFont(new Font("Sans-Serif", Font.BOLD, 16));
+		labelSistema.setFont(new Font("Sans-Serif", Font.BOLD, 24));
 		labelSistema.setForeground(Color.WHITE);
-		content.setBorder(BorderFactory.createLineBorder(Color.WHITE, 10));
+		content.setBorder(BorderFactory.createLineBorder(Color.BLACK, 10));
 		content.setLayout(new GridBagLayout());
 		GridBagConstraints gbc = new GridBagConstraints();
 		content.add(labelSistema, gbc);

@@ -2,6 +2,8 @@ package arquitetura.relatorio;
 
 import java.awt.Desktop;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
 import javax.swing.JOptionPane;
 
@@ -16,6 +18,7 @@ import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 
 import arquitetura.data.Data;
+import arquitetura.gui.Msg;
 
 public class Relatorio {
 
@@ -58,19 +61,25 @@ public class Relatorio {
 		}
 	}
 
-	public File retornarRelatorio(String caminho, boolean abrirRelatorio) {
+	public File retornarRelatorio(String caminho, boolean abrirArquivo) {
 
 		File arquivo = new File(caminho);
 
-		if (!abrirRelatorio) {
+		if (!abrirArquivo) {
 			return arquivo;
 		}
 
 		try {
 			Desktop.getDesktop().open(arquivo);
+		} catch (FileNotFoundException fileNotFoundException) {
+			fileNotFoundException.printStackTrace();
+			Msg.erroArquivoNaoEncontrado();
+		} catch (IOException ioException) {
+			ioException.printStackTrace();
+			Msg.erroAbrirArquivo();
 		} catch (Exception exception) {
 			exception.printStackTrace();
-			JOptionPane.showMessageDialog(null, "Erro ao abrir o arquivo", "Erro", JOptionPane.ERROR_MESSAGE);
+			Msg.erroArquivo();
 		}
 
 		return arquivo;

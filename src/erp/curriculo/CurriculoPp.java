@@ -13,7 +13,7 @@ import javax.swing.ScrollPaneConstants;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
 
-import arquitetura.AOP;
+import arquitetura.Sis;
 import arquitetura.gui.Tabela;
 import erp.funcionario.Funcionario;
 
@@ -25,7 +25,7 @@ public final class CurriculoPp extends JPanel {
 	private final JTable table;
 
 	public CurriculoPp() {
-		setBorder(AOP.getBordaPainel());
+		setBorder(Sis.getBordaPainel());
 
 		funcionarioList = new LinkedList<>();
 		curriculoTm = new CurriculoTm(funcionarioList);

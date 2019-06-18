@@ -4,36 +4,65 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Collection;
+import java.util.LinkedList;
+import java.util.List;
 
 import com.google.gson.Gson;
 
-import arquitetura.AOP;
+import arquitetura.Sis;
+import arquitetura.data.Data;
 import erp.banco.Banco;
+import erp.banco.BancoFac;
 
 public class Json<Tipo> {
-	String local;
-	Tipo tipo;
+	private String local;
+	private Tipo tipo;
+	private List<Tipo> listTipo = new LinkedList<Tipo>();
+		{
 
-	{
-		/*
-		 * Banco banco = new Banco(); banco.setId(1L); banco.setCodigo("111");
-		 * banco.setNome("BMG");
-		 * 
-		 * Json<Banco> json = new Json<Banco>(banco); json.lerArquivo();
-		 */
 
+		
 	}
 
 	public Json(Tipo tipo) {
 		this.tipo = tipo;
-		local = AOP.getCaminhoDadosCsv() + tipo.getClass().getName() + ".json";
+		local = Sis.getCaminhoDadosJson() + tipo.getClass().getName() + ".json";
+		
+		//Json<Banco> json = new Json<Banco>(tipo);
+		//json.lerArquivo();
+		gravarArquivo(BancoFac.getRegistro());
 	}
 
-	public void gravarArquivo() {
+	public String getLocal() {
+		return local;
+	}
+
+	public void setLocal(String local) {
+		this.local = local;
+	}
+
+	public Tipo getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(Tipo tipo) {
+		this.tipo = tipo;
+	}
+
+	public List<Tipo> getListTipo() {
+		return listTipo;
+	}
+
+	public void setListTipo(List<Tipo> listTipo) {
+		this.listTipo = listTipo;
+	}
+
+	public void gravarArquivo(Collection<Banco> collection) {
 		Gson gson = new Gson();
 
 		// converte objetos Java para JSON e retorna JSON como String
-		String json = gson.toJson(tipo);
+		String json = gson.toJson(collection);
 
 		try {
 			// Escreve Json convertido em arquivo chamado "file.json"

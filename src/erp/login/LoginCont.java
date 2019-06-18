@@ -11,7 +11,7 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
-import arquitetura.AOP;
+import arquitetura.Sis;
 import arquitetura.data.Data;
 import arquitetura.gui.Msg;
 import erp.main.MainCont;
@@ -51,7 +51,7 @@ public class LoginCont {
 
 			if (UsuarioFac.isRegistroValido(usuario)) {
 				List<Usuario> list = (List<Usuario>) UsuarioFac.pesquisarRegistro(usuario);
-				AOP.setUsuario(list.get(0));
+				Sis.setUsuario(list.get(0));
 				MainCont.getLoginFc().setVisible(false);
 				MainCont.getMainFc().toFront();
 				logger.warn(Data.getDataHoraCompleta());

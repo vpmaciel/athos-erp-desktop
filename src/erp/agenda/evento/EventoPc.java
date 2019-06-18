@@ -10,7 +10,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 
-import arquitetura.AOP;
+import arquitetura.Sis;
 import arquitetura.gui.ConfiguracaoGui;
 import arquitetura.gui.EntradaMaiuscula;
 import arquitetura.gui.FocoEvento;
@@ -99,7 +99,7 @@ public final class EventoPc extends JPanel implements Gui {
 		add(toolBar.getToolBar());
 
 		labelTipoEvento = new JLabel("EVENTO");
-		labelTipoEvento.setCursor(AOP.getNovaJanelaCursor());
+		labelTipoEvento.setCursor(Sis.getNovaJanelaCursor());
 		add(labelTipoEvento);
 
 		boxTipoEvento = new JComboBox<TipoEvento>();
@@ -149,7 +149,7 @@ public final class EventoPc extends JPanel implements Gui {
 
 	@Override
 	public void iniciarLayout() {
-		setBorder(AOP.getBordaPainel());
+		setBorder(Sis.getBordaPainel());
 		setLayout(new SpringLayout());
 	}
 

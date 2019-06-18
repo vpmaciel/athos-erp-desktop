@@ -192,7 +192,7 @@ public class CurriculoRel {
 		relatorio.retornarRelatorio(arquivo, false);
 	}
 
-	public File retornarRelatorio(boolean abrirRelatorio) {
-		return relatorio.retornarRelatorio(arquivo, abrirRelatorio);
+	public File retornarRelatorio(boolean abrirArquivo) {
+		return relatorio.retornarRelatorio(arquivo, abrirArquivo);
 	}
 }
