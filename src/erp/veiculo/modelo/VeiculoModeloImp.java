@@ -12,7 +12,7 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
-import arquitetura.JPA;
+import arquitetura.Jpa;
 
 final class VeiculoModeloImp implements VeiculoModeloDao {
 
@@ -21,7 +21,7 @@ final class VeiculoModeloImp implements VeiculoModeloDao {
 		EntityManager entityManager = null;
 		EntityTransaction entityTransaction = null;
 		try {
-			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityManager = Jpa.getEntityManagerFactory().createEntityManager();
 			entityTransaction = entityManager.getTransaction();
 
 			entityTransaction.begin();
@@ -45,7 +45,7 @@ final class VeiculoModeloImp implements VeiculoModeloDao {
 		EntityTransaction entityTransaction = null;
 		List<VeiculoModelo> veiculoModeloList = null;
 		try {
-			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityManager = Jpa.getEntityManagerFactory().createEntityManager();
 			entityTransaction = entityManager.getTransaction();
 			entityTransaction.begin();
 			Query query = entityManager.createQuery("select T from VeiculoModelo T order by T.modelo",
@@ -67,7 +67,7 @@ final class VeiculoModeloImp implements VeiculoModeloDao {
 		EntityManager entityManager = null;
 		EntityTransaction entityTransaction = null;
 		try {
-			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityManager = Jpa.getEntityManagerFactory().createEntityManager();
 			entityTransaction = entityManager.getTransaction();
 			entityTransaction.begin();
 			veiculoModelo = entityManager.find(VeiculoModelo.class, veiculoModelo.getId());
@@ -89,7 +89,7 @@ final class VeiculoModeloImp implements VeiculoModeloDao {
 		List<VeiculoModelo> veiculoModeloList = null;
 
 		try {
-			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityManager = Jpa.getEntityManagerFactory().createEntityManager();
 			entityTransaction = entityManager.getTransaction();
 			entityTransaction.begin();
 
@@ -125,7 +125,7 @@ final class VeiculoModeloImp implements VeiculoModeloDao {
 		EntityManager entityManager = null;
 		EntityTransaction entityTransaction = null;
 		try {
-			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityManager = Jpa.getEntityManagerFactory().createEntityManager();
 			entityTransaction = entityManager.getTransaction();
 			entityTransaction.begin();
 			entityManager.merge(veiculoModelo);

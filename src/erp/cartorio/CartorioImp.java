@@ -12,7 +12,7 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
-import arquitetura.JPA;
+import arquitetura.Jpa;
 import arquitetura.validacao.Mascara;
 
 final class CartorioImp implements CartorioDao {
@@ -23,7 +23,7 @@ final class CartorioImp implements CartorioDao {
 		EntityTransaction entityTransaction = null;
 
 		try {
-			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityManager = Jpa.getEntityManagerFactory().createEntityManager();
 			entityTransaction = entityManager.getTransaction();
 			entityTransaction.begin();
 			entityManager.remove(entityManager.find(Cartorio.class, cartorio.getId()));
@@ -40,7 +40,7 @@ final class CartorioImp implements CartorioDao {
 
 	@Override
 	public Collection<Cartorio> getRegistro() {
-		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
+		EntityManager entityManager = Jpa.getEntityManagerFactory().createEntityManager();
 		EntityTransaction entityTransaction = entityManager.getTransaction();
 		entityTransaction.begin();
 		Query query = entityManager.createQuery("select T from Cartorio T order by T.nomeFantasia, T.razaoSocial",
@@ -54,7 +54,7 @@ final class CartorioImp implements CartorioDao {
 
 	@Override
 	public Cartorio getRegistro(Cartorio cartorio) {
-		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
+		EntityManager entityManager = Jpa.getEntityManagerFactory().createEntityManager();
 		EntityTransaction entityTransaction = entityManager.getTransaction();
 		entityTransaction.begin();
 		return entityManager.find(Cartorio.class, cartorio.getId());
@@ -62,7 +62,7 @@ final class CartorioImp implements CartorioDao {
 
 	@Override
 	public Collection<Cartorio> pesquisarRegistro(Cartorio cartorio) {
-		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
+		EntityManager entityManager = Jpa.getEntityManagerFactory().createEntityManager();
 		EntityTransaction entityTransaction = entityManager.getTransaction();
 		entityTransaction.begin();
 
@@ -124,26 +124,26 @@ final class CartorioImp implements CartorioDao {
 		if (cartorio.getPais() != null && cartorio.getPais().length() > 0) {
 			predicateList.add(criteriaBuilder.like(rootCartorio.get("pais"), "%" + cartorio.getPais() + "%"));
 		}
-		if (cartorio.getEstado() != null && cartorio.getEstado().length() > 0) {
-			predicateList.add(criteriaBuilder.like(rootCartorio.get("estado"), "%" + cartorio.getEstado() + "%"));
+		if (cartorio.getEnderecoEstado() != null && cartorio.getEnderecoEstado().length() > 0) {
+			predicateList.add(criteriaBuilder.like(rootCartorio.get("enderecoEstado"), "%" + cartorio.getEnderecoEstado() + "%"));
 		}
-		if (cartorio.getCidade() != null && cartorio.getCidade().length() > 0) {
-			predicateList.add(criteriaBuilder.like(rootCartorio.get("cidade"), "%" + cartorio.getCidade() + "%"));
+		if (cartorio.getEnderecoCidade() != null && cartorio.getEnderecoCidade().length() > 0) {
+			predicateList.add(criteriaBuilder.like(rootCartorio.get("enderecoCidade"), "%" + cartorio.getEnderecoCidade() + "%"));
 		}
-		if (cartorio.getBairro() != null && cartorio.getBairro().length() > 0) {
-			predicateList.add(criteriaBuilder.like(rootCartorio.get("bairro"), "%" + cartorio.getBairro() + "%"));
+		if (cartorio.getEnderecoBairro() != null && cartorio.getEnderecoBairro().length() > 0) {
+			predicateList.add(criteriaBuilder.like(rootCartorio.get("enderecoBairro"), "%" + cartorio.getEnderecoBairro() + "%"));
 		}
-		if (cartorio.getLogradouro() != null && cartorio.getLogradouro().length() > 0) {
+		if (cartorio.getEnderecoLogradouro() != null && cartorio.getEnderecoLogradouro().length() > 0) {
 			predicateList
-					.add(criteriaBuilder.like(rootCartorio.get("logradouro"), "%" + cartorio.getLogradouro() + "%"));
+					.add(criteriaBuilder.like(rootCartorio.get("enderecoLogradouro"), "%" + cartorio.getEnderecoLogradouro() + "%"));
 		}
-		if (cartorio.getComplemento() != null && cartorio.getComplemento().length() > 0) {
+		if (cartorio.getEnderecoComplemento() != null && cartorio.getEnderecoComplemento().length() > 0) {
 			predicateList
-					.add(criteriaBuilder.like(rootCartorio.get("complemento"), "%" + cartorio.getComplemento() + "%"));
+					.add(criteriaBuilder.like(rootCartorio.get("enderecoComplemento"), "%" + cartorio.getEnderecoComplemento() + "%"));
 		}
-		if (cartorio.getCep() != null && !cartorio.getCep().equals(Mascara.getCep().getPlaceholder())
-				&& !cartorio.getCep().equals(Mascara.getCepVazio())) {
-			predicateList.add(criteriaBuilder.like(rootCartorio.get("cep"), "%" + cartorio.getCep() + "%"));
+		if (cartorio.getEnderecoCep() != null && !cartorio.getEnderecoCep().equals(Mascara.getEnderecoCep().getPlaceholder())
+				&& !cartorio.getEnderecoCep().equals(Mascara.getEnderecoCepVazio())) {
+			predicateList.add(criteriaBuilder.like(rootCartorio.get("enderecoCep"), "%" + cartorio.getEnderecoCep() + "%"));
 		}
 
 		criteriaQuery.select(rootCartorio).where(predicateList.toArray(new Predicate[] {}));
@@ -156,7 +156,7 @@ final class CartorioImp implements CartorioDao {
 
 	@Override
 	public void salvarRegistro(Cartorio cartorio) {
-		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
+		EntityManager entityManager = Jpa.getEntityManagerFactory().createEntityManager();
 		EntityTransaction entityTransaction = entityManager.getTransaction();
 		entityTransaction.begin();
 		entityManager.merge(cartorio);

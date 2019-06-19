@@ -12,7 +12,7 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
-import arquitetura.JPA;
+import arquitetura.Jpa;
 
 final class TipoEventoImp implements TipoEventoDao {
 
@@ -22,7 +22,7 @@ final class TipoEventoImp implements TipoEventoDao {
 		EntityTransaction entityTransaction = null;
 
 		try {
-			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityManager = Jpa.getEntityManagerFactory().createEntityManager();
 			entityTransaction = entityManager.getTransaction();
 
 			entityTransaction.begin();
@@ -46,7 +46,7 @@ final class TipoEventoImp implements TipoEventoDao {
 		EntityTransaction entityTransaction = null;
 		List<TipoEvento> tipoEventoList = null;
 		try {
-			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityManager = Jpa.getEntityManagerFactory().createEntityManager();
 			entityTransaction = entityManager.getTransaction();
 			entityTransaction.begin();
 			Query query = entityManager.createQuery("select T from TipoEvento T order by T.nome", TipoEvento.class);
@@ -68,7 +68,7 @@ final class TipoEventoImp implements TipoEventoDao {
 		EntityManager entityManager = null;
 		EntityTransaction entityTransaction = null;
 		try {
-			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityManager = Jpa.getEntityManagerFactory().createEntityManager();
 			entityTransaction = entityManager.getTransaction();
 			entityTransaction.begin();
 			tipoEvento = entityManager.find(TipoEvento.class, tipoEvento.getId());
@@ -89,7 +89,7 @@ final class TipoEventoImp implements TipoEventoDao {
 		EntityTransaction entityTransaction = null;
 		List<TipoEvento> tipoEventoList = null;
 		try {
-			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityManager = Jpa.getEntityManagerFactory().createEntityManager();
 			entityTransaction = entityManager.getTransaction();
 			entityTransaction.begin();
 			CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
@@ -125,7 +125,7 @@ final class TipoEventoImp implements TipoEventoDao {
 		EntityManager entityManager = null;
 		EntityTransaction entityTransaction = null;
 		try {
-			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityManager = Jpa.getEntityManagerFactory().createEntityManager();
 			entityTransaction = entityManager.getTransaction();
 			entityTransaction.begin();
 			entityManager.merge(tipoEvento);

@@ -12,7 +12,7 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
-import arquitetura.JPA;
+import arquitetura.Jpa;
 
 final class ObjetivoProfissionalImp implements ObjetivoProfissionalDao {
 
@@ -21,7 +21,7 @@ final class ObjetivoProfissionalImp implements ObjetivoProfissionalDao {
 		EntityManager entityManager = null;
 		EntityTransaction entityTransaction = null;
 		try {
-			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityManager = Jpa.getEntityManagerFactory().createEntityManager();
 			entityTransaction = entityManager.getTransaction();
 			entityTransaction.begin();
 			entityManager.remove(entityManager.find(ObjetivoProfissional.class, objetivoProfissional.getId()));
@@ -45,7 +45,7 @@ final class ObjetivoProfissionalImp implements ObjetivoProfissionalDao {
 		List<ObjetivoProfissional> objetivoProfissionalList = null;
 
 		try {
-			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityManager = Jpa.getEntityManagerFactory().createEntityManager();
 			entityTransaction = entityManager.getTransaction();
 			entityTransaction.begin();
 			Query query = entityManager.createQuery("select T from ObjetivoProfissional T order by T.cargo",
@@ -67,7 +67,7 @@ final class ObjetivoProfissionalImp implements ObjetivoProfissionalDao {
 		EntityManager entityManager = null;
 		EntityTransaction entityTransaction = null;
 		try {
-			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityManager = Jpa.getEntityManagerFactory().createEntityManager();
 			entityTransaction = entityManager.getTransaction();
 			entityTransaction.begin();
 			objetivoProfissional = entityManager.find(ObjetivoProfissional.class, objetivoProfissional.getId());
@@ -88,7 +88,7 @@ final class ObjetivoProfissionalImp implements ObjetivoProfissionalDao {
 		EntityTransaction entityTransaction = null;
 		List<ObjetivoProfissional> objetivoProfissionalList = null;
 		try {
-			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityManager = Jpa.getEntityManagerFactory().createEntityManager();
 			entityTransaction = entityManager.getTransaction();
 			entityTransaction.begin();
 			CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
@@ -142,7 +142,7 @@ final class ObjetivoProfissionalImp implements ObjetivoProfissionalDao {
 		EntityManager entityManager = null;
 		EntityTransaction entityTransaction = null;
 		try {
-			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityManager = Jpa.getEntityManagerFactory().createEntityManager();
 			entityTransaction = entityManager.getTransaction();
 			entityTransaction.begin();
 			entityManager.merge(objetivoProfissional);

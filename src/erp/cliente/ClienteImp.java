@@ -12,7 +12,7 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
-import arquitetura.JPA;
+import arquitetura.Jpa;
 import arquitetura.validacao.Mascara;
 
 final class ClienteImp implements ClienteDao {
@@ -22,7 +22,7 @@ final class ClienteImp implements ClienteDao {
 		EntityManager entityManager = null;
 		EntityTransaction entityTransaction = null;
 		try {
-			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityManager = Jpa.getEntityManagerFactory().createEntityManager();
 			entityTransaction = entityManager.getTransaction();
 			entityTransaction.begin();
 			entityManager.remove(entityManager.find(Cliente.class, cliente.getId()));
@@ -46,7 +46,7 @@ final class ClienteImp implements ClienteDao {
 		List<Cliente> clienteList = null;
 
 		try {
-			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityManager = Jpa.getEntityManagerFactory().createEntityManager();
 			entityTransaction = entityManager.getTransaction();
 			entityTransaction.begin();
 			Query query = entityManager.createQuery("select T from Cliente T order by T.funcionario", Cliente.class);
@@ -67,7 +67,7 @@ final class ClienteImp implements ClienteDao {
 		EntityManager entityManager = null;
 		EntityTransaction entityTransaction = null;
 		try {
-			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityManager = Jpa.getEntityManagerFactory().createEntityManager();
 			entityTransaction = entityManager.getTransaction();
 			entityTransaction.begin();
 			cliente = entityManager.find(Cliente.class, cliente.getId());
@@ -88,7 +88,7 @@ final class ClienteImp implements ClienteDao {
 		EntityTransaction entityTransaction = null;
 		List<Cliente> clienteList = null;
 		try {
-			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityManager = Jpa.getEntityManagerFactory().createEntityManager();
 			entityTransaction = entityManager.getTransaction();
 			entityTransaction.begin();
 			CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
@@ -99,8 +99,8 @@ final class ClienteImp implements ClienteDao {
 			if (cliente.getId() != null) {
 				predicateList.add(criteriaBuilder.equal(rootCliente.get("id"), cliente.getId()));
 			}
-			if (cliente.getBairro() != null && cliente.getBairro().length() > 0) {
-				predicateList.add(criteriaBuilder.like(rootCliente.get("bairro"), "%" + cliente.getBairro() + "%"));
+			if (cliente.getEnderecoBairro() != null && cliente.getEnderecoBairro().length() > 0) {
+				predicateList.add(criteriaBuilder.like(rootCliente.get("enderecoBairro"), "%" + cliente.getEnderecoBairro() + "%"));
 			}
 			if (cliente.getCargo() != null && cliente.getCargo().length() > 0) {
 				predicateList.add(criteriaBuilder.like(rootCliente.get("cargo"), "%" + cliente.getCargo() + "%"));
@@ -115,16 +115,16 @@ final class ClienteImp implements ClienteDao {
 				predicateList.add(
 						criteriaBuilder.like(rootCliente.get("dataCadastro"), "%" + cliente.getDataCadastro() + "%"));
 			}
-			if (cliente.getCep() != null && !cliente.getCep().equals(Mascara.getCep().getPlaceholder())
-					&& !cliente.getCep().equals(Mascara.getCepVazio())) {
-				predicateList.add(criteriaBuilder.like(rootCliente.get("cep"), "%" + cliente.getCep() + "%"));
+			if (cliente.getEnderecoCep() != null && !cliente.getEnderecoCep().equals(Mascara.getEnderecoCep().getPlaceholder())
+					&& !cliente.getEnderecoCep().equals(Mascara.getEnderecoCepVazio())) {
+				predicateList.add(criteriaBuilder.like(rootCliente.get("enderecoCep"), "%" + cliente.getEnderecoCep() + "%"));
 			}
-			if (cliente.getCidade() != null && cliente.getCidade().length() > 0) {
-				predicateList.add(criteriaBuilder.like(rootCliente.get("cidade"), "%" + cliente.getCidade() + "%"));
+			if (cliente.getEnderecoCidade() != null && cliente.getEnderecoCidade().length() > 0) {
+				predicateList.add(criteriaBuilder.like(rootCliente.get("enderecoCidade"), "%" + cliente.getEnderecoCidade() + "%"));
 			}
-			if (cliente.getComplemento() != null && cliente.getComplemento().length() > 0) {
+			if (cliente.getEnderecoComplemento() != null && cliente.getEnderecoComplemento().length() > 0) {
 				predicateList.add(
-						criteriaBuilder.like(rootCliente.get("complemento"), "%" + cliente.getComplemento() + "%"));
+						criteriaBuilder.like(rootCliente.get("enderecoComplemento"), "%" + cliente.getEnderecoComplemento() + "%"));
 			}
 			if (cliente.getCpf() != null && !cliente.getCpf().equals(Mascara.getCpf().getPlaceholder())
 					&& !cliente.getCpf().equals(Mascara.getCpfVazio())) {
@@ -133,12 +133,12 @@ final class ClienteImp implements ClienteDao {
 			if (cliente.getEmail() != null && cliente.getEmail().length() > 0) {
 				predicateList.add(criteriaBuilder.like(rootCliente.get("email"), "%" + cliente.getEmail() + "%"));
 			}
-			if (cliente.getEstado() != null && cliente.getEstado().length() > 0) {
-				predicateList.add(criteriaBuilder.like(rootCliente.get("estado"), "%" + cliente.getEstado() + "%"));
+			if (cliente.getEnderecoEstado() != null && cliente.getEnderecoEstado().length() > 0) {
+				predicateList.add(criteriaBuilder.like(rootCliente.get("enderecoEstado"), "%" + cliente.getEnderecoEstado() + "%"));
 			}
-			if (cliente.getEstadoCivil() != null && cliente.getEstadoCivil().length() > 0) {
+			if (cliente.getEnderecoEstadoCivil() != null && cliente.getEnderecoEstadoCivil().length() > 0) {
 				predicateList.add(
-						criteriaBuilder.like(rootCliente.get("estadoCivil"), "%" + cliente.getEstadoCivil() + "%"));
+						criteriaBuilder.like(rootCliente.get("enderecoEstadoCivil"), "%" + cliente.getEnderecoEstadoCivil() + "%"));
 			}
 			if (cliente.getFax() != null && !cliente.getFax().equals(Mascara.getFax().getPlaceholder())
 					&& !cliente.getFax().equals(Mascara.getFaxVazio())) {
@@ -152,9 +152,9 @@ final class ClienteImp implements ClienteDao {
 					&& !cliente.getFone2().equals(Mascara.getFoneVazio())) {
 				predicateList.add(criteriaBuilder.like(rootCliente.get("fone2"), "%" + cliente.getFone2() + "%"));
 			}
-			if (cliente.getLogradouro() != null && cliente.getLogradouro().length() > 0) {
+			if (cliente.getEnderecoLogradouro() != null && cliente.getEnderecoLogradouro().length() > 0) {
 				predicateList
-						.add(criteriaBuilder.like(rootCliente.get("logradouro"), "%" + cliente.getLogradouro() + "%"));
+						.add(criteriaBuilder.like(rootCliente.get("enderecoLogradouro"), "%" + cliente.getEnderecoLogradouro() + "%"));
 			}
 			if (cliente.getNome() != null && cliente.getNome().length() > 0) {
 				predicateList.add(criteriaBuilder.like(rootCliente.get("nome"), "%" + cliente.getNome() + "%"));
@@ -257,7 +257,7 @@ final class ClienteImp implements ClienteDao {
 		EntityManager entityManager = null;
 		EntityTransaction entityTransaction = null;
 		try {
-			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityManager = Jpa.getEntityManagerFactory().createEntityManager();
 			entityTransaction = entityManager.getTransaction();
 			entityTransaction.begin();
 			entityManager.merge(cliente);

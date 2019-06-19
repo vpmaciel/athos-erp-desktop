@@ -26,7 +26,7 @@ public class Sis {
 	private static String caminhoAppDados = caminhoApp + "dados" + separador;
 	private static final String caminhoDiretorioLog = caminhoApp + "logs";
 	private static final String caminhoDiretorioVideos = caminhoApp + "videos";
-	private static final String caminhoDiretorioPlanilhas = caminhoApp + "planilhas";
+	private static final String caminhoDiretorioOds = caminhoAppDados + "ods" + separador;
 	private static final String caminhoDiretorioDadosPdf = caminhoAppDados + "pdf" + separador;
 	private static final String caminhoDiretorioDadosJson = caminhoAppDados + "json" + separador;
 	private static final String caminhoDiretorioDadosXml = caminhoAppDados + "xml" + separador;
@@ -88,8 +88,8 @@ public class Sis {
 		return caminhoDiretorioVideos;
 	}
 
-	public static String getCaminhoDiretorioPlanilhas() {
-		return caminhoDiretorioPlanilhas;
+	public static String getCaminhoDiretorioOds() {
+		return caminhoDiretorioOds;
 	}
 
 	public static String getCaminhoDadosCsv() {
@@ -149,7 +149,7 @@ public class Sis {
 			arquivo.mkdir();
 			arquivo = new File(caminhoDiretorioLog);
 			arquivo.mkdir();
-			arquivo = new File(caminhoDiretorioPlanilhas);
+			arquivo = new File(caminhoDiretorioOds);
 			arquivo.mkdir();
 			arquivo = new File(caminhoDiretorioDadosCsv);
 			arquivo.mkdir();

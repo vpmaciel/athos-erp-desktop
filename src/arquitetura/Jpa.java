@@ -9,7 +9,7 @@ import org.hibernate.cfg.Configuration;
 
 import arquitetura.gui.Msg;
 
-public class JPA {
+public class Jpa {
 
 	private static final EntityManagerFactory emf;
 

@@ -12,7 +12,7 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
-import arquitetura.JPA;
+import arquitetura.Jpa;
 import arquitetura.validacao.Mascara;
 
 final class EmpresaImp implements EmpresaDao {
@@ -22,7 +22,7 @@ final class EmpresaImp implements EmpresaDao {
 		EntityManager entityManager = null;
 		EntityTransaction entityTransaction = null;
 		try {
-			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityManager = Jpa.getEntityManagerFactory().createEntityManager();
 			entityTransaction = entityManager.getTransaction();
 			entityTransaction.begin();
 			entityManager.remove(entityManager.find(Empresa.class, empresa.getId()));
@@ -46,7 +46,7 @@ final class EmpresaImp implements EmpresaDao {
 		List<Empresa> empresaList = null;
 
 		try {
-			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityManager = Jpa.getEntityManagerFactory().createEntityManager();
 			entityTransaction = entityManager.getTransaction();
 			entityTransaction.begin();
 			Query query = entityManager.createQuery("select T from Empresa T order by T.nomeFantasia", Empresa.class);
@@ -67,7 +67,7 @@ final class EmpresaImp implements EmpresaDao {
 		EntityManager entityManager = null;
 		EntityTransaction entityTransaction = null;
 		try {
-			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityManager = Jpa.getEntityManagerFactory().createEntityManager();
 			entityTransaction = entityManager.getTransaction();
 			entityTransaction.begin();
 			empresa = entityManager.find(Empresa.class, empresa.getId());
@@ -88,7 +88,7 @@ final class EmpresaImp implements EmpresaDao {
 		EntityTransaction entityTransaction = null;
 		List<Empresa> empresaList = null;
 		try {
-			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityManager = Jpa.getEntityManagerFactory().createEntityManager();
 			entityTransaction = entityManager.getTransaction();
 			entityTransaction.begin();
 			CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
@@ -98,27 +98,27 @@ final class EmpresaImp implements EmpresaDao {
 			if (empresa.getId() != null) {
 				predicateList.add(criteriaBuilder.equal(rootEmpresa.get("id"), empresa.getId()));
 			}
-			if (empresa.getBairro() != null && empresa.getBairro().length() > 0) {
-				predicateList.add(criteriaBuilder.like(rootEmpresa.get("bairro"), "%" + empresa.getBairro() + "%"));
+			if (empresa.getEnderecoBairro() != null && empresa.getEnderecoBairro().length() > 0) {
+				predicateList.add(criteriaBuilder.like(rootEmpresa.get("enderecoBairro"), "%" + empresa.getEnderecoBairro() + "%"));
 			}
 			if (empresa.getCapitalSocial() != null && empresa.getCapitalSocial().length() > 0) {
 				predicateList.add(
 						criteriaBuilder.like(rootEmpresa.get("capitalSocial"), "%" + empresa.getCapitalSocial() + "%"));
 			}
-			if (empresa.getCep() != null && !empresa.getCep().equals(Mascara.getCep().getPlaceholder())
-					&& !empresa.getCep().equals(Mascara.getCepVazio())) {
-				predicateList.add(criteriaBuilder.like(rootEmpresa.get("cep"), "%" + empresa.getCep() + "%"));
+			if (empresa.getEnderecoCep() != null && !empresa.getEnderecoCep().equals(Mascara.getEnderecoCep().getPlaceholder())
+					&& !empresa.getEnderecoCep().equals(Mascara.getEnderecoCepVazio())) {
+				predicateList.add(criteriaBuilder.like(rootEmpresa.get("enderecoCep"), "%" + empresa.getEnderecoCep() + "%"));
 			}
-			if (empresa.getCidade() != null && empresa.getCidade().length() > 0) {
-				predicateList.add(criteriaBuilder.like(rootEmpresa.get("cidade"), "%" + empresa.getCidade() + "%"));
+			if (empresa.getEnderecoCidade() != null && empresa.getEnderecoCidade().length() > 0) {
+				predicateList.add(criteriaBuilder.like(rootEmpresa.get("enderecoCidade"), "%" + empresa.getEnderecoCidade() + "%"));
 			}
 			if (empresa.getCnpj() != null && !empresa.getCnpj().equals(Mascara.getCnpj().getPlaceholder())
 					&& !empresa.getCnpj().equals(Mascara.getCnpjVazio())) {
 				predicateList.add(criteriaBuilder.like(rootEmpresa.get("cnpj"), "%" + empresa.getCnpj() + "%"));
 			}
-			if (empresa.getComplemento() != null && empresa.getComplemento().length() > 0) {
+			if (empresa.getEnderecoComplemento() != null && empresa.getEnderecoComplemento().length() > 0) {
 				predicateList.add(
-						criteriaBuilder.like(rootEmpresa.get("complemento"), "%" + empresa.getComplemento() + "%"));
+						criteriaBuilder.like(rootEmpresa.get("enderecoComplemento"), "%" + empresa.getEnderecoComplemento() + "%"));
 			}
 			if (empresa.getDataFundacao() != null
 					&& !empresa.getDataFundacao().equals(Mascara.getData().getPlaceholder())
@@ -129,8 +129,8 @@ final class EmpresaImp implements EmpresaDao {
 			if (empresa.getEmail() != null && empresa.getEmail().length() > 0) {
 				predicateList.add(criteriaBuilder.like(rootEmpresa.get("email"), "%" + empresa.getEmail() + "%"));
 			}
-			if (empresa.getEstado() != null && empresa.getEstado().length() > 0) {
-				predicateList.add(criteriaBuilder.like(rootEmpresa.get("estado"), "%" + empresa.getEstado() + "%"));
+			if (empresa.getEnderecoEstado() != null && empresa.getEnderecoEstado().length() > 0) {
+				predicateList.add(criteriaBuilder.like(rootEmpresa.get("enderecoEstado"), "%" + empresa.getEnderecoEstado() + "%"));
 			}
 			if (empresa.getFaturamentoMensal() != null) {
 				predicateList.add(
@@ -156,9 +156,9 @@ final class EmpresaImp implements EmpresaDao {
 				predicateList.add(criteriaBuilder.like(rootEmpresa.get("inscricaoMunicipal"),
 						"%" + empresa.getInscricaoMunicipal() + "%"));
 			}
-			if (empresa.getLogradouro() != null && empresa.getLogradouro().length() > 0) {
+			if (empresa.getEnderecoLogradouro() != null && empresa.getEnderecoLogradouro().length() > 0) {
 				predicateList
-						.add(criteriaBuilder.like(rootEmpresa.get("logradouro"), "%" + empresa.getLogradouro() + "%"));
+						.add(criteriaBuilder.like(rootEmpresa.get("enderecoLogradouro"), "%" + empresa.getEnderecoLogradouro() + "%"));
 			}
 			if (empresa.getNomeFantasia() != null && empresa.getNomeFantasia().length() > 0) {
 				predicateList.add(
@@ -202,7 +202,7 @@ final class EmpresaImp implements EmpresaDao {
 		EntityManager entityManager = null;
 		EntityTransaction entityTransaction = null;
 		try {
-			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityManager = Jpa.getEntityManagerFactory().createEntityManager();
 			entityTransaction = entityManager.getTransaction();
 			entityTransaction.begin();
 			entityManager.merge(empresa);

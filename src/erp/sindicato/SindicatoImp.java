@@ -12,7 +12,7 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
-import arquitetura.JPA;
+import arquitetura.Jpa;
 import arquitetura.validacao.Mascara;
 
 final class SindicatoImp implements SindicatoDao {
@@ -22,7 +22,7 @@ final class SindicatoImp implements SindicatoDao {
 		EntityManager entityManager = null;
 		EntityTransaction entityTransaction = null;
 		try {
-			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityManager = Jpa.getEntityManagerFactory().createEntityManager();
 			entityTransaction = entityManager.getTransaction();
 			entityTransaction.begin();
 			entityManager.remove(entityManager.find(Sindicato.class, sindicato.getId()));
@@ -46,7 +46,7 @@ final class SindicatoImp implements SindicatoDao {
 		List<Sindicato> sindicatoList = null;
 
 		try {
-			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityManager = Jpa.getEntityManagerFactory().createEntityManager();
 			entityTransaction = entityManager.getTransaction();
 			entityTransaction.begin();
 			Query query = entityManager.createQuery("select T from Sindicato T order by T.nomeFantasia",
@@ -68,7 +68,7 @@ final class SindicatoImp implements SindicatoDao {
 		EntityManager entityManager = null;
 		EntityTransaction entityTransaction = null;
 		try {
-			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityManager = Jpa.getEntityManagerFactory().createEntityManager();
 			entityTransaction = entityManager.getTransaction();
 			entityTransaction.begin();
 			sindicato = entityManager.find(Sindicato.class, sindicato.getId());
@@ -89,7 +89,7 @@ final class SindicatoImp implements SindicatoDao {
 		EntityTransaction entityTransaction = null;
 		List<Sindicato> sindicatoList = null;
 		try {
-			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityManager = Jpa.getEntityManagerFactory().createEntityManager();
 			entityTransaction = entityManager.getTransaction();
 			entityTransaction.begin();
 			CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
@@ -99,27 +99,27 @@ final class SindicatoImp implements SindicatoDao {
 			if (sindicato.getId() != null) {
 				predicateList.add(criteriaBuilder.equal(rootSindicato.get("id"), sindicato.getId()));
 			}
-			if (sindicato.getBairro() != null && sindicato.getBairro().length() > 0) {
-				predicateList.add(criteriaBuilder.like(rootSindicato.get("bairro"), "%" + sindicato.getBairro() + "%"));
+			if (sindicato.getEnderecoBairro() != null && sindicato.getEnderecoBairro().length() > 0) {
+				predicateList.add(criteriaBuilder.like(rootSindicato.get("enderecoBairro"), "%" + sindicato.getEnderecoBairro() + "%"));
 			}
 			if (sindicato.getCapitalSocial() != null && sindicato.getCapitalSocial().length() > 0) {
 				predicateList.add(criteriaBuilder.like(rootSindicato.get("capitalSocial"),
 						"%" + sindicato.getCapitalSocial() + "%"));
 			}
-			if (sindicato.getCep() != null && !sindicato.getCep().equals(Mascara.getCep().getPlaceholder())
-					&& !sindicato.getCep().equals(Mascara.getCepVazio())) {
-				predicateList.add(criteriaBuilder.like(rootSindicato.get("cep"), "%" + sindicato.getCep() + "%"));
+			if (sindicato.getEnderecoCep() != null && !sindicato.getEnderecoCep().equals(Mascara.getEnderecoCep().getPlaceholder())
+					&& !sindicato.getEnderecoCep().equals(Mascara.getEnderecoCepVazio())) {
+				predicateList.add(criteriaBuilder.like(rootSindicato.get("enderecoCep"), "%" + sindicato.getEnderecoCep() + "%"));
 			}
-			if (sindicato.getCidade() != null && sindicato.getCidade().length() > 0) {
-				predicateList.add(criteriaBuilder.like(rootSindicato.get("cidade"), "%" + sindicato.getCidade() + "%"));
+			if (sindicato.getEnderecoCidade() != null && sindicato.getEnderecoCidade().length() > 0) {
+				predicateList.add(criteriaBuilder.like(rootSindicato.get("enderecoCidade"), "%" + sindicato.getEnderecoCidade() + "%"));
 			}
 			if (sindicato.getCnpj() != null && !sindicato.getCnpj().equals(Mascara.getCnpj().getPlaceholder())
 					&& !sindicato.getCnpj().equals(Mascara.getCnpjVazio())) {
 				predicateList.add(criteriaBuilder.like(rootSindicato.get("cnpj"), "%" + sindicato.getCnpj() + "%"));
 			}
-			if (sindicato.getComplemento() != null && sindicato.getComplemento().length() > 0) {
+			if (sindicato.getEnderecoComplemento() != null && sindicato.getEnderecoComplemento().length() > 0) {
 				predicateList.add(
-						criteriaBuilder.like(rootSindicato.get("complemento"), "%" + sindicato.getComplemento() + "%"));
+						criteriaBuilder.like(rootSindicato.get("enderecoComplemento"), "%" + sindicato.getEnderecoComplemento() + "%"));
 			}
 			if (sindicato.getDataFundacao() != null
 					&& !sindicato.getDataFundacao().equals(Mascara.getData().getPlaceholder())
@@ -130,8 +130,8 @@ final class SindicatoImp implements SindicatoDao {
 			if (sindicato.getEmail() != null && sindicato.getEmail().length() > 0) {
 				predicateList.add(criteriaBuilder.like(rootSindicato.get("email"), "%" + sindicato.getEmail() + "%"));
 			}
-			if (sindicato.getEstado() != null && sindicato.getEstado().length() > 0) {
-				predicateList.add(criteriaBuilder.like(rootSindicato.get("estado"), "%" + sindicato.getEstado() + "%"));
+			if (sindicato.getEnderecoEstado() != null && sindicato.getEnderecoEstado().length() > 0) {
+				predicateList.add(criteriaBuilder.like(rootSindicato.get("enderecoEstado"), "%" + sindicato.getEnderecoEstado() + "%"));
 			}
 			if (sindicato.getFaturamentoMensal() != null && sindicato.getFaturamentoMensal().length() > 0) {
 				predicateList.add(criteriaBuilder.like(rootSindicato.get("faturamentoMensal"),
@@ -149,7 +149,7 @@ final class SindicatoImp implements SindicatoDao {
 					&& !sindicato.getFone2().equals(Mascara.getFoneVazio())) {
 				predicateList.add(criteriaBuilder.like(rootSindicato.get("fone2"), "%" + sindicato.getFone2() + "%"));
 			}
-			if (sindicato.getInscricaoEstadual() != null && sindicato.getBairro().length() > 0) {
+			if (sindicato.getInscricaoEstadual() != null && sindicato.getEnderecoBairro().length() > 0) {
 				predicateList.add(criteriaBuilder.like(rootSindicato.get("inscricaoEstadual"),
 						"%" + sindicato.getInscricaoEstadual() + "%"));
 			}
@@ -157,9 +157,9 @@ final class SindicatoImp implements SindicatoDao {
 				predicateList.add(criteriaBuilder.like(rootSindicato.get("inscricaoMunicipal"),
 						"%" + sindicato.getInscricaoMunicipal() + "%"));
 			}
-			if (sindicato.getLogradouro() != null && sindicato.getLogradouro().length() > 0) {
+			if (sindicato.getEnderecoLogradouro() != null && sindicato.getEnderecoLogradouro().length() > 0) {
 				predicateList.add(
-						criteriaBuilder.like(rootSindicato.get("logradouro"), "%" + sindicato.getLogradouro() + "%"));
+						criteriaBuilder.like(rootSindicato.get("enderecoLogradouro"), "%" + sindicato.getEnderecoLogradouro() + "%"));
 			}
 			if (sindicato.getNomeFantasia() != null && sindicato.getNomeFantasia().length() > 0) {
 				predicateList.add(criteriaBuilder.like(rootSindicato.get("nomeFantasia"),
@@ -202,7 +202,7 @@ final class SindicatoImp implements SindicatoDao {
 		EntityManager entityManager = null;
 		EntityTransaction entityTransaction = null;
 		try {
-			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityManager = Jpa.getEntityManagerFactory().createEntityManager();
 			entityTransaction = entityManager.getTransaction();
 			entityTransaction.begin();
 			entityManager.merge(sindicato);

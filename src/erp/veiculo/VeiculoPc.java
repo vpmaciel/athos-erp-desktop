@@ -65,7 +65,7 @@ public final class VeiculoPc extends JPanel implements Gui {
 	private JFormattedTextField fieldAnoReferenciaCompra;
 	private JFormattedTextField fieldAnoReferenciaVenda;
 	private JTextField fieldBairro;
-	private JTextField fieldCapacidadePassageiros;
+	private JTextField fieldCapaenderecoCidadePassageiros;
 	private JTextField fieldCapCarga;
 	private JFormattedTextField fieldCep;
 	private JTextField fieldChassi;
@@ -183,8 +183,8 @@ public final class VeiculoPc extends JPanel implements Gui {
 		return boxCambio;
 	}
 
-	public JTextField getGuiCapacidadePassageiros() {
-		return fieldCapacidadePassageiros;
+	public JTextField getGuiCapaenderecoCidadePassageiros() {
+		return fieldCapaenderecoCidadePassageiros;
 	}
 
 	public JTextField getGuiCapCarga() {
@@ -801,7 +801,7 @@ public final class VeiculoPc extends JPanel implements Gui {
 
 		add(new JLabel("CEP ( ENDEREÇO DO PROPRIETÁRIO )"));
 
-		fieldCep = new JFormattedTextField(Mascara.getCep());
+		fieldCep = new JFormattedTextField(Mascara.getEnderecoCep());
 		add(fieldCep);
 
 		add(new JLabel("ANO DE FABRICAÇÃO ( VEÍCULO )"));
@@ -854,9 +854,9 @@ public final class VeiculoPc extends JPanel implements Gui {
 
 		add(new JLabel("CAPACIDADE DE PASSAGEIROS"));
 
-		fieldCapacidadePassageiros = new JTextField();
-		fieldCapacidadePassageiros.setDocument(new EntradaMaiuscula(3));
-		add(fieldCapacidadePassageiros);
+		fieldCapaenderecoCidadePassageiros = new JTextField();
+		fieldCapaenderecoCidadePassageiros.setDocument(new EntradaMaiuscula(3));
+		add(fieldCapaenderecoCidadePassageiros);
 
 		add(new JLabel("COMBUSTÍVEL"));
 

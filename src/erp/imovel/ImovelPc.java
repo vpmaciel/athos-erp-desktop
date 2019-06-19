@@ -312,7 +312,7 @@ public final class ImovelPc extends JPanel implements Gui {
 
 		add(new JLabel("CEP"));
 
-		fieldCep = new JFormattedTextField(Mascara.getCep());
+		fieldCep = new JFormattedTextField(Mascara.getEnderecoCep());
 		fieldCep.setDocument(new EntradaMaiuscula(10));
 		add(fieldCep);
 

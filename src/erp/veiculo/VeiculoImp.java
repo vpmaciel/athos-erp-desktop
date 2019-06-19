@@ -12,7 +12,7 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
-import arquitetura.JPA;
+import arquitetura.Jpa;
 import arquitetura.validacao.Mascara;
 
 final class VeiculoImp implements VeiculoDao {
@@ -22,7 +22,7 @@ final class VeiculoImp implements VeiculoDao {
 		EntityManager entityManager = null;
 		EntityTransaction entityTransaction = null;
 		try {
-			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityManager = Jpa.getEntityManagerFactory().createEntityManager();
 			entityTransaction = entityManager.getTransaction();
 			entityTransaction.begin();
 			entityManager.remove(entityManager.find(Veiculo.class, veiculo.getId()));
@@ -46,7 +46,7 @@ final class VeiculoImp implements VeiculoDao {
 		List<Veiculo> veiculoList = null;
 
 		try {
-			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityManager = Jpa.getEntityManagerFactory().createEntityManager();
 			entityTransaction = entityManager.getTransaction();
 			entityTransaction.begin();
 			Query query = entityManager.createQuery("select T from Veiculo T order by T.modelo, T.marca",
@@ -68,7 +68,7 @@ final class VeiculoImp implements VeiculoDao {
 		EntityManager entityManager = null;
 		EntityTransaction entityTransaction = null;
 		try {
-			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityManager = Jpa.getEntityManagerFactory().createEntityManager();
 			entityTransaction = entityManager.getTransaction();
 			entityTransaction.begin();
 			veiculo = entityManager.find(Veiculo.class, veiculo.getId());
@@ -89,7 +89,7 @@ final class VeiculoImp implements VeiculoDao {
 		EntityTransaction entityTransaction = null;
 		List<Veiculo> veiculoList = null;
 		try {
-			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityManager = Jpa.getEntityManagerFactory().createEntityManager();
 			entityTransaction = entityManager.getTransaction();
 			entityTransaction.begin();
 			CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
@@ -111,15 +111,15 @@ final class VeiculoImp implements VeiculoDao {
 				predicateList
 						.add(criteriaBuilder.like(rootVeiculo.get("atividade"), "%" + veiculo.getAtividade() + "%"));
 			}
-			if (veiculo.getBairro() != null && veiculo.getBairro().length() > 0) {
-				predicateList.add(criteriaBuilder.like(rootVeiculo.get("bairro"), "%" + veiculo.getBairro() + "%"));
+			if (veiculo.getEnderecoBairro() != null && veiculo.getEnderecoBairro().length() > 0) {
+				predicateList.add(criteriaBuilder.like(rootVeiculo.get("enderecoBairro"), "%" + veiculo.getEnderecoBairro() + "%"));
 			}
 			if (veiculo.getCapCarga() != null && veiculo.getCapCarga().length() > 0) {
 				predicateList.add(criteriaBuilder.like(rootVeiculo.get("capCarga"), "%" + veiculo.getCapCarga() + "%"));
 			}
-			if (veiculo.getCapacidadePassageiros() != null && veiculo.getCapacidadePassageiros().length() > 0) {
-				predicateList.add(criteriaBuilder.like(rootVeiculo.get("capacidadePassageiros"),
-						"%" + veiculo.getCapacidadePassageiros() + "%"));
+			if (veiculo.getCapaenderecoCidadePassageiros() != null && veiculo.getCapaenderecoCidadePassageiros().length() > 0) {
+				predicateList.add(criteriaBuilder.like(rootVeiculo.get("capaenderecoCidadePassageiros"),
+						"%" + veiculo.getCapaenderecoCidadePassageiros() + "%"));
 			}
 			if (veiculo.getCarroceria() != null && veiculo.getCarroceria().length() > 0) {
 				predicateList
@@ -129,9 +129,9 @@ final class VeiculoImp implements VeiculoDao {
 				predicateList
 						.add(criteriaBuilder.like(rootVeiculo.get("categoria"), "%" + veiculo.getCategoria() + "%"));
 			}
-			if (veiculo.getCep() != null && !veiculo.getCep().equals(Mascara.getCep().getPlaceholder())
-					&& !veiculo.getCep().equals(Mascara.getCepVazio())) {
-				predicateList.add(criteriaBuilder.like(rootVeiculo.get("cep"), "%" + veiculo.getCep() + "%"));
+			if (veiculo.getEnderecoCep() != null && !veiculo.getEnderecoCep().equals(Mascara.getEnderecoCep().getPlaceholder())
+					&& !veiculo.getEnderecoCep().equals(Mascara.getEnderecoCepVazio())) {
+				predicateList.add(criteriaBuilder.like(rootVeiculo.get("enderecoCep"), "%" + veiculo.getEnderecoCep() + "%"));
 			}
 			if (veiculo.getChassi() != null && veiculo.getChassi().length() > 0) {
 				predicateList.add(criteriaBuilder.like(rootVeiculo.get("chassi"), "%" + veiculo.getChassi() + "%"));
@@ -140,8 +140,8 @@ final class VeiculoImp implements VeiculoDao {
 				predicateList.add(criteriaBuilder.like(rootVeiculo.get("chassiRemarcado"),
 						"%" + veiculo.getChassiRemarcado() + "%"));
 			}
-			if (veiculo.getCidade() != null && veiculo.getCidade().length() > 0) {
-				predicateList.add(criteriaBuilder.like(rootVeiculo.get("cidade"), "%" + veiculo.getCidade() + "%"));
+			if (veiculo.getEnderecoCidade() != null && veiculo.getEnderecoCidade().length() > 0) {
+				predicateList.add(criteriaBuilder.like(rootVeiculo.get("enderecoCidade"), "%" + veiculo.getEnderecoCidade() + "%"));
 			}
 			if (veiculo.getCilindrada() != null && veiculo.getCilindrada().length() > 0) {
 				predicateList
@@ -158,9 +158,9 @@ final class VeiculoImp implements VeiculoDao {
 				predicateList.add(
 						criteriaBuilder.like(rootVeiculo.get("combustivel"), "%" + veiculo.getCombustivel() + "%"));
 			}
-			if (veiculo.getComplemento() != null && veiculo.getComplemento().length() > 0) {
+			if (veiculo.getEnderecoComplemento() != null && veiculo.getEnderecoComplemento().length() > 0) {
 				predicateList.add(
-						criteriaBuilder.like(rootVeiculo.get("complemento"), "%" + veiculo.getComplemento() + "%"));
+						criteriaBuilder.like(rootVeiculo.get("enderecoComplemento"), "%" + veiculo.getEnderecoComplemento() + "%"));
 			}
 			if (veiculo.getCor() != null && veiculo.getCor().length() > 0) {
 				predicateList.add(criteriaBuilder.like(rootVeiculo.get("cor"), "%" + veiculo.getCor() + "%"));
@@ -181,8 +181,8 @@ final class VeiculoImp implements VeiculoDao {
 			if (veiculo.getEspecie() != null && veiculo.getEspecie().length() > 0) {
 				predicateList.add(criteriaBuilder.like(rootVeiculo.get("especie"), "%" + veiculo.getEspecie() + "%"));
 			}
-			if (veiculo.getEstado() != null && veiculo.getEstado().length() > 0) {
-				predicateList.add(criteriaBuilder.like(rootVeiculo.get("estado"), "%" + veiculo.getEstado() + "%"));
+			if (veiculo.getEnderecoEstado() != null && veiculo.getEnderecoEstado().length() > 0) {
+				predicateList.add(criteriaBuilder.like(rootVeiculo.get("enderecoEstado"), "%" + veiculo.getEnderecoEstado() + "%"));
 			}
 			if (veiculo.getFabricacao() != null && veiculo.getFabricacao().length() > 0) {
 				predicateList.add(
@@ -191,9 +191,9 @@ final class VeiculoImp implements VeiculoDao {
 			if (veiculo.getIpva() != null && veiculo.getIpva().length() > 0) {
 				predicateList.add(criteriaBuilder.like(rootVeiculo.get("ipva"), "%" + veiculo.getIpva() + "%"));
 			}
-			if (veiculo.getLogradouro() != null && veiculo.getLogradouro().length() > 0) {
+			if (veiculo.getEnderecoLogradouro() != null && veiculo.getEnderecoLogradouro().length() > 0) {
 				predicateList
-						.add(criteriaBuilder.like(rootVeiculo.get("logradouro"), "%" + veiculo.getLogradouro() + "%"));
+						.add(criteriaBuilder.like(rootVeiculo.get("enderecoLogradouro"), "%" + veiculo.getEnderecoLogradouro() + "%"));
 			}
 			if (veiculo.getMarca() != null) {
 				predicateList.add(criteriaBuilder.equal(rootVeiculo.get("marca"), veiculo.getMarca()));
@@ -324,7 +324,7 @@ final class VeiculoImp implements VeiculoDao {
 		EntityManager entityManager = null;
 		EntityTransaction entityTransaction = null;
 		try {
-			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityManager = Jpa.getEntityManagerFactory().createEntityManager();
 			entityTransaction = entityManager.getTransaction();
 			entityTransaction.begin();
 			entityManager.merge(veiculo);

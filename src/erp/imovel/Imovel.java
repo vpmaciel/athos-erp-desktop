@@ -15,17 +15,17 @@ import javax.persistence.PersistenceContext;
 public class Imovel implements Serializable {
 
 	@Column(length = 50)
-	private String bairro;
+	private String enderecoBairro;
 	@Column(length = 2)
 	private String banheiro;
 	@Column(length = 10)
-	private String cep;
+	private String enderecoCep;
 	@Column(length = 50)
-	private String cidade;
+	private String enderecoCidade;
 	@Column(length = 19)
 	private String cnpj;
 	@Column(length = 20)
-	private String complemento;
+	private String enderecoComplemento;
 	@Column(length = 2)
 	private String cozinha;
 	@Column(length = 14)
@@ -33,7 +33,7 @@ public class Imovel implements Serializable {
 	@Column(length = 50)
 	private String email;
 	@Column(length = 50)
-	private String estado;
+	private String enderecoEstado;
 	@Column(length = 20)
 	private String fax;
 	@Column(length = 20)
@@ -46,7 +46,7 @@ public class Imovel implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	@Column(length = 50)
-	private String logradouro;
+	private String enderecoLogradouro;
 	@Column(length = 50)
 	private String nomeProprietario;
 	@Column(length = 50)
@@ -64,28 +64,28 @@ public class Imovel implements Serializable {
 	@Column(length = 2)
 	private String varanda;
 
-	public String getBairro() {
-		return this.bairro;
+	public String getEnderecoBairro() {
+		return this.enderecoBairro;
 	}
 
 	public String getBanheiro() {
 		return this.banheiro;
 	}
 
-	public String getCep() {
-		return this.cep;
+	public String getEnderecoCep() {
+		return this.enderecoCep;
 	}
 
-	public String getCidade() {
-		return this.cidade;
+	public String getEnderecoCidade() {
+		return this.enderecoCidade;
 	}
 
 	public String getCnpj() {
 		return this.cnpj;
 	}
 
-	public String getComplemento() {
-		return this.complemento;
+	public String getEnderecoComplemento() {
+		return this.enderecoComplemento;
 	}
 
 	public String getCozinha() {
@@ -100,8 +100,8 @@ public class Imovel implements Serializable {
 		return this.email;
 	}
 
-	public String getEstado() {
-		return this.estado;
+	public String getEnderecoEstado() {
+		return this.enderecoEstado;
 	}
 
 	public String getFax() {
@@ -124,8 +124,8 @@ public class Imovel implements Serializable {
 		return this.id;
 	}
 
-	public String getLogradouro() {
-		return this.logradouro;
+	public String getEnderecoLogradouro() {
+		return this.enderecoLogradouro;
 	}
 
 	public String getNomeProprietario() {
@@ -160,28 +160,28 @@ public class Imovel implements Serializable {
 		return this.varanda;
 	}
 
-	public void setBairro(String bairro) {
-		this.bairro = bairro;
+	public void setEnderecoBairro(String enderecoBairro) {
+		this.enderecoBairro = enderecoBairro;
 	}
 
 	public void setBanheiro(String banheiro) {
 		this.banheiro = banheiro;
 	}
 
-	public void setCep(String cep) {
-		this.cep = cep;
+	public void setEnderecoCep(String enderecoCep) {
+		this.enderecoCep = enderecoCep;
 	}
 
-	public void setCidade(String cidade) {
-		this.cidade = cidade;
+	public void setEnderecoCidade(String enderecoCidade) {
+		this.enderecoCidade = enderecoCidade;
 	}
 
 	public void setCnpj(String cnpj) {
 		this.cnpj = cnpj;
 	}
 
-	public void setComplemento(String complemento) {
-		this.complemento = complemento;
+	public void setEnderecoComplemento(String enderecoComplemento) {
+		this.enderecoComplemento = enderecoComplemento;
 	}
 
 	public void setCozinha(String cozinha) {
@@ -196,8 +196,8 @@ public class Imovel implements Serializable {
 		this.email = email;
 	}
 
-	public void setEstado(String estado) {
-		this.estado = estado;
+	public void setEnderecoEstado(String enderecoEstado) {
+		this.enderecoEstado = enderecoEstado;
 	}
 
 	public void setFax(String fax) {
@@ -220,8 +220,8 @@ public class Imovel implements Serializable {
 		this.id = id;
 	}
 
-	public void setLogradouro(String logradouro) {
-		this.logradouro = logradouro;
+	public void setEnderecoLogradouro(String enderecoLogradouro) {
+		this.enderecoLogradouro = enderecoLogradouro;
 	}
 
 	public void setNomeProprietario(String nomeProprietario) {

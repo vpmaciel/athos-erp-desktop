@@ -12,7 +12,7 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
-import arquitetura.JPA;
+import arquitetura.Jpa;
 
 final class CentroCustoImp implements CentroCustoDao {
 
@@ -22,7 +22,7 @@ final class CentroCustoImp implements CentroCustoDao {
 		EntityTransaction entityTransaction = null;
 
 		try {
-			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityManager = Jpa.getEntityManagerFactory().createEntityManager();
 			entityTransaction = entityManager.getTransaction();
 
 			entityTransaction.begin();
@@ -47,7 +47,7 @@ final class CentroCustoImp implements CentroCustoDao {
 		List<CentroCusto> centroCustoList = null;
 
 		try {
-			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityManager = Jpa.getEntityManagerFactory().createEntityManager();
 			entityTransaction = entityManager.getTransaction();
 			entityTransaction.begin();
 			Query query = entityManager.createQuery("select T from CentroCusto T order by T.nome", CentroCusto.class);
@@ -69,7 +69,7 @@ final class CentroCustoImp implements CentroCustoDao {
 		EntityManager entityManager = null;
 		EntityTransaction entityTransaction = null;
 		try {
-			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityManager = Jpa.getEntityManagerFactory().createEntityManager();
 			entityTransaction = entityManager.getTransaction();
 			entityTransaction.begin();
 			centroCusto = entityManager.find(CentroCusto.class, centroCusto.getId());
@@ -91,7 +91,7 @@ final class CentroCustoImp implements CentroCustoDao {
 		List<CentroCusto> centroCustoList = null;
 
 		try {
-			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityManager = Jpa.getEntityManagerFactory().createEntityManager();
 			entityTransaction = entityManager.getTransaction();
 			entityTransaction.begin();
 
@@ -126,7 +126,7 @@ final class CentroCustoImp implements CentroCustoDao {
 		EntityManager entityManager = null;
 		EntityTransaction entityTransaction = null;
 		try {
-			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityManager = Jpa.getEntityManagerFactory().createEntityManager();
 			entityTransaction = entityManager.getTransaction();
 			entityTransaction.begin();
 			entityManager.merge(centroCusto);

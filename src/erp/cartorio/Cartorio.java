@@ -19,23 +19,23 @@ import javax.persistence.Table;
 public class Cartorio implements Serializable {
 
 	@Column(length = 50)
-	private String bairro;
+	private String enderecoBairro;
 	@Column(length = 10)
-	private String cep;
+	private String enderecoCep;
 	@Column(length = 50)
-	private String cidade;
+	private String enderecoCidade;
 	@Column(length = 19)
 	private String cnpj;
 	@Column(length = 50)
 	private String comarca;
 	@Column(length = 20)
-	private String complemento;
+	private String enderecoComplemento;
 	@Column(length = 50)
 	private String distrito;
 	@Column(length = 50)
 	private String email;
 	@Column(length = 50)
-	private String estado;
+	private String enderecoEstado;
 	@Column(length = 20)
 	private String fax;
 	@Column(length = 20)
@@ -46,7 +46,7 @@ public class Cartorio implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	@Column(length = 50)
-	private String logradouro;
+	private String enderecoLogradouro;
 	@Column(length = 50)
 	private String municipio;
 	@Column(length = 50, nullable = false)
@@ -62,16 +62,16 @@ public class Cartorio implements Serializable {
 	@Column(length = 50)
 	private String titular;
 
-	public String getBairro() {
-		return this.bairro;
+	public String getEnderecoBairro() {
+		return this.enderecoBairro;
 	}
 
-	public String getCep() {
-		return this.cep;
+	public String getEnderecoCep() {
+		return this.enderecoCep;
 	}
 
-	public String getCidade() {
-		return this.cidade;
+	public String getEnderecoCidade() {
+		return this.enderecoCidade;
 	}
 
 	public String getCnpj() {
@@ -82,8 +82,8 @@ public class Cartorio implements Serializable {
 		return this.comarca;
 	}
 
-	public String getComplemento() {
-		return this.complemento;
+	public String getEnderecoComplemento() {
+		return this.enderecoComplemento;
 	}
 
 	public String getDistrito() {
@@ -94,8 +94,8 @@ public class Cartorio implements Serializable {
 		return this.email;
 	}
 
-	public String getEstado() {
-		return this.estado;
+	public String getEnderecoEstado() {
+		return this.enderecoEstado;
 	}
 
 	public String getFax() {
@@ -114,8 +114,8 @@ public class Cartorio implements Serializable {
 		return this.id;
 	}
 
-	public String getLogradouro() {
-		return this.logradouro;
+	public String getEnderecoLogradouro() {
+		return this.enderecoLogradouro;
 	}
 
 	public String getMunicipio() {
@@ -146,16 +146,16 @@ public class Cartorio implements Serializable {
 		return this.titular;
 	}
 
-	public void setBairro(String bairro) {
-		this.bairro = bairro;
+	public void setEnderecoBairro(String enderecoBairro) {
+		this.enderecoBairro = enderecoBairro;
 	}
 
-	public void setCep(String cep) {
-		this.cep = cep;
+	public void setEnderecoCep(String enderecoCep) {
+		this.enderecoCep = enderecoCep;
 	}
 
-	public void setCidade(String cidade) {
-		this.cidade = cidade;
+	public void setEnderecoCidade(String enderecoCidade) {
+		this.enderecoCidade = enderecoCidade;
 	}
 
 	public void setCnpj(String cnpj) {
@@ -166,8 +166,8 @@ public class Cartorio implements Serializable {
 		this.comarca = comarca;
 	}
 
-	public void setComplemento(String complemento) {
-		this.complemento = complemento;
+	public void setEnderecoComplemento(String enderecoComplemento) {
+		this.enderecoComplemento = enderecoComplemento;
 	}
 
 	public void setDistrito(String distrito) {
@@ -178,8 +178,8 @@ public class Cartorio implements Serializable {
 		this.email = email;
 	}
 
-	public void setEstado(String estado) {
-		this.estado = estado;
+	public void setEnderecoEstado(String enderecoEstado) {
+		this.enderecoEstado = enderecoEstado;
 	}
 
 	public void setFax(String fax) {
@@ -198,8 +198,8 @@ public class Cartorio implements Serializable {
 		this.id = id;
 	}
 
-	public void setLogradouro(String logradouro) {
-		this.logradouro = logradouro;
+	public void setEnderecoLogradouro(String enderecoLogradouro) {
+		this.enderecoLogradouro = enderecoLogradouro;
 	}
 
 	public void setMunicipio(String municipio) {

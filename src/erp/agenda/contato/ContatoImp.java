@@ -12,7 +12,7 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
-import arquitetura.JPA;
+import arquitetura.Jpa;
 import arquitetura.validacao.Mascara;
 
 final class ContatoImp implements ContatoDao {
@@ -23,7 +23,7 @@ final class ContatoImp implements ContatoDao {
 		EntityTransaction entityTransaction = null;
 
 		try {
-			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityManager = Jpa.getEntityManagerFactory().createEntityManager();
 			entityTransaction = entityManager.getTransaction();
 
 			entityTransaction.begin();
@@ -48,7 +48,7 @@ final class ContatoImp implements ContatoDao {
 		List<Contato> contatoList = null;
 
 		try {
-			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityManager = Jpa.getEntityManagerFactory().createEntityManager();
 			entityTransaction = entityManager.getTransaction();
 			entityTransaction.begin();
 			Query query = entityManager.createQuery("select T from Contato T order by T.nome", Contato.class);
@@ -70,7 +70,7 @@ final class ContatoImp implements ContatoDao {
 		EntityTransaction entityTransaction = null;
 
 		try {
-			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityManager = Jpa.getEntityManagerFactory().createEntityManager();
 			entityTransaction = entityManager.getTransaction();
 			entityTransaction.begin();
 			contato = entityManager.find(Contato.class, contato.getId());
@@ -91,7 +91,7 @@ final class ContatoImp implements ContatoDao {
 		EntityTransaction entityTransaction = null;
 		List<Contato> contatoList = null;
 		try {
-			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityManager = Jpa.getEntityManagerFactory().createEntityManager();
 			entityTransaction = entityManager.getTransaction();
 			entityTransaction.begin();
 
@@ -104,23 +104,23 @@ final class ContatoImp implements ContatoDao {
 			if (contato.getId() != null) {
 				predicateList.add(criteriaBuilder.equal(rootContato.get("id"), contato.getId()));
 			}
-			if (contato.getBairro() != null && contato.getBairro().length() > 0) {
-				predicateList.add(criteriaBuilder.like(rootContato.get("bairro"), "%" + contato.getBairro() + "%"));
+			if (contato.getEnderecoBairro() != null && contato.getEnderecoBairro().length() > 0) {
+				predicateList.add(criteriaBuilder.like(rootContato.get("enderecoBairro"), "%" + contato.getEnderecoBairro() + "%"));
 			}
-			if (contato.getCep() != null && !contato.getCep().equals(Mascara.getCep().getPlaceholder())
-					&& !contato.getCep().equals(Mascara.getCepVazio())) {
-				predicateList.add(criteriaBuilder.like(rootContato.get("cep"), "%" + contato.getCep() + "%"));
+			if (contato.getEnderecoCep() != null && !contato.getEnderecoCep().equals(Mascara.getEnderecoCep().getPlaceholder())
+					&& !contato.getEnderecoCep().equals(Mascara.getEnderecoCepVazio())) {
+				predicateList.add(criteriaBuilder.like(rootContato.get("enderecoCep"), "%" + contato.getEnderecoCep() + "%"));
 			}
-			if (contato.getCidade() != null && contato.getCidade().length() > 0) {
-				predicateList.add(criteriaBuilder.like(rootContato.get("cidade"), "%" + contato.getCidade() + "%"));
+			if (contato.getEnderecoCidade() != null && contato.getEnderecoCidade().length() > 0) {
+				predicateList.add(criteriaBuilder.like(rootContato.get("enderecoCidade"), "%" + contato.getEnderecoCidade() + "%"));
 			}
 			if (contato.getCnpj() != null && !contato.getCnpj().equals(Mascara.getCnpj().getPlaceholder())
 					&& !contato.getCnpj().equals(Mascara.getCnpjVazio())) {
 				predicateList.add(criteriaBuilder.like(rootContato.get("cnpj"), "%" + contato.getCnpj() + "%"));
 			}
-			if (contato.getComplemento() != null && contato.getComplemento().length() > 0) {
+			if (contato.getEnderecoComplemento() != null && contato.getEnderecoComplemento().length() > 0) {
 				predicateList.add(
-						criteriaBuilder.like(rootContato.get("complemento"), "%" + contato.getComplemento() + "%"));
+						criteriaBuilder.like(rootContato.get("enderecoComplemento"), "%" + contato.getEnderecoComplemento() + "%"));
 			}
 			if (contato.getCpf() != null && !contato.getCpf().equals(Mascara.getCpf().getPlaceholder())
 					&& !contato.getCpf().equals(Mascara.getCpfVazio())) {
@@ -133,8 +133,8 @@ final class ContatoImp implements ContatoDao {
 			if (contato.getEmpresa() != null && contato.getEmpresa().getId() != null) {
 				predicateList.add(criteriaBuilder.equal(rootContato.get("entityManagerpresa"), contato.getEmpresa()));
 			}
-			if (contato.getEstado() != null && contato.getEstado().length() > 0) {
-				predicateList.add(criteriaBuilder.like(rootContato.get("estado"), "%" + contato.getEstado() + "%"));
+			if (contato.getEnderecoEstado() != null && contato.getEnderecoEstado().length() > 0) {
+				predicateList.add(criteriaBuilder.like(rootContato.get("enderecoEstado"), "%" + contato.getEnderecoEstado() + "%"));
 			}
 			if (contato.getFax() != null && !contato.getFax().equals(Mascara.getFax().getPlaceholder())
 					&& !contato.getFax().equals(Mascara.getFaxVazio())) {
@@ -148,9 +148,9 @@ final class ContatoImp implements ContatoDao {
 					&& !contato.getFone1().equals(Mascara.getFoneVazio())) {
 				predicateList.add(criteriaBuilder.like(rootContato.get("fone2"), "%" + contato.getFone2() + "%"));
 			}
-			if (contato.getLogradouro() != null && contato.getLogradouro().length() > 0) {
+			if (contato.getEnderecoLogradouro() != null && contato.getEnderecoLogradouro().length() > 0) {
 				predicateList
-						.add(criteriaBuilder.like(rootContato.get("logradouro"), "%" + contato.getLogradouro() + "%"));
+						.add(criteriaBuilder.like(rootContato.get("enderecoLogradouro"), "%" + contato.getEnderecoLogradouro() + "%"));
 			}
 			if (contato.getNome() != null && contato.getNome().length() > 0) {
 				predicateList.add(criteriaBuilder.like(rootContato.get("nome"), "%" + contato.getNome() + "%"));
@@ -182,7 +182,7 @@ final class ContatoImp implements ContatoDao {
 		EntityManager entityManager = null;
 		EntityTransaction entityTransaction = null;
 		try {
-			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityManager = Jpa.getEntityManagerFactory().createEntityManager();
 			entityTransaction = entityManager.getTransaction();
 			entityTransaction.begin();
 			entityManager.merge(contato);

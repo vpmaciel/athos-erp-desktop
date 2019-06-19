@@ -85,10 +85,10 @@ public class ImovelTm extends AbstractTableModel {
 			return imovel.getNomeProprietario();
 		}
 		if (tabelaModelo.getNome(columnIndex).equals("BAIRRO")) {
-			return imovel.getBairro();
+			return imovel.getEnderecoBairro();
 		}
 		if (tabelaModelo.getNome(columnIndex).equals("CIDADE")) {
-			return imovel.getCidade();
+			return imovel.getEnderecoCidade();
 		}
 
 		return imovel;
@@ -114,10 +114,10 @@ public class ImovelTm extends AbstractTableModel {
 			imovel.setNomeProprietario(aValue.toString());
 		}
 		if (tabelaModelo.getNome(columnIndex).equals("BAIRRO")) {
-			imovel.setBairro(aValue.toString());
+			imovel.setEnderecoBairro(aValue.toString());
 		}
 		if (tabelaModelo.getNome(columnIndex).equals("CIDADE")) {
-			imovel.setCidade(aValue.toString());
+			imovel.setEnderecoCidade(aValue.toString());
 		}
 
 		fireTableDataChanged();

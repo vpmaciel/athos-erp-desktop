@@ -305,7 +305,7 @@ public final class EmpresaPc extends JPanel implements Gui {
 
 		add(new JLabel("CEP"));
 
-		fieldCep = new JFormattedTextField(Mascara.getCep());
+		fieldCep = new JFormattedTextField(Mascara.getEnderecoCep());
 		add(fieldCep);
 
 		// Lay out the panel.

@@ -32,5 +32,6 @@
 	<classpathentry kind="lib" path="lib/slf4j-api-1.7.26.jar"/>
 	<classpathentry kind="lib" path="lib/slf4j-simple-1.7.26.jar"/>
 	<classpathentry kind="lib" path="lib/jOpenDocument-1.2.jar"/>
+	<classpathentry kind="lib" path="lib/jdom-2.0.6.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -12,7 +12,7 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
-import arquitetura.JPA;
+import arquitetura.Jpa;
 import arquitetura.validacao.Mascara;
 
 final class FornecedorImp implements FornecedorDao {
@@ -22,7 +22,7 @@ final class FornecedorImp implements FornecedorDao {
 		EntityManager entityManager = null;
 		EntityTransaction entityTransaction = null;
 		try {
-			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityManager = Jpa.getEntityManagerFactory().createEntityManager();
 			entityTransaction = entityManager.getTransaction();
 			entityTransaction.begin();
 			entityManager.remove(entityManager.find(Fornecedor.class, fornecedor.getId()));
@@ -46,7 +46,7 @@ final class FornecedorImp implements FornecedorDao {
 		List<Fornecedor> fornecedorList = null;
 
 		try {
-			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityManager = Jpa.getEntityManagerFactory().createEntityManager();
 			entityTransaction = entityManager.getTransaction();
 			entityTransaction.begin();
 			Query query = entityManager.createQuery("select T from Fornecedor T order by C.nomeFantasia",
@@ -68,7 +68,7 @@ final class FornecedorImp implements FornecedorDao {
 		EntityManager entityManager = null;
 		EntityTransaction entityTransaction = null;
 		try {
-			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityManager = Jpa.getEntityManagerFactory().createEntityManager();
 			entityTransaction = entityManager.getTransaction();
 			entityTransaction.begin();
 			fornecedor = entityManager.find(Fornecedor.class, fornecedor.getId());
@@ -89,7 +89,7 @@ final class FornecedorImp implements FornecedorDao {
 		EntityTransaction entityTransaction = null;
 		List<Fornecedor> fornecedorList = null;
 		try {
-			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityManager = Jpa.getEntityManagerFactory().createEntityManager();
 			entityTransaction = entityManager.getTransaction();
 			entityTransaction.begin();
 			CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
@@ -99,21 +99,21 @@ final class FornecedorImp implements FornecedorDao {
 			if (fornecedor.getId() != null) {
 				predicateList.add(criteriaBuilder.equal(rootFornecedor.get("id"), fornecedor.getId()));
 			}
-			if (fornecedor.getBairro() != null && fornecedor.getBairro().length() > 0) {
+			if (fornecedor.getEnderecoBairro() != null && fornecedor.getEnderecoBairro().length() > 0) {
 				predicateList
-						.add(criteriaBuilder.like(rootFornecedor.get("bairro"), "%" + fornecedor.getBairro() + "%"));
+						.add(criteriaBuilder.like(rootFornecedor.get("enderecoBairro"), "%" + fornecedor.getEnderecoBairro() + "%"));
 			}
 			if (fornecedor.getCapitalSocial() != null && fornecedor.getCapitalSocial().length() > 0) {
 				predicateList.add(criteriaBuilder.like(rootFornecedor.get("capitalSocial"),
 						"%" + fornecedor.getCapitalSocial() + "%"));
 			}
-			if (fornecedor.getCep() != null && !fornecedor.getCep().equals(Mascara.getCep().getPlaceholder())
-					&& !fornecedor.getCep().equals(Mascara.getCepVazio())) {
-				predicateList.add(criteriaBuilder.like(rootFornecedor.get("cep"), "%" + fornecedor.getCep() + "%"));
+			if (fornecedor.getEnderecoCep() != null && !fornecedor.getEnderecoCep().equals(Mascara.getEnderecoCep().getPlaceholder())
+					&& !fornecedor.getEnderecoCep().equals(Mascara.getEnderecoCepVazio())) {
+				predicateList.add(criteriaBuilder.like(rootFornecedor.get("enderecoCep"), "%" + fornecedor.getEnderecoCep() + "%"));
 			}
-			if (fornecedor.getCidade() != null && fornecedor.getCidade().length() > 0) {
+			if (fornecedor.getEnderecoCidade() != null && fornecedor.getEnderecoCidade().length() > 0) {
 				predicateList
-						.add(criteriaBuilder.like(rootFornecedor.get("cidade"), "%" + fornecedor.getCidade() + "%"));
+						.add(criteriaBuilder.like(rootFornecedor.get("enderecoCidade"), "%" + fornecedor.getEnderecoCidade() + "%"));
 			}
 			if (fornecedor.getCpf() != null && !fornecedor.getCpf().equals(Mascara.getCpf().getPlaceholder())
 					&& !fornecedor.getCpf().equals(Mascara.getCpfVazio())) {
@@ -123,9 +123,9 @@ final class FornecedorImp implements FornecedorDao {
 					&& !fornecedor.getCnpj().equals(Mascara.getCnpjVazio())) {
 				predicateList.add(criteriaBuilder.like(rootFornecedor.get("cnpj"), "%" + fornecedor.getCnpj() + "%"));
 			}
-			if (fornecedor.getComplemento() != null && fornecedor.getComplemento().length() > 0) {
-				predicateList.add(criteriaBuilder.like(rootFornecedor.get("complemento"),
-						"%" + fornecedor.getComplemento() + "%"));
+			if (fornecedor.getEnderecoComplemento() != null && fornecedor.getEnderecoComplemento().length() > 0) {
+				predicateList.add(criteriaBuilder.like(rootFornecedor.get("enderecoComplemento"),
+						"%" + fornecedor.getEnderecoComplemento() + "%"));
 			}
 			if (fornecedor.getDataFundacao() != null
 					&& !fornecedor.getDataFundacao().equals(Mascara.getData().getPlaceholder())
@@ -136,9 +136,9 @@ final class FornecedorImp implements FornecedorDao {
 			if (fornecedor.getEmail() != null && fornecedor.getEmail().length() > 0) {
 				predicateList.add(criteriaBuilder.like(rootFornecedor.get("email"), "%" + fornecedor.getEmail() + "%"));
 			}
-			if (fornecedor.getEstado() != null && fornecedor.getEstado().length() > 0) {
+			if (fornecedor.getEnderecoEstado() != null && fornecedor.getEnderecoEstado().length() > 0) {
 				predicateList
-						.add(criteriaBuilder.like(rootFornecedor.get("estado"), "%" + fornecedor.getEstado() + "%"));
+						.add(criteriaBuilder.like(rootFornecedor.get("enderecoEstado"), "%" + fornecedor.getEnderecoEstado() + "%"));
 			}
 			if (fornecedor.getFaturamentoMensal() != null && fornecedor.getFaturamentoMensal().length() > 0) {
 				predicateList.add(criteriaBuilder.like(rootFornecedor.get("faturamentoMensal"),
@@ -164,9 +164,9 @@ final class FornecedorImp implements FornecedorDao {
 				predicateList.add(criteriaBuilder.like(rootFornecedor.get("inscricaoMunicipal"),
 						"%" + fornecedor.getInscricaoMunicipal() + "%"));
 			}
-			if (fornecedor.getLogradouro() != null && fornecedor.getLogradouro().length() > 0) {
+			if (fornecedor.getEnderecoLogradouro() != null && fornecedor.getEnderecoLogradouro().length() > 0) {
 				predicateList.add(
-						criteriaBuilder.like(rootFornecedor.get("logradouro"), "%" + fornecedor.getLogradouro() + "%"));
+						criteriaBuilder.like(rootFornecedor.get("enderecoLogradouro"), "%" + fornecedor.getEnderecoLogradouro() + "%"));
 			}
 			if (fornecedor.getNomeFantasia() != null && fornecedor.getNomeFantasia().length() > 0) {
 				predicateList.add(criteriaBuilder.like(rootFornecedor.get("nomeFantasia"),
@@ -209,7 +209,7 @@ final class FornecedorImp implements FornecedorDao {
 		EntityManager entityManager = null;
 		EntityTransaction entityTransaction = null;
 		try {
-			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityManager = Jpa.getEntityManagerFactory().createEntityManager();
 			entityTransaction = entityManager.getTransaction();
 			entityTransaction.begin();
 			entityManager.merge(fornecedor);

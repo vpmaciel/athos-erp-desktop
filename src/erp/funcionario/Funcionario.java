@@ -24,7 +24,7 @@ import erp.centrocusto.CentroCusto;
 public class Funcionario implements Serializable {
 
 	@Column(length = 50)
-	private String bairro;
+	private String enderecoBairro;
 	@Column(length = 50)
 	private String cargo;
 	@Column(length = 50)
@@ -32,15 +32,15 @@ public class Funcionario implements Serializable {
 	@ManyToOne(cascade = CascadeType.ALL)
 	private CentroCusto centroCusto;
 	@Column(length = 10)
-	private String cep;
+	private String enderecoCep;
 	@Column(length = 50)
-	private String cidade;
+	private String enderecoCidade;
 	@Column(length = 3)
 	private String cnhCategoria;
 	@Column(length = 19, nullable = true)
 	private String cnpj;
 	@Column(length = 20)
-	private String complemento;
+	private String enderecoComplemento;
 	@Column(length = 50)
 	private String conjuge;
 	@Column(length = 14, nullable = true)
@@ -58,9 +58,9 @@ public class Funcionario implements Serializable {
 	@Column(length = 24)
 	private String escolaridade;
 	@Column(length = 50)
-	private String estado;
+	private String enderecoEstado;
 	@Column(length = 14)
-	private String estadoCivil;
+	private String enderecoEstadoCivil;
 	@Column(length = 20)
 	private String fax;
 	@Column(length = 2)
@@ -75,7 +75,7 @@ public class Funcionario implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	@Column(length = 50)
-	private String logradouro;
+	private String enderecoLogradouro;
 	@Column(length = 20)
 	private String matricula;
 	@Column(length = 34)
@@ -97,8 +97,8 @@ public class Funcionario implements Serializable {
 	@Column(length = 50)
 	private String turno;
 
-	public String getBairro() {
-		return this.bairro;
+	public String getEnderecoBairro() {
+		return this.enderecoBairro;
 	}
 
 	public String getCargo() {
@@ -113,12 +113,12 @@ public class Funcionario implements Serializable {
 		return this.centroCusto;
 	}
 
-	public String getCep() {
-		return this.cep;
+	public String getEnderecoCep() {
+		return this.enderecoCep;
 	}
 
-	public String getCidade() {
-		return this.cidade;
+	public String getEnderecoCidade() {
+		return this.enderecoCidade;
 	}
 
 	public String getCnhCategoria() {
@@ -129,8 +129,8 @@ public class Funcionario implements Serializable {
 		return this.cnpj;
 	}
 
-	public String getComplemento() {
-		return this.complemento;
+	public String getEnderecoComplemento() {
+		return this.enderecoComplemento;
 	}
 
 	public String getConjuge() {
@@ -165,12 +165,12 @@ public class Funcionario implements Serializable {
 		return escolaridade;
 	}
 
-	public String getEstado() {
-		return this.estado;
+	public String getEnderecoEstado() {
+		return this.enderecoEstado;
 	}
 
-	public String getEstadoCivil() {
-		return this.estadoCivil;
+	public String getEnderecoEstadoCivil() {
+		return this.enderecoEstadoCivil;
 	}
 
 	public String getFax() {
@@ -197,8 +197,8 @@ public class Funcionario implements Serializable {
 		return this.id;
 	}
 
-	public String getLogradouro() {
-		return this.logradouro;
+	public String getEnderecoLogradouro() {
+		return this.enderecoLogradouro;
 	}
 
 	public String getMatricula() {
@@ -241,8 +241,8 @@ public class Funcionario implements Serializable {
 		return this.turno;
 	}
 
-	public void setBairro(String bairro) {
-		this.bairro = bairro;
+	public void setEnderecoBairro(String enderecoBairro) {
+		this.enderecoBairro = enderecoBairro;
 	}
 
 	public void setCargo(String cargo) {
@@ -257,12 +257,12 @@ public class Funcionario implements Serializable {
 		this.centroCusto = centroDeCusto;
 	}
 
-	public void setCep(String cep) {
-		this.cep = cep;
+	public void setEnderecoCep(String enderecoCep) {
+		this.enderecoCep = enderecoCep;
 	}
 
-	public void setCidade(String cidade) {
-		this.cidade = cidade;
+	public void setEnderecoCidade(String enderecoCidade) {
+		this.enderecoCidade = enderecoCidade;
 	}
 
 	public void setCnhCategoria(String cnhCategoria) {
@@ -273,8 +273,8 @@ public class Funcionario implements Serializable {
 		this.cnpj = cnpj;
 	}
 
-	public void setComplemento(String complemento) {
-		this.complemento = complemento;
+	public void setEnderecoComplemento(String enderecoComplemento) {
+		this.enderecoComplemento = enderecoComplemento;
 	}
 
 	public void setConjuge(String conjuge) {
@@ -309,12 +309,12 @@ public class Funcionario implements Serializable {
 		this.escolaridade = escolaridade;
 	}
 
-	public void setEstado(String estado) {
-		this.estado = estado;
+	public void setEnderecoEstado(String enderecoEstado) {
+		this.enderecoEstado = enderecoEstado;
 	}
 
-	public void setEstadoCivil(String estadoCivil) {
-		this.estadoCivil = estadoCivil;
+	public void setEnderecoEstadoCivil(String enderecoEstadoCivil) {
+		this.enderecoEstadoCivil = enderecoEstadoCivil;
 	}
 
 	public void setFax(String fax) {
@@ -341,8 +341,8 @@ public class Funcionario implements Serializable {
 		this.id = id;
 	}
 
-	public void setLogradouro(String logradouro) {
-		this.logradouro = logradouro;
+	public void setEnderecoLogradouro(String enderecoLogradouro) {
+		this.enderecoLogradouro = enderecoLogradouro;
 	}
 
 	public void setMatricula(String matricula) {

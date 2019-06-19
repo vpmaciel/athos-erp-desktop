@@ -58,9 +58,9 @@ public class CurriculoRel {
 			document.add(new Paragraph("TELEFONE: " + funcionario.getFone2()));
 			document.add(new Paragraph("FAX: " + funcionario.getFax()));
 			document.add(new Paragraph("E-MAIL: " + funcionario.getEmail()));
-			document.add(new Paragraph("BAIRRO: " + funcionario.getBairro()));
-			document.add(new Paragraph("CIDADE: " + funcionario.getCidade()));
-			document.add(new Paragraph("ESTADO: " + funcionario.getEstado()));
+			document.add(new Paragraph("BAIRRO: " + funcionario.getEnderecoBairro()));
+			document.add(new Paragraph("CIDADE: " + funcionario.getEnderecoCidade()));
+			document.add(new Paragraph("ESTADO: " + funcionario.getEnderecoEstado()));
 			document.add(new Paragraph("ESCOLARIDADE: " + funcionario.getEscolaridade()));
 			document.add(new Paragraph("CNH: " + funcionario.getCnhCategoria()));
 			document.add(new Paragraph(""));

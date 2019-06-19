@@ -32,7 +32,7 @@ public final class Mascara {
 		return mascara;
 	}
 
-	public static final MaskFormatter getCep() {
+	public static final MaskFormatter getEnderecoCep() {
 		MaskFormatter mascara = null;
 		try {
 			mascara = new MaskFormatter("#####-###");
@@ -43,7 +43,7 @@ public final class Mascara {
 		return mascara;
 	}
 
-	public static final String getCepVazio() {
+	public static final String getEnderecoCepVazio() {
 		return "     -   ";
 	}
 

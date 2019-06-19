@@ -46,12 +46,12 @@ public class FornecedorRel {
 				document.add(new Paragraph("TELEFONE: " + fornecedor.getFone2()));
 				document.add(new Paragraph("E-MAIL: " + fornecedor.getEmail()));
 				document.add(new Paragraph("PAÍS: " + fornecedor.getPais()));
-				document.add(new Paragraph("ESTADO: " + fornecedor.getEstado()));
-				document.add(new Paragraph("CIDADE: " + fornecedor.getCidade()));
-				document.add(new Paragraph("BAIRRO: " + fornecedor.getBairro()));
-				document.add(new Paragraph("LOGRADOURO: " + fornecedor.getLogradouro()));
-				document.add(new Paragraph("COMPLEMENTO: " + fornecedor.getComplemento()));
-				document.add(new Paragraph("CEP: " + fornecedor.getCep()));
+				document.add(new Paragraph("ESTADO: " + fornecedor.getEnderecoEstado()));
+				document.add(new Paragraph("CIDADE: " + fornecedor.getEnderecoCidade()));
+				document.add(new Paragraph("BAIRRO: " + fornecedor.getEnderecoBairro()));
+				document.add(new Paragraph("LOGRADOURO: " + fornecedor.getEnderecoLogradouro()));
+				document.add(new Paragraph("COMPLEMENTO: " + fornecedor.getEnderecoComplemento()));
+				document.add(new Paragraph("CEP: " + fornecedor.getEnderecoCep()));
 			}
 		} catch (DocumentException | FileNotFoundException e) {
 			System.err.println(e.getMessage());

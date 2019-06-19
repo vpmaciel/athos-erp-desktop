@@ -12,7 +12,7 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
-import arquitetura.JPA;
+import arquitetura.Jpa;
 import erp.funcionario.Funcionario;
 
 final class CurriculoImp implements CurriculoDao {
@@ -25,7 +25,7 @@ final class CurriculoImp implements CurriculoDao {
 		List<Funcionario> funcionarioList = null;
 
 		try {
-			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityManager = Jpa.getEntityManagerFactory().createEntityManager();
 			entityTransaction = entityManager.getTransaction();
 			entityTransaction.begin();
 			Query query = entityManager.createQuery("select T from Funcionario T order by T.funcionario",
@@ -47,7 +47,7 @@ final class CurriculoImp implements CurriculoDao {
 		EntityManager entityManager = null;
 		EntityTransaction entityTransaction = null;
 		try {
-			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityManager = Jpa.getEntityManagerFactory().createEntityManager();
 			entityTransaction = entityManager.getTransaction();
 			entityTransaction.begin();
 			funcionario = entityManager.find(Funcionario.class, funcionario.getId());
@@ -68,7 +68,7 @@ final class CurriculoImp implements CurriculoDao {
 		EntityTransaction entityTransaction = null;
 		List<Funcionario> funcionarioList = null;
 		try {
-			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityManager = Jpa.getEntityManagerFactory().createEntityManager();
 			entityTransaction = entityManager.getTransaction();
 			entityTransaction.begin();
 			CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();

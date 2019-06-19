@@ -12,7 +12,7 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
-import arquitetura.JPA;
+import arquitetura.Jpa;
 import arquitetura.validacao.Mascara;
 
 final class ExperienciaProfissionalImp implements ExperienciaProfissionalDao {
@@ -22,7 +22,7 @@ final class ExperienciaProfissionalImp implements ExperienciaProfissionalDao {
 		EntityManager entityManager = null;
 		EntityTransaction entityTransaction = null;
 		try {
-			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityManager = Jpa.getEntityManagerFactory().createEntityManager();
 			entityTransaction = entityManager.getTransaction();
 			entityTransaction.begin();
 			entityManager.remove(entityManager.find(ExperienciaProfissional.class, experienciaProfissional.getId()));
@@ -46,7 +46,7 @@ final class ExperienciaProfissionalImp implements ExperienciaProfissionalDao {
 		List<ExperienciaProfissional> experienciaProfissionalList = null;
 
 		try {
-			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityManager = Jpa.getEntityManagerFactory().createEntityManager();
 			entityTransaction = entityManager.getTransaction();
 			entityTransaction.begin();
 			Query query = entityManager.createQuery("select T from ExperienciaProfissional T order by T.funcionario",
@@ -68,7 +68,7 @@ final class ExperienciaProfissionalImp implements ExperienciaProfissionalDao {
 		EntityManager entityManager = null;
 		EntityTransaction entityTransaction = null;
 		try {
-			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityManager = Jpa.getEntityManagerFactory().createEntityManager();
 			entityTransaction = entityManager.getTransaction();
 			entityTransaction.begin();
 			experienciaProfissional = entityManager.find(ExperienciaProfissional.class,
@@ -90,7 +90,7 @@ final class ExperienciaProfissionalImp implements ExperienciaProfissionalDao {
 		EntityTransaction entityTransaction = null;
 		List<ExperienciaProfissional> experienciaProfissionalList = null;
 		try {
-			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityManager = Jpa.getEntityManagerFactory().createEntityManager();
 			entityTransaction = entityManager.getTransaction();
 			entityTransaction.begin();
 			CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
@@ -150,7 +150,7 @@ final class ExperienciaProfissionalImp implements ExperienciaProfissionalDao {
 		EntityManager entityManager = null;
 		EntityTransaction entityTransaction = null;
 		try {
-			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityManager = Jpa.getEntityManagerFactory().createEntityManager();
 			entityTransaction = entityManager.getTransaction();
 			entityTransaction.begin();
 			entityManager.merge(experienciaProfissional);

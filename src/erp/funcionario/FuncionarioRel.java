@@ -50,7 +50,7 @@ public class FuncionarioRel {
 				document.add(new Paragraph("EMPRESA: " + funcionario.getEmpresa()));
 				document.add(new Paragraph("GERENTE: " + funcionario.getGerente()));
 				document.add(new Paragraph("TURNO: " + funcionario.getTurno()));
-				document.add(new Paragraph("ESTADO CIVIL: " + funcionario.getEstadoCivil()));
+				document.add(new Paragraph("ESTADO CIVIL: " + funcionario.getEnderecoEstadoCivil()));
 				document.add(new Paragraph("CÔNJUGE: " + funcionario.getConjuge()));
 				document.add(new Paragraph("FILHOS: " + funcionario.getFilhos()));
 				document.add(new Paragraph("FAX: " + funcionario.getFax()));
@@ -58,12 +58,12 @@ public class FuncionarioRel {
 				document.add(new Paragraph("FONE: " + funcionario.getFone2()));
 				document.add(new Paragraph("E-MAIL: " + funcionario.getEmail()));
 				document.add(new Paragraph("PAÍS: " + funcionario.getPais()));
-				document.add(new Paragraph("ESTADO: " + funcionario.getEstado()));
-				document.add(new Paragraph("CIDADE: " + funcionario.getCidade()));
-				document.add(new Paragraph("BAIRRO: " + funcionario.getBairro()));
-				document.add(new Paragraph("LOGRADOURO: " + funcionario.getLogradouro()));
-				document.add(new Paragraph("COMPLEMENTO: " + funcionario.getComplemento()));
-				document.add(new Paragraph("CEP: " + funcionario.getCep()));
+				document.add(new Paragraph("ESTADO: " + funcionario.getEnderecoEstado()));
+				document.add(new Paragraph("CIDADE: " + funcionario.getEnderecoCidade()));
+				document.add(new Paragraph("BAIRRO: " + funcionario.getEnderecoBairro()));
+				document.add(new Paragraph("LOGRADOURO: " + funcionario.getEnderecoLogradouro()));
+				document.add(new Paragraph("COMPLEMENTO: " + funcionario.getEnderecoComplemento()));
+				document.add(new Paragraph("CEP: " + funcionario.getEnderecoCep()));
 				document.add(new Paragraph("\n"));
 			}
 		} catch (DocumentException | FileNotFoundException e) {

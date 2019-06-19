@@ -12,13 +12,13 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
-import arquitetura.JPA;
+import arquitetura.Jpa;
 
 final class BancoImp implements BancoDao {
 
 	@Override
 	public void deletarRegistro(Banco banco) {
-		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
+		EntityManager entityManager = Jpa.getEntityManagerFactory().createEntityManager();
 		EntityTransaction entityTransaction = entityManager.getTransaction();
 		try {
 			entityTransaction.begin();
@@ -41,7 +41,7 @@ final class BancoImp implements BancoDao {
 		List<Banco> bancoList = null;
 
 		try {
-			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityManager = Jpa.getEntityManagerFactory().createEntityManager();
 			entityTransaction = entityManager.getTransaction();
 			entityTransaction.begin();
 			Query query = entityManager.createQuery("select T from Banco T order by T.nome", Banco.class);
@@ -61,7 +61,7 @@ final class BancoImp implements BancoDao {
 		EntityTransaction entityTransaction = null;
 
 		try {
-			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityManager = Jpa.getEntityManagerFactory().createEntityManager();
 			entityTransaction = entityManager.getTransaction();
 			entityTransaction.begin();
 			banco = entityManager.find(Banco.class, banco.getId());
@@ -83,7 +83,7 @@ final class BancoImp implements BancoDao {
 		List<Banco> bancoList = null;
 
 		try {
-			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityManager = Jpa.getEntityManagerFactory().createEntityManager();
 			entityTransaction = entityManager.getTransaction();
 			entityTransaction.begin();
 			CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
@@ -118,7 +118,7 @@ final class BancoImp implements BancoDao {
 	@Override
 	public void salvarRegistro(Banco banco) {
 
-		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
+		EntityManager entityManager = Jpa.getEntityManagerFactory().createEntityManager();
 		EntityTransaction entityTransaction = entityManager.getTransaction();
 		try {
 			entityTransaction.begin();

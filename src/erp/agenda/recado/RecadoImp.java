@@ -12,14 +12,14 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
-import arquitetura.JPA;
+import arquitetura.Jpa;
 import arquitetura.validacao.Mascara;
 
 final class RecadoImp implements RecadoDao {
 
 	@Override
 	public void deletarRegistro(Recado recado) {
-		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
+		EntityManager entityManager = Jpa.getEntityManagerFactory().createEntityManager();
 		EntityTransaction entityTransaction = entityManager.getTransaction();
 		entityTransaction.begin();
 		entityManager.remove(entityManager.find(Recado.class, recado.getId()));
@@ -29,7 +29,7 @@ final class RecadoImp implements RecadoDao {
 
 	@Override
 	public Collection<Recado> getRegistro() {
-		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
+		EntityManager entityManager = Jpa.getEntityManagerFactory().createEntityManager();
 		EntityTransaction entityTransaction = entityManager.getTransaction();
 		entityTransaction.begin();
 		Query query = entityManager.createQuery("select T from Recado T order by T.data", Recado.class);
@@ -42,7 +42,7 @@ final class RecadoImp implements RecadoDao {
 
 	@Override
 	public Recado getRegistro(Recado recado) {
-		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
+		EntityManager entityManager = Jpa.getEntityManagerFactory().createEntityManager();
 		EntityTransaction entityTransaction = entityManager.getTransaction();
 		entityTransaction.begin();
 		return entityManager.find(Recado.class, recado.getId());
@@ -60,7 +60,7 @@ final class RecadoImp implements RecadoDao {
 
 	@Override
 	public Collection<Recado> pesquisarRegistro(Recado recado) {
-		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
+		EntityManager entityManager = Jpa.getEntityManagerFactory().createEntityManager();
 		EntityTransaction entityTransaction = entityManager.getTransaction();
 		entityTransaction.begin();
 
@@ -97,7 +97,7 @@ final class RecadoImp implements RecadoDao {
 
 	@Override
 	public void salvarRegistro(Recado recado) {
-		EntityManager entityManager = JPA.getEntityManagerFactory().createEntityManager();
+		EntityManager entityManager = Jpa.getEntityManagerFactory().createEntityManager();
 		EntityTransaction entityTransaction = entityManager.getTransaction();
 		entityTransaction.begin();
 		entityManager.merge(recado);

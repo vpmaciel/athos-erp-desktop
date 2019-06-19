@@ -12,7 +12,7 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
-import arquitetura.JPA;
+import arquitetura.Jpa;
 import arquitetura.validacao.Mascara;
 
 final class ImovelImp implements ImovelDao {
@@ -22,7 +22,7 @@ final class ImovelImp implements ImovelDao {
 		EntityManager entityManager = null;
 		EntityTransaction entityTransaction = null;
 		try {
-			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityManager = Jpa.getEntityManagerFactory().createEntityManager();
 			entityTransaction = entityManager.getTransaction();
 			entityTransaction.begin();
 			entityManager.remove(entityManager.find(Imovel.class, imovel.getId()));
@@ -46,7 +46,7 @@ final class ImovelImp implements ImovelDao {
 		List<Imovel> imovelList = null;
 
 		try {
-			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityManager = Jpa.getEntityManagerFactory().createEntityManager();
 			entityTransaction = entityManager.getTransaction();
 			entityTransaction.begin();
 			Query query = entityManager.createQuery("select T from Imovel T order by T.nomeProprietario", Imovel.class);
@@ -67,7 +67,7 @@ final class ImovelImp implements ImovelDao {
 		EntityManager entityManager = null;
 		EntityTransaction entityTransaction = null;
 		try {
-			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityManager = Jpa.getEntityManagerFactory().createEntityManager();
 			entityTransaction = entityManager.getTransaction();
 			entityTransaction.begin();
 			imovel = entityManager.find(Imovel.class, imovel.getId());
@@ -88,7 +88,7 @@ final class ImovelImp implements ImovelDao {
 		EntityTransaction entityTransaction = null;
 		List<Imovel> imovelList = null;
 		try {
-			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityManager = Jpa.getEntityManagerFactory().createEntityManager();
 			entityTransaction = entityManager.getTransaction();
 			entityTransaction.begin();
 			CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
@@ -98,26 +98,26 @@ final class ImovelImp implements ImovelDao {
 			if (imovel.getId() != null) {
 				predicateList.add(criteriaBuilder.equal(rootImovel.get("id"), imovel.getId()));
 			}
-			if (imovel.getBairro() != null && imovel.getBairro().length() > 0) {
-				predicateList.add(criteriaBuilder.like(rootImovel.get("bairro"), "%" + imovel.getBairro() + "%"));
+			if (imovel.getEnderecoBairro() != null && imovel.getEnderecoBairro().length() > 0) {
+				predicateList.add(criteriaBuilder.like(rootImovel.get("enderecoBairro"), "%" + imovel.getEnderecoBairro() + "%"));
 			}
 			if (imovel.getBanheiro() != null && imovel.getBanheiro().length() > 0) {
 				predicateList.add(criteriaBuilder.like(rootImovel.get("banheiro"), "%" + imovel.getBanheiro() + "%"));
 			}
-			if (imovel.getCep() != null && !imovel.getCep().equals(Mascara.getCep().getPlaceholder())
-					&& !imovel.getCep().equals(Mascara.getCepVazio())) {
-				predicateList.add(criteriaBuilder.like(rootImovel.get("cep"), "%" + imovel.getCep() + "%"));
+			if (imovel.getEnderecoCep() != null && !imovel.getEnderecoCep().equals(Mascara.getEnderecoCep().getPlaceholder())
+					&& !imovel.getEnderecoCep().equals(Mascara.getEnderecoCepVazio())) {
+				predicateList.add(criteriaBuilder.like(rootImovel.get("enderecoCep"), "%" + imovel.getEnderecoCep() + "%"));
 			}
-			if (imovel.getCidade() != null && imovel.getCidade().length() > 0) {
-				predicateList.add(criteriaBuilder.like(rootImovel.get("cidade"), "%" + imovel.getCidade() + "%"));
+			if (imovel.getEnderecoCidade() != null && imovel.getEnderecoCidade().length() > 0) {
+				predicateList.add(criteriaBuilder.like(rootImovel.get("enderecoCidade"), "%" + imovel.getEnderecoCidade() + "%"));
 			}
 			if (imovel.getCnpj() != null && !imovel.getCnpj().equals(Mascara.getCnpj().getPlaceholder())
 					&& !imovel.getCnpj().equals(Mascara.getCnpjVazio())) {
 				predicateList.add(criteriaBuilder.like(rootImovel.get("cnpj"), "%" + imovel.getCnpj() + "%"));
 			}
-			if (imovel.getComplemento() != null && imovel.getComplemento().length() > 0) {
+			if (imovel.getEnderecoComplemento() != null && imovel.getEnderecoComplemento().length() > 0) {
 				predicateList
-						.add(criteriaBuilder.like(rootImovel.get("complemento"), "%" + imovel.getComplemento() + "%"));
+						.add(criteriaBuilder.like(rootImovel.get("enderecoComplemento"), "%" + imovel.getEnderecoComplemento() + "%"));
 			}
 			if (imovel.getCozinha() != null && imovel.getCozinha().length() > 0) {
 				predicateList.add(criteriaBuilder.like(rootImovel.get("cozinha"), "%" + imovel.getCozinha() + "%"));
@@ -129,8 +129,8 @@ final class ImovelImp implements ImovelDao {
 			if (imovel.getEmail() != null && imovel.getEmail().length() > 0) {
 				predicateList.add(criteriaBuilder.like(rootImovel.get("email"), "%" + imovel.getEmail() + "%"));
 			}
-			if (imovel.getEstado() != null && imovel.getEstado().length() > 0) {
-				predicateList.add(criteriaBuilder.like(rootImovel.get("estado"), "%" + imovel.getEstado() + "%"));
+			if (imovel.getEnderecoEstado() != null && imovel.getEnderecoEstado().length() > 0) {
+				predicateList.add(criteriaBuilder.like(rootImovel.get("enderecoEstado"), "%" + imovel.getEnderecoEstado() + "%"));
 			}
 			if (imovel.getFax() != null && !imovel.getFax().equals(Mascara.getFax().getPlaceholder())
 					&& !imovel.getFax().equals(Mascara.getFaxVazio())) {
@@ -147,9 +147,9 @@ final class ImovelImp implements ImovelDao {
 			if (imovel.getGaragem() != null && imovel.getGaragem().length() > 0) {
 				predicateList.add(criteriaBuilder.like(rootImovel.get("garagem"), "%" + imovel.getGaragem() + "%"));
 			}
-			if (imovel.getLogradouro() != null && imovel.getLogradouro().length() > 0) {
+			if (imovel.getEnderecoLogradouro() != null && imovel.getEnderecoLogradouro().length() > 0) {
 				predicateList
-						.add(criteriaBuilder.like(rootImovel.get("logradouro"), "%" + imovel.getLogradouro() + "%"));
+						.add(criteriaBuilder.like(rootImovel.get("enderecoLogradouro"), "%" + imovel.getEnderecoLogradouro() + "%"));
 			}
 			if (imovel.getNomeProprietario() != null && imovel.getNomeProprietario().length() > 0) {
 				predicateList.add(criteriaBuilder.like(rootImovel.get("nomeProprietario"),
@@ -195,7 +195,7 @@ final class ImovelImp implements ImovelDao {
 		EntityManager entityManager = null;
 		EntityTransaction entityTransaction = null;
 		try {
-			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityManager = Jpa.getEntityManagerFactory().createEntityManager();
 			entityTransaction = entityManager.getTransaction();
 			entityTransaction.begin();
 			entityManager.merge(imovel);

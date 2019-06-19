@@ -20,17 +20,17 @@ import javax.persistence.Table;
 public class Fornecedor implements Serializable {
 
 	@Column(length = 50)
-	private String bairro;
+	private String enderecoBairro;
 	@Column(length = 10)
 	private String capitalSocial;
 	@Column(length = 10)
-	private String cep;
+	private String enderecoCep;
 	@Column(length = 50)
-	private String cidade;
+	private String enderecoCidade;
 	@Column(length = 19)
 	private String cnpj;
 	@Column(length = 20)
-	private String complemento;
+	private String enderecoComplemento;
 	@Column(length = 14)
 	private String cpf;
 	@Column(length = 10)
@@ -38,7 +38,7 @@ public class Fornecedor implements Serializable {
 	@Column(length = 15)
 	private String email;
 	@Column(length = 50)
-	private String estado;
+	private String enderecoEstado;
 	@Column(length = 10)
 	private String faturamentoMensal;
 	@Column(length = 20)
@@ -55,7 +55,7 @@ public class Fornecedor implements Serializable {
 	@Column(length = 50)
 	private String inscricaoMunicipal;
 	@Column(length = 50)
-	private String logradouro;
+	private String enderecoLogradouro;
 	@Column(length = 50, nullable = false)
 	private String nomeFantasia;
 	@Column(length = 6)
@@ -69,28 +69,28 @@ public class Fornecedor implements Serializable {
 	@Column(length = 6)
 	private String tipoEmpresa;
 
-	public String getBairro() {
-		return this.bairro;
+	public String getEnderecoBairro() {
+		return this.enderecoBairro;
 	}
 
 	public String getCapitalSocial() {
 		return this.capitalSocial;
 	}
 
-	public String getCep() {
-		return this.cep;
+	public String getEnderecoCep() {
+		return this.enderecoCep;
 	}
 
-	public String getCidade() {
-		return this.cidade;
+	public String getEnderecoCidade() {
+		return this.enderecoCidade;
 	}
 
 	public String getCnpj() {
 		return this.cnpj;
 	}
 
-	public String getComplemento() {
-		return this.complemento;
+	public String getEnderecoComplemento() {
+		return this.enderecoComplemento;
 	}
 
 	public String getCpf() {
@@ -105,8 +105,8 @@ public class Fornecedor implements Serializable {
 		return this.email;
 	}
 
-	public String getEstado() {
-		return this.estado;
+	public String getEnderecoEstado() {
+		return this.enderecoEstado;
 	}
 
 	public String getFaturamentoMensal() {
@@ -137,8 +137,8 @@ public class Fornecedor implements Serializable {
 		return this.inscricaoMunicipal;
 	}
 
-	public String getLogradouro() {
-		return this.logradouro;
+	public String getEnderecoLogradouro() {
+		return this.enderecoLogradouro;
 	}
 
 	public String getNomeFantasia() {
@@ -165,28 +165,28 @@ public class Fornecedor implements Serializable {
 		return this.tipoEmpresa;
 	}
 
-	public void setBairro(String bairro) {
-		this.bairro = bairro;
+	public void setEnderecoBairro(String enderecoBairro) {
+		this.enderecoBairro = enderecoBairro;
 	}
 
 	public void setCapitalSocial(String capitalSocial) {
 		this.capitalSocial = capitalSocial;
 	}
 
-	public void setCep(String cep) {
-		this.cep = cep;
+	public void setEnderecoCep(String enderecoCep) {
+		this.enderecoCep = enderecoCep;
 	}
 
-	public void setCidade(String cidade) {
-		this.cidade = cidade;
+	public void setEnderecoCidade(String enderecoCidade) {
+		this.enderecoCidade = enderecoCidade;
 	}
 
 	public void setCnpj(String cnpj) {
 		this.cnpj = cnpj;
 	}
 
-	public void setComplemento(String complemento) {
-		this.complemento = complemento;
+	public void setEnderecoComplemento(String enderecoComplemento) {
+		this.enderecoComplemento = enderecoComplemento;
 	}
 
 	public void setCpf(String cpf) {
@@ -201,8 +201,8 @@ public class Fornecedor implements Serializable {
 		this.email = email;
 	}
 
-	public void setEstado(String estado) {
-		this.estado = estado;
+	public void setEnderecoEstado(String enderecoEstado) {
+		this.enderecoEstado = enderecoEstado;
 	}
 
 	public void setFaturamentoMensal(String faturamentoMensal) {
@@ -233,8 +233,8 @@ public class Fornecedor implements Serializable {
 		this.inscricaoMunicipal = inscricaoMunicipal;
 	}
 
-	public void setLogradouro(String logradouro) {
-		this.logradouro = logradouro;
+	public void setEnderecoLogradouro(String enderecoLogradouro) {
+		this.enderecoLogradouro = enderecoLogradouro;
 	}
 
 	public void setNomeFantasia(String nomeFantasia) {
@@ -253,8 +253,8 @@ public class Fornecedor implements Serializable {
 		this.ramoAtividade = ramoAtividade;
 	}
 
-	public void setRazaoSocial(String estadoCivil) {
-		this.razaoSocial = estadoCivil;
+	public void setRazaoSocial(String enderecoEstadoCivil) {
+		this.razaoSocial = enderecoEstadoCivil;
 	}
 
 	public void setTipoEmpresa(String tipoEmpresa) {

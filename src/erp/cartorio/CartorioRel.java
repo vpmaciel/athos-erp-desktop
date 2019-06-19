@@ -43,12 +43,12 @@ public class CartorioRel {
 				document.add(new Paragraph("E-MAIL: " + cartorio.getEmail()));
 				document.add(new Paragraph("SITE: " + cartorio.getSite()));
 				document.add(new Paragraph("PAÍS: " + cartorio.getPais()));
-				document.add(new Paragraph("ESTADO: " + cartorio.getEstado()));
-				document.add(new Paragraph("CIDADE: " + cartorio.getCidade()));
-				document.add(new Paragraph("BAIRRO: " + cartorio.getBairro()));
-				document.add(new Paragraph("LOGRADOURO: " + cartorio.getLogradouro()));
-				document.add(new Paragraph("COMPLEMENTO: " + cartorio.getComplemento()));
-				document.add(new Paragraph("CEP: " + cartorio.getCep()));
+				document.add(new Paragraph("ESTADO: " + cartorio.getEnderecoEstado()));
+				document.add(new Paragraph("CIDADE: " + cartorio.getEnderecoCidade()));
+				document.add(new Paragraph("BAIRRO: " + cartorio.getEnderecoBairro()));
+				document.add(new Paragraph("LOGRADOURO: " + cartorio.getEnderecoLogradouro()));
+				document.add(new Paragraph("COMPLEMENTO: " + cartorio.getEnderecoComplemento()));
+				document.add(new Paragraph("CEP: " + cartorio.getEnderecoCep()));
 			}
 		} catch (DocumentException | FileNotFoundException e) {
 			System.err.println(e.getMessage());

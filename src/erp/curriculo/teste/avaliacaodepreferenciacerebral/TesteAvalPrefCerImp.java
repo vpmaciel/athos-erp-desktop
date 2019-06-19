@@ -12,7 +12,7 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
-import arquitetura.JPA;
+import arquitetura.Jpa;
 
 final class TesteAvalPrefCerImp implements TesteAvalPrefCerDao {
 
@@ -21,7 +21,7 @@ final class TesteAvalPrefCerImp implements TesteAvalPrefCerDao {
 		EntityManager entityManager = null;
 		EntityTransaction entityTransaction = null;
 		try {
-			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityManager = Jpa.getEntityManagerFactory().createEntityManager();
 			entityTransaction = entityManager.getTransaction();
 			entityTransaction.begin();
 			entityManager.remove(entityManager.find(TesteAvalPrefCer.class, testeAvalPrefCer.getId()));
@@ -44,7 +44,7 @@ final class TesteAvalPrefCerImp implements TesteAvalPrefCerDao {
 		EntityTransaction entityTransaction = null;
 		List<TesteAvalPrefCer> testeAvalPrefCerList = null;
 		try {
-			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityManager = Jpa.getEntityManagerFactory().createEntityManager();
 			entityTransaction = entityManager.getTransaction();
 			entityTransaction.begin();
 			Query query = entityManager.createQuery("select T from TesteAvalPrefCer T order by T.funcionario",
@@ -66,7 +66,7 @@ final class TesteAvalPrefCerImp implements TesteAvalPrefCerDao {
 		EntityManager entityManager = null;
 		EntityTransaction entityTransaction = null;
 		try {
-			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityManager = Jpa.getEntityManagerFactory().createEntityManager();
 			entityTransaction = entityManager.getTransaction();
 			entityTransaction.begin();
 			testeAvalPrefCer = entityManager.find(TesteAvalPrefCer.class, testeAvalPrefCer.getId());
@@ -87,7 +87,7 @@ final class TesteAvalPrefCerImp implements TesteAvalPrefCerDao {
 		EntityTransaction entityTransaction = null;
 		List<TesteAvalPrefCer> testeAvalPrefCerList = null;
 		try {
-			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityManager = Jpa.getEntityManagerFactory().createEntityManager();
 			entityTransaction = entityManager.getTransaction();
 			entityTransaction.begin();
 			CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
@@ -136,7 +136,7 @@ final class TesteAvalPrefCerImp implements TesteAvalPrefCerDao {
 		EntityManager entityManager = null;
 		EntityTransaction entityTransaction = null;
 		try {
-			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityManager = Jpa.getEntityManagerFactory().createEntityManager();
 			entityTransaction = entityManager.getTransaction();
 			entityTransaction.begin();
 			entityManager.merge(testeAvalPrefCer);

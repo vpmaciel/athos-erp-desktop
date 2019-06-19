@@ -40,18 +40,18 @@ public class ClienteRel {
 				document.add(new Paragraph("SALÁRIO: " + cliente.getSalario()));
 				document.add(new Paragraph("CATEGORIA: " + cliente.getClasseEconomica()));
 				document.add(new Paragraph("EMPRESA: " + cliente.getEmpresa()));
-				document.add(new Paragraph("ESTADO CIVIL: " + cliente.getEstadoCivil()));
+				document.add(new Paragraph("ESTADO CIVIL: " + cliente.getEnderecoEstadoCivil()));
 				document.add(new Paragraph("FAX: " + cliente.getFax()));
 				document.add(new Paragraph("TELEFONE: " + cliente.getFone1()));
 				document.add(new Paragraph("TELEFONE: " + cliente.getFone2()));
 				document.add(new Paragraph("E-MAIL: " + cliente.getEmail()));
 				document.add(new Paragraph("PAÍS: " + cliente.getPais()));
-				document.add(new Paragraph("ESTADO: " + cliente.getEstado()));
-				document.add(new Paragraph("CIDADE: " + cliente.getCidade()));
-				document.add(new Paragraph("BAIRRO: " + cliente.getBairro()));
-				document.add(new Paragraph("LOGRADOURO: " + cliente.getLogradouro()));
-				document.add(new Paragraph("COMPLEMENTO: " + cliente.getComplemento()));
-				document.add(new Paragraph("CEP: " + cliente.getCep()));
+				document.add(new Paragraph("ESTADO: " + cliente.getEnderecoEstado()));
+				document.add(new Paragraph("CIDADE: " + cliente.getEnderecoCidade()));
+				document.add(new Paragraph("BAIRRO: " + cliente.getEnderecoBairro()));
+				document.add(new Paragraph("LOGRADOURO: " + cliente.getEnderecoLogradouro()));
+				document.add(new Paragraph("COMPLEMENTO: " + cliente.getEnderecoComplemento()));
+				document.add(new Paragraph("CEP: " + cliente.getEnderecoCep()));
 			}
 		} catch (DocumentException | FileNotFoundException e) {
 			System.err.println(e.getMessage());

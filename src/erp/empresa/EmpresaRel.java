@@ -45,12 +45,12 @@ public class EmpresaRel {
 				document.add(new Paragraph("TELEFONE: " + empresa.getFone2()));
 				document.add(new Paragraph("E-MAIL: " + empresa.getEmail()));
 				document.add(new Paragraph("PAÍS: " + empresa.getPais()));
-				document.add(new Paragraph("ESTADO: " + empresa.getEstado()));
-				document.add(new Paragraph("CIDADE: " + empresa.getCidade()));
-				document.add(new Paragraph("BAIRRO: " + empresa.getBairro()));
-				document.add(new Paragraph("LOGRADOURO: " + empresa.getLogradouro()));
-				document.add(new Paragraph("COMPLEMENTO: " + empresa.getComplemento()));
-				document.add(new Paragraph("CEP: " + empresa.getCep()));
+				document.add(new Paragraph("ESTADO: " + empresa.getEnderecoEstado()));
+				document.add(new Paragraph("CIDADE: " + empresa.getEnderecoCidade()));
+				document.add(new Paragraph("BAIRRO: " + empresa.getEnderecoBairro()));
+				document.add(new Paragraph("LOGRADOURO: " + empresa.getEnderecoLogradouro()));
+				document.add(new Paragraph("COMPLEMENTO: " + empresa.getEnderecoComplemento()));
+				document.add(new Paragraph("CEP: " + empresa.getEnderecoCep()));
 			}
 		} catch (DocumentException | FileNotFoundException e) {
 			System.err.println(e.getMessage());

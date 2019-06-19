@@ -10,6 +10,7 @@ import java.util.List;
 import javax.swing.JOptionPane;
 
 import arquitetura.gui.Msg;
+import arquitetura.json.ArquivoJson;
 import erp.main.MainCont;
 import erp.main.MainFc;
 
@@ -155,6 +156,32 @@ final class BancoCont {
 
 			BancoArquivoOds bancoArquivoOds = new BancoArquivoOds(listBanco);
 			bancoArquivoOds.retornarArquivo(true);
+
+		}
+	}
+
+	{
+		
+
+	}
+
+	public class FormatoJson implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent actionEvent) {
+
+			List<Banco> listBanco = new LinkedList<>();
+
+			try {
+				
+				ArquivoJson<Banco> arquivoJson = new ArquivoJson<Banco>(banco, "banco");
+				arquivoJson.gravarArquivo(BancoFac.getRegistro());
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+			BancoArquivoCsv bancoArquivoCsv = new BancoArquivoCsv(listBanco);
+			bancoArquivoCsv.retornarArquivo(true);
 
 		}
 	}

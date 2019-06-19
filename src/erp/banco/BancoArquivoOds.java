@@ -19,7 +19,7 @@ public class BancoArquivoOds {
 	String[] colunas = new String[] { "BANCO", "CÓDIGO" };
 	TableModel tableModel;
 	File file;
-	private final String arquivo = Sis.getCaminhoDiretorioPlanilhas() + "[banco]-" + Data.getDataHoraArquivo() + ".ods";
+	private final String arquivo = Sis.getCaminhoDiretorioOds() + "[banco]-" + Data.getDataHoraArquivo() + ".ods";
 
 	public BancoArquivoOds(List<Banco> listBanco) {
 
@@ -45,7 +45,7 @@ public class BancoArquivoOds {
 	public File retornarArquivo(boolean abrirArquivo) {
 		if (abrirArquivo) {
 			try {
-				Sis.abrirDiretorio(Sis.getCaminhoDiretorioPlanilhas());
+				Sis.abrirDiretorio(Sis.getCaminhoDiretorioOds());
 				Desktop.getDesktop().open(file);
 			} catch (IOException e) {
 				e.printStackTrace();

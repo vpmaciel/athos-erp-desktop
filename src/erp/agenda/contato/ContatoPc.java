@@ -227,7 +227,7 @@ public final class ContatoPc extends JPanel implements Gui {
 
 		add(new JLabel("CEP"));
 
-		fieldCep = new JFormattedTextField(Mascara.getCep());
+		fieldCep = new JFormattedTextField(Mascara.getEnderecoCep());
 		fieldCep.setDocument(new EntradaMaiuscula(9));
 		add(fieldCep);
 

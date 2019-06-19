@@ -12,7 +12,7 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
-import arquitetura.JPA;
+import arquitetura.Jpa;
 import arquitetura.validacao.Mascara;
 
 final class FuncionarioImp implements FuncionarioDao {
@@ -22,7 +22,7 @@ final class FuncionarioImp implements FuncionarioDao {
 		EntityManager entityManager = null;
 		EntityTransaction entityTransaction = null;
 		try {
-			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityManager = Jpa.getEntityManagerFactory().createEntityManager();
 			entityTransaction = entityManager.getTransaction();
 			entityTransaction.begin();
 			entityManager.remove(entityManager.find(Funcionario.class, funcionario.getId()));
@@ -46,7 +46,7 @@ final class FuncionarioImp implements FuncionarioDao {
 		List<Funcionario> funcionarioList = null;
 
 		try {
-			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityManager = Jpa.getEntityManagerFactory().createEntityManager();
 			entityTransaction = entityManager.getTransaction();
 			entityTransaction.begin();
 			Query query = entityManager.createQuery("select T from Funcionario T order by T.nome", Funcionario.class);
@@ -67,7 +67,7 @@ final class FuncionarioImp implements FuncionarioDao {
 		EntityManager entityManager = null;
 		EntityTransaction entityTransaction = null;
 		try {
-			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityManager = Jpa.getEntityManagerFactory().createEntityManager();
 			entityTransaction = entityManager.getTransaction();
 			entityTransaction.begin();
 			funcionario = entityManager.find(Funcionario.class, funcionario.getId());
@@ -88,7 +88,7 @@ final class FuncionarioImp implements FuncionarioDao {
 		EntityTransaction entityTransaction = null;
 		List<Funcionario> funcionarioList = null;
 		try {
-			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityManager = Jpa.getEntityManagerFactory().createEntityManager();
 			entityTransaction = entityManager.getTransaction();
 			entityTransaction.begin();
 			CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
@@ -98,9 +98,9 @@ final class FuncionarioImp implements FuncionarioDao {
 			if (funcionario.getId() != null) {
 				predicateList.add(criteriaBuilder.equal(rootFuncionario.get("id"), funcionario.getId()));
 			}
-			if (funcionario.getBairro() != null && funcionario.getBairro().length() > 0) {
+			if (funcionario.getEnderecoBairro() != null && funcionario.getEnderecoBairro().length() > 0) {
 				predicateList
-						.add(criteriaBuilder.like(rootFuncionario.get("bairro"), "%" + funcionario.getBairro() + "%"));
+						.add(criteriaBuilder.like(rootFuncionario.get("enderecoBairro"), "%" + funcionario.getEnderecoBairro() + "%"));
 			}
 			if (funcionario.getCategoria() != null && funcionario.getCategoria().length() > 0) {
 				predicateList.add(
@@ -110,13 +110,13 @@ final class FuncionarioImp implements FuncionarioDao {
 				predicateList
 						.add(criteriaBuilder.equal(rootFuncionario.get("centroCusto"), funcionario.getCentroCusto()));
 			}
-			if (funcionario.getCep() != null && !funcionario.getCep().equals(Mascara.getCep().getPlaceholder())
-					&& !funcionario.getCep().equals(Mascara.getCepVazio())) {
-				predicateList.add(criteriaBuilder.like(rootFuncionario.get("cep"), "%" + funcionario.getCep() + "%"));
+			if (funcionario.getEnderecoCep() != null && !funcionario.getEnderecoCep().equals(Mascara.getEnderecoCep().getPlaceholder())
+					&& !funcionario.getEnderecoCep().equals(Mascara.getEnderecoCepVazio())) {
+				predicateList.add(criteriaBuilder.like(rootFuncionario.get("enderecoCep"), "%" + funcionario.getEnderecoCep() + "%"));
 			}
-			if (funcionario.getCidade() != null && funcionario.getCidade().length() > 0) {
+			if (funcionario.getEnderecoCidade() != null && funcionario.getEnderecoCidade().length() > 0) {
 				predicateList
-						.add(criteriaBuilder.like(rootFuncionario.get("cidade"), "%" + funcionario.getCidade() + "%"));
+						.add(criteriaBuilder.like(rootFuncionario.get("enderecoCidade"), "%" + funcionario.getEnderecoCidade() + "%"));
 			}
 			if (funcionario.getCnhCategoria() != null && funcionario.getCnhCategoria().length() > 0) {
 				predicateList.add(criteriaBuilder.like(rootFuncionario.get("cnhCategoria"),
@@ -130,9 +130,9 @@ final class FuncionarioImp implements FuncionarioDao {
 					&& !funcionario.getCpf().equals(Mascara.getCpfVazio())) {
 				predicateList.add(criteriaBuilder.like(rootFuncionario.get("cpf"), "%" + funcionario.getCpf() + "%"));
 			}
-			if (funcionario.getComplemento() != null && funcionario.getComplemento().length() > 0) {
-				predicateList.add(criteriaBuilder.like(rootFuncionario.get("complemento"),
-						"%" + funcionario.getComplemento() + "%"));
+			if (funcionario.getEnderecoComplemento() != null && funcionario.getEnderecoComplemento().length() > 0) {
+				predicateList.add(criteriaBuilder.like(rootFuncionario.get("enderecoComplemento"),
+						"%" + funcionario.getEnderecoComplemento() + "%"));
 			}
 			if (funcionario.getConjuge() != null && funcionario.getConjuge().length() > 0) {
 				predicateList.add(
@@ -149,13 +149,13 @@ final class FuncionarioImp implements FuncionarioDao {
 				predicateList.add(criteriaBuilder.like(rootFuncionario.get("escolaridade"),
 						"%" + funcionario.getEscolaridade() + "%"));
 			}
-			if (funcionario.getEstado() != null && funcionario.getEstado().length() > 0) {
+			if (funcionario.getEnderecoEstado() != null && funcionario.getEnderecoEstado().length() > 0) {
 				predicateList
-						.add(criteriaBuilder.like(rootFuncionario.get("estado"), "%" + funcionario.getEstado() + "%"));
+						.add(criteriaBuilder.like(rootFuncionario.get("enderecoEstado"), "%" + funcionario.getEnderecoEstado() + "%"));
 			}
-			if (funcionario.getEstadoCivil() != null && funcionario.getEstadoCivil().length() > 0) {
-				predicateList.add(criteriaBuilder.like(rootFuncionario.get("estadoCivil"),
-						"%" + funcionario.getEstadoCivil() + "%"));
+			if (funcionario.getEnderecoEstadoCivil() != null && funcionario.getEnderecoEstadoCivil().length() > 0) {
+				predicateList.add(criteriaBuilder.like(rootFuncionario.get("enderecoEstadoCivil"),
+						"%" + funcionario.getEnderecoEstadoCivil() + "%"));
 			}
 			if (funcionario.getFax() != null && !funcionario.getFax().equals(Mascara.getFone().getPlaceholder())
 					&& !funcionario.getFax().equals(Mascara.getFoneVazio())) {
@@ -179,9 +179,9 @@ final class FuncionarioImp implements FuncionarioDao {
 				predicateList.add(
 						criteriaBuilder.like(rootFuncionario.get("gerente"), "%" + funcionario.getGerente() + "%"));
 			}
-			if (funcionario.getLogradouro() != null && funcionario.getLogradouro().length() > 0) {
-				predicateList.add(criteriaBuilder.like(rootFuncionario.get("logradouro"),
-						"%" + funcionario.getLogradouro() + "%"));
+			if (funcionario.getEnderecoLogradouro() != null && funcionario.getEnderecoLogradouro().length() > 0) {
+				predicateList.add(criteriaBuilder.like(rootFuncionario.get("enderecoLogradouro"),
+						"%" + funcionario.getEnderecoLogradouro() + "%"));
 			}
 			if (funcionario.getMatricula() != null && funcionario.getMatricula().length() > 0) {
 				predicateList.add(
@@ -234,7 +234,7 @@ final class FuncionarioImp implements FuncionarioDao {
 		EntityManager entityManager = null;
 		EntityTransaction entityTransaction = null;
 		try {
-			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityManager = Jpa.getEntityManagerFactory().createEntityManager();
 			entityTransaction = entityManager.getTransaction();
 			entityTransaction.begin();
 			entityManager.merge(funcionario);

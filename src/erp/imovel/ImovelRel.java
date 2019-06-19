@@ -46,12 +46,12 @@ public class ImovelRel {
 				document.add(new Paragraph("TELEFONE: " + imovel.getFone2()));
 				document.add(new Paragraph("E-MAIL: " + imovel.getEmail()));
 				document.add(new Paragraph("PAÍS: " + imovel.getPais()));
-				document.add(new Paragraph("ESTADO: " + imovel.getEstado()));
-				document.add(new Paragraph("CIDADE: " + imovel.getCidade()));
-				document.add(new Paragraph("BAIRRO: " + imovel.getBairro()));
-				document.add(new Paragraph("LOGRADOURO: " + imovel.getLogradouro()));
-				document.add(new Paragraph("COMPLEMENTO: " + imovel.getComplemento()));
-				document.add(new Paragraph("CEP: " + imovel.getCep()));
+				document.add(new Paragraph("ESTADO: " + imovel.getEnderecoEstado()));
+				document.add(new Paragraph("CIDADE: " + imovel.getEnderecoCidade()));
+				document.add(new Paragraph("BAIRRO: " + imovel.getEnderecoBairro()));
+				document.add(new Paragraph("LOGRADOURO: " + imovel.getEnderecoLogradouro()));
+				document.add(new Paragraph("COMPLEMENTO: " + imovel.getEnderecoComplemento()));
+				document.add(new Paragraph("CEP: " + imovel.getEnderecoCep()));
 			}
 		} catch (DocumentException | FileNotFoundException e) {
 			System.err.println(e.getMessage());

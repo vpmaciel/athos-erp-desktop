@@ -89,7 +89,7 @@ public class CartorioTm extends AbstractTableModel {
 			return cartorio.getComarca();
 		}
 		if (tabelaModelo.getNome(columnIndex).equals("CIDADE")) {
-			return cartorio.getCidade();
+			return cartorio.getEnderecoCidade();
 		}
 		return cartorio;
 	}
@@ -111,7 +111,7 @@ public class CartorioTm extends AbstractTableModel {
 			cartorio.setId(Long.parseLong(aValue.toString()));
 		}
 		if (tabelaModelo.getNome(columnIndex).equals("CIDADE")) {
-			cartorio.setCidade(aValue.toString());
+			cartorio.setEnderecoCidade(aValue.toString());
 		}
 		if (tabelaModelo.getNome(columnIndex).equals("COMARCA")) {
 			cartorio.setComarca(aValue.toString());

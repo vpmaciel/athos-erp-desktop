@@ -268,7 +268,7 @@ public final class CartorioPc extends JPanel implements Gui {
 
 		add(new JLabel("CEP"));
 
-		fieldCep = new JFormattedTextField(Mascara.getCep());
+		fieldCep = new JFormattedTextField(Mascara.getEnderecoCep());
 		add(fieldCep);
 
 		SpringUtilities.makeCompactGrid(this, 41, 1, 5, 5, 5, 5);

@@ -39,11 +39,11 @@ public class Veiculo implements Serializable {
 	@Column(length = 18)
 	private String atividade;
 	@Column(length = 50)
-	private String bairro;
+	private String enderecoBairro;
 	@Column(length = 10)
 	private String cambio;
 	@Column(length = 3)
-	private String capacidadePassageiros;
+	private String capaenderecoCidadePassageiros;
 	@Column(length = 10)
 	private String capCarga;
 	@Column(length = 50)
@@ -53,13 +53,13 @@ public class Veiculo implements Serializable {
 	@ManyToOne(cascade = CascadeType.ALL)
 	private CentroCusto centroCusto;
 	@Column(length = 10)
-	private String cep;
+	private String enderecoCep;
 	@Column(length = 20)
 	private String chassi;
 	@Column(length = 3)
 	private String chassiRemarcado;
 	@Column(length = 50)
-	private String cidade;
+	private String enderecoCidade;
 	@Column(length = 4)
 	private String cilindrada;
 	@Column(length = 2)
@@ -69,7 +69,7 @@ public class Veiculo implements Serializable {
 	@Column(length = 32)
 	private String combustivel;
 	@Column(length = 20)
-	private String complemento;
+	private String enderecoComplemento;
 	@Column(length = 8)
 	private String cor;
 	@Column(length = 10)
@@ -84,9 +84,9 @@ public class Veiculo implements Serializable {
 	@Column(length = 10)
 	private String especie;
 	@Column(length = 50)
-	private String estado;
+	private String enderecoEstado;
 	@Column(length = 50)
-	private String estadoEmplacamento;
+	private String enderecoEstadoEmplacamento;
 	@Column(length = 9)
 	private String fabricacao;
 	@Id
@@ -95,7 +95,7 @@ public class Veiculo implements Serializable {
 	@Column(length = 3)
 	private String ipva;
 	@Column(length = 50)
-	private String logradouro;
+	private String enderecoLogradouro;
 	@Column(length = 10)
 	private String lucro;
 	@ManyToOne(cascade = CascadeType.ALL)
@@ -210,16 +210,16 @@ public class Veiculo implements Serializable {
 		return atividade;
 	}
 
-	public String getBairro() {
-		return bairro;
+	public String getEnderecoBairro() {
+		return enderecoBairro;
 	}
 
 	public String getCambio() {
 		return cambio;
 	}
 
-	public String getCapacidadePassageiros() {
-		return capacidadePassageiros;
+	public String getCapaenderecoCidadePassageiros() {
+		return capaenderecoCidadePassageiros;
 	}
 
 	public String getCapCarga() {
@@ -238,8 +238,8 @@ public class Veiculo implements Serializable {
 		return centroCusto;
 	}
 
-	public String getCep() {
-		return cep;
+	public String getEnderecoCep() {
+		return enderecoCep;
 	}
 
 	public String getChassi() {
@@ -250,8 +250,8 @@ public class Veiculo implements Serializable {
 		return chassiRemarcado;
 	}
 
-	public String getCidade() {
-		return cidade;
+	public String getEnderecoCidade() {
+		return enderecoCidade;
 	}
 
 	public String getCilindrada() {
@@ -270,8 +270,8 @@ public class Veiculo implements Serializable {
 		return combustivel;
 	}
 
-	public String getComplemento() {
-		return complemento;
+	public String getEnderecoComplemento() {
+		return enderecoComplemento;
 	}
 
 	public String getCor() {
@@ -302,12 +302,12 @@ public class Veiculo implements Serializable {
 		return especie;
 	}
 
-	public String getEstado() {
-		return estado;
+	public String getEnderecoEstado() {
+		return enderecoEstado;
 	}
 
-	public String getEstadoEmplacamento() {
-		return estadoEmplacamento;
+	public String getEnderecoEstadoEmplacamento() {
+		return enderecoEstadoEmplacamento;
 	}
 
 	public String getFabricacao() {
@@ -322,8 +322,8 @@ public class Veiculo implements Serializable {
 		return ipva;
 	}
 
-	public String getLogradouro() {
-		return logradouro;
+	public String getEnderecoLogradouro() {
+		return enderecoLogradouro;
 	}
 
 	public String getLucro() {
@@ -534,16 +534,16 @@ public class Veiculo implements Serializable {
 		this.atividade = atividade;
 	}
 
-	public void setBairro(String bairro) {
-		this.bairro = bairro;
+	public void setEnderecoBairro(String enderecoBairro) {
+		this.enderecoBairro = enderecoBairro;
 	}
 
 	public void setCambio(String cambio) {
 		this.cambio = cambio;
 	}
 
-	public void setCapacidadePassageiros(String capacidaPassageiros) {
-		this.capacidadePassageiros = capacidaPassageiros;
+	public void setCapaenderecoCidadePassageiros(String capacidaPassageiros) {
+		this.capaenderecoCidadePassageiros = capacidaPassageiros;
 	}
 
 	public void setCapCarga(String capCarga) {
@@ -562,8 +562,8 @@ public class Veiculo implements Serializable {
 		this.centroCusto = centroCusto;
 	}
 
-	public void setCep(String cep) {
-		this.cep = cep;
+	public void setEnderecoCep(String enderecoCep) {
+		this.enderecoCep = enderecoCep;
 	}
 
 	public void setChassi(String chassi) {
@@ -574,8 +574,8 @@ public class Veiculo implements Serializable {
 		this.chassiRemarcado = chassiRemarcado;
 	}
 
-	public void setCidade(String cidade) {
-		this.cidade = cidade;
+	public void setEnderecoCidade(String enderecoCidade) {
+		this.enderecoCidade = enderecoCidade;
 	}
 
 	public void setCilindrada(String cilindrada) {
@@ -594,8 +594,8 @@ public class Veiculo implements Serializable {
 		this.combustivel = combustivel;
 	}
 
-	public void setComplemento(String complemento) {
-		this.complemento = complemento;
+	public void setEnderecoComplemento(String enderecoComplemento) {
+		this.enderecoComplemento = enderecoComplemento;
 	}
 
 	public void setCor(String cor) {
@@ -626,12 +626,12 @@ public class Veiculo implements Serializable {
 		this.especie = especie;
 	}
 
-	public void setEstado(String estado) {
-		this.estado = estado;
+	public void setEnderecoEstado(String enderecoEstado) {
+		this.enderecoEstado = enderecoEstado;
 	}
 
-	public void setEstadoEmplacamento(String estadoEmplacamento) {
-		this.estadoEmplacamento = estadoEmplacamento;
+	public void setEnderecoEstadoEmplacamento(String enderecoEstadoEmplacamento) {
+		this.enderecoEstadoEmplacamento = enderecoEstadoEmplacamento;
 	}
 
 	public void setFabricacao(String fabricacao) {
@@ -646,8 +646,8 @@ public class Veiculo implements Serializable {
 		this.ipva = ipva;
 	}
 
-	public void setLogradouro(String logradouro) {
-		this.logradouro = logradouro;
+	public void setEnderecoLogradouro(String enderecoLogradouro) {
+		this.enderecoLogradouro = enderecoLogradouro;
 	}
 
 	public void setLucro(String lucro) {

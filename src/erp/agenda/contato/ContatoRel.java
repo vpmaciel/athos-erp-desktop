@@ -39,12 +39,12 @@ public class ContatoRel {
 				document.add(new Paragraph("TELEFONE: " + contato.getFone2()));
 				document.add(new Paragraph("E-MAIL: " + contato.getEmail()));
 				document.add(new Paragraph("PAÍS: " + contato.getPais()));
-				document.add(new Paragraph("ESTADO: " + contato.getEstado()));
-				document.add(new Paragraph("CIDADE: " + contato.getCidade()));
-				document.add(new Paragraph("BAIRRO: " + contato.getBairro()));
-				document.add(new Paragraph("LOGRADOURO: " + contato.getLogradouro()));
-				document.add(new Paragraph("COMPLEMENTO: " + contato.getComplemento()));
-				document.add(new Paragraph("CEP: " + contato.getCep()));
+				document.add(new Paragraph("ESTADO: " + contato.getEnderecoEstado()));
+				document.add(new Paragraph("CIDADE: " + contato.getEnderecoCidade()));
+				document.add(new Paragraph("BAIRRO: " + contato.getEnderecoBairro()));
+				document.add(new Paragraph("LOGRADOURO: " + contato.getEnderecoLogradouro()));
+				document.add(new Paragraph("COMPLEMENTO: " + contato.getEnderecoComplemento()));
+				document.add(new Paragraph("CEP: " + contato.getEnderecoCep()));
 			}
 		} catch (DocumentException | FileNotFoundException e) {
 			System.err.println(e.getMessage());

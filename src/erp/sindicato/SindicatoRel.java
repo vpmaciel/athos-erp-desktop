@@ -45,12 +45,12 @@ public class SindicatoRel {
 				document.add(new Paragraph("TELEFONE: " + sindicato.getFone2()));
 				document.add(new Paragraph("E-MAIL: " + sindicato.getEmail()));
 				document.add(new Paragraph("PAÍS: " + sindicato.getPais()));
-				document.add(new Paragraph("ESTADO: " + sindicato.getEstado()));
-				document.add(new Paragraph("CIDADE: " + sindicato.getCidade()));
-				document.add(new Paragraph("BAIRRO: " + sindicato.getBairro()));
-				document.add(new Paragraph("LOGRADOURO: " + sindicato.getLogradouro()));
-				document.add(new Paragraph("COMPLEMENTO: " + sindicato.getComplemento()));
-				document.add(new Paragraph("CEP: " + sindicato.getCep()));
+				document.add(new Paragraph("ESTADO: " + sindicato.getEnderecoEstado()));
+				document.add(new Paragraph("CIDADE: " + sindicato.getEnderecoCidade()));
+				document.add(new Paragraph("BAIRRO: " + sindicato.getEnderecoBairro()));
+				document.add(new Paragraph("LOGRADOURO: " + sindicato.getEnderecoLogradouro()));
+				document.add(new Paragraph("COMPLEMENTO: " + sindicato.getEnderecoComplemento()));
+				document.add(new Paragraph("CEP: " + sindicato.getEnderecoCep()));
 			}
 		} catch (DocumentException | FileNotFoundException e) {
 			System.err.println(e.getMessage());

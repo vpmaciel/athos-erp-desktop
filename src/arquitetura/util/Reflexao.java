@@ -12,7 +12,7 @@ public class Reflexao {
 	private Object[][] dados;
 	private List<?> list;
 
-	Reflexao(Object object, List<?> list) {
+	public Reflexao(Object object, List<?> list) {
 		this.object = object;
 		this.classe = object.getClass();
 		this.campos = classe.getDeclaredFields();
@@ -37,17 +37,17 @@ public class Reflexao {
 
 	public Object[][] getDados() {
 
-		String nomeAtributo = "";
-		Object valorAtributo = null;
+		
+		
 		dados = new Object[list.size()][colunas.length];
 		int linha = 0, coluna = 0;
 		for (Object object : list) {
 			for (Field campo : campos) {
 				try {
-					nomeAtributo = campo.getName();
+					// String nomeAtributo = campo.getName();
 					campo.setAccessible(true); // Necessário por conta do encapsulamento das variáveis (private)
-					valorAtributo = campo.get(object);
-					dados[linha][coluna] = campo.get(object);
+					// Object valorAtributo = campo.get(this.object);
+					dados[linha][coluna] = campo.get(this.object);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

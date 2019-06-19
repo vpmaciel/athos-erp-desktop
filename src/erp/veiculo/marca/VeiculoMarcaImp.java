@@ -12,7 +12,7 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
-import arquitetura.JPA;
+import arquitetura.Jpa;
 
 final class VeiculoMarcaImp implements VeiculoMarcaDao {
 
@@ -21,7 +21,7 @@ final class VeiculoMarcaImp implements VeiculoMarcaDao {
 		EntityManager entityManager = null;
 		EntityTransaction entityTransaction = null;
 		try {
-			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityManager = Jpa.getEntityManagerFactory().createEntityManager();
 			entityTransaction = entityManager.getTransaction();
 			entityTransaction.begin();
 			entityManager.remove(entityManager.find(VeiculoMarca.class, veiculoMarca.getId()));
@@ -45,7 +45,7 @@ final class VeiculoMarcaImp implements VeiculoMarcaDao {
 		List<VeiculoMarca> veiculoMarcaList = null;
 
 		try {
-			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityManager = Jpa.getEntityManagerFactory().createEntityManager();
 			entityTransaction = entityManager.getTransaction();
 			entityTransaction.begin();
 			Query query = entityManager.createQuery("select T from VeiculoMarca T order by T.marca",
@@ -67,7 +67,7 @@ final class VeiculoMarcaImp implements VeiculoMarcaDao {
 		EntityManager entityManager = null;
 		EntityTransaction entityTransaction = null;
 		try {
-			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityManager = Jpa.getEntityManagerFactory().createEntityManager();
 			entityTransaction = entityManager.getTransaction();
 			entityTransaction.begin();
 			veiculoMarca = entityManager.find(VeiculoMarca.class, veiculoMarca.getId());
@@ -88,7 +88,7 @@ final class VeiculoMarcaImp implements VeiculoMarcaDao {
 		EntityTransaction entityTransaction = null;
 		List<VeiculoMarca> veiculoMarcaList = null;
 		try {
-			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityManager = Jpa.getEntityManagerFactory().createEntityManager();
 			entityTransaction = entityManager.getTransaction();
 			entityTransaction.begin();
 			CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
@@ -120,7 +120,7 @@ final class VeiculoMarcaImp implements VeiculoMarcaDao {
 		EntityManager entityManager = null;
 		EntityTransaction entityTransaction = null;
 		try {
-			entityManager = JPA.getEntityManagerFactory().createEntityManager();
+			entityManager = Jpa.getEntityManagerFactory().createEntityManager();
 			entityTransaction = entityManager.getTransaction();
 			entityTransaction.begin();
 			entityManager.merge(veiculoMarca);

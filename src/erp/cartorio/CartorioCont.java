@@ -234,12 +234,12 @@ final class CartorioCont {
 		getCartorioPc().getGuiFone1().setText(cartorio.getFone1());
 		getCartorioPc().getGuiFone2().setText(cartorio.getFone2());
 		getCartorioPc().getGuiSite().setText(cartorio.getSite());
-		getCartorioPc().getGuiBairro().setText(cartorio.getBairro());
-		getCartorioPc().getGuiCep().setText(cartorio.getCep());
-		getCartorioPc().getGuiCidade().setText(cartorio.getCidade());
-		getCartorioPc().getGuiComplemento().setText(cartorio.getComplemento());
-		getCartorioPc().getGuiEstado().setText(cartorio.getEstado());
-		getCartorioPc().getGuiLogradouro().setText(cartorio.getLogradouro());
+		getCartorioPc().getGuiBairro().setText(cartorio.getEnderecoBairro());
+		getCartorioPc().getGuiCep().setText(cartorio.getEnderecoCep());
+		getCartorioPc().getGuiCidade().setText(cartorio.getEnderecoCidade());
+		getCartorioPc().getGuiComplemento().setText(cartorio.getEnderecoComplemento());
+		getCartorioPc().getGuiEstado().setText(cartorio.getEnderecoEstado());
+		getCartorioPc().getGuiLogradouro().setText(cartorio.getEnderecoLogradouro());
 		getCartorioPc().getGuiPais().setText(cartorio.getPais());
 	}
 
@@ -257,12 +257,12 @@ final class CartorioCont {
 		cartorio.setFone1(getCartorioPc().getGuiFone1().getText());
 		cartorio.setFone2(getCartorioPc().getGuiFone2().getText());
 		cartorio.setSite(getCartorioPc().getGuiSite().getText());
-		cartorio.setBairro(getCartorioPc().getGuiBairro().getText());
-		cartorio.setCep(getCartorioPc().getGuiCep().getText());
-		cartorio.setCidade(getCartorioPc().getGuiCidade().getText());
-		cartorio.setComplemento(getCartorioPc().getGuiComplemento().getText());
-		cartorio.setEstado(getCartorioPc().getGuiEstado().getText());
-		cartorio.setLogradouro(getCartorioPc().getGuiLogradouro().getText());
+		cartorio.setEnderecoBairro(getCartorioPc().getGuiBairro().getText());
+		cartorio.setEnderecoCep(getCartorioPc().getGuiCep().getText());
+		cartorio.setEnderecoCidade(getCartorioPc().getGuiCidade().getText());
+		cartorio.setEnderecoComplemento(getCartorioPc().getGuiComplemento().getText());
+		cartorio.setEnderecoEstado(getCartorioPc().getGuiEstado().getText());
+		cartorio.setEnderecoLogradouro(getCartorioPc().getGuiLogradouro().getText());
 		cartorio.setPais(getCartorioPc().getGuiPais().getText());
 
 		if (getCartorioPc().getGuiCnpj().getText().equals(Mascara.getCnpjVazio())) {

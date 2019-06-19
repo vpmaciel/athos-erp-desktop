@@ -122,7 +122,7 @@ public final class MainCont {
 				Msg.avisoUsuarioNaoLogado();
 			} else if (actionEvent.getSource() == mainFc.getMenuItemArquivoReiniciar()) {
 				@SuppressWarnings("rawtypes")
-				Class cls = ERP.class;
+				Class cls = ErpMain.class;
 				ProtectionDomain pDomain = cls.getProtectionDomain();
 				CodeSource cSource = pDomain.getCodeSource();
 				URL loc = cSource.getLocation();
@@ -649,7 +649,7 @@ public final class MainCont {
 
 	public static synchronized MainCont getInstance(MainFc mainFc) {
 		if (totalPrincipalCont > 1) {
-			JOptionPane.showMessageDialog(null, "Foi instanciado mais de uma Objeto:" + ERP.class);
+			JOptionPane.showMessageDialog(null, "Foi instanciado mais de uma Objeto:" + ErpMain.class);
 			System.exit(0);
 		}
 		if (mainCont == null) {
