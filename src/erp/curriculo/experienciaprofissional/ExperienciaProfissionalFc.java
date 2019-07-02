@@ -21,7 +21,7 @@ import arquitetura.gui.Imagem;
 public final class ExperienciaProfissionalFc extends JFrame implements Gui {
 
 	private ConfiguracaoGui configuracaoGui;
-	private ExperienciaProfissionalCont experienciaProfissionalCont;
+	private ExperienciaProfissionalControl experienciaProfissionalControl;
 	private ExperienciaProfissionalPc experienciaProfissionalPc;
 
 	public ExperienciaProfissionalFc() {
@@ -42,8 +42,8 @@ public final class ExperienciaProfissionalFc extends JFrame implements Gui {
 		return configuracaoGui;
 	}
 
-	public ExperienciaProfissionalCont getExperienciaProfissionalCont() {
-		return experienciaProfissionalCont;
+	public ExperienciaProfissionalControl getExperienciaProfissionalCont() {
+		return experienciaProfissionalControl;
 	}
 
 	public ExperienciaProfissionalPc getExperienciaProfissionalPc() {
@@ -53,25 +53,25 @@ public final class ExperienciaProfissionalFc extends JFrame implements Gui {
 	@Override
 	public void iniciarControlador() {
 		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
-		experienciaProfissionalCont = new ExperienciaProfissionalCont();
-		addWindowListener(experienciaProfissionalCont.new Frame());
-		experienciaProfissionalPc.getLabelFuncionario().addMouseListener(experienciaProfissionalCont.new MostraFrame());
-		experienciaProfissionalPc.getTB().getExcluirBtn().addActionListener(experienciaProfissionalCont.new Exclui());
-		experienciaProfissionalPc.getTB().getNovoBtn().addActionListener(experienciaProfissionalCont.new Novo());
+		experienciaProfissionalControl = new ExperienciaProfissionalControl();
+		addWindowListener(experienciaProfissionalControl.new Frame());
+		experienciaProfissionalPc.getLabelFuncionario().addMouseListener(experienciaProfissionalControl.new MostraFrame());
+		experienciaProfissionalPc.getTB().getExcluirBtn().addActionListener(experienciaProfissionalControl.new Exclui());
+		experienciaProfissionalPc.getTB().getNovoBtn().addActionListener(experienciaProfissionalControl.new Novo());
 		experienciaProfissionalPc.getTB().getPesquisarBtn()
-				.addActionListener(experienciaProfissionalCont.new Pesquisa());
-		experienciaProfissionalPc.getTB().getImprimirBtn().addActionListener(experienciaProfissionalCont.new Imprime());
+				.addActionListener(experienciaProfissionalControl.new Pesquisa());
+		experienciaProfissionalPc.getTB().getImprimirBtn().addActionListener(experienciaProfissionalControl.new Imprime());
 		experienciaProfissionalPc.getTB().getRelatorioBtn()
-				.addActionListener(experienciaProfissionalCont.new Relatorio());
-		experienciaProfissionalPc.getTB().getSalvarBtn().addActionListener(experienciaProfissionalCont.new Salva());
+				.addActionListener(experienciaProfissionalControl.new Relatorio());
+		experienciaProfissionalPc.getTB().getSalvarBtn().addActionListener(experienciaProfissionalControl.new Salva());
 		experienciaProfissionalPc.getTB().getFecharBtn()
-				.addActionListener(experienciaProfissionalCont.new FechaJanela());
+				.addActionListener(experienciaProfissionalControl.new FechaJanela());
 		experienciaProfissionalPc.getTB().getSairBtn()
-				.addActionListener(experienciaProfissionalCont.new SaidaSistema());
-		experienciaProfissionalPc.getTB().getAjudaBtn().addActionListener(experienciaProfissionalCont.new Ajuda());
-		experienciaProfissionalPc.getTB().getHomeBtn().addActionListener(experienciaProfissionalCont.new Home());
+				.addActionListener(experienciaProfissionalControl.new SaidaSistema());
+		experienciaProfissionalPc.getTB().getAjudaBtn().addActionListener(experienciaProfissionalControl.new Ajuda());
+		experienciaProfissionalPc.getTB().getHomeBtn().addActionListener(experienciaProfissionalControl.new Home());
 		experienciaProfissionalPc.getTB().getRegistrosBtn()
-				.addActionListener(experienciaProfissionalCont.new Registro());
+				.addActionListener(experienciaProfissionalControl.new Registro());
 	}
 
 	@Override

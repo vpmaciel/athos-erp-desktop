@@ -21,7 +21,7 @@ import arquitetura.gui.Imagem;
 public final class HabilidadeFc extends JFrame implements Gui {
 
 	private ConfiguracaoGui configuracaoGui;
-	private HabilidadeCont habilidadeCont;
+	private HabilidadeControl habilidadeControl;
 	private HabilidadePc habilidadePc;
 
 	public HabilidadeFc() {
@@ -42,8 +42,8 @@ public final class HabilidadeFc extends JFrame implements Gui {
 		return configuracaoGui;
 	}
 
-	public HabilidadeCont getHabilidadeCont() {
-		return habilidadeCont;
+	public HabilidadeControl getHabilidadeCont() {
+		return habilidadeControl;
 	}
 
 	public HabilidadePc getHabilidadePc() {
@@ -53,20 +53,20 @@ public final class HabilidadeFc extends JFrame implements Gui {
 	@Override
 	public void iniciarControlador() {
 		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
-		habilidadeCont = new HabilidadeCont();
-		addWindowListener(habilidadeCont.new Frame());
-		habilidadePc.getLabelFuncionario().addMouseListener(habilidadeCont.new MostraFrame());
-		habilidadePc.getTB().getExcluirBtn().addActionListener(habilidadeCont.new Exclui());
-		habilidadePc.getTB().getNovoBtn().addActionListener(habilidadeCont.new Novo());
-		habilidadePc.getTB().getPesquisarBtn().addActionListener(habilidadeCont.new Pesquisa());
-		habilidadePc.getTB().getImprimirBtn().addActionListener(habilidadeCont.new Imprime());
-		habilidadePc.getTB().getRelatorioBtn().addActionListener(habilidadeCont.new Relatorio());
-		habilidadePc.getTB().getSalvarBtn().addActionListener(habilidadeCont.new Salva());
-		habilidadePc.getTB().getFecharBtn().addActionListener(habilidadeCont.new FechaJanela());
-		habilidadePc.getTB().getSairBtn().addActionListener(habilidadeCont.new SaidaSistema());
-		habilidadePc.getTB().getAjudaBtn().addActionListener(habilidadeCont.new Ajuda());
-		habilidadePc.getTB().getHomeBtn().addActionListener(habilidadeCont.new Home());
-		habilidadePc.getTB().getRegistrosBtn().addActionListener(habilidadeCont.new Registro());
+		habilidadeControl = new HabilidadeControl();
+		addWindowListener(habilidadeControl.new Frame());
+		habilidadePc.getLabelFuncionario().addMouseListener(habilidadeControl.new MostraFrame());
+		habilidadePc.getTB().getExcluirBtn().addActionListener(habilidadeControl.new Exclui());
+		habilidadePc.getTB().getNovoBtn().addActionListener(habilidadeControl.new Novo());
+		habilidadePc.getTB().getPesquisarBtn().addActionListener(habilidadeControl.new Pesquisa());
+		habilidadePc.getTB().getImprimirBtn().addActionListener(habilidadeControl.new Imprime());
+		habilidadePc.getTB().getRelatorioBtn().addActionListener(habilidadeControl.new Relatorio());
+		habilidadePc.getTB().getSalvarBtn().addActionListener(habilidadeControl.new Salva());
+		habilidadePc.getTB().getFecharBtn().addActionListener(habilidadeControl.new FechaJanela());
+		habilidadePc.getTB().getSairBtn().addActionListener(habilidadeControl.new SaidaSistema());
+		habilidadePc.getTB().getAjudaBtn().addActionListener(habilidadeControl.new Ajuda());
+		habilidadePc.getTB().getHomeBtn().addActionListener(habilidadeControl.new Home());
+		habilidadePc.getTB().getRegistrosBtn().addActionListener(habilidadeControl.new Registro());
 	}
 
 	@Override

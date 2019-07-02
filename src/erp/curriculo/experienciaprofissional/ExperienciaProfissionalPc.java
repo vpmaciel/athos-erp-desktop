@@ -22,7 +22,7 @@ import arquitetura.validacao.Mascara;
 import erp.funcionario.Funcionario;
 import erp.funcionario.FuncionarioComp;
 import erp.funcionario.FuncionarioFac;
-import erp.main.MainCont;
+import erp.main.MainControl;
 
 @SuppressWarnings("serial")
 public final class ExperienciaProfissionalPc extends JPanel implements Gui {
@@ -197,10 +197,10 @@ public final class ExperienciaProfissionalPc extends JPanel implements Gui {
 		for (Funcionario b : funcionarios) {
 			boxFuncionario.addItem(b);
 		}
-		if (!MainCont.getCurriculoExperienciaProfissionalFc().isShowing()
-				&& MainCont.getCurriculoExperienciaProfissionalFc().getExperienciaProfissionalCont()
+		if (!MainControl.getCurriculoExperienciaProfissionalFc().isShowing()
+				&& MainControl.getCurriculoExperienciaProfissionalFc().getExperienciaProfissionalCont()
 						.getExperienciaProfissional() != null) {
-			funcionario = MainCont.getCurriculoExperienciaProfissionalFc().getExperienciaProfissionalCont()
+			funcionario = MainControl.getCurriculoExperienciaProfissionalFc().getExperienciaProfissionalCont()
 					.getExperienciaProfissional().getFuncionario();
 			boxFuncionario.setSelectedItem(funcionario);
 		}

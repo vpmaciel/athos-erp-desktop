@@ -17,7 +17,7 @@ import arquitetura.util.SpringUtilities;
 import erp.funcionario.Funcionario;
 import erp.funcionario.FuncionarioComp;
 import erp.funcionario.FuncionarioFac;
-import erp.main.MainCont;
+import erp.main.MainControl;
 
 @SuppressWarnings("serial")
 public final class TesteAvalPrefCerPc extends JPanel implements Gui {
@@ -477,9 +477,9 @@ public final class TesteAvalPrefCerPc extends JPanel implements Gui {
 		for (Funcionario b : funcionarios) {
 			boxFuncionario.addItem(b);
 		}
-		if (!MainCont.getCurriculoTesteAvalPrefCerFc().isShowing()
-				&& MainCont.getCurriculoTesteAvalPrefCerFc().getTesteAvalPrefCerCont().getTesteAvalPrefCer() != null) {
-			funcionario = MainCont.getCurriculoTesteAvalPrefCerFc().getTesteAvalPrefCerCont().getTesteAvalPrefCer()
+		if (!MainControl.getCurriculoTesteAvalPrefCerFc().isShowing()
+				&& MainControl.getCurriculoTesteAvalPrefCerFc().getTesteAvalPrefCerCont().getTesteAvalPrefCer() != null) {
+			funcionario = MainControl.getCurriculoTesteAvalPrefCerFc().getTesteAvalPrefCerCont().getTesteAvalPrefCer()
 					.getFuncionario();
 			boxFuncionario.setSelectedItem(funcionario);
 		}

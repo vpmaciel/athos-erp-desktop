@@ -21,7 +21,7 @@ import arquitetura.gui.Imagem;
 public final class EventoFc extends JFrame implements Gui {
 
 	private ConfiguracaoGui configuracaoGui;
-	private EventoCont eventoCont;
+	private EventoControl eventoControl;
 	private EventoPc eventoPc;
 
 	public EventoFc() {
@@ -42,8 +42,8 @@ public final class EventoFc extends JFrame implements Gui {
 		return configuracaoGui;
 	}
 
-	public EventoCont getEventoCont() {
-		return eventoCont;
+	public EventoControl getEventoCont() {
+		return eventoControl;
 	}
 
 	public EventoPc getEventoPc() {
@@ -53,19 +53,19 @@ public final class EventoFc extends JFrame implements Gui {
 	@Override
 	public void iniciarControlador() {
 		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
-		eventoCont = new EventoCont();
-		addWindowListener(eventoCont.new Frame());
-		eventoPc.getToolBar().getExcluirBtn().addActionListener(eventoCont.new Exclui());
-		eventoPc.getToolBar().getNovoBtn().addActionListener(eventoCont.new Novo());
-		eventoPc.getToolBar().getPesquisarBtn().addActionListener(eventoCont.new Pesquisa());
-		eventoPc.getToolBar().getImprimirBtn().addActionListener(eventoCont.new Imprime());
-		eventoPc.getToolBar().getRelatorioBtn().addActionListener(eventoCont.new Relatorio());
-		eventoPc.getToolBar().getSalvarBtn().addActionListener(eventoCont.new Salva());
-		eventoPc.getToolBar().getFecharBtn().addActionListener(eventoCont.new FechaJanela());
-		eventoPc.getToolBar().getSairBtn().addActionListener(eventoCont.new SaidaSistema());
-		eventoPc.getToolBar().getAjudaBtn().addActionListener(eventoCont.new Ajuda());
-		eventoPc.getToolBar().getHomeBtn().addActionListener(eventoCont.new Home());
-		eventoPc.getToolBar().getRegistrosBtn().addActionListener(eventoCont.new Registro());
+		eventoControl = new EventoControl();
+		addWindowListener(eventoControl.new Frame());
+		eventoPc.getToolBar().getExcluirBtn().addActionListener(eventoControl.new Exclui());
+		eventoPc.getToolBar().getNovoBtn().addActionListener(eventoControl.new Novo());
+		eventoPc.getToolBar().getPesquisarBtn().addActionListener(eventoControl.new Pesquisa());
+		eventoPc.getToolBar().getImprimirBtn().addActionListener(eventoControl.new Imprime());
+		eventoPc.getToolBar().getRelatorioBtn().addActionListener(eventoControl.new Relatorio());
+		eventoPc.getToolBar().getSalvarBtn().addActionListener(eventoControl.new Salva());
+		eventoPc.getToolBar().getFecharBtn().addActionListener(eventoControl.new FechaJanela());
+		eventoPc.getToolBar().getSairBtn().addActionListener(eventoControl.new SaidaSistema());
+		eventoPc.getToolBar().getAjudaBtn().addActionListener(eventoControl.new Ajuda());
+		eventoPc.getToolBar().getHomeBtn().addActionListener(eventoControl.new Home());
+		eventoPc.getToolBar().getRegistrosBtn().addActionListener(eventoControl.new Registro());
 	}
 
 	@Override

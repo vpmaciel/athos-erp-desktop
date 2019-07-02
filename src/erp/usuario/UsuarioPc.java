@@ -22,7 +22,7 @@ public final class UsuarioPc extends JPanel implements Gui {
 	private JTextField fieldNome;
 	private JTextField fieldSenha;
 	private ToolBar toolBar;
-	private UsuarioCont usuarioCont;
+	private UsuarioControl usuarioControl;
 
 	public UsuarioPc() {
 		iniciarLayout();
@@ -52,8 +52,8 @@ public final class UsuarioPc extends JPanel implements Gui {
 		return toolBar;
 	}
 
-	public UsuarioCont getUsuarioCont() {
-		return usuarioCont;
+	public UsuarioControl getUsuarioCont() {
+		return usuarioControl;
 	}
 
 	@Override

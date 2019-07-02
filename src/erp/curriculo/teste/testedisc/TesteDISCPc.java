@@ -18,7 +18,7 @@ import arquitetura.util.SpringUtilities;
 import erp.funcionario.Funcionario;
 import erp.funcionario.FuncionarioComp;
 import erp.funcionario.FuncionarioFac;
-import erp.main.MainCont;
+import erp.main.MainControl;
 
 @SuppressWarnings("serial")
 public final class TesteDISCPc extends JPanel implements Gui {
@@ -1023,9 +1023,9 @@ public final class TesteDISCPc extends JPanel implements Gui {
 		for (Funcionario b : funcionarios) {
 			boxFuncionario.addItem(b);
 		}
-		if (!MainCont.getCurriculoTesteDISCFc().isShowing()
-				&& MainCont.getCurriculoTesteDISCFc().getTesteDISCCont().getTesteDISC() != null) {
-			funcionario = MainCont.getCurriculoTesteDISCFc().getTesteDISCCont().getTesteDISC().getFuncionario();
+		if (!MainControl.getCurriculoTesteDISCFc().isShowing()
+				&& MainControl.getCurriculoTesteDISCFc().getTesteDISCCont().getTesteDISC() != null) {
+			funcionario = MainControl.getCurriculoTesteDISCFc().getTesteDISCCont().getTesteDISC().getFuncionario();
 			boxFuncionario.setSelectedItem(funcionario);
 		}
 	}

@@ -21,7 +21,7 @@ import arquitetura.gui.Imagem;
 public final class TestePerfilCompFc extends JFrame implements Gui {
 
 	private ConfiguracaoGui configuracaoGui;
-	private TestePerfilCompCont testePerfilCompCont;
+	private TestePerfilCompControl testePerfilCompControl;
 	private TestePerfilCompPc testePerfilCompPc;
 
 	public TestePerfilCompFc() {
@@ -42,8 +42,8 @@ public final class TestePerfilCompFc extends JFrame implements Gui {
 		return configuracaoGui;
 	}
 
-	public TestePerfilCompCont getTestePerfilCompCont() {
-		return testePerfilCompCont;
+	public TestePerfilCompControl getTestePerfilCompCont() {
+		return testePerfilCompControl;
 	}
 
 	public TestePerfilCompPc getTestePerfilCompPc() {
@@ -53,20 +53,20 @@ public final class TestePerfilCompFc extends JFrame implements Gui {
 	@Override
 	public void iniciarControlador() {
 		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
-		testePerfilCompCont = new TestePerfilCompCont();
-		addWindowListener(testePerfilCompCont.new Frame());
-		testePerfilCompPc.getLabelFuncionario().addMouseListener(testePerfilCompCont.new MostraFrame());
-		testePerfilCompPc.getTB().getExcluirBtn().addActionListener(testePerfilCompCont.new Exclui());
-		testePerfilCompPc.getTB().getNovoBtn().addActionListener(testePerfilCompCont.new Novo());
-		testePerfilCompPc.getTB().getPesquisarBtn().addActionListener(testePerfilCompCont.new Pesquisa());
-		testePerfilCompPc.getTB().getImprimirBtn().addActionListener(testePerfilCompCont.new Imprime());
-		testePerfilCompPc.getTB().getRelatorioBtn().addActionListener(testePerfilCompCont.new Relatorio());
-		testePerfilCompPc.getTB().getSalvarBtn().addActionListener(testePerfilCompCont.new Salva());
-		testePerfilCompPc.getTB().getFecharBtn().addActionListener(testePerfilCompCont.new FechaJanela());
-		testePerfilCompPc.getTB().getSairBtn().addActionListener(testePerfilCompCont.new SaidaSistema());
-		testePerfilCompPc.getTB().getAjudaBtn().addActionListener(testePerfilCompCont.new Ajuda());
-		testePerfilCompPc.getTB().getHomeBtn().addActionListener(testePerfilCompCont.new Home());
-		testePerfilCompPc.getTB().getRegistrosBtn().addActionListener(testePerfilCompCont.new Registro());
+		testePerfilCompControl = new TestePerfilCompControl();
+		addWindowListener(testePerfilCompControl.new Frame());
+		testePerfilCompPc.getLabelFuncionario().addMouseListener(testePerfilCompControl.new MostraFrame());
+		testePerfilCompPc.getTB().getExcluirBtn().addActionListener(testePerfilCompControl.new Exclui());
+		testePerfilCompPc.getTB().getNovoBtn().addActionListener(testePerfilCompControl.new Novo());
+		testePerfilCompPc.getTB().getPesquisarBtn().addActionListener(testePerfilCompControl.new Pesquisa());
+		testePerfilCompPc.getTB().getImprimirBtn().addActionListener(testePerfilCompControl.new Imprime());
+		testePerfilCompPc.getTB().getRelatorioBtn().addActionListener(testePerfilCompControl.new Relatorio());
+		testePerfilCompPc.getTB().getSalvarBtn().addActionListener(testePerfilCompControl.new Salva());
+		testePerfilCompPc.getTB().getFecharBtn().addActionListener(testePerfilCompControl.new FechaJanela());
+		testePerfilCompPc.getTB().getSairBtn().addActionListener(testePerfilCompControl.new SaidaSistema());
+		testePerfilCompPc.getTB().getAjudaBtn().addActionListener(testePerfilCompControl.new Ajuda());
+		testePerfilCompPc.getTB().getHomeBtn().addActionListener(testePerfilCompControl.new Home());
+		testePerfilCompPc.getTB().getRegistrosBtn().addActionListener(testePerfilCompControl.new Registro());
 	}
 
 	@Override

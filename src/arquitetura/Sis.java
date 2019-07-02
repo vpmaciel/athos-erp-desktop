@@ -5,6 +5,8 @@ import java.awt.Cursor;
 import java.awt.Dimension;
 import java.io.File;
 import java.io.IOException;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.text.Format;
 import java.text.NumberFormat;
 import java.util.Locale;
@@ -46,6 +48,13 @@ public class Sis {
 		return BorderFactory.createLineBorder(Color.BLACK, 2);
 	}
 
+	public static String getNomeHost() {
+		try {
+			return InetAddress.getLocalHost().getCanonicalHostName();
+		} catch (UnknownHostException e) {
+			return null; 
+		}
+	}
 	public static void abrirDiretorio(String URL) {
         String text, text2;
         text = System.getProperty("os.name");
@@ -136,6 +145,7 @@ public class Sis {
 	}
 
 	public static Format getNumeroFormatado() {
+		
 		return NumberFormat.getNumberInstance(Sis.locale);
 	}
 

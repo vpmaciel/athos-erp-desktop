@@ -19,7 +19,7 @@ import arquitetura.util.SpringUtilities;
 import erp.funcionario.Funcionario;
 import erp.funcionario.FuncionarioComp;
 import erp.funcionario.FuncionarioFac;
-import erp.main.MainCont;
+import erp.main.MainControl;
 
 @SuppressWarnings("serial")
 public final class CertificadoPc extends JPanel implements Gui {
@@ -169,9 +169,9 @@ public final class CertificadoPc extends JPanel implements Gui {
 		for (Funcionario b : funcionarios) {
 			boxFuncionario.addItem(b);
 		}
-		if (!MainCont.getCurriculoCertificadoFc().isShowing()
-				&& MainCont.getCurriculoCertificadoFc().getCertificadoCont().getCertificado() != null) {
-			funcionario = MainCont.getCurriculoCertificadoFc().getCertificadoCont().getCertificado().getFuncionario();
+		if (!MainControl.getCurriculoCertificadoFc().isShowing()
+				&& MainControl.getCurriculoCertificadoFc().getCertificadoCont().getCertificado() != null) {
+			funcionario = MainControl.getCurriculoCertificadoFc().getCertificadoCont().getCertificado().getFuncionario();
 			boxFuncionario.setSelectedItem(funcionario);
 		}
 	}

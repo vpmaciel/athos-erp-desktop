@@ -7,7 +7,7 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.TableModel;
 
-import erp.main.MainCont;
+import erp.main.MainControl;
 
 final class UsuarioSel implements ListSelectionListener {
 
@@ -31,11 +31,11 @@ final class UsuarioSel implements ListSelectionListener {
 					UsuarioTm usuarioTm = (UsuarioTm) table.getModel();
 					usuarioTm.getUsuario(table.getSelectedRow());
 
-					MainCont.mostrarFrame(MainCont.getUsuarioFc());
-					MainCont.getUsuarioFc().getUsuarioCont().setUsuario(usuario);
-					MainCont.getUsuarioFc().getUsuarioCont().atualizarGui();
-					MainCont.getUsuarioFc().setFocusable(true);
-					MainCont.getUsuarioFp().setVisible(false);
+					MainControl.mostrarFrame(MainControl.getUsuarioFc());
+					MainControl.getUsuarioFc().getUsuarioCont().setUsuario(usuario);
+					MainControl.getUsuarioFc().getUsuarioCont().atualizarGui();
+					MainControl.getUsuarioFc().setFocusable(true);
+					MainControl.getUsuarioFp().setVisible(false);
 				}
 			}
 		}

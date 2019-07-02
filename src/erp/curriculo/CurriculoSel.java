@@ -6,7 +6,7 @@ import javax.swing.event.ListSelectionListener;
 import javax.swing.table.TableModel;
 
 import erp.funcionario.Funcionario;
-import erp.main.MainCont;
+import erp.main.MainControl;
 
 final class CurriculoSel implements ListSelectionListener {
 
@@ -29,11 +29,11 @@ final class CurriculoSel implements ListSelectionListener {
 					Funcionario funcionario = CurriculoFac.getRegistro(funcionarioPesquisaRegistro);
 					CurriculoTm CurriculoTm = (CurriculoTm) table.getModel();
 					CurriculoTm.getFuncionario(table.getSelectedRow());
-					MainCont.mostrarFrame(MainCont.getCurriculoFc());
-					MainCont.getCurriculoFc().getCurriculoCont().setFuncionario(funcionario);
-					MainCont.getCurriculoFc().getCurriculoCont().atualizarGui();
-					MainCont.getCurriculoFc().setFocusable(true);
-					MainCont.getCurriculoFp().setVisible(false);
+					MainControl.mostrarFrame(MainControl.getCurriculoFc());
+					MainControl.getCurriculoFc().getCurriculoCont().setFuncionario(funcionario);
+					MainControl.getCurriculoFc().getCurriculoCont().atualizarGui();
+					MainControl.getCurriculoFc().setFocusable(true);
+					MainControl.getCurriculoFp().setVisible(false);
 				}
 			}
 		}

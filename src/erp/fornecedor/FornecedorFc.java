@@ -21,7 +21,7 @@ import arquitetura.gui.Imagem;
 public final class FornecedorFc extends JFrame implements Gui {
 
 	private ConfiguracaoGui configuracaoGui;
-	private FornecedorCont fornecedorCont;
+	private FornecedorControl fornecedorControl;
 	private FornecedorPc fornecedorPc;
 
 	public FornecedorFc() {
@@ -42,8 +42,8 @@ public final class FornecedorFc extends JFrame implements Gui {
 		return configuracaoGui;
 	}
 
-	public FornecedorCont getFornecedorCont() {
-		return fornecedorCont;
+	public FornecedorControl getFornecedorCont() {
+		return fornecedorControl;
 	}
 
 	public FornecedorPc getFornecedorPc() {
@@ -53,19 +53,19 @@ public final class FornecedorFc extends JFrame implements Gui {
 	@Override
 	public void iniciarControlador() {
 		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
-		fornecedorCont = new FornecedorCont();
-		addWindowListener(fornecedorCont.new Frame());
-		fornecedorPc.getTB().getExcluirBtn().addActionListener(fornecedorCont.new Exclui());
-		fornecedorPc.getTB().getNovoBtn().addActionListener(fornecedorCont.new Novo());
-		fornecedorPc.getTB().getPesquisarBtn().addActionListener(fornecedorCont.new Pesquisa());
-		fornecedorPc.getTB().getImprimirBtn().addActionListener(fornecedorCont.new Imprime());
-		fornecedorPc.getTB().getRelatorioBtn().addActionListener(fornecedorCont.new Relatorio());
-		fornecedorPc.getTB().getSalvarBtn().addActionListener(fornecedorCont.new Salva());
-		fornecedorPc.getTB().getFecharBtn().addActionListener(fornecedorCont.new FechaJanela());
-		fornecedorPc.getTB().getSairBtn().addActionListener(fornecedorCont.new SaidaSistema());
-		fornecedorPc.getTB().getAjudaBtn().addActionListener(fornecedorCont.new Ajuda());
-		fornecedorPc.getTB().getHomeBtn().addActionListener(fornecedorCont.new Home());
-		fornecedorPc.getTB().getRegistrosBtn().addActionListener(fornecedorCont.new Registro());
+		fornecedorControl = new FornecedorControl();
+		addWindowListener(fornecedorControl.new Frame());
+		fornecedorPc.getTB().getExcluirBtn().addActionListener(fornecedorControl.new Exclui());
+		fornecedorPc.getTB().getNovoBtn().addActionListener(fornecedorControl.new Novo());
+		fornecedorPc.getTB().getPesquisarBtn().addActionListener(fornecedorControl.new Pesquisa());
+		fornecedorPc.getTB().getImprimirBtn().addActionListener(fornecedorControl.new Imprime());
+		fornecedorPc.getTB().getRelatorioBtn().addActionListener(fornecedorControl.new Relatorio());
+		fornecedorPc.getTB().getSalvarBtn().addActionListener(fornecedorControl.new Salva());
+		fornecedorPc.getTB().getFecharBtn().addActionListener(fornecedorControl.new FechaJanela());
+		fornecedorPc.getTB().getSairBtn().addActionListener(fornecedorControl.new SaidaSistema());
+		fornecedorPc.getTB().getAjudaBtn().addActionListener(fornecedorControl.new Ajuda());
+		fornecedorPc.getTB().getHomeBtn().addActionListener(fornecedorControl.new Home());
+		fornecedorPc.getTB().getRegistrosBtn().addActionListener(fornecedorControl.new Registro());
 	}
 
 	@Override

@@ -21,7 +21,7 @@ import arquitetura.validacao.Mascara;
 import erp.agenda.evento.tipoevento.TipoEvento;
 import erp.agenda.evento.tipoevento.TipoEventoComp;
 import erp.agenda.evento.tipoevento.TipoEventoFac;
-import erp.main.MainCont;
+import erp.main.MainControl;
 
 @SuppressWarnings("serial")
 public final class EventoPc extends JPanel implements Gui {
@@ -175,10 +175,10 @@ public final class EventoPc extends JPanel implements Gui {
 			this.boxTipoEvento.addItem(t);
 		}
 
-		if (!MainCont.getAgendaEventoFc().isShowing()
-				&& MainCont.getAgendaEventoFc().getEventoCont().getEvento() != null) {
+		if (!MainControl.getAgendaEventoFc().isShowing()
+				&& MainControl.getAgendaEventoFc().getEventoCont().getEvento() != null) {
 
-			tipoEvento = MainCont.getAgendaEventoFc().getEventoCont().getEvento().getTipoEvento();
+			tipoEvento = MainControl.getAgendaEventoFc().getEventoCont().getEvento().getTipoEvento();
 			boxTipoEvento.setSelectedItem(tipoEvento);
 		}
 	}

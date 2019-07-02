@@ -20,7 +20,7 @@ import arquitetura.gui.Imagem;
 @SuppressWarnings("serial")
 public final class CurriculoFc extends JFrame implements Gui {
 
-	private CurriculoCont curriculoCont;
+	private CurriculoControl curriculoControl;
 	private CurriculoPc curriculoPc;
 	private ConfiguracaoGui configuracaoGui;
 
@@ -37,8 +37,8 @@ public final class CurriculoFc extends JFrame implements Gui {
 
 	}
 
-	public CurriculoCont getCurriculoCont() {
-		return curriculoCont;
+	public CurriculoControl getCurriculoCont() {
+		return curriculoControl;
 	}
 
 	public CurriculoPc getCurriculoPc() {
@@ -53,20 +53,20 @@ public final class CurriculoFc extends JFrame implements Gui {
 	@Override
 	public void iniciarControlador() {
 		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
-		curriculoCont = new CurriculoCont();
-		addWindowListener(curriculoCont.new Frame());
-		curriculoPc.getLabelFuncionario().addMouseListener(curriculoCont.new MostraFrame());
+		curriculoControl = new CurriculoControl();
+		addWindowListener(curriculoControl.new Frame());
+		curriculoPc.getLabelFuncionario().addMouseListener(curriculoControl.new MostraFrame());
 		curriculoPc.getTB().getExcluirBtn().setEnabled(false);
 		curriculoPc.getTB().getNovoBtn().setEnabled(false);
 		curriculoPc.getTB().getPesquisarBtn().setEnabled(false);
-		curriculoPc.getTB().getImprimirBtn().addActionListener(curriculoCont.new Imprime());
+		curriculoPc.getTB().getImprimirBtn().addActionListener(curriculoControl.new Imprime());
 		curriculoPc.getTB().getRelatorioBtn().setEnabled(false);
 		curriculoPc.getTB().getSalvarBtn().setEnabled(false);
-		curriculoPc.getTB().getFecharBtn().addActionListener(curriculoCont.new FechaJanela());
-		curriculoPc.getTB().getSairBtn().addActionListener(curriculoCont.new SaidaSistema());
-		curriculoPc.getTB().getAjudaBtn().addActionListener(curriculoCont.new Ajuda());
-		curriculoPc.getTB().getHomeBtn().addActionListener(curriculoCont.new Home());
-		curriculoPc.getTB().getRegistrosBtn().addActionListener(curriculoCont.new Registro());
+		curriculoPc.getTB().getFecharBtn().addActionListener(curriculoControl.new FechaJanela());
+		curriculoPc.getTB().getSairBtn().addActionListener(curriculoControl.new SaidaSistema());
+		curriculoPc.getTB().getAjudaBtn().addActionListener(curriculoControl.new Ajuda());
+		curriculoPc.getTB().getHomeBtn().addActionListener(curriculoControl.new Home());
+		curriculoPc.getTB().getRegistrosBtn().addActionListener(curriculoControl.new Registro());
 	}
 
 	@Override

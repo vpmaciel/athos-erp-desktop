@@ -19,7 +19,7 @@ import arquitetura.util.SpringUtilities;
 import erp.funcionario.Funcionario;
 import erp.funcionario.FuncionarioComp;
 import erp.funcionario.FuncionarioFac;
-import erp.main.MainCont;
+import erp.main.MainControl;
 
 @SuppressWarnings("serial")
 public final class HabilidadePc extends JPanel implements Gui {
@@ -150,9 +150,9 @@ public final class HabilidadePc extends JPanel implements Gui {
 		for (Funcionario b : funcionarios) {
 			boxFuncionario.addItem(b);
 		}
-		if (!MainCont.getCurriculoHabilidadeFc().isShowing()
-				&& MainCont.getCurriculoHabilidadeFc().getHabilidadeCont().getHabilidade() != null) {
-			funcionario = MainCont.getCurriculoHabilidadeFc().getHabilidadeCont().getHabilidade().getFuncionario();
+		if (!MainControl.getCurriculoHabilidadeFc().isShowing()
+				&& MainControl.getCurriculoHabilidadeFc().getHabilidadeCont().getHabilidade() != null) {
+			funcionario = MainControl.getCurriculoHabilidadeFc().getHabilidadeCont().getHabilidade().getFuncionario();
 			boxFuncionario.setSelectedItem(funcionario);
 		}
 	}

@@ -21,7 +21,7 @@ import arquitetura.gui.Imagem;
 public final class TesteAvalPrefCerFc extends JFrame implements Gui {
 
 	private ConfiguracaoGui configuracaoGui;
-	private TesteAvalPrefCerCont testeAvalPrefCerCont;
+	private TesteAvalPrefCerControl testeAvalPrefCerControl;
 	private TesteAvalPrefCerPc testeAvalPrefCerPc;
 
 	public TesteAvalPrefCerFc() {
@@ -42,8 +42,8 @@ public final class TesteAvalPrefCerFc extends JFrame implements Gui {
 		return configuracaoGui;
 	}
 
-	public TesteAvalPrefCerCont getTesteAvalPrefCerCont() {
-		return testeAvalPrefCerCont;
+	public TesteAvalPrefCerControl getTesteAvalPrefCerCont() {
+		return testeAvalPrefCerControl;
 	}
 
 	public TesteAvalPrefCerPc getTesteAvalPrefCerPc() {
@@ -53,20 +53,20 @@ public final class TesteAvalPrefCerFc extends JFrame implements Gui {
 	@Override
 	public void iniciarControlador() {
 		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
-		testeAvalPrefCerCont = new TesteAvalPrefCerCont();
-		addWindowListener(testeAvalPrefCerCont.new Frame());
-		testeAvalPrefCerPc.getLabelFuncionario().addMouseListener(testeAvalPrefCerCont.new MostraFrame());
-		testeAvalPrefCerPc.getTB().getExcluirBtn().addActionListener(testeAvalPrefCerCont.new Exclui());
-		testeAvalPrefCerPc.getTB().getNovoBtn().addActionListener(testeAvalPrefCerCont.new Novo());
-		testeAvalPrefCerPc.getTB().getPesquisarBtn().addActionListener(testeAvalPrefCerCont.new Pesquisa());
-		testeAvalPrefCerPc.getTB().getImprimirBtn().addActionListener(testeAvalPrefCerCont.new Imprime());
-		testeAvalPrefCerPc.getTB().getRelatorioBtn().addActionListener(testeAvalPrefCerCont.new Relatorio());
-		testeAvalPrefCerPc.getTB().getSalvarBtn().addActionListener(testeAvalPrefCerCont.new Salva());
-		testeAvalPrefCerPc.getTB().getFecharBtn().addActionListener(testeAvalPrefCerCont.new FechaJanela());
-		testeAvalPrefCerPc.getTB().getSairBtn().addActionListener(testeAvalPrefCerCont.new SaidaSistema());
-		testeAvalPrefCerPc.getTB().getAjudaBtn().addActionListener(testeAvalPrefCerCont.new Ajuda());
-		testeAvalPrefCerPc.getTB().getHomeBtn().addActionListener(testeAvalPrefCerCont.new Home());
-		testeAvalPrefCerPc.getTB().getRegistrosBtn().addActionListener(testeAvalPrefCerCont.new Registro());
+		testeAvalPrefCerControl = new TesteAvalPrefCerControl();
+		addWindowListener(testeAvalPrefCerControl.new Frame());
+		testeAvalPrefCerPc.getLabelFuncionario().addMouseListener(testeAvalPrefCerControl.new MostraFrame());
+		testeAvalPrefCerPc.getTB().getExcluirBtn().addActionListener(testeAvalPrefCerControl.new Exclui());
+		testeAvalPrefCerPc.getTB().getNovoBtn().addActionListener(testeAvalPrefCerControl.new Novo());
+		testeAvalPrefCerPc.getTB().getPesquisarBtn().addActionListener(testeAvalPrefCerControl.new Pesquisa());
+		testeAvalPrefCerPc.getTB().getImprimirBtn().addActionListener(testeAvalPrefCerControl.new Imprime());
+		testeAvalPrefCerPc.getTB().getRelatorioBtn().addActionListener(testeAvalPrefCerControl.new Relatorio());
+		testeAvalPrefCerPc.getTB().getSalvarBtn().addActionListener(testeAvalPrefCerControl.new Salva());
+		testeAvalPrefCerPc.getTB().getFecharBtn().addActionListener(testeAvalPrefCerControl.new FechaJanela());
+		testeAvalPrefCerPc.getTB().getSairBtn().addActionListener(testeAvalPrefCerControl.new SaidaSistema());
+		testeAvalPrefCerPc.getTB().getAjudaBtn().addActionListener(testeAvalPrefCerControl.new Ajuda());
+		testeAvalPrefCerPc.getTB().getHomeBtn().addActionListener(testeAvalPrefCerControl.new Home());
+		testeAvalPrefCerPc.getTB().getRegistrosBtn().addActionListener(testeAvalPrefCerControl.new Registro());
 	}
 
 	@Override

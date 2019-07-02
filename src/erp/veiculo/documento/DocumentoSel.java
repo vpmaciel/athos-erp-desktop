@@ -5,7 +5,7 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.TableModel;
 
-import erp.main.MainCont;
+import erp.main.MainControl;
 
 final class DocumentoSel implements ListSelectionListener {
 
@@ -28,11 +28,11 @@ final class DocumentoSel implements ListSelectionListener {
 					Documento documento = DocumentoFac.getRegistro(documentoPesquisaRegistro);
 					DocumentoTm documentoTm = (DocumentoTm) table.getModel();
 					documentoTm.getDocumento(table.getSelectedRow());
-					MainCont.mostrarFrame(MainCont.getVeiculoDocumentoFc());
-					MainCont.getVeiculoDocumentoFc().getDocumentoCont().setDocumento(documento);
-					MainCont.getVeiculoDocumentoFc().getDocumentoCont().atualizarGui();
-					MainCont.getVeiculoDocumentoFc().setFocusable(true);
-					MainCont.getVeiculoDocumentoFp().setVisible(false);
+					MainControl.mostrarFrame(MainControl.getVeiculoDocumentoFc());
+					MainControl.getVeiculoDocumentoFc().getDocumentoCont().setDocumento(documento);
+					MainControl.getVeiculoDocumentoFc().getDocumentoCont().atualizarGui();
+					MainControl.getVeiculoDocumentoFc().setFocusable(true);
+					MainControl.getVeiculoDocumentoFp().setVisible(false);
 				}
 			}
 		}

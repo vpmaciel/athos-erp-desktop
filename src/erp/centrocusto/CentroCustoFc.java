@@ -20,7 +20,7 @@ import arquitetura.gui.Imagem;
 @SuppressWarnings("serial")
 public final class CentroCustoFc extends JFrame implements Gui {
 
-	private CentroCustoCont centroCustoCont;
+	private CentroCustoControl centroCustoControl;
 	private CentroCustoPc centroCustoPc;
 	private ConfiguracaoGui configuracaoGui;
 
@@ -39,8 +39,8 @@ public final class CentroCustoFc extends JFrame implements Gui {
 	public void desabilitarGui() {
 	}
 
-	public CentroCustoCont getCentroCustoCont() {
-		return centroCustoCont;
+	public CentroCustoControl getCentroCustoCont() {
+		return centroCustoControl;
 	}
 
 	public CentroCustoPc getCentroCustoPc() {
@@ -59,19 +59,19 @@ public final class CentroCustoFc extends JFrame implements Gui {
 	@Override
 	public void iniciarControlador() {
 		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
-		centroCustoCont = new CentroCustoCont();
-		addWindowListener(centroCustoCont.new Frame());
-		centroCustoPc.getTB().getExcluirBtn().addActionListener(centroCustoCont.new Exclui());
-		centroCustoPc.getTB().getNovoBtn().addActionListener(centroCustoCont.new Novo());
-		centroCustoPc.getTB().getPesquisarBtn().addActionListener(centroCustoCont.new Pesquisa());
-		centroCustoPc.getTB().getImprimirBtn().addActionListener(centroCustoCont.new Imprime());
-		centroCustoPc.getTB().getRelatorioBtn().addActionListener(centroCustoCont.new Relatorio());
-		centroCustoPc.getTB().getSalvarBtn().addActionListener(centroCustoCont.new Salva());
-		centroCustoPc.getTB().getFecharBtn().addActionListener(centroCustoCont.new FechaJanela());
-		centroCustoPc.getTB().getSairBtn().addActionListener(centroCustoCont.new SaidaSistema());
-		centroCustoPc.getTB().getAjudaBtn().addActionListener(centroCustoCont.new Ajuda());
-		centroCustoPc.getTB().getHomeBtn().addActionListener(centroCustoCont.new Home());
-		centroCustoPc.getTB().getRegistrosBtn().addActionListener(centroCustoCont.new Registro());
+		centroCustoControl = new CentroCustoControl();
+		addWindowListener(centroCustoControl.new Frame());
+		centroCustoPc.getTB().getExcluirBtn().addActionListener(centroCustoControl.new Exclui());
+		centroCustoPc.getTB().getNovoBtn().addActionListener(centroCustoControl.new Novo());
+		centroCustoPc.getTB().getPesquisarBtn().addActionListener(centroCustoControl.new Pesquisa());
+		centroCustoPc.getTB().getImprimirBtn().addActionListener(centroCustoControl.new Imprime());
+		centroCustoPc.getTB().getRelatorioBtn().addActionListener(centroCustoControl.new Relatorio());
+		centroCustoPc.getTB().getSalvarBtn().addActionListener(centroCustoControl.new Salva());
+		centroCustoPc.getTB().getFecharBtn().addActionListener(centroCustoControl.new FechaJanela());
+		centroCustoPc.getTB().getSairBtn().addActionListener(centroCustoControl.new SaidaSistema());
+		centroCustoPc.getTB().getAjudaBtn().addActionListener(centroCustoControl.new Ajuda());
+		centroCustoPc.getTB().getHomeBtn().addActionListener(centroCustoControl.new Home());
+		centroCustoPc.getTB().getRegistrosBtn().addActionListener(centroCustoControl.new Registro());
 	}
 
 	@Override

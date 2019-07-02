@@ -22,7 +22,7 @@ import arquitetura.validacao.Mascara;
 import erp.empresa.Empresa;
 import erp.empresa.EmpresaComp;
 import erp.empresa.EmpresaFac;
-import erp.main.MainCont;
+import erp.main.MainControl;
 
 @SuppressWarnings("serial")
 public final class ContatoPc extends JPanel implements Gui {
@@ -291,9 +291,9 @@ public final class ContatoPc extends JPanel implements Gui {
 		for (Empresa e : empresas) {
 			boxEmpresa.addItem(e);
 		}
-		if (!MainCont.getAgendaContatoFc().isShowing()
-				&& MainCont.getAgendaContatoFc().getContatoCont().getContato() != null) {
-			empresa = MainCont.getAgendaContatoFc().getContatoCont().getContato().getEmpresa();
+		if (!MainControl.getAgendaContatoFc().isShowing()
+				&& MainControl.getAgendaContatoFc().getContatoCont().getContato() != null) {
+			empresa = MainControl.getAgendaContatoFc().getContatoCont().getContato().getEmpresa();
 			boxEmpresa.setSelectedItem(empresa);
 		}
 

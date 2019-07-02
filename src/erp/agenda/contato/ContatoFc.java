@@ -21,7 +21,7 @@ import arquitetura.gui.Imagem;
 public final class ContatoFc extends JFrame implements Gui {
 
 	private ConfiguracaoGui configuracaoGui;
-	private ContatoCont contatoCont;
+	private ContatoControl contatoControl;
 	private ContatoPc contatoPc;
 
 	public ContatoFc() {
@@ -42,8 +42,8 @@ public final class ContatoFc extends JFrame implements Gui {
 		return configuracaoGui;
 	}
 
-	public ContatoCont getContatoCont() {
-		return contatoCont;
+	public ContatoControl getContatoCont() {
+		return contatoControl;
 	}
 
 	public ContatoPc getContatoPc() {
@@ -53,20 +53,20 @@ public final class ContatoFc extends JFrame implements Gui {
 	@Override
 	public void iniciarControlador() {
 		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
-		contatoCont = new ContatoCont();
-		addWindowListener(contatoCont.new Frame());
-		contatoPc.getLabelEmpresa().addMouseListener(contatoCont.new MostraFc());
-		contatoPc.getToolBar().getExcluirBtn().addActionListener(contatoCont.new Exclui());
-		contatoPc.getToolBar().getNovoBtn().addActionListener(contatoCont.new Novo());
-		contatoPc.getToolBar().getPesquisarBtn().addActionListener(contatoCont.new Pesquisa());
-		contatoPc.getToolBar().getImprimirBtn().addActionListener(contatoCont.new Imprime());
-		contatoPc.getToolBar().getRelatorioBtn().addActionListener(contatoCont.new Relatorio());
-		contatoPc.getToolBar().getSalvarBtn().addActionListener(contatoCont.new Salva());
-		contatoPc.getToolBar().getFecharBtn().addActionListener(contatoCont.new FechaJanela());
-		contatoPc.getToolBar().getSairBtn().addActionListener(contatoCont.new SaidaSistema());
-		contatoPc.getToolBar().getAjudaBtn().addActionListener(contatoCont.new Ajuda());
-		contatoPc.getToolBar().getHomeBtn().addActionListener(contatoCont.new Home());
-		contatoPc.getToolBar().getRegistrosBtn().addActionListener(contatoCont.new Registro());
+		contatoControl = new ContatoControl();
+		addWindowListener(contatoControl.new Frame());
+		contatoPc.getLabelEmpresa().addMouseListener(contatoControl.new MostraFc());
+		contatoPc.getToolBar().getExcluirBtn().addActionListener(contatoControl.new Exclui());
+		contatoPc.getToolBar().getNovoBtn().addActionListener(contatoControl.new Novo());
+		contatoPc.getToolBar().getPesquisarBtn().addActionListener(contatoControl.new Pesquisa());
+		contatoPc.getToolBar().getImprimirBtn().addActionListener(contatoControl.new Imprime());
+		contatoPc.getToolBar().getRelatorioBtn().addActionListener(contatoControl.new Relatorio());
+		contatoPc.getToolBar().getSalvarBtn().addActionListener(contatoControl.new Salva());
+		contatoPc.getToolBar().getFecharBtn().addActionListener(contatoControl.new FechaJanela());
+		contatoPc.getToolBar().getSairBtn().addActionListener(contatoControl.new SaidaSistema());
+		contatoPc.getToolBar().getAjudaBtn().addActionListener(contatoControl.new Ajuda());
+		contatoPc.getToolBar().getHomeBtn().addActionListener(contatoControl.new Home());
+		contatoPc.getToolBar().getRegistrosBtn().addActionListener(contatoControl.new Registro());
 	}
 
 	@Override

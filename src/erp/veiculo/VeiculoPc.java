@@ -22,7 +22,7 @@ import arquitetura.validacao.Mascara;
 import erp.centrocusto.CentroCusto;
 import erp.centrocusto.CentroCustoComp;
 import erp.centrocusto.CentroCustoFac;
-import erp.main.MainCont;
+import erp.main.MainControl;
 import erp.veiculo.marca.VeiculoMarca;
 import erp.veiculo.marca.VeiculoMarcaComp;
 import erp.veiculo.marca.VeiculoMarcaFac;
@@ -1389,14 +1389,14 @@ public final class VeiculoPc extends JPanel implements Gui {
 			this.boxVeiculoModelo.addItem(v);
 		}
 
-		if (!MainCont.getVeiculoFc().isShowing() && MainCont.getVeiculoFc().getVeiculoCont().getVeiculo() != null) {
-			centroCusto = MainCont.getVeiculoFc().getVeiculoCont().getVeiculo().getCentroCusto();
+		if (!MainControl.getVeiculoFc().isShowing() && MainControl.getVeiculoFc().getVeiculoCont().getVeiculo() != null) {
+			centroCusto = MainControl.getVeiculoFc().getVeiculoCont().getVeiculo().getCentroCusto();
 			boxCentroCusto.setSelectedItem(centroCusto);
 
-			veiculoMarca = MainCont.getVeiculoFc().getVeiculoCont().getVeiculo().getMarca();
+			veiculoMarca = MainControl.getVeiculoFc().getVeiculoCont().getVeiculo().getMarca();
 			boxVeiculoMarca.setSelectedItem(veiculoMarca);
 
-			veiculoModelo = MainCont.getVeiculoFc().getVeiculoCont().getVeiculo().getModelo();
+			veiculoModelo = MainControl.getVeiculoFc().getVeiculoCont().getVeiculo().getModelo();
 			boxVeiculoModelo.setSelectedItem(veiculoModelo);
 		}
 	}

@@ -5,7 +5,7 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.TableModel;
 
-import erp.main.MainCont;
+import erp.main.MainControl;
 
 final class CartorioSel implements ListSelectionListener {
 
@@ -28,11 +28,11 @@ final class CartorioSel implements ListSelectionListener {
 					Cartorio cartorio = CartorioFac.getRegistro(cartorioPesquisaRegistro);
 					CartorioTm cartorioTm = (CartorioTm) table.getModel();
 					cartorioTm.getCartorio(table.getSelectedRow());
-					MainCont.mostrarFrame(MainCont.getCartorioFc());
-					MainCont.getCartorioFc().getCartorioCont().setCartorio(cartorio);
-					MainCont.getCartorioFc().getCartorioCont().atualizarGui();
-					MainCont.getCartorioFc().setFocusable(true);
-					MainCont.getCartorioFp().setVisible(false);
+					MainControl.mostrarFrame(MainControl.getCartorioFc());
+					MainControl.getCartorioFc().getCartorioCont().setCartorio(cartorio);
+					MainControl.getCartorioFc().getCartorioCont().atualizarGui();
+					MainControl.getCartorioFc().setFocusable(true);
+					MainControl.getCartorioFp().setVisible(false);
 				}
 			}
 		}

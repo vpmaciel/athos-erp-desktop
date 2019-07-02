@@ -22,7 +22,7 @@ import arquitetura.validacao.Mascara;
 import erp.centrocusto.CentroCusto;
 import erp.centrocusto.CentroCustoComp;
 import erp.centrocusto.CentroCustoFac;
-import erp.main.MainCont;
+import erp.main.MainControl;
 
 @SuppressWarnings("serial")
 public final class FuncionarioPc extends JPanel implements Gui {
@@ -525,9 +525,9 @@ public final class FuncionarioPc extends JPanel implements Gui {
 		for (CentroCusto b : centroCustos) {
 			this.boxCentroCusto.addItem(b);
 		}
-		if (!MainCont.getFuncionarioFc().isShowing()
-				&& MainCont.getFuncionarioFc().getFuncionarioCont().getFuncionario() != null) {
-			centroCusto = MainCont.getFuncionarioFc().getFuncionarioCont().getFuncionario().getCentroCusto();
+		if (!MainControl.getFuncionarioFc().isShowing()
+				&& MainControl.getFuncionarioFc().getFuncionarioCont().getFuncionario() != null) {
+			centroCusto = MainControl.getFuncionarioFc().getFuncionarioCont().getFuncionario().getCentroCusto();
 			boxCentroCusto.setSelectedItem(centroCusto);
 		}
 

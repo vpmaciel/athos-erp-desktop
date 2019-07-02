@@ -21,7 +21,7 @@ import arquitetura.gui.Imagem;
 public final class UsuarioFc extends JFrame implements Gui {
 
 	private ConfiguracaoGui configuracaoGui;
-	private UsuarioCont usuarioCont;
+	private UsuarioControl usuarioControl;
 	private UsuarioPc usuarioPc;
 
 	public UsuarioFc() {
@@ -50,8 +50,8 @@ public final class UsuarioFc extends JFrame implements Gui {
 		return usuarioPc;
 	}
 
-	public UsuarioCont getUsuarioCont() {
-		return usuarioCont;
+	public UsuarioControl getUsuarioCont() {
+		return usuarioControl;
 	}
 
 	public UsuarioPc getUsuarioPc() {
@@ -61,19 +61,19 @@ public final class UsuarioFc extends JFrame implements Gui {
 	@Override
 	public void iniciarControlador() {
 		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
-		usuarioCont = new UsuarioCont();
-		addWindowListener(usuarioCont.new Frame());
-		usuarioPc.getTB().getExcluirBtn().addActionListener(usuarioCont.new Exclui());
-		usuarioPc.getTB().getNovoBtn().addActionListener(usuarioCont.new Novo());
-		usuarioPc.getTB().getPesquisarBtn().addActionListener(usuarioCont.new Pesquisa());
-		usuarioPc.getTB().getImprimirBtn().addActionListener(usuarioCont.new Imprime());
-		usuarioPc.getTB().getRelatorioBtn().addActionListener(usuarioCont.new Relatorio());
-		usuarioPc.getTB().getSalvarBtn().addActionListener(usuarioCont.new Salva());
-		usuarioPc.getTB().getFecharBtn().addActionListener(usuarioCont.new FechaJanela());
-		usuarioPc.getTB().getSairBtn().addActionListener(usuarioCont.new SaidaSistema());
-		usuarioPc.getTB().getAjudaBtn().addActionListener(usuarioCont.new Ajuda());
-		usuarioPc.getTB().getHomeBtn().addActionListener(usuarioCont.new Home());
-		usuarioPc.getTB().getRegistrosBtn().addActionListener(usuarioCont.new Registro());
+		usuarioControl = new UsuarioControl();
+		addWindowListener(usuarioControl.new Frame());
+		usuarioPc.getTB().getExcluirBtn().addActionListener(usuarioControl.new Exclui());
+		usuarioPc.getTB().getNovoBtn().addActionListener(usuarioControl.new Novo());
+		usuarioPc.getTB().getPesquisarBtn().addActionListener(usuarioControl.new Pesquisa());
+		usuarioPc.getTB().getImprimirBtn().addActionListener(usuarioControl.new Imprime());
+		usuarioPc.getTB().getRelatorioBtn().addActionListener(usuarioControl.new Relatorio());
+		usuarioPc.getTB().getSalvarBtn().addActionListener(usuarioControl.new Salva());
+		usuarioPc.getTB().getFecharBtn().addActionListener(usuarioControl.new FechaJanela());
+		usuarioPc.getTB().getSairBtn().addActionListener(usuarioControl.new SaidaSistema());
+		usuarioPc.getTB().getAjudaBtn().addActionListener(usuarioControl.new Ajuda());
+		usuarioPc.getTB().getHomeBtn().addActionListener(usuarioControl.new Home());
+		usuarioPc.getTB().getRegistrosBtn().addActionListener(usuarioControl.new Registro());
 	}
 
 	@Override

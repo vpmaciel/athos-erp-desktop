@@ -31,7 +31,7 @@ class SplashScreen extends JWindow {
 		JLabel labelSistema = new JLabel("ATHOS");
 		labelSistema.setFont(new Font("Sans-Serif", Font.BOLD, 24));
 		labelSistema.setForeground(Color.WHITE);
-		content.setBorder(BorderFactory.createLineBorder(Color.BLACK, 10));
+		content.setBorder(BorderFactory.createLineBorder(Color.BLACK, 5));
 		content.setLayout(new GridBagLayout());
 		GridBagConstraints gbc = new GridBagConstraints();
 		content.add(labelSistema, gbc);

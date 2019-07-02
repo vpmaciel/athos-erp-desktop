@@ -18,7 +18,7 @@ import arquitetura.gui.Gui;
 import arquitetura.gui.registro.ToolBar;
 import arquitetura.util.SpringUtilities;
 import arquitetura.validacao.Mascara;
-import erp.main.MainCont;
+import erp.main.MainControl;
 import erp.veiculo.Veiculo;
 import erp.veiculo.VeiculoComp;
 import erp.veiculo.VeiculoFac;
@@ -310,9 +310,9 @@ public final class DocumentoPc extends JPanel implements Gui {
 			this.boxVeiculo.addItem(v);
 		}
 
-		if (!MainCont.getVeiculoDocumentoFc().isShowing()
-				&& MainCont.getVeiculoDocumentoFc().getDocumentoCont().getDocumento() != null) {
-			veiculo = MainCont.getVeiculoDocumentoFc().getDocumentoCont().getDocumento().getVeiculo();
+		if (!MainControl.getVeiculoDocumentoFc().isShowing()
+				&& MainControl.getVeiculoDocumentoFc().getDocumentoCont().getDocumento() != null) {
+			veiculo = MainControl.getVeiculoDocumentoFc().getDocumentoCont().getDocumento().getVeiculo();
 			boxVeiculo.setSelectedItem(veiculo);
 		}
 

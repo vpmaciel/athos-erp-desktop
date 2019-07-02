@@ -5,6 +5,14 @@ import java.io.InputStreamReader;
 
 public class Aplicacao {
 
+	public static boolean estaExecutando(String processo) {
+		if(System.getProperty("os.name").contains("windows")) {
+			
+		}
+		
+		return estaExecutandoLinux(processo);
+	}
+	
 	public static boolean estaExecutandoLinux(String processo) {
 		try {
 			Process p = Runtime.getRuntime().exec("ps ax"); // aqui fica o comando que vai pegar os processos

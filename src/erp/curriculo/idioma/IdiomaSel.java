@@ -5,7 +5,7 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.TableModel;
 
-import erp.main.MainCont;
+import erp.main.MainControl;
 
 final class IdiomaSel implements ListSelectionListener {
 
@@ -28,11 +28,11 @@ final class IdiomaSel implements ListSelectionListener {
 					Idioma idioma = IdiomaFac.getRegistro(IdiomaPesquisaRegistro);
 					IdiomaTm IdiomaTm = (IdiomaTm) table.getModel();
 					IdiomaTm.getIdioma(table.getSelectedRow());
-					MainCont.mostrarFrame(MainCont.getCurriculoIdiomaFc());
-					MainCont.getCurriculoIdiomaFc().getIdiomaCont().setIdioma(idioma);
-					MainCont.getCurriculoIdiomaFc().getIdiomaCont().atualizarGui();
-					MainCont.getCurriculoIdiomaFc().setFocusable(true);
-					MainCont.getCurriculoIdiomaFp().setVisible(false);
+					MainControl.mostrarFrame(MainControl.getCurriculoIdiomaFc());
+					MainControl.getCurriculoIdiomaFc().getIdiomaCont().setIdioma(idioma);
+					MainControl.getCurriculoIdiomaFc().getIdiomaCont().atualizarGui();
+					MainControl.getCurriculoIdiomaFc().setFocusable(true);
+					MainControl.getCurriculoIdiomaFp().setVisible(false);
 				}
 			}
 		}

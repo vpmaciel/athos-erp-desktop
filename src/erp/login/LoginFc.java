@@ -31,7 +31,7 @@ public final class LoginFc extends JFrame implements Gui {
 		LoginFc.usuario = usuario;
 	}
 
-	private LoginCont loginCont;
+	private LoginControl loginControl;
 
 	private LoginPc loginPc;
 
@@ -53,8 +53,8 @@ public final class LoginFc extends JFrame implements Gui {
 		return null;
 	}
 
-	public LoginCont getLoginCont() {
-		return loginCont;
+	public LoginControl getLoginCont() {
+		return loginControl;
 	}
 
 	public LoginPc getLoginPc() {
@@ -64,11 +64,11 @@ public final class LoginFc extends JFrame implements Gui {
 	@Override
 	public void iniciarControlador() {
 		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
-		loginCont = new LoginCont();
-		addWindowListener(loginCont.new Frame());
-		loginPc.getTextFieldSenha().addActionListener(loginCont.new ButtonEntrar());
-		loginPc.getTextFieldSenha().addKeyListener(loginCont.new ButtonEntrarTeclado());
-		loginPc.getButtonEntrar().addActionListener(loginCont.new ButtonEntrar());
+		loginControl = new LoginControl();
+		addWindowListener(loginControl.new Frame());
+		loginPc.getTextFieldSenha().addActionListener(loginControl.new ButtonEntrar());
+		loginPc.getTextFieldSenha().addKeyListener(loginControl.new ButtonEntrarTeclado());
+		loginPc.getButtonEntrar().addActionListener(loginControl.new ButtonEntrar());
 
 	}
 

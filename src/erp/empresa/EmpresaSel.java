@@ -5,7 +5,7 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.TableModel;
 
-import erp.main.MainCont;
+import erp.main.MainControl;
 
 final class EmpresaSel implements ListSelectionListener {
 
@@ -28,11 +28,11 @@ final class EmpresaSel implements ListSelectionListener {
 					Empresa empresa = EmpresaFac.getRegistro(empresaPesquisaRegistro);
 					EmpresaTm empresaTm = (EmpresaTm) table.getModel();
 					empresaTm.getEmpresa(table.getSelectedRow());
-					MainCont.mostrarFrame(MainCont.getEmpresaFc());
-					MainCont.getEmpresaFc().getEmpresaCont().setEmpresa(empresa);
-					MainCont.getEmpresaFc().getEmpresaCont().atualizarGui();
-					MainCont.getEmpresaFc().setFocusable(true);
-					MainCont.getEmpresaFp().setVisible(false);
+					MainControl.mostrarFrame(MainControl.getEmpresaFc());
+					MainControl.getEmpresaFc().getEmpresaCont().setEmpresa(empresa);
+					MainControl.getEmpresaFc().getEmpresaCont().atualizarGui();
+					MainControl.getEmpresaFc().setFocusable(true);
+					MainControl.getEmpresaFp().setVisible(false);
 				}
 			}
 		}

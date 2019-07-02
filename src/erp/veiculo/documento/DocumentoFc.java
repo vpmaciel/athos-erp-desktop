@@ -20,7 +20,7 @@ import arquitetura.gui.Imagem;
 @SuppressWarnings("serial")
 public final class DocumentoFc extends JFrame implements Gui {
 
-	private DocumentoCont documentoCont;
+	private DocumentoControl documentoControl;
 	private DocumentoPc documentoPc;
 	private ConfiguracaoGui configuracaoGui;
 
@@ -37,8 +37,8 @@ public final class DocumentoFc extends JFrame implements Gui {
 
 	}
 
-	public DocumentoCont getDocumentoCont() {
-		return documentoCont;
+	public DocumentoControl getDocumentoCont() {
+		return documentoControl;
 	}
 
 	public DocumentoPc getDocumentoPc() {
@@ -53,20 +53,20 @@ public final class DocumentoFc extends JFrame implements Gui {
 	@Override
 	public void iniciarControlador() {
 		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
-		documentoCont = new DocumentoCont();
-		addWindowListener(documentoCont.new Frame());
-		documentoPc.getLabelVeiculo().addMouseListener(documentoCont.new MostraFrame());
-		documentoPc.getTB().getExcluirBtn().addActionListener(documentoCont.new Exclui());
-		documentoPc.getTB().getNovoBtn().addActionListener(documentoCont.new Novo());
-		documentoPc.getTB().getPesquisarBtn().addActionListener(documentoCont.new Pesquisa());
-		documentoPc.getTB().getImprimirBtn().addActionListener(documentoCont.new Imprime());
-		documentoPc.getTB().getRelatorioBtn().addActionListener(documentoCont.new Relatorio());
-		documentoPc.getTB().getSalvarBtn().addActionListener(documentoCont.new Salva());
-		documentoPc.getTB().getFecharBtn().addActionListener(documentoCont.new FechaJanela());
-		documentoPc.getTB().getSairBtn().addActionListener(documentoCont.new SaidaSistema());
-		documentoPc.getTB().getAjudaBtn().addActionListener(documentoCont.new Ajuda());
-		documentoPc.getTB().getHomeBtn().addActionListener(documentoCont.new Home());
-		documentoPc.getTB().getRegistrosBtn().addActionListener(documentoCont.new Registro());
+		documentoControl = new DocumentoControl();
+		addWindowListener(documentoControl.new Frame());
+		documentoPc.getLabelVeiculo().addMouseListener(documentoControl.new MostraFrame());
+		documentoPc.getTB().getExcluirBtn().addActionListener(documentoControl.new Exclui());
+		documentoPc.getTB().getNovoBtn().addActionListener(documentoControl.new Novo());
+		documentoPc.getTB().getPesquisarBtn().addActionListener(documentoControl.new Pesquisa());
+		documentoPc.getTB().getImprimirBtn().addActionListener(documentoControl.new Imprime());
+		documentoPc.getTB().getRelatorioBtn().addActionListener(documentoControl.new Relatorio());
+		documentoPc.getTB().getSalvarBtn().addActionListener(documentoControl.new Salva());
+		documentoPc.getTB().getFecharBtn().addActionListener(documentoControl.new FechaJanela());
+		documentoPc.getTB().getSairBtn().addActionListener(documentoControl.new SaidaSistema());
+		documentoPc.getTB().getAjudaBtn().addActionListener(documentoControl.new Ajuda());
+		documentoPc.getTB().getHomeBtn().addActionListener(documentoControl.new Home());
+		documentoPc.getTB().getRegistrosBtn().addActionListener(documentoControl.new Registro());
 	}
 
 	@Override

@@ -5,7 +5,7 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.TableModel;
 
-import erp.main.MainCont;
+import erp.main.MainControl;
 
 final class TestePerfilCompSel implements ListSelectionListener {
 
@@ -28,12 +28,12 @@ final class TestePerfilCompSel implements ListSelectionListener {
 					TestePerfilComp testePerfilComp = TestePerfilCompFac.getRegistro(testePerfilCompPesquisaRegistro);
 					TestePerfilCompTm TestePerfilCompTm = (TestePerfilCompTm) table.getModel();
 					TestePerfilCompTm.getTestePerfilComp(table.getSelectedRow());
-					MainCont.mostrarFrame(MainCont.getCurriculoTestePerfilCompFc());
-					MainCont.getCurriculoTestePerfilCompFc().getTestePerfilCompCont()
+					MainControl.mostrarFrame(MainControl.getCurriculoTestePerfilCompFc());
+					MainControl.getCurriculoTestePerfilCompFc().getTestePerfilCompCont()
 							.setTestePerfilComp(testePerfilComp);
-					MainCont.getCurriculoTestePerfilCompFc().getTestePerfilCompCont().atualizarGui();
-					MainCont.getCurriculoTestePerfilCompFc().setFocusable(true);
-					MainCont.getCurriculoTestePerfilCompFp().setVisible(false);
+					MainControl.getCurriculoTestePerfilCompFc().getTestePerfilCompCont().atualizarGui();
+					MainControl.getCurriculoTestePerfilCompFc().setFocusable(true);
+					MainControl.getCurriculoTestePerfilCompFp().setVisible(false);
 				}
 			}
 		}

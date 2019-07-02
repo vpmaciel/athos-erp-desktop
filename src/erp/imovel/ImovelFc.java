@@ -21,7 +21,7 @@ import arquitetura.gui.Imagem;
 public final class ImovelFc extends JFrame implements Gui {
 
 	private ConfiguracaoGui configuracaoGui;
-	private ImovelCont imovelCont;
+	private ImovelControl imovelControl;
 	private ImovelPc imovelPc;
 
 	public ImovelFc() {
@@ -42,8 +42,8 @@ public final class ImovelFc extends JFrame implements Gui {
 		return configuracaoGui;
 	}
 
-	public ImovelCont getImovelCont() {
-		return imovelCont;
+	public ImovelControl getImovelCont() {
+		return imovelControl;
 	}
 
 	public ImovelPc getImovelPc() {
@@ -53,19 +53,19 @@ public final class ImovelFc extends JFrame implements Gui {
 	@Override
 	public void iniciarControlador() {
 		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
-		imovelCont = new ImovelCont();
-		addWindowListener(imovelCont.new Frame());
-		imovelPc.getTB().getExcluirBtn().addActionListener(imovelCont.new Exclui());
-		imovelPc.getTB().getNovoBtn().addActionListener(imovelCont.new Novo());
-		imovelPc.getTB().getPesquisarBtn().addActionListener(imovelCont.new Pesquisa());
-		imovelPc.getTB().getImprimirBtn().addActionListener(imovelCont.new Imprime());
-		imovelPc.getTB().getRelatorioBtn().addActionListener(imovelCont.new Relatorio());
-		imovelPc.getTB().getSalvarBtn().addActionListener(imovelCont.new Salva());
-		imovelPc.getTB().getFecharBtn().addActionListener(imovelCont.new FechaJanela());
-		imovelPc.getTB().getSairBtn().addActionListener(imovelCont.new SaidaSistema());
-		imovelPc.getTB().getAjudaBtn().addActionListener(imovelCont.new Ajuda());
-		imovelPc.getTB().getHomeBtn().addActionListener(imovelCont.new Home());
-		imovelPc.getTB().getRegistrosBtn().addActionListener(imovelCont.new Registro());
+		imovelControl = new ImovelControl();
+		addWindowListener(imovelControl.new Frame());
+		imovelPc.getTB().getExcluirBtn().addActionListener(imovelControl.new Exclui());
+		imovelPc.getTB().getNovoBtn().addActionListener(imovelControl.new Novo());
+		imovelPc.getTB().getPesquisarBtn().addActionListener(imovelControl.new Pesquisa());
+		imovelPc.getTB().getImprimirBtn().addActionListener(imovelControl.new Imprime());
+		imovelPc.getTB().getRelatorioBtn().addActionListener(imovelControl.new Relatorio());
+		imovelPc.getTB().getSalvarBtn().addActionListener(imovelControl.new Salva());
+		imovelPc.getTB().getFecharBtn().addActionListener(imovelControl.new FechaJanela());
+		imovelPc.getTB().getSairBtn().addActionListener(imovelControl.new SaidaSistema());
+		imovelPc.getTB().getAjudaBtn().addActionListener(imovelControl.new Ajuda());
+		imovelPc.getTB().getHomeBtn().addActionListener(imovelControl.new Home());
+		imovelPc.getTB().getRegistrosBtn().addActionListener(imovelControl.new Registro());
 	}
 
 	@Override

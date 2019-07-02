@@ -5,7 +5,7 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.TableModel;
 
-import erp.main.MainCont;
+import erp.main.MainControl;
 
 final class EventoSel implements ListSelectionListener {
 
@@ -25,15 +25,15 @@ final class EventoSel implements ListSelectionListener {
 				eventoPesquisaRegistro.setId((Long) tm.getValueAt(selRows[0], EventoTm.ID));
 
 				if (table.getSelectedRow() != -1) {
-					MainCont.getAgendaEventoFc().reiniciarGui();
+					MainControl.getAgendaEventoFc().reiniciarGui();
 					Evento evento = EventoFac.getRegistro(eventoPesquisaRegistro);
 					EventoTm eventoTm = (EventoTm) table.getModel();
 					eventoTm.getEvento(table.getSelectedRow());
-					MainCont.mostrarFrame(MainCont.getAgendaEventoFc());
-					MainCont.getAgendaEventoFc().getEventoCont().setEvento(evento);
-					MainCont.getAgendaEventoFc().getEventoCont().atualizarGui();
-					MainCont.getAgendaEventoFc().setFocusable(true);
-					MainCont.getAgendaEventoFp().setVisible(false);
+					MainControl.mostrarFrame(MainControl.getAgendaEventoFc());
+					MainControl.getAgendaEventoFc().getEventoCont().setEvento(evento);
+					MainControl.getAgendaEventoFc().getEventoCont().atualizarGui();
+					MainControl.getAgendaEventoFc().setFocusable(true);
+					MainControl.getAgendaEventoFp().setVisible(false);
 				}
 			}
 		}

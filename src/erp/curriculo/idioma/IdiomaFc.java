@@ -21,7 +21,7 @@ import arquitetura.gui.Imagem;
 public final class IdiomaFc extends JFrame implements Gui {
 
 	private ConfiguracaoGui configuracaoGui;
-	private IdiomaCont idiomaCont;
+	private IdiomaControl idiomaControl;
 	private IdiomaPc idiomaPc;
 
 	public IdiomaFc() {
@@ -42,8 +42,8 @@ public final class IdiomaFc extends JFrame implements Gui {
 		return configuracaoGui;
 	}
 
-	public IdiomaCont getIdiomaCont() {
-		return idiomaCont;
+	public IdiomaControl getIdiomaCont() {
+		return idiomaControl;
 	}
 
 	public IdiomaPc getIdiomaPc() {
@@ -53,20 +53,20 @@ public final class IdiomaFc extends JFrame implements Gui {
 	@Override
 	public void iniciarControlador() {
 		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
-		idiomaCont = new IdiomaCont();
-		addWindowListener(idiomaCont.new Frame());
-		idiomaPc.getLabelFuncionario().addMouseListener(idiomaCont.new MostraFrame());
-		idiomaPc.getTB().getExcluirBtn().addActionListener(idiomaCont.new Exclui());
-		idiomaPc.getTB().getNovoBtn().addActionListener(idiomaCont.new Novo());
-		idiomaPc.getTB().getPesquisarBtn().addActionListener(idiomaCont.new Pesquisa());
-		idiomaPc.getTB().getImprimirBtn().addActionListener(idiomaCont.new Imprime());
-		idiomaPc.getTB().getRelatorioBtn().addActionListener(idiomaCont.new Relatorio());
-		idiomaPc.getTB().getSalvarBtn().addActionListener(idiomaCont.new Salva());
-		idiomaPc.getTB().getFecharBtn().addActionListener(idiomaCont.new FechaJanela());
-		idiomaPc.getTB().getSairBtn().addActionListener(idiomaCont.new SaidaSistema());
-		idiomaPc.getTB().getAjudaBtn().addActionListener(idiomaCont.new Ajuda());
-		idiomaPc.getTB().getHomeBtn().addActionListener(idiomaCont.new Home());
-		idiomaPc.getTB().getRegistrosBtn().addActionListener(idiomaCont.new Registro());
+		idiomaControl = new IdiomaControl();
+		addWindowListener(idiomaControl.new Frame());
+		idiomaPc.getLabelFuncionario().addMouseListener(idiomaControl.new MostraFrame());
+		idiomaPc.getTB().getExcluirBtn().addActionListener(idiomaControl.new Exclui());
+		idiomaPc.getTB().getNovoBtn().addActionListener(idiomaControl.new Novo());
+		idiomaPc.getTB().getPesquisarBtn().addActionListener(idiomaControl.new Pesquisa());
+		idiomaPc.getTB().getImprimirBtn().addActionListener(idiomaControl.new Imprime());
+		idiomaPc.getTB().getRelatorioBtn().addActionListener(idiomaControl.new Relatorio());
+		idiomaPc.getTB().getSalvarBtn().addActionListener(idiomaControl.new Salva());
+		idiomaPc.getTB().getFecharBtn().addActionListener(idiomaControl.new FechaJanela());
+		idiomaPc.getTB().getSairBtn().addActionListener(idiomaControl.new SaidaSistema());
+		idiomaPc.getTB().getAjudaBtn().addActionListener(idiomaControl.new Ajuda());
+		idiomaPc.getTB().getHomeBtn().addActionListener(idiomaControl.new Home());
+		idiomaPc.getTB().getRegistrosBtn().addActionListener(idiomaControl.new Registro());
 	}
 
 	@Override

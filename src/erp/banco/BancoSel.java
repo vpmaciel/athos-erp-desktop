@@ -5,7 +5,7 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.TableModel;
 
-import erp.main.MainCont;
+import erp.main.MainControl;
 
 final class BancoSel implements ListSelectionListener {
 
@@ -28,11 +28,11 @@ final class BancoSel implements ListSelectionListener {
 					Banco banco = BancoFac.getRegistro(bancoPesquisaRegistro);
 					BancoTm bancoTm = (BancoTm) table.getModel();
 					bancoTm.getBanco(table.getSelectedRow());
-					MainCont.mostrarFrame(MainCont.getBancoFc());
-					MainCont.getBancoFc().getBancoCont().setBanco(banco);
-					MainCont.getBancoFc().getBancoCont().atualizarGui();
-					MainCont.getBancoFc().setFocusable(true);
-					MainCont.getBancoFp().setVisible(false);
+					MainControl.mostrarFrame(MainControl.getBancoFc());
+					MainControl.getBancoFc().getBancoCont().setBanco(banco);
+					MainControl.getBancoFc().getBancoCont().atualizarGui();
+					MainControl.getBancoFc().setFocusable(true);
+					MainControl.getBancoFp().setVisible(false);
 				}
 			}
 		}

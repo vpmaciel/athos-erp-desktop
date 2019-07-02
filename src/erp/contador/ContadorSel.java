@@ -5,7 +5,7 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.TableModel;
 
-import erp.main.MainCont;
+import erp.main.MainControl;
 
 final class ContadorSel implements ListSelectionListener {
 
@@ -28,11 +28,11 @@ final class ContadorSel implements ListSelectionListener {
 					Contador contador = ContadorFac.getRegistro(contadorPesquisaRegistro);
 					ContadorTm contadorTm = (ContadorTm) table.getModel();
 					contadorTm.getContador(table.getSelectedRow());
-					MainCont.mostrarFrame(MainCont.getContadorFc());
-					MainCont.getContadorFc().getContadorCont().setContador(contador);
-					MainCont.getContadorFc().getContadorCont().atualizarGui();
-					MainCont.getContadorFc().setFocusable(true);
-					MainCont.getContadorFp().setVisible(false);
+					MainControl.mostrarFrame(MainControl.getContadorFc());
+					MainControl.getContadorFc().getContadorCont().setContador(contador);
+					MainControl.getContadorFc().getContadorCont().atualizarGui();
+					MainControl.getContadorFc().setFocusable(true);
+					MainControl.getContadorFp().setVisible(false);
 				}
 			}
 		}

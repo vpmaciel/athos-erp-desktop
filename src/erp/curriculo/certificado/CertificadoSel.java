@@ -5,7 +5,7 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.TableModel;
 
-import erp.main.MainCont;
+import erp.main.MainControl;
 
 final class CertificadoSel implements ListSelectionListener {
 
@@ -28,11 +28,11 @@ final class CertificadoSel implements ListSelectionListener {
 					Certificado Certificado = CertificadoFac.getRegistro(certificadoPesquisaRegistro);
 					CertificadoTm CertificadoTm = (CertificadoTm) table.getModel();
 					CertificadoTm.getCertificado(table.getSelectedRow());
-					MainCont.mostrarFrame(MainCont.getCurriculoCertificadoFc());
-					MainCont.getCurriculoCertificadoFc().getCertificadoCont().setCertificado(Certificado);
-					MainCont.getCurriculoCertificadoFc().getCertificadoCont().atualizarGui();
-					MainCont.getCurriculoCertificadoFc().setFocusable(true);
-					MainCont.getCurriculoCertificadoFp().setVisible(false);
+					MainControl.mostrarFrame(MainControl.getCurriculoCertificadoFc());
+					MainControl.getCurriculoCertificadoFc().getCertificadoCont().setCertificado(Certificado);
+					MainControl.getCurriculoCertificadoFc().getCertificadoCont().atualizarGui();
+					MainControl.getCurriculoCertificadoFc().setFocusable(true);
+					MainControl.getCurriculoCertificadoFp().setVisible(false);
 				}
 			}
 		}

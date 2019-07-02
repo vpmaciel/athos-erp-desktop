@@ -13,11 +13,11 @@ public class ErpMain {
 
 	public static void main(String[] args) {
 		try {
+			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 			Thread thread = Thread.currentThread();
 			thread.setName("athos");
 			SplashScreen splash = new SplashScreen(5000);
 			splash.toFront();
-			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 			MainFc mainFc = new MainFc();
 			UsuarioUtil.criarUsuario();
 			mainFc.setState(Frame.NORMAL);
@@ -25,6 +25,7 @@ public class ErpMain {
 			mainFc.setVisible(true);
 			mainFc.setResizable(false);
 			mainFc.toFront();
+
 		} catch (ClassNotFoundException | IllegalAccessException | InstantiationException
 				| UnsupportedLookAndFeelException exception) {
 			exception.printStackTrace();

@@ -5,7 +5,7 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.TableModel;
 
-import erp.main.MainCont;
+import erp.main.MainControl;
 
 final class ImovelSel implements ListSelectionListener {
 
@@ -28,11 +28,11 @@ final class ImovelSel implements ListSelectionListener {
 					Imovel imovel = ImovelFac.getRegistro(imovelPesquisaRegistro);
 					ImovelTm imovelTm = (ImovelTm) table.getModel();
 					imovelTm.getImovel(table.getSelectedRow());
-					MainCont.mostrarFrame(MainCont.getImovelFc());
-					MainCont.getImovelFc().getImovelCont().setImovel(imovel);
-					MainCont.getImovelFc().getImovelCont().atualizarGui();
-					MainCont.getImovelFc().setFocusable(true);
-					MainCont.getImovelFp().setVisible(false);
+					MainControl.mostrarFrame(MainControl.getImovelFc());
+					MainControl.getImovelFc().getImovelCont().setImovel(imovel);
+					MainControl.getImovelFc().getImovelCont().atualizarGui();
+					MainControl.getImovelFc().setFocusable(true);
+					MainControl.getImovelFp().setVisible(false);
 				}
 			}
 		}

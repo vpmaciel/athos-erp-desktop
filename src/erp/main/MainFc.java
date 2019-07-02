@@ -14,18 +14,18 @@ import arquitetura.gui.Imagem;
 @SuppressWarnings("serial")
 public class MainFc extends JFrame {
 
-	private static MainCont mainCont;
+	private static MainControl mainControl;
 
 	public static MainFc getFrameMain() {
-		return MainCont.getMainFc();
+		return MainControl.getMainFc();
 	}
 
-	public static MainCont getMainGerenteEventos() {
-		return mainCont;
+	public static MainControl getMainGerenteEventos() {
+		return mainControl;
 	}
 
 	static void mostrarFrame(JFrame frame) {
-		MainCont.mostrarFrame(frame);
+		MainControl.mostrarFrame(frame);
 	}
 
 	private JMenu menuAjuda;
@@ -370,6 +370,10 @@ public class MainFc extends JFrame {
 	public JMenuItem getMenuItemUtilitarioCalculadora() {
 		return menuItemUtilitarioCalculadora;
 	}
+	
+	public JMenuItem getMenuItemUtilitarioCalculoImc() {
+		return menuItemUtilitarioCalculoIMC;
+	}
 
 	public JMenuItem getMenuItemUtilitarioEditorTexto() {
 		return menuItemUtilitarioEditorTexto;
@@ -396,49 +400,50 @@ public class MainFc extends JFrame {
 	}
 
 	public void iniciarCont() {
-		mainCont = MainCont.getInstance(this);
-		Timer timer = new Timer(1000, mainCont.new Relogio());
+		mainControl = MainControl.getInstance(this);
+		Timer timer = new Timer(1000, mainControl.new Relogio());
 		timer.setInitialDelay(0);
 		timer.setRepeats(true);
 		timer.start();
-		addWindowListener(mainCont.new FrameGerenteEventos());
-		menuItemArquivoLogin.addActionListener(mainCont.new MenuArquivoGerenteEventos());
-		menuItemArquivoLogoff.addActionListener(mainCont.new MenuArquivoGerenteEventos());
-		menuItemArquivoReiniciar.addActionListener(mainCont.new MenuArquivoGerenteEventos());
-		menuItemArquivoSair.addActionListener(mainCont.new MenuArquivoGerenteEventos());
-		menuItemCadastroBanco.addActionListener(mainCont.new MenuCadastroGerenteEventos());
-		menuItemCadastroCentroCusto.addActionListener(mainCont.new MenuCadastroGerenteEventos());
-		menuItemCadastroCartorio.addActionListener(mainCont.new MenuCadastroGerenteEventos());
-		menuItemCadastroContador.addActionListener(mainCont.new MenuCadastroGerenteEventos());
-		menuItemRhFuncionario.addActionListener(mainCont.new MenuCadastroGerenteEventos());
-		menuItemCadastroCliente.addActionListener(mainCont.new MenuCadastroGerenteEventos());
-		menuItemRhCurriculoCurriculo.addActionListener(mainCont.new MenuCadastroGerenteEventos());
-		menuItemRhCurriculoCertificado.addActionListener(mainCont.new MenuCadastroGerenteEventos());
-		menuItemRhCurriculoCurso.addActionListener(mainCont.new MenuCadastroGerenteEventos());
-		menuItemRhCurriculoExperienciaProfissional.addActionListener(mainCont.new MenuCadastroGerenteEventos());
-		menuItemRhCurriculoHabilidade.addActionListener(mainCont.new MenuCadastroGerenteEventos());
-		menuItemRhCurriculoIdioma.addActionListener(mainCont.new MenuCadastroGerenteEventos());
-		menuItemRhCurriculoObjetivoProfissional.addActionListener(mainCont.new MenuCadastroGerenteEventos());
-		menuItemRhCurriculoTestePreferenciaCerebral.addActionListener(mainCont.new MenuCadastroGerenteEventos());
-		menuItemRhCurriculoTestePerfilComportamental.addActionListener(mainCont.new MenuCadastroGerenteEventos());
-		menuItemRhCurriculoTestePersonalidadeDisc.addActionListener(mainCont.new MenuCadastroGerenteEventos());
-		menuItemCadastroEmpresa.addActionListener(mainCont.new MenuCadastroGerenteEventos());
-		menuItemCadastroSindicato.addActionListener(mainCont.new MenuCadastroGerenteEventos());
-		menuItemCadastroServico.addActionListener(mainCont.new MenuCadastroGerenteEventos());
-		menuItemCadastroFornecedor.addActionListener(mainCont.new MenuCadastroGerenteEventos());
-		menuItemCadastroVeiculoVeiculo.addActionListener(mainCont.new MenuCadastroGerenteEventos());
-		menuItemCadastroVeiculoModelo.addActionListener(mainCont.new MenuCadastroGerenteEventos());
-		menuItemCadastroVeiculoMarca.addActionListener(mainCont.new MenuCadastroGerenteEventos());
-		menuItemCadastroVeiculoDocumento.addActionListener(mainCont.new MenuCadastroGerenteEventos());
-		menuItemCadastroImovel.addActionListener(mainCont.new MenuCadastroGerenteEventos());
-		menuItemAjudaSobreSistema.addActionListener(mainCont.new MenuAjudaGerenteEventos());
-		menuItemSistemaUsuario.addActionListener(mainCont.new MenuSistemaGerenteEventos());
-		menuItemUtilitarioAgendaEvento.addActionListener(mainCont.new MenuUtilitarioGerenteEventos());
-		menuItemUtilitarioAgendaTipoEvento.addActionListener(mainCont.new MenuUtilitarioGerenteEventos());
-		menuItemUtilitarioAgendaRecado.addActionListener(mainCont.new MenuUtilitarioGerenteEventos());
-		menuItemUtilitarioAgendaContato.addActionListener(mainCont.new MenuUtilitarioGerenteEventos());
-		menuItemUtilitarioCalculadora.addActionListener(mainCont.new MenuUtilitarioGerenteEventos());
-		menuItemUtilitarioEditorTexto.addActionListener(mainCont.new MenuUtilitarioGerenteEventos());
+		addWindowListener(mainControl.new FrameGerenteEventos());
+		menuItemArquivoLogin.addActionListener(mainControl.new MenuArquivoGerenteEventos());
+		menuItemArquivoLogoff.addActionListener(mainControl.new MenuArquivoGerenteEventos());
+		menuItemArquivoReiniciar.addActionListener(mainControl.new MenuArquivoGerenteEventos());
+		menuItemArquivoSair.addActionListener(mainControl.new MenuArquivoGerenteEventos());
+		menuItemCadastroBanco.addActionListener(mainControl.new MenuCadastroGerenteEventos());
+		menuItemCadastroCentroCusto.addActionListener(mainControl.new MenuCadastroGerenteEventos());
+		menuItemCadastroCartorio.addActionListener(mainControl.new MenuCadastroGerenteEventos());
+		menuItemCadastroContador.addActionListener(mainControl.new MenuCadastroGerenteEventos());
+		menuItemRhFuncionario.addActionListener(mainControl.new MenuCadastroGerenteEventos());
+		menuItemCadastroCliente.addActionListener(mainControl.new MenuCadastroGerenteEventos());
+		menuItemRhCurriculoCurriculo.addActionListener(mainControl.new MenuRhGerenteEventos());
+		menuItemRhCurriculoCertificado.addActionListener(mainControl.new MenuRhGerenteEventos());
+		menuItemRhCurriculoCurso.addActionListener(mainControl.new MenuRhGerenteEventos());
+		menuItemRhCurriculoExperienciaProfissional.addActionListener(mainControl.new MenuRhGerenteEventos());
+		menuItemRhCurriculoHabilidade.addActionListener(mainControl.new MenuRhGerenteEventos());
+		menuItemRhCurriculoIdioma.addActionListener(mainControl.new MenuRhGerenteEventos());
+		menuItemRhCurriculoObjetivoProfissional.addActionListener(mainControl.new MenuRhGerenteEventos());
+		menuItemRhCurriculoTestePreferenciaCerebral.addActionListener(mainControl.new MenuRhGerenteEventos());
+		menuItemRhCurriculoTestePerfilComportamental.addActionListener(mainControl.new MenuRhGerenteEventos());
+		menuItemRhCurriculoTestePersonalidadeDisc.addActionListener(mainControl.new MenuRhGerenteEventos());
+		menuItemCadastroEmpresa.addActionListener(mainControl.new MenuCadastroGerenteEventos());
+		menuItemCadastroSindicato.addActionListener(mainControl.new MenuCadastroGerenteEventos());
+		menuItemCadastroServico.addActionListener(mainControl.new MenuCadastroGerenteEventos());
+		menuItemCadastroFornecedor.addActionListener(mainControl.new MenuCadastroGerenteEventos());
+		menuItemCadastroVeiculoVeiculo.addActionListener(mainControl.new MenuCadastroGerenteEventos());
+		menuItemCadastroVeiculoModelo.addActionListener(mainControl.new MenuCadastroGerenteEventos());
+		menuItemCadastroVeiculoMarca.addActionListener(mainControl.new MenuCadastroGerenteEventos());
+		menuItemCadastroVeiculoDocumento.addActionListener(mainControl.new MenuCadastroGerenteEventos());
+		menuItemCadastroImovel.addActionListener(mainControl.new MenuCadastroGerenteEventos());
+		menuItemAjudaSobreSistema.addActionListener(mainControl.new MenuAjudaGerenteEventos());
+		menuItemSistemaUsuario.addActionListener(mainControl.new MenuSistemaGerenteEventos());
+		menuItemUtilitarioAgendaEvento.addActionListener(mainControl.new MenuUtilitarioGerenteEventos());
+		menuItemUtilitarioAgendaTipoEvento.addActionListener(mainControl.new MenuUtilitarioGerenteEventos());
+		menuItemUtilitarioAgendaRecado.addActionListener(mainControl.new MenuUtilitarioGerenteEventos());
+		menuItemUtilitarioAgendaContato.addActionListener(mainControl.new MenuUtilitarioGerenteEventos());
+		menuItemUtilitarioCalculadora.addActionListener(mainControl.new MenuUtilitarioGerenteEventos());
+		menuItemUtilitarioEditorTexto.addActionListener(mainControl.new MenuUtilitarioGerenteEventos());
+		menuItemUtilitarioCalculoIMC.addActionListener(mainControl.new MenuUtilitarioGerenteEventos());
 	}
 
 	private void iniciarGui() {

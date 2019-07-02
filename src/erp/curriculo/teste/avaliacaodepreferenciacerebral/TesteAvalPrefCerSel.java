@@ -5,7 +5,7 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.TableModel;
 
-import erp.main.MainCont;
+import erp.main.MainControl;
 
 final class TesteAvalPrefCerSel implements ListSelectionListener {
 
@@ -29,12 +29,12 @@ final class TesteAvalPrefCerSel implements ListSelectionListener {
 							.getRegistro(testeAvalPrefCerPesquisaRegistro);
 					TesteAvalPrefCerTm TesteAvalPrefCerTm = (TesteAvalPrefCerTm) table.getModel();
 					TesteAvalPrefCerTm.getTesteAvalPrefCer(table.getSelectedRow());
-					MainCont.mostrarFrame(MainCont.getCurriculoTesteAvalPrefCerFc());
-					MainCont.getCurriculoTesteAvalPrefCerFc().getTesteAvalPrefCerCont()
+					MainControl.mostrarFrame(MainControl.getCurriculoTesteAvalPrefCerFc());
+					MainControl.getCurriculoTesteAvalPrefCerFc().getTesteAvalPrefCerCont()
 							.setTesteAvalPrefCer(testeAvalPrefCer);
-					MainCont.getCurriculoTesteAvalPrefCerFc().getTesteAvalPrefCerCont().atualizarGui();
-					MainCont.getCurriculoTesteAvalPrefCerFc().setFocusable(true);
-					MainCont.getCurriculoTesteAvalPrefCerFp().setVisible(false);
+					MainControl.getCurriculoTesteAvalPrefCerFc().getTesteAvalPrefCerCont().atualizarGui();
+					MainControl.getCurriculoTesteAvalPrefCerFc().setFocusable(true);
+					MainControl.getCurriculoTesteAvalPrefCerFp().setVisible(false);
 				}
 			}
 		}

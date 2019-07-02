@@ -20,7 +20,7 @@ import arquitetura.gui.Imagem;
 @SuppressWarnings("serial")
 public final class ClienteFc extends JFrame implements Gui {
 
-	private ClienteCont clienteCont;
+	private ClienteControl clienteControl;
 	private ClientePc clientePc;
 	private ConfiguracaoGui configuracaoGui;
 
@@ -37,8 +37,8 @@ public final class ClienteFc extends JFrame implements Gui {
 
 	}
 
-	public ClienteCont getClienteCont() {
-		return clienteCont;
+	public ClienteControl getClienteCont() {
+		return clienteControl;
 	}
 
 	public ClientePc getClientePc() {
@@ -53,21 +53,21 @@ public final class ClienteFc extends JFrame implements Gui {
 	@Override
 	public void iniciarControlador() {
 		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
-		clienteCont = new ClienteCont();
-		addWindowListener(clienteCont.new Frame());
-		clientePc.getLabelEmpresa().addMouseListener(clienteCont.new MostraFrame());
-		clientePc.getLabelBanco().addMouseListener(clienteCont.new MostraFrame());
-		clientePc.getTB().getExcluirBtn().addActionListener(clienteCont.new Exclui());
-		clientePc.getTB().getNovoBtn().addActionListener(clienteCont.new Novo());
-		clientePc.getTB().getPesquisarBtn().addActionListener(clienteCont.new Pesquisa());
-		clientePc.getTB().getImprimirBtn().addActionListener(clienteCont.new Imprime());
-		clientePc.getTB().getRelatorioBtn().addActionListener(clienteCont.new Relatorio());
-		clientePc.getTB().getSalvarBtn().addActionListener(clienteCont.new Salva());
-		clientePc.getTB().getFecharBtn().addActionListener(clienteCont.new FechaJanela());
-		clientePc.getTB().getSairBtn().addActionListener(clienteCont.new SaidaSistema());
-		clientePc.getTB().getAjudaBtn().addActionListener(clienteCont.new Ajuda());
-		clientePc.getTB().getHomeBtn().addActionListener(clienteCont.new Home());
-		clientePc.getTB().getRegistrosBtn().addActionListener(clienteCont.new Registro());
+		clienteControl = new ClienteControl();
+		addWindowListener(clienteControl.new Frame());
+		clientePc.getLabelEmpresa().addMouseListener(clienteControl.new MostraFrame());
+		clientePc.getLabelBanco().addMouseListener(clienteControl.new MostraFrame());
+		clientePc.getTB().getExcluirBtn().addActionListener(clienteControl.new Exclui());
+		clientePc.getTB().getNovoBtn().addActionListener(clienteControl.new Novo());
+		clientePc.getTB().getPesquisarBtn().addActionListener(clienteControl.new Pesquisa());
+		clientePc.getTB().getImprimirBtn().addActionListener(clienteControl.new Imprime());
+		clientePc.getTB().getRelatorioBtn().addActionListener(clienteControl.new Relatorio());
+		clientePc.getTB().getSalvarBtn().addActionListener(clienteControl.new Salva());
+		clientePc.getTB().getFecharBtn().addActionListener(clienteControl.new FechaJanela());
+		clientePc.getTB().getSairBtn().addActionListener(clienteControl.new SaidaSistema());
+		clientePc.getTB().getAjudaBtn().addActionListener(clienteControl.new Ajuda());
+		clientePc.getTB().getHomeBtn().addActionListener(clienteControl.new Home());
+		clientePc.getTB().getRegistrosBtn().addActionListener(clienteControl.new Registro());
 	}
 
 	@Override

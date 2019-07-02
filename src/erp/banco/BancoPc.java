@@ -18,7 +18,7 @@ import arquitetura.validacao.RegExp;
 @SuppressWarnings("serial")
 public final class BancoPc extends JPanel implements Gui {
 
-	private BancoCont bancoCont;
+	private BancoControl bancoControl;
 	private ConfiguracaoGui configuracaoGui;
 	private JTextField fieldCodigo;
 	private JTextField fieldNome;
@@ -35,8 +35,8 @@ public final class BancoPc extends JPanel implements Gui {
 	public void atualizarTable() {
 	}
 
-	public BancoCont getBancoCont() {
-		return bancoCont;
+	public BancoControl getBancoCont() {
+		return bancoControl;
 	}
 
 	@Override

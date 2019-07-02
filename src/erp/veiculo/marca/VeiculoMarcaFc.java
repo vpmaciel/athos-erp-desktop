@@ -21,7 +21,7 @@ import arquitetura.gui.Imagem;
 public final class VeiculoMarcaFc extends JFrame implements Gui {
 
 	private ConfiguracaoGui configuracaoGui;
-	private VeiculoMarcaCont veiculoMarcaCont;
+	private VeiculoMarcaControl veiculoMarcaControl;
 	private VeiculoMarcaPc veiculoMarcaPc;
 
 	public VeiculoMarcaFc() {
@@ -42,8 +42,8 @@ public final class VeiculoMarcaFc extends JFrame implements Gui {
 		return configuracaoGui;
 	}
 
-	public VeiculoMarcaCont getVeiculoMarcaCont() {
-		return veiculoMarcaCont;
+	public VeiculoMarcaControl getVeiculoMarcaCont() {
+		return veiculoMarcaControl;
 	}
 
 	public VeiculoMarcaPc getVeiculoMarcaPc() {
@@ -53,19 +53,19 @@ public final class VeiculoMarcaFc extends JFrame implements Gui {
 	@Override
 	public void iniciarControlador() {
 		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
-		veiculoMarcaCont = new VeiculoMarcaCont();
-		addWindowListener(veiculoMarcaCont.new Frame());
-		veiculoMarcaPc.getToolBar().getExcluirBtn().addActionListener(veiculoMarcaCont.new ExcluiRegistro());
-		veiculoMarcaPc.getToolBar().getNovoBtn().addActionListener(veiculoMarcaCont.new NovoFrame());
-		veiculoMarcaPc.getToolBar().getPesquisarBtn().addActionListener(veiculoMarcaCont.new PesquisaRegistro());
-		veiculoMarcaPc.getToolBar().getImprimirBtn().addActionListener(veiculoMarcaCont.new Relatorio());
-		veiculoMarcaPc.getToolBar().getRelatorioBtn().addActionListener(veiculoMarcaCont.new Imprime());
-		veiculoMarcaPc.getToolBar().getSalvarBtn().addActionListener(veiculoMarcaCont.new Salva());
-		veiculoMarcaPc.getToolBar().getFecharBtn().addActionListener(veiculoMarcaCont.new FechaJanela());
-		veiculoMarcaPc.getToolBar().getSairBtn().addActionListener(veiculoMarcaCont.new SaidaSistema());
-		veiculoMarcaPc.getToolBar().getAjudaBtn().addActionListener(veiculoMarcaCont.new Ajuda());
-		veiculoMarcaPc.getToolBar().getHomeBtn().addActionListener(veiculoMarcaCont.new Home());
-		veiculoMarcaPc.getToolBar().getRegistrosBtn().addActionListener(veiculoMarcaCont.new Registro());
+		veiculoMarcaControl = new VeiculoMarcaControl();
+		addWindowListener(veiculoMarcaControl.new Frame());
+		veiculoMarcaPc.getToolBar().getExcluirBtn().addActionListener(veiculoMarcaControl.new ExcluiRegistro());
+		veiculoMarcaPc.getToolBar().getNovoBtn().addActionListener(veiculoMarcaControl.new NovoFrame());
+		veiculoMarcaPc.getToolBar().getPesquisarBtn().addActionListener(veiculoMarcaControl.new PesquisaRegistro());
+		veiculoMarcaPc.getToolBar().getImprimirBtn().addActionListener(veiculoMarcaControl.new Relatorio());
+		veiculoMarcaPc.getToolBar().getRelatorioBtn().addActionListener(veiculoMarcaControl.new Imprime());
+		veiculoMarcaPc.getToolBar().getSalvarBtn().addActionListener(veiculoMarcaControl.new Salva());
+		veiculoMarcaPc.getToolBar().getFecharBtn().addActionListener(veiculoMarcaControl.new FechaJanela());
+		veiculoMarcaPc.getToolBar().getSairBtn().addActionListener(veiculoMarcaControl.new SaidaSistema());
+		veiculoMarcaPc.getToolBar().getAjudaBtn().addActionListener(veiculoMarcaControl.new Ajuda());
+		veiculoMarcaPc.getToolBar().getHomeBtn().addActionListener(veiculoMarcaControl.new Home());
+		veiculoMarcaPc.getToolBar().getRegistrosBtn().addActionListener(veiculoMarcaControl.new Registro());
 	}
 
 	@Override

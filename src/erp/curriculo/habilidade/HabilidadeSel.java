@@ -5,7 +5,7 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.TableModel;
 
-import erp.main.MainCont;
+import erp.main.MainControl;
 
 final class HabilidadeSel implements ListSelectionListener {
 
@@ -28,11 +28,11 @@ final class HabilidadeSel implements ListSelectionListener {
 					Habilidade habilidade = HabilidadeFac.getRegistro(HabilidadePesquisaRegistro);
 					HabilidadeTm HabilidadeTm = (HabilidadeTm) table.getModel();
 					HabilidadeTm.getHabilidade(table.getSelectedRow());
-					MainCont.mostrarFrame(MainCont.getCurriculoHabilidadeFc());
-					MainCont.getCurriculoHabilidadeFc().getHabilidadeCont().setHabilidade(habilidade);
-					MainCont.getCurriculoHabilidadeFc().getHabilidadeCont().atualizarGui();
-					MainCont.getCurriculoHabilidadeFc().setFocusable(true);
-					MainCont.getCurriculoHabilidadeFp().setVisible(false);
+					MainControl.mostrarFrame(MainControl.getCurriculoHabilidadeFc());
+					MainControl.getCurriculoHabilidadeFc().getHabilidadeCont().setHabilidade(habilidade);
+					MainControl.getCurriculoHabilidadeFc().getHabilidadeCont().atualizarGui();
+					MainControl.getCurriculoHabilidadeFc().setFocusable(true);
+					MainControl.getCurriculoHabilidadeFp().setVisible(false);
 				}
 			}
 		}

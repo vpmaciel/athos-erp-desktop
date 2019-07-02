@@ -21,7 +21,7 @@ import arquitetura.gui.Imagem;
 public final class EmpresaFc extends JFrame implements Gui {
 
 	private ConfiguracaoGui configuracaoGui;
-	private EmpresaCont empresaCont;
+	private EmpresaControl empresaControl;
 	private EmpresaPc empresaPc;
 
 	public EmpresaFc() {
@@ -42,8 +42,8 @@ public final class EmpresaFc extends JFrame implements Gui {
 		return configuracaoGui;
 	}
 
-	public EmpresaCont getEmpresaCont() {
-		return empresaCont;
+	public EmpresaControl getEmpresaCont() {
+		return empresaControl;
 	}
 
 	public EmpresaPc getEmpresaPc() {
@@ -53,19 +53,19 @@ public final class EmpresaFc extends JFrame implements Gui {
 	@Override
 	public void iniciarControlador() {
 		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
-		empresaCont = new EmpresaCont();
-		addWindowListener(empresaCont.new Frame());
-		empresaPc.getTB().getExcluirBtn().addActionListener(empresaCont.new Exclui());
-		empresaPc.getTB().getNovoBtn().addActionListener(empresaCont.new NovoFrame());
-		empresaPc.getTB().getPesquisarBtn().addActionListener(empresaCont.new Pesquisa());
-		empresaPc.getTB().getImprimirBtn().addActionListener(empresaCont.new Imprime());
-		empresaPc.getTB().getRelatorioBtn().addActionListener(empresaCont.new Relatorio());
-		empresaPc.getTB().getSalvarBtn().addActionListener(empresaCont.new Salva());
-		empresaPc.getTB().getFecharBtn().addActionListener(empresaCont.new FechaJanela());
-		empresaPc.getTB().getSairBtn().addActionListener(empresaCont.new SaidaSistema());
-		empresaPc.getTB().getAjudaBtn().addActionListener(empresaCont.new Ajuda());
-		empresaPc.getTB().getHomeBtn().addActionListener(empresaCont.new Home());
-		empresaPc.getTB().getRegistrosBtn().addActionListener(empresaCont.new Registro());
+		empresaControl = new EmpresaControl();
+		addWindowListener(empresaControl.new Frame());
+		empresaPc.getTB().getExcluirBtn().addActionListener(empresaControl.new Exclui());
+		empresaPc.getTB().getNovoBtn().addActionListener(empresaControl.new NovoFrame());
+		empresaPc.getTB().getPesquisarBtn().addActionListener(empresaControl.new Pesquisa());
+		empresaPc.getTB().getImprimirBtn().addActionListener(empresaControl.new Imprime());
+		empresaPc.getTB().getRelatorioBtn().addActionListener(empresaControl.new Relatorio());
+		empresaPc.getTB().getSalvarBtn().addActionListener(empresaControl.new Salva());
+		empresaPc.getTB().getFecharBtn().addActionListener(empresaControl.new FechaJanela());
+		empresaPc.getTB().getSairBtn().addActionListener(empresaControl.new SaidaSistema());
+		empresaPc.getTB().getAjudaBtn().addActionListener(empresaControl.new Ajuda());
+		empresaPc.getTB().getHomeBtn().addActionListener(empresaControl.new Home());
+		empresaPc.getTB().getRegistrosBtn().addActionListener(empresaControl.new Registro());
 	}
 
 	@Override

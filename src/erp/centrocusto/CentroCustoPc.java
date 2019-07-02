@@ -18,7 +18,7 @@ import arquitetura.validacao.RegExp;
 @SuppressWarnings("serial")
 public final class CentroCustoPc extends JPanel implements Gui {
 
-	private CentroCustoCont centroCustoCont;
+	private CentroCustoControl centroCustoControl;
 	private ConfiguracaoGui configuracaoGui;
 	private JTextField fieldNome;
 	private ToolBar toolBar;
@@ -34,8 +34,8 @@ public final class CentroCustoPc extends JPanel implements Gui {
 	public void atualizarTable() {
 	}
 
-	public CentroCustoCont getCentroCustoCont() {
-		return centroCustoCont;
+	public CentroCustoControl getCentroCustoCont() {
+		return centroCustoControl;
 	}
 
 	@Override

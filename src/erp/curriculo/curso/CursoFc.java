@@ -21,7 +21,7 @@ import arquitetura.gui.Imagem;
 public final class CursoFc extends JFrame implements Gui {
 
 	private ConfiguracaoGui configuracaoGui;
-	private CursoCont cursoCont;
+	private CursoControl cursoControl;
 	private CursoPc cursoPc;
 
 	public CursoFc() {
@@ -42,8 +42,8 @@ public final class CursoFc extends JFrame implements Gui {
 		return configuracaoGui;
 	}
 
-	public CursoCont getCursoCont() {
-		return cursoCont;
+	public CursoControl getCursoCont() {
+		return cursoControl;
 	}
 
 	public CursoPc getCursoPc() {
@@ -53,20 +53,20 @@ public final class CursoFc extends JFrame implements Gui {
 	@Override
 	public void iniciarControlador() {
 		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
-		cursoCont = new CursoCont();
-		addWindowListener(cursoCont.new Frame());
-		cursoPc.getLabelFuncionario().addMouseListener(cursoCont.new MostraFrame());
-		cursoPc.getTB().getExcluirBtn().addActionListener(cursoCont.new Exclui());
-		cursoPc.getTB().getNovoBtn().addActionListener(cursoCont.new Novo());
-		cursoPc.getTB().getPesquisarBtn().addActionListener(cursoCont.new Pesquisa());
-		cursoPc.getTB().getImprimirBtn().addActionListener(cursoCont.new Imprime());
-		cursoPc.getTB().getRelatorioBtn().addActionListener(cursoCont.new Relatorio());
-		cursoPc.getTB().getSalvarBtn().addActionListener(cursoCont.new Salva());
-		cursoPc.getTB().getFecharBtn().addActionListener(cursoCont.new FechaJanela());
-		cursoPc.getTB().getSairBtn().addActionListener(cursoCont.new SaidaSistema());
-		cursoPc.getTB().getAjudaBtn().addActionListener(cursoCont.new Ajuda());
-		cursoPc.getTB().getHomeBtn().addActionListener(cursoCont.new Home());
-		cursoPc.getTB().getRegistrosBtn().addActionListener(cursoCont.new Registro());
+		cursoControl = new CursoControl();
+		addWindowListener(cursoControl.new Frame());
+		cursoPc.getLabelFuncionario().addMouseListener(cursoControl.new MostraFrame());
+		cursoPc.getTB().getExcluirBtn().addActionListener(cursoControl.new Exclui());
+		cursoPc.getTB().getNovoBtn().addActionListener(cursoControl.new Novo());
+		cursoPc.getTB().getPesquisarBtn().addActionListener(cursoControl.new Pesquisa());
+		cursoPc.getTB().getImprimirBtn().addActionListener(cursoControl.new Imprime());
+		cursoPc.getTB().getRelatorioBtn().addActionListener(cursoControl.new Relatorio());
+		cursoPc.getTB().getSalvarBtn().addActionListener(cursoControl.new Salva());
+		cursoPc.getTB().getFecharBtn().addActionListener(cursoControl.new FechaJanela());
+		cursoPc.getTB().getSairBtn().addActionListener(cursoControl.new SaidaSistema());
+		cursoPc.getTB().getAjudaBtn().addActionListener(cursoControl.new Ajuda());
+		cursoPc.getTB().getHomeBtn().addActionListener(cursoControl.new Home());
+		cursoPc.getTB().getRegistrosBtn().addActionListener(cursoControl.new Registro());
 	}
 
 	@Override

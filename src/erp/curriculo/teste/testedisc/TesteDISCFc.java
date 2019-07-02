@@ -21,7 +21,7 @@ import arquitetura.gui.Imagem;
 public final class TesteDISCFc extends JFrame implements Gui {
 
 	private ConfiguracaoGui configuracaoGui;
-	private TesteDISCCont testeDISCCont;
+	private TesteDISCControl testeDISCControl;
 	private TesteDISCPc testeDISCPc;
 
 	public TesteDISCFc() {
@@ -42,8 +42,8 @@ public final class TesteDISCFc extends JFrame implements Gui {
 		return configuracaoGui;
 	}
 
-	public TesteDISCCont getTesteDISCCont() {
-		return testeDISCCont;
+	public TesteDISCControl getTesteDISCCont() {
+		return testeDISCControl;
 	}
 
 	public TesteDISCPc getTesteDISCPc() {
@@ -53,20 +53,20 @@ public final class TesteDISCFc extends JFrame implements Gui {
 	@Override
 	public void iniciarControlador() {
 		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
-		testeDISCCont = new TesteDISCCont();
-		addWindowListener(testeDISCCont.new Frame());
-		testeDISCPc.getLabelFuncionario().addMouseListener(testeDISCCont.new MostraFrame());
-		testeDISCPc.getTB().getExcluirBtn().addActionListener(testeDISCCont.new Exclui());
-		testeDISCPc.getTB().getNovoBtn().addActionListener(testeDISCCont.new Novo());
-		testeDISCPc.getTB().getPesquisarBtn().addActionListener(testeDISCCont.new Pesquisa());
-		testeDISCPc.getTB().getImprimirBtn().addActionListener(testeDISCCont.new Imprime());
-		testeDISCPc.getTB().getRelatorioBtn().addActionListener(testeDISCCont.new Relatorio());
-		testeDISCPc.getTB().getSalvarBtn().addActionListener(testeDISCCont.new Salva());
-		testeDISCPc.getTB().getFecharBtn().addActionListener(testeDISCCont.new FechaJanela());
-		testeDISCPc.getTB().getSairBtn().addActionListener(testeDISCCont.new SaidaSistema());
-		testeDISCPc.getTB().getAjudaBtn().addActionListener(testeDISCCont.new Ajuda());
-		testeDISCPc.getTB().getHomeBtn().addActionListener(testeDISCCont.new Home());
-		testeDISCPc.getTB().getRegistrosBtn().addActionListener(testeDISCCont.new Registro());
+		testeDISCControl = new TesteDISCControl();
+		addWindowListener(testeDISCControl.new Frame());
+		testeDISCPc.getLabelFuncionario().addMouseListener(testeDISCControl.new MostraFrame());
+		testeDISCPc.getTB().getExcluirBtn().addActionListener(testeDISCControl.new Exclui());
+		testeDISCPc.getTB().getNovoBtn().addActionListener(testeDISCControl.new Novo());
+		testeDISCPc.getTB().getPesquisarBtn().addActionListener(testeDISCControl.new Pesquisa());
+		testeDISCPc.getTB().getImprimirBtn().addActionListener(testeDISCControl.new Imprime());
+		testeDISCPc.getTB().getRelatorioBtn().addActionListener(testeDISCControl.new Relatorio());
+		testeDISCPc.getTB().getSalvarBtn().addActionListener(testeDISCControl.new Salva());
+		testeDISCPc.getTB().getFecharBtn().addActionListener(testeDISCControl.new FechaJanela());
+		testeDISCPc.getTB().getSairBtn().addActionListener(testeDISCControl.new SaidaSistema());
+		testeDISCPc.getTB().getAjudaBtn().addActionListener(testeDISCControl.new Ajuda());
+		testeDISCPc.getTB().getHomeBtn().addActionListener(testeDISCControl.new Home());
+		testeDISCPc.getTB().getRegistrosBtn().addActionListener(testeDISCControl.new Registro());
 	}
 
 	@Override

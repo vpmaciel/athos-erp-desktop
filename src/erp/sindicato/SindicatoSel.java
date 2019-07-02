@@ -5,7 +5,7 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.TableModel;
 
-import erp.main.MainCont;
+import erp.main.MainControl;
 
 final class SindicatoSel implements ListSelectionListener {
 
@@ -28,11 +28,11 @@ final class SindicatoSel implements ListSelectionListener {
 					Sindicato sindicato = SindicatoFac.getRegistro(sindicatoPesquisaRegistro);
 					SindicatoTm sindicatoTm = (SindicatoTm) table.getModel();
 					sindicatoTm.getSindicato(table.getSelectedRow());
-					MainCont.mostrarFrame(MainCont.getSindicatoFc());
-					MainCont.getSindicatoFc().getSindicatoCont().setSindicato(sindicato);
-					MainCont.getSindicatoFc().getSindicatoCont().atualizarGui();
-					MainCont.getSindicatoFc().setFocusable(true);
-					MainCont.getSindicatoFp().setVisible(false);
+					MainControl.mostrarFrame(MainControl.getSindicatoFc());
+					MainControl.getSindicatoFc().getSindicatoCont().setSindicato(sindicato);
+					MainControl.getSindicatoFc().getSindicatoCont().atualizarGui();
+					MainControl.getSindicatoFc().setFocusable(true);
+					MainControl.getSindicatoFp().setVisible(false);
 				}
 			}
 		}

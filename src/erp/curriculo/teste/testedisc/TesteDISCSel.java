@@ -5,7 +5,7 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.TableModel;
 
-import erp.main.MainCont;
+import erp.main.MainControl;
 
 final class TesteDISCSel implements ListSelectionListener {
 
@@ -28,11 +28,11 @@ final class TesteDISCSel implements ListSelectionListener {
 					TesteDISC testeDISC = TesteDISCFac.getRegistro(testeDISCPesquisaRegistro);
 					TesteDISCTm TesteDISCTm = (TesteDISCTm) table.getModel();
 					TesteDISCTm.getTesteDISC(table.getSelectedRow());
-					MainCont.mostrarFrame(MainCont.getCurriculoTesteDISCFc());
-					MainCont.getCurriculoTesteDISCFc().getTesteDISCCont().setTesteDISC(testeDISC);
-					MainCont.getCurriculoTesteDISCFc().getTesteDISCCont().atualizarGui();
-					MainCont.getCurriculoTesteDISCFc().setFocusable(true);
-					MainCont.getCurriculoTesteDISCFp().setVisible(false);
+					MainControl.mostrarFrame(MainControl.getCurriculoTesteDISCFc());
+					MainControl.getCurriculoTesteDISCFc().getTesteDISCCont().setTesteDISC(testeDISC);
+					MainControl.getCurriculoTesteDISCFc().getTesteDISCCont().atualizarGui();
+					MainControl.getCurriculoTesteDISCFc().setFocusable(true);
+					MainControl.getCurriculoTesteDISCFp().setVisible(false);
 				}
 			}
 		}

@@ -41,7 +41,7 @@ public class Reflexao {
 		
 		dados = new Object[list.size()][colunas.length];
 		int linha = 0, coluna = 0;
-		for (Object object : list) {
+		for (@SuppressWarnings("unused") Object object : list) {
 			for (Field campo : campos) {
 				try {
 					// String nomeAtributo = campo.getName();

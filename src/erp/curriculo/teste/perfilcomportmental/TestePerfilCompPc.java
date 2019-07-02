@@ -17,7 +17,7 @@ import arquitetura.util.SpringUtilities;
 import erp.funcionario.Funcionario;
 import erp.funcionario.FuncionarioComp;
 import erp.funcionario.FuncionarioFac;
-import erp.main.MainCont;
+import erp.main.MainControl;
 
 @SuppressWarnings("serial")
 public final class TestePerfilCompPc extends JPanel implements Gui {
@@ -686,9 +686,9 @@ public final class TestePerfilCompPc extends JPanel implements Gui {
 		for (Funcionario b : funcionarios) {
 			boxFuncionario.addItem(b);
 		}
-		if (!MainCont.getCurriculoTestePerfilCompFc().isShowing()
-				&& MainCont.getCurriculoTestePerfilCompFc().getTestePerfilCompCont().getTestePerfilComp() != null) {
-			funcionario = MainCont.getCurriculoTestePerfilCompFc().getTestePerfilCompCont().getTestePerfilComp()
+		if (!MainControl.getCurriculoTestePerfilCompFc().isShowing()
+				&& MainControl.getCurriculoTestePerfilCompFc().getTestePerfilCompCont().getTestePerfilComp() != null) {
+			funcionario = MainControl.getCurriculoTestePerfilCompFc().getTestePerfilCompCont().getTestePerfilComp()
 					.getFuncionario();
 			boxFuncionario.setSelectedItem(funcionario);
 		}

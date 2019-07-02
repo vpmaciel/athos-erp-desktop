@@ -19,7 +19,7 @@ import arquitetura.util.SpringUtilities;
 import erp.funcionario.Funcionario;
 import erp.funcionario.FuncionarioComp;
 import erp.funcionario.FuncionarioFac;
-import erp.main.MainCont;
+import erp.main.MainControl;
 
 @SuppressWarnings("serial")
 public final class IdiomaPc extends JPanel implements Gui {
@@ -151,9 +151,9 @@ public final class IdiomaPc extends JPanel implements Gui {
 		for (Funcionario b : funcionarios) {
 			boxFuncionario.addItem(b);
 		}
-		if (!MainCont.getCurriculoIdiomaFc().isShowing()
-				&& MainCont.getCurriculoIdiomaFc().getIdiomaCont().getIdioma() != null) {
-			funcionario = MainCont.getCurriculoIdiomaFc().getIdiomaCont().getIdioma().getFuncionario();
+		if (!MainControl.getCurriculoIdiomaFc().isShowing()
+				&& MainControl.getCurriculoIdiomaFc().getIdiomaCont().getIdioma() != null) {
+			funcionario = MainControl.getCurriculoIdiomaFc().getIdiomaCont().getIdioma().getFuncionario();
 			boxFuncionario.setSelectedItem(funcionario);
 		}
 	}

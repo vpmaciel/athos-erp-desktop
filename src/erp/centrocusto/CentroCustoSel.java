@@ -5,7 +5,7 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.TableModel;
 
-import erp.main.MainCont;
+import erp.main.MainControl;
 
 final class CentroCustoSel implements ListSelectionListener {
 
@@ -28,11 +28,11 @@ final class CentroCustoSel implements ListSelectionListener {
 					CentroCusto centroCusto = CentroCustoFac.getRegistro(centroCustoPesquisaRegistro);
 					CentroCustoTm centroCustoTm = (CentroCustoTm) table.getModel();
 					centroCustoTm.getCentroCusto(table.getSelectedRow());
-					MainCont.mostrarFrame(MainCont.getCentroCustoFc());
-					MainCont.getCentroCustoFc().getCentroCustoCont().setCentroCusto(centroCusto);
-					MainCont.getCentroCustoFc().getCentroCustoCont().atualizarGui();
-					MainCont.getCentroCustoFc().setFocusable(true);
-					MainCont.getCentroCustoFp().setVisible(false);
+					MainControl.mostrarFrame(MainControl.getCentroCustoFc());
+					MainControl.getCentroCustoFc().getCentroCustoCont().setCentroCusto(centroCusto);
+					MainControl.getCentroCustoFc().getCentroCustoCont().atualizarGui();
+					MainControl.getCentroCustoFc().setFocusable(true);
+					MainControl.getCentroCustoFp().setVisible(false);
 				}
 			}
 		}

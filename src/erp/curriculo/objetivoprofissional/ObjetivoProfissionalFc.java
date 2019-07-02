@@ -21,7 +21,7 @@ import arquitetura.gui.Imagem;
 public final class ObjetivoProfissionalFc extends JFrame implements Gui {
 
 	private ConfiguracaoGui configuracaoGui;
-	private ObjetivoProfissionalCont objetivoProfissionalCont;
+	private ObjetivoProfissionalControl objetivoProfissionalControl;
 	private ObjetivoProfissionalPc objetivoProfissionalPc;
 
 	public ObjetivoProfissionalFc() {
@@ -42,8 +42,8 @@ public final class ObjetivoProfissionalFc extends JFrame implements Gui {
 		return configuracaoGui;
 	}
 
-	public ObjetivoProfissionalCont getObjetivoProfissionalCont() {
-		return objetivoProfissionalCont;
+	public ObjetivoProfissionalControl getObjetivoProfissionalCont() {
+		return objetivoProfissionalControl;
 	}
 
 	public ObjetivoProfissionalPc getObjetivoProfissionalPc() {
@@ -53,20 +53,20 @@ public final class ObjetivoProfissionalFc extends JFrame implements Gui {
 	@Override
 	public void iniciarControlador() {
 		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
-		objetivoProfissionalCont = new ObjetivoProfissionalCont();
-		addWindowListener(objetivoProfissionalCont.new Frame());
-		objetivoProfissionalPc.getLabelFuncionario().addMouseListener(objetivoProfissionalCont.new MostraFrame());
-		objetivoProfissionalPc.getTB().getExcluirBtn().addActionListener(objetivoProfissionalCont.new Exclui());
-		objetivoProfissionalPc.getTB().getNovoBtn().addActionListener(objetivoProfissionalCont.new Novo());
-		objetivoProfissionalPc.getTB().getPesquisarBtn().addActionListener(objetivoProfissionalCont.new Pesquisa());
-		objetivoProfissionalPc.getTB().getImprimirBtn().addActionListener(objetivoProfissionalCont.new Imprime());
-		objetivoProfissionalPc.getTB().getRelatorioBtn().addActionListener(objetivoProfissionalCont.new Relatorio());
-		objetivoProfissionalPc.getTB().getSalvarBtn().addActionListener(objetivoProfissionalCont.new Salva());
-		objetivoProfissionalPc.getTB().getFecharBtn().addActionListener(objetivoProfissionalCont.new FechaJanela());
-		objetivoProfissionalPc.getTB().getSairBtn().addActionListener(objetivoProfissionalCont.new SaidaSistema());
-		objetivoProfissionalPc.getTB().getAjudaBtn().addActionListener(objetivoProfissionalCont.new Ajuda());
-		objetivoProfissionalPc.getTB().getHomeBtn().addActionListener(objetivoProfissionalCont.new Home());
-		objetivoProfissionalPc.getTB().getRegistrosBtn().addActionListener(objetivoProfissionalCont.new Registro());
+		objetivoProfissionalControl = new ObjetivoProfissionalControl();
+		addWindowListener(objetivoProfissionalControl.new Frame());
+		objetivoProfissionalPc.getLabelFuncionario().addMouseListener(objetivoProfissionalControl.new MostraFrame());
+		objetivoProfissionalPc.getTB().getExcluirBtn().addActionListener(objetivoProfissionalControl.new Exclui());
+		objetivoProfissionalPc.getTB().getNovoBtn().addActionListener(objetivoProfissionalControl.new Novo());
+		objetivoProfissionalPc.getTB().getPesquisarBtn().addActionListener(objetivoProfissionalControl.new Pesquisa());
+		objetivoProfissionalPc.getTB().getImprimirBtn().addActionListener(objetivoProfissionalControl.new Imprime());
+		objetivoProfissionalPc.getTB().getRelatorioBtn().addActionListener(objetivoProfissionalControl.new Relatorio());
+		objetivoProfissionalPc.getTB().getSalvarBtn().addActionListener(objetivoProfissionalControl.new Salva());
+		objetivoProfissionalPc.getTB().getFecharBtn().addActionListener(objetivoProfissionalControl.new FechaJanela());
+		objetivoProfissionalPc.getTB().getSairBtn().addActionListener(objetivoProfissionalControl.new SaidaSistema());
+		objetivoProfissionalPc.getTB().getAjudaBtn().addActionListener(objetivoProfissionalControl.new Ajuda());
+		objetivoProfissionalPc.getTB().getHomeBtn().addActionListener(objetivoProfissionalControl.new Home());
+		objetivoProfissionalPc.getTB().getRegistrosBtn().addActionListener(objetivoProfissionalControl.new Registro());
 	}
 
 	@Override

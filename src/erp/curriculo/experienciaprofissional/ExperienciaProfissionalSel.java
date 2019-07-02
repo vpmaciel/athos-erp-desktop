@@ -5,7 +5,7 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.TableModel;
 
-import erp.main.MainCont;
+import erp.main.MainControl;
 
 final class ExperienciaProfissionalSel implements ListSelectionListener {
 
@@ -30,12 +30,12 @@ final class ExperienciaProfissionalSel implements ListSelectionListener {
 							.getRegistro(experienciaProfissionalPesquisaRegistro);
 					ExperienciaProfissionalTm ExperienciaProfissionalTm = (ExperienciaProfissionalTm) table.getModel();
 					ExperienciaProfissionalTm.getExperienciaProfissional(table.getSelectedRow());
-					MainCont.mostrarFrame(MainCont.getCurriculoExperienciaProfissionalFc());
-					MainCont.getCurriculoExperienciaProfissionalFc().getExperienciaProfissionalCont()
+					MainControl.mostrarFrame(MainControl.getCurriculoExperienciaProfissionalFc());
+					MainControl.getCurriculoExperienciaProfissionalFc().getExperienciaProfissionalCont()
 							.setExperienciaProfissional(experienciaProfissional);
-					MainCont.getCurriculoExperienciaProfissionalFc().getExperienciaProfissionalCont().atualizarGui();
-					MainCont.getCurriculoExperienciaProfissionalFc().setFocusable(true);
-					MainCont.getCurriculoExperienciaProfissionalFp().setVisible(false);
+					MainControl.getCurriculoExperienciaProfissionalFc().getExperienciaProfissionalCont().atualizarGui();
+					MainControl.getCurriculoExperienciaProfissionalFc().setFocusable(true);
+					MainControl.getCurriculoExperienciaProfissionalFp().setVisible(false);
 				}
 			}
 		}

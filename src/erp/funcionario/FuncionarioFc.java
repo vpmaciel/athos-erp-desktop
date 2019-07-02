@@ -20,7 +20,7 @@ import arquitetura.gui.Gui;
 public final class FuncionarioFc extends JFrame implements Gui {
 
 	private ConfiguracaoGui configuracaoGui;
-	private FuncionarioCont funcionarioCont;
+	private FuncionarioControl funcionarioControl;
 	private FuncionarioPc curriculoPc;
 
 	public FuncionarioFc() {
@@ -41,8 +41,8 @@ public final class FuncionarioFc extends JFrame implements Gui {
 		return configuracaoGui;
 	}
 
-	public FuncionarioCont getFuncionarioCont() {
-		return funcionarioCont;
+	public FuncionarioControl getFuncionarioCont() {
+		return funcionarioControl;
 	}
 
 	public FuncionarioPc getFuncionarioPc() {
@@ -52,20 +52,20 @@ public final class FuncionarioFc extends JFrame implements Gui {
 	@Override
 	public void iniciarControlador() {
 		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
-		funcionarioCont = new FuncionarioCont();
-		curriculoPc.getLabelCentroCusto().addMouseListener(funcionarioCont.new MostraFrame());
-		addWindowListener(funcionarioCont.new Frame());
-		curriculoPc.getTB().getExcluirBtn().addActionListener(funcionarioCont.new Exclui());
-		curriculoPc.getTB().getNovoBtn().addActionListener(funcionarioCont.new Novo());
-		curriculoPc.getTB().getPesquisarBtn().addActionListener(funcionarioCont.new Pesquisa());
-		curriculoPc.getTB().getImprimirBtn().addActionListener(funcionarioCont.new Imprime());
-		curriculoPc.getTB().getRelatorioBtn().addActionListener(funcionarioCont.new Relatorio());
-		curriculoPc.getTB().getSalvarBtn().addActionListener(funcionarioCont.new Salva());
-		curriculoPc.getTB().getFecharBtn().addActionListener(funcionarioCont.new FechaJanela());
-		curriculoPc.getTB().getSairBtn().addActionListener(funcionarioCont.new SaidaSistema());
-		curriculoPc.getTB().getAjudaBtn().addActionListener(funcionarioCont.new Ajuda());
-		curriculoPc.getTB().getHomeBtn().addActionListener(funcionarioCont.new Home());
-		curriculoPc.getTB().getRegistrosBtn().addActionListener(funcionarioCont.new Registro());
+		funcionarioControl = new FuncionarioControl();
+		curriculoPc.getLabelCentroCusto().addMouseListener(funcionarioControl.new MostraFrame());
+		addWindowListener(funcionarioControl.new Frame());
+		curriculoPc.getTB().getExcluirBtn().addActionListener(funcionarioControl.new Exclui());
+		curriculoPc.getTB().getNovoBtn().addActionListener(funcionarioControl.new Novo());
+		curriculoPc.getTB().getPesquisarBtn().addActionListener(funcionarioControl.new Pesquisa());
+		curriculoPc.getTB().getImprimirBtn().addActionListener(funcionarioControl.new Imprime());
+		curriculoPc.getTB().getRelatorioBtn().addActionListener(funcionarioControl.new Relatorio());
+		curriculoPc.getTB().getSalvarBtn().addActionListener(funcionarioControl.new Salva());
+		curriculoPc.getTB().getFecharBtn().addActionListener(funcionarioControl.new FechaJanela());
+		curriculoPc.getTB().getSairBtn().addActionListener(funcionarioControl.new SaidaSistema());
+		curriculoPc.getTB().getAjudaBtn().addActionListener(funcionarioControl.new Ajuda());
+		curriculoPc.getTB().getHomeBtn().addActionListener(funcionarioControl.new Home());
+		curriculoPc.getTB().getRegistrosBtn().addActionListener(funcionarioControl.new Registro());
 	}
 
 	@Override

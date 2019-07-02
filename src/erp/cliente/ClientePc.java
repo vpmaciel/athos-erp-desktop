@@ -25,7 +25,7 @@ import erp.banco.BancoFac;
 import erp.empresa.Empresa;
 import erp.empresa.EmpresaComp;
 import erp.empresa.EmpresaFac;
-import erp.main.MainCont;
+import erp.main.MainControl;
 
 @SuppressWarnings("serial")
 public final class ClientePc extends JPanel implements Gui {
@@ -701,15 +701,15 @@ public final class ClientePc extends JPanel implements Gui {
 		for (Banco b : listBanco) {
 			boxBanco.addItem(b);
 		}
-		if (!MainCont.getClienteFc().isShowing() && MainCont.getClienteFc().getClienteCont().getCliente() != null) {
-			empresa = MainCont.getClienteFc().getClienteCont().getCliente().getEmpresa();
+		if (!MainControl.getClienteFc().isShowing() && MainControl.getClienteFc().getClienteCont().getCliente() != null) {
+			empresa = MainControl.getClienteFc().getClienteCont().getCliente().getEmpresa();
 			if (empresa != null) {
 				boxEmpresa.setSelectedItem(empresa);
 			}
-			banco = MainCont.getClienteFc().getClienteCont().getCliente().getBanco();
+			banco = MainControl.getClienteFc().getClienteCont().getCliente().getBanco();
 
 			if (banco != null) {
-				banco = MainCont.getClienteFc().getClienteCont().getCliente().getBanco();
+				banco = MainControl.getClienteFc().getClienteCont().getCliente().getBanco();
 			}
 		}
 	}

@@ -21,7 +21,7 @@ import arquitetura.gui.Imagem;
 public final class ContadorFc extends JFrame implements Gui {
 
 	private ConfiguracaoGui configuracaoGui;
-	private ContadorCont contadorCont;
+	private ContadorControl contadorControl;
 	private ContadorPc contadorPc;
 
 	public ContadorFc() {
@@ -42,8 +42,8 @@ public final class ContadorFc extends JFrame implements Gui {
 		return configuracaoGui;
 	}
 
-	public ContadorCont getContadorCont() {
-		return contadorCont;
+	public ContadorControl getContadorCont() {
+		return contadorControl;
 	}
 
 	public ContadorPc getContadorPc() {
@@ -53,19 +53,19 @@ public final class ContadorFc extends JFrame implements Gui {
 	@Override
 	public void iniciarControlador() {
 		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
-		contadorCont = new ContadorCont();
-		addWindowListener(contadorCont.new Frame());
-		contadorPc.getTB().getExcluirBtn().addActionListener(contadorCont.new Exclui());
-		contadorPc.getTB().getNovoBtn().addActionListener(contadorCont.new Novo());
-		contadorPc.getTB().getPesquisarBtn().addActionListener(contadorCont.new Pesquisa());
-		contadorPc.getTB().getImprimirBtn().addActionListener(contadorCont.new Imprime());
-		contadorPc.getTB().getRelatorioBtn().addActionListener(contadorCont.new Relatorio());
-		contadorPc.getTB().getSalvarBtn().addActionListener(contadorCont.new Salva());
-		contadorPc.getTB().getFecharBtn().addActionListener(contadorCont.new FechaJanela());
-		contadorPc.getTB().getSairBtn().addActionListener(contadorCont.new SaidaSistema());
-		contadorPc.getTB().getAjudaBtn().addActionListener(contadorCont.new Ajuda());
-		contadorPc.getTB().getHomeBtn().addActionListener(contadorCont.new Home());
-		contadorPc.getTB().getRegistrosBtn().addActionListener(contadorCont.new Registro());
+		contadorControl = new ContadorControl();
+		addWindowListener(contadorControl.new Frame());
+		contadorPc.getTB().getExcluirBtn().addActionListener(contadorControl.new Exclui());
+		contadorPc.getTB().getNovoBtn().addActionListener(contadorControl.new Novo());
+		contadorPc.getTB().getPesquisarBtn().addActionListener(contadorControl.new Pesquisa());
+		contadorPc.getTB().getImprimirBtn().addActionListener(contadorControl.new Imprime());
+		contadorPc.getTB().getRelatorioBtn().addActionListener(contadorControl.new Relatorio());
+		contadorPc.getTB().getSalvarBtn().addActionListener(contadorControl.new Salva());
+		contadorPc.getTB().getFecharBtn().addActionListener(contadorControl.new FechaJanela());
+		contadorPc.getTB().getSairBtn().addActionListener(contadorControl.new SaidaSistema());
+		contadorPc.getTB().getAjudaBtn().addActionListener(contadorControl.new Ajuda());
+		contadorPc.getTB().getHomeBtn().addActionListener(contadorControl.new Home());
+		contadorPc.getTB().getRegistrosBtn().addActionListener(contadorControl.new Registro());
 	}
 
 	@Override

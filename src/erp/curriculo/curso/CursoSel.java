@@ -5,7 +5,7 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.TableModel;
 
-import erp.main.MainCont;
+import erp.main.MainControl;
 
 final class CursoSel implements ListSelectionListener {
 
@@ -28,11 +28,11 @@ final class CursoSel implements ListSelectionListener {
 					Curso curso = CursoFac.getRegistro(CursoPesquisaRegistro);
 					CursoTm CursoTm = (CursoTm) table.getModel();
 					CursoTm.getCurso(table.getSelectedRow());
-					MainCont.mostrarFrame(MainCont.getCurriculoCursoFc());
-					MainCont.getCurriculoCursoFc().getCursoCont().setCurso(curso);
-					MainCont.getCurriculoCursoFc().getCursoCont().atualizarGui();
-					MainCont.getCurriculoCursoFc().setFocusable(true);
-					MainCont.getCurriculoCursoFp().setVisible(false);
+					MainControl.mostrarFrame(MainControl.getCurriculoCursoFc());
+					MainControl.getCurriculoCursoFc().getCursoCont().setCurso(curso);
+					MainControl.getCurriculoCursoFc().getCursoCont().atualizarGui();
+					MainControl.getCurriculoCursoFc().setFocusable(true);
+					MainControl.getCurriculoCursoFp().setVisible(false);
 				}
 			}
 		}

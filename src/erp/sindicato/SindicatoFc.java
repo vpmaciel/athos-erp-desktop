@@ -21,7 +21,7 @@ import arquitetura.gui.Imagem;
 public final class SindicatoFc extends JFrame implements Gui {
 
 	private ConfiguracaoGui configuracaoGui;
-	private SindicatoCont sindicatoCont;
+	private SindicatoControl sindicatoControl;
 	private SindicatoPc sindicatoPc;
 
 	public SindicatoFc() {
@@ -42,8 +42,8 @@ public final class SindicatoFc extends JFrame implements Gui {
 		return configuracaoGui;
 	}
 
-	public SindicatoCont getSindicatoCont() {
-		return sindicatoCont;
+	public SindicatoControl getSindicatoCont() {
+		return sindicatoControl;
 	}
 
 	public SindicatoPc getSindicatoPc() {
@@ -53,19 +53,19 @@ public final class SindicatoFc extends JFrame implements Gui {
 	@Override
 	public void iniciarControlador() {
 		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
-		sindicatoCont = new SindicatoCont();
-		addWindowListener(sindicatoCont.new Frame());
-		sindicatoPc.getTB().getExcluirBtn().addActionListener(sindicatoCont.new Exclui());
-		sindicatoPc.getTB().getNovoBtn().addActionListener(sindicatoCont.new Novo());
-		sindicatoPc.getTB().getPesquisarBtn().addActionListener(sindicatoCont.new Pesquisa());
-		sindicatoPc.getTB().getImprimirBtn().addActionListener(sindicatoCont.new Imprime());
-		sindicatoPc.getTB().getRelatorioBtn().addActionListener(sindicatoCont.new Relatorio());
-		sindicatoPc.getTB().getSalvarBtn().addActionListener(sindicatoCont.new Salva());
-		sindicatoPc.getTB().getFecharBtn().addActionListener(sindicatoCont.new FechaJanela());
-		sindicatoPc.getTB().getSairBtn().addActionListener(sindicatoCont.new SaidaSistema());
-		sindicatoPc.getTB().getAjudaBtn().addActionListener(sindicatoCont.new Ajuda());
-		sindicatoPc.getTB().getHomeBtn().addActionListener(sindicatoCont.new Home());
-		sindicatoPc.getTB().getRegistrosBtn().addActionListener(sindicatoCont.new Registro());
+		sindicatoControl = new SindicatoControl();
+		addWindowListener(sindicatoControl.new Frame());
+		sindicatoPc.getTB().getExcluirBtn().addActionListener(sindicatoControl.new Exclui());
+		sindicatoPc.getTB().getNovoBtn().addActionListener(sindicatoControl.new Novo());
+		sindicatoPc.getTB().getPesquisarBtn().addActionListener(sindicatoControl.new Pesquisa());
+		sindicatoPc.getTB().getImprimirBtn().addActionListener(sindicatoControl.new Imprime());
+		sindicatoPc.getTB().getRelatorioBtn().addActionListener(sindicatoControl.new Relatorio());
+		sindicatoPc.getTB().getSalvarBtn().addActionListener(sindicatoControl.new Salva());
+		sindicatoPc.getTB().getFecharBtn().addActionListener(sindicatoControl.new FechaJanela());
+		sindicatoPc.getTB().getSairBtn().addActionListener(sindicatoControl.new SaidaSistema());
+		sindicatoPc.getTB().getAjudaBtn().addActionListener(sindicatoControl.new Ajuda());
+		sindicatoPc.getTB().getHomeBtn().addActionListener(sindicatoControl.new Home());
+		sindicatoPc.getTB().getRegistrosBtn().addActionListener(sindicatoControl.new Registro());
 	}
 
 	@Override

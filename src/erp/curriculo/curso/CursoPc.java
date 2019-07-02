@@ -21,7 +21,7 @@ import arquitetura.validacao.Mascara;
 import erp.funcionario.Funcionario;
 import erp.funcionario.FuncionarioComp;
 import erp.funcionario.FuncionarioFac;
-import erp.main.MainCont;
+import erp.main.MainControl;
 
 @SuppressWarnings("serial")
 public final class CursoPc extends JPanel implements Gui {
@@ -222,9 +222,9 @@ public final class CursoPc extends JPanel implements Gui {
 		for (Funcionario b : funcionarios) {
 			boxFuncionario.addItem(b);
 		}
-		if (!MainCont.getCurriculoCursoFc().isShowing()
-				&& MainCont.getCurriculoCursoFc().getCursoCont().getCurso() != null) {
-			funcionario = MainCont.getCurriculoCursoFc().getCursoCont().getCurso().getFuncionario();
+		if (!MainControl.getCurriculoCursoFc().isShowing()
+				&& MainControl.getCurriculoCursoFc().getCursoCont().getCurso() != null) {
+			funcionario = MainControl.getCurriculoCursoFc().getCursoCont().getCurso().getFuncionario();
 			boxFuncionario.setSelectedItem(funcionario);
 		}
 	}
