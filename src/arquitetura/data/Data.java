@@ -10,11 +10,21 @@ import arquitetura.Sis;
 
 public class Data {
 
-	public static String getDataHoraSimples() {
+	public static String getData() {
 		Locale locale = Sis.getLocale();
 		Calendar calendar = new GregorianCalendar();
 		String data = getDia(calendar.get(Calendar.DAY_OF_WEEK));
-		DateFormat dateFormat = new SimpleDateFormat(" - [ dd-MM-yyyy ] - [ HH:mm:ss ]", locale);
+		DateFormat dateFormat = new SimpleDateFormat("-dd-MM-yyyy", locale);
+		data += dateFormat.format(calendar.getTime());
+		return data;
+	}
+
+	public static String getDataHoraArquivo() {
+		Locale locale = Sis.getLocale();
+		Calendar calendar = new GregorianCalendar();
+
+		String data = "";
+		DateFormat dateFormat = new SimpleDateFormat("[yyyy-MM-dd]-[HH-mm-ss]", locale);
 		data += dateFormat.format(calendar.getTime());
 		return data;
 	}
@@ -31,31 +41,11 @@ public class Data {
 		return data;
 	}
 
-	public static String getDataHoraArquivo() {
-		Locale locale = Sis.getLocale();
-		Calendar calendar = new GregorianCalendar();
-
-		String data = "";
-		DateFormat dateFormat = new SimpleDateFormat("[yyyy-MM-dd]-[HH-mm-ss]", locale);
-		data += dateFormat.format(calendar.getTime());
-		return data;
-	}
-
-	public static String getData() {
+	public static String getDataHoraSimples() {
 		Locale locale = Sis.getLocale();
 		Calendar calendar = new GregorianCalendar();
 		String data = getDia(calendar.get(Calendar.DAY_OF_WEEK));
-		DateFormat dateFormat = new SimpleDateFormat("-dd-MM-yyyy", locale);
-		data += dateFormat.format(calendar.getTime());
-		return data;
-	}
-
-	public static String getHora() {
-		Locale locale = Sis.getLocale();
-		Calendar calendar = new GregorianCalendar();
-
-		String data = "";
-		DateFormat dateFormat = new SimpleDateFormat("HH:mm:ss.SSSS", locale);
+		DateFormat dateFormat = new SimpleDateFormat(" - [ dd-MM-yyyy ] - [ HH:mm:ss ]", locale);
 		data += dateFormat.format(calendar.getTime());
 		return data;
 	}
@@ -88,6 +78,16 @@ public class Data {
 			break;
 		}
 		return nome;
+	}
+
+	public static String getHora() {
+		Locale locale = Sis.getLocale();
+		Calendar calendar = new GregorianCalendar();
+
+		String data = "";
+		DateFormat dateFormat = new SimpleDateFormat("HH:mm:ss.SSSS", locale);
+		data += dateFormat.format(calendar.getTime());
+		return data;
 	}
 
 	private Data() {

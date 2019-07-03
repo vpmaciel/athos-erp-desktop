@@ -20,8 +20,8 @@ import arquitetura.gui.Gui;
 public final class FuncionarioFc extends JFrame implements Gui {
 
 	private ConfiguracaoGui configuracaoGui;
-	private FuncionarioControl funcionarioControl;
 	private FuncionarioPc curriculoPc;
+	private FuncionarioControl funcionarioControl;
 
 	public FuncionarioFc() {
 		iniciarLayout();

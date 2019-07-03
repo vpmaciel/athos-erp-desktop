@@ -32,21 +32,6 @@ public final class Mascara {
 		return mascara;
 	}
 
-	public static final MaskFormatter getEnderecoCep() {
-		MaskFormatter mascara = null;
-		try {
-			mascara = new MaskFormatter("#####-###");
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
-		mascara.setPlaceholder("00000-000");
-		return mascara;
-	}
-
-	public static final String getEnderecoCepVazio() {
-		return "     -   ";
-	}
-
 	public static final MaskFormatter getCnpj() {
 		MaskFormatter mascara = null;
 		try {
@@ -112,6 +97,21 @@ public final class Mascara {
 
 	public static final String getDataVazio() {
 		return "  /  /    ";
+	}
+
+	public static final MaskFormatter getEnderecoCep() {
+		MaskFormatter mascara = null;
+		try {
+			mascara = new MaskFormatter("#####-###");
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		mascara.setPlaceholder("00000-000");
+		return mascara;
+	}
+
+	public static final String getEnderecoCepVazio() {
+		return "     -   ";
 	}
 
 	public static final MaskFormatter getFax() {

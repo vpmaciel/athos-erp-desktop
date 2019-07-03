@@ -135,18 +135,6 @@ public final class VeiculoPc extends JPanel implements Gui {
 		return configuracaoGui;
 	}
 
-	public JLabel getLabelCentroCusto() {
-		return labelCentroCusto;
-	}
-
-	public JLabel getLabelVeiculoMarca() {
-		return labelVeiculoMarca;
-	}
-
-	public JLabel getLabelVeiculoModelo() {
-		return labelVeiculoModelo;
-	}
-
 	public JComboBox<String> getGuiAdaptadoDeficiente() {
 		return boxAdaptadoDeficiente;
 	}
@@ -465,6 +453,18 @@ public final class VeiculoPc extends JPanel implements Gui {
 
 	public JComboBox<String> getGuiZeroKm() {
 		return boxZeroKm;
+	}
+
+	public JLabel getLabelCentroCusto() {
+		return labelCentroCusto;
+	}
+
+	public JLabel getLabelVeiculoMarca() {
+		return labelVeiculoMarca;
+	}
+
+	public JLabel getLabelVeiculoModelo() {
+		return labelVeiculoModelo;
 	}
 
 	public ToolBar getToolBar() {

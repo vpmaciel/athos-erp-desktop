@@ -15,11 +15,11 @@ import arquitetura.data.Data;
 
 public class BancoArqOds {
 
-	Object[][] dados;
-	String[] colunas = new String[] { "BANCO", "CÓDIGO" };
-	TableModel tableModel;
-	File file;
 	private final String arquivo = Sis.getCaminhoDiretorioOds() + "[banco]-" + Data.getDataHoraArquivo() + ".ods";
+	String[] colunas = new String[] { "BANCO", "CÓDIGO" };
+	Object[][] dados;
+	File file;
+	TableModel tableModel;
 
 	public BancoArqOds(List<Banco> listBanco) {
 

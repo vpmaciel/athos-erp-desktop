@@ -17,23 +17,18 @@ public class Imagem {
 		recursos = Imagem.class.getClassLoader();
 	}
 
-	public static ImageIcon getCsv() {
-		imageIcon = new ImageIcon(recursos.getResource("arquitetura/gui/imagem/csv_32px.png"));
-		return imageIcon;
-	}
-
-	public static ImageIcon getJson() {
-		imageIcon = new ImageIcon(recursos.getResource("arquitetura/gui/imagem/json_32px.png"));
-		return imageIcon;
-	}
-
-	public static ImageIcon getXml() {
-		imageIcon = new ImageIcon(recursos.getResource("arquitetura/gui/imagem/xml_2_32px.png"));
-		return imageIcon;
-	}
-
 	public static ImageIcon getAjudar() {
 		imageIcon = new ImageIcon(recursos.getResource("arquitetura/gui/imagem/help_32px.png"));
+		return imageIcon;
+	}
+
+	public static ImageIcon getAnalise() {
+		imageIcon = new ImageIcon(recursos.getResource("arquitetura/gui/imagem/brain_32px.png"));
+		return imageIcon;
+	}
+
+	public static ImageIcon getCsv() {
+		imageIcon = new ImageIcon(recursos.getResource("arquitetura/gui/imagem/csv_32px.png"));
 		return imageIcon;
 	}
 
@@ -52,8 +47,18 @@ public class Imagem {
 		return imageIcon;
 	}
 
+	public static ImageIcon getExportar() {
+		imageIcon = new ImageIcon(recursos.getResource("arquitetura/gui/imagem/export_32px.png"));
+		return imageIcon;
+	}
+
 	public static ImageIcon getFechar() {
 		imageIcon = new ImageIcon(recursos.getResource("arquitetura/gui/imagem/close_window_32px.png"));
+		return imageIcon;
+	}
+
+	public static ImageIcon getGrafico() {
+		imageIcon = new ImageIcon(recursos.getResource("arquitetura/gui/imagem/combo_chart_32px.png"));
 		return imageIcon;
 	}
 
@@ -62,8 +67,23 @@ public class Imagem {
 		return imageIcon;
 	}
 
+	public static ImageIcon getImportar() {
+		imageIcon = new ImageIcon(recursos.getResource("arquitetura/gui/imagem/import_32px.png"));
+		return imageIcon;
+	}
+
 	public static ImageIcon getImprime() {
 		imageIcon = new ImageIcon(recursos.getResource("arquitetura/gui/imagem/print_32px.png"));
+		return imageIcon;
+	}
+
+	public static ImageIcon getJson() {
+		imageIcon = new ImageIcon(recursos.getResource("arquitetura/gui/imagem/json_32px.png"));
+		return imageIcon;
+	}
+
+	public static ImageIcon getLogoTelaInicialImageIcon() {
+		imageIcon = new ImageIcon(recursos.getResource("arquitetura/gui/imagem/inicial.png"));
 		return imageIcon;
 	}
 
@@ -78,8 +98,8 @@ public class Imagem {
 		return imageIcon;
 	}
 
-	public static ImageIcon getLogoTelaInicialImageIcon() {
-		imageIcon = new ImageIcon(recursos.getResource("arquitetura/gui/imagem/inicial.png"));
+	public static ImageIcon getNegocios() {
+		imageIcon = new ImageIcon(recursos.getResource("arquitetura/gui/imagem/business_32px.png"));
 		return imageIcon;
 	}
 
@@ -108,36 +128,6 @@ public class Imagem {
 		return imageIcon;
 	}
 
-	public static ImageIcon getGrafico() {
-		imageIcon = new ImageIcon(recursos.getResource("arquitetura/gui/imagem/combo_chart_32px.png"));
-		return imageIcon;
-	}
-
-	public static ImageIcon getImportar() {
-		imageIcon = new ImageIcon(recursos.getResource("arquitetura/gui/imagem/import_32px.png"));
-		return imageIcon;
-	}
-
-	public static ImageIcon getExportar() {
-		imageIcon = new ImageIcon(recursos.getResource("arquitetura/gui/imagem/export_32px.png"));
-		return imageIcon;
-	}
-
-	public static ImageIcon getAnalise() {
-		imageIcon = new ImageIcon(recursos.getResource("arquitetura/gui/imagem/brain_32px.png"));
-		return imageIcon;
-	}
-
-	public static ImageIcon getNegocios() {
-		imageIcon = new ImageIcon(recursos.getResource("arquitetura/gui/imagem/business_32px.png"));
-		return imageIcon;
-	}
-
-	public static ImageIcon getTxt() {
-		imageIcon = new ImageIcon(recursos.getResource("arquitetura/gui/imagem/txt_32px.png"));
-		return imageIcon;
-	}
-
 	public static ImageIcon getSair() {
 		imageIcon = new ImageIcon(recursos.getResource("arquitetura/gui/imagem/shutdown_32px.png"));
 		return imageIcon;
@@ -150,6 +140,16 @@ public class Imagem {
 
 	public static ImageIcon getSobre() {
 		imageIcon = new ImageIcon(recursos.getResource("arquitetura/gui/imagem/info_32px.png"));
+		return imageIcon;
+	}
+
+	public static ImageIcon getTxt() {
+		imageIcon = new ImageIcon(recursos.getResource("arquitetura/gui/imagem/txt_32px.png"));
+		return imageIcon;
+	}
+
+	public static ImageIcon getXml() {
+		imageIcon = new ImageIcon(recursos.getResource("arquitetura/gui/imagem/xml_2_32px.png"));
 		return imageIcon;
 	}
 }

@@ -27,18 +27,18 @@ import erp.veiculo.VeiculoFac;
 public final class DocumentoPc extends JPanel implements Gui {
 
 	private JComboBox<String> boxLocalDocumento;
-	private JComboBox<String> boxSituacaoDocumento;
-	private JComboBox<String> boxMesRecebimentoDocumento;
-	private JTextField fieldAnoRecebimentoDocumento;
 	private JComboBox<String> boxMesDevolucaoDocumento;
-	private JTextField fieldAnoDevolucaoDocumento;
-	private ConfiguracaoGui configuracaoGui;
+	private JComboBox<String> boxMesRecebimentoDocumento;
+	private JComboBox<String> boxSituacaoDocumento;
 	private JComboBox<Veiculo> boxVeiculo;
+	private ConfiguracaoGui configuracaoGui;
+	private JTextField fieldAnoDevolucaoDocumento;
+	private JTextField fieldAnoRecebimentoDocumento;
 	private JFormattedTextField fieldCNPJRecebedorDocumento;
-	private JTextField fieldNomeProprietário;
 	private JFormattedTextField fieldCPFRecebedorDocumento;
 	private JTextField fieldDiaDevolucaoDocumento;
 	private JTextField fieldDiaRecebimentoDocumento;
+	private JTextField fieldNomeProprietário;
 	private JTextField fieldNomeRecebedorDocumento;
 	private JTextField fieldRGNumeroRecebedorDocumento;
 	private JTextField fieldRGOrgaoEmisssorRecebedorDocumento;
@@ -52,44 +52,26 @@ public final class DocumentoPc extends JPanel implements Gui {
 		iniciarGuiControlador();
 	}
 
-	public JLabel getLabelVeiculo() {
-		return labelVeiculo;
+	@Override
+	public void atualizarTable() {
+
 	}
 
-	public JComboBox<String> getGuiMesRecebimentoDocumento() {
-		return boxMesRecebimentoDocumento;
-	}
-
-	public JTextField getGuiAnoRecebimentoDocumento() {
-		return fieldAnoRecebimentoDocumento;
-	}
-
-	public JComboBox<String> getGuiMesDevolucaoDocumento() {
-		return boxMesDevolucaoDocumento;
+	@Override
+	public ConfiguracaoGui getConfiguracaoGui() {
+		return configuracaoGui;
 	}
 
 	public JTextField getGuiAnoDevolucaoDocumento() {
 		return fieldAnoDevolucaoDocumento;
 	}
 
-	public JComboBox<String> getGuiLocalDocumento() {
-		return boxLocalDocumento;
-	}
-
-	public JComboBox<String> getGuiSituacaoDocumento() {
-		return boxSituacaoDocumento;
-	}
-
-	public JComboBox<Veiculo> getGuiVeiculo() {
-		return boxVeiculo;
+	public JTextField getGuiAnoRecebimentoDocumento() {
+		return fieldAnoRecebimentoDocumento;
 	}
 
 	public JTextField getGuiCNPJRecebedorDocumento() {
 		return fieldCNPJRecebedorDocumento;
-	}
-
-	public JTextField getGuiNomeProprietário() {
-		return fieldNomeProprietário;
 	}
 
 	public JFormattedTextField getGuiCPFRecebedorDocumento() {
@@ -104,6 +86,22 @@ public final class DocumentoPc extends JPanel implements Gui {
 		return fieldDiaRecebimentoDocumento;
 	}
 
+	public JComboBox<String> getGuiLocalDocumento() {
+		return boxLocalDocumento;
+	}
+
+	public JComboBox<String> getGuiMesDevolucaoDocumento() {
+		return boxMesDevolucaoDocumento;
+	}
+
+	public JComboBox<String> getGuiMesRecebimentoDocumento() {
+		return boxMesRecebimentoDocumento;
+	}
+
+	public JTextField getGuiNomeProprietário() {
+		return fieldNomeProprietário;
+	}
+
 	public JTextField getGuiNomeRecebedorDocumento() {
 		return fieldNomeRecebedorDocumento;
 	}
@@ -116,14 +114,16 @@ public final class DocumentoPc extends JPanel implements Gui {
 		return fieldRGOrgaoEmisssorRecebedorDocumento;
 	}
 
-	@Override
-	public void atualizarTable() {
-
+	public JComboBox<String> getGuiSituacaoDocumento() {
+		return boxSituacaoDocumento;
 	}
 
-	@Override
-	public ConfiguracaoGui getConfiguracaoGui() {
-		return configuracaoGui;
+	public JComboBox<Veiculo> getGuiVeiculo() {
+		return boxVeiculo;
+	}
+
+	public JLabel getLabelVeiculo() {
+		return labelVeiculo;
 	}
 
 	public ToolBar getTB() {

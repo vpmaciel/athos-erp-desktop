@@ -21,8 +21,6 @@ import erp.usuario.UsuarioFac;
 
 public class LoginControl {
 
-	final static Logger logger = Logger.getLogger(Usuario.class);
-
 	public class ButtonEntrar implements ActionListener {
 
 		@Override
@@ -89,6 +87,8 @@ public class LoginControl {
 			MainControl.getLoginFc().setVisible(false);
 		}
 	}
+
+	final static Logger logger = Logger.getLogger(Usuario.class);
 
 	private static final int MAXIMO_LOGIN_TENTATIVAS = 3;
 

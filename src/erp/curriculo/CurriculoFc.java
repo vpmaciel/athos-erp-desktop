@@ -20,9 +20,9 @@ import arquitetura.gui.Imagem;
 @SuppressWarnings("serial")
 public final class CurriculoFc extends JFrame implements Gui {
 
+	private ConfiguracaoGui configuracaoGui;
 	private CurriculoControl curriculoControl;
 	private CurriculoPc curriculoPc;
-	private ConfiguracaoGui configuracaoGui;
 
 	public CurriculoFc() {
 		iniciarLayout();
@@ -37,17 +37,17 @@ public final class CurriculoFc extends JFrame implements Gui {
 
 	}
 
+	@Override
+	public ConfiguracaoGui getConfiguracaoGui() {
+		return configuracaoGui;
+	}
+
 	public CurriculoControl getCurriculoCont() {
 		return curriculoControl;
 	}
 
 	public CurriculoPc getCurriculoPc() {
 		return curriculoPc;
-	}
-
-	@Override
-	public ConfiguracaoGui getConfiguracaoGui() {
-		return configuracaoGui;
 	}
 
 	@Override

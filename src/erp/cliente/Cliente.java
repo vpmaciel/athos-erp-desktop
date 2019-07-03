@@ -26,22 +26,14 @@ public class Cliente implements Serializable {
 
 	@Column(length = 4)
 	private String anoReferenciaCadastro;
-	@Column(length = 50)
-	private String enderecoBairro;
 	@ManyToOne(cascade = CascadeType.ALL)
 	private Banco banco;
 	@Column(length = 50)
 	private String cargo;
-	@Column(length = 10)
-	private String enderecoCep;
-	@Column(length = 50)
-	private String enderecoCidade;
 	@Column(length = 50)
 	private String classeEconomica;
 	@Column(length = 19)
 	private String cnpj;
-	@Column(length = 20)
-	private String enderecoComplemento;
 	@Column(length = 14)
 	private String cpf;
 	@Column(length = 10)
@@ -54,12 +46,22 @@ public class Cliente implements Serializable {
 	private String email;
 	@ManyToOne(cascade = CascadeType.ALL)
 	private Empresa empresa;
-	@Column(length = 24)
-	private String escolaridade;
+	@Column(length = 50)
+	private String enderecoBairro;
+	@Column(length = 10)
+	private String enderecoCep;
+	@Column(length = 50)
+	private String enderecoCidade;
+	@Column(length = 20)
+	private String enderecoComplemento;
 	@Column(length = 50)
 	private String enderecoEstado;
 	@Column(length = 14)
 	private String enderecoEstadoCivil;
+	@Column(length = 50)
+	private String enderecoLogradouro;
+	@Column(length = 24)
+	private String escolaridade;
 	@Column(length = 20)
 	private String fax;
 	@Column(length = 20)
@@ -77,8 +79,6 @@ public class Cliente implements Serializable {
 	private Long id;
 	@Column(length = 3)
 	private String idade;
-	@Column(length = 50)
-	private String enderecoLogradouro;
 	@Column(length = 9)
 	private String mesReferenciaCadastro;
 	@Column(length = 31)
@@ -122,10 +122,6 @@ public class Cliente implements Serializable {
 		return anoReferenciaCadastro;
 	}
 
-	public String getEnderecoBairro() {
-		return this.enderecoBairro;
-	}
-
 	public Banco getBanco() {
 		return banco;
 	}
@@ -134,24 +130,12 @@ public class Cliente implements Serializable {
 		return this.cargo;
 	}
 
-	public String getEnderecoCep() {
-		return this.enderecoCep;
-	}
-
-	public String getEnderecoCidade() {
-		return this.enderecoCidade;
-	}
-
 	public String getClasseEconomica() {
 		return this.classeEconomica;
 	}
 
 	public String getCnpj() {
 		return this.cnpj;
-	}
-
-	public String getEnderecoComplemento() {
-		return this.enderecoComplemento;
 	}
 
 	public String getCpf() {
@@ -178,8 +162,20 @@ public class Cliente implements Serializable {
 		return this.empresa;
 	}
 
-	public String getEscolaridade() {
-		return escolaridade;
+	public String getEnderecoBairro() {
+		return this.enderecoBairro;
+	}
+
+	public String getEnderecoCep() {
+		return this.enderecoCep;
+	}
+
+	public String getEnderecoCidade() {
+		return this.enderecoCidade;
+	}
+
+	public String getEnderecoComplemento() {
+		return this.enderecoComplemento;
 	}
 
 	public String getEnderecoEstado() {
@@ -188,6 +184,14 @@ public class Cliente implements Serializable {
 
 	public String getEnderecoEstadoCivil() {
 		return this.enderecoEstadoCivil;
+	}
+
+	public String getEnderecoLogradouro() {
+		return this.enderecoLogradouro;
+	}
+
+	public String getEscolaridade() {
+		return escolaridade;
 	}
 
 	public String getFax() {
@@ -220,10 +224,6 @@ public class Cliente implements Serializable {
 
 	public String getIdade() {
 		return idade;
-	}
-
-	public String getEnderecoLogradouro() {
-		return this.enderecoLogradouro;
 	}
 
 	public String getMesReferenciaCadastro() {
@@ -298,10 +298,6 @@ public class Cliente implements Serializable {
 		this.anoReferenciaCadastro = anoReferenciaCadastro;
 	}
 
-	public void setEnderecoBairro(String enderecoBairro) {
-		this.enderecoBairro = enderecoBairro;
-	}
-
 	public void setBanco(Banco banco) {
 		this.banco = banco;
 	}
@@ -310,24 +306,12 @@ public class Cliente implements Serializable {
 		this.cargo = cargo;
 	}
 
-	public void setEnderecoCep(String enderecoCep) {
-		this.enderecoCep = enderecoCep;
-	}
-
-	public void setEnderecoCidade(String enderecoCidade) {
-		this.enderecoCidade = enderecoCidade;
-	}
-
 	public void setClasseEconomica(String classeEconomica) {
 		this.classeEconomica = classeEconomica;
 	}
 
 	public void setCnpj(String cnpj) {
 		this.cnpj = cnpj;
-	}
-
-	public void setEnderecoComplemento(String enderecoComplemento) {
-		this.enderecoComplemento = enderecoComplemento;
 	}
 
 	public void setCpf(String cpf) {
@@ -354,8 +338,20 @@ public class Cliente implements Serializable {
 		this.empresa = empresa;
 	}
 
-	public void setEscolaridade(String escolaridade) {
-		this.escolaridade = escolaridade;
+	public void setEnderecoBairro(String enderecoBairro) {
+		this.enderecoBairro = enderecoBairro;
+	}
+
+	public void setEnderecoCep(String enderecoCep) {
+		this.enderecoCep = enderecoCep;
+	}
+
+	public void setEnderecoCidade(String enderecoCidade) {
+		this.enderecoCidade = enderecoCidade;
+	}
+
+	public void setEnderecoComplemento(String enderecoComplemento) {
+		this.enderecoComplemento = enderecoComplemento;
 	}
 
 	public void setEnderecoEstado(String enderecoEstado) {
@@ -364,6 +360,14 @@ public class Cliente implements Serializable {
 
 	public void setEnderecoEstadoCivil(String enderecoEstadoCivil) {
 		this.enderecoEstadoCivil = enderecoEstadoCivil;
+	}
+
+	public void setEnderecoLogradouro(String enderecoLogradouro) {
+		this.enderecoLogradouro = enderecoLogradouro;
+	}
+
+	public void setEscolaridade(String escolaridade) {
+		this.escolaridade = escolaridade;
 	}
 
 	public void setFax(String fax) {
@@ -396,10 +400,6 @@ public class Cliente implements Serializable {
 
 	public void setIdade(String idade) {
 		this.idade = idade;
-	}
-
-	public void setEnderecoLogradouro(String enderecoLogradouro) {
-		this.enderecoLogradouro = enderecoLogradouro;
 	}
 
 	public void setMesReferenciaCadastro(String mesReferenciaCadastro) {

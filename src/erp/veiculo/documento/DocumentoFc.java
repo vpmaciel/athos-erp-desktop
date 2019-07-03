@@ -20,9 +20,9 @@ import arquitetura.gui.Imagem;
 @SuppressWarnings("serial")
 public final class DocumentoFc extends JFrame implements Gui {
 
+	private ConfiguracaoGui configuracaoGui;
 	private DocumentoControl documentoControl;
 	private DocumentoPc documentoPc;
-	private ConfiguracaoGui configuracaoGui;
 
 	public DocumentoFc() {
 		iniciarLayout();
@@ -37,17 +37,17 @@ public final class DocumentoFc extends JFrame implements Gui {
 
 	}
 
+	@Override
+	public ConfiguracaoGui getConfiguracaoGui() {
+		return configuracaoGui;
+	}
+
 	public DocumentoControl getDocumentoCont() {
 		return documentoControl;
 	}
 
 	public DocumentoPc getDocumentoPc() {
 		return documentoPc;
-	}
-
-	@Override
-	public ConfiguracaoGui getConfiguracaoGui() {
-		return configuracaoGui;
 	}
 
 	@Override

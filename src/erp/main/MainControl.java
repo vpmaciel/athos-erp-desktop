@@ -405,7 +405,6 @@ public final class MainControl {
 
 	private static BancoFc bancoFc;
 	private static BancoFp bancoFp;
-	private static ImcFc imcFc;
 	private static CalculadoraFc calculadoraFc;
 	private static CartorioFc cartorioFc;
 	private static CartorioFp cartorioFp;
@@ -423,6 +422,8 @@ public final class MainControl {
 	private static CursoFp curriculoCursoFp;
 	private static ExperienciaProfissionalFc curriculoExperienciaProfissionalFc;
 	private static ExperienciaProfissionalFp curriculoExperienciaProfissionalFp;
+	private static CurriculoFc curriculoFc;
+	private static CurriculoFp curriculoFp;
 	private static HabilidadeFc curriculoHabilidadeFc;
 	private static HabilidadeFp curriculoHabilidadeFp;
 	private static IdiomaFc curriculoIdiomaFc;
@@ -431,10 +432,10 @@ public final class MainControl {
 	private static ObjetivoProfissionalFp curriculoObjetivoProfissionalFp;
 	private static TesteAvalPrefCerFc curriculoTesteAvalPrefCerFc;
 	private static TesteAvalPrefCerFp curriculoTesteAvalPrefCerFp;
-	private static TestePerfilCompFc curriculoTestePerfilCompFc;
-	private static TestePerfilCompFp curriculoTestePerfilCompFp;
 	private static TesteDISCFc curriculoTesteDISCFc;
 	private static TesteDISCFp curriculoTesteDISCFp;
+	private static TestePerfilCompFc curriculoTestePerfilCompFc;
+	private static TestePerfilCompFp curriculoTestePerfilCompFp;
 	private static EditorTextoFc editorTextoFc;
 	private static EmpresaFc empresaFc;
 	private static EmpresaFp empresaFp;
@@ -444,8 +445,7 @@ public final class MainControl {
 	private static FornecedorFp fornecedorFp;
 	private static FuncionarioFc funcionarioFc;
 	private static FuncionarioFp funcionarioFp;
-	private static CurriculoFc curriculoFc;
-	private static CurriculoFp curriculoFp;
+	private static ImcFc imcFc;
 	private static ImovelFc imovelFc;
 	private static ImovelFp imovelFp;
 	private static LoginFc loginFc;
@@ -460,14 +460,14 @@ public final class MainControl {
 	private static int totalPrincipalCont;
 	private static UsuarioFc usuarioFc;
 	private static UsuarioFp usuarioFp;
+	private static DocumentoFc veiculoDocumentoFc;
+	private static DocumentoFp veiculoDocumentoFp;
 	private static VeiculoFc veiculoFc;
 	private static VeiculoFp veiculoFp;
 	private static VeiculoMarcaFc veiculoMarcaFc;
 	private static VeiculoMarcaFp veiculoMarcaFp;
 	private static VeiculoModeloFc veiculoModeloFc;
 	private static VeiculoModeloFp veiculoModeloFp;
-	private static DocumentoFc veiculoDocumentoFc;
-	private static DocumentoFp veiculoDocumentoFp;
 
 	static {
 		totalPrincipalCont = 0;
@@ -501,10 +501,6 @@ public final class MainControl {
 		return tipoEventoFc;
 	}
 	
-	public static ImcFc getImcFc() {
-		return imcFc;
-	}
-
 	public static TipoEventoFp getAgendaTipoEventoFp() {
 		return tipoEventoFp;
 	}
@@ -577,6 +573,14 @@ public final class MainControl {
 		return curriculoExperienciaProfissionalFp;
 	}
 
+	public static CurriculoFc getCurriculoFc() {
+		return curriculoFc;
+	}
+
+	public static CurriculoFp getCurriculoFp() {
+		return curriculoFp;
+	}
+
 	public static HabilidadeFc getCurriculoHabilidadeFc() {
 		return curriculoHabilidadeFc;
 	}
@@ -609,20 +613,20 @@ public final class MainControl {
 		return curriculoTesteAvalPrefCerFp;
 	}
 
-	public static TestePerfilCompFc getCurriculoTestePerfilCompFc() {
-		return curriculoTestePerfilCompFc;
-	}
-
-	public static TestePerfilCompFp getCurriculoTestePerfilCompFp() {
-		return curriculoTestePerfilCompFp;
-	}
-
 	public static TesteDISCFc getCurriculoTesteDISCFc() {
 		return curriculoTesteDISCFc;
 	}
 
 	public static TesteDISCFp getCurriculoTesteDISCFp() {
 		return curriculoTesteDISCFp;
+	}
+
+	public static TestePerfilCompFc getCurriculoTestePerfilCompFc() {
+		return curriculoTestePerfilCompFc;
+	}
+
+	public static TestePerfilCompFp getCurriculoTestePerfilCompFp() {
+		return curriculoTestePerfilCompFp;
 	}
 
 	public static EditorTextoFc getEditorTextoFc() {
@@ -653,12 +657,8 @@ public final class MainControl {
 		return funcionarioFp;
 	}
 
-	public static CurriculoFc getCurriculoFc() {
-		return curriculoFc;
-	}
-
-	public static CurriculoFp getCurriculoFp() {
-		return curriculoFp;
+	public static ImcFc getImcFc() {
+		return imcFc;
 	}
 
 	public static ImovelFc getImovelFc() {
@@ -705,6 +705,14 @@ public final class MainControl {
 		return usuarioFp;
 	}
 
+	public static DocumentoFc getVeiculoDocumentoFc() {
+		return veiculoDocumentoFc;
+	}
+
+	public static DocumentoFp getVeiculoDocumentoFp() {
+		return veiculoDocumentoFp;
+	}
+
 	public static VeiculoFc getVeiculoFc() {
 		return veiculoFc;
 	}
@@ -727,14 +735,6 @@ public final class MainControl {
 
 	public static VeiculoModeloFp getVeiculoModeloFp() {
 		return veiculoModeloFp;
-	}
-
-	public static DocumentoFc getVeiculoDocumentoFc() {
-		return veiculoDocumentoFc;
-	}
-
-	public static DocumentoFp getVeiculoDocumentoFp() {
-		return veiculoDocumentoFp;
 	}
 
 	public static void mostrarFrame(JFrame frame) {

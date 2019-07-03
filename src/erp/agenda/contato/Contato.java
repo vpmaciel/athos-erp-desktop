@@ -20,16 +20,8 @@ import erp.empresa.Empresa;
 @Table(indexes = { @Index(name = "INDEX_CONTATO_CPF", columnList = "cpf", unique = true),
 		@Index(name = "INDEX_CONTATO_CNPJ", columnList = "cnpj", unique = true) })
 public class Contato implements Serializable {
-	@Column(length = 50)
-	private String enderecoBairro;
-	@Column(length = 15)
-	private String enderecoCep;
-	@Column(length = 50)
-	private String enderecoCidade;
 	@Column(length = 19)
 	private String cnpj;
-	@Column(length = 50)
-	private String enderecoComplemento;
 	@Column(length = 14)
 	private String cpf;
 	@Column(length = 50)
@@ -37,7 +29,17 @@ public class Contato implements Serializable {
 	@ManyToOne(cascade = CascadeType.ALL)
 	private Empresa empresa;
 	@Column(length = 50)
+	private String enderecoBairro;
+	@Column(length = 15)
+	private String enderecoCep;
+	@Column(length = 50)
+	private String enderecoCidade;
+	@Column(length = 50)
+	private String enderecoComplemento;
+	@Column(length = 50)
 	private String enderecoEstado;
+	@Column(length = 50)
+	private String enderecoLogradouro;
 	@Column(length = 16)
 	private String fax;
 	@Column(length = 16)
@@ -48,32 +50,14 @@ public class Contato implements Serializable {
 	@GeneratedValue
 	private Long id;
 	@Column(length = 50)
-	private String enderecoLogradouro;
-	@Column(length = 50)
 	private String nome;
 	@Column(length = 50)
 	private String pais;
 	@Column(length = 9)
 	private String sexo;
 
-	public String getEnderecoBairro() {
-		return this.enderecoBairro;
-	}
-
-	public String getEnderecoCep() {
-		return this.enderecoCep;
-	}
-
-	public String getEnderecoCidade() {
-		return this.enderecoCidade;
-	}
-
 	public String getCnpj() {
 		return this.cnpj;
-	}
-
-	public String getEnderecoComplemento() {
-		return this.enderecoComplemento;
 	}
 
 	public String getCpf() {
@@ -88,8 +72,28 @@ public class Contato implements Serializable {
 		return this.empresa;
 	}
 
+	public String getEnderecoBairro() {
+		return this.enderecoBairro;
+	}
+
+	public String getEnderecoCep() {
+		return this.enderecoCep;
+	}
+
+	public String getEnderecoCidade() {
+		return this.enderecoCidade;
+	}
+
+	public String getEnderecoComplemento() {
+		return this.enderecoComplemento;
+	}
+
 	public String getEnderecoEstado() {
 		return this.enderecoEstado;
+	}
+
+	public String getEnderecoLogradouro() {
+		return this.enderecoLogradouro;
 	}
 
 	public String getFax() {
@@ -108,10 +112,6 @@ public class Contato implements Serializable {
 		return this.id;
 	}
 
-	public String getEnderecoLogradouro() {
-		return this.enderecoLogradouro;
-	}
-
 	public String getNome() {
 		return this.nome;
 	}
@@ -124,24 +124,8 @@ public class Contato implements Serializable {
 		return this.sexo;
 	}
 
-	public void setEnderecoBairro(String enderecoBairro) {
-		this.enderecoBairro = enderecoBairro;
-	}
-
-	public void setEnderecoCep(String enderecoCep) {
-		this.enderecoCep = enderecoCep;
-	}
-
-	public void setEnderecoCidade(String enderecoCidade) {
-		this.enderecoCidade = enderecoCidade;
-	}
-
 	public void setCnpj(String cnpj) {
 		this.cnpj = cnpj;
-	}
-
-	public void setEnderecoComplemento(String enderecoComplemento) {
-		this.enderecoComplemento = enderecoComplemento;
 	}
 
 	public void setCpf(String cpf) {
@@ -156,8 +140,28 @@ public class Contato implements Serializable {
 		this.empresa = empresa;
 	}
 
+	public void setEnderecoBairro(String enderecoBairro) {
+		this.enderecoBairro = enderecoBairro;
+	}
+
+	public void setEnderecoCep(String enderecoCep) {
+		this.enderecoCep = enderecoCep;
+	}
+
+	public void setEnderecoCidade(String enderecoCidade) {
+		this.enderecoCidade = enderecoCidade;
+	}
+
+	public void setEnderecoComplemento(String enderecoComplemento) {
+		this.enderecoComplemento = enderecoComplemento;
+	}
+
 	public void setEnderecoEstado(String enderecoEstado) {
 		this.enderecoEstado = enderecoEstado;
+	}
+
+	public void setEnderecoLogradouro(String enderecoLogradouro) {
+		this.enderecoLogradouro = enderecoLogradouro;
 	}
 
 	public void setFax(String fax) {
@@ -174,10 +178,6 @@ public class Contato implements Serializable {
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public void setEnderecoLogradouro(String enderecoLogradouro) {
-		this.enderecoLogradouro = enderecoLogradouro;
 	}
 
 	public void setNome(String nome) {

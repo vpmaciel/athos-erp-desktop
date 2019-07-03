@@ -19,29 +19,21 @@ import erp.banco.Banco;
 
 public class ArquivoJson<Tipo> {
 
-	private Tipo tipo;
-	private List<Tipo> listTipo = new LinkedList<Tipo>();
 	private String arquivo;
+	private List<Tipo> listTipo = new LinkedList<Tipo>();
+	private Tipo tipo;
 
 	public ArquivoJson(Tipo tipo, String nome) {
 		this.tipo = tipo;
 		arquivo = Sis.getCaminhoDadosJson() + "[" + nome + "]-" + Data.getDataHoraArquivo() + ".json";
 	}
 
-	public Tipo getTipo() {
-		return tipo;
-	}
-
-	public void setTipo(Tipo tipo) {
-		this.tipo = tipo;
-	}
-
 	public List<Tipo> getListTipo() {
 		return listTipo;
 	}
 
-	public void setListTipo(List<Tipo> listTipo) {
-		this.listTipo = listTipo;
+	public Tipo getTipo() {
+		return tipo;
 	}
 
 	public void gravarArquivo(Collection<?> collection) {
@@ -70,5 +62,13 @@ public class ArquivoJson<Tipo> {
 			Msg.erroArquivo();
 		}
 		return listTipo;
+	}
+
+	public void setListTipo(List<Tipo> listTipo) {
+		this.listTipo = listTipo;
+	}
+
+	public void setTipo(Tipo tipo) {
+		this.tipo = tipo;
 	}
 }

@@ -17,10 +17,10 @@ import arquitetura.gui.Msg;
 
 public class BancoArqCsv {
 
-	private final String arquivo = Sis.getCaminhoDadosCsv() + "[banco]-" + Data.getDataHoraArquivo() + ".csv";
+	private final String arquivo = Sis.getCaminhoDadosCsv() + "[erp-banco]-" + Data.getDataHoraArquivo() + ".csv";
 	
-	private final String CSV_SEPARATOR = String.format("%s", "\t");
 	private BufferedWriter bufferedWriter = null;
+	private final String CSV_SEPARATOR = String.format("%s", "\t");
 	private File file;
 
 	public BancoArqCsv(final List<Banco> listBanco) {

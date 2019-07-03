@@ -38,8 +38,6 @@ public class Veiculo implements Serializable {
 	private String anoReferenciaVenda;
 	@Column(length = 18)
 	private String atividade;
-	@Column(length = 50)
-	private String enderecoBairro;
 	@Column(length = 10)
 	private String cambio;
 	@Column(length = 3)
@@ -52,14 +50,10 @@ public class Veiculo implements Serializable {
 	private String categoria;
 	@ManyToOne(cascade = CascadeType.ALL)
 	private CentroCusto centroCusto;
-	@Column(length = 10)
-	private String enderecoCep;
 	@Column(length = 20)
 	private String chassi;
 	@Column(length = 3)
 	private String chassiRemarcado;
-	@Column(length = 50)
-	private String enderecoCidade;
 	@Column(length = 4)
 	private String cilindrada;
 	@Column(length = 2)
@@ -68,8 +62,6 @@ public class Veiculo implements Serializable {
 	private String cmtTon;
 	@Column(length = 32)
 	private String combustivel;
-	@Column(length = 20)
-	private String enderecoComplemento;
 	@Column(length = 8)
 	private String cor;
 	@Column(length = 10)
@@ -81,12 +73,22 @@ public class Veiculo implements Serializable {
 	private double desconto;
 	@Column(length = 2)
 	private String eixos;
+	@Column(length = 50)
+	private String enderecoBairro;
 	@Column(length = 10)
-	private String especie;
+	private String enderecoCep;
+	@Column(length = 50)
+	private String enderecoCidade;
+	@Column(length = 20)
+	private String enderecoComplemento;
 	@Column(length = 50)
 	private String enderecoEstado;
 	@Column(length = 50)
 	private String enderecoEstadoEmplacamento;
+	@Column(length = 50)
+	private String enderecoLogradouro;
+	@Column(length = 10)
+	private String especie;
 	@Column(length = 9)
 	private String fabricacao;
 	@Id
@@ -94,8 +96,6 @@ public class Veiculo implements Serializable {
 	private Long id;
 	@Column(length = 3)
 	private String ipva;
-	@Column(length = 50)
-	private String enderecoLogradouro;
 	@Column(length = 10)
 	private String lucro;
 	@ManyToOne(cascade = CascadeType.ALL)
@@ -210,10 +210,6 @@ public class Veiculo implements Serializable {
 		return atividade;
 	}
 
-	public String getEnderecoBairro() {
-		return enderecoBairro;
-	}
-
 	public String getCambio() {
 		return cambio;
 	}
@@ -238,20 +234,12 @@ public class Veiculo implements Serializable {
 		return centroCusto;
 	}
 
-	public String getEnderecoCep() {
-		return enderecoCep;
-	}
-
 	public String getChassi() {
 		return chassi;
 	}
 
 	public String getChassiRemarcado() {
 		return chassiRemarcado;
-	}
-
-	public String getEnderecoCidade() {
-		return enderecoCidade;
 	}
 
 	public String getCilindrada() {
@@ -268,10 +256,6 @@ public class Veiculo implements Serializable {
 
 	public String getCombustivel() {
 		return combustivel;
-	}
-
-	public String getEnderecoComplemento() {
-		return enderecoComplemento;
 	}
 
 	public String getCor() {
@@ -298,8 +282,20 @@ public class Veiculo implements Serializable {
 		return eixos;
 	}
 
-	public String getEspecie() {
-		return especie;
+	public String getEnderecoBairro() {
+		return enderecoBairro;
+	}
+
+	public String getEnderecoCep() {
+		return enderecoCep;
+	}
+
+	public String getEnderecoCidade() {
+		return enderecoCidade;
+	}
+
+	public String getEnderecoComplemento() {
+		return enderecoComplemento;
 	}
 
 	public String getEnderecoEstado() {
@@ -308,6 +304,14 @@ public class Veiculo implements Serializable {
 
 	public String getEnderecoEstadoEmplacamento() {
 		return enderecoEstadoEmplacamento;
+	}
+
+	public String getEnderecoLogradouro() {
+		return enderecoLogradouro;
+	}
+
+	public String getEspecie() {
+		return especie;
 	}
 
 	public String getFabricacao() {
@@ -320,10 +324,6 @@ public class Veiculo implements Serializable {
 
 	public String getIpva() {
 		return ipva;
-	}
-
-	public String getEnderecoLogradouro() {
-		return enderecoLogradouro;
 	}
 
 	public String getLucro() {
@@ -534,10 +534,6 @@ public class Veiculo implements Serializable {
 		this.atividade = atividade;
 	}
 
-	public void setEnderecoBairro(String enderecoBairro) {
-		this.enderecoBairro = enderecoBairro;
-	}
-
 	public void setCambio(String cambio) {
 		this.cambio = cambio;
 	}
@@ -562,20 +558,12 @@ public class Veiculo implements Serializable {
 		this.centroCusto = centroCusto;
 	}
 
-	public void setEnderecoCep(String enderecoCep) {
-		this.enderecoCep = enderecoCep;
-	}
-
 	public void setChassi(String chassi) {
 		this.chassi = chassi;
 	}
 
 	public void setChassiRemarcado(String chassiRemarcado) {
 		this.chassiRemarcado = chassiRemarcado;
-	}
-
-	public void setEnderecoCidade(String enderecoCidade) {
-		this.enderecoCidade = enderecoCidade;
 	}
 
 	public void setCilindrada(String cilindrada) {
@@ -592,10 +580,6 @@ public class Veiculo implements Serializable {
 
 	public void setCombustivel(String combustivel) {
 		this.combustivel = combustivel;
-	}
-
-	public void setEnderecoComplemento(String enderecoComplemento) {
-		this.enderecoComplemento = enderecoComplemento;
 	}
 
 	public void setCor(String cor) {
@@ -622,8 +606,20 @@ public class Veiculo implements Serializable {
 		this.eixos = eixos;
 	}
 
-	public void setEspecie(String especie) {
-		this.especie = especie;
+	public void setEnderecoBairro(String enderecoBairro) {
+		this.enderecoBairro = enderecoBairro;
+	}
+
+	public void setEnderecoCep(String enderecoCep) {
+		this.enderecoCep = enderecoCep;
+	}
+
+	public void setEnderecoCidade(String enderecoCidade) {
+		this.enderecoCidade = enderecoCidade;
+	}
+
+	public void setEnderecoComplemento(String enderecoComplemento) {
+		this.enderecoComplemento = enderecoComplemento;
 	}
 
 	public void setEnderecoEstado(String enderecoEstado) {
@@ -632,6 +628,14 @@ public class Veiculo implements Serializable {
 
 	public void setEnderecoEstadoEmplacamento(String enderecoEstadoEmplacamento) {
 		this.enderecoEstadoEmplacamento = enderecoEstadoEmplacamento;
+	}
+
+	public void setEnderecoLogradouro(String enderecoLogradouro) {
+		this.enderecoLogradouro = enderecoLogradouro;
+	}
+
+	public void setEspecie(String especie) {
+		this.especie = especie;
 	}
 
 	public void setFabricacao(String fabricacao) {
@@ -644,10 +648,6 @@ public class Veiculo implements Serializable {
 
 	public void setIpva(String ipva) {
 		this.ipva = ipva;
-	}
-
-	public void setEnderecoLogradouro(String enderecoLogradouro) {
-		this.enderecoLogradouro = enderecoLogradouro;
 	}
 
 	public void setLucro(String lucro) {

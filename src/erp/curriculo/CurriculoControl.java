@@ -126,10 +126,6 @@ final class CurriculoControl {
 		funcionario = (Funcionario) getCurriculoPc().getGuiFuncionario().getSelectedItem();
 	}
 
-	public Funcionario getFuncionario() {
-		return funcionario;
-	}
-
 	public CurriculoFc getCurriculoFc() {
 		return MainControl.getCurriculoFc();
 	}
@@ -144,6 +140,10 @@ final class CurriculoControl {
 
 	public CurriculoPp getCurriculoPp() {
 		return MainControl.getCurriculoFp().getCurriculoPp();
+	}
+
+	public Funcionario getFuncionario() {
+		return funcionario;
 	}
 
 	public void setFuncionario(Funcionario Funcionario) {

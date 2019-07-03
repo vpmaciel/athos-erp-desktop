@@ -38,17 +38,6 @@ public class CurriculoTm extends AbstractTableModel {
 		funcionarioList.addAll(lista);
 	}
 
-	public Funcionario getFuncionario(int linha) {
-		if (funcionarioList.size() > 0) {
-			return funcionarioList.get(linha);
-		}
-		return null;
-	}
-
-	public List<Funcionario> getfuncionarioList() {
-		return funcionarioList;
-	}
-
 	@Override
 	public Class<?> getColumnClass(int columnIndex) {
 
@@ -69,6 +58,17 @@ public class CurriculoTm extends AbstractTableModel {
 	@Override
 	public String getColumnName(int column) {
 		return tabelaModelo.getNome(column);
+	}
+
+	public Funcionario getFuncionario(int linha) {
+		if (funcionarioList.size() > 0) {
+			return funcionarioList.get(linha);
+		}
+		return null;
+	}
+
+	public List<Funcionario> getfuncionarioList() {
+		return funcionarioList;
 	}
 
 	@Override

@@ -20,8 +20,8 @@ import erp.funcionario.Funcionario;
 @SuppressWarnings("serial")
 public final class CurriculoPp extends JPanel {
 
-	List<Funcionario> funcionarioList = null;
 	private final CurriculoTm curriculoTm;
+	List<Funcionario> funcionarioList = null;
 	private final JTable table;
 
 	public CurriculoPp() {

@@ -114,6 +114,18 @@ public final class Msg {
 				JOptionPane.YES_NO_OPTION, null, botoesSimNao, botoesSimNao[JOptionPane.INFORMATION_MESSAGE]);
 	}
 
+	public static final void erroAbrirArquivo() {
+		JOptionPane.showMessageDialog(null, "Não foi possível abrir arquivo !", "Erro", JOptionPane.ERROR_MESSAGE);
+	}
+
+	public static final void erroArquivo() {
+		JOptionPane.showMessageDialog(null, "Erro de arquivo !", "Erro", JOptionPane.ERROR_MESSAGE);
+	}
+
+	public static final void erroArquivoNaoEncontrado() {
+		JOptionPane.showMessageDialog(null, "Não foi possível encontrar arquivo !", "Erro", JOptionPane.ERROR_MESSAGE);
+	}
+
 	public static void erroCampoInvalido() {
 		JOptionPane.showMessageDialog(null, "Digitou tecla não permitida para este campo !", "Erro",
 				JOptionPane.ERROR_MESSAGE);
@@ -122,7 +134,11 @@ public final class Msg {
 	public static final void erroCampoNumerico() {
 		JOptionPane.showMessageDialog(null, "Voce deve digitar um número !", "Informação", JOptionPane.ERROR_MESSAGE);
 	}
-
+	
+	public static final void erroCodificacao() {
+		JOptionPane.showMessageDialog(null, "Não foi possível codificar !", "Erro", JOptionPane.ERROR_MESSAGE);
+	}
+	
 	public static final void erroConectarDataBase() {
 		JOptionPane.showMessageDialog(null, "Não foi possível conectar ao banco de dados !", "Erro",
 				JOptionPane.ERROR_MESSAGE);
@@ -132,28 +148,12 @@ public final class Msg {
 		JOptionPane.showMessageDialog(null, "Não foi possível realizar a Consulta", "Erro", JOptionPane.ERROR_MESSAGE);
 	}
 
-	public static final void erroCriarPasta() {
-		JOptionPane.showMessageDialog(null, "Não foi possível criar pasta !", "Erro", JOptionPane.ERROR_MESSAGE);
-	}
-	
 	public static final void erroCriarArquivo() {
 		JOptionPane.showMessageDialog(null, "Não foi possível criar arquivo !", "Erro", JOptionPane.ERROR_MESSAGE);
 	}
 	
-	public static final void erroAbrirArquivo() {
-		JOptionPane.showMessageDialog(null, "Não foi possível abrir arquivo !", "Erro", JOptionPane.ERROR_MESSAGE);
-	}
-
-	public static final void erroArquivoNaoEncontrado() {
-		JOptionPane.showMessageDialog(null, "Não foi possível encontrar arquivo !", "Erro", JOptionPane.ERROR_MESSAGE);
-	}
-
-	public static final void erroArquivo() {
-		JOptionPane.showMessageDialog(null, "Erro de arquivo !", "Erro", JOptionPane.ERROR_MESSAGE);
-	}
-	
-	public static final void erroCodificacao() {
-		JOptionPane.showMessageDialog(null, "Não foi possível codificar !", "Erro", JOptionPane.ERROR_MESSAGE);
+	public static final void erroCriarPasta() {
+		JOptionPane.showMessageDialog(null, "Não foi possível criar pasta !", "Erro", JOptionPane.ERROR_MESSAGE);
 	}
 	
 	public static final void erroDesconectarDataBase() {

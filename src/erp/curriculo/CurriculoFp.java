@@ -26,13 +26,13 @@ public final class CurriculoFp extends JFrame implements Gui {
 
 	}
 
-	public CurriculoPp getCurriculoPp() {
-		return curriculoPp;
-	}
-
 	@Override
 	public ConfiguracaoGui getConfiguracaoGui() {
 		return null;
+	}
+
+	public CurriculoPp getCurriculoPp() {
+		return curriculoPp;
 	}
 
 	@Override

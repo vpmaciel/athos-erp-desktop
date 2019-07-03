@@ -5,12 +5,12 @@ import java.util.List;
 
 public class Reflexao {
 
-	private final Object object;
 	private final Field[] campos;
 	private Class<?> classe;
 	private String[] colunas;
 	private Object[][] dados;
 	private List<?> list;
+	private final Object object;
 
 	public Reflexao(Object object, List<?> list) {
 		this.object = object;

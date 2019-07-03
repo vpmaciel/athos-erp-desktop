@@ -84,18 +84,6 @@ final class DocumentoControl {
 		}
 	}
 
-	public class MostraFrame extends MouseAdapter {
-
-		@Override
-		public void mouseClicked(MouseEvent event) {
-			if (event.getSource() == getDocumentoPc().getLabelVeiculo()) {
-				MainControl.mostrarFrame(MainControl.getVeiculoFc());
-			} else {
-				MainControl.getVeiculoDocumentoFc().reiniciarGui();
-			}
-		}
-	}
-
 	public class Imprime implements ActionListener {
 
 		@Override
@@ -109,6 +97,18 @@ final class DocumentoControl {
 			if (documentos.add(DocumentoFac.getRegistro(documento))) {
 				DocumentoRel documentoRel = new DocumentoRel(documentos);
 				documentoRel.retornarRelatorio(true);
+			}
+		}
+	}
+
+	public class MostraFrame extends MouseAdapter {
+
+		@Override
+		public void mouseClicked(MouseEvent event) {
+			if (event.getSource() == getDocumentoPc().getLabelVeiculo()) {
+				MainControl.mostrarFrame(MainControl.getVeiculoFc());
+			} else {
+				MainControl.getVeiculoDocumentoFc().reiniciarGui();
 			}
 		}
 	}

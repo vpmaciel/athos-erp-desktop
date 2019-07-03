@@ -10,22 +10,6 @@ import arquitetura.Util;
 
 final class ImcControl {
 
-	List<Integer> lista = Util.caracteresNumericosDecimais();
-	private ImcPc imcPc;
-
-	public ImcControl(ImcPc imcPc) {
-		this.imcPc = imcPc;
-	}
-
-	public class SexoEvento implements ActionListener {
-
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			atualizarObjeto();
-			exibirMensagem();
-		}
-	}
-
 	public class AlturaEvento extends KeyAdapter {
 
 		@Override
@@ -45,7 +29,6 @@ final class ImcControl {
 			}
 		}
 	}
-
 	public class PesoEvento extends KeyAdapter {
 
 		@Override
@@ -66,8 +49,25 @@ final class ImcControl {
 		}
 	}
 
+	public class SexoEvento implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			atualizarObjeto();
+			exibirMensagem();
+		}
+	}
+
 	private Imc imc = new Imc();
+
+	private ImcPc imcPc;
+
 	double imcResultado;
+
+	List<Integer> lista = Util.caracteresNumericosDecimais();
+	public ImcControl(ImcPc imcPc) {
+		this.imcPc = imcPc;
+	}
 
 	public void atualizarGui() {
 		if (imc == null) {

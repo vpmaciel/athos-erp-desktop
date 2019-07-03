@@ -46,17 +46,6 @@ public class DocumentoTm extends AbstractTableModel {
 		documentoList.addAll(lista);
 	}
 
-	public Documento getDocumento(int linha) {
-		if (documentoList.size() > 0) {
-			return documentoList.get(linha);
-		}
-		return null;
-	}
-
-	public List<Documento> getDocumentoList() {
-		return documentoList;
-	}
-
 	@Override
 	public Class<?> getColumnClass(int columnIndex) {
 
@@ -74,6 +63,17 @@ public class DocumentoTm extends AbstractTableModel {
 	@Override
 	public String getColumnName(int column) {
 		return tabelaModelo.getNome(column);
+	}
+
+	public Documento getDocumento(int linha) {
+		if (documentoList.size() > 0) {
+			return documentoList.get(linha);
+		}
+		return null;
+	}
+
+	public List<Documento> getDocumentoList() {
+		return documentoList;
 	}
 
 	@Override

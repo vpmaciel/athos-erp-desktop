@@ -18,156 +18,156 @@ import erp.veiculo.Veiculo;
 @Entity
 public class Documento implements Serializable {
 
+	@Column(length = 4)
+	private String anoDevolucaoDocumento;
+	@Column(length = 4)
+	private String anoRecebimentoDocumento;
+	@Column(length = 19)
+	private String cnpjRecebedorDocumento;
+	@Column(length = 14)
+	private String cpfRecebedorDocumento;
+	@Column(length = 3)
+	private String diaDevolucaoDocumento;
+	@Column(length = 2)
+	private String diaRecebimentoDocumento;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	@ManyToOne(cascade = CascadeType.ALL)
-	private Veiculo veiculo;
 	@Column(length = 15)
 	private String localDocumento;
 	@Column(length = 15)
-	private String situacaoDocumento;
+	private String mesDevolucaoDocumento;
 	@Column(length = 15)
 	private String mesRecebimentoDocumento;
-	@Column(length = 4)
-	private String anoRecebimentoDocumento;
-	@Column(length = 2)
-	private String diaRecebimentoDocumento;
-	@Column(length = 15)
-	private String mesDevolucaoDocumento;
-	@Column(length = 4)
-	private String anoDevolucaoDocumento;
-	@Column(length = 3)
-	private String diaDevolucaoDocumento;
-	@Column(length = 14)
-	private String cpfRecebedorDocumento;
-	@Column(length = 19)
-	private String cnpjRecebedorDocumento;
 	@Column(length = 50)
 	private String nomeRecebedorDocumento;
 	@Column(length = 15)
 	private String rgNumeroRecebedorDocumento;
 	@Column(length = 15)
 	private String rgOrgaoEmisssorRecebedorDocumento;
+	@Column(length = 15)
+	private String situacaoDocumento;
+	@ManyToOne(cascade = CascadeType.ALL)
+	private Veiculo veiculo;
 
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getCnpjRecebedorDocumento() {
-		return cnpjRecebedorDocumento;
-	}
-
-	public void setCnpjRecebedorDocumento(String cnpjRecebedorDocumento) {
-		this.cnpjRecebedorDocumento = cnpjRecebedorDocumento;
-	}
-
-	public Veiculo getVeiculo() {
-		return veiculo;
-	}
-
-	public void setVeiculo(Veiculo veiculo) {
-		this.veiculo = veiculo;
-	}
-
-	public String getLocalDocumento() {
-		return localDocumento;
-	}
-
-	public void setLocalDocumento(String localDocumento) {
-		this.localDocumento = localDocumento;
-	}
-
-	public String getSituacaoDocumento() {
-		return situacaoDocumento;
-	}
-
-	public void setSituacaoDocumento(String situacaoDocumento) {
-		this.situacaoDocumento = situacaoDocumento;
-	}
-
-	public String getMesRecebimentoDocumento() {
-		return mesRecebimentoDocumento;
-	}
-
-	public void setMesRecebimentoDocumento(String mesRecebimentoDocumento) {
-		this.mesRecebimentoDocumento = mesRecebimentoDocumento;
+	public String getAnoDevolucaoDocumento() {
+		return anoDevolucaoDocumento;
 	}
 
 	public String getAnoRecebimentoDocumento() {
 		return anoRecebimentoDocumento;
 	}
 
-	public void setAnoRecebimentoDocumento(String anoRecebimentoDocumento) {
-		this.anoRecebimentoDocumento = anoRecebimentoDocumento;
-	}
-
-	public String getDiaRecebimentoDocumento() {
-		return diaRecebimentoDocumento;
-	}
-
-	public void setDiaRecebimentoDocumento(String diaRecebimentoDocumento) {
-		this.diaRecebimentoDocumento = diaRecebimentoDocumento;
-	}
-
-	public String getMesDevolucaoDocumento() {
-		return mesDevolucaoDocumento;
-	}
-
-	public void setMesDevolucaoDocumento(String mesDevolucaoDocumento) {
-		this.mesDevolucaoDocumento = mesDevolucaoDocumento;
-	}
-
-	public String getAnoDevolucaoDocumento() {
-		return anoDevolucaoDocumento;
-	}
-
-	public void setAnoDevolucaoDocumento(String anoDevolucaoDocumento) {
-		this.anoDevolucaoDocumento = anoDevolucaoDocumento;
-	}
-
-	public String getDiaDevolucaoDocumento() {
-		return diaDevolucaoDocumento;
-	}
-
-	public void setDiaDevolucaoDocumento(String diaDevolucaoDocumento) {
-		this.diaDevolucaoDocumento = diaDevolucaoDocumento;
+	public String getCnpjRecebedorDocumento() {
+		return cnpjRecebedorDocumento;
 	}
 
 	public String getCpfRecebedorDocumento() {
 		return cpfRecebedorDocumento;
 	}
 
-	public void setCpfRecebedorDocumento(String cpfRecebedorDocumento) {
-		this.cpfRecebedorDocumento = cpfRecebedorDocumento;
+	public String getDiaDevolucaoDocumento() {
+		return diaDevolucaoDocumento;
+	}
+
+	public String getDiaRecebimentoDocumento() {
+		return diaRecebimentoDocumento;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public String getLocalDocumento() {
+		return localDocumento;
+	}
+
+	public String getMesDevolucaoDocumento() {
+		return mesDevolucaoDocumento;
+	}
+
+	public String getMesRecebimentoDocumento() {
+		return mesRecebimentoDocumento;
 	}
 
 	public String getNomeRecebedorDocumento() {
 		return nomeRecebedorDocumento;
 	}
 
-	public void setNomeRecebedorDocumento(String nomeRecebedorDocumento) {
-		this.nomeRecebedorDocumento = nomeRecebedorDocumento;
-	}
-
 	public String getRgNumeroRecebedorDocumento() {
 		return rgNumeroRecebedorDocumento;
-	}
-
-	public void setRgNumeroRecebedorDocumento(String rgNumeroRecebedorDocumento) {
-		this.rgNumeroRecebedorDocumento = rgNumeroRecebedorDocumento;
 	}
 
 	public String getRgOrgaoEmisssorRecebedorDocumento() {
 		return rgOrgaoEmisssorRecebedorDocumento;
 	}
 
+	public String getSituacaoDocumento() {
+		return situacaoDocumento;
+	}
+
+	public Veiculo getVeiculo() {
+		return veiculo;
+	}
+
+	public void setAnoDevolucaoDocumento(String anoDevolucaoDocumento) {
+		this.anoDevolucaoDocumento = anoDevolucaoDocumento;
+	}
+
+	public void setAnoRecebimentoDocumento(String anoRecebimentoDocumento) {
+		this.anoRecebimentoDocumento = anoRecebimentoDocumento;
+	}
+
+	public void setCnpjRecebedorDocumento(String cnpjRecebedorDocumento) {
+		this.cnpjRecebedorDocumento = cnpjRecebedorDocumento;
+	}
+
+	public void setCpfRecebedorDocumento(String cpfRecebedorDocumento) {
+		this.cpfRecebedorDocumento = cpfRecebedorDocumento;
+	}
+
+	public void setDiaDevolucaoDocumento(String diaDevolucaoDocumento) {
+		this.diaDevolucaoDocumento = diaDevolucaoDocumento;
+	}
+
+	public void setDiaRecebimentoDocumento(String diaRecebimentoDocumento) {
+		this.diaRecebimentoDocumento = diaRecebimentoDocumento;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public void setLocalDocumento(String localDocumento) {
+		this.localDocumento = localDocumento;
+	}
+
+	public void setMesDevolucaoDocumento(String mesDevolucaoDocumento) {
+		this.mesDevolucaoDocumento = mesDevolucaoDocumento;
+	}
+
+	public void setMesRecebimentoDocumento(String mesRecebimentoDocumento) {
+		this.mesRecebimentoDocumento = mesRecebimentoDocumento;
+	}
+
+	public void setNomeRecebedorDocumento(String nomeRecebedorDocumento) {
+		this.nomeRecebedorDocumento = nomeRecebedorDocumento;
+	}
+
+	public void setRgNumeroRecebedorDocumento(String rgNumeroRecebedorDocumento) {
+		this.rgNumeroRecebedorDocumento = rgNumeroRecebedorDocumento;
+	}
+
 	public void setRgOrgaoEmisssorRecebedorDocumento(String rgOrgaoEmisssorRecebedorDocumento) {
 		this.rgOrgaoEmisssorRecebedorDocumento = rgOrgaoEmisssorRecebedorDocumento;
+	}
+
+	public void setSituacaoDocumento(String situacaoDocumento) {
+		this.situacaoDocumento = situacaoDocumento;
+	}
+
+	public void setVeiculo(Veiculo veiculo) {
+		this.veiculo = veiculo;
 	}
 
 	@Override

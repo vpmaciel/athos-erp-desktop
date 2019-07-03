@@ -54,6 +54,101 @@ final class BancoControl {
 		}
 	}
 
+	public class FormatoCsv implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent actionEvent) {
+
+			List<Banco> listBanco = new LinkedList<>();
+
+			try {
+				listBanco = new LinkedList<>(BancoFac.pesquisarRegistro(new Banco()));
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+			BancoArqCsv bancoArqCsv = new BancoArqCsv(listBanco);
+			bancoArqCsv.retornarArquivo(true);
+
+		}
+	}
+
+	public class FormatoJson implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent actionEvent) {
+
+			List<Banco> listBanco = new LinkedList<>();
+
+			try {
+				
+				ArquivoJson<Banco> arquivoJson = new ArquivoJson<Banco>(banco, "banco");
+				arquivoJson.gravarArquivo(BancoFac.getRegistro());
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+			BancoArqCsv bancoArqCsv = new BancoArqCsv(listBanco);
+			bancoArqCsv.retornarArquivo(true);
+
+		}
+	}
+
+	public class FormatoOds implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent actionEvent) {
+
+			List<Banco> listBanco = new LinkedList<>();
+
+			try {
+				listBanco = new LinkedList<>(BancoFac.pesquisarRegistro(new Banco()));
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+			BancoArqOds bancoArqOds = new BancoArqOds(listBanco);
+			bancoArqOds.retornarArquivo(true);
+
+		}
+	}
+
+	public class FormatoTxt implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent actionEvent) {
+
+			List<Banco> listBanco = new LinkedList<>();
+
+			try {
+				listBanco = new LinkedList<>(BancoFac.pesquisarRegistro(new Banco()));
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+			BancoArqTxt bancoArqTxt = new BancoArqTxt(listBanco);
+			bancoArqTxt.retornarArquivo(true);
+		}
+	}
+
+	public class FormatoXml implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent actionEvent) {
+
+			List<Banco> listBanco = new LinkedList<>();
+
+			try {
+				listBanco = new LinkedList<>(BancoFac.pesquisarRegistro(new Banco()));
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+			BancoArqXml bancoArqXml = new BancoArqXml(listBanco);
+			bancoArqXml.retornarArquivo(true);
+		}
+	}
+
 	public class Frame extends WindowAdapter {
 
 		@Override
@@ -125,7 +220,7 @@ final class BancoControl {
 			}
 		}
 	}
-
+	
 	public class Registro implements ActionListener {
 
 		@Override
@@ -138,101 +233,6 @@ final class BancoControl {
 				MainControl.mostrarFrame(getBancoFp());
 				getBancoFp().setExtendedState(java.awt.Frame.MAXIMIZED_BOTH);
 			}
-		}
-	}
-
-	public class FormatoOds implements ActionListener {
-
-		@Override
-		public void actionPerformed(ActionEvent actionEvent) {
-
-			List<Banco> listBanco = new LinkedList<>();
-
-			try {
-				listBanco = new LinkedList<>(BancoFac.pesquisarRegistro(new Banco()));
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-
-			BancoArqOds bancoArqOds = new BancoArqOds(listBanco);
-			bancoArqOds.retornarArquivo(true);
-
-		}
-	}
-
-	public class FormatoJson implements ActionListener {
-
-		@Override
-		public void actionPerformed(ActionEvent actionEvent) {
-
-			List<Banco> listBanco = new LinkedList<>();
-
-			try {
-				
-				ArquivoJson<Banco> arquivoJson = new ArquivoJson<Banco>(banco, "banco");
-				arquivoJson.gravarArquivo(BancoFac.getRegistro());
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-
-			BancoArqCsv bancoArqCsv = new BancoArqCsv(listBanco);
-			bancoArqCsv.retornarArquivo(true);
-
-		}
-	}
-
-	public class FormatoCsv implements ActionListener {
-
-		@Override
-		public void actionPerformed(ActionEvent actionEvent) {
-
-			List<Banco> listBanco = new LinkedList<>();
-
-			try {
-				listBanco = new LinkedList<>(BancoFac.pesquisarRegistro(new Banco()));
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-
-			BancoArqCsv bancoArqCsv = new BancoArqCsv(listBanco);
-			bancoArqCsv.retornarArquivo(true);
-
-		}
-	}
-
-	public class FormatoTxt implements ActionListener {
-
-		@Override
-		public void actionPerformed(ActionEvent actionEvent) {
-
-			List<Banco> listBanco = new LinkedList<>();
-
-			try {
-				listBanco = new LinkedList<>(BancoFac.pesquisarRegistro(new Banco()));
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-
-			BancoArqTxt bancoArqTxt = new BancoArqTxt(listBanco);
-			bancoArqTxt.retornarArquivo(true);
-		}
-	}
-	
-	public class FormatoXml implements ActionListener {
-
-		@Override
-		public void actionPerformed(ActionEvent actionEvent) {
-
-			List<Banco> listBanco = new LinkedList<>();
-
-			try {
-				listBanco = new LinkedList<>(BancoFac.pesquisarRegistro(new Banco()));
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-
-			BancoArqXml bancoArqXml = new BancoArqXml(listBanco);
-			bancoArqXml.retornarArquivo(true);
 		}
 	}
 

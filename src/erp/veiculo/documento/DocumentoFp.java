@@ -26,13 +26,13 @@ public final class DocumentoFp extends JFrame implements Gui {
 
 	}
 
-	public DocumentoPp getDocumentoPp() {
-		return DocumentoPp;
-	}
-
 	@Override
 	public ConfiguracaoGui getConfiguracaoGui() {
 		return null;
+	}
+
+	public DocumentoPp getDocumentoPp() {
+		return DocumentoPp;
 	}
 
 	@Override

@@ -27,22 +27,6 @@ final class VeiculoControl {
 		}
 	}
 
-	public class MostraFrame extends MouseAdapter {
-
-		@Override
-		public void mouseClicked(MouseEvent event) {
-			if (event.getSource() == getVeiculoPc().getLabelCentroCusto()) {
-				MainControl.mostrarFrame(MainControl.getCentroCustoFc());
-			} else if (event.getSource() == getVeiculoPc().getLabelVeiculoMarca()) {
-				MainControl.mostrarFrame(MainControl.getVeiculoMarcaFc());
-			} else if (event.getSource() == getVeiculoPc().getLabelVeiculoModelo()) {
-				MainControl.mostrarFrame(MainControl.getVeiculoModeloFc());
-			} else {
-				MainControl.getCentroCustoFc().reiniciarGui();
-			}
-		}
-	}
-
 	public class Exclui implements ActionListener {
 
 		@Override
@@ -120,6 +104,22 @@ final class VeiculoControl {
 			if (veiculos.add(VeiculoFac.getRegistro(veiculo))) {
 				VeiculoRel veiculoRel = new VeiculoRel(veiculos);
 				veiculoRel.retornarRelatorio(true);
+			}
+		}
+	}
+
+	public class MostraFrame extends MouseAdapter {
+
+		@Override
+		public void mouseClicked(MouseEvent event) {
+			if (event.getSource() == getVeiculoPc().getLabelCentroCusto()) {
+				MainControl.mostrarFrame(MainControl.getCentroCustoFc());
+			} else if (event.getSource() == getVeiculoPc().getLabelVeiculoMarca()) {
+				MainControl.mostrarFrame(MainControl.getVeiculoMarcaFc());
+			} else if (event.getSource() == getVeiculoPc().getLabelVeiculoModelo()) {
+				MainControl.mostrarFrame(MainControl.getVeiculoModeloFc());
+			} else {
+				MainControl.getCentroCustoFc().reiniciarGui();
 			}
 		}
 	}

@@ -69,23 +69,6 @@ public class BancoArqXml {
 		}
 	}
 
-	public File retornarArquivo(boolean abrirArquivo) {
-
-		try {
-			Sis.abrirDiretorio(Sis.getCaminhoDadosXml());
-			file = new File(arquivo);
-
-			if (abrirArquivo) {
-				Desktop.getDesktop().open(file);
-			}
-		} catch (IOException e) {
-			e.printStackTrace();
-			Msg.erroAbrirArquivo();
-		}
-
-		return file;
-	}
-
 	@SuppressWarnings("unchecked")
 	public Collection<Banco> importarArquivo(boolean abrirArquivo) {
 		List<Banco> listBanco = new LinkedList<Banco>();
@@ -126,5 +109,22 @@ public class BancoArqXml {
 		}
 
 		return listBanco;
+	}
+
+	public File retornarArquivo(boolean abrirArquivo) {
+
+		try {
+			Sis.abrirDiretorio(Sis.getCaminhoDadosXml());
+			file = new File(arquivo);
+
+			if (abrirArquivo) {
+				Desktop.getDesktop().open(file);
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+			Msg.erroAbrirArquivo();
+		}
+
+		return file;
 	}
 }

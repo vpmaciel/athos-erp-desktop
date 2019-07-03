@@ -32,19 +32,25 @@ public class MainFc extends JFrame {
 	private JMenu menuArquivo;
 	private final JMenuBar menuBar = new JMenuBar();
 	private JMenu menuCadastro;
-	private JMenu menuRhCurriculo;
+	private JMenu menuCadastroOculos;
 	private JMenu menuCadastroProduto;
 	private JMenu menuCadastroVeiculo;
-	private JMenu menuRh;
-	private JMenu menuCadastroOculos;
 	private JMenu menuContabilidade;
 	private JMenu menuControle;
-	private JMenu menuEscritorio;
 	private JMenu menuEconomia;
+	private JMenu menuEscritorio;
 	private JMenu menuEstatistica;
 	private JMenu menuFinanceiro;
-	private JMenu menuSegurancaTrabalho;
-	private JMenu menuMedicina;
+	private JMenu menuFinanceiroVenda;
+	private JMenuItem menuItemAjudaAjudaOnLine;
+	private JMenuItem menuItemAjudaAjudaSistema;
+	private JMenuItem menuItemAjudaDesenvolvedores;
+	private JMenuItem menuItemAjudaEnviarComentarios;
+	private JMenuItem menuItemAjudaGuiaUsuario;
+	private JMenuItem menuItemAjudaInformacoesSobreLicenca;
+	private JMenuItem menuItemAjudaRelatarProblema;
+	private JMenuItem menuItemAjudaSobreSistema;
+	private JMenuItem menuItemAjudaVerificarAtualizacao;
 	private JMenuItem menuItemArquivoLogin;
 	private JMenuItem menuItemArquivoLogoff;
 	private JMenuItem menuItemArquivoReiniciar;
@@ -54,45 +60,28 @@ public class MainFc extends JFrame {
 	private JMenuItem menuItemCadastroCentroCusto;
 	private JMenuItem menuItemCadastroCliente;
 	private JMenuItem menuItemCadastroContador;
-	private JMenuItem menuItemRhCestaBasica;
-	private JMenuItem menuItemRhCurriculoCurriculo;
-	private JMenuItem menuItemRhCurriculoCertificado;
-	private JMenuItem menuItemRhCurriculoCurso;
-	private JMenuItem menuItemRhCurriculoExperienciaProfissional;
-	private JMenuItem menuItemRhCurriculoHabilidade;
-	private JMenuItem menuItemRhCurriculoIdioma;
-	private JMenuItem menuItemRhCurriculoObjetivoProfissional;
-	private JMenuItem menuItemRhCurriculoTestePreferenciaCerebral;
-	private JMenuItem menuItemRhCurriculoTestePerfilComportamental;
-	private JMenuItem menuItemRhCurriculoTestePersonalidadeDisc;
-	private JMenuItem menuItemRhFuncionario;
-	private JMenuItem menuItemRhTreinamento;
 	private JMenuItem menuItemCadastroDocumento;
-	private JMenuItem menuItemCadastroSeguradora;
 	private JMenuItem menuItemCadastroEmpresa;
 	private JMenuItem menuItemCadastroEscolaridade;
 	private JMenuItem menuItemCadastroFornecedor;
 	private JMenuItem menuItemCadastroImovel;
-	private JMenuItem menuItemCadastroOculosOculos;
-	private JMenuItem menuItemCadastroOculosLente;
-	private JMenuItem menuItemCadastroOculosTratamento;
 	private JMenuItem menuItemCadastroOculosArmacao;
+	private JMenuItem menuItemCadastroOculosLente;
+	private JMenuItem menuItemCadastroOculosOculos;
+	private JMenuItem menuItemCadastroOculosTratamento;
 	private JMenuItem menuItemCadastroProdutoCategoria;
-	private JMenuItem menuItemCadastroProdutoMarca;
 	private JMenuItem menuItemCadastroProdutoListaCompras;
+	private JMenuItem menuItemCadastroProdutoMarca;
 	private JMenuItem menuItemCadastroProdutoProduto;
 	private JMenuItem menuItemCadastroProdutoUnidade;
 	private JMenuItem menuItemCadastroQuarto;
+	private JMenuItem menuItemCadastroSeguradora;
 	private JMenuItem menuItemCadastroServico;
 	private JMenuItem menuItemCadastroSindicato;
+	private JMenuItem menuItemCadastroVeiculoDocumento;
 	private JMenuItem menuItemCadastroVeiculoMarca;
 	private JMenuItem menuItemCadastroVeiculoModelo;
 	private JMenuItem menuItemCadastroVeiculoVeiculo;
-	private JMenuItem menuItemCadastroVeiculoDocumento;
-	private JMenuItem menuItemGerenciamentoContacaoPreco;
-	private JMenuItem menuItemGerenciamentoEntradaSaidaVeiculo;
-	private JMenuItem menuItemGerenciamentoEstacionamento;
-	private JMenuItem menuItemGerenciamentoResiduos;
 	private JMenuItem menuItemEstatisticaGrafico;
 	private JMenuItem menuItemEstatisticaRelatorio;
 	private JMenuItem menuItemFinanceiroBoletoBancario;
@@ -101,9 +90,25 @@ public class MainFc extends JFrame {
 	private JMenuItem menuItemFinanceiroCheque;
 	private JMenuItem menuItemFinanceiroContasPagar;
 	private JMenuItem menuItemFinanceiroContasReceber;
-	private JMenu menuFinanceiroVenda;
 	private JMenuItem menuItemFinanceiroVendaProduto;
 	private JMenuItem menuItemFinanceiroVendaServico;
+	private JMenuItem menuItemGerenciamentoContacaoPreco;
+	private JMenuItem menuItemGerenciamentoEntradaSaidaVeiculo;
+	private JMenuItem menuItemGerenciamentoEstacionamento;
+	private JMenuItem menuItemGerenciamentoResiduos;
+	private JMenuItem menuItemRhCestaBasica;
+	private JMenuItem menuItemRhCurriculoCertificado;
+	private JMenuItem menuItemRhCurriculoCurriculo;
+	private JMenuItem menuItemRhCurriculoCurso;
+	private JMenuItem menuItemRhCurriculoExperienciaProfissional;
+	private JMenuItem menuItemRhCurriculoHabilidade;
+	private JMenuItem menuItemRhCurriculoIdioma;
+	private JMenuItem menuItemRhCurriculoObjetivoProfissional;
+	private JMenuItem menuItemRhCurriculoTestePerfilComportamental;
+	private JMenuItem menuItemRhCurriculoTestePersonalidadeDisc;
+	private JMenuItem menuItemRhCurriculoTestePreferenciaCerebral;
+	private JMenuItem menuItemRhFuncionario;
+	private JMenuItem menuItemRhTreinamento;
 	private JMenuItem menuItemSistemaBackup;
 	private JMenuItem menuItemSistemaDados;
 	private JMenuItem menuItemSistemaRestaurar;
@@ -113,19 +118,14 @@ public class MainFc extends JFrame {
 	private JMenuItem menuItemUtilitarioAgendaRecado;
 	private JMenuItem menuItemUtilitarioAgendaTipoEvento;
 	private JMenuItem menuItemUtilitarioCalculadora;
-	private JMenuItem menuItemUtilitarioEditorTexto;
-	private JMenuItem menuItemUtilitarioMalaDireta;
 	private JMenuItem menuItemUtilitarioCalculoData;
 	private JMenuItem menuItemUtilitarioCalculoIMC;
-	private JMenuItem menuItemAjudaSobreSistema;
-	private JMenuItem menuItemAjudaAjudaSistema;
-	private JMenuItem menuItemAjudaGuiaUsuario;
-	private JMenuItem menuItemAjudaAjudaOnLine;
-	private JMenuItem menuItemAjudaEnviarComentarios;
-	private JMenuItem menuItemAjudaInformacoesSobreLicenca;
-	private JMenuItem menuItemAjudaVerificarAtualizacao;
-	private JMenuItem menuItemAjudaRelatarProblema;
-	private JMenuItem menuItemAjudaDesenvolvedores;
+	private JMenuItem menuItemUtilitarioEditorTexto;
+	private JMenuItem menuItemUtilitarioMalaDireta;
+	private JMenu menuMedicina;
+	private JMenu menuRh;
+	private JMenu menuRhCurriculo;
+	private JMenu menuSegurancaTrabalho;
 	private JMenu menuSistema;
 	private JMenu menuUtilitario;
 	private JMenu menuUtilitarioAgenda;
@@ -149,6 +149,10 @@ public class MainFc extends JFrame {
 
 	public JMenu getMenuFinanceiro() {
 		return menuFinanceiro;
+	}
+
+	public JMenuItem getMenuFinanceiroVenda() {
+		return menuFinanceiroVenda;
 	}
 
 	public JMenuItem getMenuItemAjudaSobreSistema() {
@@ -195,12 +199,44 @@ public class MainFc extends JFrame {
 		return menuItemCadastroContador;
 	}
 
-	public JMenuItem getMenuItemCadastroRhCurriculo() {
-		return menuItemRhCurriculoCurriculo;
+	public JMenuItem getMenuItemCadastroDocumento() {
+		return menuItemCadastroDocumento;
+	}
+
+	public JMenuItem getMenuItemCadastroEmpresa() {
+		return menuItemCadastroEmpresa;
+	}
+
+	public JMenuItem getMenuItemCadastroEscolaridade() {
+		return menuItemCadastroEscolaridade;
+	}
+
+	public JMenuItem getMenuItemCadastroFinanceiroContasPagar() {
+		return menuItemFinanceiroContasPagar;
+	}
+
+	public JMenuItem getMenuItemCadastroFinanceiroContasReceber() {
+		return menuItemFinanceiroContasReceber;
+	}
+
+	public JMenuItem getMenuItemCadastroFornecedor() {
+		return menuItemCadastroFornecedor;
+	}
+
+	public JMenuItem getMenuItemCadastroImovel() {
+		return menuItemCadastroImovel;
+	}
+
+	public JMenuItem getMenuItemCadastroProduto() {
+		return menuItemCadastroProdutoProduto;
 	}
 
 	public JMenuItem getMenuItemCadastroRhCertificado() {
 		return menuItemRhCurriculoCertificado;
+	}
+
+	public JMenuItem getMenuItemCadastroRhCurriculo() {
+		return menuItemRhCurriculoCurriculo;
 	}
 
 	public JMenuItem getMenuItemCadastroRhCurso() {
@@ -235,42 +271,6 @@ public class MainFc extends JFrame {
 		return menuItemRhCurriculoTestePersonalidadeDisc;
 	}
 
-	public JMenuItem getMenuItemCadastroDocumento() {
-		return menuItemCadastroDocumento;
-	}
-
-	public JMenuItem getMenuItemCadastroEmpresa() {
-		return menuItemCadastroEmpresa;
-	}
-
-	public JMenuItem getMenuItemCadastroEscolaridade() {
-		return menuItemCadastroEscolaridade;
-	}
-
-	public JMenuItem getMenuItemCadastroFinanceiroContasPagar() {
-		return menuItemFinanceiroContasPagar;
-	}
-
-	public JMenuItem getMenuItemCadastroFinanceiroContasReceber() {
-		return menuItemFinanceiroContasReceber;
-	}
-
-	public JMenuItem getMenuItemCadastroFornecedor() {
-		return menuItemCadastroFornecedor;
-	}
-
-	public JMenuItem getMenuItemRhFuncionario() {
-		return menuItemRhFuncionario;
-	}
-
-	public JMenuItem getMenuItemCadastroImovel() {
-		return menuItemCadastroImovel;
-	}
-
-	public JMenuItem getMenuItemCadastroProduto() {
-		return menuItemCadastroProdutoProduto;
-	}
-
 	public JMenuItem getMenuItemCadastroServico() {
 		return menuItemCadastroServico;
 	}
@@ -283,6 +283,10 @@ public class MainFc extends JFrame {
 		return menuCadastroVeiculo;
 	}
 
+	public JMenuItem getMenuItemCadastroVeiculoDocumento() {
+		return menuItemCadastroVeiculoDocumento;
+	}
+
 	public JMenuItem getMenuItemCadastroVeiculoMarca() {
 		return menuItemCadastroVeiculoMarca;
 	}
@@ -293,22 +297,6 @@ public class MainFc extends JFrame {
 
 	public JMenuItem getMenuItemCadastroVeiculoVeiculo() {
 		return menuItemCadastroVeiculoVeiculo;
-	}
-
-	public JMenuItem getMenuItemCadastroVeiculoDocumento() {
-		return menuItemCadastroVeiculoDocumento;
-	}
-
-	public JMenuItem getMenuFinanceiroVenda() {
-		return menuFinanceiroVenda;
-	}
-
-	public JMenuItem getMenuItemFinanceiroVendaProduto() {
-		return menuItemFinanceiroVendaProduto;
-	}
-
-	public JMenuItem getMenuItemFinanceiroVendaServico() {
-		return menuItemFinanceiroVendaServico;
 	}
 
 	public JMenuItem getMenuItemEstatisticaGrafico() {
@@ -333,6 +321,18 @@ public class MainFc extends JFrame {
 
 	public JMenuItem getMenuItemFinanceiroContasReceber() {
 		return menuItemFinanceiroContasReceber;
+	}
+
+	public JMenuItem getMenuItemFinanceiroVendaProduto() {
+		return menuItemFinanceiroVendaProduto;
+	}
+
+	public JMenuItem getMenuItemFinanceiroVendaServico() {
+		return menuItemFinanceiroVendaServico;
+	}
+
+	public JMenuItem getMenuItemRhFuncionario() {
+		return menuItemRhFuncionario;
 	}
 
 	public JMenuItem getMenuItemSistemaBackup() {

@@ -19,42 +19,27 @@ import erp.usuario.Usuario;
 
 public class Sis {
 
-	private static Sis instancia;
-	private static Usuario usuario;
-	private static Locale locale = new Locale("pt", "BR");
-	private static final String separador = System.getProperty("file.separator");
-	private static String caminhoRaiz = "C:" + separador + "opt";
 	private static String caminhoApp = caminhoRaiz + separador + "athos" + separador;
 	private static String caminhoAppDados = caminhoApp + "dados" + separador;
-	private static final String caminhoDiretorioLog = caminhoApp + "logs";
-	private static final String caminhoDiretorioVideos = caminhoApp + "videos";
-	private static final String caminhoDiretorioOds = caminhoAppDados + "ods" + separador;
-	private static final String caminhoDiretorioDadosPdf = caminhoAppDados + "pdf" + separador;
-	private static final String caminhoDiretorioDadosJson = caminhoAppDados + "json" + separador;
-	private static final String caminhoDiretorioDadosXml = caminhoAppDados + "xml" + separador;
 	private static final String caminhoDiretorioDadosCsv = caminhoAppDados + "csv" + separador;
+	private static final String caminhoDiretorioDadosJson = caminhoAppDados + "json" + separador;
+	private static final String caminhoDiretorioDadosPdf = caminhoAppDados + "pdf" + separador;
 	private static final String caminhoDiretorioDadosTxt = caminhoAppDados + "txt" + separador;
+	private static final String caminhoDiretorioDadosXml = caminhoAppDados + "xml" + separador;
+	private static final String caminhoDiretorioLog = caminhoApp + "logs";
+	private static final String caminhoDiretorioOds = caminhoAppDados + "ods" + separador;
+	private static final String caminhoDiretorioVideos = caminhoApp + "videos";
+	private static String caminhoRaiz = "C:" + separador + "opt";
+	private static Sis instancia;
+	private static Locale locale = new Locale("pt", "BR");
+	private static final String separador = System.getProperty("file.separator");
+	private static Usuario usuario;
 
 	static {
 		Locale.setDefault(new Locale("pt", "BR"));
 		criarDiretorios();
 	}
 
-	public static synchronized Sis getInstancia() {
-		return instancia == null ? new Sis() : instancia;
-	}
-
-	public static Border getBordaPainel() {
-		return BorderFactory.createLineBorder(Color.BLACK, 2);
-	}
-
-	public static String getNomeHost() {
-		try {
-			return InetAddress.getLocalHost().getCanonicalHostName();
-		} catch (UnknownHostException e) {
-			return null; 
-		}
-	}
 	public static void abrirDiretorio(String URL) {
         String text, text2;
         text = System.getProperty("os.name");
@@ -75,78 +60,6 @@ public class Sis {
             }
         }
        
-	}
-	
-	public static Dimension getTamanhoJanela() {
-		return new Dimension(900, 660);
-	}
-
-	public static Locale getLocale() {
-		return new Locale("pt", "BR");
-	}
-
-	public static String getSeparador() {
-		return separador;
-	}
-
-	public static String getCaminhoDiretoriolog() {
-		return caminhoDiretorioLog;
-	}
-
-	public static String getCaminhoDiretoriovideos() {
-		return caminhoDiretorioVideos;
-	}
-
-	public static String getCaminhoDiretorioOds() {
-		return caminhoDiretorioOds;
-	}
-
-	public static String getCaminhoDadosCsv() {
-		return caminhoDiretorioDadosCsv;
-	}
-	
-	public static String getCaminhoDadosTxt() {
-		return caminhoDiretorioDadosTxt;
-	}
-
-	public static String getCaminhoDadosJson() {
-		return caminhoDiretorioDadosJson;
-	}
-
-	public static String getCaminhoDadosPdf() {
-		return caminhoDiretorioDadosPdf;
-	}
-
-	public static String getCaminhoDadosXml() {
-		return caminhoDiretorioDadosXml;
-	}
-
-	public static String getNomeSistema() {
-		return "ATHOS";
-	}
-
-	public static Usuario getUsuario() {
-		return Sis.usuario;
-	}
-
-	public static String getUsuarioFormatado() {
-		if (Sis.usuario == null) {
-			return " - [ ]";
-		}
-		return " - [ " + Sis.usuario + " ]";
-	}
-
-	public static void setUsuario(Usuario usuario) {
-		Sis.usuario = usuario;
-	}
-
-	public static Cursor getNovaJanelaCursor() {
-		return Cursor.getPredefinedCursor(Cursor.HAND_CURSOR);
-	}
-
-	public static Format getNumeroFormatado() {
-		
-		return NumberFormat.getNumberInstance(Sis.locale);
 	}
 
 	public static void criarDiretorios() {
@@ -177,5 +90,92 @@ public class Sis {
 			exception.printStackTrace();
 			Msg.erroCriarPasta();
 		}
+	}
+
+	public static Border getBordaPainel() {
+		return BorderFactory.createLineBorder(Color.BLACK, 2);
+	}
+	public static String getCaminhoDadosCsv() {
+		return caminhoDiretorioDadosCsv;
+	}
+	
+	public static String getCaminhoDadosJson() {
+		return caminhoDiretorioDadosJson;
+	}
+
+	public static String getCaminhoDadosPdf() {
+		return caminhoDiretorioDadosPdf;
+	}
+
+	public static String getCaminhoDadosTxt() {
+		return caminhoDiretorioDadosTxt;
+	}
+
+	public static String getCaminhoDadosXml() {
+		return caminhoDiretorioDadosXml;
+	}
+
+	public static String getCaminhoDiretoriolog() {
+		return caminhoDiretorioLog;
+	}
+
+	public static String getCaminhoDiretorioOds() {
+		return caminhoDiretorioOds;
+	}
+
+	public static String getCaminhoDiretoriovideos() {
+		return caminhoDiretorioVideos;
+	}
+	
+	public static synchronized Sis getInstancia() {
+		return instancia == null ? new Sis() : instancia;
+	}
+
+	public static Locale getLocale() {
+		return new Locale("pt", "BR");
+	}
+
+	public static String getNomeHost() {
+		try {
+			return InetAddress.getLocalHost().getCanonicalHostName();
+		} catch (UnknownHostException e) {
+			return null; 
+		}
+	}
+
+	public static String getNomeSistema() {
+		return "ATHOS";
+	}
+
+	public static Cursor getNovaJanelaCursor() {
+		return Cursor.getPredefinedCursor(Cursor.HAND_CURSOR);
+	}
+
+	public static Format getNumeroFormatado() {
+		
+		return NumberFormat.getNumberInstance(Sis.locale);
+	}
+
+	public static String getSeparador() {
+		return separador;
+	}
+
+	public static Dimension getTamanhoJanela() {
+		return new Dimension(900, 660);
+	}
+
+	public static Usuario getUsuario() {
+		return Sis.usuario;
+	}
+
+	public static String getUsuarioFormatado() {
+		if (Sis.usuario == null) {
+			return " - [ ]";
+		}
+		return " - [ " + Sis.usuario + " ]";
+	}
+
+	public static void setUsuario(Usuario usuario) {
+		Sis.usuario = usuario;
 	}
 }
