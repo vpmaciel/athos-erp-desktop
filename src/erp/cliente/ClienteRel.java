@@ -45,7 +45,7 @@ public class ClienteRel {
 				document.add(new Paragraph("TELEFONE: " + cliente.getFone1()));
 				document.add(new Paragraph("TELEFONE: " + cliente.getFone2()));
 				document.add(new Paragraph("E-MAIL: " + cliente.getEmail()));
-				document.add(new Paragraph("PAÍS: " + cliente.getPais()));
+				document.add(new Paragraph("PAÍS: " + cliente.getEnderecoPais()));
 				document.add(new Paragraph("ESTADO: " + cliente.getEnderecoEstado()));
 				document.add(new Paragraph("CIDADE: " + cliente.getEnderecoCidade()));
 				document.add(new Paragraph("BAIRRO: " + cliente.getEnderecoBairro()));

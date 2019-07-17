@@ -259,7 +259,7 @@ final class FornecedorControl {
 		getFornecedorPc().getGuiComplemento().setText(fornecedor.getEnderecoComplemento());
 		getFornecedorPc().getGuiEstado().setText(fornecedor.getEnderecoEstado());
 		getFornecedorPc().getGuiLogradouro().setText(fornecedor.getEnderecoLogradouro());
-		getFornecedorPc().getGuiPais().setText(fornecedor.getPais());
+		getFornecedorPc().getGuiPais().setText(fornecedor.getEnderecoPais());
 		getFornecedorPc().getGuiCnpj().setText(fornecedor.getCnpj());
 		getFornecedorPc().getGuiCpf().setText(fornecedor.getCpf());
 		getFornecedorPc().getGuiTipoEmpresa().setSelectedItem(fornecedor.getTipoEmpresa());
@@ -285,7 +285,7 @@ final class FornecedorControl {
 		fornecedor.setEnderecoComplemento(getFornecedorPc().getGuiComplemento().getText());
 		fornecedor.setEnderecoEstado(getFornecedorPc().getGuiEstado().getText());
 		fornecedor.setEnderecoLogradouro(getFornecedorPc().getGuiLogradouro().getText());
-		fornecedor.setPais(getFornecedorPc().getGuiPais().getText());
+		fornecedor.setEnderecoPais(getFornecedorPc().getGuiPais().getText());
 		fornecedor.setCnpj(getFornecedorPc().getGuiCnpj().getText());
 		fornecedor.setCpf(getFornecedorPc().getGuiCpf().getText());
 		fornecedor.setTipoEmpresa((String) getFornecedorPc().getGuiTipoEmpresa().getSelectedItem());

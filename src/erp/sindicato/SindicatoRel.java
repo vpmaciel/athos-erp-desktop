@@ -44,7 +44,7 @@ public class SindicatoRel {
 				document.add(new Paragraph("TELEFONE: " + sindicato.getFone1()));
 				document.add(new Paragraph("TELEFONE: " + sindicato.getFone2()));
 				document.add(new Paragraph("E-MAIL: " + sindicato.getEmail()));
-				document.add(new Paragraph("PAÍS: " + sindicato.getPais()));
+				document.add(new Paragraph("PAÍS: " + sindicato.getEnderecoPais()));
 				document.add(new Paragraph("ESTADO: " + sindicato.getEnderecoEstado()));
 				document.add(new Paragraph("CIDADE: " + sindicato.getEnderecoCidade()));
 				document.add(new Paragraph("BAIRRO: " + sindicato.getEnderecoBairro()));

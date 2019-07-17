@@ -176,8 +176,8 @@ final class FornecedorImp implements FornecedorDao {
 				predicateList.add(criteriaBuilder.like(rootFornecedor.get("numeroFuncionarios"),
 						"%" + fornecedor.getNumeroFuncionarios() + "%"));
 			}
-			if (fornecedor.getPais() != null && fornecedor.getPais().length() > 0) {
-				predicateList.add(criteriaBuilder.like(rootFornecedor.get("pais"), "%" + fornecedor.getPais() + "%"));
+			if (fornecedor.getEnderecoPais() != null && fornecedor.getEnderecoPais().length() > 0) {
+				predicateList.add(criteriaBuilder.like(rootFornecedor.get("pais"), "%" + fornecedor.getEnderecoPais() + "%"));
 			}
 			if (fornecedor.getRamoAtividade() != null && fornecedor.getRamoAtividade().length() > 0) {
 				predicateList.add(criteriaBuilder.like(rootFornecedor.get("ramoAtividade"),

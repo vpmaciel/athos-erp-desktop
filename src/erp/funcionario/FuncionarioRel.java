@@ -57,7 +57,7 @@ public class FuncionarioRel {
 				document.add(new Paragraph("FONE: " + funcionario.getFone1()));
 				document.add(new Paragraph("FONE: " + funcionario.getFone2()));
 				document.add(new Paragraph("E-MAIL: " + funcionario.getEmail()));
-				document.add(new Paragraph("PAÍS: " + funcionario.getPais()));
+				document.add(new Paragraph("PAÍS: " + funcionario.getEnderecoPais()));
 				document.add(new Paragraph("ESTADO: " + funcionario.getEnderecoEstado()));
 				document.add(new Paragraph("CIDADE: " + funcionario.getEnderecoCidade()));
 				document.add(new Paragraph("BAIRRO: " + funcionario.getEnderecoBairro()));

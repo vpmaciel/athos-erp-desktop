@@ -291,7 +291,7 @@ final class VeiculoControl {
 		getVeiculoPc().getGuiVeiculoModelo().setSelectedItem(veiculo.getModelo());
 		getVeiculoPc().getGuiMunicipioEmplacamento().setText(veiculo.getMunicipioEmplacamento());
 		getVeiculoPc().getGuiEstadoEmplacamento().setSelectedItem(veiculo.getEnderecoEstadoEmplacamento());
-		getVeiculoPc().getGuiPais().setText(veiculo.getPais());
+		getVeiculoPc().getGuiPais().setText(veiculo.getEnderecoPais());
 		getVeiculoPc().getGuiPlaca().setText(veiculo.getPlaca());
 		getVeiculoPc().getGuiPotencia().setText(veiculo.getPotencia());
 		getVeiculoPc().getGuiProprietarioAnteriorCnpj().setText(veiculo.getProprietarioAnteriorCnpj());
@@ -370,7 +370,7 @@ final class VeiculoControl {
 		veiculo.setModelo((VeiculoModelo) getVeiculoPc().getGuiVeiculoModelo().getSelectedItem());
 		veiculo.setMunicipioEmplacamento(getVeiculoPc().getGuiMunicipioEmplacamento().getText());
 		veiculo.setEnderecoEstadoEmplacamento((String) getVeiculoPc().getGuiEstadoEmplacamento().getSelectedItem());
-		veiculo.setPais(getVeiculoPc().getGuiPais().getText());
+		veiculo.setEnderecoPais(getVeiculoPc().getGuiPais().getText());
 		veiculo.setPlaca(getVeiculoPc().getGuiPlaca().getText());
 		veiculo.setPotencia(getVeiculoPc().getGuiPotencia().getText());
 		veiculo.setProprietarioAnteriorCnpj(getVeiculoPc().getGuiProprietarioAnteriorCnpj().getText());

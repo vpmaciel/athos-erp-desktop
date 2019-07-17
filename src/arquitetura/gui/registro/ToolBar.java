@@ -182,7 +182,7 @@ public class ToolBar {
 		return buttonSalvar;
 	}
 
-	public JToolBar getToolBar() {
+	public JToolBar getTB() {
 		return toolBar;
 	}
 

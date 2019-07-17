@@ -13,6 +13,7 @@ import java.util.List;
 import javax.swing.JOptionPane;
 
 import arquitetura.gui.Msg;
+import arquitetura.json.ArquivoJson;
 import arquitetura.validacao.Mascara;
 import erp.empresa.Empresa;
 import erp.empresa.EmpresaComp;
@@ -20,6 +21,103 @@ import erp.empresa.EmpresaFac;
 import erp.main.MainControl;
 
 final class ContatoControl {
+	
+	public class FormatoCsv implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent actionEvent) {
+
+			List<Contato> listContato = new LinkedList<>();
+
+			try {
+				listContato = new LinkedList<>(ContatoFac.pesquisarRegistro(new Contato()));
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+			ContatoArqCsv contatoArqCsv = new ContatoArqCsv(listContato);
+			contatoArqCsv.retornarArquivo(true);
+
+		}
+	}
+
+	public class FormatoJson implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent actionEvent) {
+
+			List<Contato> listContato = new LinkedList<>();
+
+			try {
+				
+				ArquivoJson<Contato> arquivoJson = new ArquivoJson<Contato>(contato, "contato");
+				arquivoJson.gravarArquivo(ContatoFac.getRegistro());
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+			ContatoArqCsv contatoArqCsv = new ContatoArqCsv(listContato);
+			contatoArqCsv.retornarArquivo(true);
+
+		}
+	}
+
+	public class FormatoOds implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent actionEvent) {
+
+			List<Contato> listContato = new LinkedList<>();
+
+			try {
+				listContato = new LinkedList<>(ContatoFac.pesquisarRegistro(new Contato()));
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+			ContatoArqOds contatoArqOds = new ContatoArqOds(listContato);
+			contatoArqOds.retornarArquivo(true);
+
+		}
+	}
+
+	public class FormatoTxt implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent actionEvent) {
+
+			List<Contato> listContato = new LinkedList<>();
+
+			try {
+				listContato = new LinkedList<>(ContatoFac.pesquisarRegistro(new Contato()));
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+			ContatoArqTxt contatoArqTxt = new ContatoArqTxt(listContato);
+			contatoArqTxt.retornarArquivo(true);
+		}
+	}
+
+	public class FormatoXml implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent actionEvent) {
+
+			List<Contato> listContato = new LinkedList<>();
+
+			try {
+				listContato = new LinkedList<>(ContatoFac.pesquisarRegistro(new Contato()));
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+			ContatoArqXml contatoArqXml = new ContatoArqXml(listContato);
+			contatoArqXml.retornarArquivo(true);
+		}
+	}
+
+
 
 	public class Ajuda implements ActionListener {
 
@@ -267,7 +365,7 @@ final class ContatoControl {
 		getContatoPc().getGuiComplemento().setText(contato.getEnderecoComplemento());
 		getContatoPc().getGuiEstado().setText(contato.getEnderecoEstado());
 		getContatoPc().getGuiLogradouro().setText(contato.getEnderecoLogradouro());
-		getContatoPc().getGuiPais().setText(contato.getPais());
+		getContatoPc().getGuiPais().setText(contato.getEnderecoPais());
 		getContatoPc().getGuiCnpj().setText(contato.getCnpj());
 		getContatoPc().getGuiCpf().setText(contato.getCpf());
 	}
@@ -286,7 +384,7 @@ final class ContatoControl {
 		contato.setEnderecoComplemento(getContatoPc().getGuiComplemento().getText());
 		contato.setEnderecoEstado(getContatoPc().getGuiEstado().getText());
 		contato.setEnderecoLogradouro(getContatoPc().getGuiLogradouro().getText());
-		contato.setPais(getContatoPc().getGuiPais().getText());
+		contato.setEnderecoPais(getContatoPc().getGuiPais().getText());
 		contato.setCnpj(getContatoPc().getGuiCnpj().getText());
 		contato.setCpf(getContatoPc().getGuiCpf().getText());
 

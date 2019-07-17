@@ -190,8 +190,8 @@ final class FuncionarioImp implements FuncionarioDao {
 			if (funcionario.getNome() != null && funcionario.getNome().length() > 0) {
 				predicateList.add(criteriaBuilder.like(rootFuncionario.get("nome"), "%" + funcionario.getNome() + "%"));
 			}
-			if (funcionario.getPais() != null && funcionario.getPais().length() > 0) {
-				predicateList.add(criteriaBuilder.like(rootFuncionario.get("pais"), "%" + funcionario.getPais() + "%"));
+			if (funcionario.getEnderecoPais() != null && funcionario.getEnderecoPais().length() > 0) {
+				predicateList.add(criteriaBuilder.like(rootFuncionario.get("pais"), "%" + funcionario.getEnderecoPais() + "%"));
 			}
 			if (funcionario.getPis() != null && !funcionario.getPis().equals(Mascara.getPis().getPlaceholder())
 					&& !funcionario.getPis().equals(Mascara.getPisVazio())) {

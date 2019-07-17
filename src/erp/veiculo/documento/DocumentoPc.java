@@ -146,7 +146,7 @@ public final class DocumentoPc extends JPanel implements Gui {
 
 		toolBar = new ToolBar();
 
-		add(toolBar.getToolBar());
+		add(toolBar.getTB());
 
 		labelVeiculo = new JLabel("PLACA");
 		labelVeiculo.setCursor(Sis.getNovaJanelaCursor());

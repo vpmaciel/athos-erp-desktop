@@ -56,17 +56,26 @@ public final class ContatoFc extends JFrame implements Gui {
 		contatoControl = new ContatoControl();
 		addWindowListener(contatoControl.new Frame());
 		contatoPc.getLabelEmpresa().addMouseListener(contatoControl.new MostraFc());
-		contatoPc.getToolBar().getExcluirBtn().addActionListener(contatoControl.new Exclui());
-		contatoPc.getToolBar().getNovoBtn().addActionListener(contatoControl.new Novo());
-		contatoPc.getToolBar().getPesquisarBtn().addActionListener(contatoControl.new Pesquisa());
-		contatoPc.getToolBar().getImprimirBtn().addActionListener(contatoControl.new Imprime());
-		contatoPc.getToolBar().getRelatorioBtn().addActionListener(contatoControl.new Relatorio());
-		contatoPc.getToolBar().getSalvarBtn().addActionListener(contatoControl.new Salva());
-		contatoPc.getToolBar().getFecharBtn().addActionListener(contatoControl.new FechaJanela());
-		contatoPc.getToolBar().getSairBtn().addActionListener(contatoControl.new SaidaSistema());
-		contatoPc.getToolBar().getAjudaBtn().addActionListener(contatoControl.new Ajuda());
-		contatoPc.getToolBar().getHomeBtn().addActionListener(contatoControl.new Home());
-		contatoPc.getToolBar().getRegistrosBtn().addActionListener(contatoControl.new Registro());
+		contatoPc.getTB().getExcluirBtn().addActionListener(contatoControl.new Exclui());
+		contatoPc.getTB().getNovoBtn().addActionListener(contatoControl.new Novo());
+		contatoPc.getTB().getPesquisarBtn().addActionListener(contatoControl.new Pesquisa());
+		contatoPc.getTB().getImprimirBtn().addActionListener(contatoControl.new Imprime());
+		contatoPc.getTB().getRelatorioBtn().addActionListener(contatoControl.new Relatorio());
+		contatoPc.getTB().getSalvarBtn().addActionListener(contatoControl.new Salva());
+		contatoPc.getTB().getFecharBtn().addActionListener(contatoControl.new FechaJanela());
+		contatoPc.getTB().getSairBtn().addActionListener(contatoControl.new SaidaSistema());
+		contatoPc.getTB().getAjudaBtn().addActionListener(contatoControl.new Ajuda());
+		contatoPc.getTB().getHomeBtn().addActionListener(contatoControl.new Home());
+		contatoPc.getTB().getRegistrosBtn().addActionListener(contatoControl.new Registro());
+		contatoPc.getTB().getOdsBtn().addActionListener(contatoControl.new FormatoOds());
+		contatoPc.getTB().getCsvBtn().addActionListener(contatoControl.new FormatoCsv());
+		contatoPc.getTB().getTxtBtn().addActionListener(contatoControl.new FormatoTxt());
+		contatoPc.getTB().getXmlBtn().addActionListener(contatoControl.new FormatoXml());
+		contatoPc.getTB().getAnaliseBtn().setEnabled(false);
+		contatoPc.getTB().getNegociosBtn().setEnabled(false);
+		contatoPc.getTB().getGraficoBtn().setEnabled(false);
+		contatoPc.getTB().getImportarBtn().setEnabled(false);
+		contatoPc.getTB().getExportarBtn().setEnabled(false);
 	}
 
 	@Override

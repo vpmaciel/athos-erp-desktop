@@ -76,7 +76,7 @@ public final class EventoPc extends JPanel implements Gui {
 		return boxTipoEvento;
 	}
 
-	public ToolBar getToolBar() {
+	public ToolBar getTB() {
 		return toolBar;
 	}
 
@@ -96,7 +96,7 @@ public final class EventoPc extends JPanel implements Gui {
 
 		toolBar = new ToolBar();
 
-		add(toolBar.getToolBar());
+		add(toolBar.getTB());
 
 		labelTipoEvento = new JLabel("EVENTO");
 		labelTipoEvento.setCursor(Sis.getNovaJanelaCursor());

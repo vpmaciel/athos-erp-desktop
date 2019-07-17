@@ -41,7 +41,7 @@ public final class VeiculoModeloPc extends JPanel implements Gui {
 		return fieldModelo;
 	}
 
-	public ToolBar getToolBar() {
+	public ToolBar getTB() {
 		return toolBar;
 	}
 
@@ -60,7 +60,7 @@ public final class VeiculoModeloPc extends JPanel implements Gui {
 	public void iniciarGui() {
 		toolBar = new ToolBar();
 
-		this.add(toolBar.getToolBar());
+		this.add(toolBar.getTB());
 
 		add(new JLabel("MODELO"));
 

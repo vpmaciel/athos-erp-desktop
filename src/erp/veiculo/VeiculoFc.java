@@ -58,17 +58,17 @@ public final class VeiculoFc extends JFrame implements Gui {
 		veiculoPc.getLabelCentroCusto().addMouseListener(veiculoControl.new MostraFrame());
 		veiculoPc.getLabelVeiculoMarca().addMouseListener(veiculoControl.new MostraFrame());
 		veiculoPc.getLabelVeiculoModelo().addMouseListener(veiculoControl.new MostraFrame());
-		veiculoPc.getToolBar().getExcluirBtn().addActionListener(veiculoControl.new Exclui());
-		veiculoPc.getToolBar().getNovoBtn().addActionListener(veiculoControl.new Novo());
-		veiculoPc.getToolBar().getPesquisarBtn().addActionListener(veiculoControl.new Pesquisa());
-		veiculoPc.getToolBar().getImprimirBtn().addActionListener(veiculoControl.new Imprime());
-		veiculoPc.getToolBar().getRelatorioBtn().addActionListener(veiculoControl.new Relatorio());
-		veiculoPc.getToolBar().getSalvarBtn().addActionListener(veiculoControl.new Salva());
-		veiculoPc.getToolBar().getFecharBtn().addActionListener(veiculoControl.new FechaJanela());
-		veiculoPc.getToolBar().getSairBtn().addActionListener(veiculoControl.new SaidaSistema());
-		veiculoPc.getToolBar().getAjudaBtn().addActionListener(veiculoControl.new Ajuda());
-		veiculoPc.getToolBar().getHomeBtn().addActionListener(veiculoControl.new Home());
-		veiculoPc.getToolBar().getRegistrosBtn().addActionListener(veiculoControl.new Registro());
+		veiculoPc.getTB().getExcluirBtn().addActionListener(veiculoControl.new Exclui());
+		veiculoPc.getTB().getNovoBtn().addActionListener(veiculoControl.new Novo());
+		veiculoPc.getTB().getPesquisarBtn().addActionListener(veiculoControl.new Pesquisa());
+		veiculoPc.getTB().getImprimirBtn().addActionListener(veiculoControl.new Imprime());
+		veiculoPc.getTB().getRelatorioBtn().addActionListener(veiculoControl.new Relatorio());
+		veiculoPc.getTB().getSalvarBtn().addActionListener(veiculoControl.new Salva());
+		veiculoPc.getTB().getFecharBtn().addActionListener(veiculoControl.new FechaJanela());
+		veiculoPc.getTB().getSairBtn().addActionListener(veiculoControl.new SaidaSistema());
+		veiculoPc.getTB().getAjudaBtn().addActionListener(veiculoControl.new Ajuda());
+		veiculoPc.getTB().getHomeBtn().addActionListener(veiculoControl.new Home());
+		veiculoPc.getTB().getRegistrosBtn().addActionListener(veiculoControl.new Registro());
 	}
 
 	@Override

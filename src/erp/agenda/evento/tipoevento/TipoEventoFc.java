@@ -55,17 +55,17 @@ public final class TipoEventoFc extends JFrame implements Gui {
 		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		tipoEventoControl = new TipoEventoControl();
 		addWindowListener(tipoEventoControl.new Frame());
-		tipoEventoPc.getToolBar().getExcluirBtn().addActionListener(tipoEventoControl.new Exclui());
-		tipoEventoPc.getToolBar().getNovoBtn().addActionListener(tipoEventoControl.new Novo());
-		tipoEventoPc.getToolBar().getPesquisarBtn().addActionListener(tipoEventoControl.new Pesquisa());
-		tipoEventoPc.getToolBar().getImprimirBtn().addActionListener(tipoEventoControl.new Imprime());
-		tipoEventoPc.getToolBar().getRelatorioBtn().addActionListener(tipoEventoControl.new Relatorio());
-		tipoEventoPc.getToolBar().getSalvarBtn().addActionListener(tipoEventoControl.new Salva());
-		tipoEventoPc.getToolBar().getFecharBtn().addActionListener(tipoEventoControl.new FechaJanela());
-		tipoEventoPc.getToolBar().getSairBtn().addActionListener(tipoEventoControl.new SaidaSistema());
-		tipoEventoPc.getToolBar().getAjudaBtn().addActionListener(tipoEventoControl.new Ajuda());
-		tipoEventoPc.getToolBar().getHomeBtn().addActionListener(tipoEventoControl.new Home());
-		tipoEventoPc.getToolBar().getRegistrosBtn().addActionListener(tipoEventoControl.new Registro());
+		tipoEventoPc.getTB().getExcluirBtn().addActionListener(tipoEventoControl.new Exclui());
+		tipoEventoPc.getTB().getNovoBtn().addActionListener(tipoEventoControl.new Novo());
+		tipoEventoPc.getTB().getPesquisarBtn().addActionListener(tipoEventoControl.new Pesquisa());
+		tipoEventoPc.getTB().getImprimirBtn().addActionListener(tipoEventoControl.new Imprime());
+		tipoEventoPc.getTB().getRelatorioBtn().addActionListener(tipoEventoControl.new Relatorio());
+		tipoEventoPc.getTB().getSalvarBtn().addActionListener(tipoEventoControl.new Salva());
+		tipoEventoPc.getTB().getFecharBtn().addActionListener(tipoEventoControl.new FechaJanela());
+		tipoEventoPc.getTB().getSairBtn().addActionListener(tipoEventoControl.new SaidaSistema());
+		tipoEventoPc.getTB().getAjudaBtn().addActionListener(tipoEventoControl.new Ajuda());
+		tipoEventoPc.getTB().getHomeBtn().addActionListener(tipoEventoControl.new Home());
+		tipoEventoPc.getTB().getRegistrosBtn().addActionListener(tipoEventoControl.new Registro());
 	}
 
 	@Override

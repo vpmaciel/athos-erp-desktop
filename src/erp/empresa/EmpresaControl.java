@@ -259,7 +259,7 @@ final class EmpresaControl {
 		getEmpresaPc().getGuiComplemento().setText(empresa.getEnderecoComplemento());
 		getEmpresaPc().getGuiEstado().setText(empresa.getEnderecoEstado());
 		getEmpresaPc().getGuiLogradouro().setText(empresa.getEnderecoLogradouro());
-		getEmpresaPc().getGuiPais().setText(empresa.getPais());
+		getEmpresaPc().getGuiPais().setText(empresa.getEnderecoPais());
 		getEmpresaPc().getGuiCnpj().setText(empresa.getCnpj());
 		getEmpresaPc().getGuiEmpresa().setSelectedItem(empresa.getTipoEmpresa());
 		getEmpresaPc().getGuiFaturamentoMensal().setValue(empresa.getFaturamentoMensal());
@@ -284,7 +284,7 @@ final class EmpresaControl {
 		empresa.setEnderecoComplemento(getEmpresaPc().getGuiComplemento().getText());
 		empresa.setEnderecoEstado(getEmpresaPc().getGuiEstado().getText());
 		empresa.setEnderecoLogradouro(getEmpresaPc().getGuiLogradouro().getText());
-		empresa.setPais(getEmpresaPc().getGuiPais().getText());
+		empresa.setEnderecoPais(getEmpresaPc().getGuiPais().getText());
 		empresa.setCnpj(getEmpresaPc().getGuiCnpj().getText());
 		empresa.setTipoEmpresa((String) getEmpresaPc().getGuiEmpresa().getSelectedItem());
 		try {

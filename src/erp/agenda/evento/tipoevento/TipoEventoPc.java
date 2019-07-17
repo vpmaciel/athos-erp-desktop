@@ -41,7 +41,7 @@ public final class TipoEventoPc extends JPanel implements Gui {
 		return fieldNome;
 	}
 
-	public ToolBar getToolBar() {
+	public ToolBar getTB() {
 		return toolBar;
 	}
 
@@ -61,7 +61,7 @@ public final class TipoEventoPc extends JPanel implements Gui {
 
 		toolBar = new ToolBar();
 
-		add(toolBar.getToolBar());
+		add(toolBar.getTB());
 
 		add(new JLabel("NOME"));
 

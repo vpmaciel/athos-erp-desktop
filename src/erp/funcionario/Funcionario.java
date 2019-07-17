@@ -83,7 +83,7 @@ public class Funcionario implements Serializable {
 	@Column(length = 50, nullable = false)
 	private String nome;
 	@Column(length = 50)
-	private String pais;
+	private String enderecoPais;
 	@Column(length = 20)
 	private String pis;
 	@Column(length = 15)
@@ -213,8 +213,8 @@ public class Funcionario implements Serializable {
 		return this.nome;
 	}
 
-	public String getPais() {
-		return this.pais;
+	public String getEnderecoPais() {
+		return this.enderecoPais;
 	}
 
 	public String getPis() {
@@ -357,8 +357,8 @@ public class Funcionario implements Serializable {
 		this.nome = nome;
 	}
 
-	public void setPais(String pais) {
-		this.pais = pais;
+	public void setEnderecoPais(String enderecoPais) {
+		this.enderecoPais = enderecoPais;
 	}
 
 	public void setPis(String pis) {
