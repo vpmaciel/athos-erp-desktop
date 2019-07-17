@@ -63,7 +63,7 @@ public final class RecadoPc extends JPanel implements Gui {
 		return fieldRemetente;
 	}
 
-	public ToolBar getToolBar() {
+	public ToolBar getTB() {
 		return toolBar;
 	}
 
@@ -82,7 +82,7 @@ public final class RecadoPc extends JPanel implements Gui {
 	public void iniciarGui() {
 
 		toolBar = new ToolBar();
-		add(toolBar.getToolBar());
+		add(toolBar.getTB());
 
 		labelData = new JLabel("DATA");
 		add(labelData);

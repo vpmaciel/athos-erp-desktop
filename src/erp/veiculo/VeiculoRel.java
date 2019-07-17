@@ -57,7 +57,7 @@ public class VeiculoRel {
 				document.add(new Paragraph("MARCA: " + veiculo.getMarca()));
 				document.add(new Paragraph("MODELO: " + veiculo.getModelo()));
 				document.add(new Paragraph("NUNICÍPIO DE EMPLACAMENTO: " + veiculo.getMunicipioEmplacamento()));
-				document.add(new Paragraph("PAÍS: " + veiculo.getPais()));
+				document.add(new Paragraph("PAÍS: " + veiculo.getEnderecoPais()));
 				document.add(new Paragraph("PLACA: " + veiculo.getPlaca()));
 				document.add(new Paragraph("POTÊNCIA: " + veiculo.getPotencia()));
 				document.add(new Paragraph("CNPJ (PROPRIETÁRIO ANTERIOR): " + veiculo.getProprietarioAnteriorCnpj()));

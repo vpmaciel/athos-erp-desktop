@@ -252,7 +252,7 @@ final class ClienteControl {
 		getClientePc().getGuiComplemento().setText(cliente.getEnderecoComplemento());
 		getClientePc().getGuiEstado().setText(cliente.getEnderecoEstado());
 		getClientePc().getGuiLogradouro().setText(cliente.getEnderecoLogradouro());
-		getClientePc().getGuiPais().setText(cliente.getPais());
+		getClientePc().getGuiPais().setText(cliente.getEnderecoPais());
 		getClientePc().getGuiCnpj().setText(cliente.getCnpj());
 		getClientePc().getGuiCpf().setText(cliente.getCpf());
 		getClientePc().getGuiRGNumero().setText(cliente.getRgNumero());
@@ -298,7 +298,7 @@ final class ClienteControl {
 		cliente.setEnderecoComplemento(getClientePc().getGuiComplemento().getText());
 		cliente.setEnderecoEstado(getClientePc().getGuiEstado().getText());
 		cliente.setEnderecoLogradouro(getClientePc().getGuiLogradouro().getText());
-		cliente.setPais(getClientePc().getGuiPais().getText());
+		cliente.setEnderecoPais(getClientePc().getGuiPais().getText());
 		cliente.setCnpj(getClientePc().getGuiCnpj().getText());
 		cliente.setCpf(getClientePc().getGuiCpf().getText());
 		cliente.setRgNumero(getClientePc().getGuiRGNumero().getText());

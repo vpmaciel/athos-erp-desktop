@@ -132,7 +132,7 @@ public final class ContatoPc extends JPanel implements Gui {
 		return labelEmpresa;
 	}
 
-	public ToolBar getToolBar() {
+	public ToolBar getTB() {
 		return toolBar;
 	}
 
@@ -152,7 +152,7 @@ public final class ContatoPc extends JPanel implements Gui {
 
 		toolBar = new ToolBar();
 
-		add(toolBar.getToolBar());
+		add(toolBar.getTB());
 
 		add(new JLabel("NOME"));
 

@@ -45,7 +45,7 @@ public class ImovelRel {
 				document.add(new Paragraph("TELEFONE: " + imovel.getFone1()));
 				document.add(new Paragraph("TELEFONE: " + imovel.getFone2()));
 				document.add(new Paragraph("E-MAIL: " + imovel.getEmail()));
-				document.add(new Paragraph("PAÍS: " + imovel.getPais()));
+				document.add(new Paragraph("PAÍS: " + imovel.getEnderecoPais()));
 				document.add(new Paragraph("ESTADO: " + imovel.getEnderecoEstado()));
 				document.add(new Paragraph("CIDADE: " + imovel.getEnderecoCidade()));
 				document.add(new Paragraph("BAIRRO: " + imovel.getEnderecoBairro()));

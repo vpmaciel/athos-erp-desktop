@@ -44,7 +44,7 @@ public class EmpresaRel {
 				document.add(new Paragraph("TELEFONE: " + empresa.getFone1()));
 				document.add(new Paragraph("TELEFONE: " + empresa.getFone2()));
 				document.add(new Paragraph("E-MAIL: " + empresa.getEmail()));
-				document.add(new Paragraph("PAÍS: " + empresa.getPais()));
+				document.add(new Paragraph("PAÍS: " + empresa.getEnderecoPais()));
 				document.add(new Paragraph("ESTADO: " + empresa.getEnderecoEstado()));
 				document.add(new Paragraph("CIDADE: " + empresa.getEnderecoCidade()));
 				document.add(new Paragraph("BAIRRO: " + empresa.getEnderecoBairro()));

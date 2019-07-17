@@ -50,7 +50,7 @@ public class Imovel implements Serializable {
 	@Column(length = 50)
 	private String nomeProprietario;
 	@Column(length = 50)
-	private String pais;
+	private String enderecoPais;
 	@Column(length = 3)
 	private String piscina;
 	@Column(length = 2)
@@ -132,8 +132,8 @@ public class Imovel implements Serializable {
 		return this.nomeProprietario;
 	}
 
-	public String getPais() {
-		return this.pais;
+	public String getEnderecoPais() {
+		return this.enderecoPais;
 	}
 
 	public String getPiscina() {
@@ -228,8 +228,8 @@ public class Imovel implements Serializable {
 		this.nomeProprietario = nomeProprietario;
 	}
 
-	public void setPais(String pais) {
-		this.pais = pais;
+	public void setEnderecoPais(String enderecoPais) {
+		this.enderecoPais = enderecoPais;
 	}
 
 	public void setPiscina(String piscina) {

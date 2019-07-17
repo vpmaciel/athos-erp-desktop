@@ -116,7 +116,7 @@ public class Veiculo implements Serializable {
 	private String numeroMotor;
 	private int numeroPotas;
 	@Column(length = 50)
-	private String pais;
+	private String enderecoPais;
 	@Column(length = 8, nullable = false)
 	private String placa;
 	@Column(length = 50)
@@ -370,8 +370,8 @@ public class Veiculo implements Serializable {
 		return numeroPotas;
 	}
 
-	public String getPais() {
-		return pais;
+	public String getEnderecoPais() {
+		return enderecoPais;
 	}
 
 	public String getPlaca() {
@@ -694,8 +694,8 @@ public class Veiculo implements Serializable {
 		this.numeroPotas = numeroPotas;
 	}
 
-	public void setPais(String pais) {
-		this.pais = pais;
+	public void setEnderecoPais(String enderecoPais) {
+		this.enderecoPais = enderecoPais;
 	}
 
 	public void setPlaca(String placa) {

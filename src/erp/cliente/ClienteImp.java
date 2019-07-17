@@ -159,8 +159,8 @@ final class ClienteImp implements ClienteDao {
 			if (cliente.getNome() != null && cliente.getNome().length() > 0) {
 				predicateList.add(criteriaBuilder.like(rootCliente.get("nome"), "%" + cliente.getNome() + "%"));
 			}
-			if (cliente.getPais() != null && cliente.getPais().length() > 0) {
-				predicateList.add(criteriaBuilder.like(rootCliente.get("pais"), "%" + cliente.getPais() + "%"));
+			if (cliente.getEnderecoPais() != null && cliente.getEnderecoPais().length() > 0) {
+				predicateList.add(criteriaBuilder.like(rootCliente.get("pais"), "%" + cliente.getEnderecoPais() + "%"));
 			}
 			if (cliente.getCnpj() != null && !cliente.getCnpj().equals(Mascara.getCnpj().getPlaceholder())
 					&& !cliente.getCnpj().equals(Mascara.getCnpjVazio())) {

@@ -174,7 +174,7 @@ public final class EmpresaPc extends JPanel implements Gui {
 	public void iniciarGui() {
 		toolBar = new ToolBar();
 
-		this.add(toolBar.getToolBar());
+		this.add(toolBar.getTB());
 
 		add(new JLabel("NOME FANTASIA"));
 

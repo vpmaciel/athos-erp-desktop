@@ -19,6 +19,8 @@ import erp.usuario.Usuario;
 
 public class Sis {
 
+	private static final String separador = System.getProperty("file.separator");
+	private static String caminhoRaiz = "C:" + separador + "opt";
 	private static String caminhoApp = caminhoRaiz + separador + "athos" + separador;
 	private static String caminhoAppDados = caminhoApp + "dados" + separador;
 	private static final String caminhoDiretorioDadosCsv = caminhoAppDados + "csv" + separador;
@@ -29,10 +31,8 @@ public class Sis {
 	private static final String caminhoDiretorioLog = caminhoApp + "logs";
 	private static final String caminhoDiretorioOds = caminhoAppDados + "ods" + separador;
 	private static final String caminhoDiretorioVideos = caminhoApp + "videos";
-	private static String caminhoRaiz = "C:" + separador + "opt";
 	private static Sis instancia;
 	private static Locale locale = new Locale("pt", "BR");
-	private static final String separador = System.getProperty("file.separator");
 	private static Usuario usuario;
 
 	static {

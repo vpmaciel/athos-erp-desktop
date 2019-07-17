@@ -55,17 +55,17 @@ public final class EventoFc extends JFrame implements Gui {
 		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		eventoControl = new EventoControl();
 		addWindowListener(eventoControl.new Frame());
-		eventoPc.getToolBar().getExcluirBtn().addActionListener(eventoControl.new Exclui());
-		eventoPc.getToolBar().getNovoBtn().addActionListener(eventoControl.new Novo());
-		eventoPc.getToolBar().getPesquisarBtn().addActionListener(eventoControl.new Pesquisa());
-		eventoPc.getToolBar().getImprimirBtn().addActionListener(eventoControl.new Imprime());
-		eventoPc.getToolBar().getRelatorioBtn().addActionListener(eventoControl.new Relatorio());
-		eventoPc.getToolBar().getSalvarBtn().addActionListener(eventoControl.new Salva());
-		eventoPc.getToolBar().getFecharBtn().addActionListener(eventoControl.new FechaJanela());
-		eventoPc.getToolBar().getSairBtn().addActionListener(eventoControl.new SaidaSistema());
-		eventoPc.getToolBar().getAjudaBtn().addActionListener(eventoControl.new Ajuda());
-		eventoPc.getToolBar().getHomeBtn().addActionListener(eventoControl.new Home());
-		eventoPc.getToolBar().getRegistrosBtn().addActionListener(eventoControl.new Registro());
+		eventoPc.getTB().getExcluirBtn().addActionListener(eventoControl.new Exclui());
+		eventoPc.getTB().getNovoBtn().addActionListener(eventoControl.new Novo());
+		eventoPc.getTB().getPesquisarBtn().addActionListener(eventoControl.new Pesquisa());
+		eventoPc.getTB().getImprimirBtn().addActionListener(eventoControl.new Imprime());
+		eventoPc.getTB().getRelatorioBtn().addActionListener(eventoControl.new Relatorio());
+		eventoPc.getTB().getSalvarBtn().addActionListener(eventoControl.new Salva());
+		eventoPc.getTB().getFecharBtn().addActionListener(eventoControl.new FechaJanela());
+		eventoPc.getTB().getSairBtn().addActionListener(eventoControl.new SaidaSistema());
+		eventoPc.getTB().getAjudaBtn().addActionListener(eventoControl.new Ajuda());
+		eventoPc.getTB().getHomeBtn().addActionListener(eventoControl.new Home());
+		eventoPc.getTB().getRegistrosBtn().addActionListener(eventoControl.new Registro());
 	}
 
 	@Override

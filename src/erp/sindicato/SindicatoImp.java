@@ -169,8 +169,8 @@ final class SindicatoImp implements SindicatoDao {
 				predicateList.add(criteriaBuilder.like(rootSindicato.get("numeroFuncionarios"),
 						"%" + sindicato.getNumeroFuncionarios() + "%"));
 			}
-			if (sindicato.getPais() != null && sindicato.getPais().length() > 0) {
-				predicateList.add(criteriaBuilder.like(rootSindicato.get("pais"), "%" + sindicato.getPais() + "%"));
+			if (sindicato.getEnderecoPais() != null && sindicato.getEnderecoPais().length() > 0) {
+				predicateList.add(criteriaBuilder.like(rootSindicato.get("pais"), "%" + sindicato.getEnderecoPais() + "%"));
 			}
 			if (sindicato.getRamoAtividade() != null && sindicato.getRamoAtividade().length() > 0) {
 				predicateList.add(criteriaBuilder.like(rootSindicato.get("ramoAtividade"),

@@ -45,7 +45,7 @@ public class FornecedorRel {
 				document.add(new Paragraph("TELEFONE: " + fornecedor.getFone1()));
 				document.add(new Paragraph("TELEFONE: " + fornecedor.getFone2()));
 				document.add(new Paragraph("E-MAIL: " + fornecedor.getEmail()));
-				document.add(new Paragraph("PAÍS: " + fornecedor.getPais()));
+				document.add(new Paragraph("PAÍS: " + fornecedor.getEnderecoPais()));
 				document.add(new Paragraph("ESTADO: " + fornecedor.getEnderecoEstado()));
 				document.add(new Paragraph("CIDADE: " + fornecedor.getEnderecoCidade()));
 				document.add(new Paragraph("BAIRRO: " + fornecedor.getEnderecoBairro()));

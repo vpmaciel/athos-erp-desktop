@@ -58,7 +58,7 @@ public class Sindicato implements Serializable {
 	@Column(length = 10)
 	private String numeroFuncionarios;
 	@Column(length = 50)
-	private String pais;
+	private String enderecoPais;
 	@Column(length = 50)
 	private String ramoAtividade;
 	@Column(length = 30)
@@ -142,8 +142,8 @@ public class Sindicato implements Serializable {
 		return this.numeroFuncionarios;
 	}
 
-	public String getPais() {
-		return this.pais;
+	public String getEnderecoPais() {
+		return this.enderecoPais;
 	}
 
 	public String getRamoAtividade() {
@@ -234,8 +234,8 @@ public class Sindicato implements Serializable {
 		this.numeroFuncionarios = numeroFuncionarios;
 	}
 
-	public void setPais(String pais) {
-		this.pais = pais;
+	public void setEnderecoPais(String enderecoPais) {
+		this.enderecoPais = enderecoPais;
 	}
 
 	public void setRamoAtividade(String ramoAtividade) {

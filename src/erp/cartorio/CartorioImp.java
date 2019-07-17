@@ -121,8 +121,8 @@ final class CartorioImp implements CartorioDao {
 		if (cartorio.getSite() != null && cartorio.getSite().length() > 0) {
 			predicateList.add(criteriaBuilder.like(rootCartorio.get("site"), "%" + cartorio.getSite() + "%"));
 		}
-		if (cartorio.getPais() != null && cartorio.getPais().length() > 0) {
-			predicateList.add(criteriaBuilder.like(rootCartorio.get("pais"), "%" + cartorio.getPais() + "%"));
+		if (cartorio.getEnderecoPais() != null && cartorio.getEnderecoPais().length() > 0) {
+			predicateList.add(criteriaBuilder.like(rootCartorio.get("enderecoPais"), "%" + cartorio.getEnderecoPais() + "%"));
 		}
 		if (cartorio.getEnderecoEstado() != null && cartorio.getEnderecoEstado().length() > 0) {
 			predicateList.add(criteriaBuilder.like(rootCartorio.get("enderecoEstado"), "%" + cartorio.getEnderecoEstado() + "%"));

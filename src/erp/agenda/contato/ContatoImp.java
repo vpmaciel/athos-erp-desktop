@@ -128,10 +128,10 @@ final class ContatoImp implements ContatoDao {
 			}
 			if (contato.getEmail() != null && contato.getEmail().length() > 0) {
 				predicateList
-						.add(criteriaBuilder.like(rootContato.get("entityManagerail"), "%" + contato.getEmail() + "%"));
+						.add(criteriaBuilder.like(rootContato.get("enderecoEmail"), "%" + contato.getEmail() + "%"));
 			}
 			if (contato.getEmpresa() != null && contato.getEmpresa().getId() != null) {
-				predicateList.add(criteriaBuilder.equal(rootContato.get("entityManagerpresa"), contato.getEmpresa()));
+				predicateList.add(criteriaBuilder.equal(rootContato.get("enderecoEmpresa"), contato.getEmpresa()));
 			}
 			if (contato.getEnderecoEstado() != null && contato.getEnderecoEstado().length() > 0) {
 				predicateList.add(criteriaBuilder.like(rootContato.get("enderecoEstado"), "%" + contato.getEnderecoEstado() + "%"));
@@ -155,8 +155,8 @@ final class ContatoImp implements ContatoDao {
 			if (contato.getNome() != null && contato.getNome().length() > 0) {
 				predicateList.add(criteriaBuilder.like(rootContato.get("nome"), "%" + contato.getNome() + "%"));
 			}
-			if (contato.getPais() != null && contato.getPais().length() > 0) {
-				predicateList.add(criteriaBuilder.like(rootContato.get("pais"), "%" + contato.getPais() + "%"));
+			if (contato.getEnderecoPais() != null && contato.getEnderecoPais().length() > 0) {
+				predicateList.add(criteriaBuilder.like(rootContato.get("enderecoPais"), "%" + contato.getEnderecoPais() + "%"));
 			}
 			if (contato.getSexo() != null && contato.getSexo().length() > 0) {
 				predicateList.add(criteriaBuilder.like(rootContato.get("sexo"), "%" + contato.getSexo() + "%"));

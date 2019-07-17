@@ -55,17 +55,17 @@ public final class RecadoFc extends JFrame implements Gui {
 		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		recadoControl = new RecadoControl();
 		addWindowListener(recadoControl.new Frame());
-		pcRecado.getToolBar().getExcluirBtn().addActionListener(recadoControl.new Exclui());
-		pcRecado.getToolBar().getNovoBtn().addActionListener(recadoControl.new Novo());
-		pcRecado.getToolBar().getPesquisarBtn().addActionListener(recadoControl.new Pesquisa());
-		pcRecado.getToolBar().getImprimirBtn().addActionListener(recadoControl.new Imprime());
-		pcRecado.getToolBar().getRelatorioBtn().addActionListener(recadoControl.new Relatorio());
-		pcRecado.getToolBar().getSalvarBtn().addActionListener(recadoControl.new Salva());
-		pcRecado.getToolBar().getFecharBtn().addActionListener(recadoControl.new FechaJanela());
-		pcRecado.getToolBar().getSairBtn().addActionListener(recadoControl.new SaidaSistema());
-		pcRecado.getToolBar().getAjudaBtn().addActionListener(recadoControl.new Ajuda());
-		pcRecado.getToolBar().getHomeBtn().addActionListener(recadoControl.new Home());
-		pcRecado.getToolBar().getRegistrosBtn().addActionListener(recadoControl.new Registro());
+		pcRecado.getTB().getExcluirBtn().addActionListener(recadoControl.new Exclui());
+		pcRecado.getTB().getNovoBtn().addActionListener(recadoControl.new Novo());
+		pcRecado.getTB().getPesquisarBtn().addActionListener(recadoControl.new Pesquisa());
+		pcRecado.getTB().getImprimirBtn().addActionListener(recadoControl.new Imprime());
+		pcRecado.getTB().getRelatorioBtn().addActionListener(recadoControl.new Relatorio());
+		pcRecado.getTB().getSalvarBtn().addActionListener(recadoControl.new Salva());
+		pcRecado.getTB().getFecharBtn().addActionListener(recadoControl.new FechaJanela());
+		pcRecado.getTB().getSairBtn().addActionListener(recadoControl.new SaidaSistema());
+		pcRecado.getTB().getAjudaBtn().addActionListener(recadoControl.new Ajuda());
+		pcRecado.getTB().getHomeBtn().addActionListener(recadoControl.new Home());
+		pcRecado.getTB().getRegistrosBtn().addActionListener(recadoControl.new Registro());
 	}
 
 	@Override

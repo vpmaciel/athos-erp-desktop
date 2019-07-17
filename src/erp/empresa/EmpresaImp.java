@@ -168,8 +168,8 @@ final class EmpresaImp implements EmpresaDao {
 				predicateList.add(criteriaBuilder.like(rootEmpresa.get("numeroFuncionarios"),
 						"%" + empresa.getNumeroFuncionarios() + "%"));
 			}
-			if (empresa.getPais() != null && empresa.getPais().length() > 0) {
-				predicateList.add(criteriaBuilder.like(rootEmpresa.get("pais"), "%" + empresa.getPais() + "%"));
+			if (empresa.getEnderecoPais() != null && empresa.getEnderecoPais().length() > 0) {
+				predicateList.add(criteriaBuilder.like(rootEmpresa.get("pais"), "%" + empresa.getEnderecoPais() + "%"));
 			}
 			if (empresa.getRamoAtividade() != null && empresa.getRamoAtividade().length() > 0) {
 				predicateList.add(

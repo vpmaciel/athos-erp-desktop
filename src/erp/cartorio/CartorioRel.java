@@ -42,7 +42,7 @@ public class CartorioRel {
 				document.add(new Paragraph("FAX: " + cartorio.getFax()));
 				document.add(new Paragraph("E-MAIL: " + cartorio.getEmail()));
 				document.add(new Paragraph("SITE: " + cartorio.getSite()));
-				document.add(new Paragraph("PAÍS: " + cartorio.getPais()));
+				document.add(new Paragraph("PAÍS: " + cartorio.getEnderecoPais()));
 				document.add(new Paragraph("ESTADO: " + cartorio.getEnderecoEstado()));
 				document.add(new Paragraph("CIDADE: " + cartorio.getEnderecoCidade()));
 				document.add(new Paragraph("BAIRRO: " + cartorio.getEnderecoBairro()));

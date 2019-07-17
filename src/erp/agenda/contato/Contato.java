@@ -52,7 +52,7 @@ public class Contato implements Serializable {
 	@Column(length = 50)
 	private String nome;
 	@Column(length = 50)
-	private String pais;
+	private String enderecoPais;
 	@Column(length = 9)
 	private String sexo;
 
@@ -116,8 +116,8 @@ public class Contato implements Serializable {
 		return this.nome;
 	}
 
-	public String getPais() {
-		return this.pais;
+	public String getEnderecoPais() {
+		return this.enderecoPais;
 	}
 
 	public String getSexo() {
@@ -184,8 +184,8 @@ public class Contato implements Serializable {
 		this.nome = nome;
 	}
 
-	public void setPais(String pais) {
-		this.pais = pais;
+	public void setEnderecoPais(String enderecoPais) {
+		this.enderecoPais = enderecoPais;
 	}
 
 	public void setSexo(String sexo) {

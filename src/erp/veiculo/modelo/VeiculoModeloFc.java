@@ -55,17 +55,17 @@ public final class VeiculoModeloFc extends JFrame implements Gui {
 	public void iniciarControlador() {
 		veiculoModeloControl = new VeiculoModeloControl();
 		addWindowListener(veiculoModeloControl.new Frame());
-		veiculoModeloPc.getToolBar().getExcluirBtn().addActionListener(veiculoModeloControl.new ExcluiRegistro());
-		veiculoModeloPc.getToolBar().getNovoBtn().addActionListener(veiculoModeloControl.new NovoFrame());
-		veiculoModeloPc.getToolBar().getPesquisarBtn().addActionListener(veiculoModeloControl.new PesquisaRegistro());
-		veiculoModeloPc.getToolBar().getImprimirBtn().addActionListener(veiculoModeloControl.new Relatorio());
-		veiculoModeloPc.getToolBar().getRelatorioBtn().addActionListener(veiculoModeloControl.new Imprime());
-		veiculoModeloPc.getToolBar().getSalvarBtn().addActionListener(veiculoModeloControl.new Salva());
-		veiculoModeloPc.getToolBar().getFecharBtn().addActionListener(veiculoModeloControl.new FechaJanela());
-		veiculoModeloPc.getToolBar().getSairBtn().addActionListener(veiculoModeloControl.new SaidaSistema());
-		veiculoModeloPc.getToolBar().getAjudaBtn().addActionListener(veiculoModeloControl.new Ajuda());
-		veiculoModeloPc.getToolBar().getHomeBtn().addActionListener(veiculoModeloControl.new Home());
-		veiculoModeloPc.getToolBar().getRegistrosBtn().addActionListener(veiculoModeloControl.new Registro());
+		veiculoModeloPc.getTB().getExcluirBtn().addActionListener(veiculoModeloControl.new ExcluiRegistro());
+		veiculoModeloPc.getTB().getNovoBtn().addActionListener(veiculoModeloControl.new NovoFrame());
+		veiculoModeloPc.getTB().getPesquisarBtn().addActionListener(veiculoModeloControl.new PesquisaRegistro());
+		veiculoModeloPc.getTB().getImprimirBtn().addActionListener(veiculoModeloControl.new Relatorio());
+		veiculoModeloPc.getTB().getRelatorioBtn().addActionListener(veiculoModeloControl.new Imprime());
+		veiculoModeloPc.getTB().getSalvarBtn().addActionListener(veiculoModeloControl.new Salva());
+		veiculoModeloPc.getTB().getFecharBtn().addActionListener(veiculoModeloControl.new FechaJanela());
+		veiculoModeloPc.getTB().getSairBtn().addActionListener(veiculoModeloControl.new SaidaSistema());
+		veiculoModeloPc.getTB().getAjudaBtn().addActionListener(veiculoModeloControl.new Ajuda());
+		veiculoModeloPc.getTB().getHomeBtn().addActionListener(veiculoModeloControl.new Home());
+		veiculoModeloPc.getTB().getRegistrosBtn().addActionListener(veiculoModeloControl.new Registro());
 	}
 
 	@Override

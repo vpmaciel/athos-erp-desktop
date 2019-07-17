@@ -16,7 +16,7 @@ import arquitetura.data.Data;
 public class BancoArqOds {
 
 	private final String arquivo = Sis.getCaminhoDiretorioOds() + "[banco]-" + Data.getDataHoraArquivo() + ".ods";
-	String[] colunas = new String[] { "BANCO", "CÓDIGO" };
+	String[] colunas = new String[] { "ID", "BANCO", "CÓDIGO" };
 	Object[][] dados;
 	File file;
 	TableModel tableModel;
@@ -24,13 +24,14 @@ public class BancoArqOds {
 	public BancoArqOds(List<Banco> listBanco) {
 
 		try {
-			dados = new Object[listBanco.size()][2];
+			dados = new Object[listBanco.size()][3];
 
 			int linha = 0;
 
 			for (Banco banco : listBanco) {
-				dados[linha][0] = banco.getNome();
-				dados[linha][1] = banco.getCodigo();
+				dados[linha][0] = banco.getId();
+				dados[linha][1] = banco.getNome();
+				dados[linha][2] = banco.getCodigo();
 				linha++;
 			}
 

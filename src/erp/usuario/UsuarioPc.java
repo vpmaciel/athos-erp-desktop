@@ -70,7 +70,7 @@ public final class UsuarioPc extends JPanel implements Gui {
 	public void iniciarGui() {
 		toolBar = new ToolBar();
 
-		add(toolBar.getToolBar());
+		add(toolBar.getTB());
 
 		add(new JLabel("NOME"));
 

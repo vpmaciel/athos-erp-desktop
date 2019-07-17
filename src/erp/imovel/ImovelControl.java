@@ -244,7 +244,7 @@ final class ImovelControl {
 		getImovelPc().getGuiComplemento().setText(imovel.getEnderecoComplemento());
 		getImovelPc().getGuiEstado().setText(imovel.getEnderecoEstado());
 		getImovelPc().getGuiLogradouro().setText(imovel.getEnderecoLogradouro());
-		getImovelPc().getGuiPais().setText(imovel.getPais());
+		getImovelPc().getGuiPais().setText(imovel.getEnderecoPais());
 		getImovelPc().getGuiCnpj().setText(imovel.getCnpj());
 		getImovelPc().getGuiCpf().setText(imovel.getCpf());
 		getImovelPc().getGuiGaragem().setSelectedItem(imovel.getGaragem());
@@ -270,7 +270,7 @@ final class ImovelControl {
 		imovel.setEnderecoComplemento(getImovelPc().getGuiComplemento().getText());
 		imovel.setEnderecoEstado(getImovelPc().getGuiEstado().getText());
 		imovel.setEnderecoLogradouro(getImovelPc().getGuiLogradouro().getText());
-		imovel.setPais(getImovelPc().getGuiPais().getText());
+		imovel.setEnderecoPais(getImovelPc().getGuiPais().getText());
 		imovel.setCnpj(getImovelPc().getGuiCnpj().getText());
 		imovel.setCpf(getImovelPc().getGuiCpf().getText());
 		imovel.setGaragem((String) getImovelPc().getGuiGaragem().getSelectedItem());

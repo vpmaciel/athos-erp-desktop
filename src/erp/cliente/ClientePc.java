@@ -285,7 +285,7 @@ public final class ClientePc extends JPanel implements Gui {
 
 		toolBar = new ToolBar();
 
-		add(toolBar.getToolBar());
+		add(toolBar.getTB());
 
 		add(new JLabel("NOME DO CLIENTE"));
 

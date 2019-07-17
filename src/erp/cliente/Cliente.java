@@ -96,7 +96,7 @@ public class Cliente implements Serializable {
 	@Column(length = 20)
 	private String numeroContaBancaria;
 	@Column(length = 50)
-	private String pais;
+	private String enderecoPais;
 	@Column(length = 18)
 	private String relacionamentoReferencia1;
 	@Column(length = 18)
@@ -258,8 +258,8 @@ public class Cliente implements Serializable {
 		return numeroContaBancaria;
 	}
 
-	public String getPais() {
-		return this.pais;
+	public String getEnderecoPais() {
+		return this.enderecoPais;
 	}
 
 	public String getRelacionamentoReferencia1() {
@@ -434,8 +434,8 @@ public class Cliente implements Serializable {
 		this.numeroContaBancaria = numeroContaBancaria;
 	}
 
-	public void setPais(String pais) {
-		this.pais = pais;
+	public void setEnderecoPais(String enderecoPais) {
+		this.enderecoPais = enderecoPais;
 	}
 
 	public void setRelacionamentoReferencia1(String relacionamentoReferencia1) {

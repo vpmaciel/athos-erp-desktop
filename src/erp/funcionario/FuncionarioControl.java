@@ -270,7 +270,7 @@ final class FuncionarioControl {
 		getFuncionarioPc().getGuiComplemento().setText(funcionario.getEnderecoComplemento());
 		getFuncionarioPc().getGuiEstado().setText(funcionario.getEnderecoEstado());
 		getFuncionarioPc().getGuiLogradouro().setText(funcionario.getEnderecoLogradouro());
-		getFuncionarioPc().getGuiPais().setText(funcionario.getPais());
+		getFuncionarioPc().getGuiPais().setText(funcionario.getEnderecoPais());
 		getFuncionarioPc().getGuiCNHCategoria().setText(funcionario.getCnhCategoria());
 		getFuncionarioPc().getGuiCnpj().setText(funcionario.getCnpj());
 		getFuncionarioPc().getGuiCpf().setText(funcionario.getCpf());
@@ -308,7 +308,7 @@ final class FuncionarioControl {
 		funcionario.setEnderecoComplemento(getFuncionarioPc().getGuiComplemento().getText());
 		funcionario.setEnderecoEstado(getFuncionarioPc().getGuiEstado().getText());
 		funcionario.setEnderecoLogradouro(getFuncionarioPc().getGuiLogradouro().getText());
-		funcionario.setPais(getFuncionarioPc().getGuiPais().getText());
+		funcionario.setEnderecoPais(getFuncionarioPc().getGuiPais().getText());
 		funcionario.setCnhCategoria(getFuncionarioPc().getGuiCNHCategoria().getText());
 		funcionario.setCnpj(getFuncionarioPc().getGuiCnpj().getText());
 		funcionario.setCpf(getFuncionarioPc().getGuiCpf().getText());

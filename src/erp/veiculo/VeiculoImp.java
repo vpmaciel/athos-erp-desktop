@@ -205,8 +205,8 @@ final class VeiculoImp implements VeiculoDao {
 				predicateList.add(criteriaBuilder.like(rootVeiculo.get("municipioEmplacamento"),
 						"%" + veiculo.getMunicipioEmplacamento() + "%"));
 			}
-			if (veiculo.getPais() != null && veiculo.getPais().length() > 0) {
-				predicateList.add(criteriaBuilder.like(rootVeiculo.get("pais"), "%" + veiculo.getPais() + "%"));
+			if (veiculo.getEnderecoPais() != null && veiculo.getEnderecoPais().length() > 0) {
+				predicateList.add(criteriaBuilder.like(rootVeiculo.get("pais"), "%" + veiculo.getEnderecoPais() + "%"));
 			}
 			if (veiculo.getPlaca() != null && veiculo.getPlaca().length() > 0) {
 				predicateList.add(criteriaBuilder.like(rootVeiculo.get("placa"), "%" + veiculo.getPlaca() + "%"));

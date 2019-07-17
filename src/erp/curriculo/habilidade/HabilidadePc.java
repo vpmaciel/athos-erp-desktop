@@ -83,7 +83,7 @@ public final class HabilidadePc extends JPanel implements Gui {
 	public void iniciarGui() {
 
 		toolBar = new ToolBar();
-		add(toolBar.getToolBar());
+		add(toolBar.getTB());
 
 		labelFuncionario = new JLabel("FUNCIONÁRIO");
 		labelFuncionario.setCursor(Sis.getNovaJanelaCursor());

@@ -52,7 +52,7 @@ public class Cartorio implements Serializable {
 	@Column(length = 50, nullable = false)
 	private String nomeFantasia;
 	@Column(length = 50)
-	private String pais;
+	private String enderecoPais;
 	@Column(length = 50)
 	private String razaoSocial;
 	@Column(length = 50)
@@ -126,8 +126,8 @@ public class Cartorio implements Serializable {
 		return this.nomeFantasia;
 	}
 
-	public String getPais() {
-		return this.pais;
+	public String getEnderecoPais() {
+		return this.enderecoPais;
 	}
 
 	public String getRazaoSocial() {
@@ -210,8 +210,8 @@ public class Cartorio implements Serializable {
 		this.nomeFantasia = nomeFantasia;
 	}
 
-	public void setPais(String pais) {
-		this.pais = pais;
+	public void setEnderecoPais(String enderecoPais) {
+		this.enderecoPais = enderecoPais;
 	}
 
 	public void setRazaoSocial(String razaoSocial) {

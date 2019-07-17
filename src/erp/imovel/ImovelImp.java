@@ -155,8 +155,8 @@ final class ImovelImp implements ImovelDao {
 				predicateList.add(criteriaBuilder.like(rootImovel.get("nomeProprietario"),
 						"%" + imovel.getNomeProprietario() + "%"));
 			}
-			if (imovel.getPais() != null && imovel.getPiscina().length() > 0) {
-				predicateList.add(criteriaBuilder.like(rootImovel.get("pais"), "%" + imovel.getPais() + "%"));
+			if (imovel.getEnderecoPais() != null && imovel.getPiscina().length() > 0) {
+				predicateList.add(criteriaBuilder.like(rootImovel.get("pais"), "%" + imovel.getEnderecoPais() + "%"));
 			}
 			if (imovel.getPiscina() != null && imovel.getPiscina().length() > 0) {
 				predicateList.add(criteriaBuilder.like(rootImovel.get("piscina"), "%" + imovel.getPiscina() + "%"));

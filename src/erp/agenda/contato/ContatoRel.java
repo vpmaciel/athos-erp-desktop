@@ -38,7 +38,7 @@ public class ContatoRel {
 				document.add(new Paragraph("TELEFONE: " + contato.getFone1()));
 				document.add(new Paragraph("TELEFONE: " + contato.getFone2()));
 				document.add(new Paragraph("E-MAIL: " + contato.getEmail()));
-				document.add(new Paragraph("PAÍS: " + contato.getPais()));
+				document.add(new Paragraph("PAÍS: " + contato.getEnderecoPais()));
 				document.add(new Paragraph("ESTADO: " + contato.getEnderecoEstado()));
 				document.add(new Paragraph("CIDADE: " + contato.getEnderecoCidade()));
 				document.add(new Paragraph("BAIRRO: " + contato.getEnderecoBairro()));

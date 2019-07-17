@@ -240,7 +240,7 @@ final class CartorioControl {
 		getCartorioPc().getGuiComplemento().setText(cartorio.getEnderecoComplemento());
 		getCartorioPc().getGuiEstado().setText(cartorio.getEnderecoEstado());
 		getCartorioPc().getGuiLogradouro().setText(cartorio.getEnderecoLogradouro());
-		getCartorioPc().getGuiPais().setText(cartorio.getPais());
+		getCartorioPc().getGuiPais().setText(cartorio.getEnderecoPais());
 	}
 
 	public void atualizarObjeto() {
@@ -263,7 +263,7 @@ final class CartorioControl {
 		cartorio.setEnderecoComplemento(getCartorioPc().getGuiComplemento().getText());
 		cartorio.setEnderecoEstado(getCartorioPc().getGuiEstado().getText());
 		cartorio.setEnderecoLogradouro(getCartorioPc().getGuiLogradouro().getText());
-		cartorio.setPais(getCartorioPc().getGuiPais().getText());
+		cartorio.setEnderecoPais(getCartorioPc().getGuiPais().getText());
 
 		if (getCartorioPc().getGuiCnpj().getText().equals(Mascara.getCnpjVazio())) {
 			cartorio.setCnpj(null);

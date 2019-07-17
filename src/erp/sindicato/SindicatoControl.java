@@ -256,7 +256,7 @@ final class SindicatoControl {
 		getSindicatoPc().getGuiComplemento().setText(sindicato.getEnderecoComplemento());
 		getSindicatoPc().getGuiEstado().setText(sindicato.getEnderecoEstado());
 		getSindicatoPc().getGuiLogradouro().setText(sindicato.getEnderecoLogradouro());
-		getSindicatoPc().getGuiPais().setText(sindicato.getPais());
+		getSindicatoPc().getGuiPais().setText(sindicato.getEnderecoPais());
 		getSindicatoPc().getGuiCnpj().setText(sindicato.getCnpj());
 		getSindicatoPc().getGuiTipoSindicato().setSelectedItem(sindicato.getTipoSindicato());
 		getSindicatoPc().getGuiFaturamentoMensal().setText(sindicato.getFaturamentoMensal());
@@ -281,7 +281,7 @@ final class SindicatoControl {
 		sindicato.setEnderecoComplemento(getSindicatoPc().getGuiComplemento().getText());
 		sindicato.setEnderecoEstado(getSindicatoPc().getGuiEstado().getText());
 		sindicato.setEnderecoLogradouro(getSindicatoPc().getGuiLogradouro().getText());
-		sindicato.setPais(getSindicatoPc().getGuiPais().getText());
+		sindicato.setEnderecoPais(getSindicatoPc().getGuiPais().getText());
 		sindicato.setCnpj(getSindicatoPc().getGuiCnpj().getText());
 		sindicato.setTipoSindicato((String) getSindicatoPc().getGuiTipoSindicato().getSelectedItem());
 		sindicato.setFaturamentoMensal(getSindicatoPc().getGuiFaturamentoMensal().getText());

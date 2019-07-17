@@ -247,7 +247,7 @@ public final class FuncionarioPc extends JPanel implements Gui {
 
 		toolBar = new ToolBar();
 
-		add(toolBar.getToolBar());
+		add(toolBar.getTB());
 
 		add(new JLabel("NOME"));
 
